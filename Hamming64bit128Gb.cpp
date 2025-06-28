@@ -371,6 +371,12 @@ public:
         }
         
         auto result = hamming.decode(it->second);
+
+        // Refresh memory with corrected data if SEC-DED fixed a bit flip
+        if (result.data_corrected) {
+            it->second = hamming.encode(result.corrected_data);
+        }
+
         stats.recordRead(result);
         return result;
     }
