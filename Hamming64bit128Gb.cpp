@@ -94,7 +94,7 @@ public:
     
     // Check if position is overall parity position
     bool isOverallParityPosition(int pos) {
-        return pos == TOTAL_BITS;  // Position 39
+        return pos == TOTAL_BITS;  // Position 72
     }
     
     // Get data bit positions (non-parity, non-overall-parity positions)
