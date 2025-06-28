@@ -201,7 +201,15 @@ public:
     void addClause(const std::vector<int>& literals) {
         clauses.emplace_back(literals);
         for (int lit : literals) {
-            variables.insert(abs(lit));
+            int var = std::abs(lit);
+            variables.insert(var);
+
+            // Track literal occurrences for heuristics
+            if (lit > 0) {
+                var_info[var].pos_occurrences++;
+            } else {
+                var_info[var].neg_occurrences++;
+            }
         }
     }
     
