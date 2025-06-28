@@ -636,9 +636,17 @@ void testBasicSAT() {
     solver.addClause({-1, 3});      // NOT x1 OR x3  
     solver.addClause({-2, -3});     // NOT x2 OR NOT x3
     
-    if (solver.solve()) {
+    bool result = solver.solve();
+    assert(result && "First formula should be satisfiable");
+    if (result) {
         std::cout << "Formula is satisfiable:\n";
         solver.printSolution();
+
+        // Verify that the assignment satisfies all clauses
+        auto sol = solver.getSolution();
+        assert((sol[1] || sol[2]) && "Clause (x1 OR x2) violated");
+        assert((!sol[1] || sol[3]) && "Clause (NOT x1 OR x3) violated");
+        assert((!sol[2] || !sol[3]) && "Clause (NOT x2 OR NOT x3) violated");
     } else {
         std::cout << "Formula is unsatisfiable.\n";
     }
@@ -650,7 +658,9 @@ void testBasicSAT() {
     solver.addClause({1});          // x1
     solver.addClause({-1});         // NOT x1
     
-    if (solver.solve()) {
+    bool unsat = solver.solve();
+    assert(!unsat && "Second formula should be unsatisfiable");
+    if (unsat) {
         std::cout << "Formula is satisfiable:\n";
         solver.printSolution();
     } else {
