@@ -9,6 +9,8 @@
 #include <map>
 #include <set>
 #include <algorithm>
+#include <fstream>
+#include <array>
 
 // Simplified BCH implementation with proper error detection
 class BCHCode {
@@ -403,7 +405,9 @@ private:
     };
     
     std::vector<TestResult> results;
-    
+
+    using TableRow = std::array<std::string,5>;
+
 public:
     void runComparisonTests() {
         std::cout << "*** Advanced ECC Comparison Laboratory ***" << std::endl;
@@ -728,6 +732,18 @@ private:
         std::cout << "  Winner:  " << result.winner << " - " << result.analysis << std::endl;
         std::cout << std::endl;
     }
+
+    void saveResultsToCSV(const std::vector<TableRow>& table) {
+        std::ofstream out("comparison_results.csv");
+        if (!out) {
+            std::cerr << "Failed to write comparison_results.csv" << std::endl;
+            return;
+        }
+        out << "TestName,InjectedErrors,HammingErrorsDetected,BCHErrorsDetected,Winner\n";
+        for (const auto& row : table) {
+            out << row[0] << ',' << row[1] << ',' << row[2] << ',' << row[3] << ',' << row[4] << '\n';
+        }
+    }
     
     void generateComparisonReport() {
         std::cout << std::string(70, '=') << std::endl;
@@ -803,6 +819,17 @@ private:
         std::cout << "*** CONCLUSION: Choose based on your error patterns ***" << std::endl;
         std::cout << "*** and performance requirements. Both have merit. ***" << std::endl;
         std::cout << std::string(70, '=') << std::endl;
+
+        // Collect results for CSV output
+        std::vector<TableRow> table;
+        for (const auto& r : results) {
+            table.push_back({r.test_name,
+                             std::to_string(r.injected_errors),
+                             std::to_string(r.hamming_errors_detected),
+                             std::to_string(r.bch_errors_detected),
+                             r.winner});
+        }
+        saveResultsToCSV(table);
     }
 };
 
