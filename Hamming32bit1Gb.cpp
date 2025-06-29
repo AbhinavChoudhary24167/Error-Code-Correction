@@ -8,6 +8,7 @@
 #include <chrono>
 #include <map>
 #include <set>
+#include <unordered_map>
 
 class HammingCodeSECDED {
 public:
@@ -318,15 +319,14 @@ public:
 class AdvancedMemorySimulator {
 private:
     static const size_t MEMORY_SIZE_WORDS = 1024 * 1024 * 256;  // 1GB / 4 bytes = 256M words
-    std::vector<HammingCodeSECDED::CodeWord> memory;
+    std::unordered_map<uint32_t, HammingCodeSECDED::CodeWord> memory;  // sparse memory map
     HammingCodeSECDED hamming;
     ECCStatistics stats;
     std::mt19937 rng;
     
 public:
     AdvancedMemorySimulator() : rng(std::random_device{}()) {
-        memory.reserve(MEMORY_SIZE_WORDS);
-        std::cout << "Initialized SEC-DED 1GB memory simulator with " 
+        std::cout << "Initialized SEC-DED 1GB memory simulator with "
                   << MEMORY_SIZE_WORDS << " 32-bit words" << std::endl;
         std::cout << "Total bits per codeword: " << HammingCodeSECDED::TOTAL_BITS 
                   << " (32 data + 6 parity + 1 overall parity)" << std::endl;
@@ -338,25 +338,22 @@ public:
             throw std::out_of_range("Address out of range");
         }
         
-        if (address >= memory.size()) {
-            memory.resize(address + 1);
-        }
-        
         memory[address] = hamming.encode(data);
         stats.recordWrite();
     }
-    
+
     // Read data from memory with error detection/correction
     HammingCodeSECDED::DecodingResult read(uint32_t address) {
-        if (address >= memory.size()) {
+        auto it = memory.find(address);
+        if (it == memory.end()) {
             throw std::out_of_range("Address not written or out of range");
         }
-        
-        auto result = hamming.decode(memory[address]);
+
+        auto result = hamming.decode(it->second);
 
         // Refresh memory with corrected data if SEC-DED fixed a bit flip
         if (result.data_corrected) {
-            memory[address] = hamming.encode(result.corrected_data);
+            it->second = hamming.encode(result.corrected_data);
         }
 
         stats.recordRead(result);
@@ -365,7 +362,8 @@ public:
     
     // Inject single-bit error at specific position
     void injectError(uint32_t address, int bit_position) {
-        if (address >= memory.size()) {
+        auto it = memory.find(address);
+        if (it == memory.end()) {
             throw std::out_of_range("Address not written");
         }
         
@@ -373,14 +371,15 @@ public:
             throw std::out_of_range("Invalid bit position");
         }
         
-        memory[address].flipBit(bit_position);
+        it->second.flipBit(bit_position);
         std::cout << "Injected error at address " << address 
                   << ", bit position " << bit_position << std::endl;
     }
     
     // Inject burst error (adjacent bits)
     void injectBurstError(uint32_t address, int start_position, int burst_length) {
-        if (address >= memory.size()) {
+        auto it = memory.find(address);
+        if (it == memory.end()) {
             throw std::out_of_range("Address not written");
         }
         
@@ -393,7 +392,7 @@ public:
         
         for (int i = 0; i < burst_length; i++) {
             int pos = start_position + i;
-            memory[address].flipBit(pos);
+            it->second.flipBit(pos);
             std::cout << pos << " ";
         }
         std::cout << std::endl;
@@ -401,18 +400,23 @@ public:
     
     // Inject random errors
     void injectRandomErrors(uint32_t address, int num_errors) {
+        auto it = memory.find(address);
+        if (it == memory.end()) {
+            throw std::out_of_range("Address not written");
+        }
+
         std::uniform_int_distribution<int> bit_dist(1, HammingCodeSECDED::TOTAL_BITS);
         std::cout << "Injecting " << num_errors << " random errors at address " << address << ": ";
-        
+
         std::set<int> used_positions;
         for (int i = 0; i < num_errors; i++) {
             int bit_pos;
             do {
                 bit_pos = bit_dist(rng);
             } while (used_positions.count(bit_pos));
-            
+
             used_positions.insert(bit_pos);
-            memory[address].flipBit(bit_pos);
+            it->second.flipBit(bit_pos);
             std::cout << bit_pos << " ";
         }
         std::cout << std::endl;
@@ -420,6 +424,10 @@ public:
     
     size_t getMemorySize() const {
         return memory.size();
+    }
+
+    size_t getMemoryCapacity() const {
+        return MEMORY_SIZE_WORDS;
     }
     
     void printStatistics() {
@@ -654,10 +662,16 @@ int main() {
         tests.runAllTests();
         
         memory.printStatistics();
-        
+
         std::cout << "\n" << std::string(60, '=') << std::endl;
         std::cout << "ADVANCED SIMULATION COMPLETE" << std::endl;
         std::cout << "Total memory words used: " << memory.getMemorySize() << std::endl;
+        std::cout << "Memory utilization: " << std::fixed << std::setprecision(6)
+                  << (100.0 * memory.getMemorySize()) / memory.getMemoryCapacity()
+                  << "% of 1GB capacity" << std::endl;
+        std::cout << "Actual memory consumed: ~"
+                  << (memory.getMemorySize() * sizeof(HammingCodeSECDED::CodeWord)) / (1024*1024)
+                  << " MB" << std::endl;
         std::cout << std::string(60, '=') << std::endl;
         
     } catch (const std::exception& e) {
