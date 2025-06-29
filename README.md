@@ -39,3 +39,7 @@ The built-in test suite now includes a `Million Word Dataset` stress test
 which touches one million addresses using the simulator's write and read
 operations. After completion, the program prints a short summary of how many
 errors were corrected or detected during the test.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
