@@ -1,0 +1,86 @@
+                                                                                    Progress Report
+ Project Name: Sustainability-Aware Error Correction Code Strategies for Standalone SRAMs
+ Week: 22/06/2025 to 29/06/2025 (Week 6)
+ Name: Abhinav Choudhary
+ Roll number: MT24167
+ Mentor: Dr. Anuj Grover
+
+Activities Planned for the previous week:
+    Implement fault injection simulations for Hamming and BCH codes for 32-bit and 64-bit data widths.
+    Begin evaluation of diagnostic coverage across various multibit error scenarios (random and burst errors).
+    Perform comparative analysis between SEC-DED and DEC codes with respect to SRAM reliability.
+    Extend the simulator to large memory sizes (1GB/128GB scale) for realistic SRAM modeling.
+    Conduct literature review on ECC sustainability metrics and their integration with fault detection coverage.
+    Initiate early modeling of energy/cost trade-offs in ECC decoder logic.
+    Begin structuring initial simulation results into documented tables.
+
+
+
+Activity Status:
+Completed:
+    Implemented standalone simulators for:
+    32-bit Hamming SEC-DED with burst/random fault injection (1GB memory scale)Hamming32bit1Gb
+    64-bit Hamming SEC-DED extended to 128GB memory capacity using sparse memory mapHamming64bit128Gb
+    BCH vs Hamming fault simulation logic with baseline comparison of correction vs detection
+    Built a diagnostic framework to capture:
+    Single-bit correctable error rate
+    Double error detection
+    Multi-bit uncorrectable rates
+    Data corruption prevention rates
+    Validated ECC behavior on multiple workload patterns and fault models (single, burst, random).
+    Performed mixed workload tests to simulate real SRAM-like behavior in terms of access/failure modes.
+
+
+In Progress:
+    Comparative data collection between Hamming and BCH codes across variable fault types.
+    Initial draft of diagnostic coverage tables (not yet finalized).
+    Carbon/Energy profiling models being drafted for future integration.
+    CUDA acceleration of fault injection (still in early phase, no parallel runs yet).
+
+Pending:
+    Completion of CUDA-parallel simulation pipeline.
+    BCH code coverage and fault resilience metrics integration into large-scale tests.
+    Hybrid ECC selector logic prototype based on fault pattern and sustainability metric.
+    Literature consolidation on switching thresholds for dynamic ECC adaptation.
+    Verilog/RTL-level energy and area modeling for eCFP calculation.
+
+
+
+Key Learnings (Summary) of the week:
+    SEC-DED Hamming code works well for isolated errors but suffers in burst/random multibit fault cases.
+    BCH has higher coverage for multi-bit patterns but introduces significant complexity (longer decode latency).
+    Simulated coverage metrics matched theoretical predictions for all-zero syndrome and parity violation patterns.
+    Sparse memory model allows efficient simulation of 128GB-scale memory systems on commodity machines.
+    Importance of syndrome pattern analysis in identifying ECC blindness to certain failure classes.
+
+
+
+Challenges faced (if any, and status):
+    Challenge 1: CUDA not fully integrated due to complexity of synchronizing large-scale random error injection.
+     Status: Postponed; continuing with CPU-based exhaustive tests for now.
+    Challenge 2: Difficulty in mapping theoretical decoder complexity to practical power/area for sustainability metric.
+     Status: Addressed via initial proxy models; synthesis-based validation pending.
+    Challenge 3: Fault injection validation for BCH decoder is harder due to lack of fine-grain mismatch feedback.
+     Status: Under review – debugging syndrome resolution logic for double and triple error cases.
+
+Activities Planned for upcoming week and expected progress/outcome:
+    Finalize comparison table between Hamming SEC-DED and BCH DEC for 32-bit/64-bit data under various fault types.
+    Complete documentation of test cases, fault models, and ECC behavior for Week 1–6 summary.
+    Begin literature survey on carbon-aware adaptive ECC switching logic for SRAM blocks.
+    Start modeling ECC decoder complexity in terms of energy/cost proxy (per read access).
+    Prepare initial draft for “Problem Formulation” and “Simulation Framework” sections of thesis report.
+    Test memory utilization and error classification logic over larger input datasets (≥1M words).
+
+
+Expected Outcome:
+    Solid baseline simulation results across codes and fault types.
+    Clear understanding of SEC vs DEC correction capabilities in standalone SRAM.
+    Working diagnostic report generator based on simulation logs.
+    Structured outline of sustainability-aware ECC framework.
+
+
+
+Any special mention/request etc.:
+    CUDA support postponed: Current efforts are focused on completing single-threaded exhaustive simulation.
+    Request for synthesis tool access for accurate energy and area modeling of ECC logic blocks.
+    Guidance needed on: Which ECC variant to prioritize next — weight-based BCH or DAEC, considering sustainability relevance.
