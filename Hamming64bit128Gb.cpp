@@ -501,6 +501,7 @@ public:
         testRandomMultipleErrors();
         testMixedWorkload();
         testLargeAddressSpace();
+        testMillionWordDataset();
     }
     
     void testNoError() {
@@ -724,8 +725,48 @@ public:
         
         std::cout << "Large address space testing demonstrates scalability to 128GB memory." << std::endl;
         std::cout << "Sparse allocation only uses memory for addresses actually written." << std::endl;
-        std::cout << "Memory efficiency: Only " << memory.getMemorySize() << " words allocated out of " 
+        std::cout << "Memory efficiency: Only " << memory.getMemorySize() << " words allocated out of "
                   << memory.getMemoryCapacity() << " possible." << std::endl;
+    }
+
+    void testMillionWordDataset() {
+        printTestHeader("Million Word Dataset");
+
+        const uint64_t DATASET_SIZE = 1000000ULL;
+        std::mt19937 rng(42);
+        std::uniform_int_distribution<uint64_t> data_dist(0, UINT64_MAX);
+        std::uniform_int_distribution<int> err_dist(0, 999);
+        std::uniform_int_distribution<int> bit_dist(1, HammingCodeSECDED::TOTAL_BITS);
+
+        std::map<HammingCodeSECDED::ErrorType, uint64_t> counts;
+
+        for (uint64_t i = 0; i < DATASET_SIZE; ++i) {
+            uint64_t address = 10000000ULL + i;
+            uint64_t data = data_dist(rng);
+
+            memory.write(address, data);
+
+            int chance = err_dist(rng);
+            if (chance < 995) {
+                // no error for the vast majority of addresses
+            } else if (chance < 997) {
+                memory.injectError(address, bit_dist(rng));
+            } else if (chance < 999) {
+                memory.injectRandomErrors(address, 2);
+            } else {
+                memory.injectRandomErrors(address, 3);
+            }
+
+            auto result = memory.read(address);
+            counts[result.error_type]++;
+        }
+
+        std::cout << "Processed " << DATASET_SIZE << " addresses." << std::endl;
+        std::cout << "  No Errors: " << counts[HammingCodeSECDED::NO_ERROR] << std::endl;
+        std::cout << "  Single Errors Corrected: " << counts[HammingCodeSECDED::SINGLE_ERROR_CORRECTABLE] << std::endl;
+        std::cout << "  Double Errors Detected: " << counts[HammingCodeSECDED::DOUBLE_ERROR_DETECTABLE] << std::endl;
+        std::cout << "  Multiple Errors (Uncorrectable): " << counts[HammingCodeSECDED::MULTIPLE_ERROR_UNCORRECTABLE] << std::endl;
+        std::cout << "  Overall Parity Errors: " << counts[HammingCodeSECDED::OVERALL_PARITY_ERROR] << std::endl;
     }
 };
 
