@@ -572,6 +572,8 @@ public:
     }
 
     void runAllTests() {
+        // Execute the full suite including known vectors and large batch fault
+        // injection trials to ensure regression coverage.
         testKnownVectors();
         testNoError();
         testSingleBitErrors();
