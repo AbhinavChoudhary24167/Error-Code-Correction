@@ -89,6 +89,20 @@ python3 energy_model.py <parity_bits> [detected_errors]
 The script estimates the energy required for a read operation based on the
 number of parity bits and detected errors.
 
+## Selecting an ECC scheme at runtime
+
+The repository includes a small utility named `ecc_selector.py` which chooses
+an appropriate ECC configuration given several runtime constraints. Provide the
+bit error rate, expected burst length, supply voltage, energy budget per
+memory access and the minimum number of correctable bits:
+
+```bash
+python3 ecc_selector.py <ber> <burst_length> <vdd> <energy_budget> <required_bits> [--sustainability]
+```
+
+Passing `--sustainability` makes the selector prefer the lowest energy option
+that still satisfies all constraints.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building the
