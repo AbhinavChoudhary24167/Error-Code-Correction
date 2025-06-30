@@ -40,6 +40,53 @@ which touches one million addresses using the simulator's write and read
 operations. After completion, the program prints a short summary of how many
 errors were corrected or detected during the test.
 
+## Running the 32-bit memory simulator
+
+1. Compile the simulator:
+
+   ```bash
+   g++ -std=c++11 Hamming32bit1Gb.cpp -o Hamming32bit1Gb
+   ```
+
+2. Execute the binary:
+
+   ```bash
+   ./Hamming32bit1Gb
+   ```
+
+The executable performs a sequence of built-in tests over a small 1 GB memory
+space and prints a report summarizing the number of corrected and detected
+errors.
+
+## Running the SAT solver demo
+
+1. Compile the solver:
+
+   ```bash
+   g++ -std=c++11 SAT.cpp -o SATDemo
+   ```
+
+2. Execute the binary:
+
+   ```bash
+   ./SATDemo
+   ```
+
+The program demonstrates various SAT checks for Hamming code conjectures and
+prints solver statistics and example solutions to the console.
+
+## Using the energy model
+
+See [docs/EnergyModel.md](docs/EnergyModel.md) for a detailed explanation of the
+`energy_model.py` script. From the repository root you can run:
+
+```bash
+python3 energy_model.py <parity_bits> [detected_errors]
+```
+
+The script estimates the energy required for a read operation based on the
+number of parity bits and detected errors.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
