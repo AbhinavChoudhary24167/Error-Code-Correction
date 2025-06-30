@@ -91,10 +91,10 @@ number of parity bits and detected errors.
 
 ## Selecting an ECC scheme at runtime
 
-The repository includes a small utility named `ecc_selector.py` which chooses
-an appropriate ECC configuration given several runtime constraints. Provide the
-bit error rate, expected burst length, supply voltage, energy budget per
-memory access and the minimum number of correctable bits:
+`ecc_selector.py` chooses the most suitable error-correcting code from a
+predefined table. It weighs the bit error rate, burst length, supply voltage,
+energy budget per memory access and the minimum number of correctable bits
+before suggesting an option.
 
 ```bash
 python3 ecc_selector.py <ber> <burst_length> <vdd> <energy_budget> <required_bits> [--sustainability]
@@ -102,6 +102,26 @@ python3 ecc_selector.py <ber> <burst_length> <vdd> <energy_budget> <required_bit
 
 Passing `--sustainability` makes the selector prefer the lowest energy option
 that still satisfies all constraints.
+
+### Example
+
+```bash
+python3 ecc_selector.py 5e-6 2 0.7 1e-15 2
+```
+
+Example output:
+
+```
+Selected ECC_Type: TAEC
+Code: (75,64)-I6
+Correctable bits: 3
+Burst tolerance: 3
+Estimated energy per read: 9.750e-16 J
+Supported VDD range: 0.4-0.8 V
+```
+
+These lines indicate the chosen code and its properties, allowing you to verify
+that it meets your requirements.
 
 ## Contributing
 
