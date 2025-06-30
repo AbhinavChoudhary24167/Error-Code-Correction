@@ -9,6 +9,7 @@
 #include <map>
 #include <set>
 #include <unordered_map>
+#include <fstream>
 
 class HammingCodeSECDED {
 public:
@@ -307,12 +308,45 @@ public:
                                counters["overall_parity_errors"];
         
         if (total_errors > 0) {
-            std::cout << "  Error Recovery Rate:           " 
+            std::cout << "  Error Recovery Rate:           "
                       << std::fixed << std::setprecision(2)
                       << (100.0 * counters["data_corruption_prevented"] / total_errors) << "%" << std::endl;
         }
-        
+
         std::cout << std::string(60, '=') << std::endl;
+
+        // Structured logging of statistics
+        std::ofstream json_out("ecc_stats.json");
+        if (json_out) {
+            double ber = 0.0;
+            if (counters["total_reads"] > 0) {
+                ber = static_cast<double>(total_errors) /
+                      (counters["total_reads"] * HammingCodeSECDED::DATA_BITS);
+            }
+            json_out << "{\n";
+            json_out << "  \"total_reads\": " << counters["total_reads"] << ",\n";
+            json_out << "  \"total_writes\": " << counters["total_writes"] << ",\n";
+            json_out << "  \"single_errors_corrected\": " << counters["single_errors_corrected"] << ",\n";
+            json_out << "  \"double_errors_detected\": " << counters["double_errors_detected"] << ",\n";
+            json_out << "  \"multiple_errors_uncorrectable\": " << counters["multiple_errors_uncorrectable"] << ",\n";
+            json_out << "  \"overall_parity_errors\": " << counters["overall_parity_errors"] << ",\n";
+            json_out << "  \"ber\": " << ber << "\n";
+            json_out << "}\n";
+        }
+
+        std::ofstream csv_out("ecc_stats.csv");
+        if (csv_out) {
+            csv_out << "metric,value\n";
+            for (const auto& p : counters) {
+                csv_out << p.first << ',' << p.second << "\n";
+            }
+            double ber = 0.0;
+            if (counters["total_reads"] > 0) {
+                ber = static_cast<double>(total_errors) /
+                      (counters["total_reads"] * HammingCodeSECDED::DATA_BITS);
+            }
+            csv_out << "ber," << ber << "\n";
+        }
     }
 };
 
@@ -450,7 +484,7 @@ private:
         std::cout << std::string(60, '=') << std::endl;
     }
     
-    void printDecodingResult(uint32_t address, uint32_t original_data, 
+    void printDecodingResult(uint32_t address, uint32_t original_data,
                            const HammingCodeSECDED::DecodingResult& result) {
         std::cout << "Address: 0x" << std::hex << address << std::dec << std::endl;
         std::cout << "Original Data: 0x" << std::hex << original_data 
@@ -463,15 +497,82 @@ private:
         std::cout << "Data Corrected: " << (result.data_corrected ? "YES" : "NO") << std::endl;
         std::cout << "Corrected Data: 0x" << std::hex << result.corrected_data 
                   << " (" << std::bitset<32>(result.corrected_data) << ")" << std::endl;
-        std::cout << "Data Integrity: " << ((original_data == result.corrected_data || 
+        std::cout << "Data Integrity: " << ((original_data == result.corrected_data ||
                                              result.error_type == HammingCodeSECDED::DOUBLE_ERROR_DETECTABLE) ? "MAINTAINED" : "COMPROMISED") << std::endl;
         std::cout << std::string(40, '-') << std::endl;
+
+        // Append structured log for this read
+        std::ofstream csv_log("decoding_results.csv", std::ios::app);
+        if (csv_log) {
+            csv_log << address << ',' << original_data << ','
+                    << result.error_type_string << ',' << result.data_corrected << '\n';
+        }
+        std::ofstream json_log("decoding_results.json", std::ios::app);
+        if (json_log) {
+            json_log << "{\"address\": " << address
+                     << ", \"error_type\": \"" << result.error_type_string << "\",";
+            json_log << " \"data_corrected\": " << (result.data_corrected ? "true" : "false") << "}" << std::endl;
+        }
     }
-    
+
 public:
     AdvancedTestSuite(AdvancedMemorySimulator& mem) : memory(mem) {}
-    
+
+    void testKnownVectors() {
+        printTestHeader("Known Test Vectors");
+
+        struct Vector { uint32_t data; uint64_t encoded; };
+        std::vector<Vector> vectors = {
+            {0x00000000u, 0x0ULL},
+            {0xFFFFFFFFu, 0x3F7FFFFFF4ULL},
+            {0x12345678u, 0x44C68A67C9ULL}
+        };
+
+        for (const auto& v : vectors) {
+            auto cw = hamming.encode(v.data);
+            assert(cw.data == v.encoded && "Encoding mismatch");
+            auto result = hamming.decode(cw);
+            assert(result.corrected_data == v.data && "Mismatch in decoding!");
+            printDecodingResult(0, v.data, result);
+        }
+    }
+
+    void batchFaultInjection(int trials = 1000) {
+        printTestHeader("Batch Fault Injection");
+        std::mt19937 rng(42);
+        std::uniform_int_distribution<uint32_t> data_dist(0, UINT32_MAX);
+        std::uniform_int_distribution<int> error_count_dist(1, 3);
+        std::uniform_int_distribution<int> pos_dist(1, HammingCodeSECDED::TOTAL_BITS);
+
+        int detections = 0, corrections = 0;
+        std::ofstream log("batch_results.csv");
+        if (log) log << "trial,errors,detected,corrected\n";
+
+        for (int t = 0; t < trials; ++t) {
+            uint32_t data = data_dist(rng);
+            auto cw = hamming.encode(data);
+            int num_errors = error_count_dist(rng);
+            std::set<int> used;
+            for (int i = 0; i < num_errors; ++i) {
+                int pos;
+                do {
+                    pos = pos_dist(rng);
+                } while (!used.insert(pos).second);
+                cw.flipBit(pos);
+            }
+            auto result = hamming.decode(cw);
+            bool detected = result.error_type != HammingCodeSECDED::NO_ERROR;
+            bool corrected = result.corrected_data == data;
+            if (detected) detections++; if (corrected) corrections++;
+            if (log) log << t << ',' << num_errors << ',' << detected << ',' << corrected << '\n';
+        }
+
+        std::cout << "Detection rate: " << (100.0 * detections / trials) << "%" << std::endl;
+        std::cout << "Correction rate: " << (100.0 * corrections / trials) << "%" << std::endl;
+    }
+
     void runAllTests() {
+        testKnownVectors();
         testNoError();
         testSingleBitErrors();
         testDoubleBitErrors();
@@ -479,6 +580,7 @@ public:
         testBurstErrors();
         testRandomMultipleErrors();
         testMixedWorkload();
+        batchFaultInjection();
     }
     
     void testNoError() {

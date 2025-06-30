@@ -406,24 +406,91 @@ private:
     
     std::vector<TestResult> results;
 
-    using TableRow = std::array<std::string,5>;
+    using TableRow = std::array<std::string,6>;
 
 public:
     void runComparisonTests() {
         std::cout << "*** Advanced ECC Comparison Laboratory ***" << std::endl;
         std::cout << "Hamming SEC-DED vs BCH Error Correction Analysis" << std::endl;
         std::cout << std::string(70, '=') << std::endl;
-        
+
+        testKnownVectors();
         testNoErrors();
         testSingleErrors();
         testDoubleErrors();
         testTripleErrors();
         testRandomErrors();
-        
+        batchFaultInjection();
+
         generateComparisonReport();
     }
-    
+
 private:
+    void testKnownVectors() {
+        std::cout << "\n[TEST] Known Vectors" << std::endl;
+
+        // Hamming vector
+        auto hcw = hamming.encode(0x0123456789ABCDEFULL);
+        uint64_t h_low=0; uint16_t h_high=0;
+        for(int i=0;i<64&&i<HammingCodeSECDED::TOTAL_BITS;i++) if(hcw.data[i]) h_low|=(1ULL<<i);
+        for(int i=64;i<HammingCodeSECDED::TOTAL_BITS;i++) if(hcw.data[i]) h_high|=(1<<(i-64));
+        assert(h_low == 0x48D159E23579DEFCLL && h_high == 0x80);
+        auto hres = hamming.decode(hcw, hcw);
+        assert(hres.corrected_data == 0x0123456789ABCDEFULL);
+
+        // BCH vector (lower 51 bits of value)
+        uint64_t bval = 0x3456789ABCDEFULL & ((1ULL<<51)-1);
+        std::vector<bool> bits(51);
+        for (int i=0;i<51;i++) bits[i] = (bval>>i)&1ULL;
+        auto bcw = bch.encode(bits);
+        uint64_t expected = 0x3456789ABCDEF48FULL;
+        uint64_t calc=0; for(int i=0;i<63;i++) if(bcw.getBit(i)) calc|=(1ULL<<i);
+        assert(calc == expected);
+        auto bres = bch.decode(bcw, bcw);
+        uint64_t decoded=0; for(int i=0;i<51;i++) if(bres.corrected_data[i]) decoded|=(1ULL<<i);
+        assert(decoded == bval);
+    }
+
+    void batchFaultInjection(int trials = 1000) {
+        std::cout << "\n[TEST] Batch Fault Injection" << std::endl;
+        std::mt19937 rng(21);
+        std::uniform_int_distribution<uint64_t> data_dist(0, UINT64_MAX);
+        std::uniform_int_distribution<int> error_count_dist(1,3);
+        std::uniform_int_distribution<int> pos_dist(1, HammingCodeSECDED::TOTAL_BITS);
+
+        int ham_det=0, ham_cor=0, bch_det=0, bch_cor=0;
+        std::ofstream log("batch_results.csv");
+        if (log) log << "trial,errors,hamming_detected,hamming_corrected,bch_detected,bch_corrected\n";
+
+        for(int t=0;t<trials;++t) {
+            uint64_t data = data_dist(rng);
+            std::vector<bool> bch_data(51); for(int i=0;i<51;i++) bch_data[i]=(data>>i)&1ULL;
+
+            auto hc = hamming.encode(data);
+            auto hc_orig = hc;
+            auto bc = bch.encode(bch_data);
+            auto bc_orig = bc;
+
+            int errs = error_count_dist(rng);
+            std::set<int> pos_set;
+            for(int i=0;i<errs;i++) { int p; do{p=pos_dist(rng);} while(!pos_set.insert(p).second); hc.flipBit(p); bc.flipBit(p % BCHCode::CODE_LENGTH); }
+
+            auto hres = hamming.decode(hc, hc_orig);
+            auto bres = bch.decode(bc, bc_orig);
+
+            bool hdet = hres.error_type != HammingCodeSECDED::NO_ERROR;
+            bool hcor = hres.corrected_data == data;
+            bool bdet = bres.errors_detected > 0;
+            bool bcor = bres.data_intact;
+            if(hdet) ham_det++; if(hcor) ham_cor++; if(bdet) bch_det++; if(bcor) bch_cor++;
+            if (log) log << t<<','<<errs<<','<<hdet<<','<<hcor<<','<<bdet<<','<<bcor<<'\n';
+        }
+
+        std::cout << "Hamming detection rate: " << (100.0*ham_det/trials) << "%" << std::endl;
+        std::cout << "Hamming correction rate: " << (100.0*ham_cor/trials) << "%" << std::endl;
+        std::cout << "BCH detection rate: " << (100.0*bch_det/trials) << "%" << std::endl;
+        std::cout << "BCH correction rate: " << (100.0*bch_cor/trials) << "%" << std::endl;
+    }
     void testNoErrors() {
         std::cout << "\n[TEST] No Errors" << std::endl;
         
@@ -739,10 +806,25 @@ private:
             std::cerr << "Failed to write comparison_results.csv" << std::endl;
             return;
         }
-        out << "TestName,InjectedErrors,HammingErrorsDetected,BCHErrorsDetected,Winner\n";
+        out << "TestName,InjectedErrors,HammingErrorsDetected,BCHErrorsDetected,Winner,BER\n";
         for (const auto& row : table) {
-            out << row[0] << ',' << row[1] << ',' << row[2] << ',' << row[3] << ',' << row[4] << '\n';
+            out << row[0] << ',' << row[1] << ',' << row[2] << ',' << row[3] << ',' << row[4] << ',' << row[5] << '\n';
         }
+    }
+
+    void saveResultsToJSON(const std::vector<TableRow>& table) {
+        std::ofstream out("comparison_results.json");
+        if (!out) return;
+        out << "[\n";
+        for (size_t i = 0; i < table.size(); ++i) {
+            out << "  {\"TestName\": \"" << table[i][0] << "\", \"InjectedErrors\": " << table[i][1]
+                << ", \"HammingErrorsDetected\": " << table[i][2]
+                << ", \"BCHErrorsDetected\": " << table[i][3]
+                << ", \"Winner\": \"" << table[i][4] << "\", \"BER\": " << table[i][5] << "}";
+            if (i + 1 != table.size()) out << ',';
+            out << "\n";
+        }
+        out << "]\n";
     }
     
     void generateComparisonReport() {
@@ -820,16 +902,22 @@ private:
         std::cout << "*** and performance requirements. Both have merit. ***" << std::endl;
         std::cout << std::string(70, '=') << std::endl;
 
-        // Collect results for CSV output
+        // Collect results for CSV/JSON output
         std::vector<TableRow> table;
         for (const auto& r : results) {
+            double ber = 0.0;
+            if (r.injected_errors > 0) {
+                ber = static_cast<double>(r.injected_errors) / 64.0;
+            }
             table.push_back({r.test_name,
                              std::to_string(r.injected_errors),
                              std::to_string(r.hamming_errors_detected),
                              std::to_string(r.bch_errors_detected),
-                             r.winner});
+                             r.winner,
+                             std::to_string(ber)});
         }
         saveResultsToCSV(table);
+        saveResultsToJSON(table);
     }
 };
 
