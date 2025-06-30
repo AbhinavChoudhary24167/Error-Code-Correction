@@ -326,11 +326,29 @@ public:
                                counters["overall_parity_errors"];
         
         if (total_errors > 0) {
-            std::cout << "  Error Recovery Rate:           " 
+            std::cout << "  Error Recovery Rate:           "
                       << std::fixed << std::setprecision(2)
                       << (100.0 * counters["data_corruption_prevented"] / total_errors) << "%" << std::endl;
         }
-        
+
+        // Energy estimate based on typical CMOS gate costs
+        const double ENERGY_PER_XOR = 2e-12; // 2 pJ per XOR gate
+        const double ENERGY_PER_AND = 1e-12; // 1 pJ per AND gate
+
+        uint64_t detected_errors = counters["single_errors_corrected"] +
+                                   counters["double_errors_detected"] +
+                                   counters["multiple_errors_uncorrectable"] +
+                                   counters["overall_parity_errors"];
+
+        double energy = counters["total_reads"] *
+                        (HammingCodeSECDED::PARITY_BITS + HammingCodeSECDED::OVERALL_PARITY_BIT) *
+                        ENERGY_PER_XOR +
+                        detected_errors * ENERGY_PER_AND;
+
+        std::cout << std::string(60, '-') << std::endl;
+        std::cout << "Estimated energy consumed: " << std::scientific
+                  << energy << " J" << std::endl;
+
         std::cout << std::string(60, '=') << std::endl;
     }
 };

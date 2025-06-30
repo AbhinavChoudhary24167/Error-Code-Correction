@@ -39,3 +39,10 @@ constant energy costs.
 
 This simple calculation helps gauge the energy impact of different error control
 coding schemes during reads without running the full simulators.
+
+## Typical Values from Literature
+
+The default constants correspond to energy measurements published for
+28&nbsp;nm CMOS processes, where an XOR gate consumes roughly 2&nbsp;pJ per
+operation and an AND gate about 1&nbsp;pJ. These figures provide a
+reasonable baseline when evaluating the simulators on common hardware.

@@ -39,6 +39,8 @@ The built-in test suite now includes a `Million Word Dataset` stress test
 which touches one million addresses using the simulator's write and read
 operations. After completion, the program prints a short summary of how many
 errors were corrected or detected during the test.
+It also reports an estimated energy cost for all read operations using
+constants derived from recent CMOS literature.
 
 ## Running the 32-bit memory simulator
 
