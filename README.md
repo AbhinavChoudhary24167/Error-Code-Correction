@@ -4,6 +4,23 @@ See [docs/TestSummary.md](docs/TestSummary.md) for an overview of the simulator 
 
 ECC for SRAM, studying the impact of ECC architectures on sustainablity
 
+Running the simulators now produces several structured result files in the
+repository root:
+
+- `comparison_results.json` – JSON variant of the BCH vs. Hamming results.
+- `decoding_results.csv` / `decoding_results.json` – per-read decode logs.
+- `ecc_stats.csv` / `ecc_stats.json` – aggregated ECC statistics.
+
+These files are listed in `.gitignore` so that repeated runs do not clutter
+your Git history.
+
+Example of inspecting `ecc_stats.json` with `jq`:
+
+```bash
+$ jq '.ber' ecc_stats.json
+0.000023
+```
+
 ## Running the BCH vs Hamming comparison
 
 1. Compile the simulator:
