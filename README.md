@@ -87,6 +87,11 @@ python3 energy_model.py <parity_bits> [detected_errors]
 The script estimates the energy required for a read operation based on the
 number of parity bits and detected errors.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building the
+project with the provided Makefile and running the smoke test suite.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
