@@ -9,6 +9,7 @@
 #include <map>
 #include <set>
 #include <fstream>
+#include "ParityCheckMatrix.hpp"
 
 class HammingCodeSECDED {
 public:
@@ -155,23 +156,32 @@ public:
         result.error_position = 0;
         result.data_corrected = false;
         
-        // Calculate Hamming syndrome
-        for (int i = 0; i < PARITY_BITS; i++) {
-            int parity_bit = parity_positions[i];
-            int parity = 0;
-            
-            // Check all positions that this parity bit covers (excluding overall parity)
-            for (int pos = 1; pos <= TOTAL_BITS - 1; pos++) {
-                if ((pos & parity_bit) != 0) {
-                    if (received.getBit(pos)) {
-                        parity ^= 1;
-                    }
+        // Build parity check matrix once per decode
+        ParityCheckMatrix pcm;
+        for (int parity_bit : parity_positions) {
+            std::array<uint64_t,2> row{0,0};
+            for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
+                if (pos & parity_bit) {
+                    int idx = pos - 1;
+                    if (idx < 64)
+                        row[0] |= (1ULL << idx);
+                    else
+                        row[1] |= (1ULL << (idx-64));
                 }
             }
-            
-            if (parity != 0) {
+            pcm.rows.push_back(row);
+        }
+
+        BitVector cwVec;
+        for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
+            if (received.getBit(pos))
+                cwVec.set(pos-1, true);
+        }
+
+        BitVector synVec = pcm.syndrome(cwVec);
+        for (int i = 0; i < PARITY_BITS; ++i) {
+            if (synVec.get(i))
                 result.syndrome |= (1 << i);
-            }
         }
         
         // Calculate overall parity
