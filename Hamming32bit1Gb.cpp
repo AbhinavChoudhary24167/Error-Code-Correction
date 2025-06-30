@@ -517,8 +517,64 @@ private:
     
 public:
     AdvancedTestSuite(AdvancedMemorySimulator& mem) : memory(mem) {}
-    
+
+    void testKnownVectors() {
+        printTestHeader("Known Test Vectors");
+
+        struct Vector { uint32_t data; uint64_t encoded; };
+        std::vector<Vector> vectors = {
+            {0x00000000u, 0x0ULL},
+            {0xFFFFFFFFu, 0x3F7FFFFFF4ULL},
+            {0x12345678u, 0x44C68A67C9ULL}
+        };
+
+        for (const auto& v : vectors) {
+            auto cw = hamming.encode(v.data);
+            assert(cw.data == v.encoded && "Encoding mismatch");
+            auto result = hamming.decode(cw);
+            assert(result.corrected_data == v.data && "Mismatch in decoding!");
+            printDecodingResult(0, v.data, result);
+        }
+    }
+
+    void batchFaultInjection(int trials = 1000) {
+        printTestHeader("Batch Fault Injection");
+        std::mt19937 rng(42);
+        std::uniform_int_distribution<uint32_t> data_dist(0, UINT32_MAX);
+        std::uniform_int_distribution<int> error_count_dist(1, 3);
+        std::uniform_int_distribution<int> pos_dist(1, HammingCodeSECDED::TOTAL_BITS);
+
+        int detections = 0, corrections = 0;
+        std::ofstream log("batch_results.csv");
+        if (log) log << "trial,errors,detected,corrected\n";
+
+        for (int t = 0; t < trials; ++t) {
+            uint32_t data = data_dist(rng);
+            auto cw = hamming.encode(data);
+            int num_errors = error_count_dist(rng);
+            std::set<int> used;
+            for (int i = 0; i < num_errors; ++i) {
+                int pos;
+                do {
+                    pos = pos_dist(rng);
+                } while (!used.insert(pos).second);
+                cw.flipBit(pos);
+            }
+            auto result = hamming.decode(cw);
+            bool detected = result.error_type != HammingCodeSECDED::NO_ERROR;
+            bool corrected = result.corrected_data == data;
+            if (detected) detections++; if (corrected) corrections++;
+            if (log) log << t << ',' << num_errors << ',' << detected << ',' << corrected << '\n';
+        }
+
+        std::cout << "Detection rate: " << (100.0 * detections / trials) << "%" << std::endl;
+        std::cout << "Correction rate: " << (100.0 * corrections / trials) << "%" << std::endl;
+    }
+
     void runAllTests() {
+        // Execute the full suite including known vectors and large batch fault
+        // injection trials to ensure regression coverage.
+        testKnownVectors();
         testNoError();
         testSingleBitErrors();
         testDoubleBitErrors();
@@ -526,6 +582,7 @@ public:
         testBurstErrors();
         testRandomMultipleErrors();
         testMixedWorkload();
+        batchFaultInjection();
     }
     
     void testNoError() {
