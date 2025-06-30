@@ -9,6 +9,7 @@
 #include <map>
 #include <set>
 #include <unordered_map>
+#include <fstream>
 
 class HammingCodeSECDED {
 public:
@@ -307,12 +308,45 @@ public:
                                counters["overall_parity_errors"];
         
         if (total_errors > 0) {
-            std::cout << "  Error Recovery Rate:           " 
+            std::cout << "  Error Recovery Rate:           "
                       << std::fixed << std::setprecision(2)
                       << (100.0 * counters["data_corruption_prevented"] / total_errors) << "%" << std::endl;
         }
-        
+
         std::cout << std::string(60, '=') << std::endl;
+
+        // Structured logging of statistics
+        std::ofstream json_out("ecc_stats.json");
+        if (json_out) {
+            double ber = 0.0;
+            if (counters["total_reads"] > 0) {
+                ber = static_cast<double>(total_errors) /
+                      (counters["total_reads"] * HammingCodeSECDED::DATA_BITS);
+            }
+            json_out << "{\n";
+            json_out << "  \"total_reads\": " << counters["total_reads"] << ",\n";
+            json_out << "  \"total_writes\": " << counters["total_writes"] << ",\n";
+            json_out << "  \"single_errors_corrected\": " << counters["single_errors_corrected"] << ",\n";
+            json_out << "  \"double_errors_detected\": " << counters["double_errors_detected"] << ",\n";
+            json_out << "  \"multiple_errors_uncorrectable\": " << counters["multiple_errors_uncorrectable"] << ",\n";
+            json_out << "  \"overall_parity_errors\": " << counters["overall_parity_errors"] << ",\n";
+            json_out << "  \"ber\": " << ber << "\n";
+            json_out << "}\n";
+        }
+
+        std::ofstream csv_out("ecc_stats.csv");
+        if (csv_out) {
+            csv_out << "metric,value\n";
+            for (const auto& p : counters) {
+                csv_out << p.first << ',' << p.second << "\n";
+            }
+            double ber = 0.0;
+            if (counters["total_reads"] > 0) {
+                ber = static_cast<double>(total_errors) /
+                      (counters["total_reads"] * HammingCodeSECDED::DATA_BITS);
+            }
+            csv_out << "ber," << ber << "\n";
+        }
     }
 };
 
@@ -450,7 +484,7 @@ private:
         std::cout << std::string(60, '=') << std::endl;
     }
     
-    void printDecodingResult(uint32_t address, uint32_t original_data, 
+    void printDecodingResult(uint32_t address, uint32_t original_data,
                            const HammingCodeSECDED::DecodingResult& result) {
         std::cout << "Address: 0x" << std::hex << address << std::dec << std::endl;
         std::cout << "Original Data: 0x" << std::hex << original_data 
@@ -463,9 +497,22 @@ private:
         std::cout << "Data Corrected: " << (result.data_corrected ? "YES" : "NO") << std::endl;
         std::cout << "Corrected Data: 0x" << std::hex << result.corrected_data 
                   << " (" << std::bitset<32>(result.corrected_data) << ")" << std::endl;
-        std::cout << "Data Integrity: " << ((original_data == result.corrected_data || 
+        std::cout << "Data Integrity: " << ((original_data == result.corrected_data ||
                                              result.error_type == HammingCodeSECDED::DOUBLE_ERROR_DETECTABLE) ? "MAINTAINED" : "COMPROMISED") << std::endl;
         std::cout << std::string(40, '-') << std::endl;
+
+        // Append structured log for this read
+        std::ofstream csv_log("decoding_results.csv", std::ios::app);
+        if (csv_log) {
+            csv_log << address << ',' << original_data << ','
+                    << result.error_type_string << ',' << result.data_corrected << '\n';
+        }
+        std::ofstream json_log("decoding_results.json", std::ios::app);
+        if (json_log) {
+            json_log << "{\"address\": " << address
+                     << ", \"error_type\": \"" << result.error_type_string << "\",";
+            json_log << " \"data_corrected\": " << (result.data_corrected ? "true" : "false") << "}" << std::endl;
+        }
     }
     
 public:

@@ -406,7 +406,7 @@ private:
     
     std::vector<TestResult> results;
 
-    using TableRow = std::array<std::string,5>;
+    using TableRow = std::array<std::string,6>;
 
 public:
     void runComparisonTests() {
@@ -739,10 +739,25 @@ private:
             std::cerr << "Failed to write comparison_results.csv" << std::endl;
             return;
         }
-        out << "TestName,InjectedErrors,HammingErrorsDetected,BCHErrorsDetected,Winner\n";
+        out << "TestName,InjectedErrors,HammingErrorsDetected,BCHErrorsDetected,Winner,BER\n";
         for (const auto& row : table) {
-            out << row[0] << ',' << row[1] << ',' << row[2] << ',' << row[3] << ',' << row[4] << '\n';
+            out << row[0] << ',' << row[1] << ',' << row[2] << ',' << row[3] << ',' << row[4] << ',' << row[5] << '\n';
         }
+    }
+
+    void saveResultsToJSON(const std::vector<TableRow>& table) {
+        std::ofstream out("comparison_results.json");
+        if (!out) return;
+        out << "[\n";
+        for (size_t i = 0; i < table.size(); ++i) {
+            out << "  {\"TestName\": \"" << table[i][0] << "\", \"InjectedErrors\": " << table[i][1]
+                << ", \"HammingErrorsDetected\": " << table[i][2]
+                << ", \"BCHErrorsDetected\": " << table[i][3]
+                << ", \"Winner\": \"" << table[i][4] << "\", \"BER\": " << table[i][5] << "}";
+            if (i + 1 != table.size()) out << ',';
+            out << "\n";
+        }
+        out << "]\n";
     }
     
     void generateComparisonReport() {
@@ -820,16 +835,22 @@ private:
         std::cout << "*** and performance requirements. Both have merit. ***" << std::endl;
         std::cout << std::string(70, '=') << std::endl;
 
-        // Collect results for CSV output
+        // Collect results for CSV/JSON output
         std::vector<TableRow> table;
         for (const auto& r : results) {
+            double ber = 0.0;
+            if (r.injected_errors > 0) {
+                ber = static_cast<double>(r.injected_errors) / 64.0;
+            }
             table.push_back({r.test_name,
                              std::to_string(r.injected_errors),
                              std::to_string(r.hamming_errors_detected),
                              std::to_string(r.bch_errors_detected),
-                             r.winner});
+                             r.winner,
+                             std::to_string(ber)});
         }
         saveResultsToCSV(table);
+        saveResultsToJSON(table);
     }
 };
 
