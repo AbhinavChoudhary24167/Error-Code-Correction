@@ -7,6 +7,8 @@
 #include <cmath>
 #include "BitVector.hpp"
 #include "ParityCheckMatrix.hpp"
+#include "telemetry.hpp"
+#include <fstream>
 
 class SecDaec64 {
 public:
@@ -23,6 +25,7 @@ public:
         uint64_t data;
         bool corrected;
         bool detected;
+        Telemetry t;
     };
     DecodingResult decode(CodeWord) const;
 
@@ -112,19 +115,36 @@ inline SecDaec64::CodeWord SecDaec64::encode(uint64_t data) const {
 }
 
 inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
-    BitVector vec(recv.bits);
-    BitVector synVec = H.syndrome(vec);
-    uint8_t s = 0;
-    for(int i=0;i<PARITY_BITS;++i)
-        if(synVec.get(i)) s |= (1<<i);
-    bool ovp = __builtin_parityll(recv.bits);
-
     DecodingResult res{};
     res.data = recv.bits;
     res.corrected = false;
+    res.detected = false;
+
+    Telemetry &t = res.t;
+
+    uint8_t s = 0;
+    for(int p=0; p<PARITY_BITS; ++p) {
+        bool parity = false;
+        for(int bit=0; bit<64; ++bit) {
+            if((H.rows[p][0] >> bit) & 1ULL) {
+                bool v = (recv.bits >> bit) & 1ULL;
+                parity = XOR(parity, v, t);
+            }
+        }
+        if(parity) s |= (1<<p);
+    }
+
+    bool ovp = false;
+    for(int bit=0; bit<64; ++bit) {
+        bool v = (recv.bits >> bit) & 1ULL;
+        ovp = XOR(ovp, v, t);
+    }
+
     res.detected = (s!=0) || ovp;
 
-    if(s==0 && !ovp) {
+    if(AND(s==0, !ovp, t)) {
+        std::ofstream ofs("secdaec_energy.csv", std::ios::app);
+        ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
         return res; // clean
     }
 
@@ -142,6 +162,10 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
         }
     }
     res.data = recv.bits;
+    {
+        std::ofstream ofs("secdaec_energy.csv", std::ios::app);
+        ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
+    }
     return res;
 }
 
