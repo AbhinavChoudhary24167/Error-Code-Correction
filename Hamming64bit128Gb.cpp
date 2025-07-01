@@ -9,6 +9,8 @@
 #include <map>
 #include <set>
 #include <fstream>
+#include <string>
+#include <cstdlib>
 #include "ParityCheckMatrix.hpp"
 
 class HammingCodeSECDED {
@@ -577,6 +579,10 @@ public:
         testMixedWorkload();
         testLargeAddressSpace();
         testMillionWordDataset();
+        const char* stress = std::getenv("RUN_STRESS_TEST");
+        if (stress && std::string(stress) == "1") {
+            stressOneMillionReadWrite();
+        }
     }
     
     void testNoError() {
@@ -842,6 +848,36 @@ public:
         std::cout << "  Double Errors Detected: " << counts[HammingCodeSECDED::DOUBLE_ERROR_DETECTABLE] << std::endl;
         std::cout << "  Multiple Errors (Uncorrectable): " << counts[HammingCodeSECDED::MULTIPLE_ERROR_UNCORRECTABLE] << std::endl;
         std::cout << "  Overall Parity Errors: " << counts[HammingCodeSECDED::OVERALL_PARITY_ERROR] << std::endl;
+    }
+
+    void stressOneMillionReadWrite() {
+        printTestHeader("One Million Read/Write Stress Test");
+
+        const uint64_t BASE_ADDR = 50000000ULL;
+        const uint64_t COUNT = 1000000ULL;
+
+        std::mt19937 rng(1337);
+        std::uniform_int_distribution<uint64_t> dist(0, UINT64_MAX);
+
+        std::vector<uint64_t> values(COUNT);
+
+        for (uint64_t i = 0; i < COUNT; ++i) {
+            uint64_t data = dist(rng);
+            values[i] = data;
+            memory.write(BASE_ADDR + i, data);
+        }
+
+        uint64_t mismatches = 0;
+        for (uint64_t i = 0; i < COUNT; ++i) {
+            auto result = memory.read(BASE_ADDR + i);
+            if (result.corrected_data != values[i] ||
+                result.error_type != HammingCodeSECDED::NO_ERROR) {
+                mismatches++;
+            }
+        }
+
+        std::cout << "Stress test completed. " << COUNT << " addresses verified." << std::endl;
+        std::cout << "Mismatched reads: " << mismatches << std::endl;
     }
 };
 
