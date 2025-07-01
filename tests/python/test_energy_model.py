@@ -1,5 +1,6 @@
 import pytest
 import numpy as np
+import energy_model
 from energy_model import estimate_energy, epc, gate_energy_vec, gate_energy
 
 
@@ -47,10 +48,22 @@ def test_gate_energy_vec_rounding(caplog):
         val = gate_energy_vec(16, [0.75], "xor")[0]
     ref = gate_energy(16, 0.8, "xor")
     assert val == pytest.approx(ref)
-    assert any('Rounded VDD' in m for m in caplog.text.splitlines())
+    assert any('VDD rounded to nearest entry' in m for m in caplog.text.splitlines())
 
 
 def test_gate_energy_vec_monotonic():
     e_small = gate_energy_vec(7, [0.6], "xor")[0]
     e_large = gate_energy_vec(28, [0.8], "xor")[0]
     assert e_small < e_large
+
+
+def test_nearest_rounding():
+    e_exact = gate_energy(16, 0.8, "xor")
+    e_round = gate_energy(16, 0.75, "xor")
+    assert e_exact == e_round
+
+
+def test_vector_api():
+    v = np.array([0.6, 0.75, 0.8])
+    arr = energy_model.gate_energy_vec(28, v, "and")
+    assert arr.shape == v.shape

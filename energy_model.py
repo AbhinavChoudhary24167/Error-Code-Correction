@@ -15,40 +15,15 @@ from typing import Dict, Sequence
 
 import numpy as np
 
-_CALIB_PATH = Path(__file__).with_name("tech_calib.json")
-
-
-def _load_calibration() -> Dict[int, Dict[float, Dict[str, float]]]:
-    """Load calibration table with numeric keys."""
-    with _CALIB_PATH.open() as fh:
-        raw = json.load(fh)
-
-    calib: Dict[int, Dict[float, Dict[str, float]]] = {}
-    for node_key, node_data in raw.items():
-        node_nm = int(node_key)
-        calib[node_nm] = {}
-        for vdd_key, gates in node_data.items():
-            vdd = float(vdd_key)
-            calib[node_nm][vdd] = {k: float(v) for k, v in gates.items()}
-    return calib
-
-
-_CALIB = _load_calibration()
-_NODE_VDDS = {node: sorted(vdds.keys()) for node, vdds in _CALIB.items()}
+_CALIB = json.load(open(Path(__file__).with_name("tech_calib.json")))
+_CALIB = {int(k): {float(v): g for v, g in d.items()} for k, d in _CALIB.items()}
 
 _LOGGER = logging.getLogger(__name__)
 
 
-def _nearest_vdd(node_nm: int, vdd: float) -> float:
-    """Return the calibration voltage closest to ``vdd``."""
-    choices = np.array(_NODE_VDDS[node_nm], dtype=float)
-    idx = np.abs(choices - vdd).argmin()
-    nearest = float(choices[idx])
-    if nearest != vdd:
-        _LOGGER.warning(
-            "Rounded VDD %.3fV to %.1fV for %dnm", vdd, nearest, node_nm
-        )
-    return nearest
+def _nearest(v: float, choices) -> float:
+    """Return the closest value in ``choices`` to ``v``."""
+    return min(choices, key=lambda c: abs(c - v))
 
 
 def gate_energy(node_nm: int, vdd: float, gate: str, *, mode: str = "nearest") -> float:
@@ -71,24 +46,7 @@ def gate_energy(node_nm: int, vdd: float, gate: str, *, mode: str = "nearest") -
     if gate not in {"xor", "and"}:
         raise KeyError(gate)
 
-    try:
-        node_table = _CALIB[node_nm]
-    except KeyError as exc:
-        raise KeyError(f"Unknown node {node_nm}nm") from exc
-
-    if mode == "nearest":
-        vdd_key = vdd if vdd in node_table else _nearest_vdd(node_nm, vdd)
-    elif mode == "strict":
-        vdd_key = vdd
-    else:
-        raise ValueError(f"Unknown mode {mode}")
-
-    try:
-        return node_table[vdd_key][gate]
-    except KeyError as exc:
-        raise KeyError(
-            f"Missing calibration for {node_nm}nm at {vdd_key}V"
-        ) from exc
+    return gate_energy_vec(node_nm, np.array([vdd]), gate, mode=mode).item()
 
 
 def gate_energy_vec(
@@ -107,22 +65,17 @@ def gate_energy_vec(
     mode : str
         Currently only ``"nearest"`` is supported.
     """
-    arr = np.asarray(vdd_array, dtype=float)
-    node_table = _CALIB[node_nm]
-    if mode != "nearest":
-        raise ValueError(f"Unknown mode {mode}")
-
-    choices = np.array(_NODE_VDDS[node_nm], dtype=float)
-    idx = np.abs(arr[:, None] - choices[None, :]).argmin(axis=1)
-    selected = choices[idx]
-
-    for req, sel in zip(arr, selected):
-        if req != sel:
-            _LOGGER.warning(
-                "Rounded VDD %.3fV to %.1fV for %dnm", req, sel, node_nm
-            )
-
-    return np.array([node_table[float(v)][gate] for v in selected])
+    v = np.asanyarray(vdd_array, dtype=float)
+    table = _CALIB[node_nm]
+    vols = np.array(sorted(table))
+    if mode == "nearest":
+        idx = np.abs(vols[:, None] - v).argmin(0)
+        nearest = vols[idx]
+        unique_rounds = np.unique(nearest[v != nearest])
+        if unique_rounds.size:
+            logging.warning("VDD rounded to nearest entry: %s", unique_rounds)
+        return np.vectorize(lambda x: table[x][gate])(nearest)
+    raise ValueError("mode must be 'nearest'")
 
 
 def estimate_energy(
@@ -149,8 +102,8 @@ def estimate_energy(
     if parity_bits < 0 or detected_errors < 0:
         raise ValueError("Counts must be non-negative")
 
-    e_xor = gate_energy(node_nm, vdd, "xor", mode="nearest")
-    e_and = gate_energy(node_nm, vdd, "and", mode="nearest")
+    e_xor = gate_energy_vec(node_nm, np.array([vdd]), "xor", mode="nearest").item()
+    e_and = gate_energy_vec(node_nm, np.array([vdd]), "and", mode="nearest").item()
     return parity_bits * e_xor + detected_errors * e_and
 
 
