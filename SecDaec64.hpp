@@ -3,6 +3,8 @@
 
 #include <array>
 #include <cstdint>
+#include <vector>
+#include <cmath>
 #include "BitVector.hpp"
 #include "ParityCheckMatrix.hpp"
 
@@ -24,6 +26,9 @@ public:
     };
     DecodingResult decode(CodeWord) const;
 
+    std::vector<int> getDataPositions() const;
+    bool isParityPosition(int pos) const;
+
 private:
     ParityCheckMatrix H;
     int parityPos[PARITY_BITS];
@@ -44,11 +49,27 @@ private:
 
     int bitFromSyndrome(int s) const { return s-1; }
     std::pair<int,int> bitsFromDoubleAdj(int s) const {
-        static const std::pair<int,int> table[1<<PARITY_BITS] = {
-            {0,0}
-        };
-        // Placeholder but avoid compilation error - actual table not implemented
-        return table[0];
+        static std::pair<int,int> table[1<<PARITY_BITS];
+        static bool init = false;
+        if(!init) {
+            for(int idx=0; idx<(1<<PARITY_BITS); ++idx)
+                table[idx] = {0,0};
+            for(int i=0;i<TOTAL_BITS-1;++i) {
+                int j=i+1;
+                if(j>=TOTAL_BITS) break;
+                uint64_t low=0, high=0;
+                if(i<64) low |= 1ULL<<i; else high |= 1ULL<<(i-64);
+                if(j<64) low |= 1ULL<<j; else high |= 1ULL<<(j-64);
+                BitVector cw(low,high);
+                BitVector syn = H.syndrome(cw);
+                int synInt=0;
+                for(int p=0;p<PARITY_BITS;++p)
+                    if(syn.get(p)) synInt |= (1<<p);
+                table[synInt] = {i,j};
+            }
+            init = true;
+        }
+        return table[s];
     }
 };
 
@@ -122,6 +143,20 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
     }
     res.data = recv.bits;
     return res;
+}
+
+inline std::vector<int> SecDaec64::getDataPositions() const {
+    std::vector<int> pos;
+    for(int i=0;i<TOTAL_BITS-1;++i)
+        if(!isParityPosition(i))
+            pos.push_back(i);
+    return pos;
+}
+
+inline bool SecDaec64::isParityPosition(int pos) const {
+    for(int p=0;p<PARITY_BITS;++p)
+        if(pos==parityPos[p]) return true;
+    return pos==TOTAL_BITS-1;
 }
 
 #endif // SECDAEC64_HPP
