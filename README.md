@@ -59,6 +59,12 @@ errors were corrected or detected during the test.
 It also reports an estimated energy cost for all read operations using
 constants derived from recent CMOS literature.
 
+The simulator also provides an optional `One Million Read/Write Stress Test`
+that sequentially writes and verifies one million random 64-bit words
+without injecting faults. Set the environment variable `RUN_STRESS_TEST=1`
+before running the binary to enable this check. It exercises the memory
+allocator and decoder under a heavy access workload.
+
 ## Running the 32-bit memory simulator
 
 1. Compile the simulator:
