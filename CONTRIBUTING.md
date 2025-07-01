@@ -13,15 +13,15 @@ make
 This produces the following binaries in the repository root:
 `BCHvsHamming`, `Hamming32bit1Gb`, `Hamming64bit128Gb`, and `SATDemo`.
 
-## Running smoke tests
+## Running tests
 
-A small smoke test is available to ensure the binaries start up correctly.
-After building the project simply run:
+The project includes a small smoke test as well as a GoogleTest based unit
+test. Both are executed via the Makefile:
 
 ```bash
 make test
 ```
 
-The `test` target invokes `tests/smoke_test.sh` which runs each binary
-with a 5‑second timeout. If all programs exit successfully the script
-prints `All smoke tests passed.`.
+The `test` rule first builds and runs the unit tests using CMake's `ctest`
+(via the `gtest` target) and then executes `tests/smoke_test.sh`. If all
+programs exit successfully the script prints `All smoke tests passed.`.
