@@ -7,8 +7,8 @@ TEST(SecDaec64, AdjacentDataPairErrors) {
     auto dataPos = codec.getDataPositions();
     for(size_t i=0; i+1<dataPos.size(); ++i) {
         SecDaec64::CodeWord cw = clean;
-        cw.bits ^= 1ULL << dataPos[i];
-        cw.bits ^= 1ULL << dataPos[i+1];
+        cw.bits.set(dataPos[i], !cw.bits.get(dataPos[i]));
+        cw.bits.set(dataPos[i+1], !cw.bits.get(dataPos[i+1]));
         auto res = codec.decode(cw);
         ASSERT_TRUE(res.detected) << "Decoder failed to detect corruption at pair index " << i;
     }

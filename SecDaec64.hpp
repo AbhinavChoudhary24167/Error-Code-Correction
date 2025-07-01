@@ -16,7 +16,7 @@ public:
     static constexpr int PARITY_BITS = 8;   // 7 Hamming + 1 DAEC
     static constexpr int TOTAL_BITS = DATA_BITS + PARITY_BITS + 1; // + overall
 
-    struct CodeWord { uint64_t bits; };
+    struct CodeWord { BitVector bits; };
 
     SecDaec64();
 
@@ -36,7 +36,7 @@ private:
     ParityCheckMatrix H;
     int parityPos[PARITY_BITS];
 
-    void placeDataBits(uint64_t &word, uint64_t data) const {
+    void placeDataBits(BitVector &word, uint64_t data) const {
         int dataBit=0;
         for(int i=0;i<TOTAL_BITS-1;++i){
             bool isParity=false;
@@ -44,7 +44,7 @@ private:
             if(i==(TOTAL_BITS-1)) isParity=true; // overall
             if(!isParity){
                 if(data & (1ULL<<dataBit))
-                    word |= (1ULL<<i);
+                    word.set(i, true);
                 ++dataBit;
             }
         }
@@ -101,22 +101,27 @@ inline SecDaec64::SecDaec64() {
 inline SecDaec64::CodeWord SecDaec64::encode(uint64_t data) const {
     CodeWord cw{};
     placeDataBits(cw.bits, data);
+
     for(int p=0;p<7;++p) {
-        bool parity = __builtin_parityll(cw.bits & H.rows[p][0]);
-        cw.bits |= (uint64_t)parity << parityPos[p];
+        uint64_t a = H.rows[p][0] & cw.bits.words[0];
+        uint64_t b = H.rows[p][1] & cw.bits.words[1];
+        bool parity = (__builtin_popcountll(a) + __builtin_popcountll(b)) & 1;
+        cw.bits.set(parityPos[p], parity);
     }
+
     bool daec = 0;
     for(int i=0;i<DATA_BITS-1;++i)
         daec ^= ((data>>i) ^ (data>>(i+1))) & 1ULL;
-    cw.bits |= (uint64_t)daec << parityPos[7];
-    bool ovp = __builtin_parityll(cw.bits);
-    cw.bits |= (uint64_t)ovp << (TOTAL_BITS-1);
+    cw.bits.set(parityPos[7], daec);
+
+    int pop = __builtin_popcountll(cw.bits.words[0]) + __builtin_popcountll(cw.bits.words[1]);
+    bool ovp = pop & 1;
+    cw.bits.set(TOTAL_BITS-1, ovp);
     return cw;
 }
 
 inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
     DecodingResult res{};
-    res.data = recv.bits;
     res.corrected = false;
     res.detected = false;
 
@@ -125,30 +130,38 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
     uint8_t s = 0;
     for(int p=0; p<PARITY_BITS; ++p) {
         bool parity = false;
-        for(int bit=0; bit<64; ++bit) {
-            if((H.rows[p][0] >> bit) & 1ULL) {
-                bool v = (recv.bits >> bit) & 1ULL;
-                parity = XOR(parity, v, t);
+        for(int w=0; w<2; ++w) {
+            for(int bit=0; bit<64; ++bit) {
+                if((H.rows[p][w] >> bit) & 1ULL) {
+                    bool v = (recv.bits.words[w] >> bit) & 1ULL;
+                    parity = XOR(parity, v, t);
+                }
             }
         }
         if(parity) s |= (1<<p);
     }
 
     bool ovp = false;
-    for(int bit=0; bit<64; ++bit) {
-        bool v = (recv.bits >> bit) & 1ULL;
+    for(int pos=0; pos<TOTAL_BITS-1; ++pos) {
+        bool v = recv.bits.get(pos);
         ovp = XOR(ovp, v, t);
     }
 
     res.detected = (s!=0) || ovp;
 
     if(AND(s==0, !ovp, t)) {
+        uint64_t data=0;
+        auto dataPos = getDataPositions();
+        for(int i=0;i<DATA_BITS;++i)
+            if(recv.bits.get(dataPos[i]))
+                data |= (1ULL<<i);
+        res.data = data;
         std::ofstream ofs("secdaec_energy.csv", std::ios::app);
         ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
         return res; // clean
     }
 
-    auto flip = [&](int b){ recv.bits ^= (1ULL<<b); };
+    auto flip = [&](int b){ recv.bits.set(b, !recv.bits.get(b)); };
     int wt = __builtin_popcount((unsigned)s);
     if(wt==1) {
         flip(bitFromSyndrome(s));
@@ -161,7 +174,12 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
             res.corrected = true;
         }
     }
-    res.data = recv.bits;
+    uint64_t data=0;
+    auto dataPos = getDataPositions();
+    for(int i=0;i<DATA_BITS;++i)
+        if(recv.bits.get(dataPos[i]))
+            data |= (1ULL<<i);
+    res.data = data;
     {
         std::ofstream ofs("secdaec_energy.csv", std::ios::app);
         ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
