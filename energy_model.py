@@ -9,21 +9,49 @@ energy-per-correction (``J/bit``).
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Sequence
+
+import numpy as np
 
 _CALIB_PATH = Path(__file__).with_name("tech_calib.json")
 
 
-def _load_calibration() -> Dict[str, Dict[str, Dict[str, float]]]:
+def _load_calibration() -> Dict[int, Dict[float, Dict[str, float]]]:
+    """Load calibration table with numeric keys."""
     with _CALIB_PATH.open() as fh:
-        return json.load(fh)
+        raw = json.load(fh)
+
+    calib: Dict[int, Dict[float, Dict[str, float]]] = {}
+    for node_key, node_data in raw.items():
+        node_nm = int(node_key)
+        calib[node_nm] = {}
+        for vdd_key, gates in node_data.items():
+            vdd = float(vdd_key)
+            calib[node_nm][vdd] = {k: float(v) for k, v in gates.items()}
+    return calib
 
 
 _CALIB = _load_calibration()
+_NODE_VDDS = {node: sorted(vdds.keys()) for node, vdds in _CALIB.items()}
+
+_LOGGER = logging.getLogger(__name__)
 
 
-def gate_energy(node_nm: int, vdd: float, gate: str) -> float:
+def _nearest_vdd(node_nm: int, vdd: float) -> float:
+    """Return the calibration voltage closest to ``vdd``."""
+    choices = np.array(_NODE_VDDS[node_nm], dtype=float)
+    idx = np.abs(choices - vdd).argmin()
+    nearest = float(choices[idx])
+    if nearest != vdd:
+        _LOGGER.warning(
+            "Rounded VDD %.3fV to %.1fV for %dnm", vdd, nearest, node_nm
+        )
+    return nearest
+
+
+def gate_energy(node_nm: int, vdd: float, gate: str, *, mode: str = "nearest") -> float:
     """Return energy of a gate operation.
 
     Parameters
@@ -40,12 +68,61 @@ def gate_energy(node_nm: int, vdd: float, gate: str) -> float:
     float
         Energy in joules (J) for the specified gate.
     """
+    if gate not in {"xor", "and"}:
+        raise KeyError(gate)
+
     try:
-        return _CALIB[str(node_nm)][f"{vdd:.1f}"][gate]
+        node_table = _CALIB[node_nm]
+    except KeyError as exc:
+        raise KeyError(f"Unknown node {node_nm}nm") from exc
+
+    if mode == "nearest":
+        vdd_key = vdd if vdd in node_table else _nearest_vdd(node_nm, vdd)
+    elif mode == "strict":
+        vdd_key = vdd
+    else:
+        raise ValueError(f"Unknown mode {mode}")
+
+    try:
+        return node_table[vdd_key][gate]
     except KeyError as exc:
         raise KeyError(
-            f"Missing calibration for {node_nm}nm at {vdd:.1f}V"
+            f"Missing calibration for {node_nm}nm at {vdd_key}V"
         ) from exc
+
+
+def gate_energy_vec(
+    node_nm: int, vdd_array: Sequence[float], gate: str, *, mode: str = "nearest"
+) -> np.ndarray:
+    """Vectorised gate energy lookup.
+
+    Parameters
+    ----------
+    node_nm : int
+        Technology node in nanometres.
+    vdd_array : sequence of float
+        Array of voltages.
+    gate : str
+        Either ``"xor"`` or ``"and"``.
+    mode : str
+        Currently only ``"nearest"`` is supported.
+    """
+    arr = np.asarray(vdd_array, dtype=float)
+    node_table = _CALIB[node_nm]
+    if mode != "nearest":
+        raise ValueError(f"Unknown mode {mode}")
+
+    choices = np.array(_NODE_VDDS[node_nm], dtype=float)
+    idx = np.abs(arr[:, None] - choices[None, :]).argmin(axis=1)
+    selected = choices[idx]
+
+    for req, sel in zip(arr, selected):
+        if req != sel:
+            _LOGGER.warning(
+                "Rounded VDD %.3fV to %.1fV for %dnm", req, sel, node_nm
+            )
+
+    return np.array([node_table[float(v)][gate] for v in selected])
 
 
 def estimate_energy(
@@ -72,8 +149,8 @@ def estimate_energy(
     if parity_bits < 0 or detected_errors < 0:
         raise ValueError("Counts must be non-negative")
 
-    e_xor = gate_energy(node_nm, vdd, "xor")
-    e_and = gate_energy(node_nm, vdd, "and")
+    e_xor = gate_energy(node_nm, vdd, "xor", mode="nearest")
+    e_and = gate_energy(node_nm, vdd, "and", mode="nearest")
     return parity_bits * e_xor + detected_errors * e_and
 
 

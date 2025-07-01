@@ -30,3 +30,6 @@ gtest:
 test: all gtest
 	./tests/smoke_test.sh
 	PYTHONPATH=. pytest -q tests/python
+
+epc-report:
+	python3 parse_telemetry.py --csv $(CSV) --node $(NODE) --vdd $(VDD)

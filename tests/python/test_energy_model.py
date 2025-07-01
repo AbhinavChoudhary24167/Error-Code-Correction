@@ -1,5 +1,6 @@
 import pytest
-from energy_model import estimate_energy, epc
+import numpy as np
+from energy_model import estimate_energy, epc, gate_energy_vec, gate_energy
 
 
 def test_estimate_energy_basic():
@@ -39,3 +40,17 @@ def test_tech_calibration_schema():
         assert set(node_data.keys()) == {"0.8", "0.6"}
         for entry in node_data.values():
             assert set(entry.keys()) == {"xor", "and"}
+
+
+def test_gate_energy_vec_rounding(caplog):
+    with caplog.at_level('WARNING'):
+        val = gate_energy_vec(16, [0.75], "xor")[0]
+    ref = gate_energy(16, 0.8, "xor")
+    assert val == pytest.approx(ref)
+    assert any('Rounded VDD' in m for m in caplog.text.splitlines())
+
+
+def test_gate_energy_vec_monotonic():
+    e_small = gate_energy_vec(7, [0.6], "xor")[0]
+    e_large = gate_energy_vec(28, [0.8], "xor")[0]
+    assert e_small < e_large
