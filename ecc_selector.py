@@ -28,7 +28,7 @@ ECC_TABLE: List[ECCOption] = [
         correctable_bits=1,
         burst_tolerance=2,
         energy_per_read=1.08e-15,
-        min_ber=1e-9,
+        min_ber=2e-8,
         voltage_range=[0.4, 1.0],
         gate_overhead=12,
         tags=["low_power", "high_speed"],
@@ -76,6 +76,17 @@ ECC_TABLE: List[ECCOption] = [
         voltage_range=[0.6, 1.2],
         gate_overhead=35,
         tags=["automotive", "burst", "high_coverage"],
+    ),
+    ECCOption(
+        ecc_type="SEC_DAEC",
+        code="(65,64)+OVP",
+        correctable_bits=1,
+        burst_tolerance=2,
+        energy_per_read=1.54e-11,
+        min_ber=1e-9,
+        voltage_range=[0.4,1.0],
+        gate_overhead=13,
+        tags=["adjacent","low_overhead"],
     ),
 ]
 

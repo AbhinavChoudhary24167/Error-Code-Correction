@@ -7,6 +7,8 @@
 #include <cmath>
 #include "BitVector.hpp"
 #include "ParityCheckMatrix.hpp"
+#include "telemetry.hpp"
+#include <fstream>
 
 class SecDaec64 {
 public:
@@ -23,6 +25,7 @@ public:
         uint64_t data;
         bool corrected;
         bool detected;
+        Telemetry t;
     };
     DecodingResult decode(CodeWord) const;
 
@@ -112,19 +115,28 @@ inline SecDaec64::CodeWord SecDaec64::encode(uint64_t data) const {
 }
 
 inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
+    DecodingResult res{};
+    res.data = recv.bits;
+    res.corrected = false;
+    res.detected = false;
+
+    Telemetry &t = res.t;
+
     BitVector vec(recv.bits);
     BitVector synVec = H.syndrome(vec);
     uint8_t s = 0;
     for(int i=0;i<PARITY_BITS;++i)
         if(synVec.get(i)) s |= (1<<i);
-    bool ovp = __builtin_parityll(recv.bits);
+    t.xor_ops += PARITY_BITS; // parity checks
 
-    DecodingResult res{};
-    res.data = recv.bits;
-    res.corrected = false;
+    bool ovp = __builtin_parityll(recv.bits);
+    t.xor_ops += 1; // overall parity
+
     res.detected = (s!=0) || ovp;
 
     if(s==0 && !ovp) {
+        std::ofstream ofs("secdaec_energy.csv", std::ios::app);
+        ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
         return res; // clean
     }
 
@@ -142,6 +154,10 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
         }
     }
     res.data = recv.bits;
+    {
+        std::ofstream ofs("secdaec_energy.csv", std::ios::app);
+        ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
+    }
     return res;
 }
 
