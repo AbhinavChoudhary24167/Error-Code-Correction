@@ -20,7 +20,12 @@ SATDemo: SAT.cpp
 clean:
 	rm -f $(BINARIES)
 
-.PHONY: test clean
+.PHONY: test clean gtest
 
-test: all
+gtest:
+	cmake -S . -B build
+	cmake --build build
+	cd build && ctest --output-on-failure
+
+test: all gtest
 	./tests/smoke_test.sh

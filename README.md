@@ -143,7 +143,7 @@ that it meets your requirements.
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building the
-project with the provided Makefile and running the smoke test suite.
+project with the provided Makefile and running the full test suite.
 
 ## License
 
