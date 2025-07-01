@@ -29,3 +29,4 @@ gtest:
 
 test: all gtest
 	./tests/smoke_test.sh
+	PYTHONPATH=. pytest -q tests/python
