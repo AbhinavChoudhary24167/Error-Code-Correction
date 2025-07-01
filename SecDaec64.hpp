@@ -122,27 +122,19 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
 
     Telemetry &t = res.t;
 
+    BitVector vec(recv.bits);
+    BitVector synVec = H.syndrome(vec);
     uint8_t s = 0;
-    for(int p=0; p<PARITY_BITS; ++p) {
-        bool parity = false;
-        for(int bit=0; bit<64; ++bit) {
-            if((H.rows[p][0] >> bit) & 1ULL) {
-                bool v = (recv.bits >> bit) & 1ULL;
-                parity = XOR(parity, v, t);
-            }
-        }
-        if(parity) s |= (1<<p);
-    }
+    for(int i=0;i<PARITY_BITS;++i)
+        if(synVec.get(i)) s |= (1<<i);
+    t.xor_ops += PARITY_BITS; // parity checks
 
-    bool ovp = false;
-    for(int bit=0; bit<64; ++bit) {
-        bool v = (recv.bits >> bit) & 1ULL;
-        ovp = XOR(ovp, v, t);
-    }
+    bool ovp = __builtin_parityll(recv.bits);
+    t.xor_ops += 1; // overall parity
 
     res.detected = (s!=0) || ovp;
 
-    if(AND(s==0, !ovp, t)) {
+    if(s==0 && !ovp) {
         std::ofstream ofs("secdaec_energy.csv", std::ios::app);
         ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
         return res; // clean
