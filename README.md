@@ -146,6 +146,21 @@ Supported VDD range: 0.4-0.8 V
 These lines indicate the chosen code and its properties, allowing you to verify
 that it meets your requirements.
 
+## Running the tests
+
+Before executing the test suite make sure the Python dependencies are
+installed:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then run the tests using the Makefile:
+
+```bash
+make test
+```
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building the
