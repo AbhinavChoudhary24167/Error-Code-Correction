@@ -86,3 +86,57 @@ Any special mention/request etc.:
     CUDA support postponed: Current efforts are focused on completing single-threaded exhaustive simulation.
     Request for synthesis tool access for accurate energy and area modeling of ECC logic blocks.
     Guidance needed on: Which ECC variant to prioritize next — weight-based BCH or DAEC, considering sustainability relevance.
+
+ Week: 29/06/2025 to 06/07/2025 (Week 7)
+
+Activities Planned for the previous week:
+    Finalize comparison table between Hamming SEC-DED and BCH DEC for 32-bit/64-bit data under various fault types.
+    Complete documentation of test cases, fault models, and ECC behavior for Week 1-6 summary.
+    Begin literature survey on carbon-aware adaptive ECC switching logic for SRAM blocks.
+    Document literature findings in docs/LiteratureSurvey.md for transparency.
+    Start modeling ECC decoder complexity in terms of energy/cost proxy (per read access).
+    Prepare initial draft for "Problem Formulation" and "Simulation Framework" sections of thesis report.
+    Publish drafts in docs/Thesis/ProblemFormulation.md and docs/Thesis/SimulationFramework.md.
+    Test memory utilization and error classification logic over larger input datasets (>=1M words).
+
+Activity Status:
+Completed:
+    Added vectorized energy model with technology calibration data.
+    Implemented telemetry parser to derive energy per correction metrics.
+    Created ser_model.py with command-line interface and unit tests.
+    Developed SecDaec64 codec and accompanying GoogleTest suite.
+    Introduced million word dataset and optional read/write stress tests.
+    Updated README with energy model and ECC selector instructions.
+    Added requirements.txt and Makefile test target.
+
+In Progress:
+    Collecting soft-error rate data for additional ECC schemes.
+    Refining energy per correction estimates using telemetry logs.
+
+Pending:
+    CUDA-parallel simulation pipeline.
+    Synthesis-based validation of energy models.
+
+Key Learnings (Summary) of the week:
+    Vectorized energy calculations streamline per-read estimates.
+    Structured logging enables consistent comparison across simulators.
+    Parsing telemetry alongside energy models highlights efficiency trade-offs.
+
+Challenges faced (if any, and status):
+    Challenge 1: Large million-word stress tests increase compile and run times.
+     Status: Partially mitigated with optional environment variable.
+    Challenge 2: Telemetry CSV formats vary across runs.
+     Status: Parser expanded to handle alternate field names.
+
+Activities Planned for upcoming week and expected progress/outcome:
+    Integrate SER model results with ECC selector tool.
+    Expand documentation for the energy modeling workflow.
+    Evaluate SEC-DAEC telemetry with varied supply voltages.
+    Begin drafting data tables for thesis results.
+
+Expected Outcome:
+    Unified energy and SER metrics across simulators.
+    Updated thesis documents reflecting latest experiments.
+
+Any special mention/request etc.:
+    None.
