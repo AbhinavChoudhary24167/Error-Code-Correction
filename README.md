@@ -146,6 +146,19 @@ Supported VDD range: 0.4-0.8 V
 These lines indicate the chosen code and its properties, allowing you to verify
 that it meets your requirements.
 
+### Parsing telemetry logs
+
+`parse_telemetry.py` processes the decoder telemetry stored in CSV format. Pass
+the log file via `--csv` and specify the process node and supply voltage using
+`--node` and `--vdd`:
+
+```bash
+python3 parse_telemetry.py --csv tests/data/sample_secdaec.csv --node 16 --vdd 0.7
+```
+
+The script reports the total energy consumed and the energy required for each
+correction in the log.
+
 ## Running the tests
 
 Before executing the test suite make sure the Python dependencies are
