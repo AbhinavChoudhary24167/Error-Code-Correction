@@ -14,3 +14,10 @@ def test_compute_epc_sample():
     expected_energy = estimate_energy(10000, 5000, node_nm=16, vdd=0.7)
     assert energy == pytest.approx(expected_energy)
     assert epc_val == pytest.approx(expected_energy / 100, abs=1e-15)
+
+
+def test_compute_epc_no_corrections(tmp_path):
+    csv = tmp_path / "data.csv"
+    csv.write_text("0,0,0\n")
+    with pytest.raises(ValueError):
+        compute_epc(csv, 16, 0.7)
