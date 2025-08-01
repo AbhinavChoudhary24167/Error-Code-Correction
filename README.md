@@ -159,6 +159,13 @@ python3 parse_telemetry.py --csv tests/data/sample_secdaec.csv --node 16 --vdd 0
 The script reports the total energy consumed and the energy required for each
 correction in the log.
 
+The Makefile also provides a convenience target called `epc-report` which
+invokes `parse_telemetry.py` with the supplied arguments:
+
+```bash
+make epc-report CSV=tests/data/sample_secdaec.csv NODE=16 VDD=0.7
+```
+
 ## Running the tests
 
 Before executing the test suite make sure the Python dependencies are
