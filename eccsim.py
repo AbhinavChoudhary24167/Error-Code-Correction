@@ -21,7 +21,7 @@ import json
 import sys
 from dataclasses import asdict
 
-from esii import compute_esii
+from esii import compute_esii, embodied_from_wire_area
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from fit import (
     compute_fit_pre,
@@ -116,7 +116,21 @@ def main() -> None:
     esii_parser.add_argument("--E-dyn", type=float, required=True)
     esii_parser.add_argument("--E-leak", type=float, required=True)
     esii_parser.add_argument("--ci", type=float, required=True)
-    esii_parser.add_argument("--EC-embodied", type=float, required=True)
+    esii_parser.add_argument(
+        "--EC-embodied",
+        type=float,
+        help="Embodied carbon in kgCO2e (overrides wire-based estimate)",
+    )
+    esii_parser.add_argument(
+        "--wire-area-mm2",
+        type=float,
+        help="Additional wire area in mm^2 used to estimate embodied carbon",
+    )
+    esii_parser.add_argument(
+        "--wire-factor-kg-per-mm2",
+        type=float,
+        help="Conversion factor from mm^2 to kgCO2e",
+    )
 
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
@@ -156,17 +170,27 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.command == "esii":
+        if args.EC_embodied is not None:
+            embodied = args.EC_embodied
+        else:
+            if args.wire_area_mm2 is None or args.wire_factor_kg_per_mm2 is None:
+                parser.error(
+                    "Provide --EC-embodied or both --wire-area-mm2 and --wire-factor-kg-per-mm2"
+                )
+            embodied = embodied_from_wire_area(
+                args.wire_area_mm2, args.wire_factor_kg_per_mm2
+            )
+
         result = compute_esii(
             args.fit_base,
             args.fit_ecc,
             args.E_dyn,
             args.E_leak,
             args.ci,
-            args.EC_embodied,
+            embodied,
         )
         dynamic = args.E_dyn * args.ci
         leakage = args.E_leak * args.ci
-        embodied = args.EC_embodied
         total = dynamic + leakage + embodied
         print(f"ESII: {result:.3f}")
         print("Breakdown:")

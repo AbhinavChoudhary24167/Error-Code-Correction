@@ -37,39 +37,6 @@ $ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-r
 With `--json` the table is printed to stderr and the JSON object to stdout so it
 can be piped directly into other tools.
 
-Example of inspecting the uncertainty returned from ``compute_fit_post``:
-
-```python
-from fit import compute_fit_post, ecc_coverage_factory
-
-fit = compute_fit_post(
-    64,
-    10.0,
-    {2: {"adj": 5.0}},
-    ecc_coverage_factory("SEC-DED"),
-    scrub_interval_s=0.0,
-    fit_bit_stddev=1.0,
-    mbu_rates_stddev_by_k={2: {"adj": 0.5}},
-)
-print(f"FIT: {fit.nominal:.1f} ± {fit.stddev:.1f}")
-```
-
-## ESII metric
-
-The `esii` command computes the Environmental Sustainability Improvement Index
-from reliability gains and carbon costs. A helper function,
-`embodied_from_wire_area`, can derive the embodied carbon term using the wire
-geometry.
-
-```bash
-python eccsim.py esii --fit-base 1000 --fit-ecc 100 \
-    --E-dyn 1 --E-leak 0.5 --ci 0.2 \
-    --wire-area-mm2 0.05 --wire-factor-kg-per-mm2 3
-```
-
-You can alternatively pass `--EC-embodied` directly if the embodied carbon is
-already known.
-
 ## Running the BCH vs Hamming comparison
 
 1. Compile the simulator:
