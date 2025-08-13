@@ -4,7 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import subprocess
 from dataclasses import dataclass
+from pathlib import Path
 from typing import List, Optional
 
 
@@ -91,6 +94,24 @@ ECC_TABLE: List[ECCOption] = [
 ]
 
 
+def _git_hash() -> str:
+    try:
+        return (
+            subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL)
+            .decode()
+            .strip()
+        )
+    except Exception:
+        return "unknown"
+
+
+def _file_hash(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        h.update(fh.read())
+    return h.hexdigest()
+
+
 def select_ecc(
     ber: float,
     burst_length: int,
@@ -128,7 +149,18 @@ def select_ecc(
 
 
 def main() -> None:
+    repo_path = Path(__file__).resolve().parent
+
+    version_base = (repo_path / "VERSION").read_text().strip()
+    git_hash = _git_hash()
+    tech_hash = _file_hash(repo_path / "tech_calib.json")
+
     parser = argparse.ArgumentParser(description="Select an ECC scheme")
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"{git_hash} {tech_hash} {version_base}",
+    )
     parser.add_argument("ber", type=float, help="Bit error rate")
     parser.add_argument("burst_length", type=int, help="Burst error length")
     parser.add_argument("vdd", type=float, help="Supply voltage in volts")
