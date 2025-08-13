@@ -34,3 +34,34 @@ def test_reliability_report_json():
     expected = ser_hazucha(1.2, hp)
     assert data["fit_bit"] == pytest.approx(expected)
     assert "fit_bit" in res.stderr
+
+
+def test_reliability_report_text():
+    script = Path(__file__).resolve().parents[2] / "eccsim.py"
+    cmd = [
+        sys.executable,
+        str(script),
+        "reliability",
+        "report",
+        "--qcrit",
+        "1.2",
+        "--qs",
+        "0.25",
+        "--area",
+        "0.08",
+        "--flux-rel",
+        "1.0",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    lines = {line.split()[0] for line in res.stdout.strip().splitlines()}
+    # Ensure all metrics are present in the text report
+    assert {
+        "qcrit",
+        "qs",
+        "flux_rel",
+        "fit_bit",
+        "fit_word_pre",
+        "fit_word_post",
+        "fit_system",
+        "mttf",
+    }.issubset(lines)

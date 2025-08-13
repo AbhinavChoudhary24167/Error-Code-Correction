@@ -31,6 +31,43 @@ from fit import (
 )
 
 
+def _format_reliability_report(result: dict) -> str:
+    """Return a human-readable reliability report string.
+
+    Parameters
+    ----------
+    result:
+        Mapping of metric names to values as produced by the reliability
+        backend.
+
+    Returns
+    -------
+    str
+        Multi-line string with metrics in a stable order, formatted to three
+        significant figures for floats.
+    """
+
+    order = [
+        "qcrit",
+        "qs",
+        "flux_rel",
+        "fit_bit",
+        "fit_word_pre",
+        "fit_word_post",
+        "fit_system",
+        "mttf",
+    ]
+
+    lines = []
+    for key in order:
+        value = result[key]
+        if isinstance(value, float):
+            lines.append(f"{key:<15} {value:.3e}")
+        else:
+            lines.append(f"{key:<15} {value}")
+    return "\n".join(lines)
+
+
 def _git_hash() -> str:
     """Return the current Git commit hash or ``unknown`` if unavailable."""
     try:
@@ -167,17 +204,13 @@ def main() -> None:
                 "fit_system": fit_sys,
                 "mttf": mttf,
             }
+            report_str = _format_reliability_report(result)
             if args.json:
                 json.dump(result, sys.stdout)
                 sys.stdout.write("\n")
-                out = sys.stderr
+                print(report_str, file=sys.stderr)
             else:
-                out = sys.stdout
-            for key, value in result.items():
-                if isinstance(value, float):
-                    print(f"{key:<15} {value:.3e}", file=out)
-                else:
-                    print(f"{key:<15} {value}", file=out)
+                print(report_str)
             return
 
     # If no command is provided the parser will show usage via argparse
