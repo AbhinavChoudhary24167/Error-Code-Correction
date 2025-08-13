@@ -18,6 +18,8 @@ import hashlib
 import subprocess
 from pathlib import Path
 
+from esii import compute_esii
+
 
 def _git_hash() -> str:
     """Return the current Git commit hash or ``unknown`` if unavailable."""
@@ -50,7 +52,39 @@ def main() -> None:
         action="version",
         version=f"{git_hash} {tech_hash} {version_base}",
     )
-    parser.parse_args()
+    sub = parser.add_subparsers(dest="command")
+
+    esii_parser = sub.add_parser("esii", help="Compute the ESII metric")
+    esii_parser.add_argument("--fit-base", type=float, required=True)
+    esii_parser.add_argument("--fit-ecc", type=float, required=True)
+    esii_parser.add_argument("--E-dyn", type=float, required=True)
+    esii_parser.add_argument("--E-leak", type=float, required=True)
+    esii_parser.add_argument("--ci", type=float, required=True)
+    esii_parser.add_argument("--EC-embodied", type=float, required=True)
+
+    args = parser.parse_args()
+
+    if args.command == "esii":
+        result = compute_esii(
+            args.fit_base,
+            args.fit_ecc,
+            args.E_dyn,
+            args.E_leak,
+            args.ci,
+            args.EC_embodied,
+        )
+        dynamic = args.E_dyn * args.ci
+        leakage = args.E_leak * args.ci
+        embodied = args.EC_embodied
+        total = dynamic + leakage + embodied
+        print(f"ESII: {result:.3f}")
+        print("Breakdown:")
+        print(f"{'Dynamic (kgCO2e)':<20} {dynamic:.3f}")
+        print(f"{'Leakage (kgCO2e)':<20} {leakage:.3f}")
+        print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
+        print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+        return
+    # If no command is provided the parser will show usage via argparse
 
 
 if __name__ == "__main__":
