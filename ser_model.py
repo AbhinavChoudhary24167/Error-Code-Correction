@@ -19,6 +19,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import argparse
+import math
 from typing import Dict
 
 # Default Markov parameters derived from the thesis tables.
@@ -43,6 +44,53 @@ GILBERT_PARAMS: Dict[str, float] = {
 
 LOW_VOLTAGE_LIMIT = 0.4
 """Voltages below this value are outside the model's validity."""
+
+
+@dataclass
+class HazuchaParams:
+    """Parameters for the Hazucha–Svensson SER model.
+
+    Attributes
+    ----------
+    Qs_fC:
+        Fitted charge collection parameter in femtocoulombs.
+    flux_rel:
+        Neutron flux relative to sea level at 45° latitude.
+    area_um2:
+        Sensitive area of the storage node in square micrometres.
+    C:
+        Technology dependent constant. Defaults to ``2.2e-5``.
+    """
+
+    Qs_fC: float
+    flux_rel: float
+    area_um2: float
+    C: float = 2.2e-5
+
+
+def ser_hazucha(Qcrit_fC: float, hp: HazuchaParams) -> float:
+    """Return the FIT per node using the Hazucha–Svensson model.
+
+    The model relates the critical charge of a node to the resulting soft
+    error rate via an exponential law.
+    """
+
+    return hp.C * hp.flux_rel * hp.area_um2 * math.exp(-Qcrit_fC / hp.Qs_fC)
+
+
+def flux_from_location(
+    alt_km: float, latitude_deg: float, flux_rel: float | None = None
+) -> float:
+    """Return relative neutron flux for a given location.
+
+    Parameters are currently placeholders. When ``flux_rel`` is provided it is
+    returned directly, otherwise ``1.0`` is used. A real implementation would
+    derive the flux from ``alt_km`` and ``latitude_deg``.
+    """
+
+    if flux_rel is not None:
+        return flux_rel
+    return 1.0
 
 
 def _ser(vdd: float, params: Dict[str, float]) -> float:

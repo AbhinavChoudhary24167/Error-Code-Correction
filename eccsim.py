@@ -19,6 +19,7 @@ import subprocess
 from pathlib import Path
 
 from esii import compute_esii
+from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 
 
 def _git_hash() -> str:
@@ -62,6 +63,21 @@ def main() -> None:
     esii_parser.add_argument("--ci", type=float, required=True)
     esii_parser.add_argument("--EC-embodied", type=float, required=True)
 
+    reliability_parser = sub.add_parser(
+        "reliability", help="Reliability calculations"
+    )
+    reliability_sub = reliability_parser.add_subparsers(dest="reliability_command")
+
+    hazucha_parser = reliability_sub.add_parser(
+        "hazucha", help="Hazucha-Svensson SER model"
+    )
+    hazucha_parser.add_argument("--qcrit", type=float, required=True)
+    hazucha_parser.add_argument("--qs", type=float, required=True)
+    hazucha_parser.add_argument("--area", type=float, required=True)
+    hazucha_parser.add_argument("--alt-km", type=float, default=0.0)
+    hazucha_parser.add_argument("--latitude", type=float, default=45.0)
+    hazucha_parser.add_argument("--flux-rel", type=float, default=None)
+
     args = parser.parse_args()
 
     if args.command == "esii":
@@ -84,6 +100,19 @@ def main() -> None:
         print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
         print(f"{'Total (kgCO2e)':<20} {total:.3f}")
         return
+
+    if args.command == "reliability":
+        if args.reliability_command == "hazucha":
+            flux = flux_from_location(
+                args.alt_km, args.latitude, flux_rel=args.flux_rel
+            )
+            hp = HazuchaParams(
+                Qs_fC=args.qs, flux_rel=flux, area_um2=args.area
+            )
+            fit = ser_hazucha(args.qcrit, hp)
+            print(f"{fit:.3e}")
+            return
+
     # If no command is provided the parser will show usage via argparse
 
 
