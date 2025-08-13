@@ -54,6 +54,22 @@ fit = compute_fit_post(
 print(f"FIT: {fit.nominal:.1f} ± {fit.stddev:.1f}")
 ```
 
+## ESII metric
+
+The `esii` command computes the Environmental Sustainability Improvement Index
+from reliability gains and carbon costs. A helper function,
+`embodied_from_wire_area`, can derive the embodied carbon term using the wire
+geometry.
+
+```bash
+python eccsim.py esii --fit-base 1000 --fit-ecc 100 \
+    --E-dyn 1 --E-leak 0.5 --ci 0.2 \
+    --wire-area-mm2 0.05 --wire-factor-kg-per-mm2 3
+```
+
+You can alternatively pass `--EC-embodied` directly if the embodied carbon is
+already known.
+
 ## Running the BCH vs Hamming comparison
 
 1. Compile the simulator:
