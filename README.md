@@ -23,8 +23,12 @@ $ jq '.ber' ecc_stats.json
 
 ## Reliability report
 
-The `eccsim` CLI can generate a reliability summary. Adding `--json` emits a
-machine-readable version alongside the human table:
+The `eccsim` CLI can generate a reliability summary. The underlying
+`compute_fit_pre` and `compute_fit_post` helpers now return a small dataclass
+containing the nominal FIT value and an optional standard deviation. This makes
+it straightforward to reason about uncertainty and report results as ranges
+rather than single figures. Adding `--json` emits a machine-readable version
+alongside the human table:
 
 ```bash
 $ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-rel 1 --json
@@ -32,6 +36,23 @@ $ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-r
 
 With `--json` the table is printed to stderr and the JSON object to stdout so it
 can be piped directly into other tools.
+
+Example of inspecting the uncertainty returned from ``compute_fit_post``:
+
+```python
+from fit import compute_fit_post, ecc_coverage_factory
+
+fit = compute_fit_post(
+    64,
+    10.0,
+    {2: {"adj": 5.0}},
+    ecc_coverage_factory("SEC-DED"),
+    scrub_interval_s=0.0,
+    fit_bit_stddev=1.0,
+    mbu_rates_stddev_by_k={2: {"adj": 0.5}},
+)
+print(f"FIT: {fit.nominal:.1f} ± {fit.stddev:.1f}")
+```
 
 ## Running the BCH vs Hamming comparison
 

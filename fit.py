@@ -7,7 +7,9 @@ derive mean time to failure (MTTF).
 """
 from __future__ import annotations
 
+from dataclasses import dataclass
 from math import comb
+from math import sqrt
 from typing import Callable, Mapping, Tuple
 
 Pattern = Tuple[int, str | None]
@@ -17,13 +19,28 @@ The first element is the number of flipped bits.  The optional second
 string indicates whether the bits are ``"adj"``acent or ``"nonadj"``acent.
 """
 
+@dataclass
+class FitEstimate:
+    """Container holding a nominal FIT and optional uncertainty."""
+
+    nominal: float
+    """Nominal FIT value."""
+
+    stddev: float | None = None
+    """Standard deviation of the FIT.  ``None`` if unspecified."""
+
+
 WORD_BITS = 64
 """Default word width used when aggregating to system level FIT."""
 
 
 def compute_fit_pre(
-    word_bits: int, fit_bit_single: float, mbu_rates_by_k: Mapping[int, Mapping[str, float] | float]
-) -> float:
+    word_bits: int,
+    fit_bit_single: float,
+    mbu_rates_by_k: Mapping[int, Mapping[str, float] | float],
+    fit_bit_stddev: float | None = None,
+    mbu_rates_stddev_by_k: Mapping[int, Mapping[str, float] | float] | None = None,
+) -> FitEstimate:
     """Return the raw FIT per word before ECC protection.
 
     Parameters
@@ -39,12 +56,28 @@ def compute_fit_pre(
     """
 
     fit = word_bits * fit_bit_single
-    for rates in mbu_rates_by_k.values():
+    var = 0.0
+    if fit_bit_stddev is not None:
+        var += (word_bits * fit_bit_stddev) ** 2
+
+    for k, rates in mbu_rates_by_k.items():
+        std_rates = None
+        if mbu_rates_stddev_by_k and k in mbu_rates_stddev_by_k:
+            std_rates = mbu_rates_stddev_by_k[k]
         if isinstance(rates, Mapping):
             fit += sum(rates.values())
+            if isinstance(std_rates, Mapping):
+                for s in std_rates.values():
+                    var += float(s) ** 2
+            elif std_rates is not None:
+                var += float(std_rates) ** 2
         else:
             fit += float(rates)
-    return fit
+            if std_rates is not None:
+                var += float(std_rates) ** 2
+
+    stddev = sqrt(var) if var > 0 else None
+    return FitEstimate(fit, stddev)
 
 
 def compute_fit_post(
@@ -53,7 +86,9 @@ def compute_fit_post(
     mbu_rates_by_k: Mapping[int, Mapping[str, float]],
     ecc_coverage: Callable[[Pattern], float],
     scrub_interval_s: float,
-) -> float:
+    fit_bit_stddev: float | None = None,
+    mbu_rates_stddev_by_k: Mapping[int, Mapping[str, float]] | None = None,
+) -> FitEstimate:
     """Return residual FIT per word after ECC with periodic scrubbing.
 
     Residual FIT accounts for two mechanisms:
@@ -71,20 +106,32 @@ def compute_fit_post(
     lambda1 = fit_bit_single / 1_000_000_000
     tau_hr = scrub_interval_s / 3600.0
 
-    accum = (
-        comb(word_bits, 2)
-        * (lambda1**2)
-        * tau_hr
-        * 1_000_000_000
-        * (1 - ecc_coverage((2, "nonadj")))
-    )
+    coverage_nonadj = ecc_coverage((2, "nonadj"))
+    accum_factor = comb(word_bits, 2) * tau_hr * 1_000_000_000 * (1 - coverage_nonadj)
+    accum = accum_factor * (lambda1**2)
+
+    var = 0.0
+    if fit_bit_stddev is not None and accum_factor != 0:
+        sigma_lambda1 = fit_bit_stddev / 1_000_000_000
+        deriv = 2 * accum_factor * lambda1
+        var += (deriv * sigma_lambda1) ** 2
 
     instant = 0.0
     for k, patterns in mbu_rates_by_k.items():
+        std_patterns = mbu_rates_stddev_by_k.get(k) if mbu_rates_stddev_by_k else None
         for kind, rate in patterns.items():
-            instant += rate * (1 - ecc_coverage((k, kind)))
+            coverage = ecc_coverage((k, kind))
+            contrib = rate * (1 - coverage)
+            instant += contrib
+            if std_patterns:
+                sigma = None
+                if isinstance(std_patterns, Mapping):
+                    sigma = std_patterns.get(kind)
+                if sigma is not None:
+                    var += (float(sigma) * (1 - coverage)) ** 2
 
-    return accum + instant
+    stddev = sqrt(var) if var > 0 else None
+    return FitEstimate(accum + instant, stddev)
 
 
 def ecc_coverage_factory(code: str) -> Callable[[Pattern], float]:
@@ -120,10 +167,13 @@ def ecc_coverage_factory(code: str) -> Callable[[Pattern], float]:
     return coverage
 
 
-def fit_system(capacity_gib: float, fit_word: float) -> float:
+def fit_system(capacity_gib: float, fit_word: float | FitEstimate) -> float | FitEstimate:
     """Return system level FIT for a memory of ``capacity_gib`` GiB."""
 
     words = capacity_gib * (2**30 * 8) / WORD_BITS
+    if isinstance(fit_word, FitEstimate):
+        stddev = None if fit_word.stddev is None else fit_word.stddev * words
+        return FitEstimate(fit_word.nominal * words, stddev)
     return words * fit_word
 
 
