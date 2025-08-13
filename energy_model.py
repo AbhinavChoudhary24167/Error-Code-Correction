@@ -15,8 +15,38 @@ from typing import Dict, Sequence
 
 import numpy as np
 
-_CALIB = json.load(open(Path(__file__).with_name("tech_calib.json")))
-_CALIB = {int(k): {float(v): g for v, g in d.items()} for k, d in _CALIB.items()}
+
+
+def _load_calib(path: Path) -> Dict[int, Dict[float, dict]]:
+    """Load and validate gate energy calibration data."""
+    raw = json.load(open(path))
+    calib: Dict[int, Dict[float, dict]] = {}
+    for node_str, node_data in raw.items():
+        node = int(node_str)
+        calib[node] = {}
+        for vdd_str, entry in node_data.items():
+            vdd = float(vdd_str)
+            required = {"source", "date", "tempC", "gates"}
+            missing = required - entry.keys()
+            if missing:
+                raise ValueError(
+                    f"Missing {missing} for node {node_str} VDD {vdd_str}"
+                )
+            gates = entry["gates"]
+            if set(gates) != {"xor", "and"}:
+                raise ValueError(
+                    f"Missing gate energies for node {node_str} VDD {vdd_str}"
+                )
+            calib[node][vdd] = {
+                "source": entry["source"],
+                "date": entry["date"],
+                "tempC": entry["tempC"],
+                "gates": gates,
+            }
+    return calib
+
+
+_CALIB = _load_calib(Path(__file__).with_name("tech_calib.json"))
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -74,7 +104,7 @@ def gate_energy_vec(
         unique_rounds = np.unique(nearest[v != nearest])
         if unique_rounds.size:
             logging.warning("VDD rounded to nearest entry: %s", unique_rounds)
-        return np.vectorize(lambda x: table[x][gate])(nearest)
+        return np.vectorize(lambda x: table[x]["gates"][gate])(nearest)
     raise ValueError("mode must be 'nearest'")
 
 
