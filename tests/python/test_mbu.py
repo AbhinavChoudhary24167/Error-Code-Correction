@@ -35,10 +35,10 @@ def test_heavy_severity_penalises_sec_ded_more():
     taec_light = compute_fit_post(word_bits, fit_bit, rates_light, taec, scrub)
     taec_heavy = compute_fit_post(word_bits, fit_bit, rates_heavy, taec, scrub)
 
-    diff_ded = ded_heavy - ded_light
-    diff_daec = daec_heavy - daec_light
-    diff_taec = taec_heavy - taec_light
+    diff_ded = ded_heavy.nominal - ded_light.nominal
+    diff_daec = daec_heavy.nominal - daec_light.nominal
+    diff_taec = taec_heavy.nominal - taec_light.nominal
 
-    assert ded_heavy > ded_light
+    assert ded_heavy.nominal > ded_light.nominal
     assert diff_ded > diff_daec
     assert diff_ded > diff_taec

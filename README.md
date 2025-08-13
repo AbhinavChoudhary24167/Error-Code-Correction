@@ -2,7 +2,7 @@
 
 See [docs/TestSummary.md](docs/TestSummary.md) for an overview of the simulator tests.
 
-ECC for SRAM, studying the impact of ECC architectures on sustainablity
+ECC for SRAM, studying the impact of ECC architectures on sustainability
 
 Running the simulators now produces several structured result files in the
 repository root:
@@ -23,8 +23,12 @@ $ jq '.ber' ecc_stats.json
 
 ## Reliability report
 
-The `eccsim` CLI can generate a reliability summary. Adding `--json` emits a
-machine-readable version alongside the human table:
+The `eccsim` CLI can generate a reliability summary. The underlying
+`compute_fit_pre` and `compute_fit_post` helpers now return a small dataclass
+containing the nominal FIT value and an optional standard deviation. This makes
+it straightforward to reason about uncertainty and report results as ranges
+rather than single figures. Adding `--json` emits a machine-readable version
+alongside the human table:
 
 ```bash
 $ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-rel 1 --json
@@ -32,14 +36,6 @@ $ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-r
 
 With `--json` the table is printed to stderr and the JSON object to stdout so it
 can be piped directly into other tools.
-
-## ESII metric
-
-The repository includes helpers for computing the Environmental Sustainability
-Improvement Index which relates reliability gains to carbon cost.  See
-[docs/ESII.md](docs/ESII.md) for details on converting added wire area into an
-embodied-carbon term and for examples of reporting ESII with the embodied
-component included.
 
 ## Running the BCH vs Hamming comparison
 
