@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://your.org/schemas/qcrit_sram6t.schema.light.json",
+  "title": "Qcrit lookup table for SRAM 6T cells (light)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "element", "tech_family", "entries"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "element": { "type": "string" },
+    "tech_family": { "type": "string" },
+    "units": { "type": "object" },
+    "interpolation": { "type": "object" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["node_nm", "vdd", "tempC", "pulse_rise_ps", "qcrit", "source", "date"],
+        "properties": {
+          "node_nm": { "type": "integer" },
+          "vdd": { "type": "number" },
+          "tempC": { "type": "number" },
+          "pulse_rise_ps": { "type": "number" },
+          "pulse_fall_ps": { "type": "number" },
+          "bias": { "type": "string" },
+          "qcrit": {
+            "type": "object",
+            "required": ["mean_fC"],
+            "properties": {
+              "mean_fC": { "type": "number" },
+              "min_fC": { "type": "number" },
+              "max_fC": { "type": "number" },
+              "stdev_fC": { "type": "number" }
+            }
+          },
+          "sensitive_area_um2": { "type": "number" },
+          "method": { "type": "string" },
+          "source": { "type": "string" },
+          "url": { "type": "string" },
+          "doi": { "type": "string" },
+          "date": { "type": "string" },
+          "temperature_ref": { "type": "string" },
+          "comments": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "provenance": { "type": "object" }
+  }
+}
