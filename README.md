@@ -21,6 +21,18 @@ $ jq '.ber' ecc_stats.json
 0.000023
 ```
 
+## Reliability report
+
+The `eccsim` CLI can generate a reliability summary. Adding `--json` emits a
+machine-readable version alongside the human table:
+
+```bash
+$ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-rel 1 --json
+```
+
+With `--json` the table is printed to stderr and the JSON object to stdout so it
+can be piped directly into other tools.
+
 ## Running the BCH vs Hamming comparison
 
 1. Compile the simulator:

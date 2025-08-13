@@ -17,9 +17,18 @@ import argparse
 import hashlib
 import subprocess
 from pathlib import Path
+import json
+import sys
 
 from esii import compute_esii
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
+from fit import (
+    compute_fit_pre,
+    compute_fit_post,
+    ecc_coverage_factory,
+    fit_system,
+    mttf_from_fit,
+)
 
 
 def _git_hash() -> str:
@@ -78,6 +87,26 @@ def main() -> None:
     hazucha_parser.add_argument("--latitude", type=float, default=45.0)
     hazucha_parser.add_argument("--flux-rel", type=float, default=None)
 
+    report_parser = reliability_sub.add_parser(
+        "report", help="Generate reliability report"
+    )
+    report_parser.add_argument("--qcrit", type=float, required=True)
+    report_parser.add_argument("--qs", type=float, required=True)
+    report_parser.add_argument("--area", type=float, required=True)
+    report_parser.add_argument("--alt-km", type=float, default=0.0)
+    report_parser.add_argument("--latitude", type=float, default=45.0)
+    report_parser.add_argument("--flux-rel", type=float, default=None)
+    report_parser.add_argument("--word-bits", type=int, default=64)
+    report_parser.add_argument(
+        "--ecc",
+        type=str,
+        default="SEC-DED",
+        choices=["SEC-DED", "SEC-DAEC", "TAEC"],
+    )
+    report_parser.add_argument("--scrub-interval", type=float, default=0.0)
+    report_parser.add_argument("--capacity-gib", type=float, default=1.0)
+    report_parser.add_argument("--json", action="store_true")
+
     args = parser.parse_args()
 
     if args.command == "esii":
@@ -111,6 +140,44 @@ def main() -> None:
             )
             fit = ser_hazucha(args.qcrit, hp)
             print(f"{fit:.3e}")
+            return
+        if args.reliability_command == "report":
+            flux = flux_from_location(
+                args.alt_km, args.latitude, flux_rel=args.flux_rel
+            )
+            hp = HazuchaParams(
+                Qs_fC=args.qs, flux_rel=flux, area_um2=args.area
+            )
+            fit_bit = ser_hazucha(args.qcrit, hp)
+            mbu_rates = {}
+            fit_pre = compute_fit_pre(args.word_bits, fit_bit, mbu_rates)
+            coverage = ecc_coverage_factory(args.ecc)
+            fit_post = compute_fit_post(
+                args.word_bits, fit_bit, mbu_rates, coverage, args.scrub_interval
+            )
+            fit_sys = fit_system(args.capacity_gib, fit_post)
+            mttf = mttf_from_fit(fit_sys)
+            result = {
+                "qcrit": args.qcrit,
+                "qs": args.qs,
+                "flux_rel": flux,
+                "fit_bit": fit_bit,
+                "fit_word_pre": fit_pre,
+                "fit_word_post": fit_post,
+                "fit_system": fit_sys,
+                "mttf": mttf,
+            }
+            if args.json:
+                json.dump(result, sys.stdout)
+                sys.stdout.write("\n")
+                out = sys.stderr
+            else:
+                out = sys.stdout
+            for key, value in result.items():
+                if isinstance(value, float):
+                    print(f"{key:<15} {value:.3e}", file=out)
+                else:
+                    print(f"{key:<15} {value}", file=out)
             return
 
     # If no command is provided the parser will show usage via argparse
