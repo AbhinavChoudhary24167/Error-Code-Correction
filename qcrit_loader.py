@@ -42,9 +42,9 @@ def _load_qcrit_table(element: str) -> dict:
     grid: Dict[int, Dict[float, Dict[float, Dict[float, dict]]]] = {}
     seen = set()
     for e in raw["entries"]:
-        for field in ("method", "source", "date"):
+        for field in ("method", "source", "date", "tempC", "vdd"):
             if field not in e:
-                raise ValueError(f"Unprovenanced Qcrit entry missing {field}")
+                raise ValueError(f"Qcrit entry missing required field '{field}'")
         key = (e["node_nm"], e["vdd"], e["tempC"], e["pulse_rise_ps"])
         if key in seen:
             raise ValueError(f"Duplicate Qcrit entry for {key}")
