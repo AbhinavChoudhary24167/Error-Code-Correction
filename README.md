@@ -2,7 +2,7 @@
 
 See [docs/TestSummary.md](docs/TestSummary.md) for an overview of the simulator tests.
 
-ECC for SRAM, studying the impact of ECC architectures on sustainablity
+ECC for SRAM, studying the impact of ECC architectures on sustainability
 
 Running the simulators now produces several structured result files in the
 repository root:
