@@ -40,7 +40,8 @@ def test_tech_calibration_schema():
     for node_data in data.values():
         assert set(node_data.keys()) == {"0.8", "0.6"}
         for entry in node_data.values():
-            assert set(entry.keys()) == {"xor", "and"}
+            assert set(entry.keys()) == {"source", "date", "tempC", "gates"}
+            assert set(entry["gates"].keys()) == {"xor", "and"}
 
 
 def test_gate_energy_vec_rounding(caplog):
