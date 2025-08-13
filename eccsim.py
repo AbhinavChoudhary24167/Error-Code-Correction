@@ -19,6 +19,7 @@ import subprocess
 from pathlib import Path
 import json
 import sys
+from dataclasses import asdict
 
 from esii import compute_esii
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
@@ -28,6 +29,7 @@ from fit import (
     ecc_coverage_factory,
     fit_system,
     mttf_from_fit,
+    FitEstimate,
 )
 
 
@@ -61,7 +63,14 @@ def _format_reliability_report(result: dict) -> str:
     lines = []
     for key in order:
         value = result[key]
-        if isinstance(value, float):
+        if isinstance(value, FitEstimate):
+            if value.stddev is not None:
+                lines.append(
+                    f"{key:<15} {value.nominal:.3e} ± {value.stddev:.1e}"
+                )
+            else:
+                lines.append(f"{key:<15} {value.nominal:.3e}")
+        elif isinstance(value, float):
             lines.append(f"{key:<15} {value:.3e}")
         else:
             lines.append(f"{key:<15} {value}")
@@ -193,7 +202,7 @@ def main() -> None:
                 args.word_bits, fit_bit, mbu_rates, coverage, args.scrub_interval
             )
             fit_sys = fit_system(args.capacity_gib, fit_post)
-            mttf = mttf_from_fit(fit_sys)
+            mttf = mttf_from_fit(fit_sys.nominal if isinstance(fit_sys, FitEstimate) else fit_sys)
             result = {
                 "qcrit": args.qcrit,
                 "qs": args.qs,
@@ -206,7 +215,11 @@ def main() -> None:
             }
             report_str = _format_reliability_report(result)
             if args.json:
-                json.dump(result, sys.stdout)
+                json_result = {
+                    k: (asdict(v) if isinstance(v, FitEstimate) else v)
+                    for k, v in result.items()
+                }
+                json.dump(json_result, sys.stdout)
                 sys.stdout.write("\n")
                 print(report_str, file=sys.stderr)
             else:
