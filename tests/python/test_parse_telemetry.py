@@ -1,23 +1,37 @@
 from pathlib import Path
+import json
 
-import numpy as np
+import pandas as pd
 import pytest
 
-from parse_telemetry import compute_epc
-from energy_model import estimate_energy
+import parse_telemetry
+
+_VALID_ROW = (
+    "workload_id,node_nm,vdd,tempC,clk_MHz,xor_toggles,and_toggles,add_toggles,"
+    "corr_events,words,accesses,scrub_s,capacity_gib,runtime_s\n"
+    "wl,16,0.8,25,1000,10,5,2,1,1024,2048,3600,1.0,7200\n"
+)
 
 
-def test_compute_epc_sample():
-    csv_path = Path(__file__).resolve().parent.parent / "data" / "sample_secdaec.csv"
-    energy, epc_val = compute_epc(csv_path, 16, 0.7)
+def test_round_trip(tmp_path: Path) -> None:
+    csv_in = tmp_path / "in.csv"
+    csv_in.write_text(_VALID_ROW)
+    df = parse_telemetry.load_and_validate(csv_in)
 
-    expected_energy = estimate_energy(10000, 5000, node_nm=16, vdd=0.7)
-    assert energy == pytest.approx(expected_energy)
-    assert epc_val == pytest.approx(expected_energy / 100, abs=1e-15)
+    out_csv = tmp_path / "out.csv"
+    out_json = tmp_path / "out.json"
+    parse_telemetry.write_normalized(df, out_csv, out_json)
+
+    df2 = pd.read_csv(out_csv)
+    pd.testing.assert_frame_equal(df, df2, check_dtype=False)
+
+    data = json.loads(out_json.read_text())
+    assert data == df.to_dict(orient="records")
 
 
-def test_compute_epc_no_corrections(tmp_path):
-    csv = tmp_path / "data.csv"
-    csv.write_text("0,0,0\n")
-    with pytest.raises(ValueError):
-        compute_epc(csv, 16, 0.7)
+def test_invalid_field(tmp_path: Path) -> None:
+    csv_in = tmp_path / "bad.csv"
+    # negative voltage violates schema
+    csv_in.write_text(_VALID_ROW.replace("0.8", "-0.1"))
+    with pytest.raises(ValueError, match="vdd"):
+        parse_telemetry.load_and_validate(csv_in)
