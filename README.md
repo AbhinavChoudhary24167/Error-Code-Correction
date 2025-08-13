@@ -33,6 +33,14 @@ $ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-r
 With `--json` the table is printed to stderr and the JSON object to stdout so it
 can be piped directly into other tools.
 
+## ESII metric
+
+The repository includes helpers for computing the Environmental Sustainability
+Improvement Index which relates reliability gains to carbon cost.  See
+[docs/ESII.md](docs/ESII.md) for details on converting added wire area into an
+embodied-carbon term and for examples of reporting ESII with the embodied
+component included.
+
 ## Running the BCH vs Hamming comparison
 
 1. Compile the simulator:

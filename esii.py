@@ -1,12 +1,34 @@
 """Environmental Sustainability Improvement Index (ESII).
 
-This module provides a helper function to compute the ESII given reliability
+This module provides helpers to compute the ESII given reliability
 improvements and carbon cost components.  The ESII is defined as the ratio of
 failure rate improvement to the total carbon footprint associated with the
-technique.
+technique.  In addition to the main :func:`compute_esii` routine the module
+offers utilities for deriving embodied-carbon terms from hardware properties.
 """
 
 from __future__ import annotations
+
+
+def embodied_from_wire_area(area_mm2: float, factor_kg_per_mm2: float) -> float:
+    """Return embodied carbon for additional wiring.
+
+    Parameters
+    ----------
+    area_mm2 : float
+        Added wire area in square millimetres.
+    factor_kg_per_mm2 : float
+        Embodied carbon conversion factor in ``kgCO2e/mm²``.
+
+    Returns
+    -------
+    float
+        Equivalent embodied carbon in kilograms of CO2e.
+    """
+    if area_mm2 < 0 or factor_kg_per_mm2 < 0:
+        raise ValueError("area and factor must be non-negative")
+    return area_mm2 * factor_kg_per_mm2
+
 
 def compute_esii(
     fit_base: float,

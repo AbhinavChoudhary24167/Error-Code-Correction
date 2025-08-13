@@ -3,13 +3,21 @@ import sys
 from pathlib import Path
 import math
 
-from esii import compute_esii
+import pytest
+
+from esii import compute_esii, embodied_from_wire_area
 
 
 def test_compute_esii():
     result = compute_esii(1000, 100, 1.0, 0.5, 0.2, 10)
     expected = 900 / 10.3
     assert math.isclose(result, expected)
+
+
+def test_embodied_from_wire_area():
+    assert embodied_from_wire_area(5, 2) == 10
+    with pytest.raises(ValueError):
+        embodied_from_wire_area(-1, 2)
 
 
 def test_cli_esii_outputs_result():
@@ -28,8 +36,10 @@ def test_cli_esii_outputs_result():
         "0.5",
         "--ci",
         "0.2",
-        "--EC-embodied",
-        "10",
+        "--wire-area-mm2",
+        "5",
+        "--wire-factor-kg-per-mm2",
+        "2",
     ]
     res = subprocess.run(cmd, capture_output=True, text=True, check=True)
     first_line = res.stdout.splitlines()[0]
