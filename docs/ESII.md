@@ -27,20 +27,30 @@ studies and document the source when reporting results.
 
 ## Reporting ESII
 
-`eccsim.py` can report the ESII and a breakdown of the carbon terms.  Provide
-dynamic energy, leakage energy, and either an explicit embodied-carbon value or
-wire area plus a conversion factor:
+`eccsim.py` exposes an ``esii`` subcommand that ties together reliability,
+energy and area reports.  Provide the JSON files produced by the respective
+modules along with the grid carbon intensity and output location:
 
 ```bash
-python eccsim.py esii --fit-base 1000 --fit-ecc 100 --E-dyn 1 --E-leak 0.5 \
-  --ci 0.2 --wire-area-mm2 5 --wire-factor-kg-per-mm2 2
+python eccsim.py esii \
+  --reliability reports/reliability.json \
+  --energy reports/energy.json \
+  --area reports/area.json \
+  --ci 0.55 --embodied-override-kg none --basis per_gib \
+  --out reports/esii.json
 ```
 
-The output lists the contributions from dynamic energy, leakage energy and the
-embodied component.  Include all three when quoting ESII so comparisons between
-ECC schemes capture both operational and embodied impacts.
+The tool writes a JSON object with provenance information, the inputs used, a
+carbon breakdown and the resulting ESII.  Direct numeric inputs are also
+accepted for quick experiments:
 
-Alternatively, the computation can be performed programmatically:
+```bash
+python eccsim.py esii --fit-base 300 --fit-ecc 5 \
+  --e-dyn-j 2.1e3 --e-leak-j 1.4e3 --ci 0.55 --embodied-kg 0.05 \
+  --basis per_gib --out esii.json
+```
+
+The computation can also be performed programmatically:
 
 ```python
 embodied = embodied_from_wire_area(5.0, 2.0)

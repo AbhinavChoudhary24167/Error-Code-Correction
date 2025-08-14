@@ -19,10 +19,9 @@ import subprocess
 from pathlib import Path
 import json
 import sys
-from dataclasses import asdict
 
-from esii import ESIIInputs, compute_esii, embodied_from_wire_area
-from carbon import embodied_kg, operational_kg
+from esii import ESIIInputs, compute_esii, KWH_PER_J
+from carbon import embodied_kg, operational_kg, default_alpha
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from fit import (
     compute_fit_pre,
@@ -143,26 +142,25 @@ def main() -> None:
     carbon_parser.add_argument("--Eleak", type=float, required=True)
 
     esii_parser = sub.add_parser("esii", help="Compute the ESII metric")
-    esii_parser.add_argument("--fit-base", type=float, required=True)
-    esii_parser.add_argument("--fit-ecc", type=float, required=True)
-    esii_parser.add_argument("--E-dyn", type=float, required=True)
-    esii_parser.add_argument("--E-leak", type=float, required=True)
+    esii_parser.add_argument("--reliability", type=Path)
+    esii_parser.add_argument("--energy", type=Path)
+    esii_parser.add_argument("--area", type=Path)
+    esii_parser.add_argument("--fit-base", type=float)
+    esii_parser.add_argument("--fit-ecc", type=float)
+    esii_parser.add_argument("--e-dyn-j", type=float)
+    esii_parser.add_argument("--e-leak-j", type=float)
     esii_parser.add_argument("--ci", type=float, required=True)
+    esii_parser.add_argument("--embodied-kg", type=float)
     esii_parser.add_argument(
-        "--EC-embodied",
-        type=float,
-        help="Embodied carbon in kgCO2e (overrides wire-based estimate)",
+        "--embodied-override-kg",
+        type=str,
+        default="none",
+        help="Use this embodied carbon value instead of computing from area",
     )
     esii_parser.add_argument(
-        "--wire-area-mm2",
-        type=float,
-        help="Additional wire area in mm^2 used to estimate embodied carbon",
+        "--basis", choices=["per_gib", "system"], required=True
     )
-    esii_parser.add_argument(
-        "--wire-factor-kg-per-mm2",
-        type=float,
-        help="Conversion factor from mm^2 to kgCO2e",
-    )
+    esii_parser.add_argument("--out", type=Path)
 
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
@@ -197,40 +195,102 @@ def main() -> None:
     )
     report_parser.add_argument("--scrub-interval", type=float, default=0.0)
     report_parser.add_argument("--capacity-gib", type=float, default=1.0)
+    report_parser.add_argument("--basis", choices=["per_gib", "system"], default="per_gib")
+    report_parser.add_argument("--mbu", type=str, default="none")
+    report_parser.add_argument("--node-nm", type=int, required=True)
+    report_parser.add_argument("--vdd", type=float, required=True)
+    report_parser.add_argument("--tempC", type=float, required=True)
     report_parser.add_argument("--json", action="store_true")
 
     args = parser.parse_args()
 
     if args.command == "esii":
-        if args.EC_embodied is not None:
-            embodied = args.EC_embodied
+        fit_base: float
+        fit_ecc: float
+        basis = args.basis
+
+        if args.reliability:
+            rel = json.load(open(args.reliability))
+            fit_base = rel["fit"]["base"]
+            fit_ecc = rel["fit"]["ecc"]
+            if rel.get("basis") and rel["basis"] != basis:
+                parser.error("Basis mismatch between --basis and reliability report")
         else:
-            if args.wire_area_mm2 is None or args.wire_factor_kg_per_mm2 is None:
+            if args.fit_base is None or args.fit_ecc is None:
                 parser.error(
-                    "Provide --EC-embodied or both --wire-area-mm2 and --wire-factor-kg-per-mm2"
+                    "Provide --reliability or both --fit-base and --fit-ecc"
                 )
-            embodied = embodied_from_wire_area(
-                args.wire_area_mm2, args.wire_factor_kg_per_mm2
+            fit_base = args.fit_base
+            fit_ecc = args.fit_ecc
+
+        if args.energy:
+            energy = json.load(open(args.energy))
+            e_dyn_kwh = energy["dynamic_kWh"]
+            e_leak_kwh = energy["leakage_kWh"]
+        else:
+            if args.e_dyn_j is None or args.e_leak_j is None:
+                parser.error("Provide --energy or both --e-dyn-j and --e-leak-j")
+            e_dyn_kwh = args.e_dyn_j / KWH_PER_J
+            e_leak_kwh = args.e_leak_j / KWH_PER_J
+
+        embodied: float | None = None
+        if args.embodied_override_kg.lower() != "none":
+            embodied = float(args.embodied_override_kg)
+        elif args.embodied_kg is not None:
+            embodied = args.embodied_kg
+        elif args.area:
+            area = json.load(open(args.area))
+            logic_mm2 = area["logic_mm2"]
+            macro_mm2 = area["macro_mm2"]
+            node_nm = area["node_nm"]
+            alpha_logic, alpha_macro = default_alpha(node_nm)
+            embodied = embodied_kg(logic_mm2, macro_mm2, alpha_logic, alpha_macro)
+        else:
+            parser.error(
+                "Provide --embodied-kg, --area or --embodied-override-kg"
             )
 
         inp = ESIIInputs(
-            fit_base=args.fit_base,
-            fit_ecc=args.fit_ecc,
-            e_dyn=args.E_dyn,
-            e_leak=args.E_leak,
+            fit_base=fit_base,
+            fit_ecc=fit_ecc,
+            e_dyn=e_dyn_kwh,
+            e_leak=e_leak_kwh,
             ci_kg_per_kwh=args.ci,
             embodied_kg=embodied,
             energy_units="kWh",
         )
         result = compute_esii(inp)
-        dynamic = result["E_dyn_kWh"] * args.ci
-        leakage = result["E_leak_kWh"] * args.ci
-        print(f"ESII: {result['ESII']:.3f}")
-        print("Breakdown:")
-        print(f"{'Dynamic (kgCO2e)':<20} {dynamic:.3f}")
-        print(f"{'Leakage (kgCO2e)':<20} {leakage:.3f}")
-        print(f"{'Embodied (kgCO2e)':<20} {result['embodied_kg']:.3f}")
-        print(f"{'Total (kgCO2e)':<20} {result['total_carbon_kg']:.3f}")
+
+        provenance = {
+            "git": git_hash,
+            "tech_calib": tech_hash,
+            "qcrit": _file_hash(repo_path / "data" / "qcrit_sram6t.json"),
+        }
+        out = {
+            "provenance": provenance,
+            "basis": basis,
+            "inputs": {
+                "fit_base": fit_base,
+                "fit_ecc": fit_ecc,
+                "E_dyn_kWh": result["E_dyn_kWh"],
+                "E_leak_kWh": result["E_leak_kWh"],
+                "ci": args.ci,
+                "embodied_kg": embodied,
+            },
+            "carbon": {
+                "operational_kg": result["operational_kg"],
+                "embodied_kg": embodied,
+                "total_kg": result["total_carbon_kg"],
+            },
+            "delta_FIT": result["delta_FIT"],
+            "ESII": result["ESII"],
+        }
+
+        if args.out:
+            json.dump(out, open(args.out, "w"))
+        else:
+            json.dump(out, sys.stdout)
+            sys.stdout.write("\n")
         return
 
     if args.command == "carbon":
@@ -291,8 +351,17 @@ def main() -> None:
             fit_post = compute_fit_post(
                 args.word_bits, fit_bit, mbu_rates, coverage, args.scrub_interval
             )
+            if args.basis == "system":
+                fit_base = fit_system(args.capacity_gib, fit_pre)
+                fit_ecc = fit_system(args.capacity_gib, fit_post)
+            else:
+                fit_base = fit_system(1.0, fit_pre)
+                fit_ecc = fit_system(1.0, fit_post)
+
             fit_sys = fit_system(args.capacity_gib, fit_post)
-            mttf = mttf_from_fit(fit_sys.nominal if isinstance(fit_sys, FitEstimate) else fit_sys)
+            mttf = mttf_from_fit(
+                fit_sys.nominal if isinstance(fit_sys, FitEstimate) else fit_sys
+            )
             result = {
                 "qcrit": args.qcrit,
                 "qs": args.qs,
@@ -305,11 +374,23 @@ def main() -> None:
             }
             report_str = _format_reliability_report(result)
             if args.json:
-                json_result = {
-                    k: (asdict(v) if isinstance(v, FitEstimate) else v)
-                    for k, v in result.items()
+                json_out = {
+                    "basis": args.basis,
+                    "fit": {
+                        "base": fit_base.nominal
+                        if isinstance(fit_base, FitEstimate)
+                        else fit_base,
+                        "ecc": fit_ecc.nominal
+                        if isinstance(fit_ecc, FitEstimate)
+                        else fit_ecc,
+                    },
+                    "mbu": args.mbu,
+                    "scrub_s": args.scrub_interval,
+                    "node_nm": args.node_nm,
+                    "vdd": args.vdd,
+                    "tempC": args.tempC,
                 }
-                json.dump(json_result, sys.stdout)
+                json.dump(json_out, sys.stdout)
                 sys.stdout.write("\n")
                 print(report_str, file=sys.stderr)
             else:
