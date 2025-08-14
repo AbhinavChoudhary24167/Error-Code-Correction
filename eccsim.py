@@ -22,6 +22,7 @@ import sys
 from dataclasses import asdict
 
 from esii import compute_esii, embodied_from_wire_area
+from carbon import embodied_kg, operational_kg
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from fit import (
     compute_fit_pre,
@@ -124,6 +125,23 @@ def main() -> None:
         "--report", type=str, choices=["json"], default=None
     )
 
+    carbon_parser = sub.add_parser("carbon", help="Estimate carbon footprint")
+    carbon_parser.add_argument(
+        "--areas",
+        type=str,
+        required=True,
+        help="Comma separated logic and macro areas in mm^2",
+    )
+    carbon_parser.add_argument(
+        "--alpha",
+        type=str,
+        required=True,
+        help="Comma separated alpha factors for logic and macros",
+    )
+    carbon_parser.add_argument("--ci", type=float, required=True)
+    carbon_parser.add_argument("--Edyn", type=float, required=True)
+    carbon_parser.add_argument("--Eleak", type=float, required=True)
+
     esii_parser = sub.add_parser("esii", help="Compute the ESII metric")
     esii_parser.add_argument("--fit-base", type=float, required=True)
     esii_parser.add_argument("--fit-ecc", type=float, required=True)
@@ -211,6 +229,21 @@ def main() -> None:
         print(f"{'Dynamic (kgCO2e)':<20} {dynamic:.3f}")
         print(f"{'Leakage (kgCO2e)':<20} {leakage:.3f}")
         print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
+        print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+        return
+
+    if args.command == "carbon":
+        try:
+            area_logic, area_macro = [float(x) for x in args.areas.split(",")]
+            alpha_logic, alpha_macro = [float(x) for x in args.alpha.split(",")]
+        except Exception:
+            parser.error("--areas and --alpha require two comma separated floats")
+
+        embodied = embodied_kg(area_logic, area_macro, alpha_logic, alpha_macro)
+        operational = operational_kg(args.Edyn, args.Eleak, args.ci)
+        total = embodied + operational
+        print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
+        print(f"{'Operational (kgCO2e)':<20} {operational:.3f}")
         print(f"{'Total (kgCO2e)':<20} {total:.3f}")
         return
 
