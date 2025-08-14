@@ -31,6 +31,7 @@ from fit import (
     mttf_from_fit,
     FitEstimate,
 )
+from energy_model import energy_report
 
 
 def _format_reliability_report(result: dict) -> str:
@@ -109,6 +110,19 @@ def main() -> None:
         version=f"{git_hash} {tech_hash} {version_base}",
     )
     sub = parser.add_subparsers(dest="command")
+
+    energy_parser = sub.add_parser("energy", help="Estimate energy use")
+    energy_parser.add_argument(
+        "--code", type=str, required=True, choices=["sec-ded", "sec-daec", "taec"]
+    )
+    energy_parser.add_argument("--node", type=float, required=True)
+    energy_parser.add_argument("--vdd", type=float, required=True)
+    energy_parser.add_argument("--temp", type=float, required=True)
+    energy_parser.add_argument("--ops", type=float, required=True)
+    energy_parser.add_argument("--lifetime-h", type=float, required=True)
+    energy_parser.add_argument(
+        "--report", type=str, choices=["json"], default=None
+    )
 
     esii_parser = sub.add_parser("esii", help="Compute the ESII metric")
     esii_parser.add_argument("--fit-base", type=float, required=True)
@@ -198,6 +212,24 @@ def main() -> None:
         print(f"{'Leakage (kgCO2e)':<20} {leakage:.3f}")
         print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
         print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+        return
+
+    if args.command == "energy":
+        result = energy_report(
+            args.code,
+            args.node,
+            args.vdd,
+            args.temp,
+            args.ops,
+            args.lifetime_h,
+        )
+        if args.report == "json":
+            json.dump(result, sys.stdout)
+            sys.stdout.write("\n")
+        else:
+            print(f"{'Dynamic (kWh)':<15} {result['dynamic_kWh']:.3e}")
+            print(f"{'Leakage (kWh)':<15} {result['leakage_kWh']:.3e}")
+            print(f"{'Total (kWh)':<15} {result['total_kWh']:.3e}")
         return
 
     if args.command == "reliability":

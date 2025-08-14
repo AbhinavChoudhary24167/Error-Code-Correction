@@ -1,9 +1,10 @@
 """Voltage and technology aware energy model.
 
 At import-time the module loads ``tech_calib.json`` which maps a CMOS process
-node and supply voltage to the energy cost of XOR and AND gates.  Functions in
-this module expose simple helpers that return energies in joules (``J``) or
-energy-per-correction (``J/bit``).
+node and supply voltage to the energy cost of XOR, AND and adder-stage
+primitives.  Functions in this module expose helpers that perform piecewise
+linear interpolation over voltage and node and return energies in joules
+(``J``) or energy-per-correction (``J/bit``).
 """
 
 from __future__ import annotations
@@ -14,6 +15,7 @@ from pathlib import Path
 from typing import Dict, Sequence
 
 import numpy as np
+import math
 
 
 
@@ -33,7 +35,7 @@ def _load_calib(path: Path) -> Dict[int, Dict[float, dict]]:
                     f"Missing {missing} for node {node_str} VDD {vdd_str}"
                 )
             gates = entry["gates"]
-            if set(gates) != {"xor", "and"}:
+            if set(gates) != {"xor", "and", "adder_stage"}:
                 raise ValueError(
                     f"Missing gate energies for node {node_str} VDD {vdd_str}"
                 )
@@ -43,6 +45,14 @@ def _load_calib(path: Path) -> Dict[int, Dict[float, dict]]:
                 "tempC": entry["tempC"],
                 "gates": gates,
             }
+
+        vols_sorted = sorted(calib[node])
+        for gate_name in ["xor", "and", "adder_stage"]:
+            vals = [calib[node][vol]["gates"][gate_name] for vol in vols_sorted]
+            if any(b < a for a, b in zip(vals, vals[1:])):
+                raise ValueError(
+                    f"{gate_name} energy non-monotonic in VDD for node {node_str}"
+                )
     return calib
 
 
@@ -56,7 +66,9 @@ def _nearest(v: float, choices) -> float:
     return min(choices, key=lambda c: abs(c - v))
 
 
-def gate_energy(node_nm: int, vdd: float, gate: str, *, mode: str = "nearest") -> float:
+def gate_energy(
+    node_nm: float, vdd: float, gate: str, *, mode: str = "pwl"
+) -> float:
     """Return energy of a gate operation.
 
     Parameters
@@ -73,14 +85,18 @@ def gate_energy(node_nm: int, vdd: float, gate: str, *, mode: str = "nearest") -
     float
         Energy in joules (J) for the specified gate.
     """
-    if gate not in {"xor", "and"}:
+    if gate not in {"xor", "and", "adder_stage"}:
         raise KeyError(gate)
 
     return gate_energy_vec(node_nm, np.array([vdd]), gate, mode=mode).item()
 
 
 def gate_energy_vec(
-    node_nm: int, vdd_array: Sequence[float], gate: str, *, mode: str = "nearest"
+    node_nm: float,
+    vdd_array: Sequence[float],
+    gate: str,
+    *,
+    mode: str = "pwl",
 ) -> np.ndarray:
     """Vectorised gate energy lookup.
 
@@ -96,16 +112,38 @@ def gate_energy_vec(
         Currently only ``"nearest"`` is supported.
     """
     v = np.asanyarray(vdd_array, dtype=float)
-    table = _CALIB[node_nm]
-    vols = np.array(sorted(table))
     if mode == "nearest":
+        table = _CALIB[int(_nearest(node_nm, _CALIB.keys()))]
+        vols = np.array(sorted(table))
         idx = np.abs(vols[:, None] - v).argmin(0)
         nearest = vols[idx]
         unique_rounds = np.unique(nearest[v != nearest])
         if unique_rounds.size:
             logging.warning("VDD rounded to nearest entry: %s", unique_rounds)
         return np.vectorize(lambda x: table[x]["gates"][gate])(nearest)
-    raise ValueError("mode must be 'nearest'")
+
+    if mode == "pwl":
+        nodes = np.array(sorted(_CALIB))
+
+        all_vols = [sorted(table) for table in _CALIB.values()]
+        v_min = min(vs[0] for vs in all_vols)
+        v_max = max(vs[-1] for vs in all_vols)
+        if np.any((v < v_min) | (v > v_max)):
+            _LOGGER.warning(
+                "VDD outside calibration range; clamped to [%s, %s]", v_min, v_max
+            )
+            v = np.clip(v, v_min, v_max)
+
+        def energy_at_node(n: int) -> np.ndarray:
+            table = _CALIB[n]
+            vols = np.array(sorted(table))
+            vals = [table[vol]["gates"][gate] for vol in vols]
+            return np.interp(v, vols, vals)
+
+        energies = np.stack([energy_at_node(n) for n in nodes], axis=0)
+        return np.array([np.interp(node_nm, nodes, energies[:, i]) for i in range(v.size)])
+
+    raise ValueError("mode must be 'nearest' or 'pwl'")
 
 
 def estimate_energy(
@@ -132,8 +170,8 @@ def estimate_energy(
     if parity_bits < 0 or detected_errors < 0:
         raise ValueError("Counts must be non-negative")
 
-    e_xor = gate_energy_vec(node_nm, np.array([vdd]), "xor", mode="nearest").item()
-    e_and = gate_energy_vec(node_nm, np.array([vdd]), "and", mode="nearest").item()
+    e_xor = gate_energy_vec(node_nm, np.array([vdd]), "xor", mode="pwl").item()
+    e_and = gate_energy_vec(node_nm, np.array([vdd]), "and", mode="pwl").item()
     return parity_bits * e_xor + detected_errors * e_and
 
 
@@ -166,6 +204,109 @@ def epc(
 
     total = estimate_energy(xor_cnt, and_cnt, node_nm=node_nm, vdd=vdd)
     return total / corrections
+
+
+# ---------------------------------------------------------------------------
+# Depth models
+
+
+def depth_parity(bits: int) -> int:
+    """Depth of a balanced XOR tree computing parity of ``bits`` inputs."""
+    if bits <= 1:
+        return 0
+    return int(math.ceil(math.log2(bits)))
+
+
+def depth_syndrome(bits: int) -> int:
+    """Depth of XOR tree for syndrome calculation."""
+    return depth_parity(bits)
+
+
+def depth_locator(code: str) -> int:
+    """Return adder depth for the locator stage of ``code``."""
+    mapping = {"sec-ded": 1, "sec-daec": 2, "taec": 3}
+    try:
+        return mapping[code.lower()]
+    except KeyError:
+        raise KeyError(code)
+
+
+# ---------------------------------------------------------------------------
+# Leakage model
+
+
+_LEAK_BASE = {28: 0.5, 16: 0.7, 7: 1.0}  # A/mm^2 at 25C
+
+
+def i_leak_density_A_per_mm2(node_nm: float, temp_c: float) -> float:
+    nodes = np.array(sorted(_LEAK_BASE))
+    base = np.array([_LEAK_BASE[n] for n in nodes])
+    density_25 = np.interp(node_nm, nodes, base)
+    return density_25 * 2 ** ((temp_c - 25.0) / 10.0)
+
+
+_AREA_OVERHEAD = {"sec-ded": 0.1, "sec-daec": 0.12, "taec": 0.15}
+
+
+def area_overhead_mm2(code: str) -> float:
+    try:
+        return _AREA_OVERHEAD[code.lower()]
+    except KeyError:
+        raise KeyError(code)
+
+
+def leakage_energy_kwh(
+    vdd: float, node_nm: float, temp_c: float, code: str, lifetime_h: float
+) -> float:
+    i = i_leak_density_A_per_mm2(node_nm, temp_c)
+    area = area_overhead_mm2(code)
+    return vdd * i * area * (lifetime_h / 1000.0)
+
+
+# ---------------------------------------------------------------------------
+# Dynamic energy model per ECC
+
+
+_PRIMITIVE_COUNTS: Dict[str, Dict[str, int]] = {
+    "sec-ded": {"xor": 100, "and": 50, "adder_stage": 0},
+    "sec-daec": {"xor": 120, "and": 60, "adder_stage": 10},
+    "taec": {"xor": 150, "and": 70, "adder_stage": 20},
+}
+
+
+def dynamic_energy_per_op(
+    code: str, node_nm: float, vdd: float, *, mode: str = "pwl"
+) -> float:
+    primitives = _PRIMITIVE_COUNTS[code.lower()]
+    e_xor = gate_energy(node_nm, vdd, "xor", mode=mode)
+    e_and = gate_energy(node_nm, vdd, "and", mode=mode)
+    e_add = gate_energy(node_nm, vdd, "adder_stage", mode=mode)
+    return (
+        primitives["xor"] * e_xor
+        + primitives["and"] * e_and
+        + primitives["adder_stage"] * e_add
+    )
+
+
+def dynamic_energy_kwh(
+    ops: float, code: str, node_nm: float, vdd: float, *, mode: str = "pwl"
+) -> float:
+    return ops * dynamic_energy_per_op(code, node_nm, vdd, mode=mode) / 3.6e6
+
+
+def energy_report(
+    code: str,
+    node_nm: float,
+    vdd: float,
+    temp_c: float,
+    ops: float,
+    lifetime_h: float,
+    *,
+    mode: str = "pwl",
+) -> Dict[str, float]:
+    dyn = dynamic_energy_kwh(ops, code, node_nm, vdd, mode=mode)
+    leak = leakage_energy_kwh(vdd, node_nm, temp_c, code, lifetime_h)
+    return {"dynamic_kWh": dyn, "leakage_kWh": leak, "total_kWh": dyn + leak}
 
 
 if __name__ == "__main__":

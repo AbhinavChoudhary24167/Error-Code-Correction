@@ -41,13 +41,13 @@ def test_tech_calibration_schema():
         assert set(node_data.keys()) == {"0.8", "0.6"}
         for entry in node_data.values():
             assert set(entry.keys()) == {"source", "date", "tempC", "gates"}
-            assert set(entry["gates"].keys()) == {"xor", "and"}
+            assert set(entry["gates"].keys()) == {"xor", "and", "adder_stage"}
 
 
 def test_gate_energy_vec_rounding(caplog):
     with caplog.at_level('WARNING'):
-        val = gate_energy_vec(16, [0.75], "xor")[0]
-    ref = gate_energy(16, 0.8, "xor")
+        val = gate_energy_vec(16, [0.75], "xor", mode="nearest")[0]
+    ref = gate_energy(16, 0.8, "xor", mode="nearest")
     assert val == pytest.approx(ref)
     assert any('VDD rounded to nearest entry' in m for m in caplog.text.splitlines())
 
@@ -59,8 +59,8 @@ def test_gate_energy_vec_monotonic():
 
 
 def test_nearest_rounding():
-    e_exact = gate_energy(16, 0.8, "xor")
-    e_round = gate_energy(16, 0.75, "xor")
+    e_exact = gate_energy(16, 0.8, "xor", mode="nearest")
+    e_round = gate_energy(16, 0.75, "xor", mode="nearest")
     assert e_exact == e_round
 
 
@@ -68,3 +68,19 @@ def test_vector_api():
     v = np.array([0.6, 0.75, 0.8])
     arr = energy_model.gate_energy_vec(28, v, "and")
     assert arr.shape == v.shape
+
+
+def test_dynamic_energy_scales_with_ops():
+    e1 = energy_model.dynamic_energy_kwh(1e3, "sec-ded", 28, 0.8)
+    e2 = energy_model.dynamic_energy_kwh(2e3, "sec-ded", 28, 0.8)
+    assert e2 == pytest.approx(2 * e1)
+
+
+def test_leakage_energy_monotonic():
+    low_temp = energy_model.leakage_energy_kwh(0.8, 28, 25, "sec-ded", 1)
+    high_temp = energy_model.leakage_energy_kwh(0.8, 28, 35, "sec-ded", 1)
+    assert high_temp > low_temp
+
+    small_area = energy_model.leakage_energy_kwh(0.8, 28, 75, "sec-ded", 1)
+    large_area = energy_model.leakage_energy_kwh(0.8, 28, 75, "taec", 1)
+    assert large_area > small_area
