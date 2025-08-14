@@ -1,24 +1,34 @@
 CXX ?= g++
 CXXFLAGS ?= -std=c++11 -O2
+CXXFLAGS += -MMD -MP
+
+SRC = BCHvsHamming.cpp Hamming32bit1Gb.cpp Hamming64bit128Gb.cpp SAT.cpp
+OBJ = $(SRC:.cpp=.o)
+DEP = $(OBJ:.o=.d)
 
 BINARIES = BCHvsHamming Hamming32bit1Gb Hamming64bit128Gb SATDemo
 
 all: $(BINARIES)
 
-BCHvsHamming: BCHvsHamming.cpp
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+BCHvsHamming: BCHvsHamming.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-Hamming32bit1Gb: Hamming32bit1Gb.cpp
+Hamming32bit1Gb: Hamming32bit1Gb.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-Hamming64bit128Gb: Hamming64bit128Gb.cpp
+Hamming64bit128Gb: Hamming64bit128Gb.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-SATDemo: SAT.cpp
+SATDemo: SAT.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
-	rm -f $(BINARIES)
+	rm -f $(BINARIES) $(OBJ) $(DEP)
+
+-include $(DEP)
 
 .PHONY: test clean gtest
 
