@@ -255,12 +255,12 @@ def area_overhead_mm2(code: str) -> float:
         raise KeyError(code)
 
 
-def leakage_energy_kwh(
+def leakage_energy_j(
     vdd: float, node_nm: float, temp_c: float, code: str, lifetime_h: float
 ) -> float:
     i = i_leak_density_A_per_mm2(node_nm, temp_c)
     area = area_overhead_mm2(code)
-    return vdd * i * area * (lifetime_h / 1000.0)
+    return vdd * i * area * (lifetime_h * 3600.0)
 
 
 # ---------------------------------------------------------------------------
@@ -288,10 +288,10 @@ def dynamic_energy_per_op(
     )
 
 
-def dynamic_energy_kwh(
+def dynamic_energy_j(
     ops: float, code: str, node_nm: float, vdd: float, *, mode: str = "pwl"
 ) -> float:
-    return ops * dynamic_energy_per_op(code, node_nm, vdd, mode=mode) / 3.6e6
+    return ops * dynamic_energy_per_op(code, node_nm, vdd, mode=mode)
 
 
 def energy_report(
@@ -304,9 +304,9 @@ def energy_report(
     *,
     mode: str = "pwl",
 ) -> Dict[str, float]:
-    dyn = dynamic_energy_kwh(ops, code, node_nm, vdd, mode=mode)
-    leak = leakage_energy_kwh(vdd, node_nm, temp_c, code, lifetime_h)
-    return {"dynamic_kWh": dyn, "leakage_kWh": leak, "total_kWh": dyn + leak}
+    dyn = dynamic_energy_j(ops, code, node_nm, vdd, mode=mode)
+    leak = leakage_energy_j(vdd, node_nm, temp_c, code, lifetime_h)
+    return {"dynamic_J": dyn, "leakage_J": leak, "total_J": dyn + leak}
 
 
 if __name__ == "__main__":

@@ -71,16 +71,16 @@ def test_vector_api():
 
 
 def test_dynamic_energy_scales_with_ops():
-    e1 = energy_model.dynamic_energy_kwh(1e3, "sec-ded", 28, 0.8)
-    e2 = energy_model.dynamic_energy_kwh(2e3, "sec-ded", 28, 0.8)
+    e1 = energy_model.dynamic_energy_j(1e3, "sec-ded", 28, 0.8)
+    e2 = energy_model.dynamic_energy_j(2e3, "sec-ded", 28, 0.8)
     assert e2 == pytest.approx(2 * e1)
 
 
 def test_leakage_energy_monotonic():
-    low_temp = energy_model.leakage_energy_kwh(0.8, 28, 25, "sec-ded", 1)
-    high_temp = energy_model.leakage_energy_kwh(0.8, 28, 35, "sec-ded", 1)
+    low_temp = energy_model.leakage_energy_j(0.8, 28, 25, "sec-ded", 1)
+    high_temp = energy_model.leakage_energy_j(0.8, 28, 35, "sec-ded", 1)
     assert high_temp > low_temp
 
-    small_area = energy_model.leakage_energy_kwh(0.8, 28, 75, "sec-ded", 1)
-    large_area = energy_model.leakage_energy_kwh(0.8, 28, 75, "taec", 1)
+    small_area = energy_model.leakage_energy_j(0.8, 28, 75, "sec-ded", 1)
+    large_area = energy_model.leakage_energy_j(0.8, 28, 75, "taec", 1)
     assert large_area > small_area

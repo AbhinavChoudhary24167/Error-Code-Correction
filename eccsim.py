@@ -19,10 +19,9 @@ import subprocess
 from pathlib import Path
 import json
 import sys
-from dataclasses import asdict
 
-from esii import compute_esii, embodied_from_wire_area
-from carbon import embodied_kg, operational_kg
+from esii import ESIIInputs, compute_esii
+from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from fit import (
     compute_fit_pre,
@@ -143,26 +142,25 @@ def main() -> None:
     carbon_parser.add_argument("--Eleak", type=float, required=True)
 
     esii_parser = sub.add_parser("esii", help="Compute the ESII metric")
-    esii_parser.add_argument("--fit-base", type=float, required=True)
-    esii_parser.add_argument("--fit-ecc", type=float, required=True)
-    esii_parser.add_argument("--E-dyn", type=float, required=True)
-    esii_parser.add_argument("--E-leak", type=float, required=True)
+    esii_parser.add_argument("--reliability", type=Path)
+    esii_parser.add_argument("--energy", type=Path)
+    esii_parser.add_argument("--area", type=Path)
+    esii_parser.add_argument("--fit-base", type=float)
+    esii_parser.add_argument("--fit-ecc", type=float)
+    esii_parser.add_argument("--e-dyn-j", type=float)
+    esii_parser.add_argument("--e-leak-j", type=float)
     esii_parser.add_argument("--ci", type=float, required=True)
+    esii_parser.add_argument("--embodied-kgco2e", type=float)
     esii_parser.add_argument(
-        "--EC-embodied",
-        type=float,
-        help="Embodied carbon in kgCO2e (overrides wire-based estimate)",
+        "--embodied-override-kgco2e",
+        type=str,
+        default="none",
+        help="Use this embodied carbon value instead of computing from area",
     )
     esii_parser.add_argument(
-        "--wire-area-mm2",
-        type=float,
-        help="Additional wire area in mm^2 used to estimate embodied carbon",
+        "--basis", choices=["per_gib", "system"], required=True
     )
-    esii_parser.add_argument(
-        "--wire-factor-kg-per-mm2",
-        type=float,
-        help="Conversion factor from mm^2 to kgCO2e",
-    )
+    esii_parser.add_argument("--out", type=Path)
 
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
@@ -197,39 +195,101 @@ def main() -> None:
     )
     report_parser.add_argument("--scrub-interval", type=float, default=0.0)
     report_parser.add_argument("--capacity-gib", type=float, default=1.0)
+    report_parser.add_argument("--basis", choices=["per_gib", "system"], default="per_gib")
+    report_parser.add_argument("--mbu", type=str, default="none")
+    report_parser.add_argument("--node-nm", type=int, required=True)
+    report_parser.add_argument("--vdd", type=float, required=True)
+    report_parser.add_argument("--tempC", type=float, required=True)
     report_parser.add_argument("--json", action="store_true")
 
     args = parser.parse_args()
 
     if args.command == "esii":
-        if args.EC_embodied is not None:
-            embodied = args.EC_embodied
+        fit_base: float
+        fit_ecc: float
+        basis = args.basis
+
+        if args.reliability:
+            rel = json.load(open(args.reliability))
+            fit_base = rel["fit"]["base"]
+            fit_ecc = rel["fit"]["ecc"]
+            if rel.get("basis") and rel["basis"] != basis:
+                parser.error("Basis mismatch between --basis and reliability report")
         else:
-            if args.wire_area_mm2 is None or args.wire_factor_kg_per_mm2 is None:
+            if args.fit_base is None or args.fit_ecc is None:
                 parser.error(
-                    "Provide --EC-embodied or both --wire-area-mm2 and --wire-factor-kg-per-mm2"
+                    "Provide --reliability or both --fit-base and --fit-ecc"
                 )
-            embodied = embodied_from_wire_area(
-                args.wire_area_mm2, args.wire_factor_kg_per_mm2
+            fit_base = args.fit_base
+            fit_ecc = args.fit_ecc
+
+        if args.energy:
+            energy = json.load(open(args.energy))
+            e_dyn_j = energy["dynamic_J"]
+            e_leak_j = energy["leakage_J"]
+        else:
+            if args.e_dyn_j is None or args.e_leak_j is None:
+                parser.error("Provide --energy or both --e-dyn-j and --e-leak-j")
+            e_dyn_j = args.e_dyn_j
+            e_leak_j = args.e_leak_j
+
+        embodied: float | None = None
+        if args.embodied_override_kgco2e.lower() != "none":
+            embodied = float(args.embodied_override_kgco2e)
+        elif args.embodied_kgco2e is not None:
+            embodied = args.embodied_kgco2e
+        elif args.area:
+            area = json.load(open(args.area))
+            logic_mm2 = area["logic_mm2"]
+            macro_mm2 = area["macro_mm2"]
+            node_nm = area["node_nm"]
+            alpha_logic, alpha_macro = default_alpha(node_nm)
+            embodied = embodied_kgco2e(logic_mm2, macro_mm2, alpha_logic, alpha_macro)
+        else:
+            parser.error(
+                "Provide --embodied-kgco2e, --area or --embodied-override-kgco2e"
             )
 
-        result = compute_esii(
-            args.fit_base,
-            args.fit_ecc,
-            args.E_dyn,
-            args.E_leak,
-            args.ci,
-            embodied,
+        inp = ESIIInputs(
+            fit_base=fit_base,
+            fit_ecc=fit_ecc,
+            e_dyn=e_dyn_j,
+            e_leak=e_leak_j,
+            ci_kgco2e_per_kwh=args.ci,
+            embodied_kgco2e=embodied,
         )
-        dynamic = args.E_dyn * args.ci
-        leakage = args.E_leak * args.ci
-        total = dynamic + leakage + embodied
-        print(f"ESII: {result:.3f}")
-        print("Breakdown:")
-        print(f"{'Dynamic (kgCO2e)':<20} {dynamic:.3f}")
-        print(f"{'Leakage (kgCO2e)':<20} {leakage:.3f}")
-        print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
-        print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+        result = compute_esii(inp)
+
+        provenance = {
+            "git": git_hash,
+            "tech_calib": tech_hash,
+            "qcrit": _file_hash(repo_path / "data" / "qcrit_sram6t.json"),
+        }
+        out = {
+            "provenance": provenance,
+            "basis": basis,
+            "inputs": {
+                "fit_base": fit_base,
+                "fit_ecc": fit_ecc,
+                "E_dyn_kWh": result["E_dyn_kWh"],
+                "E_leak_kWh": result["E_leak_kWh"],
+                "ci_kgCO2e_per_kWh": args.ci,
+                "embodied_kgCO2e": embodied,
+            },
+            "carbon": {
+                "operational_kgCO2e": result["operational_kgCO2e"],
+                "embodied_kgCO2e": embodied,
+                "total_kgCO2e": result["total_kgCO2e"],
+            },
+            "delta_FIT": result["delta_FIT"],
+            "ESII": result["ESII"],
+        }
+
+        if args.out:
+            json.dump(out, open(args.out, "w"))
+        else:
+            json.dump(out, sys.stdout)
+            sys.stdout.write("\n")
         return
 
     if args.command == "carbon":
@@ -239,8 +299,8 @@ def main() -> None:
         except Exception:
             parser.error("--areas and --alpha require two comma separated floats")
 
-        embodied = embodied_kg(area_logic, area_macro, alpha_logic, alpha_macro)
-        operational = operational_kg(args.Edyn, args.Eleak, args.ci)
+        embodied = embodied_kgco2e(area_logic, area_macro, alpha_logic, alpha_macro)
+        operational = operational_kgco2e(args.Edyn, args.Eleak, args.ci)
         total = embodied + operational
         print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
         print(f"{'Operational (kgCO2e)':<20} {operational:.3f}")
@@ -260,9 +320,9 @@ def main() -> None:
             json.dump(result, sys.stdout)
             sys.stdout.write("\n")
         else:
-            print(f"{'Dynamic (kWh)':<15} {result['dynamic_kWh']:.3e}")
-            print(f"{'Leakage (kWh)':<15} {result['leakage_kWh']:.3e}")
-            print(f"{'Total (kWh)':<15} {result['total_kWh']:.3e}")
+            print(f"{'Dynamic (J)':<15} {result['dynamic_J']:.3e}")
+            print(f"{'Leakage (J)':<15} {result['leakage_J']:.3e}")
+            print(f"{'Total (J)':<15} {result['total_J']:.3e}")
         return
 
     if args.command == "reliability":
@@ -290,8 +350,17 @@ def main() -> None:
             fit_post = compute_fit_post(
                 args.word_bits, fit_bit, mbu_rates, coverage, args.scrub_interval
             )
+            if args.basis == "system":
+                fit_base = fit_system(args.capacity_gib, fit_pre)
+                fit_ecc = fit_system(args.capacity_gib, fit_post)
+            else:
+                fit_base = fit_system(1.0, fit_pre)
+                fit_ecc = fit_system(1.0, fit_post)
+
             fit_sys = fit_system(args.capacity_gib, fit_post)
-            mttf = mttf_from_fit(fit_sys.nominal if isinstance(fit_sys, FitEstimate) else fit_sys)
+            mttf = mttf_from_fit(
+                fit_sys.nominal if isinstance(fit_sys, FitEstimate) else fit_sys
+            )
             result = {
                 "qcrit": args.qcrit,
                 "qs": args.qs,
@@ -304,11 +373,23 @@ def main() -> None:
             }
             report_str = _format_reliability_report(result)
             if args.json:
-                json_result = {
-                    k: (asdict(v) if isinstance(v, FitEstimate) else v)
-                    for k, v in result.items()
+                json_out = {
+                    "basis": args.basis,
+                    "fit": {
+                        "base": fit_base.nominal
+                        if isinstance(fit_base, FitEstimate)
+                        else fit_base,
+                        "ecc": fit_ecc.nominal
+                        if isinstance(fit_ecc, FitEstimate)
+                        else fit_ecc,
+                    },
+                    "mbu": args.mbu,
+                    "scrub_s": args.scrub_interval,
+                    "node_nm": args.node_nm,
+                    "vdd": args.vdd,
+                    "tempC": args.tempC,
                 }
-                json.dump(json_result, sys.stdout)
+                json.dump(json_out, sys.stdout)
                 sys.stdout.write("\n")
                 print(report_str, file=sys.stderr)
             else:

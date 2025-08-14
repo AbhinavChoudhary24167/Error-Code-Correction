@@ -11,7 +11,7 @@ import json
 from typing import Tuple
 
 
-def embodied_kg(
+def embodied_kgco2e(
     area_logic_mm2: float,
     area_macro_mm2: float,
     alpha_logic_kg_per_mm2: float,
@@ -47,11 +47,13 @@ def embodied_kg(
     return area_logic_mm2 * alpha_logic_kg_per_mm2 + area_macro_mm2 * alpha_macro_kg_per_mm2
 
 
-def operational_kg(E_dyn_kWh: float, E_leak_kWh: float, CI_kg_per_kWh: float) -> float:
+def operational_kgco2e(
+    E_dyn_kWh: float, E_leak_kWh: float, CI_kgco2e_per_kWh: float
+) -> float:
     """Return operational carbon given energy terms and carbon intensity."""
-    if E_dyn_kWh < 0 or E_leak_kWh < 0 or CI_kg_per_kWh < 0:
+    if E_dyn_kWh < 0 or E_leak_kWh < 0 or CI_kgco2e_per_kWh < 0:
         raise ValueError("energy and carbon intensity must be non-negative")
-    return CI_kg_per_kWh * (E_dyn_kWh + E_leak_kWh)
+    return CI_kgco2e_per_kWh * (E_dyn_kWh + E_leak_kWh)
 
 
 def _load_defaults(path: Path) -> dict:
