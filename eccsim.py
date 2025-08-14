@@ -21,7 +21,7 @@ import json
 import sys
 from dataclasses import asdict
 
-from esii import compute_esii, embodied_from_wire_area
+from esii import ESIIInputs, compute_esii, embodied_from_wire_area
 from carbon import embodied_kg, operational_kg
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from fit import (
@@ -213,23 +213,24 @@ def main() -> None:
                 args.wire_area_mm2, args.wire_factor_kg_per_mm2
             )
 
-        result = compute_esii(
-            args.fit_base,
-            args.fit_ecc,
-            args.E_dyn,
-            args.E_leak,
-            args.ci,
-            embodied,
+        inp = ESIIInputs(
+            fit_base=args.fit_base,
+            fit_ecc=args.fit_ecc,
+            e_dyn=args.E_dyn,
+            e_leak=args.E_leak,
+            ci_kg_per_kwh=args.ci,
+            embodied_kg=embodied,
+            energy_units="kWh",
         )
-        dynamic = args.E_dyn * args.ci
-        leakage = args.E_leak * args.ci
-        total = dynamic + leakage + embodied
-        print(f"ESII: {result:.3f}")
+        result = compute_esii(inp)
+        dynamic = result["E_dyn_kWh"] * args.ci
+        leakage = result["E_leak_kWh"] * args.ci
+        print(f"ESII: {result['ESII']:.3f}")
         print("Breakdown:")
         print(f"{'Dynamic (kgCO2e)':<20} {dynamic:.3f}")
         print(f"{'Leakage (kgCO2e)':<20} {leakage:.3f}")
-        print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
-        print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+        print(f"{'Embodied (kgCO2e)':<20} {result['embodied_kg']:.3f}")
+        print(f"{'Total (kgCO2e)':<20} {result['total_carbon_kg']:.3f}")
         return
 
     if args.command == "carbon":

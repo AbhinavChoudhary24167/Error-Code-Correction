@@ -6,7 +6,7 @@ system and the ECC-protected system divided by the total kilograms of CO₂e
 attributable to the technique.
 
 ```python
-from esii import compute_esii, embodied_from_wire_area
+from esii import ESIIInputs, compute_esii, embodied_from_wire_area
 ```
 
 ## Embodied carbon from wiring
@@ -39,3 +39,20 @@ python eccsim.py esii --fit-base 1000 --fit-ecc 100 --E-dyn 1 --E-leak 0.5 \
 The output lists the contributions from dynamic energy, leakage energy and the
 embodied component.  Include all three when quoting ESII so comparisons between
 ECC schemes capture both operational and embodied impacts.
+
+Alternatively, the computation can be performed programmatically:
+
+```python
+embodied = embodied_from_wire_area(5.0, 2.0)
+inp = ESIIInputs(
+    fit_base=1000,
+    fit_ecc=100,
+    e_dyn=1.0,
+    e_leak=0.5,
+    ci_kg_per_kwh=0.2,
+    embodied_kg=embodied,
+    energy_units="kWh",
+)
+result = compute_esii(inp)
+print(result["ESII"])
+```

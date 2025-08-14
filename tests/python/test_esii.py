@@ -5,13 +5,22 @@ import math
 
 import pytest
 
-from esii import compute_esii, embodied_from_wire_area
+from esii import ESIIInputs, compute_esii, embodied_from_wire_area
 
 
 def test_compute_esii():
-    result = compute_esii(1000, 100, 1.0, 0.5, 0.2, 10)
+    inp = ESIIInputs(
+        fit_base=1000,
+        fit_ecc=100,
+        e_dyn=1.0,
+        e_leak=0.5,
+        ci_kg_per_kwh=0.2,
+        embodied_kg=10,
+        energy_units="kWh",
+    )
+    result = compute_esii(inp)
     expected = 900 / 10.3
-    assert math.isclose(result, expected)
+    assert math.isclose(result["ESII"], expected)
 
 
 def test_embodied_from_wire_area():
