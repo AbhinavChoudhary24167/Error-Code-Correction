@@ -37,3 +37,25 @@ def test_missing_gate_energy(tmp_path):
     path = _write(tmp_path, data)
     with pytest.raises(ValueError):
         energy_model._load_calib(path)
+
+
+def test_non_monotonic_vdd(tmp_path):
+    data = {
+        "28": {
+            "0.6": {
+                "source": "ref",
+                "date": "2024-01-01",
+                "tempC": 25,
+                "gates": {"xor": 2.0e-12, "and": 1.0e-12, "adder_stage": 3.0e-12},
+            },
+            "0.8": {
+                "source": "ref",
+                "date": "2024-01-01",
+                "tempC": 25,
+                "gates": {"xor": 1.0e-12, "and": 0.5e-12, "adder_stage": 2.0e-12},
+            },
+        }
+    }
+    path = _write(tmp_path, data)
+    with pytest.raises(ValueError):
+        energy_model._load_calib(path)
