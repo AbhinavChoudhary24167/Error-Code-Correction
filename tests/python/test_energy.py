@@ -26,5 +26,5 @@ def test_energy_cli_json(tmp_path):
     ]
     out = subprocess.check_output(cmd)
     data = json.loads(out)
-    assert "dynamic_kWh" in data
-    assert "leakage_kWh" in data
+    assert "dynamic_J" in data
+    assert "leakage_J" in data

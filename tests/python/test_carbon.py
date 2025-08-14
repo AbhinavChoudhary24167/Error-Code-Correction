@@ -2,15 +2,15 @@ import subprocess
 import sys
 from pathlib import Path
 
-from carbon import embodied_kg, operational_kg
+from carbon import embodied_kgco2e, operational_kgco2e
 
 
 def test_operational_sign():
-    assert operational_kg(1.0, 0.0, 0.5) == 0.5
+    assert operational_kgco2e(1.0, 0.0, 0.5) == 0.5
 
 
 def test_embodied_additivity():
-    assert embodied_kg(0.1, 0.2, 1.0, 2.0) == 0.1 * 1.0 + 0.2 * 2.0
+    assert embodied_kgco2e(0.1, 0.2, 1.0, 2.0) == 0.1 * 1.0 + 0.2 * 2.0
 
 
 def test_cli_round_trip():
