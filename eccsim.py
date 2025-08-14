@@ -19,6 +19,7 @@ import subprocess
 from pathlib import Path
 import json
 import sys
+from typing import Dict
 
 from esii import ESIIInputs, compute_esii
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
@@ -32,6 +33,7 @@ from fit import (
     FitEstimate,
 )
 from energy_model import energy_report
+from ecc_selector import select
 
 
 def _format_reliability_report(result: dict) -> str:
@@ -162,6 +164,38 @@ def main() -> None:
     )
     esii_parser.add_argument("--out", type=Path)
 
+    select_parser = sub.add_parser(
+        "select", help="Multi-objective ECC selection"
+    )
+    select_parser.add_argument(
+        "--codes",
+        type=str,
+        required=True,
+        help="Comma separated code identifiers",
+    )
+    select_parser.add_argument(
+        "--weights",
+        type=str,
+        default="1.0,1.0,0.25",
+        help="Comma separated weights for reliability, carbon, latency",
+    )
+    select_parser.add_argument(
+        "--constraints",
+        type=str,
+        default="",
+        help="Comma separated key=value constraints",
+    )
+    select_parser.add_argument("--node", type=int, required=True)
+    select_parser.add_argument("--vdd", type=float, required=True)
+    select_parser.add_argument("--temp", type=float, required=True)
+    select_parser.add_argument("--mbu", type=str, default="moderate")
+    select_parser.add_argument("--scrub-s", type=float, default=10.0)
+    select_parser.add_argument("--capacity-gib", type=float, required=True)
+    select_parser.add_argument("--ci", type=float, required=True)
+    select_parser.add_argument("--bitcell-um2", type=float, required=True)
+    select_parser.add_argument("--report", type=Path, default=None)
+    select_parser.add_argument("--plot", type=Path, default=None)
+
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
     )
@@ -203,6 +237,88 @@ def main() -> None:
     report_parser.add_argument("--json", action="store_true")
 
     args = parser.parse_args()
+
+    if args.command == "select":
+        codes = [c.strip() for c in args.codes.split(",") if c.strip()]
+        try:
+            w_vals = [float(x) for x in args.weights.split(",")]
+            weights = {
+                "reliability": w_vals[0],
+                "carbon": w_vals[1],
+                "latency": w_vals[2] if len(w_vals) > 2 else 0.0,
+            }
+        except Exception:
+            parser.error("--weights must be three comma separated floats")
+
+        constraints: Dict[str, float] = {}
+        if args.constraints:
+            for part in args.constraints.split(","):
+                if not part:
+                    continue
+                try:
+                    k, v = part.split("=")
+                    constraints[k] = float(v)
+                except Exception:
+                    parser.error("Invalid constraint format")
+
+        params = {
+            "node": args.node,
+            "vdd": args.vdd,
+            "temp": args.temp,
+            "capacity_gib": args.capacity_gib,
+            "ci": args.ci,
+            "bitcell_um2": args.bitcell_um2,
+        }
+
+        result = select(
+            codes,
+            weights=weights,
+            constraints=constraints,
+            mbu=args.mbu,
+            scrub_s=args.scrub_s,
+            **params,
+        )
+
+        if args.report:
+            import csv
+
+            fieldnames = [
+                "code",
+                "FIT",
+                "ESII",
+                "carbon_kg",
+                "E_dyn_kWh",
+                "E_leak_kWh",
+                "latency_ns",
+                "area_logic_mm2",
+                "area_macro_mm2",
+                "notes",
+            ]
+            with open(args.report, "w", newline="") as fh:
+                writer = csv.DictWriter(fh, fieldnames=fieldnames)
+                writer.writeheader()
+                for rec in result["pareto"]:
+                    writer.writerow(rec)
+
+        if args.plot:
+            try:
+                import matplotlib.pyplot as plt  # type: ignore
+            except Exception:  # pragma: no cover - optional dependency
+                print("matplotlib not available; skipping plot", file=sys.stderr)
+            else:
+                xs = [r["carbon_kg"] for r in result["pareto"]]
+                ys = [r["FIT"] for r in result["pareto"]]
+                plt.scatter(xs, ys)
+                for r in result["pareto"]:
+                    plt.annotate(r["code"], (r["carbon_kg"], r["FIT"]))
+                plt.xlabel("carbon_kg")
+                plt.ylabel("FIT")
+                plt.tight_layout()
+                plt.savefig(args.plot)
+
+        if result["best"]:
+            print(result["best"]["code"])
+        return
 
     if args.command == "esii":
         fit_base: float
