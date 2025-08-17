@@ -231,9 +231,15 @@ class ECCStatistics {
 private:
     std::map<std::string, uint64_t> counters;
     std::chrono::steady_clock::time_point start_time;
-    
+    double energy_accumulator;  // Dynamic energy in joules
+    const double energy_per_xor;
+    const double energy_per_and;
+
 public:
-    ECCStatistics() {
+    ECCStatistics()
+        : energy_accumulator(0.0),
+          energy_per_xor(gate_energy(28, 0.8, "xor")),
+          energy_per_and(gate_energy(28, 0.8, "and")) {
         start_time = std::chrono::steady_clock::now();
         reset();
     }
@@ -248,6 +254,7 @@ public:
         counters["multiple_errors_uncorrectable"] = 0;
         counters["overall_parity_errors"] = 0;
         counters["data_corruption_prevented"] = 0;
+        energy_accumulator = 0.0;
     }
     
     void recordWrite() {
@@ -256,7 +263,12 @@ public:
     
     void recordRead(const HammingCodeSECDED::DecodingResult& result) {
         counters["total_reads"]++;
-        
+
+        // Base energy for parity checks (XORs)
+        energy_accumulator +=
+            (HammingCodeSECDED::PARITY_BITS + HammingCodeSECDED::OVERALL_PARITY_BIT) *
+            energy_per_xor;
+
         switch (result.error_type) {
             case HammingCodeSECDED::NO_ERROR:
                 counters["no_errors"]++;
@@ -264,17 +276,21 @@ public:
             case HammingCodeSECDED::SINGLE_ERROR_CORRECTABLE:
                 counters["single_errors_corrected"]++;
                 counters["data_corruption_prevented"]++;
+                energy_accumulator += energy_per_and;
                 break;
             case HammingCodeSECDED::DOUBLE_ERROR_DETECTABLE:
                 counters["double_errors_detected"]++;
                 counters["data_corruption_prevented"]++;
+                energy_accumulator += energy_per_and;
                 break;
             case HammingCodeSECDED::MULTIPLE_ERROR_UNCORRECTABLE:
                 counters["multiple_errors_uncorrectable"]++;
+                energy_accumulator += energy_per_and;
                 break;
             case HammingCodeSECDED::OVERALL_PARITY_ERROR:
                 counters["overall_parity_errors"]++;
                 counters["data_corruption_prevented"]++;
+                energy_accumulator += energy_per_and;
                 break;
         }
     }
@@ -325,22 +341,9 @@ public:
                       << std::fixed << std::setprecision(2)
                       << (100.0 * counters["data_corruption_prevented"] / total_errors) << "%" << std::endl;
         }
-        const double ENERGY_PER_XOR = gate_energy(28, 0.8, "xor");
-        const double ENERGY_PER_AND = gate_energy(28, 0.8, "and");
-
-        uint64_t detected_errors = counters["single_errors_corrected"] +
-                                   counters["double_errors_detected"] +
-                                   counters["multiple_errors_uncorrectable"] +
-                                   counters["overall_parity_errors"];
-
-        double energy = counters["total_reads"] *
-                        (HammingCodeSECDED::PARITY_BITS + HammingCodeSECDED::OVERALL_PARITY_BIT) *
-                        ENERGY_PER_XOR +
-                        detected_errors * ENERGY_PER_AND;
-
         std::cout << std::string(60, '-') << std::endl;
         std::cout << "Estimated energy consumed: " << std::scientific
-                  << energy << " J" << std::endl;
+                  << energy_accumulator << " J" << std::endl;
 
         std::cout << std::string(60, '=') << std::endl;
 
@@ -359,9 +362,9 @@ public:
             json_out << "  \"double_errors_detected\": " << counters["double_errors_detected"] << ",\n";
             json_out << "  \"multiple_errors_uncorrectable\": " << counters["multiple_errors_uncorrectable"] << ",\n";
             json_out << "  \"overall_parity_errors\": " << counters["overall_parity_errors"] << ",\n";
-            json_out << "  \"dynamic_J\": " << energy << ",\n";
+            json_out << "  \"dynamic_J\": " << energy_accumulator << ",\n";
             json_out << "  \"leakage_J\": 0.0,\n";
-            json_out << "  \"total_J\": " << energy << ",\n";
+            json_out << "  \"total_J\": " << energy_accumulator << ",\n";
             json_out << "  \"ber\": " << ber << "\n";
             json_out << "}\n";
         }
@@ -377,9 +380,9 @@ public:
                 ber = static_cast<double>(total_errors) /
                       (counters["total_reads"] * HammingCodeSECDED::DATA_BITS);
             }
-            csv_out << "dynamic_J," << energy << "\n";
+            csv_out << "dynamic_J," << energy_accumulator << "\n";
             csv_out << "leakage_J,0\n";
-            csv_out << "total_J," << energy << "\n";
+            csv_out << "total_J," << energy_accumulator << "\n";
             csv_out << "ber," << ber << "\n";
         }
     }
