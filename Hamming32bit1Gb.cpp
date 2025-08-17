@@ -20,12 +20,29 @@ public:
     static const int PARITY_BITS = 6;  // 2^6 = 64 >= 32 + 6 + 1
     static const int OVERALL_PARITY_BIT = 1;  // SEC-DED enhancement
     static const int TOTAL_BITS = DATA_BITS + PARITY_BITS + OVERALL_PARITY_BIT;  // 39 bits
-    
+
 private:
     // Parity bit positions (powers of 2): 1, 2, 4, 8, 16, 32
-    std::vector<int> parity_positions = {1, 2, 4, 8, 16, 32};
-    
+    const std::vector<int> parity_positions = {1, 2, 4, 8, 16, 32};
+    ParityCheckMatrix pcm;
+
 public:
+    HammingCodeSECDED() {
+        for (int parity_bit : parity_positions) {
+            std::array<uint64_t,2> row{0,0};
+            for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
+                if (pos & parity_bit) {
+                    int idx = pos - 1;
+                    if (idx < 64)
+                        row[0] |= (1ULL << idx);
+                    else
+                        row[1] |= (1ULL << (idx-64));
+                }
+            }
+            pcm.rows.push_back(row);
+        }
+    }
+
     struct CodeWord {
         uint64_t data;  // 39 bits stored in 64-bit int
         
@@ -73,17 +90,17 @@ public:
     };
     
     // Check if position is a parity bit position
-    bool isParityPosition(int pos) {
+    bool isParityPosition(int pos) const {
         return (pos & (pos - 1)) == 0 && pos <= 32;  // Check if pos is power of 2 <= 32
     }
     
     // Check if position is overall parity position
-    bool isOverallParityPosition(int pos) {
+    bool isOverallParityPosition(int pos) const {
         return pos == TOTAL_BITS;  // Position 39
     }
     
     // Get data bit positions (non-parity, non-overall-parity positions)
-    std::vector<int> getDataPositions() {
+    std::vector<int> getDataPositions() const {
         std::vector<int> positions;
         for (int i = 1; i <= TOTAL_BITS; i++) {
             if (!isParityPosition(i) && !isOverallParityPosition(i)) {
@@ -94,7 +111,7 @@ public:
     }
     
     // Encode 32-bit data into 39-bit SEC-DED Hamming codeword
-    CodeWord encode(uint32_t data) {
+    CodeWord encode(uint32_t data) const {
         CodeWord codeword;
         
         // Place data bits in non-parity positions
@@ -133,27 +150,11 @@ public:
     }
     
     // Decode SEC-DED Hamming codeword with enhanced error detection
-    DecodingResult decode(CodeWord received) {
+    DecodingResult decode(CodeWord received) const {
         DecodingResult result;
         result.syndrome = 0;
         result.error_position = 0;
         result.data_corrected = false;
-        
-        // Build parity check matrix once per decode
-        ParityCheckMatrix pcm;
-        for (int parity_bit : parity_positions) {
-            std::array<uint64_t,2> row{0,0};
-            for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
-                if (pos & parity_bit) {
-                    int idx = pos - 1;
-                    if (idx < 64)
-                        row[0] |= (1ULL << idx);
-                    else
-                        row[1] |= (1ULL << (idx-64));
-                }
-            }
-            pcm.rows.push_back(row);
-        }
 
         BitVector cwVec;
         for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {

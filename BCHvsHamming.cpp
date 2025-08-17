@@ -186,11 +186,28 @@ public:
     static const int PARITY_BITS = 7;
     static const int OVERALL_PARITY_BIT = 1;
     static const int TOTAL_BITS = DATA_BITS + PARITY_BITS + OVERALL_PARITY_BIT;
-    
+
 private:
-    std::vector<int> parity_positions = {1, 2, 4, 8, 16, 32, 64};
-    
+    const std::vector<int> parity_positions = {1, 2, 4, 8, 16, 32, 64};
+    ParityCheckMatrix pcm;
+
 public:
+    HammingCodeSECDED() {
+        for (int parity_bit : parity_positions) {
+            std::array<uint64_t,2> row{0,0};
+            for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
+                if (pos & parity_bit) {
+                    int idx = pos - 1;
+                    if (idx < 64)
+                        row[0] |= (1ULL << idx);
+                    else
+                        row[1] |= (1ULL << (idx-64));
+                }
+            }
+            pcm.rows.push_back(row);
+        }
+    }
+
     struct CodeWord {
         std::bitset<TOTAL_BITS> data;
         
@@ -238,7 +255,7 @@ public:
         int actual_errors;
     };
     
-    CodeWord encode(uint64_t data) {
+    CodeWord encode(uint64_t data) const {
         CodeWord codeword;
         
         // Place data bits in non-parity positions
@@ -273,31 +290,15 @@ public:
         return codeword;
     }
     
-    DecodingResult decode(CodeWord received, const CodeWord& original) {
+    DecodingResult decode(CodeWord received, const CodeWord& original) const {
         DecodingResult result;
         result.syndrome = 0;
         result.error_position = 0;
         result.data_corrected = false;
         result.data_intact = false;
-        
+
         // Count actual errors
         result.actual_errors = received.countErrors(original);
-        
-        // Build parity check matrix and compute syndrome
-        ParityCheckMatrix pcm;
-        for (int parity_bit : parity_positions) {
-            std::array<uint64_t,2> row{0,0};
-            for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
-                if (pos & parity_bit) {
-                    int idx = pos - 1;
-                    if (idx < 64)
-                        row[0] |= (1ULL << idx);
-                    else
-                        row[1] |= (1ULL << (idx-64));
-                }
-            }
-            pcm.rows.push_back(row);
-        }
 
         BitVector cwVec;
         for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
@@ -375,11 +376,11 @@ public:
     }
     
 private:
-    bool isParityPosition(int pos) {
+    bool isParityPosition(int pos) const {
         return (pos & (pos - 1)) == 0 && pos <= 64;
     }
-    
-    std::vector<int> getDataPositions() {
+
+    std::vector<int> getDataPositions() const {
         std::vector<int> positions;
         for (int i = 1; i <= TOTAL_BITS; i++) {
             if (!isParityPosition(i) && i != TOTAL_BITS) {
