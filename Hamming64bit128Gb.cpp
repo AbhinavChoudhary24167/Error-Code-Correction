@@ -12,7 +12,7 @@
 #include <string>
 #include <cstdlib>
 #include "ParityCheckMatrix.hpp"
-#include "gate_energy.hpp"
+#include "src/energy_loader.hpp"
 
 class HammingCodeSECDED {
 public:
@@ -299,7 +299,7 @@ public:
         }
     }
     
-    void printStatistics() {
+    void printStatistics(double energy_per_xor, double energy_per_and) {
         auto end_time = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
         
@@ -346,10 +346,6 @@ public:
                       << (100.0 * counters["data_corruption_prevented"] / total_errors) << "%" << std::endl;
         }
 
-        // Energy estimate based on calibration data
-        const double ENERGY_PER_XOR = gate_energy(28, 0.8, "xor");
-        const double ENERGY_PER_AND = gate_energy(28, 0.8, "and");
-
         uint64_t detected_errors = counters["single_errors_corrected"] +
                                    counters["double_errors_detected"] +
                                    counters["multiple_errors_uncorrectable"] +
@@ -357,8 +353,8 @@ public:
 
         double energy = counters["total_reads"] *
                         (HammingCodeSECDED::PARITY_BITS + HammingCodeSECDED::OVERALL_PARITY_BIT) *
-                        ENERGY_PER_XOR +
-                        detected_errors * ENERGY_PER_AND;
+                        energy_per_xor +
+                        detected_errors * energy_per_and;
 
         std::cout << std::string(60, '-') << std::endl;
         std::cout << "Estimated energy consumed: " << std::scientific
@@ -408,9 +404,12 @@ private:
     HammingCodeSECDED hamming;
     ECCStatistics stats;
     std::mt19937 rng;
+    double energy_per_xor;
+    double energy_per_and;
     
 public:
-    AdvancedMemorySimulator() : rng(std::random_device{}()) {
+    AdvancedMemorySimulator(double e_xor, double e_and)
+        : rng(std::random_device{}()), energy_per_xor(e_xor), energy_per_and(e_and) {
         std::cout << "Initialized SEC-DED 128GB memory simulator with " 
                   << MEMORY_SIZE_WORDS << " 64-bit words capacity" << std::endl;
         std::cout << "Memory capacity: " << (MEMORY_SIZE_WORDS * 8ULL) / (1024*1024*1024) << " GB" << std::endl;
@@ -518,7 +517,7 @@ public:
     }
     
     void printStatistics() {
-        stats.printStatistics();
+        stats.printStatistics(energy_per_xor, energy_per_and);
     }
     
     void resetStatistics() {
@@ -883,14 +882,28 @@ public:
     }
 };
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
+        int node_nm = 28;
+        double vdd = 0.8;
+        for (int i = 1; i < argc; ++i) {
+            std::string arg = argv[i];
+            if (arg == "--node" && i + 1 < argc) {
+                node_nm = std::stoi(argv[++i]);
+            } else if (arg == "--vdd" && i + 1 < argc) {
+                vdd = std::stod(argv[++i]);
+            }
+        }
+
+        auto energies = load_gate_energies(node_nm, vdd);
+
         std::cout << "Advanced Hamming SEC-DED Memory Simulator (64-bit)" << std::endl;
         std::cout << "Data bits: 64, Parity bits: 7, Overall parity: 1, Total bits: 72" << std::endl;
         std::cout << "Memory size: 128GB (16G 64-bit words)" << std::endl;
         std::cout << "Features: Single Error Correction, Double Error Detection" << std::endl;
-        
-        AdvancedMemorySimulator memory;
+        std::cout << "Using node " << node_nm << " nm at VDD=" << vdd << " V" << std::endl;
+
+        AdvancedMemorySimulator memory(energies.xor_energy, energies.and_energy);
         AdvancedTestSuite tests(memory);
         
         tests.runAllTests();
