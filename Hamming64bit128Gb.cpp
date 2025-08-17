@@ -12,6 +12,7 @@
 #include <string>
 #include <cstdlib>
 #include "ParityCheckMatrix.hpp"
+#include "gate_energy.hpp"
 
 class HammingCodeSECDED {
 public:
@@ -344,9 +345,9 @@ public:
                       << (100.0 * counters["data_corruption_prevented"] / total_errors) << "%" << std::endl;
         }
 
-        // Energy estimate based on typical CMOS gate costs
-        const double ENERGY_PER_XOR = 2e-12; // 2 pJ per XOR gate
-        const double ENERGY_PER_AND = 1e-12; // 1 pJ per AND gate
+        // Energy estimate based on calibration data
+        const double ENERGY_PER_XOR = gate_energy(28, 0.8, "xor");
+        const double ENERGY_PER_AND = gate_energy(28, 0.8, "and");
 
         uint64_t detected_errors = counters["single_errors_corrected"] +
                                    counters["double_errors_detected"] +
