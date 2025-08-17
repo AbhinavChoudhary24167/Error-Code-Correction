@@ -2,14 +2,13 @@
 
 This module provides a tiny energy estimation for each read operation in the
 simulators. It multiplies the number of XOR and AND gate evaluations by
-constant energy costs.
+technology-aware energy costs loaded from `tech_calib.json`.
 
-## Constants
+## Calibration
 
-- `ENERGY_PER_XOR` – energy in joules used by a single XOR gate. The default
-  value is `2e-12` J.
-- `ENERGY_PER_AND` – energy in joules used by a single AND gate. The default
-  value is `1e-12` J.
+`tech_calib.json` maps process node and voltage to per-gate energy figures for
+XOR and AND operations. The loader performs piecewise linear interpolation over
+this table so the estimate reflects the chosen technology and supply voltage.
 
 ## Running the script
 
@@ -42,7 +41,7 @@ coding schemes during reads without running the full simulators.
 
 ## Typical Values from Literature
 
-The default constants correspond to energy measurements published for
-28&nbsp;nm CMOS processes, where an XOR gate consumes roughly 2&nbsp;pJ per
-operation and an AND gate about 1&nbsp;pJ. These figures provide a
-reasonable baseline when evaluating the simulators on common hardware.
+The calibration data includes energy measurements published for 28&nbsp;nm CMOS
+processes, where an XOR gate consumes roughly 2&nbsp;pJ per operation and an AND
+gate about 1&nbsp;pJ. These figures provide a reasonable baseline when evaluating
+the simulators on common hardware.
