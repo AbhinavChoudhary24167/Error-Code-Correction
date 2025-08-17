@@ -24,10 +24,12 @@ public:
 private:
     // Parity bit positions (powers of 2): 1, 2, 4, 8, 16, 32
     const std::vector<int> parity_positions = {1, 2, 4, 8, 16, 32};
-    ParityCheckMatrix pcm;
+    ParityCheckMatrix pcm_;
 
-public:
-    HammingCodeSECDED() {
+    // Build the parity-check matrix for the code. This is called during
+    // construction and whenever the configuration changes.
+    void buildParityCheckMatrix() {
+        pcm_.rows.clear();
         for (int parity_bit : parity_positions) {
             std::array<uint64_t,2> row{0,0};
             for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
@@ -39,9 +41,16 @@ public:
                         row[1] |= (1ULL << (idx-64));
                 }
             }
-            pcm.rows.push_back(row);
+            pcm_.rows.push_back(row);
         }
     }
+
+public:
+    HammingCodeSECDED() { buildParityCheckMatrix(); }
+
+    // Rebuild the parity-check matrix. This provides a reinitialisation path
+    // should configuration parameters such as the word size change in future.
+    void resetPCM() { buildParityCheckMatrix(); }
 
     struct CodeWord {
         uint64_t data;  // 39 bits stored in 64-bit int
@@ -162,7 +171,8 @@ public:
                 cwVec.set(pos-1, true);
         }
 
-        BitVector synVec = pcm.syndrome(cwVec);
+        // Use the cached parity-check matrix built during construction.
+        BitVector synVec = pcm_.syndrome(cwVec);
         for (int i = 0; i < PARITY_BITS; ++i) {
             if (synVec.get(i))
                 result.syndrome |= (1 << i);
@@ -400,9 +410,13 @@ public:
     AdvancedMemorySimulator() : rng(std::random_device{}()) {
         std::cout << "Initialized SEC-DED 1GB memory simulator with "
                   << MEMORY_SIZE_WORDS << " 32-bit words" << std::endl;
-        std::cout << "Total bits per codeword: " << HammingCodeSECDED::TOTAL_BITS 
+        std::cout << "Total bits per codeword: " << HammingCodeSECDED::TOTAL_BITS
                   << " (32 data + 6 parity + 1 overall parity)" << std::endl;
     }
+
+    // Reinitialise the ECC logic. This allows the simulator to rebuild the
+    // cached parity-check matrix if any configuration parameter changes.
+    void reinitializeECC() { hamming.resetPCM(); }
     
     // Write data to memory with SEC-DED encoding
     void write(uint32_t address, uint32_t data) {

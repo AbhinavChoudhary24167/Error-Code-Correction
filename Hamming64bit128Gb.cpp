@@ -20,14 +20,14 @@ public:
     static const int PARITY_BITS = 7;  // 2^7 = 128 >= 64 + 7 + 1 = 72
     static const int OVERALL_PARITY_BIT = 1;  // SEC-DED enhancement
     static const int TOTAL_BITS = DATA_BITS + PARITY_BITS + OVERALL_PARITY_BIT;  // 72 bits
-    
+
 private:
     // Parity bit positions (powers of 2): 1, 2, 4, 8, 16, 32, 64
     const std::vector<int> parity_positions = {1, 2, 4, 8, 16, 32, 64};
-    ParityCheckMatrix pcm;
+    ParityCheckMatrix pcm_;
 
-public:
-    HammingCodeSECDED() {
+    void buildParityCheckMatrix() {
+        pcm_.rows.clear();
         for (int parity_bit : parity_positions) {
             std::array<uint64_t,2> row{0,0};
             for (int pos = 1; pos <= TOTAL_BITS - 1; ++pos) {
@@ -39,9 +39,15 @@ public:
                         row[1] |= (1ULL << (idx-64));
                 }
             }
-            pcm.rows.push_back(row);
+            pcm_.rows.push_back(row);
         }
     }
+
+public:
+    HammingCodeSECDED() { buildParityCheckMatrix(); }
+
+    // Rebuild the parity-check matrix if configuration parameters change.
+    void resetPCM() { buildParityCheckMatrix(); }
 
     struct CodeWord {
         uint64_t data_low;   // Lower 64 bits
@@ -182,7 +188,8 @@ public:
                 cwVec.set(pos-1, true);
         }
 
-        BitVector synVec = pcm.syndrome(cwVec);
+        // Use the cached parity-check matrix built during construction.
+        BitVector synVec = pcm_.syndrome(cwVec);
         for (int i = 0; i < PARITY_BITS; ++i) {
             if (synVec.get(i))
                 result.syndrome |= (1 << i);
@@ -410,13 +417,16 @@ private:
 public:
     AdvancedMemorySimulator(double e_xor, double e_and)
         : rng(std::random_device{}()), energy_per_xor(e_xor), energy_per_and(e_and) {
-        std::cout << "Initialized SEC-DED 128GB memory simulator with " 
+        std::cout << "Initialized SEC-DED 128GB memory simulator with "
                   << MEMORY_SIZE_WORDS << " 64-bit words capacity" << std::endl;
         std::cout << "Memory capacity: " << (MEMORY_SIZE_WORDS * 8ULL) / (1024*1024*1024) << " GB" << std::endl;
         std::cout << "Using sparse memory allocation (map-based)" << std::endl;
-        std::cout << "Total bits per codeword: " << HammingCodeSECDED::TOTAL_BITS 
+        std::cout << "Total bits per codeword: " << HammingCodeSECDED::TOTAL_BITS
                   << " (64 data + 7 parity + 1 overall parity)" << std::endl;
     }
+
+    // Allow rebuilding of ECC structures if configuration parameters change.
+    void reinitializeECC() { hamming.resetPCM(); }
     
     // Write data to memory with SEC-DED encoding
     void write(uint64_t address, uint64_t data) {
