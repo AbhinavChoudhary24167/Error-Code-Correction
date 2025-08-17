@@ -4,6 +4,14 @@ See [docs/TestSummary.md](docs/TestSummary.md) for an overview of the simulator 
 
 ECC for SRAM, studying the impact of ECC architectures on sustainability
 
+## Prerequisites
+
+The C++ components depend on the header-only [nlohmann/json](https://github.com/nlohmann/json) library. On Debian-based systems it can be installed via:
+
+```bash
+sudo apt-get install nlohmann-json3-dev
+```
+
 Running the simulators now produces several structured result files in the
 repository root:
 
