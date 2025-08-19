@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
 inline double interpolate(double x, const std::vector<double>& xs, const std::vector<double>& ys) {
     if (xs.empty() || ys.empty() || xs.size() != ys.size()) {
