@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 project(ECCsim LANGUAGES CXX)
 
-find_package(nlohmann_json 3 REQUIRED)
+# Prefer a system installation of nlohmann_json but fall back to the
+# header vendored in the repository if it is not available.
+find_package(nlohmann_json 3 QUIET)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -13,7 +15,11 @@ FetchContent_MakeAvailable(googletest)
 
 add_library(ecc_core INTERFACE)
 target_include_directories(ecc_core INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(ecc_core INTERFACE nlohmann_json::nlohmann_json)
+if(nlohmann_json_FOUND)
+    target_link_libraries(ecc_core INTERFACE nlohmann_json::nlohmann_json)
+else()
+    message(STATUS "nlohmann_json not found; using vendored header")
+endif()
 
 enable_testing()
 

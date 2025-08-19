@@ -1,8 +1,12 @@
 CXX ?= g++
 CXXFLAGS ?= -std=c++11 -O2
-CXXFLAGS += -MMD -MP
+# Ensure local headers such as the vendored nlohmann/json.hpp are found
+# by adding the repository root to the include search path.
+CXXFLAGS += -MMD -MP -I.
 
-SRC = BCHvsHamming.cpp Hamming32bit1Gb.cpp Hamming64bit128Gb.cpp SAT.cpp
+# Include shared utilities for energy lookup
+SRC = BCHvsHamming.cpp Hamming32bit1Gb.cpp Hamming64bit128Gb.cpp SAT.cpp \
+      src/energy_loader.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
 
@@ -19,8 +23,8 @@ BCHvsHamming: BCHvsHamming.o
 Hamming32bit1Gb: Hamming32bit1Gb.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-Hamming64bit128Gb: Hamming64bit128Gb.o
-	$(CXX) $(CXXFLAGS) $< -o $@
+Hamming64bit128Gb: Hamming64bit128Gb.o src/energy_loader.o
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 SATDemo: SAT.o
 	$(CXX) $(CXXFLAGS) $< -o $@
