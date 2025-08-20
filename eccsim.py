@@ -193,6 +193,8 @@ def main() -> None:
     select_parser.add_argument("--capacity-gib", type=float, required=True)
     select_parser.add_argument("--ci", type=float, required=True)
     select_parser.add_argument("--bitcell-um2", type=float, required=True)
+    select_parser.add_argument("--lifetime-h", type=float, default=float("nan"))
+    select_parser.add_argument("--ci-source", type=str, default="unspecified")
     select_parser.add_argument("--report", type=Path, default=None)
     select_parser.add_argument("--plot", type=Path, default=None)
 
@@ -268,6 +270,8 @@ def main() -> None:
             "capacity_gib": args.capacity_gib,
             "ci": args.ci,
             "bitcell_um2": args.bitcell_um2,
+            "lifetime_h": args.lifetime_h,
+            "ci_source": args.ci_source,
         }
 
         result = select(
