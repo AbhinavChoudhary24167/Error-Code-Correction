@@ -14,7 +14,6 @@ FetchContent_Declare(
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
-
 add_library(ecc_core INTERFACE)
 target_include_directories(ecc_core INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -24,7 +23,7 @@ target_compile_definitions(ecc_core INTERFACE NLOHMANN_JSON_NAMESPACE_NO_VERSION
 if(nlohmann_json_FOUND)
     target_link_libraries(ecc_core INTERFACE nlohmann_json::nlohmann_json)
 else()
-    message(STATUS "nlohmann_json 3.11.2 not found; using vendored header")
+  message(STATUS "nlohmann_json 3.11.2 not found; using vendored header")
 endif()
 
 enable_testing()
