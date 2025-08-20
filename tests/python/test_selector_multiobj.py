@@ -41,3 +41,10 @@ def test_scenario_shift_mbu():
 
     assert codes_light == {"sec-ded-64"}
     assert {"sec-daec-64", "taec-64"}.issubset(codes_heavy)
+
+
+def test_nesii_normalisation():
+    res = select(["sec-ded-64", "sec-daec-64", "taec-64"], **_default_params())
+    assert res["nesii_p5"] <= res["nesii_p95"]
+    for rec in res["pareto"]:
+        assert 0.0 <= rec["NESII"] <= 100.0
