@@ -154,6 +154,7 @@ def _compute_metrics(
     bitcell_um2: float,
     mbu: str,
     scrub_s: float,
+    lifetime_h: float = float("nan"),
 ) -> Dict[str, float | str]:
     """Return metric record for ``code`` under the specified scenario."""
 
@@ -190,7 +191,11 @@ def _compute_metrics(
     # --- Energy & Carbon -------------------------------------------------
     words = capacity_gib * (2**30 * 8) / 64
     e_per_read = estimate_energy(info.parity_bits, 0, node_nm=node, vdd=vdd)
-    e_dyn = e_per_read * words  # joules for one scrub sweep
+    if scrub_s > 0 and not math.isnan(lifetime_h):
+        n_scrub_reads = (lifetime_h * 3600.0 / scrub_s) * words
+        e_dyn = n_scrub_reads * e_per_read
+    else:
+        e_dyn = e_per_read * words  # joules for one scrub sweep
     e_leak = 0.0
 
     alpha_logic, alpha_macro = default_alpha(node)
@@ -223,6 +228,7 @@ def _compute_metrics(
         "area_logic_mm2": info.area_logic_mm2,
         "area_macro_mm2": area_macro_mm2,
         "notes": info.notes,
+        "includes_scrub_energy": True,
     }
 
 
@@ -284,6 +290,7 @@ def select(
             bitcell_um2=float(kwargs["bitcell_um2"]),
             mbu=mbu,
             scrub_s=float(scrub_s),
+            lifetime_h=float(kwargs.get("lifetime_h", float("nan"))),
         )
 
         lat_max = constraints.get("latency_ns_max")
@@ -437,6 +444,7 @@ def select(
         "normalization": norm_meta,
         "candidates": list(codes),
         "scenario_hash": scenario_hash,
+        "includes_scrub_energy": True,
     }
 
 
