@@ -1,11 +1,8 @@
 CXX ?= g++
 CXXFLAGS ?= -std=c++17 -O2
-# Ensure local headers such as the vendored nlohmann/json.hpp are found
-# by adding the repository root to the include search path.  Additionally,
-# disable the versioned nlohmann namespace so all translation units use the
-# same symbols, preventing the "value_t has not been declared" errors that
-# can arise when different namespaces are chosen on different platforms.
-CXXFLAGS += -MMD -MP -I. -DNLOHMANN_JSON_NAMESPACE_NO_VERSION=1
+# Ensure local headers are found by adding the repository root to the include
+# search path.
+CXXFLAGS += -MMD -MP -I.
 
 # Include shared utilities for energy lookup
 SRC = BCHvsHamming.cpp Hamming32bit1Gb.cpp Hamming64bit128Gb.cpp SAT.cpp \
