@@ -1,6 +1,7 @@
 # Build outputs
 *.out
 *.o
+*.d
 BCHvsHamming
 Hamming32bit1Gb
 Hamming64bit128Gb
@@ -14,6 +15,11 @@ decoding_results.json
 ecc_stats.csv
 ecc_stats.json
 secdaec_energy.csv
+tests/unit/SecDaec64_test
+
+# Python bytecode caches
+__pycache__/
+*/__pycache__/
 
 # macOS
 .DS_Store

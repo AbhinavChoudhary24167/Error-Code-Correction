@@ -30,16 +30,18 @@ SATDemo: SAT.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
-	rm -f $(BINARIES) $(OBJ) $(DEP)
+	rm -f $(BINARIES) $(OBJ) $(DEP) tests/unit/SecDaec64_test tests/unit/SecDaec64_test.d
 
 -include $(DEP)
 
 .PHONY: test clean gtest
 
-gtest:
-	cmake -S . -B build
-	cmake --build build
-	cd build && ctest --output-on-failure
+# Build and run C++ unit tests without relying on CMake or external gtest
+gtest: tests/unit/SecDaec64_test
+	./tests/unit/SecDaec64_test
+
+tests/unit/SecDaec64_test: tests/unit/SecDaec64_test.cpp SecDaec64.hpp BitVector.hpp ParityCheckMatrix.hpp telemetry.hpp
+	$(CXX) $(CXXFLAGS) $< -o $@
 
 test: all gtest
 	./tests/smoke_test.sh
