@@ -95,6 +95,32 @@ def _pareto_front(
             return 0.0
         return (v - mins[k]) / span
 
+
+def _pareto_front(
+    records: Iterable[Mapping[str, float]], eps: float = 1e-9
+) -> List[Dict[str, float]]:
+    """Return the Pareto frontier of ``records`` using ε-dominance.
+
+    The comparison operates on min–max normalised axes with a small epsilon to
+    avoid floating point jitter.  The returned list is sorted by the ``code``
+    field for stable output.
+    """
+
+    recs = list(records)
+    if not recs:
+        return []
+
+    keys = ("FIT", "carbon_kg", "latency_ns")
+    mins = {k: min(r[k] for r in recs) for k in keys}
+    maxs = {k: max(r[k] for r in recs) for k in keys}
+
+    def norm(k: str, v: float) -> float:
+        span = maxs[k] - mins[k]
+        if span <= 0:
+            return 0.0
+        return (v - mins[k]) / span
+
+      
     frontier: List[Dict[str, float]] = []
     for rec in recs:
         dominated = False
@@ -316,12 +342,48 @@ def select(
         else:
             scores = [100.0 * (v - p5) / span for v in esii_vals]
 
+
+    if not recs:
+        norm_meta = {
+            "method": "winsor",
+            "p5": float("nan"),
+            "p95": float("nan"),
+            "N": 0,
+            "scope": "feasible_set",
+        }
+        return {
+            "best": None,
+            "pareto": [],
+            "normalization": norm_meta,
+            "candidates": list(codes),
+            "scenario_hash": scenario_hash,
+        }
+
+    # Normalise ESII across candidates; fall back deterministically if needed
+    esii_vals = [r["ESII"] for r in recs]
+    N = len(esii_vals)
+    scores, p5, p95 = normalise_esii(esii_vals)
+    method = "winsor"
+    status = "ok"
+    if N < 20 or math.isclose(p5, p95):
+        method = "minmax"
+        p5 = min(esii_vals)
+        p95 = max(esii_vals)
+        span = p95 - p5
+        if span <= 0:
+            scores = [50.0 for _ in esii_vals]
+            status = "degenerate_scale"
+        else:
+            scores = [100.0 * (v - p5) / span for v in esii_vals]
+
+
     for rec, score in zip(recs, scores):
         rec["NESII"] = score
         rec["p5"] = p5
         rec["p95"] = p95
         rec["N_scale"] = N
         rec["scrub_s"] = float(scrub_s)
+
 
     basis = "system"
     lifetime_h = float(kwargs.get("lifetime_h", float("nan")))
@@ -333,11 +395,13 @@ def select(
         "p95": p95,
         "N": N,
         "scope": "feasible_set",
+
         "epsilon_on_normalized_axes": _PARETO_EPS,
         "basis": basis,
         "lifetime_h": lifetime_h,
         "ci_kg_per_kwh": float(kwargs["ci"]),
         "ci_source": ci_source,
+
     }
     if status != "ok":
         norm_meta["status"] = status
