@@ -15,6 +15,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Mapping
 
+import logging
+
+import hashlib
+import json
 import math
 
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
@@ -59,37 +63,52 @@ _CODE_DB: Dict[str, _CodeInfo] = {
 # Pareto helpers
 
 
-def _dominates(a: Mapping[str, float], b: Mapping[str, float]) -> bool:
-    """Return ``True`` if record ``a`` dominates ``b``.
-
-    Dominance is with respect to the ``FIT``, ``carbon_kg`` and ``latency_ns``
-    keys, all of which are minimised.
-    """
-
-    keys = ("FIT", "carbon_kg", "latency_ns")
-    le = all(a[k] <= b[k] for k in keys)
-    lt = any(a[k] < b[k] for k in keys)
-    return le and lt
+_PARETO_EPS = 1e-8
 
 
-def _pareto_front(records: Iterable[Mapping[str, float]]) -> List[Dict[str, float]]:
-    """Return the Pareto frontier of ``records``.
+_log = logging.getLogger(__name__)
+_logged_fallback = False
+_logged_degenerate = False
 
-    The returned list is sorted by the ``code`` field for stable output.
+
+def _pareto_front(
+    records: Iterable[Mapping[str, float]], eps: float = _PARETO_EPS
+) -> List[Dict[str, float]]:
+    """Return the Pareto frontier of ``records`` using ε-dominance.
+
+    The comparison operates on min–max normalised axes with a small epsilon to
+    avoid floating point jitter.  The returned list is sorted by the ``code``
+    field for stable output.
     """
 
     recs = list(records)
+    if not recs:
+        return []
+
+    keys = ("FIT", "carbon_kg", "latency_ns")
+    mins = {k: min(r[k] for r in recs) for k in keys}
+    maxs = {k: max(r[k] for r in recs) for k in keys}
+
+    def norm(k: str, v: float) -> float:
+        span = maxs[k] - mins[k]
+        if span <= 0:
+            return 0.0
+        return (v - mins[k]) / span
+
     frontier: List[Dict[str, float]] = []
     for rec in recs:
         dominated = False
         for other in recs:
             if other is rec:
                 continue
-            if _dominates(other, rec):
+            le = all(norm(k, other[k]) <= norm(k, rec[k]) + eps for k in keys)
+            lt = any(norm(k, other[k]) < norm(k, rec[k]) - eps for k in keys)
+            if le and lt:
                 dominated = True
                 break
         if not dominated:
             frontier.append(dict(rec))
+
     frontier.sort(key=lambda r: r["code"])
     return frontier
 
@@ -250,13 +269,78 @@ def select(
 
         recs.append(rec)
 
-    if not recs:
-        return {"best": None, "pareto": [], "nesii_p5": float("nan"), "nesii_p95": float("nan")}
+    scenario = dict(kwargs)
+    scenario.update({"mbu": mbu, "scrub_s": float(scrub_s)})
+    scenario_hash = hashlib.sha1(
+        json.dumps(scenario, sort_keys=True).encode()
+    ).hexdigest()
 
-    # Normalise ESII across candidates
-    nesii_scores, p5, p95 = normalise_esii([r["ESII"] for r in recs])
-    for rec, score in zip(recs, nesii_scores):
+    if not recs:
+        norm_meta = {
+            "method": "winsor",
+            "p5": float("nan"),
+            "p95": float("nan"),
+            "N": 0,
+            "scope": "feasible_set",
+        }
+        return {
+            "best": None,
+            "pareto": [],
+            "normalization": norm_meta,
+            "candidates": list(codes),
+            "scenario_hash": scenario_hash,
+        }
+
+    # Normalise ESII across candidates; fall back deterministically if needed
+    esii_vals = [r["ESII"] for r in recs]
+    N = len(esii_vals)
+    scores, p5, p95 = normalise_esii(esii_vals)
+    method = "winsor"
+    status = "ok"
+    if N < 20 or math.isclose(p5, p95):
+        global _logged_fallback
+        if not _logged_fallback:
+            _log.warning("NESII normalization fallback to min-max")
+            _logged_fallback = True
+        method = "minmax"
+        p5 = min(esii_vals)
+        p95 = max(esii_vals)
+        span = p95 - p5
+        if span <= 0:
+            global _logged_degenerate
+            if not _logged_degenerate:
+                _log.warning("NESII degenerate scale; forcing score 50")
+                _logged_degenerate = True
+            scores = [50.0 for _ in esii_vals]
+            status = "degenerate_scale"
+        else:
+            scores = [100.0 * (v - p5) / span for v in esii_vals]
+
+    for rec, score in zip(recs, scores):
         rec["NESII"] = score
+        rec["p5"] = p5
+        rec["p95"] = p95
+        rec["N_scale"] = N
+        rec["scrub_s"] = float(scrub_s)
+
+    basis = "system"
+    lifetime_h = float(kwargs.get("lifetime_h", float("nan")))
+    ci_source = kwargs.get("ci_source", "unspecified")
+
+    norm_meta = {
+        "method": method,
+        "p5": p5,
+        "p95": p95,
+        "N": N,
+        "scope": "feasible_set",
+        "epsilon_on_normalized_axes": _PARETO_EPS,
+        "basis": basis,
+        "lifetime_h": lifetime_h,
+        "ci_kg_per_kwh": float(kwargs["ci"]),
+        "ci_source": ci_source,
+    }
+    if status != "ok":
+        norm_meta["status"] = status
 
     # Determine Pareto frontier
     pareto = _pareto_front(recs)
@@ -283,7 +367,13 @@ def select(
             best_score = score
             best = rec
 
-    return {"best": best, "pareto": pareto, "nesii_p5": p5, "nesii_p95": p95}
+    return {
+        "best": best,
+        "pareto": pareto,
+        "normalization": norm_meta,
+        "candidates": list(codes),
+        "scenario_hash": scenario_hash,
+    }
 
 
 __all__ = ["select", "_pareto_front"]

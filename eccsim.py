@@ -193,6 +193,8 @@ def main() -> None:
     select_parser.add_argument("--capacity-gib", type=float, required=True)
     select_parser.add_argument("--ci", type=float, required=True)
     select_parser.add_argument("--bitcell-um2", type=float, required=True)
+    select_parser.add_argument("--lifetime-h", type=float, default=float("nan"))
+    select_parser.add_argument("--ci-source", type=str, default="unspecified")
     select_parser.add_argument("--report", type=Path, default=None)
     select_parser.add_argument("--plot", type=Path, default=None)
 
@@ -268,6 +270,8 @@ def main() -> None:
             "capacity_gib": args.capacity_gib,
             "ci": args.ci,
             "bitcell_um2": args.bitcell_um2,
+            "lifetime_h": args.lifetime_h,
+            "ci_source": args.ci_source,
         }
 
         result = select(
@@ -284,14 +288,19 @@ def main() -> None:
 
             fieldnames = [
                 "code",
+                "scrub_s",
                 "FIT",
-                "ESII",
                 "carbon_kg",
-                "E_dyn_kWh",
-                "E_leak_kWh",
                 "latency_ns",
+                "ESII",
+                "NESII",
+                "p5",
+                "p95",
+                "N_scale",
                 "area_logic_mm2",
                 "area_macro_mm2",
+                "E_dyn_kWh",
+                "E_leak_kWh",
                 "notes",
             ]
             with open(args.report, "w", newline="") as fh:
