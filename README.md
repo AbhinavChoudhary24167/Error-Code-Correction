@@ -1,211 +1,210 @@
-# Error-Code-Correction
+# Error-Code-Correction Framework Guide
 
-See [docs/TestSummary.md](docs/TestSummary.md) for an overview of the simulator tests.
+This repository collects C++ and Python tools for exploring error-correcting-code (ECC) schemes in SRAM and evaluating their reliability, energy cost and environmental footprint. It includes standalone memory simulators, comparison utilities and analytical scripts.
 
-ECC for SRAM, studying the impact of ECC architectures on sustainability
+---
 
-## Prerequisites
+## 1. Dependencies
 
-The C++ components now include a small built-in parser for the calibration
-data, so no external JSON library is required.
+### System tools
+- **C++17 compiler** (`g++` by default)
+- **Make** for convenient builds and test orchestration
+- **CMake 3.x** (only required for the optional GoogleTest target)
 
-Running the simulators now produces several structured result files in the
-repository root:
-
-- `comparison_results.json` – JSON variant of the BCH vs. Hamming results.
-- `decoding_results.csv` / `decoding_results.json` – per-read decode logs.
-- `ecc_stats.csv` / `ecc_stats.json` – aggregated ECC statistics.
-
-These files are listed in `.gitignore` so that repeated runs do not clutter
-your Git history.
-
-Example of inspecting `ecc_stats.json` with `jq`:
-
-```bash
-$ jq '.ber' ecc_stats.json
-0.000023
-```
-
-## Reliability report
-
-The `eccsim` CLI can generate a reliability summary. The underlying
-`compute_fit_pre` and `compute_fit_post` helpers now return a small dataclass
-containing the nominal FIT value and an optional standard deviation. This makes
-it straightforward to reason about uncertainty and report results as ranges
-rather than single figures. Adding `--json` emits a machine-readable version
-alongside the human table:
-
-```bash
-$ python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-rel 1 --json
-```
-
-With `--json` the table is printed to stderr and the JSON object to stdout so it
-can be piped directly into other tools.
-
-## Running the BCH vs Hamming comparison
-
-1. Compile the simulator:
-
-   ```bash
-   g++ -std=c++11 BCHvsHamming.cpp -o BCHvsHamming
-   ```
-
-2. Execute the binary:
-
-   ```bash
-   ./BCHvsHamming
-   ```
-
-The program prints a detailed report and writes `comparison_results.csv`
-to the repository root containing a summary table of each test case.
-
-## Running the 64-bit memory simulator
-
-1. Compile the simulator:
-
-   ```bash
-   g++ -std=c++11 Hamming64bit128Gb.cpp -o Hamming64bit128Gb
-   ```
-
-2. Execute the binary:
-
-   ```bash
-   ./Hamming64bit128Gb
-   ```
-
-The built-in test suite now includes a `Million Word Dataset` stress test
-which touches one million addresses using the simulator's write and read
-operations. After completion, the program prints a short summary of how many
-errors were corrected or detected during the test.
-It also reports an estimated energy cost for all read operations using
-constants derived from recent CMOS literature.
-
-The simulator also provides an optional `One Million Read/Write Stress Test`
-that sequentially writes and verifies one million random 64-bit words
-without injecting faults. Set the environment variable `RUN_STRESS_TEST=1`
-before running the binary to enable this check. It exercises the memory
-allocator and decoder under a heavy access workload.
-
-## Running the 32-bit memory simulator
-
-1. Compile the simulator:
-
-   ```bash
-   g++ -std=c++11 Hamming32bit1Gb.cpp -o Hamming32bit1Gb
-   ```
-
-2. Execute the binary:
-
-   ```bash
-   ./Hamming32bit1Gb
-   ```
-
-The executable performs a sequence of built-in tests over a small 1 GB memory
-space and prints a report summarizing the number of corrected and detected
-errors.
-
-## Running the SAT solver demo
-
-1. Compile the solver:
-
-   ```bash
-   g++ -std=c++11 SAT.cpp -o SATDemo
-   ```
-
-2. Execute the binary:
-
-   ```bash
-   ./SATDemo
-   ```
-
-The program demonstrates various SAT checks for Hamming code conjectures and
-prints solver statistics and example solutions to the console.
-
-## Using the energy model
-
-See [docs/EnergyModel.md](docs/EnergyModel.md) for a detailed explanation of the
-`energy_model.py` script. From the repository root you can run:
-
-```bash
-python3 energy_model.py <parity_bits> [detected_errors]
-```
-
-The script estimates the energy required for a read operation based on the
-number of parity bits and detected errors.
-
-## Selecting an ECC scheme at runtime
-
-`ecc_selector.py` chooses the most suitable error-correcting code from a
-predefined table. It weighs the bit error rate, burst length, supply voltage,
-energy budget per memory access and the minimum number of correctable bits
-before suggesting an option.
-
-```bash
-python3 ecc_selector.py <ber> <burst_length> <vdd> <energy_budget> <required_bits> [--sustainability]
-```
-
-Passing `--sustainability` makes the selector prefer the lowest energy option
-that still satisfies all constraints.
-
-### Example
-
-```bash
-python3 ecc_selector.py 5e-6 2 0.7 1e-15 2
-```
-
-Example output:
-
-```
-Selected ECC_Type: TAEC
-Code: (75,64)-I6
-Correctable bits: 3
-Burst tolerance: 3
-Estimated energy per read: 9.750e-16 J
-Supported VDD range: 0.4-0.8 V
-```
-
-These lines indicate the chosen code and its properties, allowing you to verify
-that it meets your requirements.
-
-### Parsing telemetry logs
-
-`parse_telemetry.py` processes the decoder telemetry stored in CSV format. Pass
-the log file via `--csv` and specify the process node and supply voltage using
-`--node` and `--vdd`:
-
-```bash
-python3 parse_telemetry.py --csv tests/data/sample_secdaec.csv --node 16 --vdd 0.7
-```
-
-The script reports the total energy consumed and the energy required for each
-correction in the log.
-
-The Makefile also provides a convenience target called `epc-report` which
-invokes `parse_telemetry.py` with the supplied arguments:
-
-```bash
-make epc-report CSV=tests/data/sample_secdaec.csv NODE=16 VDD=0.7
-```
-
-## Running the tests
-
-Before executing the test suite make sure the Python dependencies are
-installed:
+### Python stack
+Install the required packages with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Then run the tests using the Makefile:
+Dependencies: NumPy, pandas, pytest and jsonschema. Use Python 3.8+ for best compatibility.
+
+---
+
+## 2. Building the Simulators
+
+Run `make` to compile all binaries (`BCHvsHamming`, `Hamming32bit1Gb`, `Hamming64bit128Gb`, `SATDemo`) using the provided `g++` flags (`-std=c++17 -O2`).
+
+For individual builds:
+
+```bash
+g++ -std=c++17 Hamming64bit128Gb.cpp -o Hamming64bit128Gb
+g++ -std=c++17 Hamming32bit1Gb.cpp -o Hamming32bit1Gb
+g++ -std=c++17 BCHvsHamming.cpp -o BCHvsHamming
+g++ -std=c++17 SAT.cpp -o SATDemo
+```
+
+Cleaning artifacts:
+
+```bash
+make clean
+```
+
+---
+
+## 3. Running the Tools & Interpreting Results
+
+### 3.1 Memory Simulators
+
+All simulators emit human-readable statistics and structured logs:
+
+- `comparison_results.json` – BCH vs. Hamming outcome table
+- `decoding_results.{csv,json}` – per-read traces
+- `ecc_stats.{csv,json}` – aggregated ECC metrics
+
+These files live in the repository root and are git-ignored to keep history clean.
+
+Inspect with any spreadsheet tool or `jq`:
+
+```bash
+jq '.ber' ecc_stats.json
+```
+
+#### 3.1.1 Hamming32bit1Gb
+
+Simulates a sparse 1 GB memory using SEC-DED Hamming codes.
+
+```
+./Hamming32bit1Gb
+```
+
+During execution it runs a seven-scenario test suite (no errors, single-bit, double-bit, parity-bit, burst, random multi-error, mixed workload) and reports corrections/detections plus energy estimates.
+
+#### 3.1.2 Hamming64bit128Gb
+
+Extends the model to 64-bit words and a theoretical 128 GB address space. Includes a “Million Word Dataset” stress test and optional `RUN_STRESS_TEST=1` read/write burn-in.
+
+```
+./Hamming64bit128Gb
+```
+
+Outputs the same `ecc_stats` and `decoding_results` logs as the 32-bit version.
+
+#### 3.1.3 BCH vs Hamming Comparison
+
+```
+./BCHvsHamming
+```
+
+Runs a side-by-side BCH(63,51,2) vs. SEC-DED Hamming evaluation over multiple error patterns and saves the summary in `comparison_results.*`.
+
+#### 3.1.4 SAT Solver Demo
+
+```
+./SATDemo
+```
+
+Demonstrates a small DPLL SAT solver used for Hamming-code conjectures, printing solver statistics and example proofs.
+
+### 3.2 Python Utilities
+
+#### 3.2.1 `eccsim.py`
+
+Central CLI exposing reliability, energy and carbon analysis.
+
+- **Reliability report** – computes FIT rates and mean-time-to-failure:
+
+  ```bash
+  python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-rel 1 --json
+  ```
+
+  Produces a JSON object (stdout) and a formatted table (stderr) with key metrics like `fit_bit`, `fit_system` and `mttf`.
+
+- **Energy estimation**:
+
+  ```bash
+  python eccsim.py energy --code sec-ded --node 16 --vdd 0.7 --temp 25 --ops 1e6 --lifetime-h 1e4
+  ```
+
+  Reports dynamic/leakage energy and totals.
+
+- **Carbon footprint**:
+
+  ```bash
+  python eccsim.py carbon --areas 0.1,0.2 --alpha 0.5,0.5 --Edyn 1e-15 --Eleak 1e-18 --ci 0.4
+  ```
+
+  Prints embodied, operational and total kgCO₂e.
+
+#### 3.2.2 `energy_model.py`
+
+Quick energy-per-read estimator driven by calibration data:
+
+```bash
+python3 energy_model.py <parity_bits> [detected_errors]
+```
+
+Example:
+
+```
+python3 energy_model.py 8 1
+```
+
+Outputs a single line like `Estimated energy per read: 2.0e-12 J`.
+
+#### 3.2.3 `ecc_selector.py`
+
+Recommends an ECC scheme given runtime conditions:
+
+```bash
+python3 ecc_selector.py <ber> <burst_length> <vdd> <energy_budget> <required_bits> [--sustainability]
+```
+
+Example output lists the chosen code, correctable bits, burst tolerance, energy estimate and supported VDD range.
+
+#### 3.2.4 `parse_telemetry.py`
+
+Parses decoder telemetry logs:
+
+```bash
+python3 parse_telemetry.py --csv tests/data/sample_secdaec.csv --node 16 --vdd 0.7
+```
+
+Reports total energy and per-correction energy; also accessible via `make epc-report` with parameters `CSV`, `NODE` and `VDD`.
+
+---
+
+## 4. Interpreting Structured Results
+
+- **`ecc_stats.*`** – aggregate statistics; field `ber` (bit error rate) illustrates overall reliability and can be queried with `jq` or loaded into pandas.
+- **`decoding_results.*`** – per-read logs including addresses, injected errors and correction outcomes; useful for deeper debugging.
+- **`comparison_results.*`** – summarises BCH vs. Hamming performance across test cases.
+
+All logs are CSV and JSON so they can be imported into notebooks or spreadsheets for plotting or further analysis.
+
+---
+
+## 5. Testing
+
+1. Install Python dependencies (see §1).
+2. Build C++ binaries (`make`).
+3. Run the full test suite:
 
 ```bash
 make test
 ```
 
-## Contributing
+`make test` compiles all simulators, executes a CTest/GoogleTest run and then invokes both shell and Python tests via pytest.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building the
-project with the provided Makefile and running the full test suite.
+---
+
+## 6. Suggested Workflow for New Users
+
+1. **Clone repository** and install dependencies.
+2. **Compile simulators** with `make` or individual `g++` commands.
+3. **Run a simulator** (e.g., `Hamming32bit1Gb`) to see statistics and generate log files.
+4. **Explore structured logs** with `jq`, pandas or spreadsheets for further insight.
+5. **Use Python tools**:
+   - `eccsim.py reliability report` for FIT/MTTF calculations.
+   - `energy_model.py` for quick energy estimates.
+   - `ecc_selector.py` to choose an ECC code for given conditions.
+   - `parse_telemetry.py` to analyse energy telemetry.
+6. **Run tests** to confirm environment health.
+
+Following these steps a novice can compile, execute and interpret all aspects of the framework.
+
+---
 
 ## License
 
