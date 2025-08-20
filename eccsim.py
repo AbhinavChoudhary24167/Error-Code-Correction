@@ -284,14 +284,19 @@ def main() -> None:
 
             fieldnames = [
                 "code",
+                "scrub_s",
                 "FIT",
-                "ESII",
                 "carbon_kg",
-                "E_dyn_kWh",
-                "E_leak_kWh",
                 "latency_ns",
+                "ESII",
+                "NESII",
+                "p5",
+                "p95",
+                "N_scale",
                 "area_logic_mm2",
                 "area_macro_mm2",
+                "E_dyn_kWh",
+                "E_leak_kWh",
                 "notes",
             ]
             with open(args.report, "w", newline="") as fh:

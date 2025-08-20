@@ -45,6 +45,10 @@ def test_scenario_shift_mbu():
 
 def test_nesii_normalisation():
     res = select(["sec-ded-64", "sec-daec-64", "taec-64"], **_default_params())
-    assert res["nesii_p5"] <= res["nesii_p95"]
+    norm = res["normalization"]
+    assert norm["p5"] <= norm["p95"]
     for rec in res["pareto"]:
         assert 0.0 <= rec["NESII"] <= 100.0
+        assert rec["p5"] == norm["p5"]
+        assert rec["p95"] == norm["p95"]
+        assert rec["N_scale"] == norm["N"]
