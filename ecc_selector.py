@@ -19,7 +19,7 @@ import math
 
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
 from energy_model import estimate_energy
-from esii import ESIIInputs, compute_esii
+from esii import ESIIInputs, compute_esii, normalise_esii
 from fit import (
     compute_fit_pre,
     compute_fit_post,
@@ -251,7 +251,12 @@ def select(
         recs.append(rec)
 
     if not recs:
-        return {"best": None, "pareto": []}
+        return {"best": None, "pareto": [], "nesii_p5": float("nan"), "nesii_p95": float("nan")}
+
+    # Normalise ESII across candidates
+    nesii_scores, p5, p95 = normalise_esii([r["ESII"] for r in recs])
+    for rec, score in zip(recs, nesii_scores):
+        rec["NESII"] = score
 
     # Determine Pareto frontier
     pareto = _pareto_front(recs)
@@ -278,7 +283,7 @@ def select(
             best_score = score
             best = rec
 
-    return {"best": best, "pareto": pareto}
+    return {"best": best, "pareto": pareto, "nesii_p5": p5, "nesii_p95": p95}
 
 
 __all__ = ["select", "_pareto_front"]
