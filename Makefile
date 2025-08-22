@@ -29,8 +29,14 @@ Hamming64bit128Gb: Hamming64bit128Gb.o src/energy_loader.o
 SATDemo: SAT.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+ifeq ($(OS),Windows_NT)
+RM := cmd /C del /Q
+else
+RM := rm -f
+endif
+
 clean:
-	rm -f $(BINARIES) $(OBJ) $(DEP) tests/unit/SecDaec64_test tests/unit/SecDaec64_test.d
+	$(RM) $(BINARIES) $(OBJ) $(DEP) tests/unit/SecDaec64_test tests/unit/SecDaec64_test.d
 
 -include $(DEP)
 
