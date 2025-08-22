@@ -905,13 +905,20 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        auto energies = load_gate_energies(node_nm, vdd);
-
         std::cout << "Advanced Hamming SEC-DED Memory Simulator (64-bit)" << std::endl;
         std::cout << "Data bits: 64, Parity bits: 7, Overall parity: 1, Total bits: 72" << std::endl;
         std::cout << "Memory size: 128GB (16G 64-bit words)" << std::endl;
         std::cout << "Features: Single Error Correction, Double Error Detection" << std::endl;
         std::cout << "Using node " << node_nm << " nm at VDD=" << vdd << " V" << std::endl;
+
+        GateEnergies energies{};
+        try {
+            energies = load_gate_energies(node_nm, vdd);
+        } catch (const std::exception& e) {
+            std::cerr << "Warning: " << e.what()
+                      << ". Using default gate energies." << std::endl;
+            energies = {0.0, 0.0, 0.0};
+        }
 
         AdvancedMemorySimulator memory(energies.xor_energy, energies.and_energy);
         AdvancedTestSuite tests(memory);
