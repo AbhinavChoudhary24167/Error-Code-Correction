@@ -33,6 +33,7 @@ from fit import (
 from mbu import pmf_adjacent
 from qcrit_loader import qcrit_lookup
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
+from gs import GSInputs, compute_gs
 
 
 # ---------------------------------------------------------------------------
@@ -69,35 +70,12 @@ _PARETO_EPS = 1e-8
 _log = logging.getLogger(__name__)
 _logged_fallback = False
 _logged_degenerate = False
+_carbon_cap_warned = False
+_degenerate_warned = {"carbon": False, "latency": False}
 
 
 def _pareto_front(
     records: Iterable[Mapping[str, float]], eps: float = _PARETO_EPS
-) -> List[Dict[str, float]]:
-    """Return the Pareto frontier of ``records`` using ε-dominance.
-
-    The comparison operates on min–max normalised axes with a small epsilon to
-    avoid floating point jitter.  The returned list is sorted by the ``code``
-    field for stable output.
-    """
-
-    recs = list(records)
-    if not recs:
-        return []
-
-    keys = ("FIT", "carbon_kg", "latency_ns")
-    mins = {k: min(r[k] for r in recs) for k in keys}
-    maxs = {k: max(r[k] for r in recs) for k in keys}
-
-    def norm(k: str, v: float) -> float:
-        span = maxs[k] - mins[k]
-        if span <= 0:
-            return 0.0
-        return (v - mins[k]) / span
-
-
-def _pareto_front(
-    records: Iterable[Mapping[str, float]], eps: float = 1e-9
 ) -> List[Dict[str, float]]:
     """Return the Pareto frontier of ``records`` using ε-dominance.
 
@@ -137,6 +115,61 @@ def _pareto_front(
 
     frontier.sort(key=lambda r: r["code"])
     return frontier
+
+
+# ---------------------------------------------------------------------------
+# GS helpers
+
+
+def _percentile(values: List[float], pct: float) -> float:
+    vs = sorted(values)
+    if not vs:
+        return 0.0
+    k = (len(vs) - 1) * pct / 100.0
+    f = math.floor(k)
+    c = math.ceil(k)
+    if f == c:
+        return vs[int(k)]
+    return vs[f] * (c - k) + vs[c] * (k - f)
+
+
+def _annotate_gs(recs: List[Dict[str, float]], weights: Tuple[float, float, float]) -> None:
+    global _carbon_cap_warned
+    carbon_vals = [r["carbon_kg"] for r in recs]
+    if len(carbon_vals) < 5:
+        cap = max(carbon_vals)
+        if not _carbon_cap_warned:
+            _log.warning("carbon cap fallback to max for N<5")
+            _carbon_cap_warned = True
+    else:
+        cap = _percentile(carbon_vals, 95)
+    carbon_clipped = [min(v, cap) for v in carbon_vals]
+    c_span = max(carbon_clipped) - min(carbon_clipped)
+    if c_span <= max(1.0, cap) * 1e-9 and not _degenerate_warned["carbon"]:
+        _log.warning("carbon values nearly identical; treating as neutral")
+        _degenerate_warned["carbon"] = True
+        carbon_clipped = [0.0 for _ in carbon_clipped]
+
+    lat_vals = [r["latency_ns"] for r in recs]
+    l_span = max(lat_vals) - min(lat_vals)
+    if l_span <= max(1.0, max(lat_vals)) * 1e-9 and not _degenerate_warned["latency"]:
+        _log.warning("latency values nearly identical; treating as neutral")
+        _degenerate_warned["latency"] = True
+        lat_vals = [r.get("latency_base_ns", 0.0) for r in recs]
+
+    for rec, c_val, l_val in zip(recs, carbon_clipped, lat_vals):
+        inp = GSInputs(
+            fit_base=rec["fit_base"],
+            fit_ecc=rec["FIT"],
+            carbon_kg=c_val,
+            latency_ns=l_val,
+            latency_base_ns=rec.get("latency_base_ns", 0.0),
+        )
+        gs_res = compute_gs(inp, weights=weights)
+        rec["GS"] = gs_res["GS"]
+        rec["Sr"] = gs_res["Sr"]
+        rec["Sc"] = gs_res["Sc"]
+        rec["Sl"] = gs_res["Sl"]
 
 
 # ---------------------------------------------------------------------------
@@ -220,11 +253,13 @@ def _compute_metrics(
     return {
         "code": code,
         "FIT": fit_post_sys,
+        "fit_base": fit_base_sys,
         "ESII": esii,
         "carbon_kg": carbon_total,
         "E_dyn_kWh": e_dyn / 3_600_000.0,
         "E_leak_kWh": e_leak / 3_600_000.0,
         "latency_ns": info.latency_ns,
+        "latency_base_ns": 0.0,
         "area_logic_mm2": info.area_logic_mm2,
         "area_macro_mm2": area_macro_mm2,
         "notes": info.notes,
@@ -324,6 +359,8 @@ def select(
             "scenario_hash": scenario_hash,
         }
 
+    _annotate_gs(recs, (0.6, 0.3, 0.1))
+
     # Normalise ESII across candidates; fall back deterministically if needed
     esii_vals = [r["ESII"] for r in recs]
     N = len(esii_vals)
@@ -344,40 +381,6 @@ def select(
             if not _logged_degenerate:
                 _log.warning("NESII degenerate scale; forcing score 50")
                 _logged_degenerate = True
-            scores = [50.0 for _ in esii_vals]
-            status = "degenerate_scale"
-        else:
-            scores = [100.0 * (v - p5) / span for v in esii_vals]
-
-
-    if not recs:
-        norm_meta = {
-            "method": "winsor",
-            "p5": float("nan"),
-            "p95": float("nan"),
-            "N": 0,
-            "scope": "feasible_set",
-        }
-        return {
-            "best": None,
-            "pareto": [],
-            "normalization": norm_meta,
-            "candidates": list(codes),
-            "scenario_hash": scenario_hash,
-        }
-
-    # Normalise ESII across candidates; fall back deterministically if needed
-    esii_vals = [r["ESII"] for r in recs]
-    N = len(esii_vals)
-    scores, p5, p95 = normalise_esii(esii_vals)
-    method = "winsor"
-    status = "ok"
-    if N < 20 or math.isclose(p5, p95):
-        method = "minmax"
-        p5 = min(esii_vals)
-        p95 = max(esii_vals)
-        span = p95 - p5
-        if span <= 0:
             scores = [50.0 for _ in esii_vals]
             status = "degenerate_scale"
         else:

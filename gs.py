@@ -13,6 +13,10 @@ returned alongside the raw metrics for transparency.
 from __future__ import annotations
 
 from dataclasses import dataclass
+
+import logging
+import math
+
 from typing import Dict, Tuple
 
 
@@ -23,6 +27,24 @@ class GSInputs:
     Parameters
     ----------
     fit_base : float
+
+        Baseline system FIT with *no* ECC applied.  Units are failures in
+        time (FIT) for the whole system rather than per‑GiB metrics.
+    fit_ecc : float
+        System FIT with the candidate ECC applied.
+    carbon_kg : float
+        Carbon footprint attributable to the candidate.  ``carbon_scope``
+        specifies whether this represents the ECC overhead only or the total
+        system impact.
+    latency_ns : float
+        End‑to‑end latency including ECC decode.  ``latency_base_ns`` captures
+        the decode‑free baseline.
+    carbon_scope : str, optional
+        Either ``"ecc_only"`` or ``"total"`` for transparency; it does not
+        affect the calculation.
+    latency_base_ns : float, optional
+        Baseline latency without ECC in nanoseconds.  Defaults to ``0.0``.
+
         Baseline system FIT.
     fit_ecc : float
         System FIT with ECC applied.
@@ -30,6 +52,7 @@ class GSInputs:
         Total carbon footprint in kilograms of CO2e.
     latency_ns : float
         Decode latency in nanoseconds.
+
     """
 
     fit_base: float
@@ -37,11 +60,19 @@ class GSInputs:
     carbon_kg: float
     latency_ns: float
 
+    carbon_scope: str = "total"
+    latency_base_ns: float = 0.0
+
 
 # Placeholder scale parameters for the saturation functions
 _SR_SCALE = 0.05
 _SC_SCALE = 1.0
 _SL_SCALE = 10.0
+
+
+
+_log = logging.getLogger(__name__)
+
 
 
 def _sat_improvement(x: float, k: float) -> float:
@@ -72,7 +103,9 @@ def compute_gs(
     fit_base = max(inp.fit_base, 0.0)
     fit_ecc = max(inp.fit_ecc, 0.0)
     carbon = max(inp.carbon_kg, 0.0)
-    latency = max(inp.latency_ns, 0.0)
+
+    latency = max(inp.latency_ns - inp.latency_base_ns, 0.0)
+
 
     delta_fit = max(fit_base - fit_ecc, 0.0)
     rel_gain = 0.0 if fit_base <= 0 else delta_fit / fit_base
@@ -83,6 +116,16 @@ def compute_gs(
 
     # Weighted harmonic mean; clamp sub-scores to avoid division by zero
     wR, wC, wL = weights
+
+    ws = [max(w, 0.0) for w in (wR, wC, wL)]
+    total = sum(ws)
+    if total <= 0:
+        raise ValueError("weights must be non-negative and not all zero")
+    if any(w != orig for w, orig in zip(ws, (wR, wC, wL))) or not math.isclose(total, 1.0):
+        _log.warning("renormalizing GS weights to sum to 1")
+    ws = [w / total for w in ws]
+    wR, wC, wL = ws
+
     eps = 1e-9
     denom = wR / max(sr, eps) + wC / max(sc, eps) + wL / max(sl, eps)
     gs = (wR + wC + wL) / denom * 100.0
@@ -95,6 +138,8 @@ def compute_gs(
         "delta_FIT": delta_fit,
         "total_kgCO2e": carbon,
         "latency_ns": latency,
+
+        "carbon_scope": inp.carbon_scope,
     }
 
 

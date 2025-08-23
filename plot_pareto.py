@@ -23,6 +23,7 @@ def main() -> None:
     if not pareto:
         raise SystemExit("No Pareto frontier returned")
     df = pd.DataFrame(pareto)
+    df.to_csv("pareto.csv", index=False)
     plt.figure()
     scatter = plt.scatter(
         df["FIT"], df["carbon_kg"], c=df["latency_ns"], cmap="viridis"

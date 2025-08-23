@@ -1,6 +1,5 @@
 import pytest
-from gs import GSInputs, compute_gs
-
+import logging
 import pytest
 
 from gs import GSInputs, compute_gs
@@ -21,7 +20,10 @@ def _manual_gs(fit_base, fit_ecc, carbon, latency):
 
 
 def test_compute_gs_basic():
-    inp = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=10.0, latency_ns=20.0)
+
+    inp = GSInputs(
+        fit_base=1000, fit_ecc=100, carbon_kg=10.0, latency_ns=20.0, latency_base_ns=0.0
+    )
     res = compute_gs(inp)
     exp = _manual_gs(1000, 100, 10.0, 20.0)
     assert res["Sr"] == pytest.approx(exp["Sr"])
@@ -32,12 +34,41 @@ def test_compute_gs_basic():
 
 
 def test_gs_monotone_reliability():
-    inp_a = GSInputs(fit_base=1000, fit_ecc=500, carbon_kg=5.0, latency_ns=10.0)
-    inp_b = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=5.0, latency_ns=10.0)
+
+    inp_a = GSInputs(
+        fit_base=1000, fit_ecc=500, carbon_kg=5.0, latency_ns=10.0, latency_base_ns=0.0
+    )
+    inp_b = GSInputs(
+        fit_base=1000, fit_ecc=100, carbon_kg=5.0, latency_ns=10.0, latency_base_ns=0.0
+    )
     assert compute_gs(inp_b)["GS"] > compute_gs(inp_a)["GS"]
 
 
 def test_gs_extreme_costs():
-    inp = GSInputs(fit_base=100, fit_ecc=10, carbon_kg=1e6, latency_ns=1e6)
+
+    inp = GSInputs(
+        fit_base=100, fit_ecc=10, carbon_kg=1e6, latency_ns=1e6, latency_base_ns=0.0
+    )
     res = compute_gs(inp)
     assert res["GS"] < 1.0
+
+
+def test_weight_hygiene_normalises(caplog):
+    inp = GSInputs(
+        fit_base=100, fit_ecc=10, carbon_kg=1.0, latency_ns=5.0, latency_base_ns=0.0
+    )
+    caplog.set_level(logging.WARNING)
+    res = compute_gs(inp, weights=(0.5, 0.5, 0.5))
+    exp = compute_gs(inp, weights=(1 / 3, 1 / 3, 1 / 3))
+    assert res["GS"] == pytest.approx(exp["GS"])
+    assert any("renormalizing" in r.message for r in caplog.records)
+
+
+def test_weight_hygiene_clips_negative():
+    inp = GSInputs(
+        fit_base=100, fit_ecc=10, carbon_kg=1.0, latency_ns=5.0, latency_base_ns=0.0
+    )
+    res_neg = compute_gs(inp, weights=(0.6, -0.3, 0.7))
+    res_eq = compute_gs(inp, weights=(0.6, 0.0, 0.7))
+    assert res_neg["GS"] == pytest.approx(res_eq["GS"])
+
