@@ -34,5 +34,23 @@ All simulators rely on shared concepts:
 - Fault injection helpers used by the automated test suites.
 - Optional structured logging to JSON and CSV files for later analysis.
 
+## CSV Output Files
+
+Several components emit comma‑separated values that can be imported into
+spreadsheet tools or pandas for further analysis:
+
+- The Hamming simulators write aggregated metrics to `ecc_stats.csv` and
+  per‑read traces to `decoding_results.csv` using `std::ofstream` streams in
+  their source code. [`Hamming32bit1Gb.cpp`](../Hamming32bit1Gb.cpp) and
+  [`Hamming64bit128Gb.cpp`](../Hamming64bit128Gb.cpp) contain the relevant
+  logging calls.
+- `BCHvsHamming.cpp` saves the outcome of its test scenarios to
+  `comparison_results.csv`.
+- `parse_telemetry.py` validates raw telemetry logs against the schema in
+  `docs/schema/telemetry.schema.json` and writes a normalised CSV via
+  `pandas.DataFrame.to_csv`.
+- Analysis utilities such as `plot_pareto.py` export their results to CSV (for
+  example, `pareto.csv`) for downstream processing.
+
 The `energy_model.py` script estimates the energy cost of a read operation based on the number of evaluated parity bits and detected errors. `ecc_selector.py` recommends an ECC scheme given runtime conditions such as bit error rate and energy budget.
 
