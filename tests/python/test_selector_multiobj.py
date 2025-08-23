@@ -62,6 +62,8 @@ def test_nesii_normalisation():
         assert rec["p5"] == norm["p5"]
         assert rec["p95"] == norm["p95"]
         assert rec["N_scale"] == norm["N"]
+        assert 0.0 <= rec["GS"] <= 100.0
+        assert all(k in rec for k in ["Sr", "Sc", "Sl"])
 
 
 
