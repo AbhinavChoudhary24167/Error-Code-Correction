@@ -1,6 +1,5 @@
 import pytest
 import logging
-
 import pytest
 
 from gs import GSInputs, compute_gs
@@ -21,6 +20,7 @@ def _manual_gs(fit_base, fit_ecc, carbon, latency):
 
 
 def test_compute_gs_basic():
+
     inp = GSInputs(
         fit_base=1000, fit_ecc=100, carbon_kg=10.0, latency_ns=20.0, latency_base_ns=0.0
     )
@@ -34,6 +34,7 @@ def test_compute_gs_basic():
 
 
 def test_gs_monotone_reliability():
+
     inp_a = GSInputs(
         fit_base=1000, fit_ecc=500, carbon_kg=5.0, latency_ns=10.0, latency_base_ns=0.0
     )
@@ -44,6 +45,7 @@ def test_gs_monotone_reliability():
 
 
 def test_gs_extreme_costs():
+
     inp = GSInputs(
         fit_base=100, fit_ecc=10, carbon_kg=1e6, latency_ns=1e6, latency_base_ns=0.0
     )
@@ -69,3 +71,4 @@ def test_weight_hygiene_clips_negative():
     res_neg = compute_gs(inp, weights=(0.6, -0.3, 0.7))
     res_eq = compute_gs(inp, weights=(0.6, 0.0, 0.7))
     assert res_neg["GS"] == pytest.approx(res_eq["GS"])
+
