@@ -2,6 +2,18 @@
 
 This repository collects C++ and Python tools for exploring error-correcting-code (ECC) schemes in SRAM and evaluating their reliability, energy cost and environmental footprint. It includes standalone memory simulators, comparison utilities and analytical scripts.
 
+## Quick Start
+
+Clone the repository and run a minimal simulator with:
+
+```bash
+pip install -r requirements.txt
+make
+./Hamming32bit1Gb
+```
+
+The sample run prints correction statistics and creates `ecc_stats` and `decoding_results` logs in the project root.
+
 ---
 
 ## 1. Dependencies
