@@ -24,6 +24,8 @@ from typing import Dict
 from esii import ESIIInputs, compute_esii
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
+from qcrit_loader import qcrit_lookup
+from mbu import pmf_adjacent
 from fit import (
     compute_fit_pre,
     compute_fit_post,
@@ -287,7 +289,7 @@ def main() -> None:
     report_parser = reliability_sub.add_parser(
         "report", help="Generate reliability report"
     )
-    report_parser.add_argument("--qcrit", type=float, required=True)
+    report_parser.add_argument("--qcrit", type=float, default=None)
     report_parser.add_argument("--qs", type=float, required=True)
     report_parser.add_argument("--area", type=float, required=True)
     report_parser.add_argument("--alt-km", type=float, default=0.0)
@@ -303,7 +305,9 @@ def main() -> None:
     report_parser.add_argument("--scrub-interval", type=float, default=0.0)
     report_parser.add_argument("--capacity-gib", type=float, default=1.0)
     report_parser.add_argument("--basis", choices=["per_gib", "system"], default="per_gib")
-    report_parser.add_argument("--mbu", type=str, default="none")
+    report_parser.add_argument(
+        "--mbu", type=str, default="moderate", choices=["none", "light", "moderate", "heavy"]
+    )
     report_parser.add_argument("--node-nm", type=int, required=True)
     report_parser.add_argument("--vdd", type=float, required=True)
     report_parser.add_argument("--tempC", type=float, required=True)
@@ -724,8 +728,32 @@ def main() -> None:
             hp = HazuchaParams(
                 Qs_fC=args.qs, flux_rel=flux, area_um2=args.area
             )
-            fit_bit = ser_hazucha(args.qcrit, hp)
-            mbu_rates = {}
+            qcrit = (
+                args.qcrit
+                if args.qcrit is not None
+                else qcrit_lookup("sram6t", args.node_nm, args.vdd, args.tempC, 50)
+            )
+            fit_bit = ser_hazucha(qcrit, hp)
+
+            if args.mbu == "none":
+                mbu_rates = {}
+            else:
+                mbu_dist = pmf_adjacent(
+                    args.mbu, word_bits=args.word_bits, bitline_bits=args.word_bits
+                )
+                severity_scale = {
+                    "light": 0.0,
+                    "moderate": 1.0,
+                    "heavy": 5.0,
+                }.get(args.mbu, 1.0)
+                mbu_rates = {
+                    k: {
+                        kind: fit_bit * args.word_bits * k * p * severity_scale
+                        for kind, p in probs.items()
+                    }
+                    for k, probs in mbu_dist.items()
+                }
+
             fit_pre = compute_fit_pre(args.word_bits, fit_bit, mbu_rates)
             coverage = ecc_coverage_factory(args.ecc)
             fit_post = compute_fit_post(
@@ -743,7 +771,7 @@ def main() -> None:
                 fit_sys.nominal if isinstance(fit_sys, FitEstimate) else fit_sys
             )
             result = {
-                "qcrit": args.qcrit,
+                "qcrit": qcrit,
                 "qs": args.qs,
                 "flux_rel": flux,
                 "fit_bit": fit_bit,
