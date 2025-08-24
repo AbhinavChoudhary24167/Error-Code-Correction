@@ -281,12 +281,18 @@ def depth_locator(code: str) -> int:
 # Leakage model
 
 
-_LEAK_BASE = {28: 0.5, 16: 0.7, 7: 1.0}  # A/mm^2 at 25C
+# Leakage current density reference values expressed in microamps per square
+# millimetre (\u03bcA/mm^2) at 25\u00b0C. Prior revisions treated these as amps,
+# greatly overstating leakage energy.
+_LEAK_BASE_UA_PER_MM2 = {28: 0.5, 16: 0.7, 7: 1.0}
 
 
 def i_leak_density_A_per_mm2(node_nm: float, temp_c: float) -> float:
-    nodes = np.array(sorted(_LEAK_BASE))
-    base = np.array([_LEAK_BASE[n] for n in nodes])
+    """Return leakage current density in A/mm^2."""
+    nodes = np.array(sorted(_LEAK_BASE_UA_PER_MM2))
+    base_ua = np.array([_LEAK_BASE_UA_PER_MM2[n] for n in nodes])
+    # Convert microamp calibration data to amps before temperature scaling.
+    base = base_ua * 1e-6
     density_25 = np.interp(node_nm, nodes, base)
     return density_25 * 2 ** ((temp_c - 25.0) / 10.0)
 
