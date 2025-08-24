@@ -34,6 +34,7 @@ from mbu import pmf_adjacent
 from qcrit_loader import qcrit_lookup
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from gs import GSInputs, compute_gs
+from analysis.knee import max_perp_norm
 
 
 # ---------------------------------------------------------------------------
@@ -183,46 +184,6 @@ def _nsga2_sort(
                 crowd[sorted_f[k]] += next_val - prev_val
 
     return fronts, crowd, mins, maxs, norm_vals
-
-
-def _knee_point(
-    front: List[int], norm_vals: Dict[int, Dict[str, float]]
-) -> Tuple[int, float]:
-    """Return index of knee point in ``front`` and its distance."""
-
-    if len(front) <= 2:
-        return front[0], 0.0
-
-    pts = [
-        (
-            norm_vals[i]["FIT"],
-            norm_vals[i]["carbon_kg"],
-            norm_vals[i]["latency_ns"],
-        )
-        for i in front
-    ]
-    order = sorted(range(len(front)), key=lambda k: pts[k][1])
-    p0 = pts[order[0]]
-    p1 = pts[order[-1]]
-    ab = [p1[d] - p0[d] for d in range(3)]
-    ab_len = math.sqrt(sum(v * v for v in ab)) or 1.0
-
-    best_idx = order[0]
-    best_dist = -1.0
-    for idx in order[1:-1]:
-        p = pts[idx]
-        ap = [p[d] - p0[d] for d in range(3)]
-        cross = (
-            ap[1] * ab[2] - ap[2] * ab[1],
-            ap[2] * ab[0] - ap[0] * ab[2],
-            ap[0] * ab[1] - ap[1] * ab[0],
-        )
-        dist = math.sqrt(sum(c * c for c in cross)) / ab_len
-        if dist > best_dist:
-            best_dist = dist
-            best_idx = idx
-
-    return front[best_idx], best_dist
 
 
 def _hypervolume(points: List[Tuple[float, float, float]], ref=(1.0, 1.0, 1.0)) -> float:
@@ -610,7 +571,8 @@ def select(
         "latency_max": lat_max,
         "carbon_max": carbon_max,
     }
-    knee_info: Dict[str, float] | None = None
+    knee_index: int | None = None
+    knee_distance: float | None = None
 
     feasible = [
         r
@@ -627,9 +589,10 @@ def select(
             best = min(recs, key=lambda r: (r["carbon_kg"], -r["NESII"]))
     else:
         if fronts and fronts[0]:
-            knee_idx, knee_dist = _knee_point(fronts[0], norm_vals)
-            best = recs[knee_idx]
-            knee_info = {"index": fronts[0].index(knee_idx), "distance": knee_dist}
+            front_records = [recs[i] for i in fronts[0]]
+            k_idx, knee_distance = max_perp_norm(front_records)
+            best = front_records[k_idx]
+            knee_index = f1.index(best)
             nesii_best = max(f1, key=lambda r: r["NESII"]) if f1 else best
             if nesii_best["NESII"] > best["NESII"]:
                 best = nesii_best
@@ -668,8 +631,14 @@ def select(
     }
 
     decision_meta: Dict[str, object] = {"mode": decision_mode, "params": decision_params}
-    if knee_info:
-        decision_meta["knee"] = knee_info
+    if knee_index is not None and knee_distance is not None:
+        decision_meta.update(
+            {
+                "knee_index": knee_index,
+                "knee_distance": knee_distance,
+                "knee_method": "max-perp-normalized",
+            }
+        )
 
     return {
         "best": best,
