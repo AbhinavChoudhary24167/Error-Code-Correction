@@ -201,6 +201,39 @@ def main() -> None:
         "--emit-candidates", type=Path, default=None, help="Write feasible candidates to CSV"
     )
 
+    target_parser = sub.add_parser(
+        "target", help="Min-carbon ECC meeting BER/UWER target"
+    )
+    target_parser.add_argument(
+        "--codes",
+        type=str,
+        required=True,
+        help="Comma separated code identifiers",
+    )
+    target_parser.add_argument(
+        "--target-type",
+        choices=["bit", "uwer"],
+        required=True,
+        help="Reliability metric to constrain",
+    )
+    target_parser.add_argument("--target", type=float, required=True)
+    target_parser.add_argument("--node", type=int, required=True)
+    target_parser.add_argument("--vdd", type=float, required=True)
+    target_parser.add_argument("--temp", type=float, required=True)
+    target_parser.add_argument("--mbu", type=str, default="moderate")
+    target_parser.add_argument("--scrub-s", type=float, default=10.0)
+    target_parser.add_argument("--capacity-gib", type=float, required=True)
+    target_parser.add_argument("--ci", type=float, required=True)
+    target_parser.add_argument("--bitcell-um2", type=float, required=True)
+    target_parser.add_argument("--lifetime-h", type=float, default=float("nan"))
+    target_parser.add_argument("--ci-source", type=str, default="unspecified")
+    target_parser.add_argument(
+        "--feasible", type=Path, default=Path("feasible.csv"), help="Feasible set CSV"
+    )
+    target_parser.add_argument(
+        "--choice", type=Path, default=Path("choice.json"), help="Chosen point JSON"
+    )
+
     analyze_parser = sub.add_parser("analyze", help="Post-selection analysis")
     analyze_sub = analyze_parser.add_subparsers(dest="analyze_command")
 
@@ -455,6 +488,99 @@ def main() -> None:
 
         if result["best"]:
             print(result["best"]["code"])
+        return
+
+    if args.command == "target":
+        codes = [c.strip() for c in args.codes.split(",") if c.strip()]
+        params = {
+            "node": args.node,
+            "vdd": args.vdd,
+            "temp": args.temp,
+            "capacity_gib": args.capacity_gib,
+            "ci": args.ci,
+            "bitcell_um2": args.bitcell_um2,
+            "lifetime_h": args.lifetime_h,
+            "ci_source": args.ci_source,
+        }
+
+        result = select(
+            codes,
+            mbu=args.mbu,
+            scrub_s=args.scrub_s,
+            **params,
+        )
+
+        records = result.get("candidate_records", [])
+        if args.target_type == "bit":
+            def metric(rec):
+                return rec.get("fit_bit", float("inf"))
+        else:
+            def metric(rec):
+                return rec.get("fit_word_post", float("inf"))
+
+        feasible = [r for r in records if metric(r) <= args.target]
+
+        import csv
+        fieldnames = [
+            "code",
+            "fit_bit",
+            "fit_word_post",
+            "FIT",
+            "carbon_kg",
+            "ESII",
+            "NESII",
+            "scrub_s",
+            "area_logic_mm2",
+            "area_macro_mm2",
+            "E_dyn_kWh",
+            "E_leak_kWh",
+            "E_scrub_kWh",
+        ]
+        with open(args.feasible, "w", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=fieldnames, extrasaction="ignore")
+            writer.writeheader()
+            for rec in feasible:
+                writer.writerow(rec)
+
+        provenance = {
+            "git": _git_hash(),
+            "tech_calib": _file_hash((Path(__file__).resolve().parent / "tech_calib.json")),
+            "scenario_hash": result.get("scenario_hash"),
+        }
+
+        if feasible:
+            best = min(feasible, key=lambda r: (r["carbon_kg"], -r["NESII"]))
+            choice = {
+                "status": "ok",
+                "target_type": args.target_type,
+                "target": args.target,
+                "scrub_s": args.scrub_s,
+                "provenance": provenance,
+                "choice": best,
+            }
+        else:
+            nearest = min(records, key=lambda r: abs(metric(r) - args.target)) if records else None
+            if nearest is not None:
+                delta = metric(nearest) - args.target
+                print(
+                    f"No feasible candidate; nearest {nearest['code']} by {delta:+.3e}",
+                    file=sys.stderr,
+                )
+            choice = {
+                "status": "infeasible",
+                "target_type": args.target_type,
+                "target": args.target,
+                "scrub_s": args.scrub_s,
+                "provenance": provenance,
+            }
+            if nearest is not None:
+                choice["nearest"] = {
+                    "code": nearest["code"],
+                    "metric": metric(nearest),
+                    "delta": metric(nearest) - args.target,
+                }
+
+        json.dump(choice, open(args.choice, "w"))
         return
 
     if args.command == "esii":

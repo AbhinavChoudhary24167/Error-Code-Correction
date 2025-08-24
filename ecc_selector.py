@@ -342,6 +342,8 @@ def _compute_metrics(
         "area_macro_mm2": area_macro_mm2,
         "notes": info.notes,
         "includes_scrub_energy": True,
+        "fit_bit": fit_bit,
+        "fit_word_post": fit_post.nominal,
     }
 
 
