@@ -989,8 +989,10 @@ int main(int argc, char* argv[]) {
                   << " MB" << std::endl;
         std::cout << std::string(60, '=') << std::endl;
 
+
         // Provide high level design guidance for users exploring ECC choices.
         printArchetypeReport();
+
 
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
