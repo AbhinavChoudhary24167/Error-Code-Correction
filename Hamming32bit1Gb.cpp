@@ -52,6 +52,40 @@ public:
     // should configuration parameters such as the word size change in future.
     void resetPCM() { buildParityCheckMatrix(); }
 
+    // Load a parity-check matrix from an external file. Each line of the file
+    // represents one row of the matrix and should contain a sequence of `0`
+    // and `1` characters. Any whitespace or additional characters are
+    // ignored. The number of columns is capped at TOTAL_BITS-1 as the overall
+    // parity bit is not included in the syndrome calculation.
+    bool loadPCMFromFile(const std::string& filename) {
+        std::ifstream file(filename);
+        if (!file) {
+            return false;
+        }
+        pcm_.rows.clear();
+        std::string line;
+        while (std::getline(file, line)) {
+            std::array<uint64_t,2> row{0,0};
+            std::size_t col = 0;
+            for (char c : line) {
+                if (c != '0' && c != '1')
+                    continue;
+                if (c == '1') {
+                    if (col < 64)
+                        row[0] |= (1ULL << col);
+                    else
+                        row[1] |= (1ULL << (col - 64));
+                }
+                ++col;
+                if (col >= TOTAL_BITS - 1)
+                    break;
+            }
+            if (col > 0)
+                pcm_.rows.push_back(row);
+        }
+        return !pcm_.rows.empty();
+    }
+
     struct CodeWord {
         uint64_t data;  // 39 bits stored in 64-bit int
         
@@ -515,7 +549,13 @@ public:
     size_t getMemoryCapacity() const {
         return MEMORY_SIZE_WORDS;
     }
-    
+
+    // Load an external parity-check matrix. This allows experiments with
+    // arbitrary ECC constructions while reusing the simulator infrastructure.
+    bool loadParityCheckMatrix(const std::string& path) {
+        return hamming.loadPCMFromFile(path);
+    }
+
     void printStatistics() {
         stats.printStatistics();
     }
@@ -805,18 +845,30 @@ public:
     }
 };
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
+        std::string pcm_path;
+        for (int i = 1; i < argc; ++i) {
+            std::string arg = argv[i];
+            if (arg == "--pcm" && i + 1 < argc) {
+                pcm_path = argv[++i];
+            }
+        }
+
         std::cout << "Advanced Hamming SEC-DED Memory Simulator" << std::endl;
         std::cout << "Data bits: 32, Parity bits: 6, Overall parity: 1, Total bits: 39" << std::endl;
         std::cout << "Memory size: 1GB (256M 32-bit words)" << std::endl;
         std::cout << "Features: Single Error Correction, Double Error Detection" << std::endl;
-        
+
         AdvancedMemorySimulator memory;
+        if (!pcm_path.empty() && !memory.loadParityCheckMatrix(pcm_path)) {
+            std::cerr << "Warning: failed to load parity-check matrix from '"
+                      << pcm_path << "'. Using default." << std::endl;
+        }
         AdvancedTestSuite tests(memory);
-        
+
         tests.runAllTests();
-        
+
         memory.printStatistics();
 
         std::cout << "\n" << std::string(60, '=') << std::endl;
@@ -829,11 +881,11 @@ int main() {
                   << (memory.getMemorySize() * sizeof(HammingCodeSECDED::CodeWord)) / (1024*1024)
                   << " MB" << std::endl;
         std::cout << std::string(60, '=') << std::endl;
-        
+
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
-    
+
     return 0;
 }
