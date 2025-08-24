@@ -218,7 +218,8 @@ are available under the new `analyze` command family:
 ```bash
 eccsim select --codes sec-ded,sec-daec --node 7 --vdd 0.8 --temp 25 --capacity-gib 1 --ci 400 --bitcell-um2 0.1 --report pareto.csv
 
-eccsim analyze tradeoffs --from pareto.csv --out reports/tradeoffs.json
+eccsim analyze tradeoffs --from pareto.csv --out reports/tradeoffs.json \
+    --bootstrap 20000 --seed 1 --filter "carbon_kg < 2"
 
 eccsim analyze archetype --from pareto.csv --out reports/archetype.json
 ```

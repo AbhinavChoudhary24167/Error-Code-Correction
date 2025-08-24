@@ -33,10 +33,31 @@ def test_tradeoff_slope_and_ci(tmp_path: Path) -> None:
     out2 = tmp_path / "trade2.json"
     result2 = analyze_tradeoffs(pareto, out2, cfg)
     assert result2["exchange"]["fit_vs_carbon"]["kg_per_decade"] == slope
+    assert result2["exchange"]["fit_vs_carbon"]["ci95"] == [lo, hi]
+
+    prov = result["provenance"]
+    assert prov["ci_method"] == "bootstrap"
+    assert prov["seed"] == 1
+    assert prov["n_resamples"] == 1000
+    assert prov["filter"] is None
 
     quality = result["quality"]
     assert quality["ref_point_norm"] == [1.0, 1.0]
     assert quality["hypervolume"] > 0.0
     assert quality["spacing"] >= 0.0
+
+
+def test_tradeoff_filter(tmp_path: Path) -> None:
+    pareto = create_pareto(tmp_path)
+    out = tmp_path / "trade.json"
+    cfg = TradeoffConfig(n_resamples=1000, seed=1, filter_expr="carbon_kg > 1.5")
+    result = analyze_tradeoffs(pareto, out, cfg)
+
+    stats = result["exchange"]["fit_vs_carbon"]
+    assert stats["N"] == 2
+    assert len(stats["ci95"]) == 2
+    assert "r" in stats and "p" in stats
+    assert not np.isnan(stats["kg_per_decade"])
+    assert result["provenance"]["filter"] == "carbon_kg > 1.5"
 
 
