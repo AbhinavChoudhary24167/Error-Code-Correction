@@ -56,6 +56,8 @@ def test_knee_stability():
     params2["ci"] = params["ci"] * 1.001
     r2 = select(codes, **params2)
     assert r1["decision"]["mode"] == "knee"
+    assert r1["decision"]["knee_method"] == "max-perp-normalized"
+    assert 0 <= r1["decision"]["knee_index"] < len(r1["pareto"])
     assert r1["best"]["code"] == r2["best"]["code"]
 
 
