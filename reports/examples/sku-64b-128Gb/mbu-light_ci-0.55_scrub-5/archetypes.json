@@ -1,0 +1,65 @@
+{
+  "provenance": {
+    "version": "1",
+    "thresholds": {
+      "Fortress": {
+        "fit_lo": 0.0,
+        "fit_hi": "1e-15",
+        "lat_lo": 3.0,
+        "lat_hi": "inf",
+        "carbon_lo": 0.8,
+        "carbon_hi": 1.2
+      },
+      "Efficiency": {
+        "fit_lo": "1e-13",
+        "fit_hi": "1e-12",
+        "lat_lo": 1.5,
+        "lat_hi": 2.5,
+        "carbon_lo": 0.3,
+        "carbon_hi": 0.6
+      },
+      "Frugal": {
+        "fit_lo": "1e-12",
+        "fit_hi": "1e-11",
+        "lat_lo": 0.0,
+        "lat_hi": 2.0,
+        "carbon_lo": 0.0,
+        "carbon_hi": 0.3
+      },
+      "SpeedDemon": {
+        "fit_lo": 0.0,
+        "fit_hi": "inf",
+        "lat_lo": 0.0,
+        "lat_hi": 1.5,
+        "carbon_lo": 0.4,
+        "carbon_hi": "inf"
+      }
+    }
+  },
+  "counts": {
+    "SpeedDemon": 1
+  },
+  "exemplars": {
+    "SpeedDemon": {
+      "code": "sec-ded-64",
+      "scrub_s": 5.0,
+      "fit": 6.36729606288758e-17,
+      "carbon_kg": 687.9947673647245,
+      "latency_ns": 1.0,
+      "esii": 0.6500672362313761,
+      "nesii": 100.0,
+      "p5": 0.4727262003674543,
+      "p95": 0.6500672362313761,
+      "n_scale": 3,
+      "area_logic_mm2": 1.0,
+      "area_macro_mm2": 687.19476736,
+      "e_dyn_kwh": 0.0,
+      "e_leak_kwh": 0.0,
+      "e_scrub_kwh": 8.589934592e-09,
+      "notes": NaN,
+      "archetype": "SpeedDemon",
+      "archetype_confidence": 0.0,
+      "archetype_alternates": []
+    }
+  }
+}
