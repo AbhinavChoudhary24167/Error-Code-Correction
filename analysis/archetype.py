@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
 
 import numpy as np
 import pandas as pd
+import yaml
 
 
 @dataclass
@@ -44,18 +46,36 @@ class Archetype:
         return max(0.0, 1 - max(fit_dist, lat_dist, carb_dist))
 
 
-def _archetypes() -> Dict[str, Archetype]:
-    return {
-        "Fortress": Archetype("Fortress", 0.0, 1e-15, 3.0, float("inf"), 0.8, 1.2),
-        "Efficiency": Archetype("Efficiency", 1e-13, 1e-12, 1.5, 2.5, 0.3, 0.6),
-        "Frugal": Archetype("Frugal", 1e-12, 1e-11, 0.0, 2.0, 0.0, 0.3),
-        "SpeedDemon": Archetype("SpeedDemon", 0.0, float("inf"), 0.0, 1.5, 0.4, float("inf")),
-    }
+
+CONFIG_PATH = Path(__file__).resolve().parent.parent / "configs" / "archetypes.yaml"
 
 
-def classify_archetypes(pareto_csv: Path, out_json: Path) -> Dict[str, Any]:
+def _load_archetypes(cfg_path: Path = CONFIG_PATH) -> Tuple[str, Dict[str, Archetype], Dict[str, Any]]:
+    """Load archetype definitions from ``cfg_path``.
+
+    Returns a tuple of (version, archetype map, raw thresholds).
+    """
+
+    cfg = yaml.safe_load(cfg_path.read_text())
+    arcs: Dict[str, Archetype] = {}
+    for name, vals in cfg["archetypes"].items():
+        arcs[name] = Archetype(
+            name,
+            float(vals["fit_lo"]),
+            float(vals["fit_hi"]),
+            float(vals["lat_lo"]),
+            float(vals["lat_hi"]),
+            float(vals["carbon_lo"]),
+            float(vals["carbon_hi"]),
+        )
+    return str(cfg.get("version", "")), arcs, cfg["archetypes"]
+
+
+def classify_archetypes(
+    pareto_csv: Path, out_json: Path, cfg_path: Path | None = None
+) -> Dict[str, Any]:
     df = pd.read_csv(pareto_csv)
-    arcs = _archetypes()
+    version, arcs, thresholds = _load_archetypes(cfg_path or CONFIG_PATH)
 
     archetype_names = []
     confidences = []
@@ -87,7 +107,20 @@ def classify_archetypes(pareto_csv: Path, out_json: Path) -> Dict[str, Any]:
         for name in counts
     }
 
-    result = {"counts": counts, "exemplars": exemplars}
+    def _ser(val: Any) -> Any:
+        if isinstance(val, float) and math.isinf(val):
+            return "inf"
+        return val
+
+    thr_serial = {
+        name: {k: _ser(v) for k, v in vals.items()} for name, vals in thresholds.items()
+    }
+
+    result = {
+        "provenance": {"version": version, "thresholds": thr_serial},
+        "counts": counts,
+        "exemplars": exemplars,
+    }
     out_json.parent.mkdir(parents=True, exist_ok=True)
     out_json.write_text(json.dumps(result, indent=2))
     return result

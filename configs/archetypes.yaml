@@ -1,0 +1,30 @@
+version: 1
+archetypes:
+  Fortress:
+    fit_lo: 0.0
+    fit_hi: 1e-15
+    lat_lo: 3.0
+    lat_hi: .inf
+    carbon_lo: 0.8
+    carbon_hi: 1.2
+  Efficiency:
+    fit_lo: 1e-13
+    fit_hi: 1e-12
+    lat_lo: 1.5
+    lat_hi: 2.5
+    carbon_lo: 0.3
+    carbon_hi: 0.6
+  Frugal:
+    fit_lo: 1e-12
+    fit_hi: 1e-11
+    lat_lo: 0.0
+    lat_hi: 2.0
+    carbon_lo: 0.0
+    carbon_hi: 0.3
+  SpeedDemon:
+    fit_lo: 0.0
+    fit_hi: .inf
+    lat_lo: 0.0
+    lat_hi: 1.5
+    carbon_lo: 0.4
+    carbon_hi: .inf
