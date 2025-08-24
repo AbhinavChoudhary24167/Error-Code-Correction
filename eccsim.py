@@ -225,6 +225,14 @@ def main() -> None:
     surface_parser.add_argument("--out-csv", dest="out_csv", type=Path, required=True)
     surface_parser.add_argument("--plot", type=Path, default=None)
 
+    sens_parser = analyze_sub.add_parser(
+        "sensitivity", help="One-factor sensitivity analysis"
+    )
+    sens_parser.add_argument("--factor", type=str, required=True)
+    sens_parser.add_argument("--grid", type=str, required=True)
+    sens_parser.add_argument("--from", dest="from_json", type=Path, required=True)
+    sens_parser.add_argument("--out", type=Path, required=True)
+
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
     )
@@ -286,6 +294,11 @@ def main() -> None:
             from analysis.surface import analyze_surface
 
             analyze_surface(args.cand_csv, args.out_csv, args.plot)
+        elif args.analyze_command == "sensitivity":
+            from analysis.sensitivity import analyze_sensitivity
+
+            grid_vals = [float(x) for x in args.grid.split(",") if x.strip()]
+            analyze_sensitivity(args.from_json, args.factor, grid_vals, args.out)
         else:
             parser.error("analyze subcommand required")
         return
