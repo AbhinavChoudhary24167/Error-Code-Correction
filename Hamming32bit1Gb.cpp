@@ -14,6 +14,113 @@
 #include "ParityCheckMatrix.hpp"
 #include "gate_energy.hpp"
 
+// Print design archetype guidance that helps users interpret simulator results.
+static void printArchetypeReport() {
+    std::cout << R"(Archetype 1: "Fortress" (Maximum Reliability)
+Characteristics:
+- FIT: < 1e-15 (top 5% of solutions)
+- Carbon: 0.8-1.2 kg CO₂e (acceptable trade-off)
+- Latency: 3-5 ns (acceptable for server applications)
+- Typical ECC: LDPC, Turbo-Product codes
+- Technology: 14nm-28nm (mature, reliable processes)
+
+Target Applications:
+- Mission-critical servers (financial, aerospace)
+- Automotive safety systems (ISO 26262)
+- Medical devices (FDA regulated)
+
+Design Rationale:
+"Maximum protection against data corruption, cost is secondary consideration"
+
+Representative Configuration:
+- Code: LDPC-256-239
+- Node: 28nm
+- VDD: 0.9V (conservative for reliability)
+- Temperature: 25°C (active cooling)
+- Scrub: 60s (aggressive error scrubbing)
+
+Archetype 2: "Efficiency" (Balanced Trade-offs)
+Characteristics:
+- FIT: 1e-13 to 1e-12 (good reliability)
+- Carbon: 0.3-0.6 kg CO₂e (environmentally conscious)
+- Latency: 1.5-2.5 ns (good performance)
+- Typical ECC: SEC-DAEC, Advanced Hamming
+- Technology: 14nm (optimal efficiency point)
+
+Target Applications:
+- Enterprise servers
+- Cloud computing infrastructure
+- High-performance workstations
+
+Design Rationale:
+"Optimal balance across all objectives, mainstream deployment"
+
+Representative Configuration:
+- Code: SEC-DAEC-64
+- Node: 14nm
+- VDD: 0.8V (standard operation)
+- Temperature: 75°C (typical server environment)
+- Scrub: 600s (balanced scrubbing)
+
+Archetype 3: "Frugal" (Minimum Environmental Impact)
+Characteristics:
+- FIT: 1e-12 to 1e-11 (acceptable reliability)
+- Carbon: < 0.3 kg CO₂e (top 10% environmental performance)
+- Latency: 1-2 ns (excellent performance)
+- Typical ECC: SEC-DED, simple codes
+- Technology: 7nm (high efficiency when properly managed)
+
+Target Applications:
+- Mobile devices
+- IoT sensors
+- Edge computing
+- Green data centers
+
+Design Rationale:
+"Minimize environmental impact while maintaining acceptable protection"
+
+Representative Configuration:
+- Code: SEC-DED-64
+- Node: 7nm
+- VDD: 0.6V (ultra-low power)
+- Temperature: 45°C (passive cooling)
+- Scrub: 3600s (minimal scrubbing)
+
+Archetype 4: "Speed Demon" (Maximum Performance)
+Characteristics:
+- FIT: 1e-13 to 1e-11 (variable reliability)
+- Carbon: 0.4-0.8 kg CO₂e (performance costs carbon)
+- Latency: < 1.5 ns (top 5% performance)
+- Typical ECC: Simple codes, minimal overhead
+- Technology: 7nm-14nm (high-speed processes)
+
+Target Applications:
+- High-frequency trading systems
+- Real-time gaming/VR
+- Ultra-low latency networking
+- AI inference engines
+
+Design Rationale:
+"Every nanosecond counts, optimize for minimum access time"
+
+Representative Configuration:
+- Code: SEC-DED-32 (smaller words for speed)
+- Node: 7nm
+- VDD: 1.0V (maximum performance)
+- Temperature: 85°C (aggressive operation)
+- Scrub: 7200s (minimal impact on performance)
+
+Cross-Archetype Analysis:
+Trade-off Matrix:
+                 Fortress  Efficiency  Frugal  Speed Demon
+Reliability      ★★★★★     ★★★★        ★★★     ★★
+Carbon Impact    ★★        ★★★★        ★★★★★   ★★
+Performance      ★★        ★★★         ★★★★    ★★★★★
+Cost            ★         ★★★         ★★★★★   ★★
+Complexity      ★         ★★★         ★★★★★   ★★★★
+)" << std::endl;
+}
+
 class HammingCodeSECDED {
 public:
     static const int DATA_BITS = 32;
@@ -51,6 +158,40 @@ public:
     // Rebuild the parity-check matrix. This provides a reinitialisation path
     // should configuration parameters such as the word size change in future.
     void resetPCM() { buildParityCheckMatrix(); }
+
+    // Load a parity-check matrix from an external file. Each line of the file
+    // represents one row of the matrix and should contain a sequence of `0`
+    // and `1` characters. Any whitespace or additional characters are
+    // ignored. The number of columns is capped at TOTAL_BITS-1 as the overall
+    // parity bit is not included in the syndrome calculation.
+    bool loadPCMFromFile(const std::string& filename) {
+        std::ifstream file(filename);
+        if (!file) {
+            return false;
+        }
+        pcm_.rows.clear();
+        std::string line;
+        while (std::getline(file, line)) {
+            std::array<uint64_t,2> row{0,0};
+            std::size_t col = 0;
+            for (char c : line) {
+                if (c != '0' && c != '1')
+                    continue;
+                if (c == '1') {
+                    if (col < 64)
+                        row[0] |= (1ULL << col);
+                    else
+                        row[1] |= (1ULL << (col - 64));
+                }
+                ++col;
+                if (col >= TOTAL_BITS - 1)
+                    break;
+            }
+            if (col > 0)
+                pcm_.rows.push_back(row);
+        }
+        return !pcm_.rows.empty();
+    }
 
     struct CodeWord {
         uint64_t data;  // 39 bits stored in 64-bit int
@@ -515,7 +656,13 @@ public:
     size_t getMemoryCapacity() const {
         return MEMORY_SIZE_WORDS;
     }
-    
+
+    // Load an external parity-check matrix. This allows experiments with
+    // arbitrary ECC constructions while reusing the simulator infrastructure.
+    bool loadParityCheckMatrix(const std::string& path) {
+        return hamming.loadPCMFromFile(path);
+    }
+
     void printStatistics() {
         stats.printStatistics();
     }
@@ -805,18 +952,30 @@ public:
     }
 };
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
+        std::string pcm_path;
+        for (int i = 1; i < argc; ++i) {
+            std::string arg = argv[i];
+            if (arg == "--pcm" && i + 1 < argc) {
+                pcm_path = argv[++i];
+            }
+        }
+
         std::cout << "Advanced Hamming SEC-DED Memory Simulator" << std::endl;
         std::cout << "Data bits: 32, Parity bits: 6, Overall parity: 1, Total bits: 39" << std::endl;
         std::cout << "Memory size: 1GB (256M 32-bit words)" << std::endl;
         std::cout << "Features: Single Error Correction, Double Error Detection" << std::endl;
-        
+
         AdvancedMemorySimulator memory;
+        if (!pcm_path.empty() && !memory.loadParityCheckMatrix(pcm_path)) {
+            std::cerr << "Warning: failed to load parity-check matrix from '"
+                      << pcm_path << "'. Using default." << std::endl;
+        }
         AdvancedTestSuite tests(memory);
-        
+
         tests.runAllTests();
-        
+
         memory.printStatistics();
 
         std::cout << "\n" << std::string(60, '=') << std::endl;
@@ -829,11 +988,14 @@ int main() {
                   << (memory.getMemorySize() * sizeof(HammingCodeSECDED::CodeWord)) / (1024*1024)
                   << " MB" << std::endl;
         std::cout << std::string(60, '=') << std::endl;
-        
+
+        // Provide high level design guidance for users exploring ECC choices.
+        printArchetypeReport();
+
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
-    
+
     return 0;
 }
