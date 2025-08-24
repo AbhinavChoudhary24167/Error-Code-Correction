@@ -49,6 +49,40 @@ public:
     // Rebuild the parity-check matrix if configuration parameters change.
     void resetPCM() { buildParityCheckMatrix(); }
 
+    // Load a parity-check matrix from an external file. Each non-empty line
+    // should contain a sequence of `0`/`1` characters describing one row of
+    // the matrix. Characters other than `0` or `1` are ignored. The number of
+    // processed columns is limited to TOTAL_BITS-1 as the overall parity bit
+    // is excluded from the H matrix.
+    bool loadPCMFromFile(const std::string& filename) {
+        std::ifstream file(filename);
+        if (!file) {
+            return false;
+        }
+        pcm_.rows.clear();
+        std::string line;
+        while (std::getline(file, line)) {
+            std::array<uint64_t,2> row{0,0};
+            std::size_t col = 0;
+            for (char c : line) {
+                if (c != '0' && c != '1')
+                    continue;
+                if (c == '1') {
+                    if (col < 64)
+                        row[0] |= (1ULL << col);
+                    else
+                        row[1] |= (1ULL << (col - 64));
+                }
+                ++col;
+                if (col >= TOTAL_BITS - 1)
+                    break;
+            }
+            if (col > 0)
+                pcm_.rows.push_back(row);
+        }
+        return !pcm_.rows.empty();
+    }
+
     struct CodeWord {
         uint64_t data_low;   // Lower 64 bits
         uint16_t data_high;  // Upper 8 bits (72-64=8 bits needed)
@@ -525,7 +559,13 @@ public:
     size_t getMemoryCapacity() const {
         return MEMORY_SIZE_WORDS;
     }
-    
+
+    // Load a custom parity-check matrix to experiment with alternative ECC
+    // configurations without modifying the simulator internals.
+    bool loadParityCheckMatrix(const std::string& path) {
+        return hamming.loadPCMFromFile(path);
+    }
+
     void printStatistics() {
         stats.printStatistics(energy_per_xor, energy_per_and);
     }
@@ -896,12 +936,15 @@ int main(int argc, char* argv[]) {
     try {
         int node_nm = 28;
         double vdd = 0.8;
+        std::string pcm_path;
         for (int i = 1; i < argc; ++i) {
             std::string arg = argv[i];
             if (arg == "--node" && i + 1 < argc) {
                 node_nm = std::stoi(argv[++i]);
             } else if (arg == "--vdd" && i + 1 < argc) {
                 vdd = std::stod(argv[++i]);
+            } else if (arg == "--pcm" && i + 1 < argc) {
+                pcm_path = argv[++i];
             }
         }
 
@@ -921,8 +964,12 @@ int main(int argc, char* argv[]) {
         }
 
         AdvancedMemorySimulator memory(energies.xor_energy, energies.and_energy);
+        if (!pcm_path.empty() && !memory.loadParityCheckMatrix(pcm_path)) {
+            std::cerr << "Warning: failed to load parity-check matrix from '"
+                      << pcm_path << "'. Using default." << std::endl;
+        }
         AdvancedTestSuite tests(memory);
-        
+
         tests.runAllTests();
         
         memory.printStatistics();
