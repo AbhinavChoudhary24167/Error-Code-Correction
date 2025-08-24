@@ -226,10 +226,13 @@ def main() -> None:
     surface_parser.add_argument("--plot", type=Path, default=None)
 
     sens_parser = analyze_sub.add_parser(
-        "sensitivity", help="One-factor sensitivity analysis"
+        "sensitivity", help="Sensitivity analysis (one or two factors)"
     )
     sens_parser.add_argument("--factor", type=str, required=True)
     sens_parser.add_argument("--grid", type=str, required=True)
+    sens_parser.add_argument("--factor2", type=str, default=None)
+    sens_parser.add_argument("--grid2", type=str, default=None)
+    sens_parser.add_argument("--csv", type=Path, default=None)
     sens_parser.add_argument("--from", dest="from_json", type=Path, required=True)
     sens_parser.add_argument("--out", type=Path, required=True)
 
@@ -296,9 +299,24 @@ def main() -> None:
             analyze_surface(args.cand_csv, args.out_csv, args.plot)
         elif args.analyze_command == "sensitivity":
             from analysis.sensitivity import analyze_sensitivity
+            if (args.factor2 is None) != (args.grid2 is None):
+                sens_parser.error("--factor2 and --grid2 must be provided together")
 
             grid_vals = [float(x) for x in args.grid.split(",") if x.strip()]
-            analyze_sensitivity(args.from_json, args.factor, grid_vals, args.out)
+            grid2_vals = (
+                [float(x) for x in args.grid2.split(",") if x.strip()]
+                if args.grid2
+                else None
+            )
+            analyze_sensitivity(
+                args.from_json,
+                args.factor,
+                grid_vals,
+                args.out,
+                args.factor2,
+                grid2_vals,
+                args.csv,
+            )
         else:
             parser.error("analyze subcommand required")
         return

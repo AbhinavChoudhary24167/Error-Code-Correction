@@ -20,7 +20,16 @@ def _write_scenario(path: Path) -> Path:
     return scen_path
 
 
-def _run(path: Path, scenario: Path, factor: str, grid: list[float], out: Path) -> dict:
+def _run(
+    path: Path,
+    scenario: Path,
+    factor: str,
+    grid: list[float],
+    out: Path,
+    factor2: str | None = None,
+    grid2: list[float] | None = None,
+    csv: Path | None = None,
+) -> dict:
     script = Path(__file__).resolve().parents[2] / "eccsim.py"
     cmd = [
         sys.executable,
@@ -31,11 +40,22 @@ def _run(path: Path, scenario: Path, factor: str, grid: list[float], out: Path) 
         factor,
         "--grid",
         ",".join(str(x) for x in grid),
+    ]
+    if factor2 and grid2:
+        cmd.extend([
+            "--factor2",
+            factor2,
+            "--grid2",
+            ",".join(str(x) for x in grid2),
+        ])
+        if csv:
+            cmd.extend(["--csv", str(csv)])
+    cmd.extend([
         "--from",
         str(scenario),
         "--out",
         str(out),
-    ]
+    ])
     subprocess.run(cmd, check=True, text=True)
     return json.loads(out.read_text())
 
@@ -65,3 +85,48 @@ def test_change_points_detected(tmp_path: Path) -> None:
     data = _run(tmp_path, scen, "fit_max", grid, out)
     cps = data["change_points"]
     assert cps and cps[0]["value"] == 1000.0
+
+
+def test_two_factor_deterministic(tmp_path: Path) -> None:
+    scen = _write_scenario(tmp_path)
+    out1 = tmp_path / "sens2d_1.json"
+    out2 = tmp_path / "sens2d_2.json"
+    csv = tmp_path / "heat.csv"
+    grid1 = [0.72, 0.76]
+    grid2 = [60.0, 80.0]
+    data1 = _run(
+        tmp_path,
+        scen,
+        "vdd",
+        grid1,
+        out1,
+        factor2="temp",
+        grid2=grid2,
+        csv=csv,
+    )
+    data2 = _run(
+        tmp_path,
+        scen,
+        "vdd",
+        grid1,
+        out2,
+        factor2="temp",
+        grid2=grid2,
+    )
+    assert data1 == data2
+    assert csv.exists()
+
+
+def test_two_factor_handles_infeasible(tmp_path: Path) -> None:
+    scen = _write_scenario(tmp_path)
+    out = tmp_path / "sens2d_infeasible.json"
+    data = _run(
+        tmp_path,
+        scen,
+        "latency_ns_max",
+        [0.0, 1000.0],
+        out,
+        factor2="vdd",
+        grid2=[0.7, 0.8],
+    )
+    assert data["choices"]["0.0"]["0.7"] is None
