@@ -491,7 +491,13 @@ def main() -> None:
                 plt.savefig(args.plot)
 
         if result["best"]:
-            print(result["best"]["code"])
+            best = result["best"]
+            print(
+                f"{best['code']} "
+                f"ESII={best['ESII']:.3g} "
+                f"NESII={best['NESII']:.2f} "
+                f"GS={best['GS']:.2f}"
+            )
         return
 
     if args.command == "target":
@@ -562,6 +568,12 @@ def main() -> None:
                 "provenance": provenance,
                 "choice": best,
             }
+            print(
+                f"{best['code']} "
+                f"ESII={best['ESII']:.3g} "
+                f"NESII={best['NESII']:.2f} "
+                f"GS={best['GS']:.2f}"
+            )
         else:
             nearest = min(records, key=lambda r: abs(metric(r) - args.target)) if records else None
             if nearest is not None:
