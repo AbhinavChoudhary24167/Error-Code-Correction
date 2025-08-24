@@ -243,7 +243,7 @@ def main() -> None:
     trade_parser.add_argument("--basis", choices=["per_gib", "system"], default="per_gib")
     trade_parser.add_argument("--filter", type=str, default=None)
     trade_parser.add_argument("--seed", type=int, default=0)
-    trade_parser.add_argument("--resamples", type=int, default=10000)
+    trade_parser.add_argument("--bootstrap", type=int, default=20000)
 
     arch_parser = analyze_sub.add_parser("archetype", help="Classify archetypes")
     arch_parser.add_argument("--from", dest="from_csv", type=Path, required=True)
@@ -316,7 +316,7 @@ def main() -> None:
             from analysis.tradeoff import TradeoffConfig, analyze_tradeoffs
 
             cfg = TradeoffConfig(
-                n_resamples=args.resamples,
+                n_resamples=args.bootstrap,
                 seed=args.seed,
                 filter_expr=args.filter,
                 basis=args.basis,

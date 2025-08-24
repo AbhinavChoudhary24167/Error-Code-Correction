@@ -16,7 +16,7 @@ from analysis.hv import normalize, hypervolume, schott_spacing
 class TradeoffConfig:
     """Configuration for trade-off analysis."""
 
-    n_resamples: int = 10000
+    n_resamples: int = 20000
     seed: int = 0
     filter_expr: Optional[str] = None
     basis: str = "per_gib"
@@ -96,6 +96,10 @@ def analyze_tradeoffs(pareto_csv: Path, out_json: Path, cfg: TradeoffConfig) -> 
     result = {
         "provenance": {
             "basis": cfg.basis,
+            "ci_method": "bootstrap",
+            "seed": cfg.seed,
+            "n_resamples": cfg.n_resamples,
+            "filter": cfg.filter_expr,
             "notes": [],
         },
         "exchange": {
@@ -115,8 +119,6 @@ def analyze_tradeoffs(pareto_csv: Path, out_json: Path, cfg: TradeoffConfig) -> 
             "spacing": spacing,
         },
     }
-    if cfg.filter_expr:
-        result["filter"] = cfg.filter_expr
 
     out_json.parent.mkdir(parents=True, exist_ok=True)
     out_json.write_text(json.dumps(result, indent=2))
