@@ -84,3 +84,14 @@ def test_leakage_energy_monotonic():
     small_area = energy_model.leakage_energy_j(0.8, 28, 75, "sec-ded", 1)
     large_area = energy_model.leakage_energy_j(0.8, 28, 75, "taec", 1)
     assert large_area > small_area
+
+
+def test_leakage_scale_fixed_units():
+    # Baseline leakage density for 16nm at 25C is 0.7 µA/mm^2 which should
+    # translate to 0.7e-6 A/mm^2.
+    assert energy_model.i_leak_density_A_per_mm2(16, 25) == pytest.approx(0.7e-6)
+
+    # For a typical scenario, leakage energy should be within a sane range and
+    # nowhere near the multi-megajoule values seen prior to unit corrections.
+    leak = energy_model.leakage_energy_j(0.8, 16, 45, "sec-ded", 1e4)
+    assert leak < 1e4
