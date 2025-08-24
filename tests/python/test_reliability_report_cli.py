@@ -99,3 +99,42 @@ def test_reliability_report_text():
         "fit_system",
         "mttf",
     }.issubset(lines)
+
+
+def test_reliability_report_mbu_effect():
+    script = Path(__file__).resolve().parents[2] / "eccsim.py"
+    base_cmd = [
+        sys.executable,
+        str(script),
+        "reliability",
+        "report",
+        "--qs",
+        "0.25",
+        "--area",
+        "0.08",
+        "--word-bits",
+        "64",
+        "--mbu",
+        "moderate",
+        "--node-nm",
+        "14",
+        "--vdd",
+        "0.8",
+        "--tempC",
+        "75",
+    ]
+    cmd_ded = base_cmd + ["--ecc", "SEC-DED"]
+    cmd_daec = base_cmd + ["--ecc", "SEC-DAEC"]
+
+    res_ded = subprocess.run(cmd_ded, capture_output=True, text=True, check=True)
+    res_daec = subprocess.run(cmd_daec, capture_output=True, text=True, check=True)
+
+    def extract_fit_word_post(out: str) -> float:
+        for line in out.splitlines():
+            if line.startswith("fit_word_post"):
+                return float(line.split()[1])
+        raise AssertionError("fit_word_post not found")
+
+    ded_val = extract_fit_word_post(res_ded.stdout)
+    daec_val = extract_fit_word_post(res_daec.stdout)
+    assert ded_val > daec_val
