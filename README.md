@@ -231,3 +231,19 @@ Energy reports now include an explicit `E_scrub_kWh` column in `pareto.csv`
 capturing background scrub energy. JSON summaries set
 `"includes_scrub_energy": true` to signal that operational carbon accounts for
 these reads.
+
+## Example SKU Studies
+
+Run the helper script to explore multiple reliability scenarios and emit example artifacts:
+
+```bash
+bash scripts/run_sku_studies.sh
+```
+
+Versioned results for a light MBU rate, CI=0.55 and 5 s scrub interval are provided for reference:
+
+- `reports/examples/sku-64b-128Gb/mbu-light_ci-0.55_scrub-5/`
+- `reports/examples/sku-32b-1Gb/mbu-light_ci-0.55_scrub-5/`
+
+Each directory includes `pareto.csv`, `tradeoffs.json`,
+`sensitivity-vdd.json` and `archetypes.json`.

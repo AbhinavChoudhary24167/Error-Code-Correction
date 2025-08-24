@@ -1,0 +1,32 @@
+{
+  "factor": "vdd",
+  "grid": [
+    0.7,
+    0.8,
+    0.9
+  ],
+  "choices": {
+    "0.7": "sec-ded-64",
+    "0.8": "sec-ded-64",
+    "0.9": "sec-ded-64"
+  },
+  "feasible": {
+    "0.7": [
+      "sec-ded-64",
+      "sec-daec-64",
+      "taec-64"
+    ],
+    "0.8": [
+      "sec-ded-64",
+      "sec-daec-64",
+      "taec-64"
+    ],
+    "0.9": [
+      "sec-ded-64",
+      "sec-daec-64",
+      "taec-64"
+    ]
+  },
+  "robustness": 1.0,
+  "change_points": []
+}
