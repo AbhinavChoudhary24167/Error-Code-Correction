@@ -22,7 +22,7 @@ import json
 import math
 
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
-from energy_model import estimate_energy
+from energy_model import scrub_energy_kwh
 from esii import ESIIInputs, compute_esii, normalise_esii
 from fit import (
     compute_fit_pre,
@@ -374,12 +374,17 @@ def _compute_metrics(
 
     # --- Energy & Carbon -------------------------------------------------
     words = capacity_gib * (2**30 * 8) / 64
-    e_per_read = estimate_energy(info.parity_bits, 0, node_nm=node, vdd=vdd)
-    if scrub_s > 0 and not math.isnan(lifetime_h):
-        n_scrub_reads = (lifetime_h * 3600.0 / scrub_s) * words
-        e_dyn = n_scrub_reads * e_per_read
-    else:
-        e_dyn = e_per_read * words  # joules for one scrub sweep
+    e_scrub_kwh = scrub_energy_kwh(
+        info.parity_bits,
+        capacity_gib,
+        lifetime_h,
+        scrub_s,
+        node_nm=node,
+        vdd=vdd,
+        word_bits=64,
+    )
+    e_scrub = e_scrub_kwh * 3_600_000.0
+    e_dyn = 0.0
     e_leak = 0.0
 
     alpha_logic, alpha_macro = default_alpha(node)
@@ -387,7 +392,9 @@ def _compute_metrics(
     embodied = embodied_kgco2e(
         info.area_logic_mm2, area_macro_mm2, alpha_logic, alpha_macro
     )
-    operational = operational_kgco2e(e_dyn / 3_600_000.0, e_leak / 3_600_000.0, ci)
+    operational = operational_kgco2e(
+        e_dyn / 3_600_000.0, e_leak / 3_600_000.0, ci, e_scrub_kwh
+    )
     carbon_total = embodied + operational
 
     esii_inp = ESIIInputs(
@@ -395,6 +402,7 @@ def _compute_metrics(
         fit_ecc=fit_post_sys,
         e_dyn=e_dyn,
         e_leak=e_leak,
+        e_scrub=e_scrub,
         ci_kgco2e_per_kwh=ci,
         embodied_kgco2e=embodied,
         basis="system",
@@ -409,6 +417,7 @@ def _compute_metrics(
         "carbon_kg": carbon_total,
         "E_dyn_kWh": e_dyn / 3_600_000.0,
         "E_leak_kWh": e_leak / 3_600_000.0,
+        "E_scrub_kWh": e_scrub_kwh,
         "latency_ns": info.latency_ns,
         "latency_base_ns": 0.0,
         "area_logic_mm2": info.area_logic_mm2,

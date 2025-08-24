@@ -45,6 +45,7 @@ class ESIIInputs:
     e_leak: float
     ci_kgco2e_per_kwh: float
     embodied_kgco2e: float
+    e_scrub: float = 0.0
     basis: Literal["per_gib", "system"] = "per_gib"
 
 
@@ -61,7 +62,10 @@ def compute_esii(inp: ESIIInputs) -> Dict[str, float]:
 
     e_dyn_kwh = _j_to_kwh(inp.e_dyn)
     e_leak_kwh = _j_to_kwh(inp.e_leak)
-    operational_kgco2e = inp.ci_kgco2e_per_kwh * (e_dyn_kwh + e_leak_kwh)
+    e_scrub_kwh = _j_to_kwh(inp.e_scrub)
+    operational_kgco2e = inp.ci_kgco2e_per_kwh * (
+        e_dyn_kwh + e_leak_kwh + e_scrub_kwh
+    )
     total_kgco2e = operational_kgco2e + inp.embodied_kgco2e
 
     delta_fit = max(inp.fit_base - inp.fit_ecc, 0.0)
@@ -75,6 +79,7 @@ def compute_esii(inp: ESIIInputs) -> Dict[str, float]:
         "total_kgCO2e": total_kgco2e,
         "E_dyn_kWh": e_dyn_kwh,
         "E_leak_kWh": e_leak_kwh,
+        "E_scrub_kWh": e_scrub_kwh,
     }
 
 

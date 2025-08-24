@@ -198,6 +198,21 @@ def main() -> None:
     select_parser.add_argument("--report", type=Path, default=None)
     select_parser.add_argument("--plot", type=Path, default=None)
 
+    analyze_parser = sub.add_parser("analyze", help="Post-selection analysis")
+    analyze_sub = analyze_parser.add_subparsers(dest="analyze_command")
+
+    trade_parser = analyze_sub.add_parser("tradeoffs", help="Quantify trade-offs")
+    trade_parser.add_argument("--from", dest="from_csv", type=Path, required=True)
+    trade_parser.add_argument("--out", type=Path, required=True)
+    trade_parser.add_argument("--basis", choices=["per_gib", "system"], default="per_gib")
+    trade_parser.add_argument("--filter", type=str, default=None)
+    trade_parser.add_argument("--seed", type=int, default=0)
+    trade_parser.add_argument("--resamples", type=int, default=10000)
+
+    arch_parser = analyze_sub.add_parser("archetype", help="Classify archetypes")
+    arch_parser.add_argument("--from", dest="from_csv", type=Path, required=True)
+    arch_parser.add_argument("--out", type=Path, required=True)
+
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
     )
@@ -239,6 +254,25 @@ def main() -> None:
     report_parser.add_argument("--json", action="store_true")
 
     args = parser.parse_args()
+
+    if args.command == "analyze":
+        if args.analyze_command == "tradeoffs":
+            from analysis.tradeoff import TradeoffConfig, analyze_tradeoffs
+
+            cfg = TradeoffConfig(
+                n_resamples=args.resamples,
+                seed=args.seed,
+                filter_expr=args.filter,
+                basis=args.basis,
+            )
+            analyze_tradeoffs(args.from_csv, args.out, cfg)
+        elif args.analyze_command == "archetype":
+            from analysis.archetype import classify_archetypes
+
+            classify_archetypes(args.from_csv, args.out)
+        else:
+            parser.error("analyze subcommand required")
+        return
 
     if args.command == "select":
         codes = [c.strip() for c in args.codes.split(",") if c.strip()]
@@ -301,6 +335,7 @@ def main() -> None:
                 "area_macro_mm2",
                 "E_dyn_kWh",
                 "E_leak_kWh",
+                "E_scrub_kWh",
                 "notes",
             ]
             with open(args.report, "w", newline="") as fh:
@@ -380,6 +415,7 @@ def main() -> None:
             fit_ecc=fit_ecc,
             e_dyn=e_dyn_j,
             e_leak=e_leak_j,
+            e_scrub=0.0,
             ci_kgco2e_per_kwh=args.ci,
             embodied_kgco2e=embodied,
         )
@@ -398,6 +434,7 @@ def main() -> None:
                 "fit_ecc": fit_ecc,
                 "E_dyn_kWh": result["E_dyn_kWh"],
                 "E_leak_kWh": result["E_leak_kWh"],
+                "E_scrub_kWh": result["E_scrub_kWh"],
                 "ci_kgCO2e_per_kWh": args.ci,
                 "embodied_kgCO2e": embodied,
             },
@@ -425,7 +462,7 @@ def main() -> None:
             parser.error("--areas and --alpha require two comma separated floats")
 
         embodied = embodied_kgco2e(area_logic, area_macro, alpha_logic, alpha_macro)
-        operational = operational_kgco2e(args.Edyn, args.Eleak, args.ci)
+        operational = operational_kgco2e(args.Edyn, args.Eleak, args.ci, 0.0)
         total = embodied + operational
         print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
         print(f"{'Operational (kgCO2e)':<20} {operational:.3f}")
