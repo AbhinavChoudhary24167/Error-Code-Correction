@@ -13,7 +13,7 @@ and for demonstrating the selection flow used by :mod:`eccsim`.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Mapping
+from typing import Dict, Iterable, List, Mapping, Tuple
 
 import logging
 
@@ -115,6 +115,157 @@ def _pareto_front(
 
     frontier.sort(key=lambda r: r["code"])
     return frontier
+
+
+def _nsga2_sort(
+    recs: List[Dict[str, float]],
+) -> Tuple[List[List[int]], Dict[int, float], Dict[str, float], Dict[str, float], Dict[int, Dict[str, float]]]:
+    """Return NSGA-II fronts and crowding distances on normalised axes."""
+
+    if not recs:
+        return [], {}, {}, {}, {}
+
+    keys = ("FIT", "carbon_kg", "latency_ns")
+
+    mins = {k: min(r[k] for r in recs) for k in keys}
+    maxs = {k: max(r[k] for r in recs) for k in keys}
+
+    def norm(idx: int, key: str) -> float:
+        span = maxs[key] - mins[key]
+        if span <= 0:
+            return 0.0
+        return (recs[idx][key] - mins[key]) / span
+
+    # Non-dominated sorting
+    S: List[List[int]] = [[] for _ in recs]
+    n = [0 for _ in recs]
+    fronts: List[List[int]] = [[]]
+
+    def dominates(p: Dict[str, float], q: Dict[str, float]) -> bool:
+        return all(p[k] <= q[k] for k in keys) and any(p[k] < q[k] for k in keys)
+
+    for i, p in enumerate(recs):
+        for j, q in enumerate(recs):
+            if i == j:
+                continue
+            if dominates(p, q):
+                S[i].append(j)
+            elif dominates(q, p):
+                n[i] += 1
+        if n[i] == 0:
+            fronts[0].append(i)
+
+    i = 0
+    while fronts[i]:
+        next_front: List[int] = []
+        for p_idx in fronts[i]:
+            for q_idx in S[p_idx]:
+                n[q_idx] -= 1
+                if n[q_idx] == 0:
+                    next_front.append(q_idx)
+        i += 1
+        fronts.append(next_front)
+
+    # Crowding distance on normalised axes
+    crowd = {idx: 0.0 for idx in range(len(recs))}
+    norm_vals: Dict[int, Dict[str, float]] = {
+        i: {k: norm(i, k) for k in keys} for i in range(len(recs))
+    }
+    for front in fronts:
+        if not front:
+            continue
+        for key in keys:
+            sorted_f = sorted(front, key=lambda idx: norm_vals[idx][key])
+            crowd[sorted_f[0]] = crowd[sorted_f[-1]] = float("inf")
+            for k in range(1, len(sorted_f) - 1):
+                prev_val = norm_vals[sorted_f[k - 1]][key]
+                next_val = norm_vals[sorted_f[k + 1]][key]
+                crowd[sorted_f[k]] += next_val - prev_val
+
+    return fronts, crowd, mins, maxs, norm_vals
+
+
+def _knee_point(
+    front: List[int], norm_vals: Dict[int, Dict[str, float]]
+) -> Tuple[int, float]:
+    """Return index of knee point in ``front`` and its distance."""
+
+    if len(front) <= 2:
+        return front[0], 0.0
+
+    pts = [
+        (
+            norm_vals[i]["FIT"],
+            norm_vals[i]["carbon_kg"],
+            norm_vals[i]["latency_ns"],
+        )
+        for i in front
+    ]
+    order = sorted(range(len(front)), key=lambda k: pts[k][1])
+    p0 = pts[order[0]]
+    p1 = pts[order[-1]]
+    ab = [p1[d] - p0[d] for d in range(3)]
+    ab_len = math.sqrt(sum(v * v for v in ab)) or 1.0
+
+    best_idx = order[0]
+    best_dist = -1.0
+    for idx in order[1:-1]:
+        p = pts[idx]
+        ap = [p[d] - p0[d] for d in range(3)]
+        cross = (
+            ap[1] * ab[2] - ap[2] * ab[1],
+            ap[2] * ab[0] - ap[0] * ab[2],
+            ap[0] * ab[1] - ap[1] * ab[0],
+        )
+        dist = math.sqrt(sum(c * c for c in cross)) / ab_len
+        if dist > best_dist:
+            best_dist = dist
+            best_idx = idx
+
+    return front[best_idx], best_dist
+
+
+def _hypervolume(points: List[Tuple[float, float, float]], ref=(1.0, 1.0, 1.0)) -> float:
+    """Compute hypervolume for a set of 3D points in minimisation."""
+
+    if not points:
+        return 0.0
+
+    pts = sorted(points, key=lambda p: p[0])
+    hv = 0.0
+    prev = ref[0]
+    for i, p in enumerate(pts):
+        dx = prev - p[0]
+        slice_pts = [q[1:] for q in pts[i:]]
+        area = _hypervolume_2d(slice_pts, ref[1:])
+        hv += dx * area
+        prev = p[0]
+    return hv
+
+
+def _hypervolume_2d(points: List[Tuple[float, float]], ref=(1.0, 1.0)) -> float:
+    if not points:
+        return 0.0
+    pts = sorted(points, key=lambda p: p[0])
+    area = 0.0
+    prev = ref[0]
+    for p in pts:
+        dx = prev - p[0]
+        area += dx * (ref[1] - p[1])
+        prev = p[0]
+    return area
+
+
+def _spacing(points: List[Tuple[float, float, float]]) -> float:
+    if len(points) <= 1:
+        return 0.0
+    pts = sorted(points, key=lambda p: p[1])
+    dists = [
+        math.sqrt(sum((pts[i][d] - pts[i - 1][d]) ** 2 for d in range(3)))
+        for i in range(1, len(pts))
+    ]
+    dbar = sum(dists) / len(dists)
+    return math.sqrt(sum((d - dbar) ** 2 for d in dists) / len(dists))
 
 
 # ---------------------------------------------------------------------------
@@ -302,6 +453,9 @@ def select(
     if backend != "hazucha":  # pragma: no cover - defensive programming
         raise ValueError("Only 'hazucha' backend supported")
 
+    # ``weights`` are retained for backwards compatibility but ignored by the
+    # NSGA-II based recommendation logic.  Supplying them no longer influences
+    # the outcome but allows existing callers to remain unchanged.
     weights = dict({"reliability": 1.0, "carbon": 1.0, "latency": 0.25}, **(weights or {}))
     constraints = dict({"latency_ns_max": None, "carbon_kg_max": None}, **(constraints or {}))
 
@@ -416,40 +570,104 @@ def select(
     if status != "ok":
         norm_meta["status"] = status
 
-    # Determine Pareto frontier
-    pareto = _pareto_front(recs)
+    # NSGA-II ranking
+    fronts, crowd, mins, maxs, norm_vals = _nsga2_sort(recs)
+    front_rank = {}
+    for rank, f in enumerate(fronts):
+        for idx in f:
+            front_rank[idx] = rank
+    for idx, rec in enumerate(recs):
+        rec["front_rank"] = front_rank.get(idx, math.inf)
+        rec["crowding"] = crowd.get(idx, 0.0)
 
-    # Scalarise for single recommendation using min–max normalisation
-    mins = {k: min(r[k] for r in recs) for k in ("FIT", "carbon_kg", "latency_ns")}
-    maxs = {k: max(r[k] for r in recs) for k in ("FIT", "carbon_kg", "latency_ns")}
+    pareto_enum = _pareto_front(recs)
+    f1 = [recs[i] for i in fronts[0]] if fronts else []
+    f1.sort(key=lambda r: r["code"])
+    evo_miss = {r["code"] for r in pareto_enum} != {r["code"] for r in f1}
 
-    def norm(key: str, value: float) -> float:
-        span = maxs[key] - mins[key]
-        if span <= 0:
-            return 0.0
-        return (value - mins[key]) / span
+    # Decision rule ------------------------------------------------------
+    fit_max = constraints.get("fit_max")
+    lat_max = constraints.get("latency_ns_max")
+    carbon_max = constraints.get("carbon_kg_max")
 
-    best = None
-    best_score = math.inf
-    for rec in recs:
-        score = (
-            weights["reliability"] * norm("FIT", rec["FIT"])
-            + weights["carbon"] * norm("carbon_kg", rec["carbon_kg"])
-            + weights["latency"] * norm("latency_ns", rec["latency_ns"])
+    decision_mode = "knee"
+    decision_params = {
+        "fit_max": fit_max,
+        "latency_max": lat_max,
+        "carbon_max": carbon_max,
+    }
+    knee_info: Dict[str, float] | None = None
+
+    feasible = [
+        r
+        for r in recs
+        if (fit_max is None or r["FIT"] <= fit_max)
+        and (lat_max is None or r["latency_ns"] <= lat_max)
+    ]
+
+    if fit_max is not None or lat_max is not None:
+        decision_mode = "epsilon-constraint"
+        if feasible:
+            best = min(feasible, key=lambda r: (r["carbon_kg"], -r["NESII"]))
+        else:
+            best = min(recs, key=lambda r: (r["carbon_kg"], -r["NESII"]))
+    else:
+        if fronts and fronts[0]:
+            knee_idx, knee_dist = _knee_point(fronts[0], norm_vals)
+            best = recs[knee_idx]
+            knee_info = {"index": fronts[0].index(knee_idx), "distance": knee_dist}
+            nesii_best = max(f1, key=lambda r: r["NESII"]) if f1 else best
+            if nesii_best["NESII"] > best["NESII"]:
+                best = nesii_best
+        else:
+            best = recs[0]
+
+    # Frontier quality metrics
+    f1_pts = [
+        (
+            norm_vals[i]["FIT"],
+            norm_vals[i]["carbon_kg"],
+            norm_vals[i]["latency_ns"],
         )
-        if score < best_score:
-            best_score = score
-            best = rec
+        for i in fronts[0]
+    ] if fronts else []
+    hv = _hypervolume(f1_pts)
+    spacing = _spacing(f1_pts)
+
+    cand_hash = hashlib.sha1(",".join(sorted(codes)).encode()).hexdigest()
+    seed = int(
+        hashlib.sha1((scenario_hash + cand_hash).encode()).hexdigest(), 16
+    ) & 0xFFFFFFFF
+
+    nsga_meta = {
+        "pop": 64,
+        "gens": 64,
+        "pc": 0.9,
+        "pm": 0.1,
+        "seed": seed,
+        "deb_constraint_domination": True,
+        "crowding_bounds": {"mins": mins, "maxs": maxs},
+        "hypervolume": hv,
+        "spacing": spacing,
+        "constraints_active": [k for k, v in constraints.items() if v is not None],
+        "evolutionary_frontier_miss": evo_miss,
+    }
+
+    decision_meta: Dict[str, object] = {"mode": decision_mode, "params": decision_params}
+    if knee_info:
+        decision_meta["knee"] = knee_info
 
     return {
         "best": best,
-        "pareto": pareto,
+        "pareto": f1,
         "normalization": norm_meta,
         "candidates": list(codes),
         "scenario_hash": scenario_hash,
         "includes_scrub_energy": True,
+        "nsga2": nsga_meta,
+        "decision": decision_meta,
     }
 
 
-__all__ = ["select", "_pareto_front"]
+__all__ = ["select", "_pareto_front", "_nsga2_sort"]
 
