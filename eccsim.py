@@ -216,6 +216,15 @@ def main() -> None:
     arch_parser.add_argument("--from", dest="from_csv", type=Path, required=True)
     arch_parser.add_argument("--out", type=Path, required=True)
 
+    surface_parser = analyze_sub.add_parser(
+        "surface", help="Analyse feasible surface from candidates"
+    )
+    surface_parser.add_argument(
+        "--from-candidates", dest="cand_csv", type=Path, required=True
+    )
+    surface_parser.add_argument("--out-csv", dest="out_csv", type=Path, required=True)
+    surface_parser.add_argument("--plot", type=Path, default=None)
+
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
     )
@@ -273,6 +282,10 @@ def main() -> None:
             from analysis.archetype import classify_archetypes
 
             classify_archetypes(args.from_csv, args.out)
+        elif args.analyze_command == "surface":
+            from analysis.surface import analyze_surface
+
+            analyze_surface(args.cand_csv, args.out_csv, args.plot)
         else:
             parser.error("analyze subcommand required")
         return
