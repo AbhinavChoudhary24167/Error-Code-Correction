@@ -209,3 +209,24 @@ Following these steps a novice can compile, execute and interpret all aspects of
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Comprehensive Analysis
+
+After generating a Pareto frontier with `eccsim select`, additional analysis tools
+are available under the new `analyze` command family:
+
+```bash
+eccsim select --codes sec-ded,sec-daec --node 7 --vdd 0.8 --temp 25 --capacity-gib 1 --ci 400 --bitcell-um2 0.1 --report pareto.csv
+
+eccsim analyze tradeoffs --from pareto.csv --out reports/tradeoffs.json
+
+eccsim analyze archetype --from pareto.csv --out reports/archetype.json
+```
+
+These commands quantify exchange rates on the frontier and attach
+high-level archetype labels to each design point.
+
+Energy reports now include an explicit `E_scrub_kWh` column in `pareto.csv`
+capturing background scrub energy. JSON summaries set
+`"includes_scrub_energy": true` to signal that operational carbon accounts for
+these reads.

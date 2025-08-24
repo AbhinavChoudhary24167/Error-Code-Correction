@@ -59,6 +59,7 @@ inp = ESIIInputs(
     fit_ecc=100,
     e_dyn=1.0,
     e_leak=0.5,
+    e_scrub=0.0,
     ci_kgco2e_per_kwh=0.2,
     embodied_kgco2e=embodied,
 )

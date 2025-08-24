@@ -18,6 +18,7 @@ def test_compute_esii():
         fit_ecc=100,
         e_dyn=3_600_000.0,
         e_leak=1_800_000.0,
+        e_scrub=0.0,
         ci_kgco2e_per_kwh=0.2,
         embodied_kgco2e=10,
     )
@@ -63,12 +64,14 @@ def test_cli_esii_outputs_result(tmp_path):
         fit_ecc=100,
         e_dyn=1.0,
         e_leak=0.5,
+        e_scrub=0.0,
         ci_kgco2e_per_kwh=0.2,
         embodied_kgco2e=0.05,
     )
     expected = compute_esii(inp)
     assert data["ESII"] == pytest.approx(expected["ESII"])
     assert data["basis"] == "per_gib"
+    assert data["inputs"]["E_scrub_kWh"] == 0.0
 
 
 def test_cli_esii_reports(tmp_path):
@@ -117,26 +120,74 @@ def test_cli_esii_reports(tmp_path):
         fit_ecc=5.0,
         e_dyn=2088.0,
         e_leak=972.0,
+        e_scrub=0.0,
         ci_kgco2e_per_kwh=0.55,
         embodied_kgco2e=0.1 * 0.8 + 0.2 * 1.0,
     )
     expected = compute_esii(inp)
     assert data["ESII"] == pytest.approx(expected["ESII"])
     assert data["inputs"]["fit_base"] == 300.0
+    assert data["inputs"]["E_scrub_kWh"] == 0.0
 
 
 def test_esii_monotone_ci():
-    a = compute_esii(ESIIInputs(300, 10, 3000, 2000, 0.6, 0.05))
-    b = compute_esii(ESIIInputs(300, 10, 3000, 2000, 0.9, 0.05))
+    a = compute_esii(
+        ESIIInputs(
+            300,
+            10,
+            3000,
+            2000,
+            ci_kgco2e_per_kwh=0.6,
+            embodied_kgco2e=0.05,
+        )
+    )
+    b = compute_esii(
+        ESIIInputs(
+            300,
+            10,
+            3000,
+            2000,
+            ci_kgco2e_per_kwh=0.9,
+            embodied_kgco2e=0.05,
+        )
+    )
     assert a["ESII"] > b["ESII"]
 
 
 def test_esii_stronger_ecc():
-    a = compute_esii(ESIIInputs(300, 10, 3000, 2000, 0.6, 0.05))
-    c = compute_esii(ESIIInputs(300, 5, 3000, 2000, 0.6, 0.05))
+    a = compute_esii(
+        ESIIInputs(
+            300,
+            10,
+            3000,
+            2000,
+            ci_kgco2e_per_kwh=0.6,
+            embodied_kgco2e=0.05,
+        )
+    )
+    c = compute_esii(
+        ESIIInputs(
+            300,
+            5,
+            3000,
+            2000,
+            ci_kgco2e_per_kwh=0.6,
+            embodied_kgco2e=0.05,
+        )
+    )
     assert c["ESII"] > a["ESII"]
 
 
 def test_esii_zero_carbon_guard():
-    z = compute_esii(ESIIInputs(100, 0, 0.0, 0.0, 0.0, 0.0))
+    z = compute_esii(
+        ESIIInputs(
+            100,
+            0,
+            0.0,
+            0.0,
+            ci_kgco2e_per_kwh=0.0,
+            embodied_kgco2e=0.0,
+            e_scrub=0.0,
+        )
+    )
     assert z["ESII"] == 0.0

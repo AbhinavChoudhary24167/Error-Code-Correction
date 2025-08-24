@@ -175,6 +175,52 @@ def estimate_energy(
     return parity_bits * e_xor + detected_errors * e_and
 
 
+def scrub_energy_kwh(
+    parity_bits: int,
+    capacity_gib: float,
+    lifetime_h: float,
+    scrub_s: float,
+    *,
+    node_nm: int = 28,
+    vdd: float = 0.8,
+    word_bits: int = 64,
+) -> float:
+    """Return background scrub energy in kWh.
+
+    Parameters
+    ----------
+    parity_bits : int
+        Parity bits evaluated during a scrub read.
+    capacity_gib : float
+        Memory capacity in gibibits.
+    lifetime_h : float
+        Operating lifetime over which scrubbing occurs.
+    scrub_s : float
+        Interval between scrub passes in seconds.
+    node_nm : int, optional
+        Technology node in nanometres.
+    vdd : float, optional
+        Supply voltage in volts.
+    word_bits : int, optional
+        Word width in bits. Defaults to 64.
+
+    Returns
+    -------
+    float
+        Total energy spent on background scrubbing in kilowatt-hours.
+    """
+    e_per_read = estimate_energy(parity_bits, 0, node_nm=node_nm, vdd=vdd)
+    words = capacity_gib * (2**30 * 8) / word_bits
+
+    if scrub_s <= 0 or lifetime_h <= 0:
+        return 0.0
+    if math.isnan(lifetime_h):
+        return e_per_read * words / 3_600_000.0
+
+    n_reads = (lifetime_h * 3600.0 / scrub_s) * words
+    return n_reads * e_per_read / 3_600_000.0
+
+
 def epc(
     xor_cnt: int,
     and_cnt: int,
