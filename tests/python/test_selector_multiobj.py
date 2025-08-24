@@ -82,3 +82,11 @@ def test_nesii_fallback_logs_once(caplog):
         "NESII degenerate scale; forcing score 50",
     ]
 
+
+def test_selector_quality_block():
+    res = select(["sec-ded-64", "sec-daec-64", "taec-64"], **_default_params())
+    q = res["quality"]
+    assert q["ref_point_norm"] == [1.0, 1.0, 1.0]
+    assert q["hypervolume"] >= 0.0
+    assert q["spacing"] >= 0.0
+

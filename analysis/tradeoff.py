@@ -9,6 +9,8 @@ import numpy as np
 import pandas as pd
 from statistics import NormalDist
 
+from analysis.hv import normalize, hypervolume, schott_spacing
+
 
 @dataclass
 class TradeoffConfig:
@@ -71,6 +73,26 @@ def analyze_tradeoffs(pareto_csv: Path, out_json: Path, cfg: TradeoffConfig) -> 
     std = float(np.std(slopes, ddof=1))
     lo, hi = np.percentile(slopes, [2.5, 97.5])
 
+    pts = df[["fit", "carbon_kg"]].to_numpy()
+    norm_pts = normalize(pts)
+
+    # Remove dominated points before computing quality metrics
+    nd: list[np.ndarray] = []
+    for i, pt in enumerate(norm_pts):
+        dominated = False
+        for j, other in enumerate(norm_pts):
+            if i == j:
+                continue
+            if np.all(other <= pt) and np.any(other < pt):
+                dominated = True
+                break
+        if not dominated:
+            nd.append(pt)
+    nd_pts = np.array(nd)
+
+    hv = float(hypervolume(nd_pts))
+    spacing = float(schott_spacing(nd_pts))
+
     result = {
         "provenance": {
             "basis": cfg.basis,
@@ -86,6 +108,11 @@ def analyze_tradeoffs(pareto_csv: Path, out_json: Path, cfg: TradeoffConfig) -> 
                 "p": p,
                 "N": int(len(df)),
             }
+        },
+        "quality": {
+            "hypervolume": hv,
+            "ref_point_norm": [1.0, 1.0],
+            "spacing": spacing,
         },
     }
     if cfg.filter_expr:

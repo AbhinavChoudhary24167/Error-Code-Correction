@@ -34,4 +34,9 @@ def test_tradeoff_slope_and_ci(tmp_path: Path) -> None:
     result2 = analyze_tradeoffs(pareto, out2, cfg)
     assert result2["exchange"]["fit_vs_carbon"]["kg_per_decade"] == slope
 
+    quality = result["quality"]
+    assert quality["ref_point_norm"] == [1.0, 1.0]
+    assert quality["hypervolume"] > 0.0
+    assert quality["spacing"] >= 0.0
+
 

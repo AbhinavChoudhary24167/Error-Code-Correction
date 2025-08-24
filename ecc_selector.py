@@ -35,6 +35,7 @@ from qcrit_loader import qcrit_lookup
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from gs import GSInputs, compute_gs
 from analysis.knee import max_perp_norm
+from analysis.hv import hypervolume, schott_spacing
 
 
 # ---------------------------------------------------------------------------
@@ -182,51 +183,7 @@ def _nsga2_sort(
                 prev_val = norm_vals[sorted_f[k - 1]][key]
                 next_val = norm_vals[sorted_f[k + 1]][key]
                 crowd[sorted_f[k]] += next_val - prev_val
-
     return fronts, crowd, mins, maxs, norm_vals
-
-
-def _hypervolume(points: List[Tuple[float, float, float]], ref=(1.0, 1.0, 1.0)) -> float:
-    """Compute hypervolume for a set of 3D points in minimisation."""
-
-    if not points:
-        return 0.0
-
-    pts = sorted(points, key=lambda p: p[0])
-    hv = 0.0
-    prev = ref[0]
-    for i, p in enumerate(pts):
-        dx = prev - p[0]
-        slice_pts = [q[1:] for q in pts[i:]]
-        area = _hypervolume_2d(slice_pts, ref[1:])
-        hv += dx * area
-        prev = p[0]
-    return hv
-
-
-def _hypervolume_2d(points: List[Tuple[float, float]], ref=(1.0, 1.0)) -> float:
-    if not points:
-        return 0.0
-    pts = sorted(points, key=lambda p: p[0])
-    area = 0.0
-    prev = ref[0]
-    for p in pts:
-        dx = prev - p[0]
-        area += dx * (ref[1] - p[1])
-        prev = p[0]
-    return area
-
-
-def _spacing(points: List[Tuple[float, float, float]]) -> float:
-    if len(points) <= 1:
-        return 0.0
-    pts = sorted(points, key=lambda p: p[1])
-    dists = [
-        math.sqrt(sum((pts[i][d] - pts[i - 1][d]) ** 2 for d in range(3)))
-        for i in range(1, len(pts))
-    ]
-    dbar = sum(dists) / len(dists)
-    return math.sqrt(sum((d - dbar) ** 2 for d in dists) / len(dists))
 
 
 # ---------------------------------------------------------------------------
@@ -608,8 +565,8 @@ def select(
         )
         for i in fronts[0]
     ] if fronts else []
-    hv = _hypervolume(f1_pts)
-    spacing = _spacing(f1_pts)
+    hv = hypervolume(f1_pts)
+    spacing = schott_spacing(f1_pts)
 
     cand_hash = hashlib.sha1(",".join(sorted(codes)).encode()).hexdigest()
     seed = int(
@@ -624,8 +581,6 @@ def select(
         "seed": seed,
         "deb_constraint_domination": True,
         "crowding_bounds": {"mins": mins, "maxs": maxs},
-        "hypervolume": hv,
-        "spacing": spacing,
         "constraints_active": [k for k, v in constraints.items() if v is not None],
         "evolutionary_frontier_miss": evo_miss,
     }
@@ -640,6 +595,8 @@ def select(
             }
         )
 
+    quality = {"hypervolume": hv, "spacing": spacing, "ref_point_norm": [1.0, 1.0, 1.0]}
+
     return {
         "best": best,
         "pareto": f1,
@@ -648,6 +605,7 @@ def select(
         "candidate_records": recs,
         "scenario_hash": scenario_hash,
         "includes_scrub_energy": True,
+        "quality": quality,
         "nsga2": nsga_meta,
         "decision": decision_meta,
     }
