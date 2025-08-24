@@ -491,12 +491,16 @@ def select(
             lifetime_h=float(kwargs.get("lifetime_h", float("nan"))),
         )
 
+        violations = []
         lat_max = constraints.get("latency_ns_max")
         if lat_max is not None and rec["latency_ns"] > lat_max:
-            continue
+            violations.append("latency_ns_max")
         carbon_max = constraints.get("carbon_kg_max")
         if carbon_max is not None and rec["carbon_kg"] > carbon_max:
+            violations.append("carbon_kg_max")
+        if violations:
             continue
+        rec["violations"] = violations
 
         recs.append(rec)
 
@@ -519,6 +523,7 @@ def select(
             "pareto": [],
             "normalization": norm_meta,
             "candidates": list(codes),
+            "candidate_records": [],
             "scenario_hash": scenario_hash,
         }
 
@@ -671,6 +676,7 @@ def select(
         "pareto": f1,
         "normalization": norm_meta,
         "candidates": list(codes),
+        "candidate_records": recs,
         "scenario_hash": scenario_hash,
         "includes_scrub_energy": True,
         "nsga2": nsga_meta,

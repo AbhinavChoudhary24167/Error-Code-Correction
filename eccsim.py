@@ -197,6 +197,9 @@ def main() -> None:
     select_parser.add_argument("--ci-source", type=str, default="unspecified")
     select_parser.add_argument("--report", type=Path, default=None)
     select_parser.add_argument("--plot", type=Path, default=None)
+    select_parser.add_argument(
+        "--emit-candidates", type=Path, default=None, help="Write feasible candidates to CSV"
+    )
 
     analyze_parser = sub.add_parser("analyze", help="Post-selection analysis")
     analyze_sub = analyze_parser.add_subparsers(dest="analyze_command")
@@ -339,10 +342,56 @@ def main() -> None:
                 "notes",
             ]
             with open(args.report, "w", newline="") as fh:
-                writer = csv.DictWriter(fh, fieldnames=fieldnames)
+                writer = csv.DictWriter(
+                    fh, fieldnames=fieldnames, extrasaction="ignore"
+                )
                 writer.writeheader()
                 for rec in result["pareto"]:
                     writer.writerow(rec)
+
+        if args.emit_candidates:
+            import csv
+
+            fieldnames = [
+                "code",
+                "scrub_s",
+                "FIT",
+                "carbon_kg",
+                "latency_ns",
+                "ESII",
+                "NESII",
+                "areas",
+                "energies",
+                "violations",
+                "scenario_hash",
+            ]
+            with open(args.emit_candidates, "w", newline="") as fh:
+                writer = csv.DictWriter(fh, fieldnames=fieldnames)
+                writer.writeheader()
+                for rec in result.get("candidate_records", []):
+                    areas = {
+                        "logic_mm2": rec.get("area_logic_mm2", 0.0),
+                        "macro_mm2": rec.get("area_macro_mm2", 0.0),
+                    }
+                    energies = {
+                        "E_dyn_kWh": rec.get("E_dyn_kWh", 0.0),
+                        "E_leak_kWh": rec.get("E_leak_kWh", 0.0),
+                        "E_scrub_kWh": rec.get("E_scrub_kWh", 0.0),
+                    }
+                    row = {
+                        "code": rec.get("code"),
+                        "scrub_s": rec.get("scrub_s"),
+                        "FIT": rec.get("FIT"),
+                        "carbon_kg": rec.get("carbon_kg"),
+                        "latency_ns": rec.get("latency_ns"),
+                        "ESII": rec.get("ESII"),
+                        "NESII": rec.get("NESII"),
+                        "areas": json.dumps(areas, sort_keys=True),
+                        "energies": json.dumps(energies, sort_keys=True),
+                        "violations": json.dumps(rec.get("violations", []), sort_keys=True),
+                        "scenario_hash": result.get("scenario_hash"),
+                    }
+                    writer.writerow(row)
 
         if args.plot:
             try:
