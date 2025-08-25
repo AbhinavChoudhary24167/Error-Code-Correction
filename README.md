@@ -115,6 +115,8 @@ Demonstrates a small DPLL SAT solver used for Hamming-code conjectures, printing
 
 Central CLI exposing reliability, energy and carbon analysis.
 
+- **ESII metrics** – the `esii` subcommand now also reports NESII and the
+  Green Score (GS) alongside raw ESII for the given scenario.
 - **Reliability report** – computes FIT rates and mean-time-to-failure:
 
   ```bash
@@ -154,6 +156,10 @@ python3 energy_model.py 8 1
 ```
 
 Outputs a single line like `Estimated energy per read: 2.0e-12 J`.
+
+The helper module `calibration.py` centralises parsing of
+`tech_calib.json` so that Python utilities and external frameworks can
+share the same validated calibration data.
 
 #### 3.2.3 `ecc_selector.py`
 

@@ -3,13 +3,11 @@ import sys
 from pathlib import Path
 import math
 import json
-import subprocess
-import sys
-from pathlib import Path
 
 import pytest
 
 from esii import ESIIInputs, compute_esii, embodied_from_wire_area
+from gs import GSInputs, compute_gs
 
 
 def test_compute_esii():
@@ -69,7 +67,17 @@ def test_cli_esii_outputs_result(tmp_path):
         embodied_kgco2e=0.05,
     )
     expected = compute_esii(inp)
+    gs_exp = compute_gs(
+        GSInputs(
+            fit_base=inp.fit_base,
+            fit_ecc=inp.fit_ecc,
+            carbon_kg=expected["total_kgCO2e"],
+            latency_ns=0.0,
+        )
+    )
     assert data["ESII"] == pytest.approx(expected["ESII"])
+    assert data["NESII"] == 0.0
+    assert data["GS"] == pytest.approx(gs_exp["GS"])
     assert data["basis"] == "per_gib"
     assert data["inputs"]["E_scrub_kWh"] == 0.0
 
@@ -125,7 +133,17 @@ def test_cli_esii_reports(tmp_path):
         embodied_kgco2e=0.1 * 0.8 + 0.2 * 1.0,
     )
     expected = compute_esii(inp)
+    gs_exp = compute_gs(
+        GSInputs(
+            fit_base=inp.fit_base,
+            fit_ecc=inp.fit_ecc,
+            carbon_kg=expected["total_kgCO2e"],
+            latency_ns=0.0,
+        )
+    )
     assert data["ESII"] == pytest.approx(expected["ESII"])
+    assert data["NESII"] == 0.0
+    assert data["GS"] == pytest.approx(gs_exp["GS"])
     assert data["inputs"]["fit_base"] == 300.0
     assert data["inputs"]["E_scrub_kWh"] == 0.0
 
