@@ -21,7 +21,8 @@ import json
 import sys
 from typing import Dict
 
-from esii import ESIIInputs, compute_esii
+from esii import ESIIInputs
+from scores import compute_scores
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from qcrit_loader import qcrit_lookup
@@ -412,6 +413,7 @@ def main() -> None:
                 "latency_ns",
                 "ESII",
                 "NESII",
+                "GS",
                 "p5",
                 "p95",
                 "N_scale",
@@ -441,6 +443,7 @@ def main() -> None:
                 "latency_ns",
                 "ESII",
                 "NESII",
+                "GS",
                 "areas",
                 "energies",
                 "violations",
@@ -539,6 +542,7 @@ def main() -> None:
             "carbon_kg",
             "ESII",
             "NESII",
+            "GS",
             "scrub_s",
             "area_logic_mm2",
             "area_macro_mm2",
@@ -654,7 +658,7 @@ def main() -> None:
             ci_kgco2e_per_kwh=args.ci,
             embodied_kgco2e=embodied,
         )
-        result = compute_esii(inp)
+        result = compute_scores(inp, latency_ns=0.0)
 
         provenance = {
             "git": git_hash,
@@ -680,6 +684,10 @@ def main() -> None:
             },
             "delta_FIT": result["delta_FIT"],
             "ESII": result["ESII"],
+            "NESII": result["NESII"],
+            "GS": result["GS"],
+            "p5": result["p5"],
+            "p95": result["p95"],
         }
 
         if args.out:
