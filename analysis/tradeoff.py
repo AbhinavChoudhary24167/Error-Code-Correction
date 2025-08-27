@@ -8,6 +8,8 @@ from typing import Optional, Dict, Any
 import numpy as np
 import pandas as pd
 from statistics import NormalDist
+import warnings
+from numpy.exceptions import RankWarning
 
 from analysis.hv import normalize, hypervolume, schott_spacing
 
@@ -48,8 +50,33 @@ def _bootstrap_slopes(x: np.ndarray, y: np.ndarray, cfg: TradeoffConfig) -> np.n
     n = len(x)
     slopes = np.empty(cfg.n_resamples)
     for i in range(cfg.n_resamples):
-        idx = rng.integers(0, n, size=n)
-        slopes[i] = np.polyfit(x[idx], y[idx], 1)[0]
+        while True:
+            idx = rng.integers(0, n, size=n)
+            xs = x[idx]
+            ys = y[idx]
+            # Skip samples with effectively no variation which would
+            # make the fit ill-conditioned.
+            if np.var(xs) < 1e-12 or np.var(ys) < 1e-12:
+                continue
+            try:
+                with warnings.catch_warnings():
+                    warnings.filterwarnings("error", category=RankWarning)
+                    slope = np.polyfit(xs, ys, 1)[0]
+            except RankWarning:
+                # Add a tiny amount of noise to break perfect collinearity and
+                # retry the fit once.
+                xs = xs + rng.normal(scale=1e-12, size=n)
+                ys = ys + rng.normal(scale=1e-12, size=n)
+                try:
+                    with warnings.catch_warnings():
+                        warnings.filterwarnings("error", category=RankWarning)
+                        slope = np.polyfit(xs, ys, 1)[0]
+                except RankWarning:
+                    # If the data are still ill-conditioned, draw a new
+                    # bootstrap sample.
+                    continue
+            slopes[i] = slope
+            break
     return slopes
 
 
