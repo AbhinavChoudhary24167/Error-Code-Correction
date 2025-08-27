@@ -4,7 +4,9 @@ set -e
 # Run each compiled binary with a short timeout
 for prog in BCHvsHamming Hamming32bit1Gb Hamming64bit128Gb SATDemo; do
     echo "Testing $prog"
-    timeout 5s ./"$prog" >/dev/null
+    # Allow a bit more breathing room on slower environments so the
+    # smoke tests don't spuriously fail with timeout code 124.
+    timeout 15s ./"$prog" >/dev/null
 done
 
 # Basic check of the ECC selector

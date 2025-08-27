@@ -952,6 +952,71 @@ public:
     }
 };
 
+// Compare SEC-DED and TAEC coverage using a simple Monte Carlo model.
+static void runEccSchemeDemo(int trials = 1000, unsigned seed = 1) {
+    using Pattern = std::pair<int, std::string>;
+    const std::vector<Pattern> patterns = {
+        {1, ""},
+        {2, "adj"},
+        {2, "nonadj"},
+        {3, "adj"},
+        {3, "nonadj"},
+    };
+    const std::set<Pattern> correctable_hamming = {{1, ""}};
+    const std::set<Pattern> detectable_hamming = {{2, "adj"}, {2, "nonadj"}};
+    const std::set<Pattern> correctable_taec = {{1, ""}, {2, "adj"}, {3, "adj"}};
+    const std::set<Pattern> detectable_taec = {{2, "nonadj"}, {3, "nonadj"}};
+
+    std::map<Pattern, int> pattern_counts;
+    struct Stats { int corrected = 0, detected = 0, undetected = 0; };
+    std::map<std::string, Stats> stats = {{"SEC-DED", {}}, {"TAEC", {}}};
+
+    std::mt19937 rng(seed);
+    std::uniform_int_distribution<size_t> dist(0, patterns.size() - 1);
+    for (int i = 0; i < trials; ++i) {
+        const Pattern& p = patterns[dist(rng)];
+        pattern_counts[p]++;
+        auto update = [&](const std::string& code,
+                          const std::set<Pattern>& correctable,
+                          const std::set<Pattern>& detectable) {
+            if (correctable.count(p))
+                stats[code].corrected++;
+            else if (detectable.count(p))
+                stats[code].detected++;
+            else
+                stats[code].undetected++;
+        };
+        update("SEC-DED", correctable_hamming, detectable_hamming);
+        update("TAEC", correctable_taec, detectable_taec);
+    }
+
+    auto label = [](const Pattern& p) {
+        if (p.first == 1)
+            return std::string("1-bit single");
+        std::string type = (p.second == "adj") ? "adjacent" : "nonadjacent";
+        return std::to_string(p.first) + "-bit " + type;
+    };
+
+    std::cout << "\nPattern distribution:" << std::endl;
+    for (const auto& p : patterns) {
+        std::cout << "  " << label(p) << ": " << pattern_counts[p] << std::endl;
+    }
+
+    std::cout << "\nECC results:" << std::endl;
+    for (const auto& kv : stats) {
+        const auto& code = kv.first;
+        const auto& s = kv.second;
+        std::cout << "  " << std::setw(7) << code
+                  << " -> corrected: " << s.corrected
+                  << " (" << std::fixed << std::setprecision(2)
+                  << (100.0 * s.corrected / trials) << "%), "
+                  << "detected-only: " << s.detected
+                  << " (" << (100.0 * s.detected / trials) << "%), "
+                  << "undetected: " << s.undetected
+                  << " (" << (100.0 * s.undetected / trials) << "%)" << std::endl;
+    }
+}
+
 int main(int argc, char* argv[]) {
     try {
         std::string pcm_path;
@@ -992,6 +1057,9 @@ int main(int argc, char* argv[]) {
 
         // Provide high level design guidance for users exploring ECC choices.
         printArchetypeReport();
+
+        // Illustrate ECC scheme coverage for both SEC-DED and TAEC.
+        runEccSchemeDemo();
 
 
     } catch (const std::exception& e) {
