@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 import yaml
+import warnings
 
 from analysis.archetype import classify_archetypes, _load_archetypes
 
@@ -59,4 +60,13 @@ def test_confidence_monotone() -> None:
     conf_mid = eff.matches(row_mid)
     conf_edge = eff.matches(row_edge)
     assert conf_center > conf_mid > conf_edge
+
+
+def test_matches_no_runtime_warning() -> None:
+    _, arcs, _ = _load_archetypes()
+    fort = arcs["Fortress"]
+    row = pd.Series({"fit": 0.0, "latency_ns": 3.5, "carbon_kg": 1.0})
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", RuntimeWarning)
+        fort.matches(row)
 
