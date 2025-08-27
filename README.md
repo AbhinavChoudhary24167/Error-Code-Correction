@@ -75,17 +75,17 @@ jq '.ber' ecc_stats.json
 
 #### 3.1.1 Hamming32bit1Gb
 
-Simulates a sparse 1 GB memory using SEC-DED Hamming codes.
+Simulates a sparse 1 GB memory using SEC-DED Hamming codes and now also performs a lightweight Monte Carlo comparison against a TAEC scheme.
 
 ```
 ./Hamming32bit1Gb
 ```
 
-During execution it runs a seven-scenario test suite (no errors, single-bit, double-bit, parity-bit, burst, random multi-error, mixed workload) and reports corrections/detections plus energy estimates.
+During execution it runs a seven-scenario test suite (no errors, single-bit, double-bit, parity-bit, burst, random multi-error, mixed workload) and reports corrections/detections plus energy estimates. After the tests, a Monte Carlo routine samples common error patterns to show how SEC‑DED and TAEC differ in their correction and detection coverage.
 
 #### 3.1.2 Hamming64bit128Gb
 
-Extends the model to 64-bit words and a theoretical 128 GB address space. Includes a “Million Word Dataset” stress test and optional `RUN_STRESS_TEST=1` read/write burn-in.
+Extends the model to 64-bit words and a theoretical 128 GB address space. Includes a “Million Word Dataset” stress test and optional `RUN_STRESS_TEST=1` read/write burn-in. Like the 32‑bit version, it concludes with a Monte Carlo comparison of SEC‑DED and TAEC coverage.
 
 ```
 ./Hamming64bit128Gb
@@ -180,6 +180,20 @@ python3 parse_telemetry.py --csv tests/data/sample_secdaec.csv --node 16 --vdd 0
 ```
 
 Reports total energy and per-correction energy; also accessible via `make epc-report` with parameters `CSV`, `NODE` and `VDD`.
+
+#### 3.2.5 `taec_hamming_sim.py`
+
+Monte Carlo comparison of traditional Hamming SEC-DED and Triple Adjacent
+Error Correction (TAEC) codes.  Generates random error patterns and
+reports how many are corrected, detected-only or missed by each code to
+illustrate double-error detection coverage.
+
+```bash
+python3 taec_hamming_sim.py --trials 10000 --seed 1
+```
+
+The script prints the distribution of sampled patterns along with per-code
+correction, detection-only and miss rates.
 
 ---
 
