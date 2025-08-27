@@ -157,7 +157,7 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
                 data |= (1ULL<<i);
         res.data = data;
         std::ofstream ofs("secdaec_energy.csv", std::ios::app);
-        ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
+        ofs << t.xor_ops << ',' << t.and_ops << '\n';
         return res; // clean
     }
 
@@ -182,7 +182,7 @@ inline SecDaec64::DecodingResult SecDaec64::decode(CodeWord recv) const {
     res.data = data;
     {
         std::ofstream ofs("secdaec_energy.csv", std::ios::app);
-        ofs << t.xor_ops << ',' << t.and_ops << ',' << estimate_energy(t) << '\n';
+        ofs << t.xor_ops << ',' << t.and_ops << '\n';
     }
     return res;
 }
