@@ -3,6 +3,8 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import warnings
+from numpy.exceptions import RankWarning
 
 from analysis.tradeoff import analyze_tradeoffs, TradeoffConfig
 
@@ -59,5 +61,15 @@ def test_tradeoff_filter(tmp_path: Path) -> None:
     assert "r" in stats and "p" in stats
     assert not np.isnan(stats["kg_per_decade"])
     assert result["provenance"]["filter"] == "carbon_kg > 1.5"
+
+
+def test_tradeoff_bootstrap_no_rankwarning(tmp_path: Path) -> None:
+    pareto = create_pareto(tmp_path)
+    out = tmp_path / "trade.json"
+    cfg = TradeoffConfig(n_resamples=1000, seed=2)
+    with warnings.catch_warnings(record=True) as rec:
+        warnings.simplefilter("always", RankWarning)
+        analyze_tradeoffs(pareto, out, cfg)
+        assert not any(isinstance(w.message, RankWarning) for w in rec)
 
 
