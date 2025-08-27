@@ -249,15 +249,35 @@ def depth_locator(code: str) -> int:
 # greatly overstating leakage energy.
 _LEAK_BASE_UA_PER_MM2 = {28: 0.5, 16: 0.7, 7: 1.0}
 
+# Simple process-corner multipliers to allow leakage exploration.
+_LEAK_CORNER_MUL = {"ss": 0.7, "tt": 1.0, "ff": 1.3}
 
-def i_leak_density_A_per_mm2(node_nm: float, temp_c: float) -> float:
-    """Return leakage current density in A/mm^2."""
+
+def i_leak_density_A_per_mm2(
+    node_nm: float, temp_c: float, *, corner: str = "tt"
+) -> float:
+    """Return leakage current density in ``A/mm^2``.
+
+    Parameters
+    ----------
+    node_nm : float
+        Technology node in nanometres.
+    temp_c : float
+        Junction temperature in degrees Celsius.
+    corner : str, optional
+        Process corner: ``"ss"`` (slow), ``"tt"`` (typical) or ``"ff"`` (fast).
+    """
+
     nodes = np.array(sorted(_LEAK_BASE_UA_PER_MM2))
     base_ua = np.array([_LEAK_BASE_UA_PER_MM2[n] for n in nodes])
-    # Convert microamp calibration data to amps before temperature scaling.
-    base = base_ua * 1e-6
+    base = base_ua * 1e-6  # convert \u03bcA/mm^2 to A/mm^2
     density_25 = np.interp(node_nm, nodes, base)
-    return density_25 * 2 ** ((temp_c - 25.0) / 10.0)
+    try:
+        mul = _LEAK_CORNER_MUL[corner.lower()]
+    except KeyError:
+        raise KeyError(corner)
+    # Empirical temperature scaling: roughly doubles every 15\u00b0C.
+    return density_25 * mul * 2 ** ((temp_c - 25.0) / 15.0)
 
 
 _AREA_OVERHEAD = {"sec-ded": 0.1, "sec-daec": 0.12, "taec": 0.15}
@@ -271,9 +291,15 @@ def area_overhead_mm2(code: str) -> float:
 
 
 def leakage_energy_j(
-    vdd: float, node_nm: float, temp_c: float, code: str, lifetime_h: float
+    vdd: float,
+    node_nm: float,
+    temp_c: float,
+    code: str,
+    lifetime_h: float,
+    *,
+    corner: str = "tt",
 ) -> float:
-    i = i_leak_density_A_per_mm2(node_nm, temp_c)
+    i = i_leak_density_A_per_mm2(node_nm, temp_c, corner=corner)
     area = area_overhead_mm2(code)
     return vdd * i * area * (lifetime_h * 3600.0)
 
@@ -282,17 +308,35 @@ def leakage_energy_j(
 # Dynamic energy model per ECC
 
 
-_PRIMITIVE_COUNTS: Dict[str, Dict[str, int]] = {
+_PRIMITIVE_BASE_PER_64: Dict[str, Dict[str, int]] = {
     "sec-ded": {"xor": 100, "and": 50, "adder_stage": 0},
     "sec-daec": {"xor": 120, "and": 60, "adder_stage": 10},
     "taec": {"xor": 150, "and": 70, "adder_stage": 20},
 }
 
 
+def primitive_counts(code: str, word_bits: int = 64) -> Dict[str, int]:
+    """Estimate primitive gate counts for ``code`` and ``word_bits``.
+
+    Counts scale linearly with ``word_bits`` using 64‑bit as the reference.
+    """
+
+    base = _PRIMITIVE_BASE_PER_64[code.lower()]
+    scale = word_bits / 64.0
+    return {k: int(math.ceil(v * scale)) for k, v in base.items()}
+
+
 def dynamic_energy_per_op(
-    code: str, node_nm: float, vdd: float, *, mode: str = "pwl"
+    code: str,
+    node_nm: float,
+    vdd: float,
+    *,
+    word_bits: int = 64,
+    mode: str = "pwl",
 ) -> float:
-    primitives = _PRIMITIVE_COUNTS[code.lower()]
+    """Energy per ECC operation in joules for one word."""
+
+    primitives = primitive_counts(code, word_bits)
     e_xor = gate_energy(node_nm, vdd, "xor", mode=mode)
     e_and = gate_energy(node_nm, vdd, "and", mode=mode)
     e_add = gate_energy(node_nm, vdd, "adder_stage", mode=mode)
@@ -304,9 +348,19 @@ def dynamic_energy_per_op(
 
 
 def dynamic_energy_j(
-    ops: float, code: str, node_nm: float, vdd: float, *, mode: str = "pwl"
+    ops: float,
+    code: str,
+    node_nm: float,
+    vdd: float,
+    *,
+    word_bits: int = 64,
+    mode: str = "pwl",
 ) -> float:
-    return ops * dynamic_energy_per_op(code, node_nm, vdd, mode=mode)
+    """Total dynamic energy for ``ops`` ECC operations."""
+
+    return ops * dynamic_energy_per_op(
+        code, node_nm, vdd, word_bits=word_bits, mode=mode
+    )
 
 
 def energy_report(
@@ -317,10 +371,12 @@ def energy_report(
     ops: float,
     lifetime_h: float,
     *,
+    word_bits: int = 64,
+    corner: str = "tt",
     mode: str = "pwl",
 ) -> Dict[str, float]:
-    dyn = dynamic_energy_j(ops, code, node_nm, vdd, mode=mode)
-    leak = leakage_energy_j(vdd, node_nm, temp_c, code, lifetime_h)
+    dyn = dynamic_energy_j(ops, code, node_nm, vdd, word_bits=word_bits, mode=mode)
+    leak = leakage_energy_j(vdd, node_nm, temp_c, code, lifetime_h, corner=corner)
     return {"dynamic_J": dyn, "leakage_J": leak, "total_J": dyn + leak}
 
 
