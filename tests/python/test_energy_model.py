@@ -76,6 +76,12 @@ def test_dynamic_energy_scales_with_ops():
     assert e2 == pytest.approx(2 * e1)
 
 
+def test_dynamic_energy_scales_with_word_bits():
+    e64 = energy_model.dynamic_energy_per_op("sec-ded", 28, 0.8, word_bits=64)
+    e128 = energy_model.dynamic_energy_per_op("sec-ded", 28, 0.8, word_bits=128)
+    assert e128 == pytest.approx(2 * e64)
+
+
 def test_leakage_energy_monotonic():
     low_temp = energy_model.leakage_energy_j(0.8, 28, 25, "sec-ded", 1)
     high_temp = energy_model.leakage_energy_j(0.8, 28, 35, "sec-ded", 1)
@@ -84,6 +90,13 @@ def test_leakage_energy_monotonic():
     small_area = energy_model.leakage_energy_j(0.8, 28, 75, "sec-ded", 1)
     large_area = energy_model.leakage_energy_j(0.8, 28, 75, "taec", 1)
     assert large_area > small_area
+
+
+def test_leakage_corner_factor():
+    tt = energy_model.leakage_energy_j(0.8, 28, 75, "sec-ded", 1, corner="tt")
+    ff = energy_model.leakage_energy_j(0.8, 28, 75, "sec-ded", 1, corner="ff")
+    ss = energy_model.leakage_energy_j(0.8, 28, 75, "sec-ded", 1, corner="ss")
+    assert ff > tt > ss
 
 
 def test_leakage_scale_fixed_units():

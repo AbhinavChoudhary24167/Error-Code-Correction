@@ -1,14 +1,21 @@
 # Energy Model
 
 This module provides a tiny energy estimation for each read operation in the
-simulators. It multiplies the number of XOR and AND gate evaluations by
-technology-aware energy costs loaded from `tech_calib.json`.
+simulators. It multiplies the number of primitive gate evaluations by
+technology-aware energy costs loaded from `tech_calib.json`. Gate counts scale
+linearly with the ECC word size so wider codewords incur proportionally higher
+dynamic energy.
 
 ## Calibration
 
 `tech_calib.json` maps process node and voltage to per-gate energy figures for
-XOR and AND operations. The loader performs piecewise linear interpolation over
-this table so the estimate reflects the chosen technology and supply voltage.
+XOR, AND and adder primitives. The loader performs piecewise linear
+interpolation over this table so the estimate reflects the chosen technology and
+supply voltage.
+
+The leakage model now accepts a process corner argument (`ss`, `tt`, `ff`) and
+uses a gentler temperature coefficient, roughly doubling every 15 °C. This gives
+a more realistic view of static power across operating conditions.
 
 ## Running the script
 
