@@ -36,13 +36,33 @@ class Archetype:
             return -1.0
         if not (self.carbon_lo <= row.carbon_kg <= self.carbon_hi):
             return -1.0
-        c = self.center
-        fit_span = (np.log10(self.fit_hi) - np.log10(self.fit_lo)) / 2
-        fit_dist = abs(np.log10(row.fit) - np.log10(c["fit"])) / fit_span
-        lat_span = (self.lat_hi - self.lat_lo) / 2
-        lat_dist = abs(row.latency_ns - c["latency_ns"]) / lat_span
-        carb_span = (self.carbon_hi - self.carbon_lo) / 2
-        carb_dist = abs(row.carbon_kg - c["carbon_kg"]) / carb_span
+
+        if self.fit_hi <= self.fit_lo or self.lat_hi <= self.lat_lo or self.carbon_hi <= self.carbon_lo:
+            return -1.0
+
+        fit_dist = 0.0
+        if np.isfinite(self.fit_lo) and np.isfinite(self.fit_hi):
+            if self.fit_lo > 0 and self.fit_hi > 0:
+                fit_span = (np.log10(self.fit_hi) - np.log10(self.fit_lo)) / 2
+                fit_center_log = (np.log10(self.fit_lo) + np.log10(self.fit_hi)) / 2
+                fit_dist = abs(np.log10(max(row.fit, 1e-300)) - fit_center_log) / fit_span
+            else:
+                fit_span = (self.fit_hi - self.fit_lo) / 2
+                fit_center = (self.fit_lo + self.fit_hi) / 2
+                fit_dist = abs(row.fit - fit_center) / fit_span
+
+        lat_dist = 0.0
+        if np.isfinite(self.lat_lo) and np.isfinite(self.lat_hi):
+            lat_span = (self.lat_hi - self.lat_lo) / 2
+            lat_center = (self.lat_lo + self.lat_hi) / 2
+            lat_dist = abs(row.latency_ns - lat_center) / lat_span
+
+        carb_dist = 0.0
+        if np.isfinite(self.carbon_lo) and np.isfinite(self.carbon_hi):
+            carb_span = (self.carbon_hi - self.carbon_lo) / 2
+            carb_center = (self.carbon_lo + self.carbon_hi) / 2
+            carb_dist = abs(row.carbon_kg - carb_center) / carb_span
+
         return max(0.0, 1 - max(fit_dist, lat_dist, carb_dist))
 
 
