@@ -1,22 +1,67 @@
 # Error-Code-Correction Framework Guide
 
-This repository collects C++ and Python tools for exploring error-correcting-code (ECC) schemes in SRAM and evaluating their reliability, energy cost and environmental footprint. It includes standalone memory simulators, comparison utilities and analytical scripts.
+A comprehensive toolkit for exploring error-correcting-code (ECC) schemes in SRAM.
+It combines C++ simulators, Python analysis utilities and calibration data to
+study reliability, energy cost and environmental footprint.  The project was
+originally written for academic research but is packaged so that new users can
+reproduce the experiments or extend the framework for their own designs.
+
+This guide overviews the available components, how to build and run them and
+where to find deeper documentation.
+
+## Table of Contents
+- [Repository Layout](#repository-layout)
+- [Quick Start](#quick-start)
+- [Dependencies](#dependencies)
+- [Building the Simulators](#building-the-simulators)
+- [Running the Tools](#running-the-tools)
+  - [C++ Memory Simulators](#c-memory-simulators)
+  - [Python Utilities](#python-utilities)
+- [Interpreting Structured Results](#interpreting-structured-results)
+- [Advanced Analysis](#advanced-analysis)
+- [Example Workflows](#example-workflows)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Additional Documentation](#additional-documentation)
+- [License](#license)
+
+## Repository Layout
+
+```
+.
+├── analysis/             # Reliability and trade‑off analysis helpers
+├── data/                 # Sample data files used in tests and examples
+├── docs/                 # Additional design notes and background research
+├── reports/              # Example outputs produced by helper scripts
+├── scripts/              # Helper shell scripts for batch studies
+├── src/                  # Shared C++ sources (energy model loader)
+├── tests/                # GoogleTest and pytest suites
+├── Hamming32bit1Gb.cpp   # SEC‑DED simulator for 32‑bit words
+├── Hamming64bit128Gb.cpp # SEC‑DED simulator for 64‑bit words
+├── BCHvsHamming.cpp      # BCH(63,51,2) vs. Hamming comparison tool
+├── SAT.cpp               # Small DPLL SAT solver demo
+├── eccsim.py             # Reliability, energy and carbon modelling CLI
+├── ecc_selector.py       # Recommend ECC given BER, burst length and energy
+├── energy_model.py       # Gate‑level energy estimator
+├── parse_telemetry.py    # Process decoder telemetry CSV logs
+├── taec_hamming_sim.py   # Monte‑Carlo TAEC vs. Hamming comparison
+└── ...
+```
 
 ## Quick Start
 
-Clone the repository and run a minimal simulator with:
+Clone the repository, install Python dependencies and build the C++ simulators:
 
 ```bash
 pip install -r requirements.txt
 make
-./Hamming32bit1Gb
+./Hamming32bit1Gb              # run a minimal example
 ```
 
-The sample run prints correction statistics and creates `ecc_stats` and `decoding_results` logs in the project root.
+The sample run prints correction statistics and creates `ecc_stats` and
+`decoding_results` logs in the project root.
 
----
-
-## 1. Dependencies
+## Dependencies
 
 ### System tools
 - **C++17 compiler** (`g++` by default)
@@ -30,13 +75,13 @@ Install the required packages with:
 pip install -r requirements.txt
 ```
 
-Dependencies: NumPy, pandas, pytest and jsonschema. Use Python 3.8+ for best compatibility.
+Dependencies include NumPy, pandas, pytest and jsonschema.  Python 3.8+ is
+recommended for full compatibility.
 
----
+## Building the Simulators
 
-## 2. Building the Simulators
-
-Run `make` to compile all binaries (`BCHvsHamming`, `Hamming32bit1Gb`, `Hamming64bit128Gb`, `SATDemo`) using the provided `g++` flags (`-std=c++17 -O2`).
+Run `make` to compile all binaries (`BCHvsHamming`, `Hamming32bit1Gb`,
+`Hamming64bit128Gb`, `SATDemo`) using the provided `g++` flags (`-std=c++17 -O2`).
 
 For individual builds:
 
@@ -53,11 +98,9 @@ Cleaning artifacts:
 make clean
 ```
 
----
+## Running the Tools
 
-## 3. Running the Tools & Interpreting Results
-
-### 3.1 Memory Simulators
+### C++ Memory Simulators
 
 All simulators emit human-readable statistics and structured logs:
 
@@ -65,128 +108,103 @@ All simulators emit human-readable statistics and structured logs:
 - `decoding_results.{csv,json}` – per-read traces
 - `ecc_stats.{csv,json}` – aggregated ECC metrics
 
-These files live in the repository root and are git-ignored to keep history clean.
-
-Inspect with any spreadsheet tool or `jq`:
+These files live in the repository root and are git-ignored to keep history
+clean.  Inspect with spreadsheet tools or `jq`:
 
 ```bash
 jq '.ber' ecc_stats.json
 ```
 
-#### 3.1.1 Hamming32bit1Gb
-
-Simulates a sparse 1 GB memory using SEC-DED Hamming codes and now also performs a lightweight Monte Carlo comparison against a TAEC scheme.
+#### Hamming32bit1Gb
+Simulates a sparse 1 GB memory using SEC‑DED Hamming codes and a lightweight
+Monte‑Carlo comparison against a TAEC scheme.
 
 ```
 ./Hamming32bit1Gb
 ```
 
-During execution it runs a seven-scenario test suite (no errors, single-bit, double-bit, parity-bit, burst, random multi-error, mixed workload) and reports corrections/detections plus energy estimates. After the tests, a Monte Carlo routine samples common error patterns to show how SEC‑DED and TAEC differ in their correction and detection coverage.
+Runs a seven-scenario test suite (no errors, single‑bit, double‑bit, parity‑bit,
+burst, random multi‑error, mixed workload) and prints correction/detection
+statistics plus energy estimates.  A Monte‑Carlo routine samples common error
+patterns to show how SEC‑DED and TAEC differ in coverage.
 
-#### 3.1.2 Hamming64bit128Gb
-
-Extends the model to 64-bit words and a theoretical 128 GB address space. Includes a “Million Word Dataset” stress test and optional `RUN_STRESS_TEST=1` read/write burn-in. Like the 32‑bit version, it concludes with a Monte Carlo comparison of SEC‑DED and TAEC coverage.
+#### Hamming64bit128Gb
+Extends the model to 64‑bit words and a theoretical 128 GB address space.  It
+includes a “Million Word Dataset” stress test and optional
+`RUN_STRESS_TEST=1` read/write burn‑in.  Like the 32‑bit version it concludes
+with a Monte‑Carlo comparison of SEC‑DED and TAEC coverage.
 
 ```
 ./Hamming64bit128Gb
 ```
 
-Outputs the same `ecc_stats` and `decoding_results` logs as the 32-bit version.
+Outputs the same `ecc_stats` and `decoding_results` logs as the 32‑bit version.
 
-#### 3.1.3 BCH vs Hamming Comparison
+#### BCH vs Hamming Comparison
 
 ```
 ./BCHvsHamming
 ```
 
-Runs a side-by-side BCH(63,51,2) vs. SEC-DED Hamming evaluation over multiple error patterns and saves the summary in `comparison_results.*`.
+Runs a side‑by‑side BCH(63,51,2) vs. SEC‑DED Hamming evaluation over multiple
+error patterns and saves the summary in `comparison_results.*`.
 
-#### 3.1.4 SAT Solver Demo
+#### SAT Solver Demo
 
 ```
 ./SATDemo
 ```
 
-Demonstrates a small DPLL SAT solver used for Hamming-code conjectures, printing solver statistics and example proofs.
+Demonstrates a small DPLL SAT solver used for Hamming‑code conjectures, printing
+solver statistics and example proofs.
 
-### 3.2 Python Utilities
+### Python Utilities
 
-#### 3.2.1 `eccsim.py`
+The repository ships several standalone Python modules in addition to the
+`eccsim` CLI.  Each tool prints a short help message when invoked with `-h`.
 
-Central CLI exposing reliability, energy and carbon analysis.
+#### `eccsim.py`
+Multi‑purpose command line interface for reliability, energy and carbon
+modelling.  Key subcommands:
 
-- **ESII metrics** – the `esii` subcommand now also reports NESII and the
-  Green Score (GS) alongside raw ESII for the given scenario.
-- **Reliability report** – computes FIT rates and mean-time-to-failure:
+- `eccsim reliability-report` – compute FIT/MTTF numbers for a given ECC.
+- `eccsim select` – generate a Pareto frontier of candidate codes.
+- `eccsim analyze tradeoffs` – quantify exchange rates on a frontier.
+- `eccsim analyze archetype` – attach high‑level archetype labels to designs.
 
-  ```bash
-  python eccsim.py reliability report --qcrit 1.2 --qs 0.25 --area 0.08 --flux-rel 1 --json
-  ```
+All subcommands share a technology calibration file (`tech_calib.json`) so that
+C++ and Python components use consistent energy numbers.
 
-  Produces a JSON object (stdout) and a formatted table (stderr) with key metrics like `fit_bit`, `fit_system` and `mttf`.
-
-- **Energy estimation**:
-
-  ```bash
-  python eccsim.py energy --code sec-ded --node 16 --vdd 0.7 --temp 25 --ops 1e6 --lifetime-h 1e4
-  ```
-
-  Reports dynamic/leakage energy and totals.
-
-- **Carbon footprint**:
-
-  ```bash
-  python eccsim.py carbon --areas 0.1,0.2 --alpha 0.5,0.5 --Edyn 1e-15 --Eleak 1e-18 --ci 0.4
-  ```
-
-  Prints embodied, operational and total kgCO₂e.
-
-#### 3.2.2 `energy_model.py`
-
-Quick energy-per-read estimator driven by calibration data:
-
-```bash
-python3 energy_model.py <parity_bits> [detected_errors]
-```
-
-Example:
-
-```
-python3 energy_model.py 8 1
-```
-
-Outputs a single line like `Estimated energy per read: 2.0e-12 J`.
-
-The helper module `calibration.py` centralises parsing of
-`tech_calib.json` so that Python utilities and external frameworks can
-share the same validated calibration data.
-
-#### 3.2.3 `ecc_selector.py`
-
-Recommends an ECC scheme given runtime conditions:
+#### `ecc_selector.py`
+Recommend an ECC scheme given runtime conditions:
 
 ```bash
 python3 ecc_selector.py <ber> <burst_length> <vdd> <energy_budget> <required_bits> [--sustainability]
 ```
 
-Example output lists the chosen code, correctable bits, burst tolerance, energy estimate and supported VDD range.
+Prints the chosen code, correctable bits, burst tolerance, energy estimate and
+supported VDD range.
 
-#### 3.2.4 `parse_telemetry.py`
+#### `energy_model.py`
+Tiny gate‑level energy estimator.  Multiply the number of primitive gate
+evaluations by technology-aware energy costs loaded from `tech_calib.json`.
 
-Parses decoder telemetry logs:
+```bash
+python3 energy_model.py <parity_bits> [detected_errors]
+```
+
+#### `parse_telemetry.py`
+Parse decoder telemetry logs and report total energy and per‑correction energy.
+Also accessible via `make epc-report` with parameters `CSV`, `NODE` and `VDD`.
 
 ```bash
 python3 parse_telemetry.py --csv tests/data/sample_secdaec.csv --node 16 --vdd 0.7
 ```
 
-Reports total energy and per-correction energy; also accessible via `make epc-report` with parameters `CSV`, `NODE` and `VDD`.
-
-#### 3.2.5 `taec_hamming_sim.py`
-
-Monte Carlo comparison of traditional Hamming SEC-DED and Triple Adjacent
-Error Correction (TAEC) codes.  Generates random error patterns and
-reports how many are corrected, detected-only or missed by each code to
-illustrate double-error detection coverage.
+#### `taec_hamming_sim.py`
+Monte‑Carlo comparison of traditional Hamming SEC‑DED and Triple Adjacent Error
+Correction (TAEC) codes.  Generates random error patterns and reports how many
+are corrected, detected-only or missed by each code.
 
 ```bash
 python3 taec_hamming_sim.py --trials 10000 --seed 1
@@ -195,57 +213,28 @@ python3 taec_hamming_sim.py --trials 10000 --seed 1
 The script prints the distribution of sampled patterns along with per-code
 correction, detection-only and miss rates.
 
----
+## Interpreting Structured Results
 
-## 4. Interpreting Structured Results
+- **`ecc_stats.*`** – aggregate statistics; field `ber` (bit error rate)
+  illustrates overall reliability and can be queried with `jq` or loaded into
+  pandas.
+- **`decoding_results.*`** – per-read logs including addresses, injected errors
+  and correction outcomes; useful for deeper debugging.
+- **`comparison_results.*`** – summarises BCH vs. Hamming performance across
+  test cases.
+- **`pareto.csv`** – produced by `eccsim select`; design points forming a Pareto
+  frontier.
+- **`tradeoffs.json`** / **`archetypes.json`** – outputs from `eccsim analyze`
+  providing exchange rates and high-level labels for each point.
+- **`sensitivity-vdd.json`** – sensitivity of reliability to supply voltage.
 
-- **`ecc_stats.*`** – aggregate statistics; field `ber` (bit error rate) illustrates overall reliability and can be queried with `jq` or loaded into pandas.
-- **`decoding_results.*`** – per-read logs including addresses, injected errors and correction outcomes; useful for deeper debugging.
-- **`comparison_results.*`** – summarises BCH vs. Hamming performance across test cases.
+All logs are CSV and JSON so they can be imported into notebooks or spreadsheets
+for plotting or further analysis.
 
-All logs are CSV and JSON so they can be imported into notebooks or spreadsheets for plotting or further analysis.
+## Advanced Analysis
 
----
-
-## 5. Testing
-
-1. Install Python dependencies (see §1).
-2. Build C++ binaries (`make`).
-3. Run the full test suite:
-
-```bash
-make test
-```
-
-`make test` compiles all simulators, executes a CTest/GoogleTest run and then invokes both shell and Python tests via pytest.
-
----
-
-## 6. Suggested Workflow for New Users
-
-1. **Clone repository** and install dependencies.
-2. **Compile simulators** with `make` or individual `g++` commands.
-3. **Run a simulator** (e.g., `Hamming32bit1Gb`) to see statistics and generate log files.
-4. **Explore structured logs** with `jq`, pandas or spreadsheets for further insight.
-5. **Use Python tools**:
-   - `eccsim.py reliability report` for FIT/MTTF calculations.
-   - `energy_model.py` for quick energy estimates.
-   - `ecc_selector.py` to choose an ECC code for given conditions.
-   - `parse_telemetry.py` to analyse energy telemetry.
-6. **Run tests** to confirm environment health.
-
-Following these steps a novice can compile, execute and interpret all aspects of the framework.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Comprehensive Analysis
-
-After generating a Pareto frontier with `eccsim select`, additional analysis tools
-are available under the new `analyze` command family:
+After generating a Pareto frontier with `eccsim select`, additional analysis
+commands quantify exchange rates and attach archetype labels to design points:
 
 ```bash
 eccsim select --codes sec-ded,sec-daec --node 7 --vdd 0.8 --temp 25 --capacity-gib 1 --ci 400 --bitcell-um2 0.1 --report pareto.csv
@@ -256,26 +245,54 @@ eccsim analyze tradeoffs --from pareto.csv --out reports/tradeoffs.json \
 eccsim analyze archetype --from pareto.csv --out reports/archetype.json
 ```
 
-These commands quantify exchange rates on the frontier and attach
-high-level archetype labels to each design point.
+Energy reports include an explicit `E_scrub_kWh` column capturing background
+scrub energy.  JSON summaries set `"includes_scrub_energy": true` to signal that
+operational carbon accounts for these reads.
 
-Energy reports now include an explicit `E_scrub_kWh` column in `pareto.csv`
-capturing background scrub energy. JSON summaries set
-`"includes_scrub_energy": true` to signal that operational carbon accounts for
-these reads.
+## Example Workflows
 
-## Example SKU Studies
-
-Run the helper script to explore multiple reliability scenarios and emit example artifacts:
+Run the helper script to explore multiple reliability scenarios and emit example
+artifacts:
 
 ```bash
 bash scripts/run_sku_studies.sh
 ```
 
-Versioned results for a light MBU rate, CI=0.55 and 5 s scrub interval are provided for reference:
+Versioned results for a light MBU rate, CI=0.55 and 5 s scrub interval are
+provided for reference:
 
 - `reports/examples/sku-64b-128Gb/mbu-light_ci-0.55_scrub-5/`
 - `reports/examples/sku-32b-1Gb/mbu-light_ci-0.55_scrub-5/`
 
-Each directory includes `pareto.csv`, `tradeoffs.json`,
-`sensitivity-vdd.json` and `archetypes.json`.
+Each directory includes `pareto.csv`, `tradeoffs.json`, `sensitivity-vdd.json`
+and `archetypes.json`.
+
+## Testing
+
+1. Install Python dependencies (see [Dependencies](#dependencies)).
+2. Build C++ binaries (`make`).
+3. Run the full test suite:
+
+```bash
+make test
+```
+
+`make test` compiles all simulators, executes a CTest/GoogleTest run and then
+invokes both shell and Python tests via pytest.
+
+## Contributing
+
+Contributions are welcome!  Please read [CONTRIBUTING.md](CONTRIBUTING.md) for
+the preferred workflow and coding guidelines.
+
+## Additional Documentation
+
+The `docs/` directory contains more background material including implementation
+logs, energy model derivations and literature surveys.  Start with
+[`docs/SimulatorOverview.md`](docs/SimulatorOverview.md) for a tour of each
+simulator.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
