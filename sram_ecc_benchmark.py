@@ -1,6 +1,8 @@
 """SRAM bit error rate and ECC benchmarking utilities."""
 
 from math import exp
+
+from ecc_mux import compute_ecc_mux_params
 from esii import ESIIInputs, compute_esii
 from scores import compute_scores
 
@@ -121,6 +123,7 @@ def sustainability_benchmark(node: str, capacity_mb: float) -> None:
 
     esii_inputs = {}
     esii_vals = []
+    mux_metrics = {}
     for scheme in schemes:
         params = SUSTAINABILITY_PARAMS[scheme]
         uncorr = residual_error_rate(scheme)
@@ -134,12 +137,15 @@ def sustainability_benchmark(node: str, capacity_mb: float) -> None:
         )
         esii_inputs[scheme] = inp
         esii_vals.append(compute_esii(inp)["ESII"])
+        mux_metrics[scheme] = compute_ecc_mux_params(scheme)
 
     print(f"Sustainability scores for {node} node (16MB at sea level):")
     for scheme in schemes:
         res = compute_scores(esii_inputs[scheme], esii_reference=esii_vals)
+        latency, energy, area = mux_metrics[scheme]
         print(
-            f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}"
+            f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}" \
+            f", mux latency={latency}, energy={energy}, area={area}"
         )
 
 
