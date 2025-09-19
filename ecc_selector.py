@@ -254,6 +254,9 @@ def _compute_metrics(
     ci: float,
     capacity_gib: float,
     bitcell_um2: float,
+    alt_km: float,
+    latitude_deg: float,
+    flux_rel: float | None,
     mbu: str,
     scrub_s: float,
     lifetime_h: float = float("nan"),
@@ -270,7 +273,7 @@ def _compute_metrics(
         qcrit_fC = 0.3
         area_um2 = bitcell_um2
 
-    flux = flux_from_location(0.0, 45.0, None)
+    flux = flux_from_location(alt_km, latitude_deg, flux_rel)
     hp = HazuchaParams(Qs_fC=0.05, flux_rel=flux, area_um2=area_um2)
     fit_bit = ser_hazucha(qcrit_fC, hp)
 
@@ -344,6 +347,7 @@ def _compute_metrics(
         "includes_scrub_energy": True,
         "fit_bit": fit_bit,
         "fit_word_post": fit_post.nominal,
+        "flux_rel": flux,
     }
 
 
@@ -355,6 +359,9 @@ def select(
     backend: str = "hazucha",
     mbu: str = "moderate",
     scrub_s: float = 10.0,
+    alt_km: float = 0.0,
+    latitude_deg: float = 45.0,
+    flux_rel: float | None = None,
     **kwargs,
 ) -> Dict[str, object]:
     """Return a recommended ECC and the Pareto frontier.
@@ -376,7 +383,9 @@ def select(
         Scrub interval in seconds.
     **kwargs:
         Additional parameters forwarded to the metric computation such as
-        ``node``, ``vdd`` and ``temp``.
+        ``node``, ``vdd`` and ``temp``.  Location specific parameters
+        (``alt_km``, ``latitude_deg`` and ``flux_rel``) are exposed explicitly
+        to allow scenarios to model installation sites.
     """
 
     if backend != "hazucha":  # pragma: no cover - defensive programming
@@ -406,6 +415,9 @@ def select(
             ci=float(kwargs["ci"]),
             capacity_gib=float(kwargs["capacity_gib"]),
             bitcell_um2=float(kwargs["bitcell_um2"]),
+            alt_km=float(alt_km),
+            latitude_deg=float(latitude_deg),
+            flux_rel=float(flux_rel) if flux_rel is not None else None,
             mbu=mbu,
             scrub_s=float(scrub_s),
             lifetime_h=float(kwargs.get("lifetime_h", float("nan"))),
@@ -425,7 +437,15 @@ def select(
         recs.append(rec)
 
     scenario = dict(kwargs)
-    scenario.update({"mbu": mbu, "scrub_s": float(scrub_s)})
+    scenario.update(
+        {
+            "mbu": mbu,
+            "scrub_s": float(scrub_s),
+            "alt_km": float(alt_km),
+            "latitude_deg": float(latitude_deg),
+            "flux_rel": float(flux_rel) if flux_rel is not None else None,
+        }
+    )
     scenario_hash = hashlib.sha1(
         json.dumps(scenario, sort_keys=True).encode()
     ).hexdigest()

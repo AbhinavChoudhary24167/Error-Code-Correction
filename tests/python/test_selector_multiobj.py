@@ -1,7 +1,10 @@
 import logging
 import math
 
+import pytest
+
 from ecc_selector import select, _pareto_front
+from ser_model import flux_from_location
 
 
 def test_pareto_dominance():
@@ -65,6 +68,23 @@ def test_nesii_normalisation():
         assert 0.0 <= rec["GS"] <= 100.0
         assert all(k in rec for k in ["Sr", "Sc", "Sl"])
 
+
+def test_location_scaling():
+    codes = ["sec-ded-64"]
+    params = _default_params()
+
+    sea_level = select(codes, alt_km=0.0, latitude_deg=45.0, **params)
+    high_alt = select(codes, alt_km=10.0, latitude_deg=60.0, **params)
+
+    sea_fit = sea_level["candidate_records"][0]["fit_bit"]
+    high_fit = high_alt["candidate_records"][0]["fit_bit"]
+
+    assert high_fit > sea_fit
+
+    base_flux = flux_from_location(0.0, 45.0)
+    scaled_flux = flux_from_location(10.0, 60.0)
+    expected = sea_fit * (scaled_flux / base_flux)
+    assert high_fit == pytest.approx(expected, rel=1e-3)
 
 
 def test_nesii_fallback_logs_once(caplog):

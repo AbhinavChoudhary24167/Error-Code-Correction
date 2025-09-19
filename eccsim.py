@@ -193,6 +193,9 @@ def main() -> None:
     select_parser.add_argument("--temp", type=float, required=True)
     select_parser.add_argument("--mbu", type=str, default="moderate")
     select_parser.add_argument("--scrub-s", type=float, default=10.0)
+    select_parser.add_argument("--alt-km", type=float, default=0.0)
+    select_parser.add_argument("--latitude", type=float, default=45.0)
+    select_parser.add_argument("--flux-rel", type=float, default=None)
     select_parser.add_argument("--capacity-gib", type=float, required=True)
     select_parser.add_argument("--ci", type=float, required=True)
     select_parser.add_argument("--bitcell-um2", type=float, required=True)
@@ -225,6 +228,9 @@ def main() -> None:
     target_parser.add_argument("--temp", type=float, required=True)
     target_parser.add_argument("--mbu", type=str, default="moderate")
     target_parser.add_argument("--scrub-s", type=float, default=10.0)
+    target_parser.add_argument("--alt-km", type=float, default=0.0)
+    target_parser.add_argument("--latitude", type=float, default=45.0)
+    target_parser.add_argument("--flux-rel", type=float, default=None)
     target_parser.add_argument("--capacity-gib", type=float, required=True)
     target_parser.add_argument("--ci", type=float, required=True)
     target_parser.add_argument("--bitcell-um2", type=float, required=True)
@@ -399,6 +405,9 @@ def main() -> None:
             constraints=constraints,
             mbu=args.mbu,
             scrub_s=args.scrub_s,
+            alt_km=args.alt_km,
+            latitude_deg=args.latitude,
+            flux_rel=args.flux_rel,
             **params,
         )
 
@@ -520,6 +529,9 @@ def main() -> None:
             codes,
             mbu=args.mbu,
             scrub_s=args.scrub_s,
+            alt_km=args.alt_km,
+            latitude_deg=args.latitude,
+            flux_rel=args.flux_rel,
             **params,
         )
 
