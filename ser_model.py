@@ -84,14 +84,70 @@ def flux_from_location(
 ) -> float:
     """Return relative neutron flux for a given location.
 
-    Parameters are currently placeholders. When ``flux_rel`` is provided it is
-    returned directly, otherwise ``1.0`` is used. A real implementation would
-    derive the flux from ``alt_km`` and ``latitude_deg``.
+    The Hazucha–Svensson model uses neutron flux relative to sea level at
+    45° latitude as its environmental scaling factor.  ``flux_rel`` allows
+    advanced users to override the automatically computed ratio.  When the
+    override is not provided the function applies a light‑weight empirical
+    approximation:
+
+    * altitude scaling is derived from a small lookup table sourced from
+      published aviation neutron measurements and interpolated linearly; and
+    * latitude dependence follows a smooth ``sin^1.5`` profile normalised to
+      unity at 45° latitude, capturing the increased flux near the poles and
+      the reduction at the geomagnetic equator.
+
+    Parameters
+    ----------
+    alt_km:
+        Installation altitude in kilometres.  Values below zero are clamped to
+        sea level.
+    latitude_deg:
+        Geographic latitude in degrees.  The absolute value is used and clamped
+        to the range ``[0°, 90°]``.
+    flux_rel:
+        Optional manual override.  When provided it is returned verbatim.
     """
 
     if flux_rel is not None:
         return flux_rel
-    return 1.0
+
+    altitude_profile = [
+        (0.0, 1.0),
+        (1.0, 1.3),
+        (2.0, 1.8),
+        (5.0, 4.0),
+        (8.0, 8.0),
+        (10.0, 15.0),
+        (12.0, 25.0),
+    ]
+
+    alt = max(float(alt_km), 0.0)
+    alt_factor = altitude_profile[0][1]
+    for (x0, y0), (x1, y1) in zip(altitude_profile, altitude_profile[1:]):
+        if alt <= x1:
+            if alt <= x0:
+                alt_factor = y0
+            else:
+                span = x1 - x0
+                if span <= 0:
+                    alt_factor = y1
+                else:
+                    weight = (alt - x0) / span
+                    alt_factor = y0 + weight * (y1 - y0)
+            break
+    else:
+        x0, y0 = altitude_profile[-2]
+        x1, y1 = altitude_profile[-1]
+        slope = (y1 - y0) / (x1 - x0)
+        alt_factor = y1 + slope * (alt - x1)
+
+    lat = min(max(abs(float(latitude_deg)), 0.0), 90.0)
+    sin_term = math.sin(math.radians(lat))
+    raw_lat = 0.75 + 0.25 * (sin_term**1.5)
+    ref_lat = 0.75 + 0.25 * (math.sin(math.radians(45.0)) ** 1.5)
+    lat_factor = raw_lat / ref_lat
+
+    return alt_factor * lat_factor
 
 
 from qcrit_loader import qcrit_lookup

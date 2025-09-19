@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 import pytest
-from ser_model import HazuchaParams, ser_hazucha
+from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from fit import compute_fit_pre, compute_fit_post, ecc_coverage_factory, fit_system
 
 
@@ -21,8 +21,10 @@ def test_reliability_report_json():
         "0.25",
         "--area",
         "0.08",
-        "--flux-rel",
-        "1.0",
+        "--alt-km",
+        "2.0",
+        "--latitude",
+        "60.0",
         "--scrub-interval",
         "3600",
         "--capacity-gib",
@@ -41,7 +43,8 @@ def test_reliability_report_json():
     ]
     res = subprocess.run(cmd, capture_output=True, text=True, check=True)
     data = json.loads(res.stdout)
-    hp = HazuchaParams(Qs_fC=0.25, flux_rel=1.0, area_um2=0.08)
+    flux = flux_from_location(2.0, 60.0)
+    hp = HazuchaParams(Qs_fC=0.25, flux_rel=flux, area_um2=0.08)
     fit_bit = ser_hazucha(1.2, hp)
     fit_pre = compute_fit_pre(64, fit_bit, {})
     coverage = ecc_coverage_factory("SEC-DED")
@@ -73,8 +76,10 @@ def test_reliability_report_text():
         "0.25",
         "--area",
         "0.08",
-        "--flux-rel",
-        "1.0",
+        "--alt-km",
+        "2.0",
+        "--latitude",
+        "60.0",
         "--scrub-interval",
         "3600",
         "--capacity-gib",
