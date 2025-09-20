@@ -1,20 +1,37 @@
 # Simulation Framework
 
-This draft outlines how each tool supports the broader sustainability study.
+## 1. Architecture Overview
+The simulation environment stitches together C++ microarchitectural models and
+Python analysis pipelines to emulate large-scale SRAM deployments.  The
+Hamming- and BCH-based binaries generate detailed correction logs, while
+`scripts/` and `analysis/` notebooks aggregate results into Pareto frontiers and
+sensitivity tables.  All executables share a common configuration schema that
+encodes word size, scrub cadence, burst statistics and regional carbon
+coefficients, ensuring that comparative studies use consistent assumptions.
 
-## Goals
-- Create a repeatable environment for injecting diverse fault types.
-- Quantify correction capability and energy overhead across ECC schemes.
-- Generate tables and plots for thesis documentation.
+## 2. Fault Injection and Workloads
+Each simulator accepts stochastic seeds that drive an identical library of fault
+injectors covering isolated bit flips, clustered MBUs up to length three and
+random parity-bit disturbances.  Address sampling follows a sparse indirection
+scheme so that billions of logical locations can be represented without
+exhausting host memory.  Workloads combine steady-state background traffic with
+stress phases that raise the error rate to emulate voltage droops or radiation
+spikes captured in field telemetry.
 
-## Assumptions
-- All simulators share common error injection helpers.
-- Memory usage remains sparse regardless of theoretical capacity.
-- Energy measurements rely on `energy_model.py` values per operation.
+## 3. Measurement Infrastructure
+Instrumentation embedded in the simulators records correction outcomes, retry
+counts and decoder latency.  The `telemetry.hpp` utilities emit JSON and CSV
+artifacts that the Python post-processing layer converts into failure-in-time
+(FIT) statistics, Environmental Sustainability Improvement Index (ESII) scores
+and carbon-per-GiB estimates.  The `energy_model.py` calibration dataset maps
+logic operations to dynamic energy and leakage, enabling scenario sweeps that
+track both silicon area and sustainability costs.
 
-## Role of Each Simulator
-- **Hamming32bit1Gb** – unit tests and early debugging of SEC-DED logic.
-- **Hamming64bit128Gb** – scalability checks for large memories and workloads.
-- **BCHvsHamming** – side-by-side comparison between BCH and Hamming resilience.
-
-Additional simulators may be added later, but these form the starting point for the simulation infrastructure.
+## 4. Reproducibility Features
+Containerised dependency manifests, deterministic random seeds and continuous
+integration tests in `tests/` guarantee repeatable experiments.  Every dataset
+stored under `reports/examples/` is generated from a documented command script,
+allowing reviewers to retrace the analysis pipeline from raw bit-flip traces to
+publication-quality plots.  The framework can be extended with additional codes
+or device parameters by modifying JSON schemas without altering the analysis
+machinery.
