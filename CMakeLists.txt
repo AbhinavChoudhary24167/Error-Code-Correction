@@ -25,3 +25,7 @@ add_executable(bch63_tests
     src/bch63.cpp)
 target_link_libraries(bch63_tests PRIVATE ecc_core gtest_main)
 add_test(NAME bch63_ctest COMMAND bch63_tests)
+
+add_executable(hamming_sim_tests tests/unit/HammingSim_test.cpp)
+target_link_libraries(hamming_sim_tests PRIVATE ecc_core gtest_main)
+add_test(NAME hamming_sim_ctest COMMAND hamming_sim_tests)
