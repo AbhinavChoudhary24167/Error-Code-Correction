@@ -1,0 +1,192 @@
+% !TeX program = pdflatex
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=blue}
+\lstdefinestyle{ecccode}{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{orange!80!black},
+  frame=single,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false
+}
+\begin{document}
+\title{Sustainable Error-Correcting Code Co-Design for Intelligent Memory Systems}
+\author{\IEEEauthorblockN{Open Repository Study}\IEEEauthorblockA{Error-Code-Correction Framework}}
+\maketitle
+\begin{abstract}
+The Error-Code-Correction repository unifies C++ simulators, calibration data, and Python analytics to explore single-error-correcting/double-error-detecting (SEC-DED), double-adjacent-error-correcting (DAEC), and Bose--Chaudhuri--Hocquenghem (BCH) codes for modern static random-access memories.
+This manuscript distils the theory and implementation patterns embedded in the code base into an IEEE International Symposium on Circuits and Systems (ISCAS) 2026 compliant paper.
+We formalise the encoding/decoding mathematics, derive reliability and sustainability models grounded in the repository's \texttt{fit.py}, \texttt{energy\_model.py}, and \texttt{esii.py}, and propose composite scoring metrics that extend the existing Environmental Sustainability Improvement Index (ESII).
+A reproducible workflow maps simulator telemetry to reliability, energy, and carbon assessments, supporting intelligent-society workloads that demand resilient yet climate-aware memory subsystems.
+\end{abstract}
+\section*{Abbreviations}
+\begin{itemize}
+    \item ECC: Error-Correcting Code
+    \item SEC-DED: Single-Error-Correcting, Double-Error-Detecting
+    \item SEC-DAEC: Single-Error-Correcting, Double-Adjacent-Error-Correcting
+    \item TAEC: Triple-Adjacent-Error-Correcting
+    \item BCH: Bose--Chaudhuri--Hocquenghem
+    \item FIT: Failures in Time (failures per $10^{9}$ device-hours)
+    \item MTTF: Mean Time To Failure
+    \item ESII: Environmental Sustainability Improvement Index
+    \item GS: Green Score
+    \item NESII: Normalised ESII
+\end{itemize}
+\section*{Notations}
+\begin{table}[!t]
+    \centering
+    \caption{Primary Symbols}
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Symbol & Description \\
+        \midrule
+        $k$ & Data bits per codeword \\
+        $r$ & Parity bits per codeword \\
+        $n$ & Codeword length $n=k+r+1$ (with overall parity) \\
+        $\mathbf{H}$ & Parity-check matrix \\
+        $\mathbf{s}$ & Syndrome vector \texttt{0b0000000--0b1111111} \\
+        $\lambda_{1}$ & Per-bit upset rate (failures/hour) \\
+        $\tau$ & Scrub interval (hours) \\
+        $E_{\text{dyn}}$ & Dynamic read energy (J) \\
+        $E_{\text{leak}}$ & Leakage energy (J) \\
+        $E_{\text{scrub}}$ & Scrub energy accumulated over lifetime (J) \\
+        $\text{CI}$ & Grid carbon intensity (kgCO$_2$e/kWh) \\
+        $C_{\text{emb}}$ & Embodied carbon (kgCO$_2$e) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\section{Introduction}
+Aggressive voltage scaling, expansive memory footprints, and radiation susceptibility drive the need for robust ECC in intelligent infrastructure.
+The Error-Code-Correction framework delivers open-source artefacts that quantify the reliability-energy-carbon trade-offs of SRAM protection schemes across process nodes and workloads.
+This paper transforms the repository into a cohesive ISCAS-ready manuscript by consolidating theory, implementation, and scoring strategies.
+\section{Literature Review}
+Hamming's foundational linear block codes underpin commercial SEC-DED memories, while BCH codes extend the correction radius through Galois field algebra.
+Adjacent-error correction schemes mitigate multi-bit upsets stemming from particle strikes with high spatial correlation.
+Recent studies emphasise sustainability-aware design, compelling reliability engineers to consider embodied and operational carbon when deploying ECC.
+The repository captures these evolutions through its BCH/Hamming simulators, Pareto exploration utilities, and sustainability calculators documented in \texttt{docs/}.
+\section{Repository Framework Overview}
+\subsection{Codebase Structure}
+The project exposes C++ simulators such as \texttt{Hamming32bit1Gb.cpp} and \texttt{BCHvsHamming.cpp} that inject controlled fault patterns and log correction telemetry.
+Shared headers \texttt{ParityCheckMatrix.hpp} and \texttt{gate\_energy.hpp} cache parity topology and technology-calibrated gate energies.
+Python modules \texttt{fit.py}, \texttt{energy\_model.py}, \texttt{carbon.py}, and \texttt{scores.py} convert raw traces into FIT, energy, carbon, and multi-objective scores.
+Configuration assets in \texttt{configs/} and \texttt{tech\_calib.json} hold process, voltage, and workload parameters, ensuring reproducibility.
+\subsection{Workflow}
+A typical experiment (i) configures process parameters, (ii) runs C++ simulators to emit \texttt{ecc\_stats} and \texttt{decoding\_results}, (iii) ingests results with \texttt{eccsim.py} and \texttt{analysis/} helpers, and (iv) interprets Pareto fronts via \texttt{plot\_pareto.py} and narrative archetypes in \texttt{reports/}.
+\section{Theory and Modelling}
+\subsection{SEC-DED Hamming Coding}
+The 32-bit SEC-DED encoder places parity bits at powers of two and overall parity at position~0.
+Let $\mathbf{H}\in\{0,1\}^{7\times39}$ denote the parity-check matrix cached during simulator initialisation.
+Encoding computes parity bits by evaluating
+\begin{equation}
+    p_{j} = \bigoplus_{i \in \mathcal{C}_{j}} x_{i},
+\end{equation}
+where $\mathcal{C}_{j}$ is the coverage set defined by \texttt{ParityCheckMatrix::configureRow}.
+Decoding constructs a syndrome $\mathbf{s}=\mathbf{H}x^{\top}$ and overall parity $p_{\text{all}}$.
+The decision tree implemented in \texttt{Hamming32bit1Gb.cpp} classifies cases: $\mathbf{s}=0$, $p_{\text{all}}=0$ implies no error; $\mathbf{s}\neq0$, $p_{\text{all}}=1$ indexes a single-bit correction; $\mathbf{s}=0$, $p_{\text{all}}=1$ signals overall parity corruption; otherwise a double or multi-bit upset triggers detection without correction.
+\subsection{BCH(63,51,2) Decoding}
+The BCH simulator constructs GF($2^{6}$) with primitive polynomial $x^{6}+x+1$ and forms the generator polynomial $g(x)$ from minimal polynomials of consecutive conjugacy classes.
+Encoding appends parity $p(x)$ via
+\begin{equation}
+    p(x) = x^{n-k} m(x) \bmod g(x),
+\end{equation}
+while decoding evaluates syndromes $S_{1}$ and $S_{3}$, runs Berlekamp--Massey to derive the error locator $\Lambda(x)$, and applies a Chien search to pinpoint erroneous positions.
+Consistency checks ensure that the number of located errors equals $\deg \Lambda$ and that re-encoding yields zero syndromes post-correction.
+\subsection{Reliability Pipeline}
+Python module \texttt{fit.py} converts bit upset rates into word-level FIT.
+Let $w$ denote bits protected by an ECC word, $\lambda_{1}$ the single-bit upset rate, and $C_{\text{ECC}}(j)$ the coverage probability for $j$-bit upsets.
+The post-ECC FIT is expressed as
+\begin{equation}
+    \text{FIT}_{\text{post}} = \text{FIT}_{\text{instant}} + \binom{w}{2} \tau 10^{9} \lambda_{1}^{2}\left[1-C_{\text{ECC}}(2_{\text{nonadj}})\right],
+\end{equation}
+where $\tau$ is the scrub interval in hours and $\text{FIT}_{\text{instant}}$ captures uncorrectable instantaneous multi-bit upsets.
+System-level FIT multiplies the per-word value by the number of active words $N_{\text{word}}$, and $\text{MTTF} = 10^{9}/\text{FIT}_{\text{post}}$.
+\subsection{Energy and Carbon Models}
+Module \texttt{energy\_model.py} interpolates technology-calibrated gate energies $E_{\text{xor}}$ and $E_{\text{and}}$ from \texttt{tech\_calib.json}.
+A read operation activates $p$ parity checks and $d$ detection paths, yielding
+\begin{equation}
+    E_{\text{dyn}} = pE_{\text{xor}} + dE_{\text{and}}.
+\end{equation}
+Scrub energy accumulated over lifetime $L$ hours with scrub period $T$ seconds is
+\begin{equation}
+    E_{\text{scrub}} = \frac{L\cdot3600}{T}\,N_{\text{word}}\,E_{\text{dyn}}.
+\end{equation}
+Leakage energy scales with temperature and process factors embedded in \texttt{energy\_model.py}, while \texttt{carbon.py} multiplies dynamic, leakage, and scrub energy (converted to kWh) by carbon intensity $\text{CI}$ to obtain operational carbon.
+Embodied carbon $C_{\text{emb}}$ derives from layout area via lookup factors.
+\subsection{Sustainability Scores}
+The ESII computation in \texttt{esii.py} evaluates
+\begin{equation}
+    \text{ESII} = \frac{\max(\text{FIT}_{\text{base}}-\text{FIT}_{\text{ECC}},0)}{C_{\text{emb}} + \text{CI}\bigl(E_{\text{dyn}}+E_{\text{leak}}+E_{\text{scrub}}\bigr) / 3.6\times10^{6}}.
+\end{equation}
+Module \texttt{scores.py} augments ESII with normalised ESII (NESII) using 5/95 percentile winsorisation and the Green Score (GS), which penalises carbon footprint and latency.
+\section{Implementation Blueprint}
+\subsection{C++ Integration Pattern}
+Listing~\ref{lst:decode} summarises the decode loop in \texttt{Hamming32bit1Gb.cpp}, illustrating how syndromes drive correction and telemetry updates.
+\begin{lstlisting}[style=ecccode,caption={SEC-DED decode pathway excerpt},label={lst:decode}]
+for (auto &word : memory) {
+  auto syndrome = parityMatrix.syndrome(word.codeword);
+  bool parity_ok = parityMatrix.overallParity(word.codeword);
+  if (syndrome == 0 && parity_ok) {
+    stats.no_error++;
+  } else if (syndrome && !parity_ok) {
+    word.codeword.flip(syndrome_index);
+    stats.corrected_single++;
+  } else if (!syndrome && !parity_ok) {
+    stats.corrected_parity++;
+  } else {
+    stats.detected_double++;
+  }
+  telemetry.log(word, syndrome, parity_ok);
+}
+\end{lstlisting}
+\subsection{Python Analytics Pipeline}
+The analytics stage consumes JSON/CSV outputs to compute FIT, carbon, and scores:
+\begin{enumerate}
+    \item \textbf{Reliability}: \texttt{analysis/reliability.py} aggregates syndrome counts, feeding \texttt{fit.post\_ecc\_fit}.
+    \item \textbf{Energy}: \texttt{energy\_model.estimate\_energy} interpolates per-read energy from calibration surfaces.
+    \item \textbf{Carbon}: \texttt{carbon.estimate\_carbon} separates dynamic, leakage, and scrub contributions.
+    \item \textbf{Scores}: \texttt{scores.compute\_scores} delivers ESII, NESII, percentile anchors, and GS.
+\end{enumerate}
+Outputs populate \texttt{reports/} and Pareto plots via \texttt{plot\_pareto.py}, enabling cross-scheme comparisons.
+\section{Proposed Scoring Enhancements}
+To guide intelligent-society deployments, we propose two complementary scores extending \texttt{scores.py}:
+\subsection{Reliability-Sustainability Utility (RSU)}
+\begin{equation}
+    \text{RSU} = \alpha\,\frac{\text{FIT}_{\text{base}}-\text{FIT}_{\text{ECC}}}{\text{FIT}_{\text{base}}} + (1-\alpha)\,\frac{\text{MTTF}_{\text{ECC}}}{\text{MTTF}_{\text{target}}},
+\end{equation}
+where $\alpha\in[0,1]$ weights immediate FIT reduction against mission-time targets $\text{MTTF}_{\text{target}}$ supplied by stakeholders.
+\subsection{Intelligent Society Readiness (ISR)}
+\begin{equation}
+    \text{ISR} = 100\,\frac{\text{NESII}}{100} - \beta\,\frac{\Delta \text{Latency}}{\text{Latency}_{\text{budget}}} - \gamma\,\frac{\text{Cost}_{\text{emb}}}{\text{Cost}_{\text{budget}}},
+\end{equation}
+leveraging NESII for sustainability, while penalising decode latency and embodied-cost budget overruns using tunable factors $\beta$ and $\gamma$.
+Both metrics can be layered atop \texttt{scores.compute\_scores} to produce ranked recommendations for diverse operating personas.
+\section{Evaluation Roadmap}
+We outline a five-stage assessment aligning with ISCAS 2026 objectives:
+\begin{enumerate}
+    \item \textbf{Scenario Definition}: Parameterise process node, voltage, scrub cadence, and radiation profile using \texttt{configs/} and \texttt{data/} baselines.
+    \item \textbf{Simulation}: Run \texttt{Hamming32bit1Gb}, \texttt{Hamming64bit128Gb}, or \texttt{BCHvsHamming} to log correction telemetry across workloads.
+    \item \textbf{Analytics}: Invoke \texttt{eccsim.py} to compute FIT, energy, carbon, ESII, NESII, GS, RSU, and ISR.
+    \item \textbf{Design Space Exploration}: Employ \texttt{ecc\_selector.py} and \texttt{plot\_pareto.py} for Pareto front identification and archetype labelling.
+    \item \textbf{Reporting}: Summarise scorecards, Pareto slices, and narrative archetypes for stakeholders seeking resilience-carbon co-optimisation.
+\end{enumerate}
+\section{Conclusion}
+The Error-Code-Correction repository encapsulates a comprehensive workflow for designing ECC strategies that harmonise reliability and sustainability.
+By formalising its mathematical foundations, detailing C++/Python integration patterns, and extending scoring mechanisms, this manuscript positions the platform as a ready-to-use blueprint for ISCAS 2026 participants.
+The proposed RSU and ISR scores complement existing ESII, NESII, and GS metrics, empowering intelligent-society memory systems to balance carbon responsibility with robust operation.
+\section*{References}
+\begin{thebibliography}{1}
+\bibitem{Hamming1950} R. W. Hamming, ``Error Detecting and Error Correcting Codes,'' \emph{Bell System Technical Journal}, vol. 29, no. 2, pp. 147--160, 1950.
+\bibitem{BCH1960} R. C. Bose and D. K. Ray-Chaudhuri, ``On a Class of Error Correcting Binary Group Codes,'' \emph{Information and Control}, vol. 3, no. 1, pp. 68--79, 1960.
+\bibitem{Hocquenghem1959} A. Hocquenghem, ``Codes Correcteurs d'Erreurs,'' \emph{Chiffres}, vol. 2, pp. 147--156, 1959.
+\end{thebibliography}
+\end{document}
