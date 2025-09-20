@@ -1,15 +1,38 @@
 # Error-Code-Correction Framework Guide
 
-A comprehensive toolkit for exploring error-correcting-code (ECC) schemes in SRAM.
-It combines C++ simulators, Python analysis utilities and calibration data to
-study reliability, energy cost and environmental footprint.  The project was
-originally written for academic research but is packaged so that new users can
-reproduce the experiments or extend the framework for their own designs.
+A comprehensive toolkit for exploring error-correcting-code (ECC) schemes in
+SRAM.  It combines C++ simulators, Python analysis utilities and calibration
+data to study reliability, energy cost and environmental footprint.  The
+project was originally written for academic research but is packaged so that
+new users can reproduce the experiments or extend the framework for their own
+designs.
 
-This guide overviews the available components, how to build and run them and
+## What This Project Does
+
+Error-code-correction (ECC) is the technique of storing extra parity
+information so that memory reads can detect and fix bit flips.  Modern SRAM
+designs face increasingly harsh environments, so engineers must balance the
+strength of the ECC scheme against energy, area and sustainability budgets.
+
+This repository provides an end-to-end workflow for answering those questions:
+
+1. **Model the hardware** – Parameterised C++ simulators emulate different
+   memory organisations, fault models and ECC schemes (Hamming, TAEC, BCH).
+2. **Calibrate technology data** – JSON files in `configs/`, `data/` and
+   `tech_calib.json` describe device reliability, scrub intervals and energy
+   costs.
+3. **Explore the design space** – Python utilities in the repository parse
+   simulator logs, generate Pareto frontiers and evaluate carbon impact.
+4. **Report and compare** – Helper scripts populate `reports/` with CSV/JSON
+   artifacts that summarise the trade-offs between alternative codes.
+
+Together these steps allow researchers to sweep through process nodes and
+operating conditions, then quantify the cost of data integrity.  The remainder
+of this guide overviews the available components, how to build and run them and
 where to find deeper documentation.
 
 ## Table of Contents
+- [What This Project Does](#what-this-project-does)
 - [Repository Layout](#repository-layout)
 - [Quick Start](#quick-start)
 - [Dependencies](#dependencies)
@@ -289,6 +312,8 @@ the preferred workflow and coding guidelines.
 
 The `docs/` directory contains more background material including implementation
 logs, energy model derivations and literature surveys.  Start with
+[`docs/ProjectOverview.md`](docs/ProjectOverview.md) for a description of how the
+toolkit pieces fit together, then read
 [`docs/SimulatorOverview.md`](docs/SimulatorOverview.md) for a tour of each
 simulator.
 
