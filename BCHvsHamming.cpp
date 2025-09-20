@@ -12,173 +12,7 @@
 #include <fstream>
 #include <array>
 #include "ParityCheckMatrix.hpp"
-
-// Simplified BCH implementation with proper error detection
-class BCHCode {
-public:
-    static const int CODE_LENGTH = 63;      
-    static const int DATA_LENGTH = 51;      
-    static const int PARITY_LENGTH = 12;    
-    static const int ERROR_CAPABILITY = 2;  // Can correct up to 2 errors
-    
-    struct BCHCodeWord {
-        std::bitset<CODE_LENGTH> data;
-        
-        void setBit(int pos, bool value) {
-            if (pos >= 0 && pos < CODE_LENGTH) {
-                data[pos] = value;
-            }
-        }
-        
-        bool getBit(int pos) const {
-            if (pos >= 0 && pos < CODE_LENGTH) {
-                return data[pos];
-            }
-            return false;
-        }
-        
-        void flipBit(int pos) {
-            if (pos >= 0 && pos < CODE_LENGTH) {
-                data[pos] = data[pos] ^ 1;
-            }
-        }
-        
-        int countErrors(const BCHCodeWord& original) const {
-            int count = 0;
-            for (int i = 0; i < CODE_LENGTH; i++) {
-                if (data[i] != original.data[i]) count++;
-            }
-            return count;
-        }
-    };
-    
-    struct BCHResult {
-        std::vector<bool> corrected_data;
-        int syndrome_weight;
-        std::vector<int> error_positions;
-        int errors_detected;
-        int errors_corrected;
-        bool correction_successful;
-        std::string error_type;
-        bool data_intact;
-    };
-    
-    BCHCodeWord encode(const std::vector<bool>& data_bits) {
-        BCHCodeWord codeword;
-        
-        // Systematic encoding: data bits go in positions 12-62
-        for (int i = 0; i < DATA_LENGTH && i < data_bits.size(); i++) {
-            codeword.setBit(i + PARITY_LENGTH, data_bits[i]);
-        }
-        
-        // Calculate parity bits (simplified CRC-like approach)
-        calculateParity(codeword);
-        
-        return codeword;
-    }
-    
-    BCHResult decode(BCHCodeWord received, const BCHCodeWord& original) {
-        BCHResult result;
-        result.errors_detected = 0;
-        result.errors_corrected = 0;
-        result.correction_successful = false;
-        result.data_intact = false;
-        
-        // Count actual errors for validation
-        int actual_errors = received.countErrors(original);
-        
-        // Calculate syndrome weight (simplified - count parity mismatches)
-        result.syndrome_weight = calculateSyndromeWeight(received);
-        
-        if (result.syndrome_weight == 0) {
-            // No errors detected
-            result.error_type = "No errors detected";
-            result.correction_successful = true;
-            result.data_intact = true;
-            result.errors_detected = 0;
-        } else if (actual_errors <= ERROR_CAPABILITY) {
-            // Correctable errors
-            result.errors_detected = actual_errors;
-            result.error_positions = findErrorPositions(received, original);
-            
-            // Attempt correction
-            BCHCodeWord corrected = received;
-            for (int pos : result.error_positions) {
-                corrected.flipBit(pos);
-            }
-            
-            // Verify correction was successful
-            if (calculateSyndromeWeight(corrected) == 0) {
-                result.errors_corrected = result.error_positions.size();
-                result.correction_successful = true;
-                result.data_intact = true;
-                result.error_type = "Errors corrected (" + std::to_string(result.errors_corrected) + ")";
-                received = corrected; // Apply correction
-            } else {
-                result.error_type = "Correction failed";
-                result.correction_successful = false;
-            }
-        } else {
-            // Too many errors to correct
-            result.errors_detected = actual_errors;
-            result.error_type = "Too many errors (" + std::to_string(actual_errors) + " > " + std::to_string(ERROR_CAPABILITY) + ")";
-            result.correction_successful = false;
-        }
-        
-        // Extract data bits
-        result.corrected_data.resize(DATA_LENGTH);
-        for (int i = 0; i < DATA_LENGTH; i++) {
-            result.corrected_data[i] = received.getBit(i + PARITY_LENGTH);
-        }
-        
-        return result;
-    }
-    
-private:
-    void calculateParity(BCHCodeWord& codeword) {
-        // Simplified parity calculation (CRC-like)
-        for (int i = 0; i < PARITY_LENGTH; i++) {
-            bool parity = false;
-            for (int j = i; j < CODE_LENGTH; j += PARITY_LENGTH) {
-                if (j >= PARITY_LENGTH) { // Only data bits
-                    parity ^= codeword.getBit(j);
-                }
-            }
-            codeword.setBit(i, parity);
-        }
-    }
-    
-    int calculateSyndromeWeight(const BCHCodeWord& received) {
-        int weight = 0;
-        
-        // Check each parity bit
-        for (int i = 0; i < PARITY_LENGTH; i++) {
-            bool expected_parity = false;
-            for (int j = i; j < CODE_LENGTH; j += PARITY_LENGTH) {
-                if (j >= PARITY_LENGTH) {
-                    expected_parity ^= received.getBit(j);
-                }
-            }
-            if (received.getBit(i) != expected_parity) {
-                weight++;
-            }
-        }
-        
-        return weight;
-    }
-    
-    std::vector<int> findErrorPositions(const BCHCodeWord& received, const BCHCodeWord& original) {
-        std::vector<int> positions;
-        
-        for (int i = 0; i < CODE_LENGTH; i++) {
-            if (received.getBit(i) != original.getBit(i)) {
-                positions.push_back(i);
-            }
-        }
-        
-        return positions;
-    }
-};
+#include "src/bch63.hpp"
 
 class HammingCodeSECDED {
 public:
@@ -394,7 +228,7 @@ private:
 class ComparisonSimulator {
 private:
     HammingCodeSECDED hamming;
-    BCHCode bch;
+    BCH63 bch;
     
     struct TestResult {
         std::string test_name;
@@ -438,27 +272,47 @@ public:
     }
     
 private:
+    std::vector<bool> buildBchData(uint64_t value) const {
+        std::vector<bool> bits(bch.dataLength(), false);
+        for (int i = 0; i < bch.dataLength(); ++i) {
+            bits[static_cast<std::size_t>(i)] = (value >> i) & 1ULL;
+        }
+        return bits;
+    }
+
+    std::string describeBchResult(const BCH63::DecodeResult& res, int actual_errors) const {
+        if (!res.detected) {
+            return (actual_errors == 0) ? "No errors detected" : "Undetected error";
+        }
+        if (res.success) {
+            return "Errors corrected (" + std::to_string(res.error_locations.size()) + ")";
+        }
+        return "Detected uncorrectable error";
+    }
+
+    bool isBchDataIntact(const BCH63::DecodeResult& res, const std::vector<bool>& expected) const {
+        return res.success && res.data == expected;
+    }
+
     void testNoErrors() {
         std::cout << "\n[TEST] No Errors" << std::endl;
-        
+
         uint64_t test_data = 0x123456789ABCDEF0ULL;
-        
+
         // Convert to BCH format (51 bits)
-        std::vector<bool> bch_data(51);
-        for (int i = 0; i < 51; i++) {
-            bch_data[i] = (test_data >> i) & 1;
-        }
-        
+        std::vector<bool> bch_data = buildBchData(test_data);
+
         // Test Hamming
         auto hamming_encoded = hamming.encode(test_data);
         auto hamming_original = hamming_encoded;
         auto hamming_result = hamming.decode(hamming_encoded, hamming_original);
-        
+
         // Test BCH
         auto bch_encoded = bch.encode(bch_data);
         auto bch_original = bch_encoded;
-        auto bch_result = bch.decode(bch_encoded, bch_original);
-        
+        auto bch_result = bch.decode(bch_encoded);
+        int bch_actual_errors = bch_encoded.countErrors(bch_original);
+
         TestResult result;
         result.test_name = "No Errors";
         result.injected_errors = 0;
@@ -466,12 +320,12 @@ private:
         result.hamming_error_type = hamming_result.error_type_string;
         result.hamming_errors_detected = hamming_result.actual_errors;
         result.hamming_data_intact = hamming_result.data_intact;
-        
-        result.bch_corrected = bch_result.correction_successful;
-        result.bch_error_type = bch_result.error_type;
-        result.bch_errors_detected = bch_result.errors_detected;
-        result.bch_errors_corrected = bch_result.errors_corrected;
-        result.bch_data_intact = bch_result.data_intact;
+
+        result.bch_corrected = bch_result.success;
+        result.bch_error_type = describeBchResult(bch_result, bch_actual_errors);
+        result.bch_errors_detected = bch_actual_errors;
+        result.bch_errors_corrected = bch_result.success ? static_cast<int>(bch_result.error_locations.size()) : 0;
+        result.bch_data_intact = isBchDataIntact(bch_result, bch_data);
         
         if (result.hamming_data_intact && result.bch_data_intact) {
             result.winner = "TIE";
@@ -491,23 +345,21 @@ private:
         uint64_t test_data = 0x123456789ABCDEF0ULL;
         
         for (int error_pos = 1; error_pos <= 3; error_pos++) {
-            std::vector<bool> bch_data(51);
-            for (int i = 0; i < 51; i++) {
-                bch_data[i] = (test_data >> i) & 1;
-            }
-            
+            std::vector<bool> bch_data = buildBchData(test_data);
+
             // Test Hamming
             auto hamming_encoded = hamming.encode(test_data);
             auto hamming_original = hamming_encoded;
             hamming_encoded.flipBit(error_pos);
             auto hamming_result = hamming.decode(hamming_encoded, hamming_original);
-            
+
             // Test BCH
             auto bch_encoded = bch.encode(bch_data);
             auto bch_original = bch_encoded;
-            bch_encoded.flipBit(error_pos % BCHCode::CODE_LENGTH);
-            auto bch_result = bch.decode(bch_encoded, bch_original);
-            
+            bch_encoded.flipBit(error_pos % BCH63::N);
+            auto bch_result = bch.decode(bch_encoded);
+            int bch_actual_errors = bch_encoded.countErrors(bch_original);
+
             TestResult result;
             result.test_name = "Single Error (pos " + std::to_string(error_pos) + ")";
             result.injected_errors = 1;
@@ -515,12 +367,12 @@ private:
             result.hamming_error_type = hamming_result.error_type_string;
             result.hamming_errors_detected = hamming_result.actual_errors;
             result.hamming_data_intact = hamming_result.data_intact;
-            
-            result.bch_corrected = bch_result.correction_successful;
-            result.bch_error_type = bch_result.error_type;
-            result.bch_errors_detected = bch_result.errors_detected;
-            result.bch_errors_corrected = bch_result.errors_corrected;
-            result.bch_data_intact = bch_result.data_intact;
+
+            result.bch_corrected = bch_result.success;
+            result.bch_error_type = describeBchResult(bch_result, bch_actual_errors);
+            result.bch_errors_detected = bch_actual_errors;
+            result.bch_errors_corrected = bch_result.success ? static_cast<int>(bch_result.error_locations.size()) : 0;
+            result.bch_data_intact = isBchDataIntact(bch_result, bch_data);
             
             if (result.hamming_data_intact && result.bch_data_intact) {
                 result.winner = "TIE";
@@ -549,25 +401,23 @@ private:
         std::vector<std::pair<int, int>> error_pairs = {{1, 3}, {5, 10}, {15, 20}};
         
         for (auto& pair : error_pairs) {
-            std::vector<bool> bch_data(51);
-            for (int i = 0; i < 51; i++) {
-                bch_data[i] = (test_data >> i) & 1;
-            }
-            
+            std::vector<bool> bch_data = buildBchData(test_data);
+
             // Test Hamming
             auto hamming_encoded = hamming.encode(test_data);
             auto hamming_original = hamming_encoded;
             hamming_encoded.flipBit(pair.first);
             hamming_encoded.flipBit(pair.second);
             auto hamming_result = hamming.decode(hamming_encoded, hamming_original);
-            
+
             // Test BCH
             auto bch_encoded = bch.encode(bch_data);
             auto bch_original = bch_encoded;
-            bch_encoded.flipBit(pair.first % BCHCode::CODE_LENGTH);
-            bch_encoded.flipBit(pair.second % BCHCode::CODE_LENGTH);
-            auto bch_result = bch.decode(bch_encoded, bch_original);
-            
+            bch_encoded.flipBit(pair.first % BCH63::N);
+            bch_encoded.flipBit(pair.second % BCH63::N);
+            auto bch_result = bch.decode(bch_encoded);
+            int bch_actual_errors = bch_encoded.countErrors(bch_original);
+
             TestResult result;
             result.test_name = "Double Error (" + std::to_string(pair.first) + "," + std::to_string(pair.second) + ")";
             result.injected_errors = 2;
@@ -575,12 +425,12 @@ private:
             result.hamming_error_type = hamming_result.error_type_string;
             result.hamming_errors_detected = hamming_result.actual_errors;
             result.hamming_data_intact = hamming_result.data_intact;
-            
-            result.bch_corrected = bch_result.correction_successful;
-            result.bch_error_type = bch_result.error_type;
-            result.bch_errors_detected = bch_result.errors_detected;
-            result.bch_errors_corrected = bch_result.errors_corrected;
-            result.bch_data_intact = bch_result.data_intact;
+
+            result.bch_corrected = bch_result.success;
+            result.bch_error_type = describeBchResult(bch_result, bch_actual_errors);
+            result.bch_errors_detected = bch_actual_errors;
+            result.bch_errors_corrected = bch_result.success ? static_cast<int>(bch_result.error_locations.size()) : 0;
+            result.bch_data_intact = isBchDataIntact(bch_result, bch_data);
             
             if (result.bch_data_intact && !result.hamming_data_intact) {
                 result.winner = "BCH";
@@ -607,10 +457,7 @@ private:
         uint64_t test_data = 0x5555555555555555ULL;
         std::vector<int> error_positions = {1, 5, 10};
         
-        std::vector<bool> bch_data(51);
-        for (int i = 0; i < 51; i++) {
-            bch_data[i] = (test_data >> i) & 1;
-        }
+        std::vector<bool> bch_data = buildBchData(test_data);
         
         // Test Hamming
         auto hamming_encoded = hamming.encode(test_data);
@@ -624,9 +471,10 @@ private:
         auto bch_encoded = bch.encode(bch_data);
         auto bch_original = bch_encoded;
         for (int pos : error_positions) {
-            bch_encoded.flipBit(pos % BCHCode::CODE_LENGTH);
+            bch_encoded.flipBit(pos % BCH63::N);
         }
-        auto bch_result = bch.decode(bch_encoded, bch_original);
+        auto bch_result = bch.decode(bch_encoded);
+        int bch_actual_errors = bch_encoded.countErrors(bch_original);
         
         TestResult result;
         result.test_name = "Triple Error (1,5,10)";
@@ -636,11 +484,11 @@ private:
         result.hamming_errors_detected = hamming_result.actual_errors;
         result.hamming_data_intact = hamming_result.data_intact;
         
-        result.bch_corrected = bch_result.correction_successful;
-        result.bch_error_type = bch_result.error_type;
-        result.bch_errors_detected = bch_result.errors_detected;
-        result.bch_errors_corrected = bch_result.errors_corrected;
-        result.bch_data_intact = bch_result.data_intact;
+        result.bch_corrected = bch_result.success;
+        result.bch_error_type = describeBchResult(bch_result, bch_actual_errors);
+        result.bch_errors_detected = bch_actual_errors;
+        result.bch_errors_corrected = bch_result.success ? static_cast<int>(bch_result.error_locations.size()) : 0;
+        result.bch_data_intact = isBchDataIntact(bch_result, bch_data);
         
         // Neither should be able to correct 3 errors reliably
         result.winner = "NEITHER";
@@ -661,11 +509,8 @@ private:
         
         for (int test = 0; test < total_tests; test++) {
             uint64_t test_data = data_dist(rng);
-            
-            std::vector<bool> bch_data(51);
-            for (int i = 0; i < 51; i++) {
-                bch_data[i] = (test_data >> i) & 1;
-            }
+
+            std::vector<bool> bch_data = buildBchData(test_data);
             
             // Inject 1-2 random errors
             std::uniform_int_distribution<int> error_count_dist(1, 2);
@@ -690,15 +535,15 @@ private:
             auto bch_encoded = bch.encode(bch_data);
             auto bch_original = bch_encoded;
             for (int pos : error_positions) {
-                bch_encoded.flipBit(pos % BCHCode::CODE_LENGTH);
+                bch_encoded.flipBit(pos % BCH63::N);
             }
-            auto bch_result = bch.decode(bch_encoded, bch_original);
-            
+            auto bch_result = bch.decode(bch_encoded);
+
             if (hamming_result.data_intact) {
                 hamming_successes++;
             }
-            
-            if (bch_result.data_intact) {
+
+            if (isBchDataIntact(bch_result, bch_data)) {
                 bch_successes++;
             }
         }

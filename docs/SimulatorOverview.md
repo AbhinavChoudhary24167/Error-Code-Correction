@@ -24,6 +24,8 @@ The main program runs a suite of tests ranging from simple single bit flips to l
 ## BCHvsHamming
 `BCHvsHamming.cpp` provides a side‑by‑side comparison of a BCH(63,51,2) decoder with the custom SEC‑DED Hamming implementation. It runs a number of scenarios (no errors, single, double and triple bit flips, random patterns) and reports which code successfully corrected the data. A CSV/JSON summary is produced in `comparison_results.*`.
 
+The BCH path is powered by the reusable codec in [`src/bch63.hpp`](../src/bch63.hpp), which constructs GF(2^6) with the primitive polynomial x^6 + x + 1, derives the generator polynomial as the least common multiple of the minimal polynomials of α and α^3, and performs systematic encoding via polynomial division. Decoding implements Berlekamp–Massey to synthesise the error locator followed by a Chien search to find error positions, matching the double-error-correcting design described in Lin and Costello’s *Error Control Coding* (2nd ed., §6.3). Exhaustive unit tests in `tests/unit/BCH63_test.cpp` confirm that every single- and double-bit error is corrected and every weight-3 error pattern is detected.
+
 ## SATDemo
 `SAT.cpp` contains an educational SAT solver used to prove small Hamming‑code properties. The solver implements a basic DPLL procedure with VSIDS‑like heuristics. Example routines encode conjectures about Hamming codes and demonstrate satisfiability or contradictions.
 

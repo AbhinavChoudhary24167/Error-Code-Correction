@@ -19,3 +19,9 @@ enable_testing()
 add_executable(secdaec_tests tests/unit/SecDaec64_test.cpp)
 target_link_libraries(secdaec_tests PRIVATE ecc_core gtest_main)
 add_test(NAME secdaec_ctest COMMAND secdaec_tests)
+
+add_executable(bch63_tests
+    tests/unit/BCH63_test.cpp
+    src/bch63.cpp)
+target_link_libraries(bch63_tests PRIVATE ecc_core gtest_main)
+add_test(NAME bch63_ctest COMMAND bch63_tests)
