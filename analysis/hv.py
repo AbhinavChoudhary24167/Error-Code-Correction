@@ -39,11 +39,17 @@ def hypervolume(points: Iterable[Sequence[float]], ref: Sequence[float] | None =
     if ref is None:
         ref = (1.0,) * dim
 
-    pts.sort(key=lambda p: p[0])
+    # ``dx`` is accumulated as ``prev - p[0]`` in the sweep below.  When points
+    # are processed in ascending order of the first objective ``dx`` can become
+    # negative (and subsequently shrink the accumulated dominated volume).
+    # Sorting in descending order guarantees ``prev`` is monotonically
+    # decreasing as points are processed, keeping each ``dx`` non-negative.
+    pts.sort(key=lambda p: p[0], reverse=True)
 
     def _hv(slice_pts: list[tuple[float, ...]], r: Sequence[float]) -> float:
         if not slice_pts:
             return 0.0
+        slice_pts = sorted(slice_pts, key=lambda p: p[0], reverse=True)
         prev = r[0]
         vol = 0.0
         for i, p in enumerate(slice_pts):
