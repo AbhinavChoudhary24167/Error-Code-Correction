@@ -310,12 +310,15 @@ the preferred workflow and coding guidelines.
 
 ## Additional Documentation
 
-The `docs/` directory contains more background material including implementation
+The `docs/` directory aggregates background material including implementation
 logs, energy model derivations and literature surveys.  Start with
 [`docs/ProjectOverview.md`](docs/ProjectOverview.md) for a description of how the
 toolkit pieces fit together, then read
 [`docs/SimulatorOverview.md`](docs/SimulatorOverview.md) for a tour of each
-simulator.
+simulator.  A publication-ready narrative that follows the IEEE manuscript
+structure is available in
+[`docs/Thesis/IEEE_Manuscript.md`](docs/Thesis/IEEE_Manuscript.md), which
+synthesises the methodology, quantitative results and references.
 
 ## License
 
