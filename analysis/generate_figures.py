@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import logging
+
 import math
 import sys
 from pathlib import Path
@@ -17,7 +17,6 @@ if str(ROOT) not in sys.path:
 
 import ecc_selector as selector
 
-logging.getLogger("ecc_selector").setLevel(logging.ERROR)
 
 FIG_DIR = ROOT / "reports" / "figures"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
