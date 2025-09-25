@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+
 import math
 import sys
 from pathlib import Path
@@ -15,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import ecc_selector as selector
+
 
 FIG_DIR = ROOT / "reports" / "figures"
 FIG_DIR.mkdir(parents=True, exist_ok=True)

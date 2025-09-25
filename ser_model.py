@@ -1,4 +1,4 @@
-"""4-state soft error model for SRAM bits.
+r"""4-state soft error model for SRAM bits.
 
 Implements the Markov model from Equations (4.1) and (4.2) of the thesis
 introduction. The supply voltage influences the state transition rates
