@@ -21,10 +21,12 @@ tests/unit/SecDaec64_test
 __pycache__/
 */__pycache__/
 
+# Generated analysis artefacts
+reports/analysis/workload_scenarios.json
+
 # Generated images
 reports/**/*.png
 !reports/figures/
-!reports/figures/*.png
 
 # macOS
 .DS_Store

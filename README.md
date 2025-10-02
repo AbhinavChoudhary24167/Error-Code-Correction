@@ -315,10 +315,11 @@ logs, energy model derivations and literature surveys.  Start with
 [`docs/ProjectOverview.md`](docs/ProjectOverview.md) for a description of how the
 toolkit pieces fit together, then read
 [`docs/SimulatorOverview.md`](docs/SimulatorOverview.md) for a tour of each
-simulator.  A publication-ready narrative that follows the IEEE manuscript
-structure is available in
-[`docs/Thesis/IEEE_Manuscript.md`](docs/Thesis/IEEE_Manuscript.md), which
-synthesises the methodology, quantitative results and references.
+simulator.  Teams preparing for tape-in can consult the new
+[`docs/AdoptionPlaybook.md`](docs/AdoptionPlaybook.md) for an input/output
+checklist and SLA mapping, while
+[`docs/Thesis/IEEE_Manuscript.md`](docs/Thesis/IEEE_Manuscript.md) packages the
+methodology, quantitative results and references in publication form.
 
 ## License
 
