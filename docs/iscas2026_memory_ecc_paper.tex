@@ -127,7 +127,18 @@ The ESII computation in \texttt{esii.py} evaluates
 \begin{equation}
     \text{ESII} = \frac{\max(\text{FIT}_{\text{base}}-\text{FIT}_{\text{ECC}},0)}{C_{\text{emb}} + \text{CI}\bigl(E_{\text{dyn}}+E_{\text{leak}}+E_{\text{scrub}}\bigr) / 3.6\times10^{6}}.
 \end{equation}
-Module \texttt{scores.py} augments ESII with normalised ESII (NESII) using 5/95 percentile winsorisation and the Green Score (GS), which penalises carbon footprint and latency.
+Module \texttt{scores.py} augments ESII with normalised ESII (NESII) using 5/95 percentile winsorisation and the Green Score (GS), which penalises carbon footprint and latency.  Figure~\ref{fig:gs_ablation} sweeps the GS saturation constants $(\kappa_{R},\kappa_{C},\kappa_{L})$ and weights $(w_{R},w_{C},w_{L})$ by $\pm25\%$ to expose parameter sensitivity.  The left panel colours the carbon--FIT frontier by the induced GS span, while the right panel reports Kendall-$\tau$ rank correlations against the baseline configuration.  All sweeps keep the recommended knee point unchanged and preserve $\tau=1.0$, indicating that the winsorised anchors and harmonic mean remain numerically stable.
+
+\begin{figure}[t]
+    \centering
+    \IfFileExists{../reports/figures/fig_ablation_sensitivity.png}{%
+        \includegraphics[width=\linewidth]{../reports/figures/fig_ablation_sensitivity.png}%
+    }{%
+        \fbox{\parbox{0.95\linewidth}{Generate `fig_ablation_sensitivity.png` via `python analysis/generate_figures.py` before compiling.}}%
+    }
+    \caption{Ablation of GS saturation parameters and weights.  The frontier colours reflect the range of GS values achieved when perturbing $(\kappa, w)$ by $\pm25\%$.  Ranking stability (right) shows perfect Kendall-$\tau$ agreement with the baseline.}
+    \label{fig:gs_ablation}
+\end{figure}
 \section{Implementation Blueprint}
 \subsection{C++ Integration Pattern}
 Listing~\ref{lst:decode} summarises the decode loop in \texttt{Hamming32bit1Gb.cpp}, illustrating how syndromes drive correction and telemetry updates.
@@ -179,6 +190,9 @@ We outline a five-stage assessment aligning with ISCAS 2026 objectives:
     \item \textbf{Design Space Exploration}: Employ \texttt{ecc\_selector.py} and \texttt{plot\_pareto.py} for Pareto front identification and archetype labelling.
     \item \textbf{Reporting}: Summarise scorecards, Pareto slices, and narrative archetypes for stakeholders seeking resilience-carbon co-optimisation.
 \end{enumerate}
+
+\subsection{Dynamic Workload Stressors}
+Static scenarios can understate reliability risk.  Script \texttt{analysis/workload\_scenarios.py} composes multi-phase records where hot/cold duty cycles and adaptive scrub bursts share embodied carbon while weighting operational terms by time fraction.  The generated artefact (\texttt{reports/analysis/workload\_scenarios.json}) shows that enforcing a 10\,kFIT SLA moves the recommendation from SEC-DED under static assumptions to SEC-DAEC once peak temperature and scrub accelerations are modelled explicitly.
 \section{Conclusion}
 The Error-Code-Correction repository encapsulates a comprehensive workflow for designing ECC strategies that harmonise reliability and sustainability.
 By formalising its mathematical foundations, detailing C++/Python integration patterns, and extending scoring mechanisms, this manuscript positions the platform as a ready-to-use blueprint for ISCAS 2026 participants.

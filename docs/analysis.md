@@ -63,6 +63,23 @@ voltage sweep.
 
 Two-factor runs accept `--factor2`/`--grid2` and optionally `--csv` to emit a matrix.
 
+To visualise robustness of the GS winsorisation and saturation constants, generate Figure `fig_ablation_sensitivity.png` (ignored by git, so build steps must run the script locally):
+
+```bash
+python analysis/generate_figures.py
+```
+
+The script sweeps $(w_{R}, w_{C}, w_{L})$ and $(\kappa_{R}, \kappa_{C}, \kappa_{L})$ by $\pm25\%$ and reports the induced GS span across the carbon--FIT frontier alongside Kendall-$\tau$ rank correlations.  The resulting figure lives in `reports/figures/fig_ablation_sensitivity.png` once generated locally.
+
+## Dynamic Workloads
+Static operating points can hide duty-cycle and scrub adaptivity effects.  The helper
+
+```bash
+python analysis/workload_scenarios.py
+```
+
+emits `reports/analysis/workload_scenarios.json` (also ignored by git), which compares the static selector decision with (i) a hot/cold duty cycle and (ii) an adaptive scrub schedule.  Both dynamic cases enforce a 10\,kFIT SLA, forcing the recommendation from SEC-DED to SEC-DAEC when environmental peaks are modelled explicitly.
+
 ## Target BER
 When a reliability target is known, select the lowest-carbon design that meets
 it:
