@@ -116,37 +116,47 @@ def hybrid_ecc_strategy() -> str:
         "multi-bit patterns. Periodic memory scrubbing clears latent faults." )
 
 
-def sustainability_benchmark(node: str, capacity_mb: float) -> None:
-    """Print sustainability scores for each ECC scheme."""
-    fit_base = FIT_PER_MB[node] * capacity_mb
+def sustainability_benchmark(capacity_mb: float) -> None:
+    """Print sustainability scores for each ECC scheme and technology node."""
+
     schemes = ["Hamming_SEC", "SEC_DED", "TAEC", "DEC"]
+    # Ensure consistent ordering (largest geometry first) when reporting nodes.
+    ordered_nodes = sorted(
+        FIT_PER_MB,
+        key=lambda node_label: int(node_label.rstrip("nm")),
+        reverse=True,
+    )
 
-    esii_inputs = {}
-    esii_vals = []
-    mux_metrics = {}
-    for scheme in schemes:
-        params = SUSTAINABILITY_PARAMS[scheme]
-        uncorr = residual_error_rate(scheme)
-        inp = ESIIInputs(
-            fit_base=fit_base,
-            fit_ecc=fit_base * uncorr,
-            e_dyn=params["e_dyn"],
-            e_leak=params["e_leak"],
-            ci_kgco2e_per_kwh=params["ci"],
-            embodied_kgco2e=params["embodied"],
-        )
-        esii_inputs[scheme] = inp
-        esii_vals.append(compute_esii(inp)["ESII"])
-        mux_metrics[scheme] = compute_ecc_mux_params(scheme)
+    for node in ordered_nodes:
+        fit_base = FIT_PER_MB[node] * capacity_mb
 
-    print(f"Sustainability scores for {node} node (16MB at sea level):")
-    for scheme in schemes:
-        res = compute_scores(esii_inputs[scheme], esii_reference=esii_vals)
-        latency, energy, area = mux_metrics[scheme]
-        print(
-            f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}" \
-            f", mux latency={latency}, energy={energy}, area={area}"
-        )
+        esii_inputs = {}
+        esii_vals = []
+        mux_metrics = {}
+        for scheme in schemes:
+            params = SUSTAINABILITY_PARAMS[scheme]
+            uncorr = residual_error_rate(scheme)
+            inp = ESIIInputs(
+                fit_base=fit_base,
+                fit_ecc=fit_base * uncorr,
+                e_dyn=params["e_dyn"],
+                e_leak=params["e_leak"],
+                ci_kgco2e_per_kwh=params["ci"],
+                embodied_kgco2e=params["embodied"],
+            )
+            esii_inputs[scheme] = inp
+            esii_vals.append(compute_esii(inp)["ESII"])
+            mux_metrics[scheme] = compute_ecc_mux_params(scheme)
+
+        print(f"Sustainability scores for {node} node (16MB at sea level):")
+        for scheme in schemes:
+            res = compute_scores(esii_inputs[scheme], esii_reference=esii_vals)
+            latency, energy, area, fanin = mux_metrics[scheme]
+            print(
+                f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}" \
+                f", mux latency={latency}, energy={energy}, area={area}, mux {fanin}:1"
+            )
+        print()
 
 
 if __name__ == "__main__":
@@ -187,4 +197,4 @@ if __name__ == "__main__":
     print()
 
     # Sustainability matrix benchmarking
-    sustainability_benchmark("16nm", capacity_mb)
+    sustainability_benchmark(capacity_mb)
