@@ -11,9 +11,9 @@ _BASE_MUX_PARAMS: Dict[str, Tuple[float, float, float, int]] = {
     # expressed as the number of inputs to a single output (e.g. 2 indicates a
     # 2:1 multiplexer).
     "Hamming_SEC": (0.05, 0.02, 1.0, 2),
-    "SEC_DED": (0.06, 0.025, 1.2, 4),
+    "SEC_DAEC": (0.065, 0.027, 1.25, 6),
     "TAEC": (0.07, 0.03, 1.4, 8),
-    "DEC": (0.08, 0.035, 1.6, 16),
+    "BCH": (0.09, 0.04, 1.9, 16),
 }
 
 
