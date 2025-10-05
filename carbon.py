@@ -78,5 +78,12 @@ _DEFAULTS = _load_defaults(Path(__file__).with_name("carbon_defaults.json"))
 
 def default_alpha(node_nm: int) -> Tuple[float, float]:
     """Return ``(alpha_logic, alpha_macro)`` for the given technology node."""
-    entry = _DEFAULTS[str(int(node_nm))]
+
+    node_key = str(int(node_nm))
+    entry = _DEFAULTS.get(node_key)
+    if entry is None:
+        available = ", ".join(sorted(_DEFAULTS))
+        raise ValueError(
+            f"Unknown technology node {node_nm}; available nodes: {available}"
+        )
     return entry["alpha_logic"], entry["alpha_macro"]
