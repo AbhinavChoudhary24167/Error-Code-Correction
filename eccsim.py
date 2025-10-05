@@ -102,6 +102,33 @@ def _file_hash(path: Path) -> str:
     return h.hexdigest()
 
 
+def _load_json(path: Path):
+    """Load JSON content from ``path`` supporting multiple encodings."""
+
+    raw = path.read_bytes()
+    attempts = (
+        ("utf-8", "UTF-8"),
+        ("utf-8-sig", "UTF-8-SIG"),
+        ("utf-16-le", "UTF-16 LE"),
+        ("utf-16-be", "UTF-16 BE"),
+    )
+    errors: list[str] = []
+    for encoding, label in attempts:
+        try:
+            text = raw.decode(encoding)
+        except UnicodeDecodeError as exc:
+            errors.append(f"{label}: {exc}")
+            continue
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as exc:
+            errors.append(f"{label}: {exc}")
+    raise ValueError(
+        "Failed to decode JSON from "
+        f"{path}: " + "; ".join(errors)
+    )
+
+
 def main() -> None:
     repo_path = Path(__file__).resolve().parent
     version_base = (repo_path / "VERSION").read_text().strip()
@@ -621,7 +648,7 @@ def main() -> None:
         basis = args.basis
 
         if args.reliability:
-            rel = json.load(open(args.reliability))
+            rel = _load_json(args.reliability)
             fit_base = rel["fit"]["base"]
             fit_ecc = rel["fit"]["ecc"]
             if rel.get("basis") and rel["basis"] != basis:
@@ -635,7 +662,7 @@ def main() -> None:
             fit_ecc = args.fit_ecc
 
         if args.energy:
-            energy = json.load(open(args.energy))
+            energy = _load_json(args.energy)
             e_dyn_j = energy["dynamic_J"]
             e_leak_j = energy["leakage_J"]
         else:
@@ -650,7 +677,7 @@ def main() -> None:
         elif args.embodied_kgco2e is not None:
             embodied = args.embodied_kgco2e
         elif args.area:
-            area = json.load(open(args.area))
+            area = _load_json(args.area)
             logic_mm2 = area["logic_mm2"]
             macro_mm2 = area["macro_mm2"]
             node_nm = area["node_nm"]
