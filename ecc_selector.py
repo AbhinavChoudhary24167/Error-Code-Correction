@@ -59,6 +59,9 @@ _CODE_DB: Dict[str, _CodeInfo] = {
         "SEC-DAEC", parity_bits=9, latency_ns=1.3, area_logic_mm2=1.2
     ),
     "taec-64": _CodeInfo("TAEC", parity_bits=11, latency_ns=1.6, area_logic_mm2=1.5),
+    "bch-63": _CodeInfo(
+        "BCH", parity_bits=12, latency_ns=2.4, area_logic_mm2=2.1, notes="BCH(63,51,2)"
+    ),
 }
 
 
