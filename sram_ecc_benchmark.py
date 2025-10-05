@@ -58,9 +58,9 @@ ERROR_DISTRIBUTION = {
 # embodied carbon in kilograms of CO2e.
 SUSTAINABILITY_PARAMS = {
     "Hamming_SEC": {"e_dyn": 2_000_000.0, "e_leak": 1_000_000.0, "ci": 0.3, "embodied": 1.0},
-    "SEC_DED": {"e_dyn": 2_400_000.0, "e_leak": 1_200_000.0, "ci": 0.3, "embodied": 1.2},
+    "SEC_DAEC": {"e_dyn": 2_500_000.0, "e_leak": 1_200_000.0, "ci": 0.3, "embodied": 1.3},
     "TAEC": {"e_dyn": 2_800_000.0, "e_leak": 1_400_000.0, "ci": 0.3, "embodied": 1.5},
-    "DEC": {"e_dyn": 3_200_000.0, "e_leak": 1_600_000.0, "ci": 0.3, "embodied": 1.8},
+    "BCH": {"e_dyn": 3_400_000.0, "e_leak": 1_700_000.0, "ci": 0.3, "embodied": 2.0},
 }
 
 
@@ -69,11 +69,11 @@ def residual_error_rate(scheme: str) -> float:
     d = ERROR_DISTRIBUTION
     if scheme == "Hamming_SEC":
         return d["double_adjacent"] + d["triple_adjacent"] + d["random_double"]
-    if scheme == "SEC_DED":
-        return d["double_adjacent"] + d["triple_adjacent"] + d["random_double"]
+    if scheme == "SEC_DAEC":
+        return d["triple_adjacent"] + d["random_double"]
     if scheme == "TAEC":
         return d["random_double"]
-    if scheme == "DEC":
+    if scheme == "BCH":
         return d["triple_adjacent"]
     raise ValueError(f"Unknown scheme: {scheme}")
 
@@ -90,15 +90,19 @@ def check_bits_required(scheme: str, data_bits: int = 64) -> int:
     n = data_bits
     if scheme == "Hamming_SEC":
         return _parity_bits_for_sec(n)
-    if scheme == "SEC_DED":
-        return _parity_bits_for_sec(n) + 1
+    if scheme == "SEC_DAEC":
+        patterns = 1 + n + (n - 1)
+        p = 1
+        while 2 ** p < patterns:
+            p += 1
+        return p
     if scheme == "TAEC":
         patterns = 1 + n + (n - 1) + (n - 2)
         p = 1
         while 2 ** p < patterns:
             p += 1
         return p
-    if scheme == "DEC":
+    if scheme == "BCH":
         patterns = 1 + n + n * (n - 1) // 2
         p = 1
         while 2 ** p < patterns:
@@ -111,7 +115,7 @@ def hybrid_ecc_strategy() -> str:
     """Return a description of a hybrid ECC approach for space applications."""
     return (
         "Combine a TAEC inner code with interleaving and a lightweight outer "
-        "SEC-DED code. TAEC handles the 90% of localized single, double- and "
+        "SEC-DAEC code. TAEC handles the 90% of localized single, double- and "
         "triple-adjacent upsets while the outer code detects remaining random "
         "multi-bit patterns. Periodic memory scrubbing clears latent faults." )
 
@@ -119,7 +123,7 @@ def hybrid_ecc_strategy() -> str:
 def sustainability_benchmark(capacity_mb: float) -> None:
     """Print sustainability scores for each ECC scheme and technology node."""
 
-    schemes = ["Hamming_SEC", "SEC_DED", "TAEC", "DEC"]
+    schemes = ["Hamming_SEC", "SEC_DAEC", "TAEC", "BCH"]
     # Ensure consistent ordering (largest geometry first) when reporting nodes.
     ordered_nodes = sorted(
         FIT_PER_MB,
@@ -150,8 +154,12 @@ def sustainability_benchmark(capacity_mb: float) -> None:
 
         print(f"Sustainability scores for {node} node (16MB at sea level):")
         for scheme in schemes:
-            res = compute_scores(esii_inputs[scheme], esii_reference=esii_vals)
             latency, energy, area, fanin = mux_metrics[scheme]
+            res = compute_scores(
+                esii_inputs[scheme],
+                latency_ns=latency,
+                esii_reference=esii_vals,
+            )
             print(
                 f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}" \
                 f", mux latency={latency}, energy={energy}, area={area}, mux {fanin}:1"
@@ -182,7 +190,7 @@ if __name__ == "__main__":
 
     # Task 2 calculations
     print("Residual uncorrectable error rates:")
-    schemes = ["Hamming_SEC", "SEC_DED", "TAEC", "DEC"]
+    schemes = ["Hamming_SEC", "SEC_DAEC", "TAEC", "BCH"]
     for scheme in schemes:
         print(f"  {scheme}: {residual_error_rate(scheme)*100:.1f}%")
     print()
