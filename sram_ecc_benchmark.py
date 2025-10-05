@@ -146,7 +146,7 @@ def sustainability_benchmark(capacity_mb: float) -> None:
             )
             esii_inputs[scheme] = inp
             esii_vals.append(compute_esii(inp)["ESII"])
-            mux_metrics[scheme] = compute_ecc_mux_params(scheme)
+            mux_metrics[scheme] = compute_ecc_mux_params(scheme, node)
 
         print(f"Sustainability scores for {node} node (16MB at sea level):")
         for scheme in schemes:
