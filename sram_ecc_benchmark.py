@@ -150,8 +150,12 @@ def sustainability_benchmark(capacity_mb: float) -> None:
 
         print(f"Sustainability scores for {node} node (16MB at sea level):")
         for scheme in schemes:
-            res = compute_scores(esii_inputs[scheme], esii_reference=esii_vals)
             latency, energy, area, fanin = mux_metrics[scheme]
+            res = compute_scores(
+                esii_inputs[scheme],
+                latency_ns=latency,
+                esii_reference=esii_vals,
+            )
             print(
                 f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}" \
                 f", mux latency={latency}, energy={energy}, area={area}, mux {fanin}:1"
