@@ -6,7 +6,7 @@ CXXFLAGS += -MMD -MP -I.
 
 # Include shared utilities for energy lookup
 SRC = BCHvsHamming.cpp Hamming32bit1Gb.cpp Hamming64bit128Gb.cpp SAT.cpp \
-      src/energy_loader.cpp
+      src/energy_loader.cpp src/bch63.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
 
@@ -17,8 +17,8 @@ all: $(BINARIES)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-BCHvsHamming: BCHvsHamming.o
-	$(CXX) $(CXXFLAGS) $< -o $@
+BCHvsHamming: BCHvsHamming.o src/bch63.o
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 Hamming32bit1Gb: Hamming32bit1Gb.o
 	$(CXX) $(CXXFLAGS) $< -o $@
