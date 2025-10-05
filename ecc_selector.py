@@ -308,7 +308,10 @@ def _compute_metrics(
     e_dyn = 0.0
     e_leak = 0.0
 
-    alpha_logic, alpha_macro = default_alpha(node)
+    try:
+        alpha_logic, alpha_macro = default_alpha(node)
+    except ValueError as exc:
+        raise ValueError(f"{exc}. Unable to estimate embodied carbon.") from exc
     area_macro_mm2 = info.parity_bits * words * bitcell_um2 / 1e6
     embodied = embodied_kgco2e(
         info.area_logic_mm2, area_macro_mm2, alpha_logic, alpha_macro

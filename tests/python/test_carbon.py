@@ -2,10 +2,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-import subprocess
-import sys
+import pytest
 
-from carbon import embodied_kgco2e, operational_kgco2e
+from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
 
 
 def test_operational_sign():
@@ -15,6 +14,17 @@ def test_operational_sign():
 
 def test_embodied_additivity():
     assert embodied_kgco2e(0.1, 0.2, 1.0, 2.0) == 0.1 * 1.0 + 0.2 * 2.0
+
+
+def test_default_alpha_known_node():
+    alpha_logic, alpha_macro = default_alpha(16)
+    assert alpha_logic == pytest.approx(0.77)
+    assert alpha_macro == pytest.approx(0.97)
+
+
+def test_default_alpha_unknown_node():
+    with pytest.raises(ValueError, match="Unknown technology node 99"):
+        default_alpha(99)
 
 
 def test_cli_round_trip():

@@ -110,3 +110,10 @@ def test_selector_quality_block():
     assert q["hypervolume"] >= 0.0
     assert q["spacing"] >= 0.0
 
+
+def test_select_unknown_node_surfaces_message():
+    params = _default_params()
+    params["node"] = 99
+    with pytest.raises(ValueError, match="Unknown technology node 99"):
+        select(["sec-ded-64"], **params)
+
