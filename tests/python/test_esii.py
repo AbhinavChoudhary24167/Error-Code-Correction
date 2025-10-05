@@ -87,19 +87,21 @@ def test_cli_esii_reports(tmp_path):
     rel = tmp_path / "rel.json"
     energy = tmp_path / "energy.json"
     area = tmp_path / "area.json"
-    json.dump(
-        {
-            "basis": "per_gib",
-            "fit": {"base": 300.0, "ecc": 5.0},
-            "mbu": "moderate",
-            "scrub_s": 10,
-            "node_nm": 14,
-            "vdd": 0.8,
-            "tempC": 75,
-        },
-        open(rel, "w"),
-    )
-    json.dump({"dynamic_J": 2088.0, "leakage_J": 972.0}, open(energy, "w"))
+    with open(rel, "w", encoding="utf-16-le") as fh:
+        json.dump(
+            {
+                "basis": "per_gib",
+                "fit": {"base": 300.0, "ecc": 5.0},
+                "mbu": "moderate",
+                "scrub_s": 10,
+                "node_nm": 14,
+                "vdd": 0.8,
+                "tempC": 75,
+            },
+            fh,
+        )
+    with open(energy, "w", encoding="utf-16-le") as fh:
+        json.dump({"dynamic_J": 2088.0, "leakage_J": 972.0}, fh)
     json.dump({"logic_mm2": 0.1, "macro_mm2": 0.2, "node_nm": 14}, open(area, "w"))
     out = tmp_path / "esii.json"
     cmd = [
