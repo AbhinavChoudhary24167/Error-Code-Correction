@@ -143,3 +143,29 @@ def test_reliability_report_mbu_effect():
     ded_val = extract_fit_word_post(res_ded.stdout)
     daec_val = extract_fit_word_post(res_daec.stdout)
     assert ded_val > daec_val
+
+
+def test_reliability_report_unknown_node():
+    script = Path(__file__).resolve().parents[2] / "eccsim.py"
+    cmd = [
+        sys.executable,
+        str(script),
+        "reliability",
+        "report",
+        "--qs",
+        "0.25",
+        "--area",
+        "0.08",
+        "--node-nm",
+        "16",
+        "--vdd",
+        "0.8",
+        "--tempC",
+        "75",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    assert res.returncode != 0
+    assert (
+        "error: Qcrit table for element 'sram6t' has no data for node_nm=16"
+        in res.stderr
+    )

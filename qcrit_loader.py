@@ -107,7 +107,14 @@ def qcrit_lookup(element: str, node_nm: int, vdd: float, tempC: float, pulse_ps:
     table = qcrit_table["data"]
     policy = qcrit_table.get("interpolation", {}).get("extrapolation_policy", "error")
 
-    node = table[node_nm]
+    try:
+        node = table[node_nm]
+    except KeyError:  # pragma: no cover - trivial guard
+        available = ", ".join(str(k) for k in sorted(table)) or "<none>"
+        raise ValueError(
+            "Qcrit table for element "
+            f"'{element}' has no data for node_nm={node_nm}; available nodes: {available}"
+        ) from None
     v_vals = sorted(node.keys())
     v_lo, v_hi = _find_bounds(vdd, v_vals, policy)
 
@@ -115,7 +122,7 @@ def qcrit_lookup(element: str, node_nm: int, vdd: float, tempC: float, pulse_ps:
     t_lo, t_hi = _find_bounds(tempC, t_vals, policy)
 
     def value(v: float, t: float) -> float:
-        pulses = table[node_nm][v][t]
+        pulses = node[v][t]
         if pulse_ps not in pulses:
             raise KeyError(f"Pulse {pulse_ps} ps not found for ({node_nm}, {v}, {t})")
         return pulses[pulse_ps]["qcrit"]["mean_fC"]

@@ -760,11 +760,14 @@ def main() -> None:
             hp = HazuchaParams(
                 Qs_fC=args.qs, flux_rel=flux, area_um2=args.area
             )
-            qcrit = (
-                args.qcrit
-                if args.qcrit is not None
-                else qcrit_lookup("sram6t", args.node_nm, args.vdd, args.tempC, 50)
-            )
+            try:
+                qcrit = (
+                    args.qcrit
+                    if args.qcrit is not None
+                    else qcrit_lookup("sram6t", args.node_nm, args.vdd, args.tempC, 50)
+                )
+            except ValueError as exc:
+                report_parser.error(str(exc))
             fit_bit = ser_hazucha(qcrit, hp)
 
             if args.mbu == "none":
