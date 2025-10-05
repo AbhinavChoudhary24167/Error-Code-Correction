@@ -34,3 +34,19 @@ def test_compute_scores_matches_components():
     assert 0.0 <= res["NESII"] <= 100.0
     assert res["p5"] == pytest.approx(p5_exp)
     assert res["p95"] == pytest.approx(p95_exp)
+
+
+def test_compute_scores_penalises_latency():
+    inp = ESIIInputs(
+        fit_base=500.0,
+        fit_ecc=50.0,
+        e_dyn=2_000_000.0,
+        e_leak=1_000_000.0,
+        ci_kgco2e_per_kwh=0.3,
+        embodied_kgco2e=2.0,
+    )
+
+    res_fast = compute_scores(inp, latency_ns=0.0)
+    res_slow = compute_scores(inp, latency_ns=5.0)
+
+    assert res_slow["GS"] < res_fast["GS"]
