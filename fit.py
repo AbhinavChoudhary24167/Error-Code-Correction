@@ -137,7 +137,7 @@ def compute_fit_post(
 def ecc_coverage_factory(code: str) -> Callable[[Pattern], float]:
     """Return a coverage function for the requested ECC ``code``.
 
-    Supported codes are ``"SEC-DED"``, ``"SEC-DAEC"``, and ``"TAEC"``.
+    Supported codes are ``"SEC-DED"``, ``"SEC-DAEC"``, ``"TAEC"``, and ``"BCH"``.
     The returned callable accepts a :class:`Pattern` tuple and returns the
     probability that the ECC corrects that pattern.
     """
@@ -160,6 +160,12 @@ def ecc_coverage_factory(code: str) -> Callable[[Pattern], float]:
             if k == 2 and kind == "adj":
                 return 1.0
             if k == 3 and kind == "adj":
+                return 1.0
+            return 0.0
+        if code == "BCH":
+            if k == 1:
+                return 1.0
+            if k == 2:
                 return 1.0
             return 0.0
         raise ValueError(f"Unsupported ECC code '{code}'")
