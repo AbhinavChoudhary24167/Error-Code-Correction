@@ -109,6 +109,7 @@ def _load_json(path: Path):
     attempts = (
         ("utf-8", "UTF-8"),
         ("utf-8-sig", "UTF-8-SIG"),
+        ("utf-16", "UTF-16"),
         ("utf-16-le", "UTF-16 LE"),
         ("utf-16-be", "UTF-16 BE"),
     )
@@ -116,6 +117,8 @@ def _load_json(path: Path):
     for encoding, label in attempts:
         try:
             text = raw.decode(encoding)
+            if text.startswith("\ufeff"):
+                text = text[1:]
         except UnicodeDecodeError as exc:
             errors.append(f"{label}: {exc}")
             continue
