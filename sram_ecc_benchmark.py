@@ -154,13 +154,25 @@ def sustainability_benchmark(capacity_mb: float) -> None:
             esii_vals.append(compute_esii(inp)["ESII"])
             mux_metrics[scheme] = compute_ecc_mux_params(scheme, node)
 
+        min_esii = min(esii_vals)
+        max_esii = max(esii_vals)
+        span = max_esii - min_esii
+        if span <= 0:
+            lower_anchor = 0.0 if min_esii <= 0 else min_esii * 0.95
+            upper_anchor = max_esii * 1.05 if max_esii > 0 else 1.0
+        else:
+            lower_anchor = max(min_esii - 0.1 * span, 0.0)
+            upper_anchor = max_esii + 0.1 * span
+
+        esii_reference = esii_vals + [lower_anchor, upper_anchor]
+
         print(f"Sustainability scores for {node} node (16MB at sea level):")
         for scheme in schemes:
             latency, energy, area, fanin = mux_metrics[scheme]
             res = compute_scores(
                 esii_inputs[scheme],
                 latency_ns=latency,
-                esii_reference=esii_vals,
+                esii_reference=esii_reference,
             )
             print(
                 f"  {scheme}: ESII={res['ESII']:.2f}, NESII={res['NESII']:.2f}, GS={res['GS']:.2f}" \
