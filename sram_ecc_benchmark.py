@@ -91,11 +91,13 @@ def check_bits_required(scheme: str, data_bits: int = 64) -> int:
     if scheme == "Hamming_SEC":
         return _parity_bits_for_sec(n)
     if scheme == "SEC_DAEC":
-        patterns = 1 + n + (n - 1)
-        p = 1
-        while 2 ** p < patterns:
+        p = _parity_bits_for_sec(n)
+        while True:
+            total_bits = n + p
+            patterns = 1 + total_bits + (total_bits - 1)
+            if 2 ** p >= patterns:
+                return p
             p += 1
-        return p
     if scheme == "TAEC":
         patterns = 1 + n + (n - 1) + (n - 2)
         p = 1
