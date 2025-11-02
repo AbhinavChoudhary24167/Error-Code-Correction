@@ -1,0 +1,262 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0f172a;
+  --panel-bg: rgba(15, 23, 42, 0.65);
+  --panel-border: rgba(148, 163, 184, 0.3);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.15);
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --card-border: rgba(56, 189, 248, 0.4);
+  --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: radial-gradient(circle at 0% 0%, #1d4ed8 0%, rgba(15, 23, 42, 0) 45%),
+    radial-gradient(circle at 100% 0%, #22d3ee 0%, rgba(15, 23, 42, 0) 40%),
+    radial-gradient(circle at 50% 100%, #a855f7 0%, rgba(15, 23, 42, 0) 45%),
+    var(--bg);
+  color: var(--text-primary);
+  padding: 0 1.5rem 3rem;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.2rem, 2.5vw, 3rem);
+}
+
+.page-header p {
+  margin: 0;
+  max-width: 48rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.page-header .cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.page-header .cta a:hover {
+  transform: translateY(-2px);
+  background: rgba(56, 189, 248, 0.25);
+}
+
+main {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.panel {
+  backdrop-filter: blur(12px);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.4);
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.01em;
+}
+
+.panel p {
+  margin-top: 0.35rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.dataset-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.dataset-select select {
+  padding: 0.6rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.6);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.summary-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.08);
+}
+
+.summary-card span.label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.summary-card span.value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.summary-card span.detail {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+#vdd-slider {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.vdd-readout {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+}
+
+.vdd-readout span:last-child {
+  color: var(--accent);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr.selected {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.archetype-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.archetype-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.archetype-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.archetype-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+#comparison-chart {
+  width: 100%;
+  height: 320px;
+}
+
+#comparison-chart text {
+  fill: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+#comparison-chart .axis line,
+#comparison-chart .axis path {
+  stroke: rgba(148, 163, 184, 0.25);
+}
+
+#comparison-chart circle {
+  transition: transform 0.2s ease;
+}
+
+#comparison-chart circle:hover {
+  transform: scale(1.05);
+}
+
+.footnote {
+  font-size: 0.8rem;
+}
+
+.page-footer {
+  margin-top: 3rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 0 1rem 2.5rem;
+  }
+
+  .panel {
+    padding: 1.5rem;
+  }
+
+  #comparison-chart {
+    height: 260px;
+  }
+}
