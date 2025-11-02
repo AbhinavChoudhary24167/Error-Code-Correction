@@ -508,7 +508,7 @@ function showError(containerId, message) {
 }
 
 function toKey(value) {
-  return typeof value === 'number' ? value.toFixed(1) : String(value);
+  return String(value);
 }
 
 function formatNumber(value, fractionDigits = 2) {
