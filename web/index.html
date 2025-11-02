@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SRAM ECC Design Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <h1>SRAM ECC Design Explorer</h1>
+        <p>
+          Explore example design trade-offs that ship with the
+          <code>Error-Code-Correction</code> repository. The dashboard presents
+          Pareto-optimal error correction configurations, archetype
+          classifications, and voltage sensitivity for representative SKUs.
+        </p>
+      </div>
+      <div class="cta">
+        <a href="https://github.com/" target="_blank" rel="noreferrer">
+          Learn how to deploy on GitHub Pages
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Choose a dataset</h2>
+        <p>
+          Each dataset corresponds to one of the example benchmark reports in
+          <code>reports/examples</code>. Select a SKU to inspect its best-known
+          configuration at a 5&nbsp;s scrub interval.
+        </p>
+        <label class="dataset-select">
+          <span>Dataset</span>
+          <select id="dataset"></select>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Pareto summary</h2>
+        <div id="summary" class="summary-grid" aria-live="polite"></div>
+        <p class="footnote">
+          Values are reported per GiB and come directly from the
+          <code>pareto.csv</code> artifact for the selected configuration.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Voltage sensitivity</h2>
+        <div class="slider-row">
+          <label for="vdd-slider">Supply voltage (Vdd)</label>
+          <input type="range" id="vdd-slider" min="0" max="1" step="0.01" />
+          <div class="vdd-readout">
+            <span id="vdd-value">0.00 V</span>
+            <span id="vdd-recommendation"></span>
+          </div>
+        </div>
+        <table id="feasible" class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Voltage (V)</th>
+              <th scope="col">Recommended code</th>
+              <th scope="col">Feasible options</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>Archetype classification</h2>
+        <div id="archetypes" class="archetype-grid"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Carbon vs. FIT comparison</h2>
+        <p>
+          The scatter plot compares the shipped Pareto points for all example
+          SKUs. The selected dataset is highlighted.
+        </p>
+        <svg id="comparison-chart" role="img" aria-label="Scatter plot comparing carbon and FIT"></svg>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>
+        The dashboard is static and can be hosted as-is on GitHub Pages. To
+        update the data, regenerate the CSV/JSON artifacts and refresh the
+        <code>datasets.json</code> manifest.
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

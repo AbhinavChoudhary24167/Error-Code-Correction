@@ -57,6 +57,7 @@ run them and where to find deeper documentation.
 - [End-to-End Example Workflow](#end-to-end-example-workflow)
 - [Interpreting Structured Results](#interpreting-structured-results)
 - [Advanced Analysis](#advanced-analysis)
+- [Static Web Dashboard](#static-web-dashboard)
 - [Testing](#testing)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -562,6 +563,44 @@ outputs:
 All reports flag whether scrub energy has been included. Watch for the
 `"includes_scrub_energy": true` boolean to make sure sustainability reviews
 compare apples to apples.
+
+## Static Web Dashboard
+
+The repository now ships with a static dashboard under [`web/`](web/) that
+visualises the exemplar reports in `reports/examples/`. It offers three views:
+
+- **Pareto summary cards** sourced from `pareto.csv` for each SKU.
+- **Voltage sensitivity explorer** that highlights the recommended ECC code for
+  each supply voltage grid point.
+- **Carbon vs. FIT scatter plot** comparing the Pareto points across the
+  included SKUs.
+
+### Previewing locally
+
+The site is static HTML/CSS/JavaScript, so any file server works. From the
+repository root run:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open <http://localhost:8000/web/> in a browser. The dashboard reads the
+existing artefacts under `reports/examples/...`, so the server must expose the
+repository root (or a bundle that contains both `web/` and `reports/`).
+
+### Publishing on GitHub Pages
+
+1. Commit the updated repository (including `web/` and the referenced data) and
+   push to the branch you would like to serve.
+2. In the GitHub repository settings under **Pages**, choose "Deploy from a
+   branch" and select the repository root (or set up a GitHub Actions workflow
+   that publishes both `web/` and `reports/`).
+3. Once the deployment completes, the dashboard will be available at the Pages
+   URL for your project (for example `https://<user>.github.io/Error-Code-Correction/web/`).
+
+To add new datasets, drop the generated CSV/JSON artefacts into
+`reports/examples/...` and update [`web/datasets.json`](web/datasets.json) so the
+UI knows where to fetch them.
 
 ## Testing
 
