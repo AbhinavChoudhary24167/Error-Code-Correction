@@ -349,17 +349,19 @@ fields `code`, `score`, `constraints_satisfied`, `energy_nj` and
 #### `energy_model.py`
 
 `energy_model.py` offers a quick analytical estimate of decoder energy when a
-full simulation is unnecessary. Supply the number of parity bits and optionally
-the average number of detected-but-uncorrected errors per access:
+full simulation is unnecessary. Supply the number of parity bits and, if known,
+the average number of detected-but-uncorrected errors per access as positional
+arguments. Optional flags let you override the process node and supply
+voltage:
 
 ```bash
-python3 energy_model.py --parity-bits 8 --detected-errors 0.02 --node 7 --vdd 0.7
+python3 energy_model.py 8 2 --node 7 --vdd 0.7
 ```
 
 The script multiplies gate toggles by the calibrated per-gate energies in
-`tech_calib.json`. The result is printed as joules and written to
-`reports/energy_estimate.json`. Fields include `dynamic_j`, `static_j` and
-`includes_scrub_energy`.
+`tech_calib.json` and prints a single joule estimate to standard output (for
+example `Estimated energy per read: 3.42e-11 J`). Use shell redirection if you
+want to persist the value.
 
 #### `parse_telemetry.py`
 
@@ -368,27 +370,24 @@ RTL emulation. Each row is expected to contain timestamps, correction counts and
 energy meter readings. Run:
 
 ```bash
-python3 parse_telemetry.py \
-    --csv tests/data/sample_secdaec.csv \
-    --node 16 \
-    --vdd 0.7 \
-    --out reports/telemetry_summary.json
+python3 parse_telemetry.py tests/data/sample_secdaec.csv \
+    --out-csv reports/telemetry_normalized.csv \
+    --out-json reports/telemetry_normalized.json
 ```
 
-The CLI prints cumulative energy per correction (`energy_per_correction_nj`),
-per-bit error rate inferred from the logs and the implied carbon intensity using
-the regional conversion factors encoded in `carbon_defaults.json`. If the CSV
-contains additional metadata columns they are passed through to the JSON output
-for traceability.
+The CLI validates the input against `docs/schema/telemetry.schema.json` and
+writes normalised CSV/JSON files in canonical column order. Downstream tooling
+can ingest those normalised artifacts to compute summaries such as energy per
+correction with helper functions like `parse_telemetry.compute_epc`.
 
 #### `taec_hamming_sim.py`
 
 This script mirrors the C++ Monte-Carlo experiment in pure Python for quick
-iteration. Provide the number of trials, the random seed and the assumed MBU
-distribution:
+iteration. Provide the number of trials and, optionally, a random seed for
+reproducibility:
 
 ```bash
-python3 taec_hamming_sim.py --trials 10000 --seed 1 --mbu-prob 0.2 --burst-length 3
+python3 taec_hamming_sim.py --trials 10000 --seed 1
 ```
 
 Standard output contains a three-column table (`pattern`, `sec_ded`, `taec`)
