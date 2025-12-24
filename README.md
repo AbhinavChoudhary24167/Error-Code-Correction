@@ -1,4 +1,5 @@
 # Error-Code-Correction Framework Guide
+## Under the guidance of Dr. Anuj Grover, ECE Department (VICAS Labs), IIIT Delhi
 
 The Error-Code-Correction (ECC) framework is a comprehensive laboratory for
 studying how different redundancy schemes behave inside static random-access
