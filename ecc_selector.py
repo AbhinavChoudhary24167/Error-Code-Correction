@@ -50,6 +50,7 @@ class _CodeInfo:
     parity_bits: int
     latency_ns: float
     area_logic_mm2: float
+    word_bits: int = 64
     notes: str = ""
 
 
@@ -62,12 +63,29 @@ _CODE_DB: Dict[str, _CodeInfo] = {
     "bch-63": _CodeInfo(
         "BCH", parity_bits=12, latency_ns=2.4, area_logic_mm2=2.1, notes="BCH(63,51,2)"
     ),
-    "polar-64": _CodeInfo(
-        "POLAR",
+    "polar-64-32": _CodeInfo(
+        "POLAR-64-32",
+        parity_bits=32,
+        latency_ns=2.2,
+        area_logic_mm2=2.0,
+        word_bits=64,
+        notes="Polar (N=64, K=32) SC decoder",
+    ),
+    "polar-64-48": _CodeInfo(
+        "POLAR-64-48",
         parity_bits=16,
         latency_ns=2.0,
         area_logic_mm2=1.8,
+        word_bits=64,
         notes="Polar (N=64, K=48) SC decoder",
+    ),
+    "polar-128-96": _CodeInfo(
+        "POLAR-128-96",
+        parity_bits=32,
+        latency_ns=2.6,
+        area_logic_mm2=2.4,
+        word_bits=128,
+        notes="Polar (N=128, K=96) SC decoder",
     ),
 }
 
@@ -287,24 +305,25 @@ def _compute_metrics(
     hp = HazuchaParams(Qs_fC=0.05, flux_rel=flux, area_um2=area_um2)
     fit_bit = ser_hazucha(qcrit_fC, hp)
 
-    mbu_dist = pmf_adjacent(mbu, word_bits=64, bitline_bits=64)
+    word_bits = info.word_bits
+    mbu_dist = pmf_adjacent(mbu, word_bits=word_bits, bitline_bits=word_bits)
     severity_scale = {"light": 0.0, "moderate": 1.0, "heavy": 5.0}.get(mbu, 1.0)
     # Scale probabilities to FIT rates; the multiplier ensures MBUs have a
     # noticeable impact on the final metric.
     mbu_rates = {
-        k: {kind: fit_bit * 64 * k * p * severity_scale for kind, p in probs.items()}
+        k: {kind: fit_bit * word_bits * k * p * severity_scale for kind, p in probs.items()}
         for k, probs in mbu_dist.items()
     }
 
-    fit_pre = compute_fit_pre(64, fit_bit, mbu_rates)
-    ecc_cov = ecc_coverage_factory(info.family)
-    fit_post = compute_fit_post(64, fit_bit, mbu_rates, ecc_cov, scrub_s)
+    fit_pre = compute_fit_pre(word_bits, fit_bit, mbu_rates)
+    ecc_cov = ecc_coverage_factory(info.family, word_bits=word_bits)
+    fit_post = compute_fit_post(word_bits, fit_bit, mbu_rates, ecc_cov, scrub_s)
 
     fit_base_sys = fit_system(capacity_gib, fit_pre.nominal)
     fit_post_sys = fit_system(capacity_gib, fit_post.nominal)
 
     # --- Energy & Carbon -------------------------------------------------
-    words = capacity_gib * (2**30 * 8) / 64
+    words = capacity_gib * (2**30 * 8) / word_bits
     e_scrub_kwh = scrub_energy_kwh(
         info.parity_bits,
         capacity_gib,
@@ -312,7 +331,7 @@ def _compute_metrics(
         scrub_s,
         node_nm=node,
         vdd=vdd,
-        word_bits=64,
+        word_bits=word_bits,
     )
     e_scrub = e_scrub_kwh * 3_600_000.0
     e_dyn = 0.0

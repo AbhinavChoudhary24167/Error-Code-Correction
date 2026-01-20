@@ -337,7 +337,7 @@ def main() -> None:
         "--ecc",
         type=str,
         default="SEC-DED",
-        choices=["SEC-DED", "SEC-DAEC", "TAEC", "POLAR"],
+        choices=["SEC-DED", "SEC-DAEC", "TAEC", "POLAR", "POLAR-64-32", "POLAR-64-48", "POLAR-128-96"],
     )
     report_parser.add_argument("--scrub-interval", type=float, default=0.0)
     report_parser.add_argument("--capacity-gib", type=float, default=1.0)
