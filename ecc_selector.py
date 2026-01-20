@@ -62,6 +62,13 @@ _CODE_DB: Dict[str, _CodeInfo] = {
     "bch-63": _CodeInfo(
         "BCH", parity_bits=12, latency_ns=2.4, area_logic_mm2=2.1, notes="BCH(63,51,2)"
     ),
+    "polar-64": _CodeInfo(
+        "POLAR",
+        parity_bits=16,
+        latency_ns=2.0,
+        area_logic_mm2=1.8,
+        notes="Polar (N=64, K=48) SC decoder",
+    ),
 }
 
 
@@ -640,4 +647,3 @@ def select(
 
 
 __all__ = ["select", "_pareto_front", "_nsga2_sort"]
-

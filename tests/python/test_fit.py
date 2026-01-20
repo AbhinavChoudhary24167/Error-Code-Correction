@@ -95,3 +95,10 @@ def test_compute_fit_post_uncertainty():
     )
     assert res.nominal == 5.0
     assert res.stddev == 1.0
+
+
+def test_polar_coverage_degrades_with_more_errors():
+    polar = ecc_coverage_factory("POLAR", word_bits=64)
+    cov_single = polar((1, "nonadj"))
+    cov_quad = polar((4, "nonadj"))
+    assert 0.0 <= cov_quad <= cov_single <= 1.0

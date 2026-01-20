@@ -134,15 +134,28 @@ def compute_fit_post(
     return FitEstimate(accum + instant, stddev)
 
 
-def ecc_coverage_factory(code: str) -> Callable[[Pattern], float]:
+def ecc_coverage_factory(code: str, *, word_bits: int = WORD_BITS) -> Callable[[Pattern], float]:
     """Return a coverage function for the requested ECC ``code``.
 
-    Supported codes are ``"SEC-DED"``, ``"SEC-DAEC"``, ``"TAEC"``, and ``"BCH"``.
-    The returned callable accepts a :class:`Pattern` tuple and returns the
-    probability that the ECC corrects that pattern.
+    Supported codes are ``"SEC-DED"``, ``"SEC-DAEC"``, ``"TAEC"``, ``"BCH"``, and
+    ``"POLAR"``. The returned callable accepts a :class:`Pattern` tuple and
+    returns the probability that the ECC corrects that pattern.
     """
 
     code = code.upper()
+
+    if code == "POLAR":
+        from polar import PolarCodeModel
+
+        model = PolarCodeModel(n=6, k=48)
+
+        def coverage(pattern: Pattern) -> float:
+            k, kind = pattern
+            if k <= 0:
+                return 1.0
+            return model.coverage(k, word_bits=word_bits, kind=kind)
+
+        return coverage
 
     def coverage(pattern: Pattern) -> float:
         k, kind = pattern
