@@ -6,7 +6,8 @@ studying how different redundancy schemes behave inside static random-access
 memories (SRAM). It combines:
 
 - **High-performance C++ simulators** that implement concrete Hamming, TAEC and
-  BCH codes under realistic soft-error models.
+  BCH codes under realistic soft-error models, plus polar-code coverage models
+  (64- and 128-bit constructions) grounded in channel polarization theory.
 - **Python analysis tooling** that turns simulation traces into reliability,
   energy and sustainability metrics.
 - **Calibrated data packs** that describe modern technology nodes, operational
@@ -28,7 +29,7 @@ area and sustainability budgets. This repository provides an end-to-end workflow
 for answering those questions:
 
 1. **Model the hardware** – Parameterised C++ simulators emulate different memory
-   organisations, fault models and ECC schemes (Hamming, TAEC, BCH).
+   organisations, fault models and ECC schemes (Hamming, TAEC, BCH, polar).
 2. **Calibrate technology data** – JSON files in `configs/`, `data/` and
    `tech_calib.json` describe device reliability, scrub intervals and energy
    costs.
