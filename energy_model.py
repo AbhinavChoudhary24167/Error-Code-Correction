@@ -233,7 +233,7 @@ def depth_syndrome(bits: int) -> int:
 
 def depth_locator(code: str) -> int:
     """Return adder depth for the locator stage of ``code``."""
-    mapping = {"sec-ded": 1, "sec-daec": 2, "taec": 3}
+    mapping = {"sec-ded": 1, "sec-daec": 2, "taec": 3, "polar": 3}
     try:
         return mapping[code.lower()]
     except KeyError:
@@ -280,7 +280,7 @@ def i_leak_density_A_per_mm2(
     return density_25 * mul * 2 ** ((temp_c - 25.0) / 15.0)
 
 
-_AREA_OVERHEAD = {"sec-ded": 0.1, "sec-daec": 0.12, "taec": 0.15}
+_AREA_OVERHEAD = {"sec-ded": 0.1, "sec-daec": 0.12, "taec": 0.15, "polar": 0.17}
 
 
 def area_overhead_mm2(code: str) -> float:
@@ -312,6 +312,7 @@ _PRIMITIVE_BASE_PER_64: Dict[str, Dict[str, int]] = {
     "sec-ded": {"xor": 100, "and": 50, "adder_stage": 0},
     "sec-daec": {"xor": 120, "and": 60, "adder_stage": 10},
     "taec": {"xor": 150, "and": 70, "adder_stage": 20},
+    "polar": {"xor": 180, "and": 80, "adder_stage": 24},
 }
 
 

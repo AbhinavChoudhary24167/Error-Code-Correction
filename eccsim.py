@@ -148,7 +148,7 @@ def main() -> None:
 
     energy_parser = sub.add_parser("energy", help="Estimate energy use")
     energy_parser.add_argument(
-        "--code", type=str, required=True, choices=["sec-ded", "sec-daec", "taec"]
+        "--code", type=str, required=True, choices=["sec-ded", "sec-daec", "taec", "polar"]
     )
     energy_parser.add_argument("--node", type=float, required=True)
     energy_parser.add_argument("--vdd", type=float, required=True)
@@ -337,7 +337,7 @@ def main() -> None:
         "--ecc",
         type=str,
         default="SEC-DED",
-        choices=["SEC-DED", "SEC-DAEC", "TAEC"],
+        choices=["SEC-DED", "SEC-DAEC", "TAEC", "POLAR"],
     )
     report_parser.add_argument("--scrub-interval", type=float, default=0.0)
     report_parser.add_argument("--capacity-gib", type=float, default=1.0)
@@ -820,7 +820,7 @@ def main() -> None:
                 }
 
             fit_pre = compute_fit_pre(args.word_bits, fit_bit, mbu_rates)
-            coverage = ecc_coverage_factory(args.ecc)
+            coverage = ecc_coverage_factory(args.ecc, word_bits=args.word_bits)
             fit_post = compute_fit_post(
                 args.word_bits, fit_bit, mbu_rates, coverage, args.scrub_interval
             )
