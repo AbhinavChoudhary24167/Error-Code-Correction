@@ -10,6 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import comb
 from math import sqrt
+import math
 from typing import Callable, Mapping, Tuple
 
 Pattern = Tuple[int, str | None]
