@@ -10,6 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import comb
 from math import sqrt
+import math
 from typing import Callable, Mapping, Tuple
 
 Pattern = Tuple[int, str | None]
@@ -134,15 +135,51 @@ def compute_fit_post(
     return FitEstimate(accum + instant, stddev)
 
 
-def ecc_coverage_factory(code: str) -> Callable[[Pattern], float]:
+def _parse_polar_code(code: str) -> tuple[int, int]:
+    """Parse ``POLAR`` code labels into (n, k) parameters."""
+
+    if code == "POLAR":
+        return 6, 48
+    parts = code.split("-")
+    if len(parts) != 3:
+        raise ValueError(f"Unsupported polar code '{code}'")
+    try:
+        n = int(math.log2(int(parts[1])))
+        k = int(parts[2])
+    except ValueError as exc:
+        raise ValueError(f"Unsupported polar code '{code}'") from exc
+    n_bits = int(parts[1])
+    if 2**n != n_bits:
+        raise ValueError(f"Unsupported polar code '{code}'")
+    if k < 0 or k > n_bits:
+        raise ValueError(f"Unsupported polar code '{code}'")
+    return n, k
+
+
+def ecc_coverage_factory(code: str, *, word_bits: int = WORD_BITS) -> Callable[[Pattern], float]:
     """Return a coverage function for the requested ECC ``code``.
 
-    Supported codes are ``"SEC-DED"``, ``"SEC-DAEC"``, ``"TAEC"``, and ``"BCH"``.
-    The returned callable accepts a :class:`Pattern` tuple and returns the
-    probability that the ECC corrects that pattern.
+    Supported codes are ``"SEC-DED"``, ``"SEC-DAEC"``, ``"TAEC"``, ``"BCH"``, and
+    ``"POLAR"`` (including ``POLAR-<N>-<K>`` variants). The returned callable
+    accepts a :class:`Pattern` tuple and returns the probability that the ECC
+    corrects that pattern.
     """
 
     code = code.upper()
+
+    if code.startswith("POLAR"):
+        from polar import PolarCodeModel
+
+        n, k = _parse_polar_code(code)
+        model = PolarCodeModel(n=n, k=k)
+
+        def coverage(pattern: Pattern) -> float:
+            k, kind = pattern
+            if k <= 0:
+                return 1.0
+            return model.coverage(k, word_bits=word_bits, kind=kind)
+
+        return coverage
 
     def coverage(pattern: Pattern) -> float:
         k, kind = pattern
