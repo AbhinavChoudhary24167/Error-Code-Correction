@@ -7,7 +7,7 @@ memories (SRAM). It combines:
 
 - **High-performance C++ simulators** that implement concrete Hamming, TAEC and
   BCH codes under realistic soft-error models, plus polar-code coverage models
-  (64- and 128-bit constructions) grounded in channel polarization theory.
+  grounded in channel polarization theory.
 - **Python analysis tooling** that turns simulation traces into reliability,
   energy and sustainability metrics.
 - **Calibrated data packs** that describe modern technology nodes, operational

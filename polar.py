@@ -12,7 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from functools import lru_cache
 import math
-from typing import List, Sequence
+from typing import Iterable, List
 
 
 def bhattacharyya_bsc(crossover_p: float) -> float:
@@ -43,20 +43,6 @@ def synthetic_channel_bhattacharyya(n: int, crossover_p: float) -> List[float]:
             next_zs.extend((z_minus, z_plus))
         zs = next_zs
     return zs
-
-
-def polar_information_indices(
-    n: int, k: int, crossover_p: float
-) -> Sequence[int]:
-    """Return indices of the ``k`` most reliable synthetic channels."""
-
-    if k <= 0:
-        return []
-    if k >= 2**n:
-        return list(range(2**n))
-    zs = synthetic_channel_bhattacharyya(n, crossover_p)
-    ranked = sorted(range(len(zs)), key=lambda idx: zs[idx])
-    return ranked[:k]
 
 
 def polar_block_error_bound(n: int, k: int, crossover_p: float) -> float:
@@ -101,20 +87,3 @@ class PolarCodeModel:
         block_err = polar_block_error_bound(self.n, self.k, crossover)
         return max(0.0, 1.0 - block_err)
 
-    def info_set(self, crossover_p: float) -> Sequence[int]:
-        """Return frozen/information set selection for the design crossover."""
-
-        return polar_information_indices(self.n, self.k, crossover_p)
-
-
-def polar_catalog() -> List[PolarCodeModel]:
-    """Return a catalog of common polar codes used in this framework."""
-
-    return [
-        PolarCodeModel(n=6, k=32),
-        PolarCodeModel(n=6, k=48),
-        PolarCodeModel(n=7, k=64),
-        PolarCodeModel(n=7, k=96),
-        PolarCodeModel(n=8, k=128),
-        PolarCodeModel(n=8, k=192),
-    ]

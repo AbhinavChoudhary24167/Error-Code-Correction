@@ -62,26 +62,12 @@ _CODE_DB: Dict[str, _CodeInfo] = {
     "bch-63": _CodeInfo(
         "BCH", parity_bits=12, latency_ns=2.4, area_logic_mm2=2.1, notes="BCH(63,51,2)"
     ),
-    "polar-64-32": _CodeInfo(
-        "POLAR-64-32",
-        parity_bits=32,
-        latency_ns=2.2,
-        area_logic_mm2=2.0,
-        notes="Polar (N=64, K=32) SC decoder",
-    ),
-    "polar-64-48": _CodeInfo(
-        "POLAR-64-48",
+    "polar-64": _CodeInfo(
+        "POLAR",
         parity_bits=16,
         latency_ns=2.0,
         area_logic_mm2=1.8,
         notes="Polar (N=64, K=48) SC decoder",
-    ),
-    "polar-128-96": _CodeInfo(
-        "POLAR-128-96",
-        parity_bits=32,
-        latency_ns=2.6,
-        area_logic_mm2=2.4,
-        notes="Polar (N=128, K=96) SC decoder",
     ),
 }
 
