@@ -15,6 +15,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Mapping, Tuple
 
+import argparse
+import sys
+from pathlib import Path
+
 import logging
 
 import hashlib
@@ -665,4 +669,332 @@ def select(
     }
 
 
+def _record_passes_constraints(rec: Mapping[str, object], constraints: Mapping[str, float | None]) -> bool:
+    fit_max = constraints.get("fit_max")
+    lat_max = constraints.get("latency_ns_max")
+    carbon_max = constraints.get("carbon_kg_max")
+    if fit_max is not None and float(rec.get("FIT", float("inf"))) > float(fit_max):
+        return False
+    if lat_max is not None and float(rec.get("latency_ns", float("inf"))) > float(lat_max):
+        return False
+    if carbon_max is not None and float(rec.get("carbon_kg", float("inf"))) > float(carbon_max):
+        return False
+    return True
+
+
+def _constraint_audit(rec: Mapping[str, object] | None, constraints: Mapping[str, float | None]) -> dict[str, bool | None]:
+    if rec is None:
+        return {
+            "fit_max": None,
+            "latency_ns_max": None,
+            "carbon_kg_max": None,
+            "all_pass": None,
+        }
+
+    fit_max = constraints.get("fit_max")
+    lat_max = constraints.get("latency_ns_max")
+    carbon_max = constraints.get("carbon_kg_max")
+    checks = {
+        "fit_max": True if fit_max is None else float(rec.get("FIT", float("inf"))) <= float(fit_max),
+        "latency_ns_max": True if lat_max is None else float(rec.get("latency_ns", float("inf"))) <= float(lat_max),
+        "carbon_kg_max": True if carbon_max is None else float(rec.get("carbon_kg", float("inf"))) <= float(carbon_max),
+    }
+    checks["all_pass"] = bool(checks["fit_max"] and checks["latency_ns_max"] and checks["carbon_kg_max"])
+    return checks
+
+
+def _baseline_choice(result: Mapping[str, object], feasible: list[dict[str, object]]) -> dict[str, object] | None:
+    best = result.get("best")
+    if isinstance(best, dict) and any(r.get("code") == best.get("code") for r in feasible):
+        return best
+    if feasible:
+        return min(
+            feasible,
+            key=lambda r: (float(r.get("carbon_kg", float("inf"))), -float(r.get("NESII", 0.0))),
+        )
+    if isinstance(best, dict):
+        return best
+    return None
+
+
+def _selector_args_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Optional ML-assisted ECC selector")
+    parser.add_argument("--ml-model", type=Path, default=None, help="Path to trained ML model directory")
+    parser.add_argument("--interactive", action="store_true", help="Prompt for missing inputs and optional sweeps")
+    parser.add_argument("--json", action="store_true", help="Emit JSON output")
+
+    parser.add_argument("--codes", type=str, default="sec-ded-64,sec-daec-64,taec-64,bch-63")
+
+    parser.add_argument("--node", type=int, default=None)
+    parser.add_argument("--vdd", type=float, default=None)
+    parser.add_argument("--temp", type=float, default=None)
+    parser.add_argument("--capacity-gib", type=float, default=None)
+    parser.add_argument("--ci", type=float, default=None)
+    parser.add_argument("--bitcell-um2", type=float, default=None)
+
+    parser.add_argument("--mbu", type=str, default="moderate")
+    parser.add_argument("--scrub-s", type=float, default=None)
+    parser.add_argument("--alt-km", type=float, default=None)
+    parser.add_argument("--latitude", type=float, default=None)
+    parser.add_argument("--flux-rel", type=float, default=None)
+
+    parser.add_argument("--fit-max", type=float, default=None)
+    parser.add_argument("--latency-ns-max", type=float, default=None)
+    parser.add_argument("--carbon-kg-max", type=float, default=None)
+
+    return parser
+
+
+def _prompt_float(label: str, current: float | None, default: float) -> float:
+    if current is not None:
+        return float(current)
+    raw = input(f"{label} [{default}]: ").strip()
+    if not raw:
+        return float(default)
+    return float(raw)
+
+
+def _prompt_int(label: str, current: int | None, default: int) -> int:
+    if current is not None:
+        return int(current)
+    raw = input(f"{label} [{default}]: ").strip()
+    if not raw:
+        return int(default)
+    return int(raw)
+
+
+def _prompt_optional_float(label: str, current: float | None) -> float | None:
+    if current is not None:
+        return float(current)
+    raw = input(f"{label} [none]: ").strip()
+    if not raw:
+        return None
+    return float(raw)
+
+
+def _prompt_yes_no(label: str, default_yes: bool = False) -> bool:
+    default_token = "Y/n" if default_yes else "y/N"
+    raw = input(f"{label} ({default_token}): ").strip().lower()
+    if not raw:
+        return default_yes
+    return raw in {"y", "yes"}
+
+
+def _interactive_fill(args: argparse.Namespace) -> None:
+    args.node = _prompt_int("Technology node (nm)", args.node, 14)
+    args.vdd = _prompt_float("Vdd", args.vdd, 0.8)
+    args.temp = _prompt_float("Temperature C", args.temp, 75.0)
+    args.capacity_gib = _prompt_float("Capacity GiB", args.capacity_gib, 8.0)
+    args.ci = _prompt_float("Carbon intensity kgCO2e/kWh", args.ci, 0.55)
+    args.bitcell_um2 = _prompt_float("Bitcell area um^2", args.bitcell_um2, 0.04)
+    args.scrub_s = _prompt_float("Scrub interval s", args.scrub_s, 10.0)
+    args.alt_km = _prompt_float("Altitude km", args.alt_km, 0.0)
+    args.latitude = _prompt_float("Latitude deg", args.latitude, 45.0)
+    args.fit_max = _prompt_optional_float("FIT max constraint", args.fit_max)
+    args.latency_ns_max = _prompt_optional_float("Latency max (ns)", args.latency_ns_max)
+    args.carbon_kg_max = _prompt_optional_float("Carbon max (kg)", args.carbon_kg_max)
+
+
+def _apply_defaults(args: argparse.Namespace) -> None:
+    if args.scrub_s is None:
+        args.scrub_s = 10.0
+    if args.alt_km is None:
+        args.alt_km = 0.0
+    if args.latitude is None:
+        args.latitude = 45.0
+
+
+def _required_missing(args: argparse.Namespace) -> list[str]:
+    required = ["node", "vdd", "temp", "capacity_gib", "ci", "bitcell_um2"]
+    return [name for name in required if getattr(args, name) is None]
+
+
+def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
+    from ml.predict import predict_with_model
+    from ml.explain import format_decision_explanation
+
+    constraints: dict[str, float | None] = {
+        "fit_max": args.fit_max,
+        "latency_ns_max": args.latency_ns_max,
+        "carbon_kg_max": args.carbon_kg_max,
+    }
+
+    codes = [c.strip() for c in args.codes.split(",") if c.strip()]
+    scenario = {
+        "node": int(args.node),
+        "vdd": float(args.vdd),
+        "temp": float(args.temp),
+        "capacity_gib": float(args.capacity_gib),
+        "ci": float(args.ci),
+        "bitcell_um2": float(args.bitcell_um2),
+    }
+
+    result = select(
+        codes,
+        constraints=constraints,
+        mbu=args.mbu,
+        scrub_s=float(args.scrub_s),
+        alt_km=float(args.alt_km),
+        latitude_deg=float(args.latitude),
+        flux_rel=float(args.flux_rel) if args.flux_rel is not None else None,
+        **scenario,
+    )
+
+    records = [dict(r) for r in result.get("candidate_records", [])]
+    feasible = [r for r in records if _record_passes_constraints(r, constraints)]
+    baseline = _baseline_choice(result, feasible)
+
+    ml_choice = None
+    ml_prediction = None
+    if feasible:
+        scored = []
+        for rec in feasible:
+            row = dict(rec)
+            row.update(scenario)
+            pred = predict_with_model(args.ml_model, row)
+            scored.append((float(pred["predictions"]["carbon_kg"]), -float(pred["confidence"]), rec, pred))
+        _, _, ml_choice, ml_prediction = min(
+            scored, key=lambda item: (item[0], item[1], str(item[2].get("code")))
+        )
+
+    fallback_reason = None
+    if not feasible:
+        fallback_reason = "No feasible candidate satisfies hard constraints"
+    elif ml_prediction and ml_prediction.get("fallback_reason"):
+        fallback_reason = str(ml_prediction["fallback_reason"])
+
+    final_choice = baseline
+    if ml_choice is not None and fallback_reason is None:
+        final_choice = ml_choice
+
+    baseline_code = baseline.get("code") if isinstance(baseline, dict) else None
+    ml_code = ml_choice.get("code") if isinstance(ml_choice, dict) else None
+    final_code = final_choice.get("code") if isinstance(final_choice, dict) else None
+
+    confidence = 0.0
+    if ml_prediction is not None:
+        confidence = float(ml_prediction.get("confidence", 0.0))
+
+    explanation = format_decision_explanation(
+        baseline_code=str(baseline_code),
+        ml_code=str(ml_code),
+        confidence=confidence,
+        fallback_reason=fallback_reason,
+        hard_constraints_ok=bool(_constraint_audit(final_choice, constraints)["all_pass"]),
+    )
+
+    return {
+        "baseline_recommendation": baseline_code,
+        "ml_recommendation": ml_code,
+        "final_decision": final_code,
+        "confidence": confidence,
+        "fallback_used": fallback_reason is not None,
+        "fallback_reason": fallback_reason,
+        "constraints": constraints,
+        "constraints_audit": {
+            "baseline": _constraint_audit(baseline, constraints),
+            "ml": _constraint_audit(ml_choice, constraints),
+            "final": _constraint_audit(final_choice, constraints),
+        },
+        "explanation": explanation,
+        "predictions": ml_prediction.get("predictions") if ml_prediction else None,
+        "scenario_hash": result.get("scenario_hash"),
+    }
+
+
+def _run_optional_sweeps(args: argparse.Namespace) -> dict[str, list[dict[str, object]]]:
+    sweeps: dict[str, list[dict[str, object]]] = {}
+
+    if _prompt_yes_no("Run BER decade sweep?", default_yes=False):
+        start_exp = int(_prompt_int("BER decade start exponent", None, -12))
+        end_exp = int(_prompt_int("BER decade end exponent", None, -6))
+        step = 1 if end_exp >= start_exp else -1
+        ber_rows: list[dict[str, object]] = []
+        for exp in range(start_exp, end_exp + step, step):
+            ber = 10.0**exp
+            sweep_args = argparse.Namespace(**vars(args))
+            sweep_args.flux_rel = ber / 1e-9
+            out = _run_ml_advisory(sweep_args)
+            ber_rows.append({
+                "ber": ber,
+                "final_decision": out["final_decision"],
+                "fallback_used": out["fallback_used"],
+                "confidence": out["confidence"],
+            })
+        sweeps["ber_decade_sweep"] = ber_rows
+
+    if _prompt_yes_no("Run Vdd sweep?", default_yes=False):
+        v_start = _prompt_float("Vdd sweep start", None, max(0.1, float(args.vdd) - 0.1))
+        v_end = _prompt_float("Vdd sweep end", None, float(args.vdd) + 0.1)
+        v_step = _prompt_float("Vdd sweep step", None, 0.05)
+        if v_step <= 0:
+            v_step = 0.05
+
+        rows: list[dict[str, object]] = []
+        v = v_start
+        direction = 1 if v_end >= v_start else -1
+        while (direction == 1 and v <= v_end + 1e-12) or (direction == -1 and v >= v_end - 1e-12):
+            sweep_args = argparse.Namespace(**vars(args))
+            sweep_args.vdd = round(v, 6)
+            out = _run_ml_advisory(sweep_args)
+            rows.append({
+                "vdd": sweep_args.vdd,
+                "final_decision": out["final_decision"],
+                "fallback_used": out["fallback_used"],
+                "confidence": out["confidence"],
+            })
+            v += direction * abs(v_step)
+        sweeps["vdd_sweep"] = rows
+
+    return sweeps
+
+
+def main(argv: list[str] | None = None) -> None:
+    argv = list(sys.argv[1:] if argv is None else argv)
+
+    # Backward compatibility: legacy positional invocations historically no-op.
+    if "--ml-model" not in argv and "--interactive" not in argv:
+        return
+
+    parser = _selector_args_parser()
+    args = parser.parse_args(argv)
+
+    if args.ml_model is None:
+        parser.error("--ml-model is required when ML mode is enabled")
+
+    if args.interactive:
+        _interactive_fill(args)
+
+    _apply_defaults(args)
+    missing = _required_missing(args)
+    if missing:
+        parser.error("Missing required arguments: " + ", ".join(missing))
+
+    decision = _run_ml_advisory(args)
+
+    if args.interactive:
+        decision["sweeps"] = _run_optional_sweeps(args)
+
+    if args.json:
+        print(json.dumps(decision, indent=2, sort_keys=True))
+    else:
+        print(f"baseline recommendation: {decision['baseline_recommendation']}")
+        print(f"ml recommendation: {decision['ml_recommendation']}")
+        print(f"final decision: {decision['final_decision']}")
+        print(f"confidence: {decision['confidence']:.3f}")
+        print(f"fallback used: {decision['fallback_used']}")
+        if decision["fallback_reason"]:
+            print(f"fallback reason: {decision['fallback_reason']}")
+        print(f"constraints audit: {json.dumps(decision['constraints_audit'], sort_keys=True)}")
+        print(f"explanation: {decision['explanation']}")
+
+        sweeps = decision.get("sweeps") or {}
+        for key, rows in sweeps.items():
+            print(f"{key}: {len(rows)} points")
+
+
 __all__ = ["select", "_pareto_front", "_nsga2_sort"]
+
+
+if __name__ == "__main__":
+    main()

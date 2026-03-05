@@ -658,3 +658,61 @@ methodology, quantitative results and references in publication form.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## ML Integration
+
+The ML layer is **advisory-only** and is disabled by default. Existing commands and output schemas are unchanged unless you explicitly enable ML.
+
+### 1) Build Dataset
+
+```bash
+python3 eccsim.py ml build-dataset --from reports/examples --out ml_artifacts/dataset --seed 1
+```
+
+Outputs:
+- `dataset.csv`
+- `dataset_schema.json`
+- `dataset_manifest.json` (includes git commit + config hashes)
+
+### 2) Train Model
+
+```bash
+python3 eccsim.py ml train --dataset ml_artifacts/dataset --model-out ml_artifacts/model --seed 1
+```
+
+Outputs:
+- `model.joblib`
+- `model_card.md`
+- `metrics.json`
+- `features.json`
+- `thresholds.json`
+
+### 3) Enable ML During Selection
+
+```bash
+python3 ecc_selector.py \
+  --ml-model ml_artifacts/model \
+  --node 14 --vdd 0.8 --temp 75 \
+  --capacity-gib 8 --ci 0.55 --bitcell-um2 0.04 --json
+```
+
+The output includes:
+- baseline recommendation
+- ML recommendation
+- final decision
+- confidence
+- explanation
+- hard-constraint audit
+
+If the model is uncertain or out-of-distribution, the selector explicitly falls back to the baseline rule/physics result.
+
+### 4) Interactive Mode + Sweeps
+
+```bash
+python3 ecc_selector.py --interactive --ml-model ml_artifacts/model
+```
+
+Interactive mode prompts for missing inputs, then optionally runs:
+- BER decade sweep
+- Vdd sweep
+

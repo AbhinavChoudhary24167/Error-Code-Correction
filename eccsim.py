@@ -138,6 +138,10 @@ def main() -> None:
     tech_hash = _file_hash(repo_path / "tech_calib.json")
     git_hash = _git_hash()
 
+    if len(sys.argv) == 2 and sys.argv[1] == "--version":
+        print(f"{git_hash} {tech_hash} {version_base}")
+        return
+
     parser = argparse.ArgumentParser(description="ECC simulator")
     parser.add_argument(
         "--version",
@@ -350,7 +354,37 @@ def main() -> None:
     report_parser.add_argument("--tempC", type=float, required=True)
     report_parser.add_argument("--json", action="store_true")
 
+    ml_parser = sub.add_parser("ml", help="Optional ML advisory workflows")
+    ml_sub = ml_parser.add_subparsers(dest="ml_command")
+
+    ml_build = ml_sub.add_parser("build-dataset", help="Build ML dataset from ECC artifacts")
+    ml_build.add_argument("--from", dest="from_dir", type=Path, required=True)
+    ml_build.add_argument("--out", dest="out_dir", type=Path, required=True)
+    ml_build.add_argument("--seed", type=int, default=1)
+
+    ml_train = ml_sub.add_parser("train", help="Train ML advisory model")
+    ml_train.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
+    ml_train.add_argument("--model-out", type=Path, required=True)
+    ml_train.add_argument("--seed", type=int, default=1)
+
     args = parser.parse_args()
+
+    if args.command == "ml":
+        if args.ml_command == "build-dataset":
+            from ml.dataset import build_dataset
+
+            artifacts = build_dataset(args.from_dir, args.out_dir, seed=args.seed)
+            for key in ("dataset", "schema", "manifest"):
+                print(f"{key}: {artifacts[key]}")
+        elif args.ml_command == "train":
+            from ml.train import train_models
+
+            artifacts = train_models(args.dataset, args.model_out, seed=args.seed)
+            for key in ("model", "metrics", "features", "thresholds", "model_card"):
+                print(f"{key}: {artifacts[key]}")
+        else:
+            parser.error("ml subcommand required")
+        return
 
     if args.command == "analyze":
         if args.analyze_command == "tradeoffs":

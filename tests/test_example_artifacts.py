@@ -1,4 +1,4 @@
-import hashlib
+﻿import hashlib
 from pathlib import Path
 
 # Expected SHA256 checksums for example artifacts
@@ -16,6 +16,11 @@ EXPECTED = {
 
 def sha256sum(path: Path) -> str:
     h = hashlib.sha256()
+    if path.suffix.lower() in {".csv", ".json"}:
+        text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+        h.update(text.encode("utf-8"))
+        return h.hexdigest()
+
     with path.open("rb") as fh:
         for chunk in iter(lambda: fh.read(8192), b""):
             h.update(chunk)

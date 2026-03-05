@@ -1,12 +1,13 @@
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 
 def test_energy_cli_json(tmp_path):
     script = Path(__file__).resolve().parents[2] / "eccsim.py"
     cmd = [
-        "python3",
+        sys.executable,
         str(script),
         "energy",
         "--code",
