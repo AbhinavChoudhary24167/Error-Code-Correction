@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Optional
 
 import pandas as pd
 
-from ecc_selector import _pareto_front
+from analysis.pareto import pareto_partition
 
 import subprocess
 import hashlib
@@ -48,10 +48,12 @@ def analyze_surface(
 
     df = pd.read_csv(cand_csv)
 
-    # Identify Pareto frontier
-    recs = df[["code", "FIT", "carbon_kg", "latency_ns"]].to_dict("records")
-    frontier = {r["code"] for r in _pareto_front(recs)}
-    df["frontier"] = df["code"].isin(frontier)
+    # Identify Pareto frontier using strict shared helper.
+    metrics = df[["FIT", "carbon_kg", "latency_ns"]].to_dict("records")
+    part = pareto_partition(metrics, objectives={"FIT": "min", "carbon_kg": "min", "latency_ns": "min"})
+    front_idx = set(part.frontier_indices)
+    df["frontier"] = [idx in front_idx for idx in range(len(df))]
+    frontier = {str(df.iloc[idx]["code"]) for idx in part.frontier_indices}
 
     # NESII bounds check
     if "NESII" in df.columns:
@@ -71,40 +73,45 @@ def analyze_surface(
 
     if plot is not None:
         try:
+            import matplotlib
+            matplotlib.use("Agg", force=True)
             import matplotlib.pyplot as plt  # type: ignore
-        except Exception:  # pragma: no cover - optional dependency
-            plot.write_text("matplotlib not installed")
-        else:
-            dominated = df[~df["frontier"]]
-            front = df[df["frontier"]]
-            plt.figure()
-            if not dominated.empty:
-                plt.scatter(
-                    dominated["carbon_kg"],
-                    dominated["FIT"],
-                    c=dominated["latency_ns"],
-                    cmap="viridis",
-                    alpha=0.3,
-                    label="dominated",
-                )
-            if not front.empty:
-                plt.scatter(
-                    front["carbon_kg"],
-                    front["FIT"],
-                    c=front["latency_ns"],
-                    cmap="viridis",
-                    edgecolors="black",
-                    label="frontier",
-                )
-            plt.xlabel("carbon_kg")
-            plt.ylabel("FIT")
-            plt.title("Feasible surface")
-            plt.legend()
-            plt.tight_layout()
-            plt.savefig(plot)
-            plt.close()
+        except Exception as exc:  # pragma: no cover - optional dependency
+            raise RuntimeError("matplotlib is required for --plot in analyze surface") from exc
+
+        dominated = df[~df["frontier"]]
+        front = df[df["frontier"]]
+        plt.figure()
+        if not dominated.empty:
+            plt.scatter(
+                dominated["carbon_kg"],
+                dominated["FIT"],
+                c=dominated["latency_ns"],
+                cmap="viridis",
+                alpha=0.3,
+                label="dominated",
+            )
+        if not front.empty:
+            plt.scatter(
+                front["carbon_kg"],
+                front["FIT"],
+                c=front["latency_ns"],
+                cmap="viridis",
+                edgecolors="black",
+                label="frontier",
+            )
+        plt.xlabel("carbon_kg")
+        plt.ylabel("FIT")
+        plt.title("Feasible surface")
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(plot)
+        plt.close()
 
     return SurfaceResult(df=df, frontier_codes=frontier, git=git, tech_calib=tech, scenario_hash=scen_hash)
 
 
 __all__ = ["analyze_surface", "SurfaceResult"]
+
+
+

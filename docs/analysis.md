@@ -23,6 +23,36 @@ The repository ships sample outputs in
 `reports/examples/sku-64b-128Gb/mbu-light_ci-0.55_scrub-5/` and
 `reports/examples/sku-32b-1Gb/mbu-light_ci-0.55_scrub-5/`.
 
+## Strict Plotting
+
+Use the strict factual plotting pipeline to build Pareto plots from complete
+scenario-matching rows:
+
+```bash
+python3 eccsim.py plot pareto \
+  --from reports/ \
+  --node 7 --vdd 0.8 --temp 25 \
+  --capacity-gib 1 --scrub-interval-s 5 \
+  --codes sec-ded-64,sec-daec-64,taec-64 \
+  --x carbon_kg --y FIT \
+  --show-dominated \
+  --save-metadata \
+  --strict-scenario \
+  --error-on-empty \
+  --out reports/plots/pareto_node7_vdd0p8.png
+```
+
+The command writes:
+
+- `reports/plots/pareto_node7_vdd0p8.png`
+- `reports/plots/pareto_node7_vdd0p8.json`
+
+Metadata captures scenario resolution, source files, row counts, objective
+directions, axis transforms, and row-level provenance used for the plot.
+
+If only reduced artifacts (for example `pareto.csv`) are found, the pipeline
+attempts to recompute full candidate rows from resolvable `scenario.json`
+files. If recompute is impossible, the command fails explicitly.
 ## Surfaces
 Classify the feasible surface and plot it:
 
@@ -110,3 +140,4 @@ eccsim analyze archetype \
 
 This sequence provides a complete user-level path from raw simulation outputs to
 high-level design guidance.
+

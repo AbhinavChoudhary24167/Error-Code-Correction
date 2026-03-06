@@ -1,49 +1,67 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-from ecc_selector import select
+from __future__ import annotations
+
+"""CLI wrapper for strict factual Pareto plotting."""
+
+import argparse
+from pathlib import Path
+
+from analysis.plot_pipeline import PlotRequest, generate_pareto_plot
 
 
 def main() -> None:
-    """Generate a scatter plot for the Pareto frontier.
+    parser = argparse.ArgumentParser(description="Generate a factual Pareto plot from ECC artifacts")
+    parser.add_argument("--from", dest="from_path", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--x", type=str, default="carbon_kg")
+    parser.add_argument("--y", type=str, default="FIT")
+    parser.add_argument("--x-objective", choices=["min", "max"], default="min")
+    parser.add_argument("--y-objective", choices=["min", "max"], default="min")
+    parser.add_argument("--codes", type=str, default=None)
+    parser.add_argument("--node", type=int, default=None)
+    parser.add_argument("--vdd", type=float, default=None)
+    parser.add_argument("--temp", type=float, default=None)
+    parser.add_argument("--scrub-interval-s", dest="scrub_interval_s", type=float, default=None)
+    parser.add_argument("--capacity-gib", type=float, default=None)
+    parser.add_argument("--target-ber", dest="target_ber", type=float, default=None)
+    parser.add_argument("--show-dominated", action="store_true")
+    parser.add_argument("--save-metadata", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--strict-scenario", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--error-on-empty", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--log-x", action="store_true")
+    parser.add_argument("--log-y", action="store_true")
+    args = parser.parse_args()
 
-    The plot illustrates the trade-offs between FIT and carbon footprint for
-    a small set of ECC codes.  Point colour encodes latency in nanoseconds.
-    """
-    params = {
-        "node": 14,
-        "vdd": 0.8,
-        "temp": 75.0,
-        "capacity_gib": 8.0,
-        "ci": 0.55,
-        "bitcell_um2": 0.040,
-    }
-    codes = ["sec-ded-64", "sec-daec-64", "taec-64"]
-    result = select(codes, **params)
-    pareto = result["pareto"]
-    if not pareto:
-        raise SystemExit("No Pareto frontier returned")
-    df = pd.DataFrame(pareto)
-    df.to_csv("pareto.csv", index=False)
-    plt.figure()
-    scatter = plt.scatter(
-        df["FIT"], df["carbon_kg"], c=df["latency_ns"], cmap="viridis"
+    req = PlotRequest(
+        from_path=args.from_path,
+        out_path=args.out,
+        x=args.x,
+        y=args.y,
+        x_objective=args.x_objective,
+        y_objective=args.y_objective,
+        scenario_filters={
+            "codes": args.codes,
+            "node": args.node,
+            "vdd": args.vdd,
+            "temp": args.temp,
+            "scrub_interval_s": args.scrub_interval_s,
+            "capacity_gib": args.capacity_gib,
+            "target_ber": args.target_ber,
+        },
+        show_dominated=args.show_dominated,
+        save_metadata=args.save_metadata,
+        strict_scenario=args.strict_scenario,
+        error_on_empty=args.error_on_empty,
+        log_x=args.log_x,
+        log_y=args.log_y,
     )
-    for _, row in df.iterrows():
-        plt.annotate(
-            row["code"],
-            (row["FIT"], row["carbon_kg"]),
-            xytext=(5, 5),
-            textcoords="offset points",
-            fontsize=8,
-        )
-    plt.colorbar(scatter, label="Latency (ns)")
-    plt.xlabel("FIT")
-    plt.ylabel("Carbon (kg)")
-    plt.title("Pareto frontier trade-offs")
-    plt.tight_layout()
-    plt.savefig("pareto_tradeoff.png", dpi=300)
-    print("Plot saved as pareto_tradeoff.png")
+    result = generate_pareto_plot(req)
+    print(
+        f"plot={result.out_path} rows_loaded={result.rows_loaded} "
+        f"rows_filtered={result.rows_filtered} rows_plotted={result.rows_plotted}"
+    )
+    if result.metadata_path is not None:
+        print(f"metadata={result.metadata_path}")
 
 
-if __name__ == "__main__":  # pragma: no cover - manual execution
+if __name__ == "__main__":  # pragma: no cover - manual entrypoint
     main()

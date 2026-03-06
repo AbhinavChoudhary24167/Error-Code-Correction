@@ -546,6 +546,28 @@ A quick reference to the on-disk artefacts discussed above:
 Every JSON document embeds an `inputs` section. Archive these files together
 with your presentation or publication to guarantee reproducibility.
 
+## Strict Plotting
+
+Use the strict plotting path when generating decision plots from artifact trees:
+
+```bash
+python3 eccsim.py plot pareto \
+  --from reports/ \
+  --node 7 --vdd 0.8 --temp 25 \
+  --capacity-gib 1 --scrub-interval-s 5 \
+  --codes sec-ded-64,sec-daec-64,taec-64 \
+  --x carbon_kg --y FIT \
+  --show-dominated --save-metadata \
+  --strict-scenario --error-on-empty \
+  --out reports/plots/pareto_node7_vdd0p8.png
+```
+
+This command writes both the image and a provenance sidecar JSON. The sidecar
+records scenario resolution, source files, row counts, objective directions,
+transforms, and row-level source references.
+
+See [`docs/plotting.md`](docs/plotting.md) for filtering rules, tolerances, and
+provenance verification steps.
 ## Advanced Analysis
 
 `eccsim` exposes several knobs to tailor the search space and to constrain
@@ -715,4 +737,5 @@ python3 ecc_selector.py --interactive --ml-model ml_artifacts/model
 Interactive mode prompts for missing inputs, then optionally runs:
 - BER decade sweep
 - Vdd sweep
+
 

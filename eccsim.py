@@ -312,6 +312,33 @@ def main() -> None:
     sens_parser.add_argument("--from", dest="from_json", type=Path, required=True)
     sens_parser.add_argument("--out", type=Path, required=True)
 
+    plot_parser = sub.add_parser("plot", help="Strict factual plotting")
+    plot_sub = plot_parser.add_subparsers(dest="plot_command")
+
+    plot_pareto = plot_sub.add_parser("pareto", help="Generate scenario-exact Pareto plot")
+    plot_pareto.add_argument("--from", dest="from_path", type=Path, required=True)
+    plot_pareto.add_argument("--x", type=str, default="carbon_kg")
+    plot_pareto.add_argument("--y", type=str, default="FIT")
+    plot_pareto.add_argument("--x-objective", choices=["min", "max"], default="min")
+    plot_pareto.add_argument("--y-objective", choices=["min", "max"], default="min")
+    plot_pareto.add_argument("--out", type=Path, required=True)
+    plot_pareto.add_argument("--codes", type=str, default=None)
+    plot_pareto.add_argument("--node", type=int, default=None)
+    plot_pareto.add_argument("--vdd", type=float, default=None)
+    plot_pareto.add_argument("--temp", type=float, default=None)
+    plot_pareto.add_argument("--scrub-interval-s", dest="scrub_interval_s", type=float, default=None)
+    plot_pareto.add_argument("--capacity-gib", type=float, default=None)
+    plot_pareto.add_argument("--target-ber", dest="target_ber", type=float, default=None)
+    plot_pareto.add_argument("--burst-length", dest="burst_length", type=int, default=None)
+    plot_pareto.add_argument("--required-bits", dest="required_bits", type=int, default=None)
+    plot_pareto.add_argument("--sustainability", dest="sustainability", action="store_true")
+    plot_pareto.add_argument("--energy-budget-nj", dest="energy_budget_nj", type=float, default=None)
+    plot_pareto.add_argument("--show-dominated", action="store_true")
+    plot_pareto.add_argument("--save-metadata", action=argparse.BooleanOptionalAction, default=True)
+    plot_pareto.add_argument("--strict-scenario", action=argparse.BooleanOptionalAction, default=True)
+    plot_pareto.add_argument("--error-on-empty", action=argparse.BooleanOptionalAction, default=True)
+    plot_pareto.add_argument("--log-x", action="store_true")
+    plot_pareto.add_argument("--log-y", action="store_true")
     reliability_parser = sub.add_parser(
         "reliability", help="Reliability calculations"
     )
@@ -386,6 +413,54 @@ def main() -> None:
             parser.error("ml subcommand required")
         return
 
+    if args.command == "plot":
+        if args.plot_command == "pareto":
+            from analysis.plot_pipeline import PlotRequest, generate_pareto_plot
+
+            scenario_filters = {
+                "codes": args.codes,
+                "node": args.node,
+                "vdd": args.vdd,
+                "temp": args.temp,
+                "scrub_interval_s": args.scrub_interval_s,
+                "capacity_gib": args.capacity_gib,
+                "target_ber": args.target_ber,
+                "burst_length": args.burst_length,
+                "required_bits": args.required_bits,
+                "sustainability": True if args.sustainability else None,
+                "energy_budget_nj": args.energy_budget_nj,
+            }
+            try:
+                result = generate_pareto_plot(
+                    PlotRequest(
+                        from_path=args.from_path,
+                        out_path=args.out,
+                        x=args.x,
+                        y=args.y,
+                        scenario_filters=scenario_filters,
+                        show_dominated=args.show_dominated,
+                        save_metadata=args.save_metadata,
+                        strict_scenario=args.strict_scenario,
+                        error_on_empty=args.error_on_empty,
+                        log_x=args.log_x,
+                        log_y=args.log_y,
+                        x_objective=args.x_objective,
+                        y_objective=args.y_objective,
+                        allow_recompute=True,
+                    )
+                )
+            except Exception as exc:
+                plot_pareto.error(str(exc))
+
+            print(
+                f"plot={result.out_path} rows_loaded={result.rows_loaded} "
+                f"rows_filtered={result.rows_filtered} rows_plotted={result.rows_plotted}"
+            )
+            if result.metadata_path is not None:
+                print(f"metadata={result.metadata_path}")
+        else:
+            parser.error("plot subcommand required")
+        return
     if args.command == "analyze":
         if args.analyze_command == "tradeoffs":
             from analysis.tradeoff import TradeoffConfig, analyze_tradeoffs
@@ -551,20 +626,39 @@ def main() -> None:
                     writer.writerow(row)
 
         if args.plot:
+            from analysis.plot_pipeline import generate_pareto_plot_from_records
+
+            scenario_for_plot = {
+                "codes": codes,
+                "node": args.node,
+                "vdd": args.vdd,
+                "temp": args.temp,
+                "mbu": args.mbu,
+                "scrub_s": args.scrub_s,
+                "capacity_gib": args.capacity_gib,
+                "ci": args.ci,
+                "bitcell_um2": args.bitcell_um2,
+                "alt_km": args.alt_km,
+                "latitude_deg": args.latitude,
+                "flux_rel": args.flux_rel,
+                "lifetime_h": args.lifetime_h,
+                "ci_source": args.ci_source,
+            }
             try:
-                import matplotlib.pyplot as plt  # type: ignore
-            except Exception:  # pragma: no cover - optional dependency
-                print("matplotlib not available; skipping plot", file=sys.stderr)
-            else:
-                xs = [r["carbon_kg"] for r in result["pareto"]]
-                ys = [r["FIT"] for r in result["pareto"]]
-                plt.scatter(xs, ys)
-                for r in result["pareto"]:
-                    plt.annotate(r["code"], (r["carbon_kg"], r["FIT"]))
-                plt.xlabel("carbon_kg")
-                plt.ylabel("FIT")
-                plt.tight_layout()
-                plt.savefig(args.plot)
+                generate_pareto_plot_from_records(
+                    [dict(r) for r in result.get("candidate_records", [])],
+                    out_path=args.plot,
+                    x="carbon_kg",
+                    y="FIT",
+                    x_objective="min",
+                    y_objective="min",
+                    show_dominated=True,
+                    save_metadata=True,
+                    scenario=scenario_for_plot,
+                    source_files=[str(args.emit_candidates)] if args.emit_candidates else None,
+                )
+            except Exception as exc:
+                parser.error(str(exc))
 
         if result["best"]:
             best = result["best"]
@@ -909,3 +1003,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+
