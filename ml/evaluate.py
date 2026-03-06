@@ -61,7 +61,8 @@ def evaluate_model(
 
     ood_count = sum(ood_flags)
     low_conf_count = sum(low_conf_flags)
-    fallback_count = sum(ood or low_conf for ood, low_conf in zip(ood_flags, low_conf_flags))
+    fallback_flags = [ood or low_conf for ood, low_conf in zip(ood_flags, low_conf_flags)]
+    fallback_count = sum(fallback_flags)
 
     evaluation = {
         "summary": {
