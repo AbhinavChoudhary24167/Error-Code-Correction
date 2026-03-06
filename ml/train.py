@@ -1,4 +1,4 @@
-﻿"""Training pipeline for optional ECC ML models."""
+"""Training pipeline for optional ECC ML models."""
 
 from __future__ import annotations
 
@@ -7,11 +7,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import pandas as pd
-from sklearn.compose import ColumnTransformer
 from sklearn.calibration import CalibratedClassifierCV
+from sklearn.compose import ColumnTransformer
 from sklearn.dummy import DummyClassifier, DummyRegressor
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.ensemble import IsolationForest, RandomForestClassifier, RandomForestRegressor
 from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.metrics import accuracy_score, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -20,6 +21,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 from .features import CATEGORICAL_FEATURES, NUMERIC_FEATURES, TARGET_COLUMNS
 from .model_registry import save_model_bundle
+from .predict import _ood_score
 
 
 def _as_float_dict(series: pd.Series) -> dict[str, float]:
@@ -76,6 +78,124 @@ def _fit_regressor(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_t
     return pipe
 
 
+def _bounded_quantile(values: np.ndarray, q: float) -> float:
+    if values.size == 0:
+        return 0.0
+    q = min(max(float(q), 0.0), 1.0)
+    return float(np.quantile(values, q))
+
+
+def _expected_calibration_error(
+    y_true: np.ndarray,
+    y_pred_idx: np.ndarray,
+    confidences: np.ndarray,
+    bins: int = 10,
+) -> float:
+    if y_true.size == 0:
+        return 0.0
+    ece = 0.0
+    n = float(y_true.size)
+    edges = np.linspace(0.0, 1.0, bins + 1)
+    for i in range(bins):
+        lo, hi = edges[i], edges[i + 1]
+        if i == bins - 1:
+            mask = (confidences >= lo) & (confidences <= hi)
+        else:
+            mask = (confidences >= lo) & (confidences < hi)
+        count = int(mask.sum())
+        if count == 0:
+            continue
+        acc = float((y_true[mask] == y_pred_idx[mask]).mean())
+        conf = float(confidences[mask].mean())
+        ece += abs(acc - conf) * (count / n)
+    return float(ece)
+
+
+def _multiclass_brier(probs: np.ndarray, y_true_idx: np.ndarray) -> float:
+    if probs.size == 0:
+        return 0.0
+    one_hot = np.zeros_like(probs)
+    for i, idx in enumerate(y_true_idx):
+        if 0 <= idx < probs.shape[1]:
+            one_hot[i, idx] = 1.0
+    return float(np.mean(np.sum((probs - one_hot) ** 2, axis=1)))
+
+
+def _conformal_probability_floor(
+    probs: np.ndarray,
+    y_true_idx: np.ndarray,
+    alpha: float,
+) -> tuple[float, float]:
+    """Return (probability floor, observed coverage) for split-conformal sets."""
+
+    if probs.size == 0 or y_true_idx.size == 0:
+        # Degenerate calibration set: fallback to singleton top-1 sets.
+        return 1.0, 1.0
+
+    n = y_true_idx.size
+    true_probs = np.asarray([probs[i, idx] for i, idx in enumerate(y_true_idx)], dtype=float)
+    nonconformity = 1.0 - true_probs
+
+    # Conservative split-conformal quantile index.
+    q_level = min(1.0, max(0.0, np.ceil((n + 1) * (1.0 - alpha)) / n))
+    qhat = _bounded_quantile(nonconformity, q_level)
+    prob_floor = float(min(max(1.0 - qhat, 0.0), 1.0))
+
+    coverage_flags: list[bool] = []
+    for i, idx in enumerate(y_true_idx):
+        pred_set = np.where(probs[i] >= prob_floor)[0]
+        if pred_set.size == 0:
+            pred_set = np.asarray([int(np.argmax(probs[i]))])
+        coverage_flags.append(int(idx) in set(int(x) for x in pred_set.tolist()))
+    observed_coverage = float(np.mean(coverage_flags)) if coverage_flags else 1.0
+    return prob_floor, observed_coverage
+
+
+def _calibrate_ood(
+    *,
+    bundle_stub: dict[str, Any],
+    X_train: pd.DataFrame,
+    method: str,
+    quantile: float,
+    seed: int,
+) -> tuple[dict[str, Any], float]:
+    method_norm = str(method).strip().lower()
+    ood_payload: dict[str, Any] = {"method": method_norm}
+
+    X_num = X_train[NUMERIC_FEATURES].to_numpy(dtype=float)
+    scores: list[float] = []
+
+    if method_norm == "iforest":
+        iforest = IsolationForest(random_state=seed, contamination="auto")
+        iforest.fit(X_num)
+        ood_payload["iforest_model"] = iforest
+        scores = (-iforest.score_samples(X_num)).tolist()
+    elif method_norm == "mahalanobis":
+        mean = X_num.mean(axis=0)
+        cov = np.cov(X_num, rowvar=False)
+        if cov.ndim == 0:
+            cov = np.asarray([[float(cov)]], dtype=float)
+        reg = 1e-6
+        cov_reg = cov + np.eye(cov.shape[0]) * reg
+        inv_cov = np.linalg.pinv(cov_reg)
+        ood_payload["mahalanobis_mean"] = mean.tolist()
+        ood_payload["mahalanobis_inv_cov"] = inv_cov.tolist()
+
+        for row in X_num:
+            diff = row - mean
+            dist = float(np.sqrt(max(0.0, float(diff @ inv_cov @ diff.T))))
+            scores.append(dist)
+    else:
+        ood_payload["method"] = "zscore"
+        for _, row in X_train.iterrows():
+            feature_row = {k: row[k] for k in NUMERIC_FEATURES}
+            score, _ = _ood_score(bundle_stub, feature_row, method="zscore")
+            scores.append(float(score))
+
+    ood_threshold = _bounded_quantile(np.asarray(scores, dtype=float), quantile)
+    return ood_payload, float(ood_threshold)
+
+
 def train_models(
     dataset_dir: Path,
     model_out: Path,
@@ -84,6 +204,9 @@ def train_models(
     model_type: str = "rf",
     calibrate_confidence: str = "none",
     confidence_target_metric: str = "accuracy",
+    ood_method: str = "zscore",
+    ood_quantile: float = 0.995,
+    conformal_alpha: float = 0.1,
 ) -> dict[str, Path]:
     """Train classifier/regressors and persist model artifacts."""
 
@@ -158,9 +281,73 @@ def train_models(
     if acc < 0.5:
         confidence_threshold = 0.75
 
+    classes = np.asarray(clf.classes_)
+    probs_test = clf.predict_proba(X_test) if len(X_test) else np.zeros((0, len(classes)))
+    class_index = {str(c): i for i, c in enumerate(classes.tolist())}
+    y_test_idx = np.asarray([class_index[str(v)] for v in y_cls_test.tolist()], dtype=int) if len(y_cls_test) else np.zeros((0,), dtype=int)
+    y_pred_idx = np.asarray([class_index.get(str(v), -1) for v in pred_cls.tolist()], dtype=int) if len(pred_cls) else np.zeros((0,), dtype=int)
+    confidences = probs_test.max(axis=1) if probs_test.size else np.zeros((0,), dtype=float)
+
+    ece = _expected_calibration_error(y_test_idx, y_pred_idx, confidences, bins=10)
+    brier = _multiclass_brier(probs_test, y_test_idx)
+
+    prob_floor, pred_set_coverage = _conformal_probability_floor(
+        probs_test,
+        y_test_idx,
+        alpha=float(conformal_alpha),
+    )
+
+    if confidences.size:
+        mask = confidences >= confidence_threshold
+        if mask.any():
+            covered = []
+            for i in np.where(mask)[0].tolist():
+                pred_set = np.where(probs_test[i] >= prob_floor)[0]
+                if pred_set.size == 0:
+                    pred_set = np.asarray([int(np.argmax(probs_test[i]))])
+                covered.append(int(y_test_idx[i]) in set(int(x) for x in pred_set.tolist()))
+            coverage_at_conf = float(np.mean(covered)) if covered else 1.0
+        else:
+            # No samples meet confidence minimum; treat as neutral fully-covered edge case.
+            coverage_at_conf = 1.0
+    else:
+        coverage_at_conf = 1.0
+
+    bundle_stub = {
+        "train_stats": {
+            "means": means,
+            "stds": stds,
+        }
+    }
+    ood_payload, ood_threshold = _calibrate_ood(
+        bundle_stub=bundle_stub,
+        X_train=X_train,
+        method=ood_method,
+        quantile=float(ood_quantile),
+        seed=seed,
+    )
+
     thresholds = {
-        "confidence_min": confidence_threshold,
-        "ood_max_abs_z": 4.0,
+        "confidence_min": float(confidence_threshold),
+        "ood_max_abs_z": float(ood_threshold),
+        "ood_method": str(ood_payload.get("method", "zscore")),
+        "ood_threshold": float(ood_threshold),
+        "conformal_alpha": float(conformal_alpha),
+        "prediction_set_min_coverage": float(pred_set_coverage),
+        "ml_policy": "carbon_min",
+        # Internal helper key used during prediction set construction.
+        "conformal_prob_min": float(prob_floor),
+    }
+
+    uncertainty = {
+        "calibration_method": (
+            f"{calibrate_confidence}+split_conformal"
+            if calibrate_confidence != "none"
+            else "split_conformal"
+        ),
+        "ece": float(ece),
+        "brier_score": float(brier),
+        "coverage_at_confidence_min": float(coverage_at_conf),
     }
 
     base_clf = clf.calibrated_classifiers_[0].estimator if isinstance(clf, CalibratedClassifierCV) else clf
@@ -191,6 +378,7 @@ def train_models(
             "test_size": int(len(X_test)),
         },
         "thresholds": thresholds,
+        "ood": ood_payload,
     }
 
     model_path = save_model_bundle(bundle, model_out)
@@ -210,11 +398,13 @@ def train_models(
     metrics_path = model_out / "metrics.json"
     features_path = model_out / "features.json"
     thresholds_path = model_out / "thresholds.json"
+    uncertainty_path = model_out / "uncertainty.json"
     model_card_path = model_out / "model_card.md"
 
     metrics_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     features_path.write_text(json.dumps(bundle["features"], indent=2), encoding="utf-8")
     thresholds_path.write_text(json.dumps(thresholds, indent=2), encoding="utf-8")
+    uncertainty_path.write_text(json.dumps(uncertainty, indent=2), encoding="utf-8")
 
     model_card = "\n".join(
         [
@@ -228,6 +418,9 @@ def train_models(
             f"- FIT MAE: {fit_mae:.6g}",
             f"- Carbon MAE: {carbon_mae:.6g}",
             f"- Energy MAE: {energy_mae:.6g}",
+            f"- OOD method: {thresholds['ood_method']}",
+            f"- OOD threshold: {thresholds['ood_threshold']:.6g}",
+            f"- Conformal alpha: {thresholds['conformal_alpha']}",
             "",
             "## Safety",
             "",
@@ -242,5 +435,6 @@ def train_models(
         "metrics": metrics_path,
         "features": features_path,
         "thresholds": thresholds_path,
+        "uncertainty": uncertainty_path,
         "model_card": model_card_path,
     }

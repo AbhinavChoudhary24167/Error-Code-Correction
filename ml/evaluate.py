@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, mean_abs
 
 from .features import CATEGORICAL_FEATURES, NUMERIC_FEATURES
 from .model_registry import load_model_bundle
-from .predict import _ood_score
+from .predict import _ood_score, resolve_thresholds
 
 
 def evaluate_model(
@@ -42,10 +42,15 @@ def evaluate_model(
     carbon_pred = reg_carbon.predict(X)
     energy_pred = reg_energy.predict(X)
 
-    thresholds = bundle.get("thresholds", {})
-    confidence_min = float(thresholds.get("confidence_min", 0.6))
-    default_ood = float(thresholds.get("ood_max_abs_z", 4.0))
-    ood_max = float(default_ood if ood_threshold is None else ood_threshold)
+    resolved = resolve_thresholds(
+        bundle.get("thresholds", {}),
+        model_dir=model_dir,
+        ood_threshold_override=ood_threshold,
+        policy_override=policy,
+    )
+    confidence_min = float(resolved["confidence_min"])
+    ood_method = str(resolved["ood_method"])
+    ood_max = float(resolved["ood_threshold"])
 
     probs = clf.predict_proba(X)
     confidences = [float(row.max()) for row in probs]
@@ -54,8 +59,8 @@ def evaluate_model(
     low_conf_count = 0
     for _, row in X.iterrows():
         feature_row = {k: row[k] for k in CATEGORICAL_FEATURES + NUMERIC_FEATURES}
-        max_z, _ = _ood_score(bundle, feature_row)
-        if max_z > ood_max:
+        score, _ = _ood_score(bundle, feature_row, method=ood_method)
+        if score > ood_max:
             ood_count += 1
     for conf in confidences:
         if conf < confidence_min:
@@ -64,9 +69,11 @@ def evaluate_model(
     evaluation = {
         "summary": {
             "rows": int(len(df)),
-            "policy": policy or "dataset_manifest",
+            "policy": str(resolved["ml_policy"]),
             "fallback_rate": float((ood_count + low_conf_count) / max(len(df), 1)),
             "ood_rate": float(ood_count / max(len(df), 1)),
+            "ood_method": ood_method,
+            "ood_threshold": ood_max,
         },
         "classification": {
             "accuracy": float(accuracy_score(y, y_pred)) if len(y) else 1.0,

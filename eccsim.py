@@ -132,6 +132,18 @@ def _load_json(path: Path):
     )
 
 
+
+def _bounded_open_01(value: str) -> float:
+    """argparse helper for (0, 1) bounded floats."""
+
+    try:
+        out = float(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(f"Expected a float in (0,1), got {value!r}") from exc
+    if not (0.0 < out < 1.0):
+        raise argparse.ArgumentTypeError(f"Expected a float in (0,1), got {value!r}")
+    return out
+
 def main() -> None:
     repo_path = Path(__file__).resolve().parent
     version_base = (repo_path / "VERSION").read_text().strip()
@@ -405,6 +417,9 @@ def main() -> None:
     ml_train.add_argument("--model-type", choices=["rf", "gbdt", "linear"], default="rf")
     ml_train.add_argument("--calibrate-confidence", choices=["none", "isotonic", "platt"], default="none")
     ml_train.add_argument("--confidence-target-metric", choices=["accuracy", "f1_macro"], default="accuracy")
+    ml_train.add_argument("--ood-method", choices=["zscore", "mahalanobis", "iforest"], default="zscore")
+    ml_train.add_argument("--ood-quantile", type=_bounded_open_01, default=0.995)
+    ml_train.add_argument("--conformal-alpha", type=_bounded_open_01, default=0.1)
 
     ml_eval = ml_sub.add_parser("evaluate", help="Evaluate ML advisory model")
     ml_eval.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
@@ -442,8 +457,11 @@ def main() -> None:
                 model_type=args.model_type,
                 calibrate_confidence=args.calibrate_confidence,
                 confidence_target_metric=args.confidence_target_metric,
+                ood_method=args.ood_method,
+                ood_quantile=args.ood_quantile,
+                conformal_alpha=args.conformal_alpha,
             )
-            for key in ("model", "metrics", "features", "thresholds", "model_card"):
+            for key in ("model", "metrics", "features", "thresholds", "uncertainty", "model_card"):
                 print(f"{key}: {artifacts[key]}")
         elif args.ml_command == "evaluate":
             from ml.evaluate import evaluate_model
@@ -1054,6 +1072,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
 

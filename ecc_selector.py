@@ -741,6 +741,14 @@ def _selector_args_parser() -> argparse.ArgumentParser:
     parser.add_argument("--fit-max", type=float, default=None)
     parser.add_argument("--latency-ns-max", type=float, default=None)
     parser.add_argument("--carbon-kg-max", type=float, default=None)
+    parser.add_argument("--ml-confidence-min", type=float, default=None)
+    parser.add_argument("--ml-ood-max", type=float, default=None)
+    parser.add_argument(
+        "--ml-policy",
+        choices=["carbon_min", "fit_min", "energy_min", "utility_balanced"],
+        default=None,
+    )
+    parser.add_argument("--ml-debug", action="store_true", help="Emit JSON-only ML diagnostics")
 
     return parser
 
@@ -809,8 +817,65 @@ def _required_missing(args: argparse.Namespace) -> list[str]:
     return [name for name in required if getattr(args, name) is None]
 
 
+def _norm01(values: list[float], value: float) -> float:
+    if not values:
+        return 0.0
+    lo = min(values)
+    hi = max(values)
+    if hi <= lo:
+        return 0.0
+    return (value - lo) / (hi - lo)
+
+
+def _select_ml_candidate(
+    entries: list[dict[str, object]],
+    policy: str,
+) -> dict[str, object]:
+    if not entries:
+        raise ValueError("No entries to select from")
+
+    policy_norm = str(policy).strip().lower()
+    if policy_norm == "fit_min":
+        return min(
+            entries,
+            key=lambda e: (
+                float(e["prediction"]["predictions"].get("FIT", float("inf"))),
+                str(e["record"].get("code")),
+            ),
+        )
+    if policy_norm == "energy_min":
+        return min(
+            entries,
+            key=lambda e: (
+                float(e["prediction"]["predictions"].get("energy_kWh", float("inf"))),
+                str(e["record"].get("code")),
+            ),
+        )
+    if policy_norm == "utility_balanced":
+        fits = [float(e["prediction"]["predictions"].get("FIT", float("inf"))) for e in entries]
+        carbons = [float(e["prediction"]["predictions"].get("carbon_kg", float("inf"))) for e in entries]
+        energies = [float(e["prediction"]["predictions"].get("energy_kWh", float("inf"))) for e in entries]
+
+        def score(e: dict[str, object]) -> tuple[float, str]:
+            fit = float(e["prediction"]["predictions"].get("FIT", float("inf")))
+            carbon = float(e["prediction"]["predictions"].get("carbon_kg", float("inf")))
+            energy = float(e["prediction"]["predictions"].get("energy_kWh", float("inf")))
+            utility = (_norm01(fits, fit) + _norm01(carbons, carbon) + _norm01(energies, energy)) / 3.0
+            return utility, str(e["record"].get("code"))
+
+        return min(entries, key=score)
+
+    return min(
+        entries,
+        key=lambda e: (
+            float(e["prediction"]["predictions"].get("carbon_kg", float("inf"))),
+            str(e["record"].get("code")),
+        ),
+    )
+
+
 def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
-    from ml.predict import predict_with_model
+    from ml.predict import predict_with_model, resolve_thresholds
     from ml.explain import format_decision_explanation
 
     constraints: dict[str, float | None] = {
@@ -844,24 +909,72 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
     feasible = [r for r in records if _record_passes_constraints(r, constraints)]
     baseline = _baseline_choice(result, feasible)
 
+    resolved_thresholds = resolve_thresholds(
+        {},
+        model_dir=args.ml_model,
+        confidence_min_override=args.ml_confidence_min,
+        ood_threshold_override=args.ml_ood_max,
+        policy_override=args.ml_policy,
+    )
+    selected_policy = str(resolved_thresholds.get("ml_policy", "carbon_min"))
+
+    uncertainty_summary: dict[str, object] = {}
+    uncertainty_path = Path(args.ml_model) / "uncertainty.json"
+    if uncertainty_path.is_file():
+        try:
+            payload = json.loads(uncertainty_path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict):
+                uncertainty_summary = payload
+        except Exception:
+            uncertainty_summary = {}
+
+    eligible_entries: list[dict[str, object]] = []
+    rejected_entries: list[dict[str, object]] = []
+
+    for rec in feasible:
+        row = dict(rec)
+        row.update(scenario)
+        pred = predict_with_model(
+            args.ml_model,
+            row,
+            confidence_min_override=args.ml_confidence_min,
+            ood_threshold_override=args.ml_ood_max,
+            policy_override=args.ml_policy,
+        )
+
+        reasons: list[str] = []
+        if bool(pred.get("ood", False)):
+            reasons.append("ood")
+        if bool(pred.get("low_confidence", False)):
+            reasons.append("low_confidence")
+        if not reasons and pred.get("fallback_reason"):
+            reasons.append(str(pred["fallback_reason"]))
+
+        candidate_diag = {
+            "code": rec.get("code"),
+            "confidence": float(pred.get("confidence", 0.0)),
+            "ood_score": float(pred.get("ood_score", 0.0)),
+            "predictions": pred.get("predictions", {}),
+            "prediction_set": pred.get("prediction_set"),
+        }
+        if reasons:
+            candidate_diag["reasons"] = reasons
+            rejected_entries.append(candidate_diag)
+        else:
+            eligible_entries.append({"record": rec, "prediction": pred, "diag": candidate_diag})
+
     ml_choice = None
     ml_prediction = None
-    if feasible:
-        scored = []
-        for rec in feasible:
-            row = dict(rec)
-            row.update(scenario)
-            pred = predict_with_model(args.ml_model, row)
-            scored.append((float(pred["predictions"]["carbon_kg"]), -float(pred["confidence"]), rec, pred))
-        _, _, ml_choice, ml_prediction = min(
-            scored, key=lambda item: (item[0], item[1], str(item[2].get("code")))
-        )
+    if eligible_entries:
+        picked = _select_ml_candidate(eligible_entries, selected_policy)
+        ml_choice = picked["record"]
+        ml_prediction = picked["prediction"]
 
     fallback_reason = None
     if not feasible:
         fallback_reason = "No feasible candidate satisfies hard constraints"
-    elif ml_prediction and ml_prediction.get("fallback_reason"):
-        fallback_reason = str(ml_prediction["fallback_reason"])
+    elif ml_prediction is None:
+        fallback_reason = "No admissible ML suggestion (OOD/low confidence); using baseline"
 
     final_choice = baseline
     if ml_choice is not None and fallback_reason is None:
@@ -883,7 +996,7 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
         hard_constraints_ok=bool(_constraint_audit(final_choice, constraints)["all_pass"]),
     )
 
-    return {
+    out: dict[str, object] = {
         "baseline_recommendation": baseline_code,
         "ml_recommendation": ml_code,
         "final_decision": final_code,
@@ -899,7 +1012,26 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
         "explanation": explanation,
         "predictions": ml_prediction.get("predictions") if ml_prediction else None,
         "scenario_hash": result.get("scenario_hash"),
+        "selected_policy": selected_policy,
     }
+
+    if args.ml_debug:
+        out.update(
+            {
+                "confidence_score": float(ml_prediction.get("confidence", 0.0)) if ml_prediction else 0.0,
+                "confidence_threshold": float(resolved_thresholds.get("confidence_min", 0.6)),
+                "ood_method": str(resolved_thresholds.get("ood_method", "zscore")),
+                "ood_score": float(ml_prediction.get("ood_score", 0.0)) if ml_prediction else 0.0,
+                "ood_threshold": float(resolved_thresholds.get("ood_threshold", 4.0)),
+                "in_distribution": bool(ml_prediction.get("in_distribution", False)) if ml_prediction else False,
+                "prediction_set": ml_prediction.get("prediction_set") if ml_prediction else [],
+                "eligible_candidates": [e["diag"] for e in eligible_entries],
+                "rejected_candidates": rejected_entries,
+                "uncertainty": uncertainty_summary,
+            }
+        )
+
+    return out
 
 
 def _run_optional_sweeps(args: argparse.Namespace) -> dict[str, list[dict[str, object]]]:
@@ -962,6 +1094,9 @@ def main(argv: list[str] | None = None) -> None:
     if args.ml_model is None:
         parser.error("--ml-model is required when ML mode is enabled")
 
+    if args.ml_debug:
+        args.json = True
+
     if args.interactive:
         _interactive_fill(args)
 
@@ -998,3 +1133,5 @@ __all__ = ["select", "_pareto_front", "_nsga2_sort"]
 
 if __name__ == "__main__":
     main()
+
+
