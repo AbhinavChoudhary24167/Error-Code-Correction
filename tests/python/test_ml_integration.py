@@ -5,7 +5,10 @@ import sys
 import uuid
 from pathlib import Path
 
+import joblib
+
 from ml.dataset import build_dataset
+from ml.evaluate import evaluate_model
 from ml.predict import predict_with_model
 from ml.train import train_models
 
@@ -148,3 +151,45 @@ def test_ml_cli_build_and_train_smoke():
     assert (model_dir / "features.json").is_file()
     assert (model_dir / "thresholds.json").is_file()
     assert (model_dir / "model_card.md").is_file()
+
+
+def test_ml_build_dataset_policy_manifest_fields():
+    base = _new_base("policy_manifest")
+    dataset_dir = base / "dataset"
+
+    build_dataset(
+        REPO / "reports" / "examples",
+        dataset_dir,
+        seed=2,
+        label_policy="utility_balanced",
+        utility_alpha_fit=2.0,
+        utility_beta_carbon=1.0,
+        utility_gamma_energy=0.5,
+        split_strategy="scenario_hash",
+    )
+    manifest = json.loads((dataset_dir / "dataset_manifest.json").read_text(encoding="utf-8"))
+    assert manifest["label_policy"] == "utility_balanced"
+    assert manifest["utility_weights"] == {
+        "alpha_fit": 2.0,
+        "beta_carbon": 1.0,
+        "gamma_energy": 0.5,
+    }
+    assert manifest["split_strategy"] == "scenario_hash"
+    assert manifest["feature_version"] == 1
+
+
+def test_ml_evaluate_smoke():
+    base = _new_base("eval_smoke")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=5, label_policy="fit_min")
+    train_models(dataset_dir, model_dir, seed=5, model_type="linear")
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir, policy="fit_min")
+
+    out = json.loads((artifacts["evaluation"]).read_text(encoding="utf-8"))
+    assert out["summary"]["policy"] == "fit_min"
+    assert "classification" in out
+    assert "regression" in out
+    assert "fallback_breakdown" in out
