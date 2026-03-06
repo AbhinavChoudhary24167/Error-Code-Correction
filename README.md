@@ -142,10 +142,10 @@ python3 eccsim.py --help
 
 ```bash
 # Reliability/selection flow
-python3 eccsim.py select --ber 1e-6 --mbu 2 --energy-budget-nj 0.6
+python3 eccsim.py select --codes sec-ded-64,sec-daec-64,taec-64,bch-63 --node 7 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 400 --bitcell-um2 0.08
 
 # Target-constrained choice (example)
-python3 eccsim.py target --ber 1e-6 --uwer-target 1e-15
+python3 eccsim.py target --codes sec-ded-64,sec-daec-64,taec-64,bch-63 --target-type uwer --target 1e-15 --node 7 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 400 --bitcell-um2 0.08
 ```
 
 ### 5) Run test suite
