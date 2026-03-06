@@ -11,12 +11,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.dummy import DummyClassifier, DummyRegressor
-from sklearn.ensemble import (
-    GradientBoostingClassifier,
-    GradientBoostingRegressor,
-    RandomForestClassifier,
-    RandomForestRegressor,
-)
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.metrics import accuracy_score, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
@@ -45,7 +40,7 @@ def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_
         if model_type == "linear":
             model = LogisticRegression(max_iter=1000, random_state=seed)
         elif model_type == "gbdt":
-            model = GradientBoostingClassifier(random_state=seed)
+            model = RandomForestClassifier(n_estimators=400, random_state=seed, class_weight="balanced")
         else:
             model = RandomForestClassifier(
                 n_estimators=200,
@@ -72,7 +67,7 @@ def _fit_regressor(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_t
         if model_type == "linear":
             model = Ridge(random_state=seed)
         elif model_type == "gbdt":
-            model = GradientBoostingRegressor(random_state=seed)
+            model = RandomForestRegressor(n_estimators=400, random_state=seed)
         else:
             model = RandomForestRegressor(n_estimators=200, random_state=seed)
 

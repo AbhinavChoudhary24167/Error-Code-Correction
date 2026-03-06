@@ -13,21 +13,6 @@ from .model_registry import load_model_bundle
 from .predict import _ood_score
 
 
-def _resolve_policy(dataset_dir: Path, explicit_policy: str | None) -> str:
-    if explicit_policy:
-        return explicit_policy
-    manifest_path = dataset_dir / "dataset_manifest.json"
-    if manifest_path.is_file():
-        try:
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            label_policy = manifest.get("label_policy")
-            if label_policy:
-                return str(label_policy)
-        except Exception:
-            pass
-    return "carbon_min"
-
-
 def evaluate_model(
     dataset_dir: Path,
     model_dir: Path,
@@ -65,26 +50,22 @@ def evaluate_model(
     probs = clf.predict_proba(X)
     confidences = [float(row.max()) for row in probs]
 
-    ood_flags: list[bool] = []
-    low_conf_flags: list[bool] = []
-
-    for idx, (_, row) in enumerate(X.iterrows()):
+    ood_count = 0
+    low_conf_count = 0
+    for _, row in X.iterrows():
         feature_row = {k: row[k] for k in CATEGORICAL_FEATURES + NUMERIC_FEATURES}
         max_z, _ = _ood_score(bundle, feature_row)
-        ood_flags.append(max_z > ood_max)
-        low_conf_flags.append(confidences[idx] < confidence_min)
-
-    ood_count = int(sum(1 for flag in ood_flags if flag))
-    low_conf_count = int(sum(1 for flag in low_conf_flags if flag))
-    fallback_count = int(sum(1 for ood, low in zip(ood_flags, low_conf_flags) if ood or low))
-
-    resolved_policy = _resolve_policy(dataset_dir, policy)
+        if max_z > ood_max:
+            ood_count += 1
+    for conf in confidences:
+        if conf < confidence_min:
+            low_conf_count += 1
 
     evaluation = {
         "summary": {
             "rows": int(len(df)),
-            "policy": resolved_policy,
-            "fallback_rate": float(fallback_count / max(len(df), 1)),
+            "policy": policy or "dataset_manifest",
+            "fallback_rate": float((ood_count + low_conf_count) / max(len(df), 1)),
             "ood_rate": float(ood_count / max(len(df), 1)),
         },
         "classification": {
