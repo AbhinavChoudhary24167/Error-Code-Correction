@@ -14,6 +14,9 @@ from typing import Iterable
 from .features import FEATURE_COLUMNS, TARGET_COLUMNS, DEFAULT_SCENARIO, with_training_columns
 
 
+LABEL_POLICIES = {"carbon_min", "fit_min", "energy_min", "utility_balanced"}
+
+
 def _sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as fh:
@@ -91,7 +94,57 @@ def _source_kind(path: Path) -> str:
     return "csv"
 
 
-def _collect_training_rows(from_dir: Path) -> tuple[list[dict[str, object]], list[str]]:
+def _label_for_policy(
+    scn_rows: list[dict[str, object]],
+    *,
+    label_policy: str,
+    utility_weights: dict[str, float],
+) -> str:
+    if label_policy == "carbon_min":
+        chosen = min(scn_rows, key=lambda r: (float(r["carbon_true"]), float(r["fit_true"]), str(r["code"])))
+        return str(chosen["code"])
+    if label_policy == "fit_min":
+        chosen = min(scn_rows, key=lambda r: (float(r["fit_true"]), float(r["carbon_true"]), str(r["code"])))
+        return str(chosen["code"])
+    if label_policy == "energy_min":
+        chosen = min(scn_rows, key=lambda r: (float(r["energy_true"]), float(r["carbon_true"]), str(r["code"])))
+        return str(chosen["code"])
+
+    fit_vals = [float(r["fit_true"]) for r in scn_rows]
+    carbon_vals = [float(r["carbon_true"]) for r in scn_rows]
+    energy_vals = [float(r["energy_true"]) for r in scn_rows]
+
+    def _norm(v: float, lo: float, hi: float) -> float:
+        if hi <= lo:
+            return 0.0
+        return (v - lo) / (hi - lo)
+
+    fit_lo, fit_hi = min(fit_vals), max(fit_vals)
+    carbon_lo, carbon_hi = min(carbon_vals), max(carbon_vals)
+    energy_lo, energy_hi = min(energy_vals), max(energy_vals)
+
+    alpha = float(utility_weights.get("alpha_fit", 1.0))
+    beta = float(utility_weights.get("beta_carbon", 1.0))
+    gamma = float(utility_weights.get("gamma_energy", 1.0))
+
+    chosen = min(
+        scn_rows,
+        key=lambda r: (
+            alpha * _norm(float(r["fit_true"]), fit_lo, fit_hi)
+            + beta * _norm(float(r["carbon_true"]), carbon_lo, carbon_hi)
+            + gamma * _norm(float(r["energy_true"]), energy_lo, energy_hi),
+            str(r["code"]),
+        ),
+    )
+    return str(chosen["code"])
+
+
+def _collect_training_rows(
+    from_dir: Path,
+    *,
+    label_policy: str,
+    utility_weights: dict[str, float],
+) -> tuple[list[dict[str, object]], list[str]]:
     rows: list[dict[str, object]] = []
     sources: list[str] = []
 
@@ -113,24 +166,30 @@ def _collect_training_rows(from_dir: Path) -> tuple[list[dict[str, object]], lis
     if not rows:
         raise ValueError(f"No usable CSV rows found under {from_dir}")
 
-    # Scenario-level label: min carbon candidate per scenario hash.
+    # Scenario-level label policy.
     groups: dict[str, list[dict[str, object]]] = {}
     for row in rows:
         groups.setdefault(str(row["scenario_hash"]), []).append(row)
 
     for scn_rows in groups.values():
-        chosen = min(
-            scn_rows,
-            key=lambda r: (float(r["carbon_true"]), float(r["fit_true"]), str(r["code"])),
-        )
-        label = str(chosen["code"])
+        label = _label_for_policy(scn_rows, label_policy=label_policy, utility_weights=utility_weights)
         for row in scn_rows:
             row["label_code"] = label
 
     return rows, sources
 
 
-def build_dataset(from_dir: Path, out_dir: Path, seed: int = 1) -> dict[str, Path]:
+def build_dataset(
+    from_dir: Path,
+    out_dir: Path,
+    seed: int = 1,
+    *,
+    label_policy: str = "carbon_min",
+    utility_alpha_fit: float = 1.0,
+    utility_beta_carbon: float = 1.0,
+    utility_gamma_energy: float = 1.0,
+    split_strategy: str = "scenario_hash",
+) -> dict[str, Path]:
     """Build a training dataset from existing ECC artifacts.
 
     Outputs:
@@ -143,7 +202,20 @@ def build_dataset(from_dir: Path, out_dir: Path, seed: int = 1) -> dict[str, Pat
     out_dir = out_dir.resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    rows, sources = _collect_training_rows(from_dir)
+    if label_policy not in LABEL_POLICIES:
+        raise ValueError(f"Unsupported label_policy: {label_policy}")
+
+    utility_weights = {
+        "alpha_fit": float(utility_alpha_fit),
+        "beta_carbon": float(utility_beta_carbon),
+        "gamma_energy": float(utility_gamma_energy),
+    }
+
+    rows, sources = _collect_training_rows(
+        from_dir,
+        label_policy=label_policy,
+        utility_weights=utility_weights,
+    )
     rows.sort(key=lambda r: (str(r["scenario_hash"]), str(r["code"]), str(r["source_file"])))
     random.Random(seed).shuffle(rows)
 
@@ -174,6 +246,10 @@ def build_dataset(from_dir: Path, out_dir: Path, seed: int = 1) -> dict[str, Pat
     manifest = {
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "seed": int(seed),
+        "label_policy": label_policy,
+        "utility_weights": utility_weights,
+        "split_strategy": str(split_strategy),
+        "feature_version": 1,
         "source_dir": str(from_dir),
         "source_files": sources,
         "row_count": len(rows),

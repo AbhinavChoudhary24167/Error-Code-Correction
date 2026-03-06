@@ -5,7 +5,10 @@ import sys
 import uuid
 from pathlib import Path
 
+import joblib
+
 from ml.dataset import build_dataset
+from ml.evaluate import evaluate_model
 from ml.predict import predict_with_model
 from ml.train import train_models
 
@@ -148,3 +151,129 @@ def test_ml_cli_build_and_train_smoke():
     assert (model_dir / "features.json").is_file()
     assert (model_dir / "thresholds.json").is_file()
     assert (model_dir / "model_card.md").is_file()
+
+
+def test_ml_build_dataset_policy_manifest_fields():
+    base = _new_base("policy_manifest")
+    dataset_dir = base / "dataset"
+
+    build_dataset(
+        REPO / "reports" / "examples",
+        dataset_dir,
+        seed=2,
+        label_policy="utility_balanced",
+        utility_alpha_fit=2.0,
+        utility_beta_carbon=1.0,
+        utility_gamma_energy=0.5,
+        split_strategy="scenario_hash",
+    )
+    manifest = json.loads((dataset_dir / "dataset_manifest.json").read_text(encoding="utf-8"))
+    assert manifest["label_policy"] == "utility_balanced"
+    assert manifest["utility_weights"] == {
+        "alpha_fit": 2.0,
+        "beta_carbon": 1.0,
+        "gamma_energy": 0.5,
+    }
+    assert manifest["split_strategy"] == "scenario_hash"
+    assert manifest["feature_version"] == 1
+
+
+def test_ml_evaluate_smoke():
+    base = _new_base("eval_smoke")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=5, label_policy="fit_min")
+    train_models(dataset_dir, model_dir, seed=5, model_type="linear")
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir, policy="fit_min")
+
+    out = json.loads((artifacts["evaluation"]).read_text(encoding="utf-8"))
+    assert out["summary"]["policy"] == "fit_min"
+    assert "classification" in out
+    assert "regression" in out
+    assert "fallback_breakdown" in out
+
+
+def test_ml_train_gbdt_uses_boosted_estimators():
+    base = _new_base("gbdt_models")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    dataset_dir.mkdir(parents=True, exist_ok=True)
+
+    import pandas as pd
+
+    rows = []
+    for idx in range(8):
+        rows.append(
+            {
+                "code": "sec-ded-64" if idx % 2 == 0 else "taec-64",
+                "node": 14,
+                "vdd": 0.8,
+                "temp": 75.0,
+                "capacity_gib": 8.0,
+                "ci": 0.55,
+                "bitcell_um2": 0.04,
+                "scrub_s": 10.0,
+                "latency_ns": 1.0 + 0.1 * idx,
+                "area_logic_mm2": 1.0 + 0.05 * idx,
+                "area_macro_mm2": 343.5,
+                "fit_true": 100.0 + idx,
+                "carbon_true": 50.0 + 0.2 * idx,
+                "energy_true": 10.0 + 0.3 * idx,
+                "label_code": "sec-ded-64" if idx % 2 == 0 else "taec-64",
+                "scenario_hash": f"s{idx}",
+                "source_kind": "unit",
+                "source_file": "unit.csv",
+            }
+        )
+
+    pd.DataFrame(rows).to_csv(dataset_dir / "dataset.csv", index=False)
+
+    train_models(dataset_dir, model_dir, seed=3, model_type="gbdt")
+
+    bundle = joblib.load(model_dir / "model.joblib")
+    clf_model = bundle["classifier"].named_steps["model"]
+    reg_fit_model = bundle["regressors"]["fit"].named_steps["model"]
+    reg_carbon_model = bundle["regressors"]["carbon"].named_steps["model"]
+    reg_energy_model = bundle["regressors"]["energy"].named_steps["model"]
+
+    assert clf_model.__class__.__name__ == "GradientBoostingClassifier"
+    assert reg_fit_model.__class__.__name__ == "GradientBoostingRegressor"
+    assert reg_carbon_model.__class__.__name__ == "GradientBoostingRegressor"
+    assert reg_energy_model.__class__.__name__ == "GradientBoostingRegressor"
+
+
+def test_ml_evaluate_defaults_policy_from_manifest():
+    base = _new_base("eval_manifest_policy")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=11, label_policy="fit_min")
+    train_models(dataset_dir, model_dir, seed=11)
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir)
+
+    out = json.loads(artifacts["evaluation"].read_text(encoding="utf-8"))
+    assert out["summary"]["policy"] == "fit_min"
+
+
+def test_ml_evaluate_fallback_rate_counts_unique_rows():
+    base = _new_base("eval_fallback_unique")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=13)
+    train_models(dataset_dir, model_dir, seed=13)
+
+    model_path = model_dir / "model.joblib"
+    bundle = joblib.load(model_path)
+    bundle["thresholds"]["confidence_min"] = 1.1
+    bundle["thresholds"]["ood_max_abs_z"] = -1.0
+    joblib.dump(bundle, model_path)
+
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir)
+    out = json.loads(artifacts["evaluation"].read_text(encoding="utf-8"))
+    assert out["summary"]["fallback_rate"] <= 1.0
+    assert out["summary"]["fallback_rate"] == 1.0
