@@ -5,6 +5,8 @@ import sys
 import uuid
 from pathlib import Path
 
+import joblib
+
 from ml.dataset import build_dataset
 from ml.evaluate import evaluate_model
 from ml.predict import predict_with_model
