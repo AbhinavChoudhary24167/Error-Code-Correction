@@ -50,22 +50,24 @@ def evaluate_model(
     probs = clf.predict_proba(X)
     confidences = [float(row.max()) for row in probs]
 
-    ood_count = 0
-    low_conf_count = 0
+    ood_flags: list[bool] = []
+    low_conf_flags: list[bool] = []
     for _, row in X.iterrows():
         feature_row = {k: row[k] for k in CATEGORICAL_FEATURES + NUMERIC_FEATURES}
         max_z, _ = _ood_score(bundle, feature_row)
-        if max_z > ood_max:
-            ood_count += 1
+        ood_flags.append(max_z > ood_max)
     for conf in confidences:
-        if conf < confidence_min:
-            low_conf_count += 1
+        low_conf_flags.append(conf < confidence_min)
+
+    ood_count = sum(ood_flags)
+    low_conf_count = sum(low_conf_flags)
+    fallback_count = sum(ood or low_conf for ood, low_conf in zip(ood_flags, low_conf_flags))
 
     evaluation = {
         "summary": {
             "rows": int(len(df)),
             "policy": policy or "dataset_manifest",
-            "fallback_rate": float((ood_count + low_conf_count) / max(len(df), 1)),
+            "fallback_rate": float(fallback_count / max(len(df), 1)),
             "ood_rate": float(ood_count / max(len(df), 1)),
         },
         "classification": {

@@ -191,3 +191,18 @@ def test_ml_evaluate_smoke():
     assert "classification" in out
     assert "regression" in out
     assert "fallback_breakdown" in out
+
+
+def test_ml_evaluate_fallback_rate_deduplicates_overlap():
+    base = _new_base("eval_fallback_dedupe")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=8, label_policy="fit_min")
+    train_models(dataset_dir, model_dir, seed=8, model_type="linear")
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir, policy="fit_min", ood_threshold=-1.0)
+
+    out = json.loads((artifacts["evaluation"]).read_text(encoding="utf-8"))
+    assert out["summary"]["ood_rate"] == 1.0
+    assert out["summary"]["fallback_rate"] <= 1.0
