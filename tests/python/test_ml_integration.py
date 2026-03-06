@@ -1,9 +1,11 @@
-﻿import json
+import json
 import math
 import subprocess
 import sys
 import uuid
 from pathlib import Path
+
+import pandas as pd
 
 from ml.dataset import build_dataset
 from ml.evaluate import evaluate_model
@@ -191,3 +193,27 @@ def test_ml_evaluate_smoke():
     assert "classification" in out
     assert "regression" in out
     assert "fallback_breakdown" in out
+
+
+def test_ml_train_calibration_skips_when_class_fold_requirement_not_met():
+    base = _new_base("calibration_class_counts")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=11)
+    dataset_path = dataset_dir / "dataset.csv"
+    df = pd.read_csv(dataset_path)
+
+    code_a = str(df.loc[0, "label_code"])
+
+    subset_a = df[df["label_code"].astype(str) == code_a].head(20).copy()
+    subset_b = df.head(2).copy()
+    subset_b["label_code"] = "synthetic-alt"
+    subset = pd.concat([subset_a, subset_b], ignore_index=True)
+    subset.to_csv(dataset_path, index=False)
+
+    train_models(dataset_dir, model_dir, seed=11, calibrate_confidence="platt")
+
+    pred = predict_with_model(model_dir, _sample_row())
+    assert isinstance(pred["ml_recommendation"], str)
+

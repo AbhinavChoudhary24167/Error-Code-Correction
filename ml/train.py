@@ -128,7 +128,14 @@ def train_models(
         y_energy_train, y_energy_test = y_energy.loc[idx_train], y_energy.loc[idx_test]
 
     clf = _fit_classifier(X_train, y_cls_train, seed=seed, model_type=model_type)
-    if calibrate_confidence in {"isotonic", "platt"} and y_cls_train.nunique() > 1 and len(X_train) >= 10:
+    class_counts = y_cls_train.value_counts()
+    min_class_count = int(class_counts.min()) if len(class_counts) else 0
+    if (
+        calibrate_confidence in {"isotonic", "platt"}
+        and y_cls_train.nunique() > 1
+        and len(X_train) >= 10
+        and min_class_count >= 3
+    ):
         method = "isotonic" if calibrate_confidence == "isotonic" else "sigmoid"
         clf = CalibratedClassifierCV(clf, cv=3, method=method)
         clf.fit(X_train, y_cls_train)
