@@ -361,11 +361,31 @@ def main() -> None:
     ml_build.add_argument("--from", dest="from_dir", type=Path, required=True)
     ml_build.add_argument("--out", dest="out_dir", type=Path, required=True)
     ml_build.add_argument("--seed", type=int, default=1)
+    ml_build.add_argument(
+        "--label-policy",
+        choices=["carbon_min", "fit_min", "energy_min", "utility_balanced"],
+        default="carbon_min",
+    )
+    ml_build.add_argument("--utility-alpha-fit", type=float, default=1.0)
+    ml_build.add_argument("--utility-beta-carbon", type=float, default=1.0)
+    ml_build.add_argument("--utility-gamma-energy", type=float, default=1.0)
+    ml_build.add_argument("--split-strategy", choices=["random", "scenario_hash"], default="scenario_hash")
 
     ml_train = ml_sub.add_parser("train", help="Train ML advisory model")
     ml_train.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
     ml_train.add_argument("--model-out", type=Path, required=True)
     ml_train.add_argument("--seed", type=int, default=1)
+    ml_train.add_argument("--model-type", choices=["rf", "gbdt", "linear"], default="rf")
+    ml_train.add_argument("--calibrate-confidence", choices=["none", "isotonic", "platt"], default="none")
+    ml_train.add_argument("--confidence-target-metric", choices=["accuracy", "f1_macro"], default="accuracy")
+
+    ml_eval = ml_sub.add_parser("evaluate", help="Evaluate ML advisory model")
+    ml_eval.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
+    ml_eval.add_argument("--model", type=Path, required=True, help="Model directory")
+    ml_eval.add_argument("--out", type=Path, required=True, help="Evaluation output directory")
+    ml_eval.add_argument("--policy", choices=["carbon_min", "fit_min", "energy_min", "utility_balanced"], default=None)
+    ml_eval.add_argument("--ood-threshold", type=float, default=None)
+    ml_eval.add_argument("--json", action="store_true")
 
     args = parser.parse_args()
 
@@ -373,15 +393,46 @@ def main() -> None:
         if args.ml_command == "build-dataset":
             from ml.dataset import build_dataset
 
-            artifacts = build_dataset(args.from_dir, args.out_dir, seed=args.seed)
+            artifacts = build_dataset(
+                args.from_dir,
+                args.out_dir,
+                seed=args.seed,
+                label_policy=args.label_policy,
+                utility_alpha_fit=args.utility_alpha_fit,
+                utility_beta_carbon=args.utility_beta_carbon,
+                utility_gamma_energy=args.utility_gamma_energy,
+                split_strategy=args.split_strategy,
+            )
             for key in ("dataset", "schema", "manifest"):
                 print(f"{key}: {artifacts[key]}")
         elif args.ml_command == "train":
             from ml.train import train_models
 
-            artifacts = train_models(args.dataset, args.model_out, seed=args.seed)
+            artifacts = train_models(
+                args.dataset,
+                args.model_out,
+                seed=args.seed,
+                model_type=args.model_type,
+                calibrate_confidence=args.calibrate_confidence,
+                confidence_target_metric=args.confidence_target_metric,
+            )
             for key in ("model", "metrics", "features", "thresholds", "model_card"):
                 print(f"{key}: {artifacts[key]}")
+        elif args.ml_command == "evaluate":
+            from ml.evaluate import evaluate_model
+
+            artifacts = evaluate_model(
+                args.dataset,
+                args.model,
+                args.out,
+                policy=args.policy,
+                ood_threshold=args.ood_threshold,
+            )
+            if args.json:
+                print(json.dumps({k: str(v) for k, v in artifacts.items()}, indent=2, sort_keys=True))
+            else:
+                for key in ("evaluation",):
+                    print(f"{key}: {artifacts[key]}")
         else:
             parser.error("ml subcommand required")
         return

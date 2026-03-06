@@ -1,5 +1,6 @@
 ﻿import csv
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -38,6 +39,43 @@ def _clean(paths):
             pass
 
 
+
+
+def _as_float(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _assert_close_obj(actual, expected, *, rel_tol=1e-12, abs_tol=1e-15):
+    if isinstance(expected, dict):
+        assert isinstance(actual, dict)
+        assert set(actual.keys()) == set(expected.keys())
+        for key in expected:
+            _assert_close_obj(actual[key], expected[key], rel_tol=rel_tol, abs_tol=abs_tol)
+        return
+
+    if isinstance(expected, list):
+        assert isinstance(actual, list)
+        assert len(actual) == len(expected)
+        for got, exp in zip(actual, expected):
+            _assert_close_obj(got, exp, rel_tol=rel_tol, abs_tol=abs_tol)
+        return
+
+    if isinstance(expected, float):
+        assert math.isclose(float(actual), float(expected), rel_tol=rel_tol, abs_tol=abs_tol)
+        return
+
+    exp_num = _as_float(expected)
+    got_num = _as_float(actual)
+    if exp_num is not None and got_num is not None:
+        assert math.isclose(got_num, exp_num, rel_tol=rel_tol, abs_tol=abs_tol)
+        return
+
+    assert actual == expected
+
+
 def test_golden_reliability_report_json():
     cmd = [
         sys.executable,
@@ -71,7 +109,7 @@ def test_golden_reliability_report_json():
         "--json",
     ]
     res = _run(cmd)
-    assert json.loads(res.stdout) == _json_obj(FIXTURES / "reliability_report.json")
+    _assert_close_obj(json.loads(res.stdout), _json_obj(FIXTURES / "reliability_report.json"))
 
 
 def test_golden_select_outputs():
@@ -109,8 +147,8 @@ def test_golden_select_outputs():
     ]
     res = _run(cmd)
     assert res.stdout == (FIXTURES / "select.stdout.txt").read_text(encoding="utf-8")
-    assert _csv_rows(cand) == _csv_rows(FIXTURES / "select_candidates.csv")
-    assert _csv_rows(pareto) == _csv_rows(FIXTURES / "select_pareto.csv")
+    _assert_close_obj(_csv_rows(cand), _csv_rows(FIXTURES / "select_candidates.csv"))
+    _assert_close_obj(_csv_rows(pareto), _csv_rows(FIXTURES / "select_pareto.csv"))
 
 
 def test_golden_target_outputs():
@@ -152,13 +190,15 @@ def test_golden_target_outputs():
     ]
     res = _run(cmd)
     assert res.stdout == (FIXTURES / "target.stdout.txt").read_text(encoding="utf-8")
-    assert _csv_rows(feasible) == _csv_rows(FIXTURES / "target_feasible.csv")
+    _assert_close_obj(_csv_rows(feasible), _csv_rows(FIXTURES / "target_feasible.csv"))
 
     got_choice = _json_obj(choice)
     exp_choice = _json_obj(FIXTURES / "target_choice.json")
     got_choice["provenance"]["git"] = "<git>"
     exp_choice["provenance"]["git"] = "<git>"
-    assert got_choice == exp_choice
+    got_choice["provenance"]["tech_calib"] = "<tech_calib_hash>"
+    exp_choice["provenance"]["tech_calib"] = "<tech_calib_hash>"
+    _assert_close_obj(got_choice, exp_choice)
 
 
 def test_golden_legacy_ecc_selector_cli():

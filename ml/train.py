@@ -9,8 +9,10 @@ from typing import Any
 
 import pandas as pd
 from sklearn.compose import ColumnTransformer
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.dummy import DummyClassifier, DummyRegressor
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.metrics import accuracy_score, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -24,7 +26,7 @@ def _as_float_dict(series: pd.Series) -> dict[str, float]:
     return {str(k): float(v) for k, v in series.items()}
 
 
-def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, seed: int) -> Pipeline:
+def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_type: str) -> Pipeline:
     preprocess = ColumnTransformer(
         transformers=[
             ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), CATEGORICAL_FEATURES),
@@ -35,18 +37,23 @@ def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, seed: int) -> Pip
     if y_train.nunique() < 2:
         model = DummyClassifier(strategy="most_frequent")
     else:
-        model = RandomForestClassifier(
-            n_estimators=200,
-            random_state=seed,
-            class_weight="balanced",
-        )
+        if model_type == "linear":
+            model = LogisticRegression(max_iter=1000, random_state=seed)
+        elif model_type == "gbdt":
+            model = RandomForestClassifier(n_estimators=400, random_state=seed, class_weight="balanced")
+        else:
+            model = RandomForestClassifier(
+                n_estimators=200,
+                random_state=seed,
+                class_weight="balanced",
+            )
 
     pipe = Pipeline([("preprocess", preprocess), ("model", model)])
     pipe.fit(X_train, y_train)
     return pipe
 
 
-def _fit_regressor(X_train: pd.DataFrame, y_train: pd.Series, seed: int) -> Pipeline:
+def _fit_regressor(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_type: str) -> Pipeline:
     preprocess = ColumnTransformer(
         transformers=[
             ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), CATEGORICAL_FEATURES),
@@ -57,14 +64,27 @@ def _fit_regressor(X_train: pd.DataFrame, y_train: pd.Series, seed: int) -> Pipe
     if y_train.nunique() < 2:
         model = DummyRegressor(strategy="mean")
     else:
-        model = RandomForestRegressor(n_estimators=200, random_state=seed)
+        if model_type == "linear":
+            model = Ridge(random_state=seed)
+        elif model_type == "gbdt":
+            model = RandomForestRegressor(n_estimators=400, random_state=seed)
+        else:
+            model = RandomForestRegressor(n_estimators=200, random_state=seed)
 
     pipe = Pipeline([("preprocess", preprocess), ("model", model)])
     pipe.fit(X_train, y_train)
     return pipe
 
 
-def train_models(dataset_dir: Path, model_out: Path, seed: int = 1) -> dict[str, Path]:
+def train_models(
+    dataset_dir: Path,
+    model_out: Path,
+    seed: int = 1,
+    *,
+    model_type: str = "rf",
+    calibrate_confidence: str = "none",
+    confidence_target_metric: str = "accuracy",
+) -> dict[str, Path]:
     """Train classifier/regressors and persist model artifacts."""
 
     dataset_dir = dataset_dir.resolve()
@@ -107,10 +127,15 @@ def train_models(dataset_dir: Path, model_out: Path, seed: int = 1) -> dict[str,
         y_carbon_train, y_carbon_test = y_carbon.loc[idx_train], y_carbon.loc[idx_test]
         y_energy_train, y_energy_test = y_energy.loc[idx_train], y_energy.loc[idx_test]
 
-    clf = _fit_classifier(X_train, y_cls_train, seed=seed)
-    reg_fit = _fit_regressor(X_train, y_fit_train, seed=seed)
-    reg_carbon = _fit_regressor(X_train, y_carbon_train, seed=seed)
-    reg_energy = _fit_regressor(X_train, y_energy_train, seed=seed)
+    clf = _fit_classifier(X_train, y_cls_train, seed=seed, model_type=model_type)
+    if calibrate_confidence in {"isotonic", "platt"} and y_cls_train.nunique() > 1 and len(X_train) >= 10:
+        method = "isotonic" if calibrate_confidence == "isotonic" else "sigmoid"
+        clf = CalibratedClassifierCV(clf, cv=3, method=method)
+        clf.fit(X_train, y_cls_train)
+
+    reg_fit = _fit_regressor(X_train, y_fit_train, seed=seed, model_type=model_type)
+    reg_carbon = _fit_regressor(X_train, y_carbon_train, seed=seed, model_type=model_type)
+    reg_energy = _fit_regressor(X_train, y_energy_train, seed=seed, model_type=model_type)
 
     pred_cls = clf.predict(X_test)
     pred_fit = reg_fit.predict(X_test)
@@ -138,12 +163,16 @@ def train_models(dataset_dir: Path, model_out: Path, seed: int = 1) -> dict[str,
         "ood_max_abs_z": 4.0,
     }
 
-    transformed_features = list(clf.named_steps["preprocess"].get_feature_names_out())
+    base_clf = clf.calibrated_classifiers_[0].estimator if isinstance(clf, CalibratedClassifierCV) else clf
+    transformed_features = list(base_clf.named_steps["preprocess"].get_feature_names_out())
 
     bundle: dict[str, Any] = {
         "version": 1,
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "seed": int(seed),
+        "model_type": model_type,
+        "calibrate_confidence": calibrate_confidence,
+        "confidence_target_metric": confidence_target_metric,
         "features": {
             "categorical": CATEGORICAL_FEATURES,
             "numeric": NUMERIC_FEATURES,
@@ -169,6 +198,7 @@ def train_models(dataset_dir: Path, model_out: Path, seed: int = 1) -> dict[str,
     metrics = {
         "classifier": {
             "accuracy": acc,
+            "target_metric": confidence_target_metric,
         },
         "regression": {
             "fit": {"mae": fit_mae, "r2": fit_r2},
