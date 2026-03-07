@@ -450,6 +450,15 @@ def main() -> None:
         help="Repeatable optional feature disable list",
     )
 
+    ml_split = ml_sub.add_parser("split-dataset", help="Create deterministic ML train/validation/holdout splits")
+    ml_split.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
+    ml_split.add_argument("--out", type=Path, default=None, help="Optional split output file (default: <dataset>/dataset_splits.json)")
+    ml_split.add_argument("--seed", type=int, default=1)
+    ml_split.add_argument("--train-ratio", type=float, default=0.7)
+    ml_split.add_argument("--validation-ratio", type=float, default=0.15)
+    ml_split.add_argument("--holdout-ratio", type=float, default=0.15)
+    ml_split.add_argument("--group-column", default="scenario_hash")
+
     ml_train = ml_sub.add_parser("train", help="Train ML advisory model")
     ml_train.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
     ml_train.add_argument("--model-out", type=Path, required=True)
@@ -467,6 +476,9 @@ def main() -> None:
     ml_eval.add_argument("--out", type=Path, required=True, help="Evaluation output directory")
     ml_eval.add_argument("--policy", choices=["carbon_min", "fit_min", "energy_min", "utility_balanced"], default=None)
     ml_eval.add_argument("--ood-threshold", type=float, default=None)
+    ml_eval.add_argument("--split", choices=["all", "train", "validation", "holdout"], default="all")
+    ml_eval.add_argument("--signoff-thresholds", type=Path, default=None)
+    ml_eval.add_argument("--strict-signoff", action="store_true")
     ml_eval.add_argument("--json", action="store_true")
 
     ml_drift = ml_sub.add_parser("check-drift", help="Compute ML data drift report")
@@ -507,6 +519,19 @@ def main() -> None:
                 parser.error(str(exc))
             for key in ("dataset", "schema", "manifest"):
                 print(f"{key}: {artifacts[key]}")
+        elif args.ml_command == "split-dataset":
+            from ml.splits import create_deterministic_splits
+
+            split_path = create_deterministic_splits(
+                args.dataset,
+                args.out,
+                seed=args.seed,
+                train_ratio=args.train_ratio,
+                validation_ratio=args.validation_ratio,
+                holdout_ratio=args.holdout_ratio,
+                group_column=args.group_column,
+            )
+            print(f"splits: {split_path}")
         elif args.ml_command == "train":
             from ml.train import train_models
 
@@ -532,12 +557,16 @@ def main() -> None:
                 args.out,
                 policy=args.policy,
                 ood_threshold=args.ood_threshold,
+                split=args.split,
+                signoff_thresholds=args.signoff_thresholds,
+                strict_signoff=args.strict_signoff,
             )
             if args.json:
                 print(json.dumps({k: str(v) for k, v in artifacts.items()}, indent=2, sort_keys=True))
             else:
-                for key in ("evaluation",):
-                    print(f"{key}: {artifacts[key]}")
+                for key in ("evaluation", "holdout_report", "signoff"):
+                    if key in artifacts:
+                        print(f"{key}: {artifacts[key]}")
         elif args.ml_command == "check-drift":
             from ml.drift import check_drift
 
