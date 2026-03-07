@@ -426,7 +426,41 @@ def test_ml_check_drift_cli_writes_stable_report():
     assert isinstance(payload["summary"]["max_psi"], float)
     assert isinstance(payload["status"]["drift_detected"], bool)
     assert payload["status"]["severity"] in {"none", "medium", "high"}
+    assert payload["status"]["drift_detected"] is False
+    assert payload["status"]["severity"] == "none"
 
+
+
+def test_ml_check_drift_missing_reference_confidence_baseline_is_neutral():
+    base = _new_base("drift_conf_baseline")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=10)
+    train_models(dataset_dir, model_dir, seed=10)
+
+    bundle = joblib.load(model_dir / "model.joblib")
+    bundle.setdefault("train_stats", {}).pop("reference_confidence_mean", None)
+    joblib.dump(bundle, model_dir / "model.joblib")
+
+    out_path = base / "drift_no_ref_conf.json"
+    cmd = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "check-drift",
+        "--model",
+        str(model_dir),
+        "--new-data",
+        str(dataset_dir),
+        "--out",
+        str(out_path),
+    ]
+    subprocess.run(cmd, check=True, capture_output=True, text=True, cwd=REPO)
+
+    payload = json.loads(out_path.read_text(encoding="utf-8"))
+    assert math.isclose(float(payload["confidence_shift"]), 0.0, abs_tol=1e-12)
+    assert payload["status"]["drift_detected"] is False
 
 def test_ml_check_drift_fail_on_drift_exits_nonzero():
     base = _new_base("drift_fail")

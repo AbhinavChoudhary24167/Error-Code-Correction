@@ -339,9 +339,14 @@ def train_models(
     if numeric_features:
         means = _as_float_dict(X_train[numeric_features].mean())
         stds = _as_float_dict(X_train[numeric_features].std(ddof=0).replace(0, 1.0))
+        reference_numeric = {
+            feat: [float(v) for v in X_train[feat].to_numpy(dtype=float).tolist()]
+            for feat in numeric_features
+        }
     else:
         means = {}
         stds = {}
+        reference_numeric = {}
 
     confidence_threshold = 0.6
     if acc < 0.5:
@@ -394,6 +399,24 @@ def train_models(
         seed=seed,
     )
 
+    train_ood_scores: list[float] = []
+    for _, row in X_train[numeric_features].iterrows():
+        feature_row = {k: float(row[k]) for k in numeric_features}
+        score, _ = _ood_score(
+            bundle_stub,
+            feature_row,
+            method=str(ood_payload.get("method", "zscore")),
+            numeric_features=numeric_features,
+        )
+        train_ood_scores.append(float(score))
+    reference_ood_rate = (
+        float(np.mean(np.asarray(train_ood_scores, dtype=float) > float(ood_threshold)))
+        if train_ood_scores
+        else 0.0
+    )
+
+    reference_confidence_mean = float(np.mean(confidences)) if confidences.size else 0.0
+
     thresholds = {
         "confidence_min": float(confidence_threshold),
         "ood_max_abs_z": float(ood_threshold),
@@ -443,6 +466,9 @@ def train_models(
         "train_stats": {
             "means": means,
             "stds": stds,
+            "reference_numeric": reference_numeric,
+            "reference_ood_rate": float(reference_ood_rate),
+            "reference_confidence_mean": float(reference_confidence_mean),
             "train_size": int(len(X_train)),
             "test_size": int(len(X_test)),
         },
