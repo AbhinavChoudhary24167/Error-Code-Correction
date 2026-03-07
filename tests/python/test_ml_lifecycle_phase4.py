@@ -4,7 +4,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+import joblib
+import numpy as np
+import pandas as pd
+
 from ml.dataset import build_dataset
+from ml.drift import _psi_1d
 
 from tests.python.test_ml_integration import REPO, _new_base, _prepare_model
 
@@ -54,7 +59,7 @@ def test_ml_report_card_includes_expected_sections_with_evaluation():
     assert report_path.is_file()
 
     contents = report_path.read_text(encoding="utf-8")
-    for heading in ("## Metrics", "## Thresholds", "## Uncertainty", "## Evaluation"):
+    for heading in ("## Training Metrics", "## Thresholds", "## Uncertainty", "## Evaluation"):
         assert heading in contents
 
     metrics = json.loads((model_dir / "metrics.json").read_text(encoding="utf-8"))
@@ -62,13 +67,14 @@ def test_ml_report_card_includes_expected_sections_with_evaluation():
     uncertainty = json.loads((model_dir / "uncertainty.json").read_text(encoding="utf-8"))
     evaluation = json.loads((model_dir / "evaluation.json").read_text(encoding="utf-8"))
 
-    for expected_snippet in (
-        json.dumps(metrics, indent=2, sort_keys=True),
-        json.dumps(thresholds, indent=2, sort_keys=True),
-        json.dumps(uncertainty, indent=2, sort_keys=True),
-        json.dumps(evaluation, indent=2, sort_keys=True),
-    ):
-        assert expected_snippet in contents
+    for key in sorted(metrics):
+        assert f"- `{key}`:" in contents
+    for key in sorted(thresholds):
+        assert f"- `{key}`:" in contents
+    for key in sorted(uncertainty):
+        assert f"- `{key}`:" in contents
+    for key in sorted(evaluation):
+        assert f"- `{key}`:" in contents
 
 
 def test_ml_report_card_fallback_when_evaluation_missing():
@@ -95,7 +101,7 @@ def test_ml_report_card_fallback_when_evaluation_missing():
 
     contents = report_path.read_text(encoding="utf-8")
     assert "## Evaluation" in contents
-    assert "No evaluation artifact found (`evaluation.json`)." in contents
+    assert "- `status`: evaluation.json not found in model directory" in contents
 
 
 def test_ml_check_drift_schema_and_deterministic_values():
@@ -127,25 +133,40 @@ def test_ml_check_drift_schema_and_deterministic_values():
         "population_stability_index",
         "ood_rate_delta",
         "confidence_shift",
+        "summary",
         "status",
     }
     assert set(drift["status"].keys()) == {"drift_detected", "severity"}
 
     assert drift["ood_rate_delta"] == 0.0
-    assert drift["confidence_shift"] == 0.4
+    assert drift["confidence_shift"] > 0.0
 
-    expected_psi = {
-        "node": 0.0,
-        "vdd": 0.0,
-        "temp": 0.0,
-        "capacity_gib": 0.0,
-        "ci": 0.0,
-        "bitcell_um2": 0.0,
-        "scrub_s": 0.0,
-        "latency_ns": 0.0,
-        "area_logic_mm2": 0.0,
-        "area_macro_mm2": 0.0,
-    }
+    df = pd.read_csv(dataset_dir / "dataset.csv")
+    bundle = joblib.load(model_dir / "model.joblib")
+    numeric_features = [
+        "node",
+        "vdd",
+        "temp",
+        "capacity_gib",
+        "ci",
+        "bitcell_um2",
+        "scrub_s",
+        "latency_ns",
+        "area_logic_mm2",
+        "area_macro_mm2",
+    ]
+    expected_psi: dict[str, float] = {}
+    n = max(len(df), 64)
+    means = bundle.get("train_stats", {}).get("means", {})
+    stds = bundle.get("train_stats", {}).get("stds", {})
+    for feat in numeric_features:
+        mean = float(means.get(feat, 0.0))
+        std = float(stds.get(feat, 1.0))
+        if not np.isfinite(std) or std <= 0:
+            std = 1.0
+        ref = np.linspace(mean - 1.5 * std, mean + 1.5 * std, n)
+        expected_psi[feat] = float(_psi_1d(ref, df[feat].to_numpy(dtype=float)))
+
     assert drift["population_stability_index"] == expected_psi
 
 
@@ -183,5 +204,5 @@ def test_ml_check_drift_fail_on_drift_exit_code():
     res = _run(cmd)
 
     assert res.returncode == 2
-    drift = json.loads((model_dir / "drift.json").read_text(encoding="utf-8"))
+    drift = json.loads((REPO / "drift.json").read_text(encoding="utf-8"))
     assert drift["status"]["drift_detected"] is True

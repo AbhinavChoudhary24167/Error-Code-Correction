@@ -25,6 +25,7 @@ Running `python analysis/workload_scenarios.py` and `python analysis/generate_fi
 2. **Static selector run** – Execute `eccsim select` with the frozen scenario to obtain baseline recommendations and Pareto frontier.
 3. **Dynamic stress sweep** – Run `python analysis/workload_scenarios.py` to confirm duty-cycle and adaptive scrub behaviour; update fit budgets if excursions exceed SLA.
 4. **Score reconciliation** – Regenerate figures via `python analysis/generate_figures.py`; embed GS ablation, carbon heatmap, and correlation plots in the review packet.
-5. **Cross-functional review** – Present the checklist, FIT deltas, and carbon summaries to reliability, architecture, and sustainability stakeholders; capture sign-off in the project tracker.
+5. **Drift report review (ML advisory flows)** – Run `eccsim.py ml check-drift` for the candidate deployment dataset and review `drift.json`; when policy gating is used, archive `--drift-policy-out` output in the sign-off packet before approval.
+6. **Cross-functional review** – Present the checklist, FIT deltas, carbon summaries, and (if applicable) drift review outcomes to reliability, architecture, and sustainability stakeholders; capture sign-off in the project tracker.
 
 Keeping this checklist under version control makes quarterly refreshes repeatable while exposing how design decisions evolve with workload and supply-chain assumptions.
