@@ -9,11 +9,73 @@ voltage, mirroring the structure used by :mod:`energy_model`.
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Iterable
 
 
-def load_calibration(path: Path) -> Dict[int, Dict[float, dict]]:
+DEFAULT_PROVENANCE_MANIFEST = (
+    Path(__file__).resolve().parent
+    / "reports"
+    / "calibration"
+    / "provenance_manifest.json"
+)
+
+
+def _iter_calibration_sources(raw: dict) -> Iterable[str]:
+    for node_data in raw.values():
+        for entry in node_data.values():
+            yield str(entry.get("source", "")).strip()
+
+
+def validate_calibration_provenance(
+    calibration_path: Path,
+    provenance_manifest_path: Path = DEFAULT_PROVENANCE_MANIFEST,
+    *,
+    strict: bool = False,
+) -> list[str]:
+    """Validate that all calibration source tokens resolve in provenance manifest.
+
+    Parameters
+    ----------
+    calibration_path : Path
+        Path to ``tech_calib.json``.
+    provenance_manifest_path : Path
+        Path to provenance manifest with ``data_sources`` records.
+    strict : bool, default=False
+        When ``True``, unresolved tokens raise ``ValueError``.
+        When ``False``, unresolved tokens emit explicit warnings.
+    """
+
+    raw_calibration = json.load(open(calibration_path))
+    manifest = json.load(open(provenance_manifest_path))
+    known_sources = {
+        str(entry["id"]).strip()
+        for entry in manifest.get("data_sources", [])
+        if "id" in entry
+    }
+    referenced_sources = {
+        token for token in _iter_calibration_sources(raw_calibration) if token
+    }
+    missing = sorted(referenced_sources - known_sources)
+    if missing:
+        message = (
+            "Unresolvable calibration provenance source token(s): "
+            f"{', '.join(missing)}. Add matching data_sources[].id entries to "
+            f"{provenance_manifest_path}."
+        )
+        if strict:
+            raise ValueError(message)
+        warnings.warn(message, stacklevel=2)
+    return missing
+
+
+def load_calibration(
+    path: Path,
+    *,
+    strict_provenance: bool = False,
+    provenance_manifest_path: Path = DEFAULT_PROVENANCE_MANIFEST,
+) -> Dict[int, Dict[float, dict]]:
     """Load and validate gate energy calibration data.
 
     Parameters
@@ -28,6 +90,11 @@ def load_calibration(path: Path) -> Dict[int, Dict[float, dict]]:
         metadata and gate energy information.
     """
     raw = json.load(open(path))
+    validate_calibration_provenance(
+        path,
+        provenance_manifest_path=provenance_manifest_path,
+        strict=strict_provenance,
+    )
     calib: Dict[int, Dict[float, dict]] = {}
     for node_str, node_data in raw.items():
         node = int(node_str)
