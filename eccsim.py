@@ -451,6 +451,14 @@ def main() -> None:
     ml_drift.add_argument("--new-data", type=Path, required=True, help="New dataset directory")
     ml_drift.add_argument("--out", type=Path, default=Path("drift.json"), help="Drift report path")
     ml_drift.add_argument("--fail-on-drift", action="store_true")
+    ml_report_card = ml_sub.add_parser("report-card", help="Generate consolidated model report card")
+    ml_report_card.add_argument("--model", type=Path, required=True, help="Model directory")
+    ml_report_card.add_argument(
+        "--out",
+        type=Path,
+        default=Path("model_card.md"),
+        help="Markdown output path (relative paths are resolved from current working directory)",
+    )
 
     args = parser.parse_args()
 
@@ -518,6 +526,12 @@ def main() -> None:
             print(f"drift: {artifacts['drift']}")
             if args.fail_on_drift and bool(artifacts["drift_detected"]):
                 raise SystemExit(2)
+        elif args.ml_command == "report-card":
+            from ml.report_card import generate_report_card
+
+            artifacts = generate_report_card(args.model, args.out)
+            for key in ("report_card",):
+                print(f"{key}: {artifacts[key]}")
         else:
             parser.error("ml subcommand required")
         return

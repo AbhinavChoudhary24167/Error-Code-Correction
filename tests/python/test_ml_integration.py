@@ -465,3 +465,59 @@ def test_ml_check_drift_fail_on_drift_exits_nonzero():
     payload = json.loads(out_path.read_text(encoding="utf-8"))
     assert payload["status"]["drift_detected"] is True
     assert res.returncode != 0
+
+def test_ml_report_card_cli_smoke_and_output_resolution():
+    base = _new_base("report_card")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=13)
+    train_models(dataset_dir, model_dir, seed=13)
+    evaluate_model(dataset_dir, model_dir, eval_dir)
+
+    # report-card reads optional evaluation.json from model directory.
+    (model_dir / "evaluation.json").write_text(
+        (eval_dir / "evaluation.json").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+
+    out_rel = Path("report_card_from_cli.md")
+    cmd_report = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "report-card",
+        "--model",
+        str(model_dir),
+        "--out",
+        str(out_rel),
+    ]
+    res = subprocess.run(cmd_report, check=True, capture_output=True, text=True, cwd=base)
+
+    report_path = base / out_rel
+    assert report_path.is_file()
+    assert res.stdout.strip() == f"report_card: {report_path}"
+
+    content = report_path.read_text(encoding="utf-8")
+    assert "# ECC ML Report Card" in content
+    for heading in ("## Training Metrics", "## Thresholds", "## Uncertainty", "## Evaluation"):
+        assert heading in content
+
+
+def test_ml_report_card_requires_core_artifacts():
+    base = _new_base("report_card_missing")
+    model_dir = base / "model"
+    model_dir.mkdir(parents=True, exist_ok=True)
+
+    cmd_report = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "report-card",
+        "--model",
+        str(model_dir),
+    ]
+    res = subprocess.run(cmd_report, capture_output=True, text=True, cwd=REPO)
+    assert res.returncode != 0
+    assert "Missing required artifact" in (res.stderr + res.stdout)
