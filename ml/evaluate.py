@@ -8,7 +8,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, mean_absolute_error
 
-from .features import CATEGORICAL_FEATURES, NUMERIC_FEATURES
+from .features import row_to_feature_dict, resolve_model_feature_spec
 from .model_registry import load_model_bundle
 from .predict import _ood_score, resolve_thresholds
 
@@ -28,10 +28,23 @@ def evaluate_model(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_csv(dataset_path)
-    X = df[CATEGORICAL_FEATURES + NUMERIC_FEATURES].copy()
     y = df["label_code"].astype(str)
 
     bundle = load_model_bundle(model_dir)
+    feature_spec = resolve_model_feature_spec(bundle)
+    categorical_features = list(feature_spec.get("categorical", ["code"]))
+    numeric_features = list(feature_spec.get("numeric", []))
+
+    feature_rows = [
+        row_to_feature_dict(
+            row.to_dict(),
+            categorical_features=categorical_features,
+            numeric_features=numeric_features,
+        )
+        for _, row in df.iterrows()
+    ]
+    X = pd.DataFrame(feature_rows, columns=categorical_features + numeric_features)
+
     clf = bundle["classifier"]
     reg_fit = bundle["regressors"]["fit"]
     reg_carbon = bundle["regressors"]["carbon"]
@@ -57,9 +70,13 @@ def evaluate_model(
 
     ood_count = 0
     low_conf_count = 0
-    for _, row in X.iterrows():
-        feature_row = {k: row[k] for k in CATEGORICAL_FEATURES + NUMERIC_FEATURES}
-        score, _ = _ood_score(bundle, feature_row, method=ood_method)
+    for feature_row in feature_rows:
+        score, _ = _ood_score(
+            bundle,
+            feature_row,
+            method=ood_method,
+            numeric_features=numeric_features,
+        )
         if score > ood_max:
             ood_count += 1
     for conf in confidences:

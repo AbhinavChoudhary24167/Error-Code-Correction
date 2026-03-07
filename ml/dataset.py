@@ -1,20 +1,30 @@
-﻿"""Dataset construction for optional ECC ML models."""
+"""Dataset construction for optional ECC ML models."""
 
 from __future__ import annotations
 
 import csv
 import hashlib
 import json
+import math
 import random
+import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-from .features import FEATURE_COLUMNS, TARGET_COLUMNS, DEFAULT_SCENARIO, with_training_columns
+from .features import (
+    TARGET_COLUMNS,
+    DEFAULT_SCENARIO,
+    as_float,
+    feature_lists_from_optional,
+    resolve_feature_selection,
+    with_training_columns,
+)
 
 
 LABEL_POLICIES = {"carbon_min", "fit_min", "energy_min", "utility_balanced"}
+_MBU_CLASS_TO_IDX = {"none": 0.0, "light": 1.0, "moderate": 2.0, "heavy": 3.0}
 
 
 def _sha256(path: Path) -> str:
@@ -77,6 +87,11 @@ def _canonical_row(raw: dict[str, str], source_kind: str) -> dict[str, object]:
         "bitcell_um2": pick("bitcell_um2", default=str(DEFAULT_SCENARIO["bitcell_um2"])),
         "scenario_hash": pick("scenario_hash", default="unknown"),
         "source_kind": source_kind,
+        "mbu": pick("mbu", default=None),
+        "corr_events": pick("corr_events", default=None),
+        "accesses": pick("accesses", default=None),
+        "retry_events": pick("retry_events", "retries", default=None),
+        "telemetry_retry_rate": pick("telemetry_retry_rate", default=None),
     }
     return row
 
@@ -158,6 +173,11 @@ def _collect_training_rows(
             out = with_training_columns(canon)
             out["source_kind"] = source_kind
             out["source_file"] = str(path)
+            out["mbu"] = canon.get("mbu")
+            out["corr_events"] = canon.get("corr_events")
+            out["accesses"] = canon.get("accesses")
+            out["retry_events"] = canon.get("retry_events")
+            out["telemetry_retry_rate"] = canon.get("telemetry_retry_rate")
             rows.append(out)
             local_rows += 1
         if local_rows:
@@ -179,6 +199,110 @@ def _collect_training_rows(
     return rows, sources
 
 
+def _infer_mbu_class_idx(row: dict[str, object]) -> float:
+    raw_mbu = str(row.get("mbu", "") or "").strip().lower()
+    if raw_mbu in _MBU_CLASS_TO_IDX:
+        return _MBU_CLASS_TO_IDX[raw_mbu]
+
+    source_file = str(row.get("source_file", "") or "").lower()
+    match = re.search(r"mbu[-_](none|light|moderate|heavy)", source_file)
+    if match:
+        return _MBU_CLASS_TO_IDX[match.group(1)]
+
+    return -1.0
+
+
+def _retry_rate(row: dict[str, object]) -> float:
+    explicit = row.get("telemetry_retry_rate")
+    if explicit not in (None, ""):
+        return max(0.0, as_float(explicit, 0.0))
+
+    accesses = as_float(row.get("accesses"), 0.0)
+    if accesses <= 0.0:
+        return 0.0
+
+    retry_events = row.get("retry_events")
+    if retry_events not in (None, ""):
+        return max(0.0, as_float(retry_events, 0.0) / accesses)
+
+    corr_events = row.get("corr_events")
+    if corr_events not in (None, ""):
+        return max(0.0, as_float(corr_events, 0.0) / accesses)
+
+    return 0.0
+
+
+def _fit_vs_vdd_slope(rows: list[dict[str, object]]) -> dict[tuple[str, str, str, str, str, str, str], float]:
+    grouped: dict[tuple[str, str, str, str, str, str, str], list[tuple[float, float]]] = {}
+    for row in rows:
+        key = (
+            str(row.get("code", "")),
+            str(row.get("node", "")),
+            str(row.get("temp", "")),
+            str(row.get("capacity_gib", "")),
+            str(row.get("ci", "")),
+            str(row.get("bitcell_um2", "")),
+            str(row.get("scrub_s", "")),
+        )
+        grouped.setdefault(key, []).append((as_float(row.get("vdd"), 0.0), as_float(row.get("fit_true"), 0.0)))
+
+    slopes: dict[tuple[str, str, str, str, str, str, str], float] = {}
+    for key, points in grouped.items():
+        if len(points) < 2:
+            slopes[key] = 0.0
+            continue
+
+        xs = [p[0] for p in points]
+        ys = [p[1] for p in points]
+        x_bar = sum(xs) / len(xs)
+        y_bar = sum(ys) / len(ys)
+        var_x = sum((x - x_bar) ** 2 for x in xs)
+        if var_x <= 0.0:
+            slopes[key] = 0.0
+            continue
+        cov_xy = sum((x - x_bar) * (y - y_bar) for x, y in zip(xs, ys))
+        slopes[key] = float(cov_xy / var_x)
+    return slopes
+
+
+def _apply_optional_features(rows: list[dict[str, object]], enabled_features: list[str]) -> None:
+    enabled = set(enabled_features)
+    if not enabled:
+        return
+
+    slopes: dict[tuple[str, str, str, str, str, str, str], float] = {}
+    if "ser_slope_vdd" in enabled:
+        slopes = _fit_vs_vdd_slope(rows)
+
+    for row in rows:
+        if "mbu_class_idx" in enabled:
+            row["mbu_class_idx"] = _infer_mbu_class_idx(row)
+
+        if "scrub_log10_s" in enabled:
+            scrub_s = max(as_float(row.get("scrub_s"), DEFAULT_SCENARIO["scrub_s"]), 1e-12)
+            row["scrub_log10_s"] = float(math.log10(scrub_s))
+
+        if "fit_per_watt_proxy" in enabled:
+            fit_true = as_float(row.get("fit_true"), 0.0)
+            energy_true = max(as_float(row.get("energy_true"), 0.0), 1e-12)
+            row["fit_per_watt_proxy"] = float(fit_true / energy_true)
+
+        if "ser_slope_vdd" in enabled:
+            key = (
+                str(row.get("code", "")),
+                str(row.get("node", "")),
+                str(row.get("temp", "")),
+                str(row.get("capacity_gib", "")),
+                str(row.get("ci", "")),
+                str(row.get("bitcell_um2", "")),
+                str(row.get("scrub_s", "")),
+            )
+            row["ser_slope_vdd"] = float(slopes.get(key, 0.0))
+
+        if "telemetry_retry_rate" in enabled:
+            row["telemetry_retry_rate"] = _retry_rate(row)
+
+
 def build_dataset(
     from_dir: Path,
     out_dir: Path,
@@ -189,6 +313,9 @@ def build_dataset(
     utility_beta_carbon: float = 1.0,
     utility_gamma_energy: float = 1.0,
     split_strategy: str = "scenario_hash",
+    feature_pack: str = "core",
+    enable_features: Iterable[str] | None = None,
+    disable_features: Iterable[str] | None = None,
 ) -> dict[str, Path]:
     """Build a training dataset from existing ECC artifacts.
 
@@ -205,6 +332,15 @@ def build_dataset(
     if label_policy not in LABEL_POLICIES:
         raise ValueError(f"Unsupported label_policy: {label_policy}")
 
+    resolved_features = resolve_feature_selection(
+        feature_pack=feature_pack,
+        enable_features=enable_features,
+        disable_features=disable_features,
+        strict=True,
+    )
+    enabled_features = list(resolved_features["enabled_features"])
+    disabled_features = list(resolved_features["disabled_features"])
+
     utility_weights = {
         "alpha_fit": float(utility_alpha_fit),
         "beta_carbon": float(utility_beta_carbon),
@@ -216,6 +352,8 @@ def build_dataset(
         label_policy=label_policy,
         utility_weights=utility_weights,
     )
+    _apply_optional_features(rows, enabled_features)
+
     rows.sort(key=lambda r: (str(r["scenario_hash"]), str(r["code"]), str(r["source_file"])))
     random.Random(seed).shuffle(rows)
 
@@ -223,17 +361,23 @@ def build_dataset(
     schema_path = out_dir / "dataset_schema.json"
     manifest_path = out_dir / "dataset_manifest.json"
 
-    fieldnames = FEATURE_COLUMNS + TARGET_COLUMNS + ["scenario_hash", "source_kind", "source_file"]
+    categorical_columns, numeric_columns = feature_lists_from_optional(enabled_features)
+    fieldnames = categorical_columns + numeric_columns + TARGET_COLUMNS + ["scenario_hash", "source_kind", "source_file"]
+
     with dataset_path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
         writer.writeheader()
         for row in rows:
             writer.writerow({k: row.get(k, "") for k in fieldnames})
 
+    string_columns = set(categorical_columns + ["label_code", "scenario_hash", "source_kind", "source_file"])
     schema = {
         "format": "csv",
+        "feature_pack": str(resolved_features["feature_pack"]),
+        "enabled_features": enabled_features,
+        "disabled_features": disabled_features,
         "columns": [
-            {"name": col, "type": "string" if col in ("code", "label_code", "scenario_hash", "source_kind", "source_file") else "float"}
+            {"name": col, "type": "string" if col in string_columns else "float"}
             for col in fieldnames
         ],
     }

@@ -19,7 +19,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-from .features import CATEGORICAL_FEATURES, NUMERIC_FEATURES, TARGET_COLUMNS
+from .features import (
+    CATEGORICAL_FEATURES,
+    NUMERIC_FEATURES,
+    TARGET_COLUMNS,
+    resolve_dataset_feature_spec,
+)
 from .model_registry import save_model_bundle
 from .predict import _ood_score
 
@@ -28,11 +33,19 @@ def _as_float_dict(series: pd.Series) -> dict[str, float]:
     return {str(k): float(v) for k, v in series.items()}
 
 
-def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_type: str) -> Pipeline:
+def _fit_classifier(
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    *,
+    seed: int,
+    model_type: str,
+    categorical_features: list[str],
+    numeric_features: list[str],
+) -> Pipeline:
     preprocess = ColumnTransformer(
         transformers=[
-            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), CATEGORICAL_FEATURES),
-            ("num", "passthrough", NUMERIC_FEATURES),
+            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),
+            ("num", "passthrough", numeric_features),
         ]
     )
 
@@ -55,11 +68,19 @@ def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_
     return pipe
 
 
-def _fit_regressor(X_train: pd.DataFrame, y_train: pd.Series, seed: int, model_type: str) -> Pipeline:
+def _fit_regressor(
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    *,
+    seed: int,
+    model_type: str,
+    categorical_features: list[str],
+    numeric_features: list[str],
+) -> Pipeline:
     preprocess = ColumnTransformer(
         transformers=[
-            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), CATEGORICAL_FEATURES),
-            ("num", "passthrough", NUMERIC_FEATURES),
+            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),
+            ("num", "passthrough", numeric_features),
         ]
     )
 
@@ -155,6 +176,7 @@ def _calibrate_ood(
     *,
     bundle_stub: dict[str, Any],
     X_train: pd.DataFrame,
+    numeric_features: list[str],
     method: str,
     quantile: float,
     seed: int,
@@ -162,7 +184,10 @@ def _calibrate_ood(
     method_norm = str(method).strip().lower()
     ood_payload: dict[str, Any] = {"method": method_norm}
 
-    X_num = X_train[NUMERIC_FEATURES].to_numpy(dtype=float)
+    if not numeric_features:
+        return ood_payload, 0.0
+
+    X_num = X_train[numeric_features].to_numpy(dtype=float)
     scores: list[float] = []
 
     if method_norm == "iforest":
@@ -188,8 +213,13 @@ def _calibrate_ood(
     else:
         ood_payload["method"] = "zscore"
         for _, row in X_train.iterrows():
-            feature_row = {k: row[k] for k in NUMERIC_FEATURES}
-            score, _ = _ood_score(bundle_stub, feature_row, method="zscore")
+            feature_row = {k: row[k] for k in numeric_features}
+            score, _ = _ood_score(
+                bundle_stub,
+                feature_row,
+                method="zscore",
+                numeric_features=numeric_features,
+            )
             scores.append(float(score))
 
     ood_threshold = _bounded_quantile(np.asarray(scores, dtype=float), quantile)
@@ -219,12 +249,16 @@ def train_models(
         raise FileNotFoundError(f"Missing dataset file: {dataset_path}")
 
     df = pd.read_csv(dataset_path)
-    required = set(CATEGORICAL_FEATURES + NUMERIC_FEATURES + TARGET_COLUMNS)
+    feature_spec = resolve_dataset_feature_spec(dataset_dir, dataframe_columns=df.columns)
+    categorical_features = list(feature_spec.get("categorical", CATEGORICAL_FEATURES))
+    numeric_features = list(feature_spec.get("numeric", NUMERIC_FEATURES))
+
+    required = set(categorical_features + numeric_features + TARGET_COLUMNS)
     missing = sorted(required - set(df.columns))
     if missing:
         raise ValueError(f"Dataset missing columns: {missing}")
 
-    X = df[CATEGORICAL_FEATURES + NUMERIC_FEATURES].copy()
+    X = df[categorical_features + numeric_features].copy()
     y_cls = df["label_code"].astype(str)
     y_fit = df["fit_true"].astype(float)
     y_carbon = df["carbon_true"].astype(float)
@@ -250,15 +284,43 @@ def train_models(
         y_carbon_train, y_carbon_test = y_carbon.loc[idx_train], y_carbon.loc[idx_test]
         y_energy_train, y_energy_test = y_energy.loc[idx_train], y_energy.loc[idx_test]
 
-    clf = _fit_classifier(X_train, y_cls_train, seed=seed, model_type=model_type)
+    clf = _fit_classifier(
+        X_train,
+        y_cls_train,
+        seed=seed,
+        model_type=model_type,
+        categorical_features=categorical_features,
+        numeric_features=numeric_features,
+    )
     if calibrate_confidence in {"isotonic", "platt"} and y_cls_train.nunique() > 1 and len(X_train) >= 10:
         method = "isotonic" if calibrate_confidence == "isotonic" else "sigmoid"
         clf = CalibratedClassifierCV(clf, cv=3, method=method)
         clf.fit(X_train, y_cls_train)
 
-    reg_fit = _fit_regressor(X_train, y_fit_train, seed=seed, model_type=model_type)
-    reg_carbon = _fit_regressor(X_train, y_carbon_train, seed=seed, model_type=model_type)
-    reg_energy = _fit_regressor(X_train, y_energy_train, seed=seed, model_type=model_type)
+    reg_fit = _fit_regressor(
+        X_train,
+        y_fit_train,
+        seed=seed,
+        model_type=model_type,
+        categorical_features=categorical_features,
+        numeric_features=numeric_features,
+    )
+    reg_carbon = _fit_regressor(
+        X_train,
+        y_carbon_train,
+        seed=seed,
+        model_type=model_type,
+        categorical_features=categorical_features,
+        numeric_features=numeric_features,
+    )
+    reg_energy = _fit_regressor(
+        X_train,
+        y_energy_train,
+        seed=seed,
+        model_type=model_type,
+        categorical_features=categorical_features,
+        numeric_features=numeric_features,
+    )
 
     pred_cls = clf.predict(X_test)
     pred_fit = reg_fit.predict(X_test)
@@ -274,8 +336,12 @@ def train_models(
     carbon_r2 = float(r2_score(y_carbon_test, pred_carbon)) if len(y_carbon_test) > 1 else 1.0
     energy_r2 = float(r2_score(y_energy_test, pred_energy)) if len(y_energy_test) > 1 else 1.0
 
-    means = _as_float_dict(X_train[NUMERIC_FEATURES].mean())
-    stds = _as_float_dict(X_train[NUMERIC_FEATURES].std(ddof=0).replace(0, 1.0))
+    if numeric_features:
+        means = _as_float_dict(X_train[numeric_features].mean())
+        stds = _as_float_dict(X_train[numeric_features].std(ddof=0).replace(0, 1.0))
+    else:
+        means = {}
+        stds = {}
 
     confidence_threshold = 0.6
     if acc < 0.5:
@@ -322,6 +388,7 @@ def train_models(
     ood_payload, ood_threshold = _calibrate_ood(
         bundle_stub=bundle_stub,
         X_train=X_train,
+        numeric_features=numeric_features,
         method=ood_method,
         quantile=float(ood_quantile),
         seed=seed,
@@ -361,8 +428,10 @@ def train_models(
         "calibrate_confidence": calibrate_confidence,
         "confidence_target_metric": confidence_target_metric,
         "features": {
-            "categorical": CATEGORICAL_FEATURES,
-            "numeric": NUMERIC_FEATURES,
+            "categorical": categorical_features,
+            "numeric": numeric_features,
+            "enabled_optional": list(feature_spec.get("enabled_features", [])),
+            "feature_pack": str(feature_spec.get("feature_pack", "core")),
             "transformed": transformed_features,
         },
         "classifier": clf,

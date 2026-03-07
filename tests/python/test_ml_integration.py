@@ -9,6 +9,7 @@ import joblib
 
 from ml.dataset import build_dataset
 from ml.evaluate import evaluate_model
+from ml.features import OPTIONAL_NUMERIC_FEATURES
 from ml.predict import predict_with_model, resolve_thresholds
 from ml.train import train_models
 
@@ -310,3 +311,77 @@ def test_selector_overrides_and_ml_debug_json_only():
     assert "prediction_set" in data
     assert "eligible_candidates" in data
     assert "rejected_candidates" in data
+
+
+def test_ml_cli_build_dataset_feature_pack_smoke():
+    mapping = {
+        "core": [],
+        "core+telemetry": ["telemetry_retry_rate"],
+        "core+telemetry+workload": OPTIONAL_NUMERIC_FEATURES,
+    }
+    for pack, expected_enabled in mapping.items():
+        base = _new_base(f"cli_pack_{pack.replace('+', '_')}")
+        dataset_dir = base / "dataset"
+
+        cmd_build = [
+            sys.executable,
+            str(REPO / "eccsim.py"),
+            "ml",
+            "build-dataset",
+            "--from",
+            str(REPO / "reports" / "examples"),
+            "--out",
+            str(dataset_dir),
+            "--seed",
+            "1",
+            "--feature-pack",
+            pack,
+        ]
+        subprocess.run(cmd_build, check=True, capture_output=True, text=True, cwd=REPO)
+
+        schema = json.loads((dataset_dir / "dataset_schema.json").read_text(encoding="utf-8"))
+        assert schema["feature_pack"] == pack
+        assert schema["enabled_features"] == expected_enabled
+
+
+def test_ml_feature_pack_train_predict_evaluate_smoke():
+    base = _new_base("pack_train_eval")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(
+        REPO / "reports" / "examples",
+        dataset_dir,
+        seed=11,
+        feature_pack="core+telemetry+workload",
+    )
+    train_models(dataset_dir, model_dir, seed=11, model_type="linear")
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir, policy="carbon_min")
+
+    features_meta = json.loads((model_dir / "features.json").read_text(encoding="utf-8"))
+    assert features_meta["enabled_optional"] == OPTIONAL_NUMERIC_FEATURES
+    assert features_meta["feature_pack"] == "core+telemetry+workload"
+
+    pred = predict_with_model(model_dir, _sample_row())
+    assert isinstance(pred["ml_recommendation"], str)
+    for key in OPTIONAL_NUMERIC_FEATURES:
+        assert key in pred["features"]
+
+    evaluation = json.loads((artifacts["evaluation"]).read_text(encoding="utf-8"))
+    assert evaluation["summary"]["policy"] == "carbon_min"
+
+
+def test_backward_compatible_model_loading_without_feature_lists():
+    model_dir = _prepare_model("legacy_feature_lists", seed=6)
+
+    bundle = joblib.load(model_dir / "model.joblib")
+    bundle["features"] = {
+        "transformed": bundle.get("features", {}).get("transformed", []),
+    }
+    joblib.dump(bundle, model_dir / "model.joblib")
+
+    pred = predict_with_model(model_dir, _sample_row())
+    assert isinstance(pred["ml_recommendation"], str)
+    assert "predictions" in pred
+

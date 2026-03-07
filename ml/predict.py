@@ -9,7 +9,12 @@ from typing import Mapping, Any
 import numpy as np
 import pandas as pd
 
-from .features import CATEGORICAL_FEATURES, NUMERIC_FEATURES, row_to_feature_dict
+from .features import (
+    CATEGORICAL_FEATURES,
+    NUMERIC_FEATURES,
+    resolve_model_feature_spec,
+    row_to_feature_dict,
+)
 from .model_registry import load_model_bundle as _load_model_bundle
 
 
@@ -105,11 +110,16 @@ def resolve_thresholds(
     return resolved
 
 
-def _zscore_map(bundle: dict, feature_row: dict[str, float | str]) -> dict[str, float]:
+def _zscore_map(
+    bundle: dict,
+    feature_row: dict[str, float | str],
+    *,
+    numeric_features: list[str],
+) -> dict[str, float]:
     means = bundle.get("train_stats", {}).get("means", {})
     stds = bundle.get("train_stats", {}).get("stds", {})
     z_map: dict[str, float] = {}
-    for key in NUMERIC_FEATURES:
+    for key in numeric_features:
         mean = float(means.get(key, 0.0))
         std = float(stds.get(key, 1.0))
         if std <= 0:
@@ -119,8 +129,8 @@ def _zscore_map(bundle: dict, feature_row: dict[str, float | str]) -> dict[str, 
     return z_map
 
 
-def _numeric_vector(feature_row: Mapping[str, float | str]) -> np.ndarray:
-    return np.asarray([float(feature_row.get(k, 0.0)) for k in NUMERIC_FEATURES], dtype=float)
+def _numeric_vector(feature_row: Mapping[str, float | str], *, numeric_features: list[str]) -> np.ndarray:
+    return np.asarray([float(feature_row.get(k, 0.0)) for k in numeric_features], dtype=float)
 
 
 def _ood_score(
@@ -128,22 +138,26 @@ def _ood_score(
     feature_row: dict[str, float | str],
     *,
     method: str,
+    numeric_features: list[str] | None = None,
 ) -> tuple[float, dict[str, float]]:
     """Compute OOD score where larger means more out-of-distribution."""
 
+    if numeric_features is None:
+        numeric_features = list(resolve_model_feature_spec(bundle).get("numeric", NUMERIC_FEATURES))
+
     method_norm = str(method).strip().lower()
     if method_norm == "zscore":
-        z_map = _zscore_map(bundle, feature_row)
+        z_map = _zscore_map(bundle, feature_row, numeric_features=numeric_features)
         return (max(z_map.values()) if z_map else 0.0), z_map
 
     ood = bundle.get("ood", {}) if isinstance(bundle.get("ood"), dict) else {}
-    vec = _numeric_vector(feature_row)
+    vec = _numeric_vector(feature_row, numeric_features=numeric_features)
 
     if method_norm == "mahalanobis":
         mean = np.asarray(ood.get("mahalanobis_mean", []), dtype=float)
         inv_cov = np.asarray(ood.get("mahalanobis_inv_cov", []), dtype=float)
         if mean.shape != vec.shape or inv_cov.shape != (len(vec), len(vec)):
-            z_map = _zscore_map(bundle, feature_row)
+            z_map = _zscore_map(bundle, feature_row, numeric_features=numeric_features)
             return (max(z_map.values()) if z_map else 0.0), z_map
         diff = vec - mean
         dist = float(np.sqrt(max(0.0, float(diff @ inv_cov @ diff.T))))
@@ -152,12 +166,12 @@ def _ood_score(
     if method_norm == "iforest":
         model = ood.get("iforest_model")
         if model is None:
-            z_map = _zscore_map(bundle, feature_row)
+            z_map = _zscore_map(bundle, feature_row, numeric_features=numeric_features)
             return (max(z_map.values()) if z_map else 0.0), z_map
         score = float(-model.score_samples(np.asarray([vec]))[0])
         return score, {"iforest_anomaly": score}
 
-    z_map = _zscore_map(bundle, feature_row)
+    z_map = _zscore_map(bundle, feature_row, numeric_features=numeric_features)
     return (max(z_map.values()) if z_map else 0.0), z_map
 
 
@@ -181,8 +195,17 @@ def predict_with_model(
     """Predict recommended code and reliability/energy/carbon metrics."""
 
     bundle = load_model_bundle(model_dir)
-    feature_row = row_to_feature_dict(row, scenario_defaults=scenario_defaults)
-    X = pd.DataFrame([{k: feature_row[k] for k in CATEGORICAL_FEATURES + NUMERIC_FEATURES}])
+    feature_spec = resolve_model_feature_spec(bundle)
+    categorical_features = list(feature_spec.get("categorical", CATEGORICAL_FEATURES))
+    numeric_features = list(feature_spec.get("numeric", NUMERIC_FEATURES))
+
+    feature_row = row_to_feature_dict(
+        row,
+        scenario_defaults=scenario_defaults,
+        categorical_features=categorical_features,
+        numeric_features=numeric_features,
+    )
+    X = pd.DataFrame([{k: feature_row[k] for k in categorical_features + numeric_features}])
 
     classifier = bundle["classifier"]
     classes = classifier.classes_
@@ -208,7 +231,12 @@ def predict_with_model(
     )
 
     ood_method = str(thresholds["ood_method"])
-    ood_score, ood_detail = _ood_score(bundle, feature_row, method=ood_method)
+    ood_score, ood_detail = _ood_score(
+        bundle,
+        feature_row,
+        method=ood_method,
+        numeric_features=numeric_features,
+    )
     confidence_min = float(thresholds["confidence_min"])
     ood_threshold = float(thresholds["ood_threshold"])
     prediction_set = _prediction_set(classes, probs, float(thresholds["conformal_prob_min"]))

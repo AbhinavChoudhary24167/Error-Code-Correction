@@ -409,6 +409,23 @@ def main() -> None:
     ml_build.add_argument("--utility-beta-carbon", type=float, default=1.0)
     ml_build.add_argument("--utility-gamma-energy", type=float, default=1.0)
     ml_build.add_argument("--split-strategy", choices=["random", "scenario_hash"], default="scenario_hash")
+    ml_build.add_argument(
+        "--feature-pack",
+        choices=["core", "core+telemetry", "core+telemetry+workload"],
+        default="core",
+    )
+    ml_build.add_argument(
+        "--enable-feature",
+        action="append",
+        default=[],
+        help="Repeatable optional feature enable list",
+    )
+    ml_build.add_argument(
+        "--disable-feature",
+        action="append",
+        default=[],
+        help="Repeatable optional feature disable list",
+    )
 
     ml_train = ml_sub.add_parser("train", help="Train ML advisory model")
     ml_train.add_argument("--dataset", type=Path, required=True, help="Dataset directory")
@@ -435,16 +452,22 @@ def main() -> None:
         if args.ml_command == "build-dataset":
             from ml.dataset import build_dataset
 
-            artifacts = build_dataset(
-                args.from_dir,
-                args.out_dir,
-                seed=args.seed,
-                label_policy=args.label_policy,
-                utility_alpha_fit=args.utility_alpha_fit,
-                utility_beta_carbon=args.utility_beta_carbon,
-                utility_gamma_energy=args.utility_gamma_energy,
-                split_strategy=args.split_strategy,
-            )
+            try:
+                artifacts = build_dataset(
+                    args.from_dir,
+                    args.out_dir,
+                    seed=args.seed,
+                    label_policy=args.label_policy,
+                    utility_alpha_fit=args.utility_alpha_fit,
+                    utility_beta_carbon=args.utility_beta_carbon,
+                    utility_gamma_energy=args.utility_gamma_energy,
+                    split_strategy=args.split_strategy,
+                    feature_pack=args.feature_pack,
+                    enable_features=args.enable_feature,
+                    disable_features=args.disable_feature,
+                )
+            except ValueError as exc:
+                parser.error(str(exc))
             for key in ("dataset", "schema", "manifest"):
                 print(f"{key}: {artifacts[key]}")
         elif args.ml_command == "train":
