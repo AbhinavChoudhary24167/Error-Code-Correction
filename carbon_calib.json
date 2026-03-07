@@ -1,0 +1,62 @@
+{
+  "node_defaults": {
+    "28": {
+      "area_scaling_factor": 1.0,
+      "fab_intensity_kgco2e_per_cm2": {
+        "min": 20.0,
+        "nominal": 25.0,
+        "max": 30.0
+      },
+      "yield_loss_factor": {
+        "min": 1.0,
+        "nominal": 1.05,
+        "max": 1.1
+      },
+      "uncertainty_margin": 0.2
+    },
+    "16": {
+      "area_scaling_factor": 1.0,
+      "fab_intensity_kgco2e_per_cm2": {
+        "min": 40.0,
+        "nominal": 50.0,
+        "max": 60.0
+      },
+      "yield_loss_factor": {
+        "min": 1.05,
+        "nominal": 1.12,
+        "max": 1.2
+      },
+      "uncertainty_margin": 0.2
+    },
+    "7": {
+      "area_scaling_factor": 1.0,
+      "fab_intensity_kgco2e_per_cm2": {
+        "min": 80.0,
+        "nominal": 100.0,
+        "max": 120.0
+      },
+      "yield_loss_factor": {
+        "min": 1.1,
+        "nominal": 1.2,
+        "max": 1.3
+      },
+      "uncertainty_margin": 0.2
+    }
+  },
+  "grid_defaults": {
+    "regions_kgco2e_per_kwh": {
+      "global_avg": 0.475,
+      "india": 0.725,
+      "us": 0.38,
+      "europe": 0.295,
+      "brazil": 0.082,
+      "iceland": 0.028
+    },
+    "best_case_kgco2e_per_kwh": 0.02,
+    "worst_case_kgco2e_per_kwh": 0.9
+  },
+  "lifetime_defaults": {
+    "years": 5.0,
+    "accesses_per_day": 1000000
+  }
+}

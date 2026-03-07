@@ -24,6 +24,7 @@ from typing import Dict
 from esii import ESIIInputs
 from scores import compute_scores
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
+from carbon_model import estimate_carbon_bounds, carbon_breakdown
 from ser_model import HazuchaParams, ser_hazucha, flux_from_location
 from qcrit_loader import qcrit_lookup
 from mbu import pmf_adjacent
@@ -215,6 +216,15 @@ def main() -> None:
     carbon_parser.add_argument("--ci", type=float, required=True)
     carbon_parser.add_argument("--Edyn", type=float, required=True)
     carbon_parser.add_argument("--Eleak", type=float, required=True)
+    carbon_parser.add_argument("--calibrated", action="store_true", help="Enable calibrated static/dynamic carbon model")
+    carbon_parser.add_argument("--node", type=int, default=16, help="Technology node for calibrated carbon mode")
+    carbon_parser.add_argument("--area-cm2", type=float, default=None, help="Effective area in cm^2 for calibrated mode")
+    carbon_parser.add_argument("--memory-bits", type=int, default=None, help="Memory bits proxy when area-cm2 is not provided")
+    carbon_parser.add_argument("--bitcell-area-um2", type=float, default=None, help="Bitcell area in um^2 when using memory proxy")
+    carbon_parser.add_argument("--grid-region", type=str, default="global_avg", help="Grid region for calibrated dynamic carbon")
+    carbon_parser.add_argument("--years", type=float, default=None, help="Lifetime years")
+    carbon_parser.add_argument("--accesses-per-day", type=float, default=None, help="Lifetime accesses per day")
+    carbon_parser.add_argument("--total-accesses", type=float, default=None, help="Explicit total accesses")
 
     esii_parser = sub.add_parser("esii", help="Compute the ESII metric")
     esii_parser.add_argument("--reliability", type=Path)
@@ -275,6 +285,12 @@ def main() -> None:
     select_parser.add_argument("--plot", type=Path, default=None)
     select_parser.add_argument(
         "--emit-candidates", type=Path, default=None, help="Write feasible candidates to CSV"
+    )
+    select_parser.add_argument(
+        "--carbon-policy",
+        choices=["minimum_total_carbon", "minimum_dynamic_carbon", "minimum_static_carbon", "balanced_carbon_energy"],
+        default=None,
+        help="Optional carbon ranking mode; default preserves existing selector behavior",
     )
 
     target_parser = sub.add_parser(
@@ -876,6 +892,7 @@ def main() -> None:
             alt_km=args.alt_km,
             latitude_deg=args.latitude,
             flux_rel=args.flux_rel,
+            carbon_policy=getattr(args, "carbon_policy", None),
             **params,
         )
 
@@ -1206,9 +1223,43 @@ def main() -> None:
         embodied = embodied_kgco2e(area_logic, area_macro, alpha_logic, alpha_macro)
         operational = operational_kgco2e(args.Edyn, args.Eleak, args.ci, 0.0)
         total = embodied + operational
-        print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
-        print(f"{'Operational (kgCO2e)':<20} {operational:.3f}")
-        print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+
+        if not args.calibrated:
+            print(f"{'Embodied (kgCO2e)':<20} {embodied:.3f}")
+            print(f"{'Operational (kgCO2e)':<20} {operational:.3f}")
+            print(f"{'Total (kgCO2e)':<20} {total:.3f}")
+            return
+
+        energy_j = (args.Edyn + args.Eleak) * 3_600_000.0
+        bounds = estimate_carbon_bounds(
+            node_nm=args.node,
+            energy_joules=energy_j,
+            area_cm2=args.area_cm2,
+            memory_bits=args.memory_bits,
+            bitcell_area_um2=args.bitcell_area_um2,
+            grid_region=args.grid_region,
+            grid_factor_kgco2e_per_kwh=args.ci,
+            years=args.years,
+            accesses_per_day=args.accesses_per_day,
+            total_accesses=args.total_accesses,
+        )
+        breakdown = carbon_breakdown(bounds=bounds)
+        out = {
+            "legacy": {
+                "embodied_kgco2e": embodied,
+                "operational_kgco2e": operational,
+                "total_kgco2e": total,
+            },
+            "calibrated": {
+                "nominal": bounds["nominal"],
+                "best_case": bounds["best_case"],
+                "worst_case": bounds["worst_case"],
+                "score": breakdown,
+                "assumptions": bounds["assumptions"],
+            },
+        }
+        json.dump(out, sys.stdout)
+        sys.stdout.write("\n")
         return
 
     if args.command == "energy":
