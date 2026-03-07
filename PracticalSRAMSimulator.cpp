@@ -6,11 +6,15 @@
 #include <memory>
 #include <numeric>
 #include <optional>
+#include <fstream>
 #include <random>
+#include <map>
+#include <set>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <tuple>
+#include <cmath>
 #include <vector>
 
 enum class DecodeStatus { Clean, Corrected, DetectedUncorrectable, UndetectedError };
@@ -619,6 +623,9 @@ struct StressStats {
     std::uint64_t detected_uncorrectable = 0;
     std::uint64_t undetected_errors = 0;
     std::uint64_t miscorrections = 0;
+    std::uint64_t encode_ops = 0;
+    std::uint64_t decode_ops = 0;
+    std::uint64_t correction_ops = 0;
 
     double correctionRate() const {
         const double denom = static_cast<double>(corrected_errors + detected_uncorrectable + undetected_errors);
@@ -633,6 +640,35 @@ struct StressStats {
     double sdcRate() const {
         return total_reads == 0 ? 0.0 : static_cast<double>(undetected_errors) / static_cast<double>(total_reads);
     }
+};
+
+struct ConfidenceInterval {
+    double mean = 0.0;
+    double lower = 0.0;
+    double upper = 0.0;
+};
+
+struct ResearchMetrics {
+    int parity_bits = 0;
+    double codeword_expansion_pct = 0.0;
+    double normalized_energy = 0.0;
+    double normalized_latency = 0.0;
+    double correction_success_pct = 0.0;
+    double detection_success_pct = 0.0;
+    double sdc_pct = 0.0;
+    double miscorrection_pct = 0.0;
+    double effective_protection_score = 0.0;
+};
+
+struct CampaignResult {
+    std::string codec;
+    SRAMConfig config;
+    std::string fault_model;
+    std::size_t iterations = 0;
+    StressStats stats;
+    ResearchMetrics metrics;
+    ConfidenceInterval sdc_ci;
+    ConfidenceInterval undetected_ci;
 };
 
 class SRAMSimulator {
@@ -720,6 +756,56 @@ public:
         }
     }
 
+    void injectFaultPositions(std::size_t address, const std::vector<int>& bit_positions_1_based) {
+        checkAddress(address);
+        for (int pos : bit_positions_1_based) {
+            if (pos >= 1 && pos <= codec_->codewordBits()) {
+                memory_[address] ^= (1ULL << (pos - 1));
+            }
+        }
+    }
+
+    void injectRowFault(std::size_t row_start, std::size_t row_length, int bit_position_1_based) {
+        checkBitPosition(bit_position_1_based);
+        const std::size_t end = std::min(depth_words_, row_start + row_length);
+        for (std::size_t a = row_start; a < end; ++a) {
+            memory_[a] ^= (1ULL << (bit_position_1_based - 1));
+        }
+    }
+
+    void injectColumnFault(int bit_position_1_based, std::size_t stride) {
+        checkBitPosition(bit_position_1_based);
+        if (stride == 0) {
+            stride = 1;
+        }
+        for (std::size_t a = 0; a < depth_words_; a += stride) {
+            memory_[a] ^= (1ULL << (bit_position_1_based - 1));
+        }
+    }
+
+    void applyFaultMap(const std::map<std::size_t, std::set<int>>& fault_map) {
+        for (const auto& kv : fault_map) {
+            if (kv.first >= depth_words_) {
+                continue;
+            }
+            for (int pos : kv.second) {
+                if (pos >= 1 && pos <= codec_->codewordBits()) {
+                    memory_[kv.first] ^= (1ULL << (pos - 1));
+                }
+            }
+        }
+    }
+
+    std::size_t randomAddress(std::mt19937& rng) const {
+        std::uniform_int_distribution<std::size_t> addr_dist(0, depth_words_ - 1);
+        return addr_dist(rng);
+    }
+
+    int randomBitPosition(std::mt19937& rng) const {
+        std::uniform_int_distribution<int> bit_dist(1, codec_->codewordBits());
+        return bit_dist(rng);
+    }
+
     bool injectUndetectedPattern(std::size_t address, int max_weight = 4) {
         checkAddress(address);
         if (max_weight < 2 || codec_->codewordBits() > 40) {
@@ -777,49 +863,320 @@ private:
     }
 };
 
+
+class FaultModel {
+public:
+    virtual ~FaultModel() = default;
+    virtual std::string name() const = 0;
+    virtual void inject(SRAMSimulator& sim,
+                        std::size_t address,
+                        std::mt19937& rng,
+                        StressStats& stats,
+                        std::size_t iteration) = 0;
+};
+
+class LegacyMixedFaultModel final : public FaultModel {
+public:
+    std::string name() const override { return "legacy_mixed"; }
+
+    void inject(SRAMSimulator& sim, std::size_t address, std::mt19937& rng, StressStats& stats,
+                std::size_t /*iteration*/) override {
+        std::uniform_int_distribution<int> op_dist(0, 99);
+        std::uniform_int_distribution<int> burst_len_dist(2, 5);
+        std::uniform_int_distribution<int> random_fault_count(2, 4);
+        const int op = op_dist(rng);
+        if (op < 50) {
+            sim.injectSingleBitFault(address, sim.randomBitPosition(rng));
+            ++stats.injected_single;
+        } else if (op < 80) {
+            std::uniform_int_distribution<int> start_dist(1, std::max(1, sim.codec().codewordBits() - 4));
+            sim.injectBurstFault(address, start_dist(rng), burst_len_dist(rng));
+            ++stats.injected_burst;
+        } else {
+            sim.injectRandomFaults(address, random_fault_count(rng));
+            ++stats.injected_random_multi;
+        }
+    }
+};
+
+struct FaultModelConfig {
+    std::string model = "legacy";
+    int adjacency_radius = 1;
+    std::string adjacency_shape = "horizontal";
+    std::size_t row_length = 64;
+    std::size_t column_stride = 64;
+    double retention_probability = 0.01;
+    double soft_error_rate = 0.005;
+    double burst_geo_p = 0.35;
+    double fault_map_probability = 0.0001;
+};
+
+class AdvancedFaultModel final : public FaultModel {
+public:
+    explicit AdvancedFaultModel(FaultModelConfig cfg) : cfg_(std::move(cfg)) {}
+
+    std::string name() const override { return cfg_.model; }
+
+    void inject(SRAMSimulator& sim, std::size_t address, std::mt19937& rng, StressStats& stats,
+                std::size_t iteration) override {
+        maybeInitFaultMap(sim, rng);
+        if (cfg_.model == "adjacent") {
+            applyAdjacent(sim, address, rng, stats);
+        } else if (cfg_.model == "row") {
+            applyRow(sim, rng, stats);
+        } else if (cfg_.model == "column") {
+            applyColumn(sim, rng, stats);
+        } else if (cfg_.model == "retention") {
+            applyRetention(sim, address, rng, stats, iteration);
+        } else if (cfg_.model == "soft") {
+            applySoft(sim, address, rng, stats);
+        } else if (cfg_.model == "geoburst") {
+            applyGeometricBurst(sim, address, rng, stats);
+        } else if (cfg_.model == "faultmap") {
+            sim.applyFaultMap(fault_map_);
+            ++stats.injected_random_multi;
+        } else {
+            fallback_.inject(sim, address, rng, stats, iteration);
+        }
+    }
+
+private:
+    FaultModelConfig cfg_;
+    std::map<std::size_t, std::set<int>> fault_map_;
+    bool fault_map_initialized_ = false;
+    std::map<std::size_t, std::vector<int>> delayed_retention_;
+    LegacyMixedFaultModel fallback_;
+
+    void maybeInitFaultMap(SRAMSimulator& sim, std::mt19937& rng) {
+        if (cfg_.model != "faultmap" || fault_map_initialized_) {
+            return;
+        }
+        std::bernoulli_distribution defect(cfg_.fault_map_probability);
+        for (std::size_t a = 0; a < sim.depthWords(); ++a) {
+            for (int b = 1; b <= sim.codec().codewordBits(); ++b) {
+                if (defect(rng)) {
+                    fault_map_[a].insert(b);
+                }
+            }
+        }
+        fault_map_initialized_ = true;
+    }
+
+    void applyAdjacent(SRAMSimulator& sim, std::size_t address, std::mt19937& rng, StressStats& stats) {
+        const int center = sim.randomBitPosition(rng);
+        std::vector<int> positions{center};
+        if (cfg_.adjacency_shape == "clustered") {
+            for (int d = 1; d <= cfg_.adjacency_radius; ++d) {
+                positions.push_back(center + d);
+                positions.push_back(center - d);
+            }
+        } else {
+            const int step = (cfg_.adjacency_shape == "vertical") ? 2 : 1;
+            for (int d = 1; d <= cfg_.adjacency_radius; ++d) {
+                positions.push_back(center + d * step);
+            }
+        }
+        sim.injectFaultPositions(address, positions);
+        ++stats.injected_random_multi;
+    }
+
+    void applyRow(SRAMSimulator& sim, std::mt19937& rng, StressStats& stats) {
+        const std::size_t max_start = sim.depthWords() > cfg_.row_length ? sim.depthWords() - cfg_.row_length : 0;
+        std::uniform_int_distribution<std::size_t> row_dist(0, max_start);
+        sim.injectRowFault(row_dist(rng), cfg_.row_length, sim.randomBitPosition(rng));
+        ++stats.injected_random_multi;
+    }
+
+    void applyColumn(SRAMSimulator& sim, std::mt19937& rng, StressStats& stats) {
+        sim.injectColumnFault(sim.randomBitPosition(rng), cfg_.column_stride == 0 ? 1 : cfg_.column_stride);
+        ++stats.injected_random_multi;
+    }
+
+    void applyRetention(SRAMSimulator& sim, std::size_t address, std::mt19937& rng, StressStats& stats,
+                        std::size_t iteration) {
+        auto it = delayed_retention_.find(iteration);
+        if (it != delayed_retention_.end()) {
+            sim.injectFaultPositions(address, it->second);
+            ++stats.injected_random_multi;
+            delayed_retention_.erase(it);
+        }
+
+        std::bernoulli_distribution trigger(cfg_.retention_probability);
+        if (trigger(rng)) {
+            std::uniform_int_distribution<int> delay_dist(1, 8);
+            delayed_retention_[iteration + static_cast<std::size_t>(delay_dist(rng))].push_back(sim.randomBitPosition(rng));
+        }
+    }
+
+    void applySoft(SRAMSimulator& sim, std::size_t address, std::mt19937& rng, StressStats& stats) {
+        std::bernoulli_distribution ser(cfg_.soft_error_rate);
+        int flips = 0;
+        for (int b = 1; b <= sim.codec().codewordBits(); ++b) {
+            if (ser(rng)) {
+                sim.injectSingleBitFault(address, b);
+                ++flips;
+            }
+        }
+        if (flips == 1) {
+            ++stats.injected_single;
+        } else if (flips > 1) {
+            ++stats.injected_random_multi;
+        }
+    }
+
+    void applyGeometricBurst(SRAMSimulator& sim, std::size_t address, std::mt19937& rng, StressStats& stats) {
+        const double p = std::clamp(cfg_.burst_geo_p, 0.01, 0.99);
+        std::geometric_distribution<int> geo(p);
+        const int len = std::min(sim.codec().codewordBits(), 1 + geo(rng));
+        std::uniform_int_distribution<int> start_dist(1, std::max(1, sim.codec().codewordBits() - len + 1));
+        sim.injectBurstFault(address, start_dist(rng), len);
+        ++stats.injected_burst;
+    }
+};
+
+class MetricsCalculator {
+public:
+    static ResearchMetrics calculate(const ECCCodec& codec, const StressStats& s) {
+        ResearchMetrics m;
+        const auto meta = codec.metadata();
+        m.parity_bits = meta.parity_bits;
+        m.codeword_expansion_pct = 100.0 * static_cast<double>(codec.codewordBits() - codec.dataBits()) /
+                                   static_cast<double>(codec.dataBits());
+
+        const double total_fault_reads = static_cast<double>(s.corrected_errors + s.detected_uncorrectable + s.undetected_errors);
+        m.correction_success_pct = total_fault_reads == 0.0 ? 0.0 : (100.0 * s.corrected_errors / total_fault_reads);
+        m.detection_success_pct = total_fault_reads == 0.0 ? 0.0 : (100.0 * (s.corrected_errors + s.detected_uncorrectable) / total_fault_reads);
+        m.sdc_pct = s.total_reads == 0 ? 0.0 : (100.0 * s.undetected_errors / static_cast<double>(s.total_reads));
+        m.miscorrection_pct = s.corrected_errors == 0 ? 0.0 : (100.0 * s.miscorrections / static_cast<double>(s.corrected_errors));
+
+        const double energy_raw = (1.0 * s.encode_ops) + (1.2 * s.decode_ops) + (1.8 * s.correction_ops);
+        m.normalized_energy = s.total_reads == 0 ? 0.0 : energy_raw / static_cast<double>(s.total_reads + s.total_writes + 1);
+
+        const double parity_factor = 1.0 + static_cast<double>(m.parity_bits) / std::max(1, codec.dataBits());
+        const double decode_factor = 1.0 + (0.02 * m.parity_bits);
+        m.normalized_latency = 0.5 * parity_factor + 0.5 * decode_factor;
+
+        m.effective_protection_score = (0.55 * m.detection_success_pct + 0.35 * m.correction_success_pct -
+                                        0.5 * m.sdc_pct - 0.2 * m.miscorrection_pct) /
+                                       (1.0 + 0.01 * m.codeword_expansion_pct + 0.15 * m.normalized_energy +
+                                        0.15 * m.normalized_latency);
+        return m;
+    }
+};
+
+class ExportWriter {
+public:
+    static void writeCSV(const std::string& path, const std::vector<CampaignResult>& rows) {
+        std::ofstream out(path);
+        if (!out) {
+            throw std::runtime_error("Failed to open CSV export path: " + path);
+        }
+        out << "codec,size_kb,word_bits,fault_model,iterations,total_reads,total_writes,corrected,detected_uncorrectable,undetected,"
+               "miscorrections,correction_rate,detection_rate,sdc_rate,parity_bits,expansion_pct,normalized_energy,normalized_latency,"
+               "correction_success_pct,detection_success_pct,sdc_pct,miscorrection_pct,effective_protection_score\n";
+        for (const auto& r : rows) {
+            out << r.codec << ',' << (r.config.total_bytes / 1024) << ',' << r.config.word_width_bits << ',' << r.fault_model << ','
+                << r.iterations << ',' << r.stats.total_reads << ',' << r.stats.total_writes << ',' << r.stats.corrected_errors << ','
+                << r.stats.detected_uncorrectable << ',' << r.stats.undetected_errors << ',' << r.stats.miscorrections << ','
+                << r.stats.correctionRate() << ',' << r.stats.detectionRate() << ',' << r.stats.sdcRate() << ','
+                << r.metrics.parity_bits << ',' << r.metrics.codeword_expansion_pct << ',' << r.metrics.normalized_energy << ','
+                << r.metrics.normalized_latency << ',' << r.metrics.correction_success_pct << ',' << r.metrics.detection_success_pct << ','
+                << r.metrics.sdc_pct << ',' << r.metrics.miscorrection_pct << ',' << r.metrics.effective_protection_score << "\n";
+        }
+    }
+
+    static void writeJSON(const std::string& path, const std::vector<CampaignResult>& rows) {
+        std::ofstream out(path);
+        if (!out) {
+            throw std::runtime_error("Failed to open JSON export path: " + path);
+        }
+        out << "{\n  \"results\": [\n";
+        for (std::size_t i = 0; i < rows.size(); ++i) {
+            const auto& r = rows[i];
+            out << "    {\n"
+                << "      \"codec\": \"" << r.codec << "\",\n"
+                << "      \"size_kb\": " << (r.config.total_bytes / 1024) << ",\n"
+                << "      \"word_bits\": " << r.config.word_width_bits << ",\n"
+                << "      \"fault_model\": \"" << r.fault_model << "\",\n"
+                << "      \"iterations\": " << r.iterations << ",\n"
+                << "      \"stats\": {\n"
+                << "        \"reads\": " << r.stats.total_reads << ",\n"
+                << "        \"writes\": " << r.stats.total_writes << ",\n"
+                << "        \"corrected\": " << r.stats.corrected_errors << ",\n"
+                << "        \"detected_uncorrectable\": " << r.stats.detected_uncorrectable << ",\n"
+                << "        \"undetected\": " << r.stats.undetected_errors << ",\n"
+                << "        \"miscorrections\": " << r.stats.miscorrections << "\n"
+                << "      },\n"
+                << "      \"metrics\": {\n"
+                << "        \"parity_bits\": " << r.metrics.parity_bits << ",\n"
+                << "        \"expansion_pct\": " << r.metrics.codeword_expansion_pct << ",\n"
+                << "        \"normalized_energy\": " << r.metrics.normalized_energy << ",\n"
+                << "        \"normalized_latency\": " << r.metrics.normalized_latency << ",\n"
+                << "        \"correction_success_pct\": " << r.metrics.correction_success_pct << ",\n"
+                << "        \"detection_success_pct\": " << r.metrics.detection_success_pct << ",\n"
+                << "        \"sdc_pct\": " << r.metrics.sdc_pct << ",\n"
+                << "        \"miscorrection_pct\": " << r.metrics.miscorrection_pct << ",\n"
+                << "        \"effective_protection_score\": " << r.metrics.effective_protection_score << "\n"
+                << "      },\n"
+                << "      \"confidence_intervals\": {\n"
+                << "        \"sdc\": {\"mean\": " << r.sdc_ci.mean << ", \"lower\": " << r.sdc_ci.lower
+                << ", \"upper\": " << r.sdc_ci.upper << "},\n"
+                << "        \"undetected\": {\"mean\": " << r.undetected_ci.mean << ", \"lower\": " << r.undetected_ci.lower
+                << ", \"upper\": " << r.undetected_ci.upper << "}\n"
+                << "      }\n"
+                << "    }" << (i + 1 == rows.size() ? "\n" : ",\n");
+        }
+        out << "  ]\n}\n";
+    }
+};
+
+static ConfidenceInterval wilson95(std::uint64_t hits, std::uint64_t total) {
+    if (total == 0) {
+        return {};
+    }
+    const double z = 1.95996398454005;
+    const double n = static_cast<double>(total);
+    const double phat = static_cast<double>(hits) / n;
+    const double denom = 1.0 + (z * z) / n;
+    const double center = (phat + (z * z) / (2.0 * n)) / denom;
+    const double spread = (z * std::sqrt((phat * (1.0 - phat) / n) + ((z * z) / (4.0 * n * n)))) / denom;
+    return {phat, std::max(0.0, center - spread), std::min(1.0, center + spread)};
+}
+
 class StressTestRunner {
 public:
     struct Options {
         std::uint32_t seed = 42;
         std::size_t iterations = 5000;
         bool verbose = false;
+        bool run_legacy_sweeps = true;
+        std::size_t progress_interval = 500;
     };
 
-    static StressStats run(SRAMSimulator& sim, const Options& options) {
+    static StressStats run(SRAMSimulator& sim, FaultModel& fault_model, const Options& options) {
         StressStats stats;
         std::mt19937 rng(options.seed);
         std::uniform_int_distribution<std::size_t> addr_dist(0, sim.depthWords() - 1);
-        std::uniform_int_distribution<int> op_dist(0, 99);
-        std::uniform_int_distribution<int> burst_len_dist(2, 5);
-        std::uniform_int_distribution<int> random_fault_count(2, 4);
 
         for (std::size_t i = 0; i < options.iterations; ++i) {
             const auto addr = addr_dist(rng);
+            std::uniform_int_distribution<int> op_dist(0, 99);
             const int op = op_dist(rng);
             if (op < 35) {
                 uint64_t value = (static_cast<uint64_t>(rng()) << 32) ^ rng();
                 sim.write(addr, value);
                 ++stats.total_writes;
+                ++stats.encode_ops;
                 continue;
             }
 
-            if (op < 65) {
-                std::uniform_int_distribution<int> bit_dist(1, sim.codec().codewordBits());
-                sim.injectSingleBitFault(addr, bit_dist(rng));
-                ++stats.injected_single;
-            } else if (op < 85) {
-                std::uniform_int_distribution<int> start_dist(1, std::max(1, sim.codec().codewordBits() - 4));
-                sim.injectBurstFault(addr, start_dist(rng), burst_len_dist(rng));
-                ++stats.injected_burst;
-            } else {
-                sim.injectRandomFaults(addr, random_fault_count(rng));
-                ++stats.injected_random_multi;
-            }
-
+            fault_model.inject(sim, addr, rng, stats, i);
             auto rr = sim.read(addr);
             ++stats.total_reads;
+            ++stats.decode_ops;
             if (rr.status == DecodeStatus::Corrected) {
                 ++stats.corrected_errors;
+                ++stats.correction_ops;
                 if (rr.mismatch_vs_golden) {
                     ++stats.miscorrections;
                 }
@@ -829,47 +1186,53 @@ public:
                 ++stats.undetected_errors;
             }
 
-            if (options.verbose && (i % 500 == 0)) {
-                std::cout << "  iter=" << i << " status=" << statusToString(rr.status)
-                          << " data=0x" << std::hex << rr.data << std::dec << "\n";
+            if (options.verbose && options.progress_interval > 0 && (i % options.progress_interval == 0)) {
+                std::cout << "  iter=" << i << " status=" << statusToString(rr.status) << " data=0x" << std::hex << rr.data
+                          << std::dec << "\n";
             }
         }
 
-        // single-bit sweep
-        for (std::size_t a = 0; a < std::min<std::size_t>(sim.depthWords(), 128); ++a) {
-            sim.write(a, static_cast<uint64_t>(a * 2654435761ULL));
-            ++stats.total_writes;
-            for (int b = 1; b <= sim.codec().codewordBits(); ++b) {
-                sim.injectSingleBitFault(a, b);
-                ++stats.injected_single;
-                auto rr = sim.read(a);
-                ++stats.total_reads;
-                if (rr.status == DecodeStatus::Corrected) {
-                    ++stats.corrected_errors;
-                } else if (rr.status == DecodeStatus::DetectedUncorrectable) {
-                    ++stats.detected_uncorrectable;
-                } else if (rr.status == DecodeStatus::UndetectedError) {
-                    ++stats.undetected_errors;
-                }
-            }
-        }
-
-        // burst sweep
-        for (std::size_t a = 0; a < std::min<std::size_t>(sim.depthWords(), 64); ++a) {
-            sim.write(a, 0xA5A5A5A5ULL ^ static_cast<uint64_t>(a));
-            ++stats.total_writes;
-            for (int len = 2; len <= 4; ++len) {
-                for (int start = 1; start <= std::max(1, sim.codec().codewordBits() - len + 1); start += len) {
-                    sim.injectBurstFault(a, start, len);
-                    ++stats.injected_burst;
+        if (options.run_legacy_sweeps) {
+            for (std::size_t a = 0; a < std::min<std::size_t>(sim.depthWords(), 128); ++a) {
+                sim.write(a, static_cast<uint64_t>(a * 2654435761ULL));
+                ++stats.total_writes;
+                ++stats.encode_ops;
+                for (int b = 1; b <= sim.codec().codewordBits(); ++b) {
+                    sim.injectSingleBitFault(a, b);
+                    ++stats.injected_single;
                     auto rr = sim.read(a);
                     ++stats.total_reads;
+                    ++stats.decode_ops;
                     if (rr.status == DecodeStatus::Corrected) {
                         ++stats.corrected_errors;
+                        ++stats.correction_ops;
                     } else if (rr.status == DecodeStatus::DetectedUncorrectable) {
                         ++stats.detected_uncorrectable;
                     } else if (rr.status == DecodeStatus::UndetectedError) {
                         ++stats.undetected_errors;
+                    }
+                }
+            }
+
+            for (std::size_t a = 0; a < std::min<std::size_t>(sim.depthWords(), 64); ++a) {
+                sim.write(a, 0xA5A5A5A5ULL ^ static_cast<uint64_t>(a));
+                ++stats.total_writes;
+                ++stats.encode_ops;
+                for (int len = 2; len <= 4; ++len) {
+                    for (int start = 1; start <= std::max(1, sim.codec().codewordBits() - len + 1); start += len) {
+                        sim.injectBurstFault(a, start, len);
+                        ++stats.injected_burst;
+                        auto rr = sim.read(a);
+                        ++stats.total_reads;
+                        ++stats.decode_ops;
+                        if (rr.status == DecodeStatus::Corrected) {
+                            ++stats.corrected_errors;
+                            ++stats.correction_ops;
+                        } else if (rr.status == DecodeStatus::DetectedUncorrectable) {
+                            ++stats.detected_uncorrectable;
+                        } else if (rr.status == DecodeStatus::UndetectedError) {
+                            ++stats.undetected_errors;
+                        }
                     }
                 }
             }
@@ -907,6 +1270,30 @@ static void printStats(const StressStats& s) {
               << ", sdc_rate=" << s.sdcRate() << "\n";
 }
 
+static void printResearchSummary(const ECCCodec& codec, const StressStats& s) {
+    const auto m = MetricsCalculator::calculate(codec, s);
+    std::cout << "  research: parity_bits=" << m.parity_bits << ", expansion_pct=" << std::fixed << std::setprecision(2)
+              << m.codeword_expansion_pct << ", energy_norm=" << m.normalized_energy
+              << ", latency_norm=" << m.normalized_latency << ", corr_success_pct=" << m.correction_success_pct
+              << ", detect_success_pct=" << m.detection_success_pct << ", sdc_pct=" << m.sdc_pct
+              << ", miscorrection_pct=" << m.miscorrection_pct << ", eps=" << m.effective_protection_score << "\n";
+}
+
+static CampaignResult buildCampaignResult(const ECCCodec& codec, SRAMConfig cfg, const std::string& fault_model,
+                                          std::size_t iterations, const StressStats& stats) {
+    CampaignResult r;
+    r.codec = codec.name();
+    r.config = cfg;
+    r.fault_model = fault_model;
+    r.iterations = iterations;
+    r.stats = stats;
+    r.metrics = MetricsCalculator::calculate(codec, stats);
+    r.sdc_ci = wilson95(stats.undetected_errors, std::max<std::uint64_t>(1, stats.total_reads));
+    r.undetected_ci = wilson95(stats.undetected_errors,
+                               std::max<std::uint64_t>(1, stats.corrected_errors + stats.detected_uncorrectable + stats.undetected_errors));
+    return r;
+}
+
 static void runDemo(const std::string& codec_name, SRAMConfig cfg) {
     auto codec = createCodec(codec_name, cfg.word_width_bits);
     SRAMSimulator sim(cfg, std::move(codec));
@@ -941,8 +1328,8 @@ static void runDemo(const std::string& codec_name, SRAMConfig cfg) {
               << ", status=" << statusToString(und.status) << "\n";
 }
 
-static void runStress(const std::string& codec_name, SRAMConfig cfg, std::size_t iterations, uint32_t seed,
-                      bool verbose) {
+static CampaignResult runStress(const std::string& codec_name, SRAMConfig cfg, std::size_t iterations, uint32_t seed,
+                                bool verbose, const FaultModelConfig& fm_cfg) {
     auto codec = createCodec(codec_name, cfg.word_width_bits);
     SRAMSimulator sim(cfg, std::move(codec), seed);
 
@@ -950,38 +1337,113 @@ static void runStress(const std::string& codec_name, SRAMConfig cfg, std::size_t
               << "KB x " << cfg.word_width_bits << "-bit, iterations=" << iterations << ", seed=" << seed
               << "\n";
 
+    std::unique_ptr<FaultModel> fault_model;
+    if (fm_cfg.model == "legacy") {
+        fault_model = std::make_unique<LegacyMixedFaultModel>();
+    } else {
+        fault_model = std::make_unique<AdvancedFaultModel>(fm_cfg);
+    }
+
     StressTestRunner::Options options;
     options.seed = seed;
     options.iterations = iterations;
     options.verbose = verbose;
-    auto stats = StressTestRunner::run(sim, options);
+    options.run_legacy_sweeps = (fm_cfg.model == "legacy");
+    options.progress_interval = 500;
+
+    auto stats = StressTestRunner::run(sim, *fault_model, options);
     printStats(stats);
+    printResearchSummary(sim.codec(), stats);
+    return buildCampaignResult(sim.codec(), cfg, fault_model->name(), iterations, stats);
 }
 
-static void runCompare(SRAMConfig cfg, std::size_t iterations, uint32_t seed, bool verbose) {
+static std::vector<CampaignResult> runCompare(SRAMConfig cfg, std::size_t iterations, uint32_t seed, bool verbose,
+                                              const FaultModelConfig& fm_cfg, bool research_compare) {
     std::vector<std::string> codecs = {"secded", "taec", "bch", "polar"};
-    std::cout << "\nECC comparison on " << (cfg.total_bytes / 1024) << "KB x " << cfg.word_width_bits
-              << "-bit, iterations=" << iterations << ", seed=" << seed << "\n";
-    std::cout << "  " << std::left << std::setw(8) << "Codec" << std::right << std::setw(12) << "Corrected"
-              << std::setw(14) << "DetUncorr" << std::setw(12) << "Undetected" << std::setw(10)
-              << "CorrRate" << std::setw(10) << "SDC" << "\n";
+    std::vector<CampaignResult> results;
+
+    if (!research_compare) {
+        std::cout << "\nECC comparison on " << (cfg.total_bytes / 1024) << "KB x " << cfg.word_width_bits
+                  << "-bit, iterations=" << iterations << ", seed=" << seed << "\n";
+        std::cout << "  " << std::left << std::setw(8) << "Codec" << std::right << std::setw(12) << "Corrected"
+                  << std::setw(14) << "DetUncorr" << std::setw(12) << "Undetected" << std::setw(10)
+                  << "CorrRate" << std::setw(10) << "SDC" << "\n";
+    } else {
+        std::cout << "\nResearch ECC comparison on " << (cfg.total_bytes / 1024) << "KB x " << cfg.word_width_bits
+                  << "-bit, fault-model=" << fm_cfg.model << ", iterations=" << iterations << "\n";
+        std::cout << "  " << std::left << std::setw(8) << "Codec" << std::right << std::setw(10) << "Corr%"
+                  << std::setw(10) << "Det%" << std::setw(10) << "SDC%" << std::setw(10) << "Red%"
+                  << std::setw(12) << "EnergyN" << std::setw(12) << "LatencyN" << "\n";
+    }
 
     for (const auto& c : codecs) {
         auto codec = createCodec(c, cfg.word_width_bits);
         SRAMSimulator sim(cfg, std::move(codec), seed);
-        StressTestRunner::Options options{seed, iterations, verbose};
-        auto stats = StressTestRunner::run(sim, options);
-        std::cout << "  " << std::left << std::setw(8) << sim.codec().name() << std::right << std::setw(12)
-                  << stats.corrected_errors << std::setw(14) << stats.detected_uncorrectable << std::setw(12)
-                  << stats.undetected_errors << std::setw(10) << std::fixed << std::setprecision(3)
-                  << stats.correctionRate() << std::setw(10) << stats.sdcRate() << "\n";
+
+        std::unique_ptr<FaultModel> fault_model;
+        if (fm_cfg.model == "legacy") {
+            fault_model = std::make_unique<LegacyMixedFaultModel>();
+        } else {
+            fault_model = std::make_unique<AdvancedFaultModel>(fm_cfg);
+        }
+
+        StressTestRunner::Options options{seed, iterations, verbose, fm_cfg.model == "legacy", 500};
+        auto stats = StressTestRunner::run(sim, *fault_model, options);
+        auto result = buildCampaignResult(sim.codec(), cfg, fault_model->name(), iterations, stats);
+        results.push_back(result);
+
+        if (!research_compare) {
+            std::cout << "  " << std::left << std::setw(8) << sim.codec().name() << std::right << std::setw(12)
+                      << stats.corrected_errors << std::setw(14) << stats.detected_uncorrectable << std::setw(12)
+                      << stats.undetected_errors << std::setw(10) << std::fixed << std::setprecision(3)
+                      << stats.correctionRate() << std::setw(10) << stats.sdcRate() << "\n";
+        } else {
+            const auto& m = result.metrics;
+            std::cout << "  " << std::left << std::setw(8) << sim.codec().name() << std::right << std::setw(10)
+                      << std::fixed << std::setprecision(2) << m.correction_success_pct << std::setw(10)
+                      << m.detection_success_pct << std::setw(10) << m.sdc_pct << std::setw(10)
+                      << m.codeword_expansion_pct << std::setw(12) << m.normalized_energy << std::setw(12)
+                      << m.normalized_latency << "\n";
+        }
     }
+    return results;
+}
+
+static std::vector<CampaignResult> runMonteCarlo(const std::string& codec_name, SRAMConfig cfg, std::size_t iterations,
+                                                 uint32_t seed, const FaultModelConfig& fm_cfg,
+                                                 std::size_t progress_interval) {
+    auto codec = createCodec(codec_name, cfg.word_width_bits);
+    SRAMSimulator sim(cfg, std::move(codec), seed);
+    std::cout << "\nMonte Carlo: codec=" << sim.codec().name() << ", SRAM=" << (cfg.total_bytes / 1024)
+              << "KB x " << cfg.word_width_bits << "-bit, iterations=" << iterations << ", seed=" << seed
+              << ", fault-model=" << fm_cfg.model << "\n";
+
+    std::unique_ptr<FaultModel> fault_model;
+    if (fm_cfg.model == "legacy") {
+        fault_model = std::make_unique<LegacyMixedFaultModel>();
+    } else {
+        fault_model = std::make_unique<AdvancedFaultModel>(fm_cfg);
+    }
+
+    StressTestRunner::Options options{seed, iterations, true, false, progress_interval};
+    auto stats = StressTestRunner::run(sim, *fault_model, options);
+    printStats(stats);
+
+    auto result = buildCampaignResult(sim.codec(), cfg, fault_model->name(), iterations, stats);
+    std::cout << "  CI95 SDC: [" << result.sdc_ci.lower << ", " << result.sdc_ci.upper << "]"
+              << ", undetected: [" << result.undetected_ci.lower << ", " << result.undetected_ci.upper << "]\n";
+    return {result};
 }
 
 static void printUsage(const char* argv0) {
     std::cout << "Usage: " << argv0
-              << " [--mode demo|stress|compare] [--codec secded|taec|bch|polar|all]"
-                 " [--size-kb 64|128|256] [--word-bits 8|16|32] [--iterations N] [--seed N] [--verbose]\n";
+              << " [--mode demo|stress|compare|montecarlo] [--codec secded|taec|bch|polar|all]"
+                 " [--size-kb 64|128|256] [--word-bits 8|16|32] [--iterations N] [--seed N] [--verbose]"
+                 " [--fault-model legacy|adjacent|row|column|retention|soft|geoburst|faultmap]"
+                 " [--adjacency-radius N] [--adjacency-shape horizontal|vertical|clustered]"
+                 " [--row-length N] [--column-stride N] [--retention-prob P] [--ser-prob P] [--burst-geo-p P]"
+                 " [--fault-map-prob P] [--research-compare] [--progress-interval N]"
+                 " [--export-csv path] [--export-json path]\n";
 }
 
 int main(int argc, char** argv) {
@@ -992,6 +1454,11 @@ int main(int argc, char** argv) {
     std::size_t iterations = 5000;
     std::uint32_t seed = 42;
     bool verbose = false;
+    bool research_compare = false;
+    std::size_t progress_interval = 1000;
+    std::string export_csv;
+    std::string export_json;
+    FaultModelConfig fault_cfg;
 
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
@@ -1016,6 +1483,32 @@ int main(int argc, char** argv) {
             seed = static_cast<std::uint32_t>(std::stoul(require(arg)));
         } else if (arg == "--verbose") {
             verbose = true;
+        } else if (arg == "--fault-model") {
+            fault_cfg.model = require(arg);
+        } else if (arg == "--adjacency-radius") {
+            fault_cfg.adjacency_radius = std::stoi(require(arg));
+        } else if (arg == "--adjacency-shape") {
+            fault_cfg.adjacency_shape = require(arg);
+        } else if (arg == "--row-length") {
+            fault_cfg.row_length = static_cast<std::size_t>(std::stoull(require(arg)));
+        } else if (arg == "--column-stride") {
+            fault_cfg.column_stride = static_cast<std::size_t>(std::stoull(require(arg)));
+        } else if (arg == "--retention-prob") {
+            fault_cfg.retention_probability = std::stod(require(arg));
+        } else if (arg == "--ser-prob") {
+            fault_cfg.soft_error_rate = std::stod(require(arg));
+        } else if (arg == "--burst-geo-p") {
+            fault_cfg.burst_geo_p = std::stod(require(arg));
+        } else if (arg == "--fault-map-prob") {
+            fault_cfg.fault_map_probability = std::stod(require(arg));
+        } else if (arg == "--research-compare") {
+            research_compare = true;
+        } else if (arg == "--progress-interval") {
+            progress_interval = static_cast<std::size_t>(std::stoull(require(arg)));
+        } else if (arg == "--export-csv") {
+            export_csv = require(arg);
+        } else if (arg == "--export-json") {
+            export_json = require(arg);
         } else if (arg == "--help" || arg == "-h") {
             printUsage(argv[0]);
             return 0;
@@ -1034,6 +1527,7 @@ int main(int argc, char** argv) {
     SRAMConfig cfg{static_cast<std::size_t>(size_kb) * 1024, word_bits};
     printConfigTable();
 
+    std::vector<CampaignResult> results;
     if (mode == "demo") {
         if (codec == "all") {
             for (const auto& c : std::vector<std::string>{"secded", "taec", "bch", "polar"}) {
@@ -1045,15 +1539,33 @@ int main(int argc, char** argv) {
     } else if (mode == "stress") {
         if (codec == "all") {
             for (const auto& c : std::vector<std::string>{"secded", "taec", "bch", "polar"}) {
-                runStress(c, cfg, iterations, seed, verbose);
+                results.push_back(runStress(c, cfg, iterations, seed, verbose, fault_cfg));
             }
         } else {
-            runStress(codec, cfg, iterations, seed, verbose);
+            results.push_back(runStress(codec, cfg, iterations, seed, verbose, fault_cfg));
         }
     } else if (mode == "compare") {
-        runCompare(cfg, iterations, seed, verbose);
+        results = runCompare(cfg, iterations, seed, verbose, fault_cfg, research_compare);
+    } else if (mode == "montecarlo") {
+        if (codec == "all") {
+            for (const auto& c : std::vector<std::string>{"secded", "taec", "bch", "polar"}) {
+                auto part = runMonteCarlo(c, cfg, iterations, seed, fault_cfg, progress_interval);
+                results.insert(results.end(), part.begin(), part.end());
+            }
+        } else {
+            results = runMonteCarlo(codec, cfg, iterations, seed, fault_cfg, progress_interval);
+        }
     } else {
-        throw std::invalid_argument("mode must be demo, stress, or compare");
+        throw std::invalid_argument("mode must be demo, stress, compare, or montecarlo");
+    }
+
+    if (!export_csv.empty()) {
+        ExportWriter::writeCSV(export_csv, results);
+        std::cout << "Exported CSV: " << export_csv << "\n";
+    }
+    if (!export_json.empty()) {
+        ExportWriter::writeJSON(export_json, results);
+        std::cout << "Exported JSON: " << export_json << "\n";
     }
 
     return 0;
