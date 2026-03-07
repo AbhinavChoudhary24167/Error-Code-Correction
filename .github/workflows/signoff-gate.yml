@@ -1,0 +1,27 @@
+name: release-signoff-gate
+
+on:
+  release:
+    types: [published, prereleased]
+  workflow_dispatch:
+
+jobs:
+  signoff-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build and validate signoff package
+        run: |
+          VERSION="$(cat VERSION)"
+          python3 scripts/build_signoff_package.py \
+            --version "$VERSION" \
+            --holdout-metrics "reports/signoff_inputs/holdout_metrics.json" \
+            --drift-status "reports/signoff_inputs/drift_status.json" \
+            --compatibility-test-results "reports/signoff_inputs/compatibility_test_results.json"
