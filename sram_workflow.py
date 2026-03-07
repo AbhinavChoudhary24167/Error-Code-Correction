@@ -218,10 +218,16 @@ def run_sram_selection(
     flux_rel: float | None,
     alt_km: float,
     latitude_deg: float,
+    ml_model: Path | None = None,
+    ml_confidence_min: float | None = None,
+    ml_ood_max: float | None = None,
+    ml_policy: str | None = None,
+    fault_model: str = "adjacent",
+    iterations: int = 1,
 ) -> Dict[str, object]:
     cleaned = _validate(size_kb, word_bits, schemes)
     codes = [selector_code_for_sram_scheme(s, word_bits) for s in cleaned]
-    return select(
+    result = select(
         codes,
         node=node,
         vdd=vdd,
@@ -236,6 +242,28 @@ def run_sram_selection(
         alt_km=alt_km,
         latitude_deg=latitude_deg,
     )
+
+    if ml_model is None:
+        return result
+
+    from ml.sram_advisory import run_sram_advisory
+
+    baseline = result.get("best") if isinstance(result.get("best"), dict) else None
+    baseline_choice = baseline.get("code") if isinstance(baseline, dict) else None
+    advisory = run_sram_advisory(
+        model_dir=Path(ml_model),
+        candidates=list(result.get("candidate_records", [])),
+        baseline_choice=baseline_choice,
+        size_kb=size_kb,
+        word_bits=word_bits,
+        fault_model=fault_model,
+        iterations=iterations,
+        confidence_min_override=ml_confidence_min,
+        ood_threshold_override=ml_ood_max,
+        policy_override=ml_policy,
+    )
+    result.update(advisory)
+    return result
 
 
 def write_sram_records_csv(path: Path, rows: Iterable[Mapping[str, object]]) -> None:
