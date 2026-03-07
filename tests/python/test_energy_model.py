@@ -38,15 +38,16 @@ def test_tech_calibration_schema():
 
     assert set(data.keys()) == {"28", "16", "7"}
     for node_data in data.values():
-        assert set(node_data.keys()) == {"0.8", "0.6"}
+        assert {"0.8", "0.6"}.issubset(set(node_data.keys()))
+        assert len(node_data) >= 4
         for entry in node_data.values():
-            assert set(entry.keys()) == {"source", "date", "tempC", "gates"}
+            assert {"source", "date", "tempC", "gates"}.issubset(set(entry.keys()))
             assert set(entry["gates"].keys()) == {"xor", "and", "adder_stage"}
 
 
 def test_gate_energy_vec_rounding(caplog):
     with caplog.at_level('WARNING'):
-        val = gate_energy_vec(16, [0.75], "xor", mode="nearest")[0]
+        val = gate_energy_vec(16, [0.78], "xor", mode="nearest")[0]
     ref = gate_energy(16, 0.8, "xor", mode="nearest")
     assert val == pytest.approx(ref)
     assert any('VDD rounded to nearest entry' in m for m in caplog.text.splitlines())
@@ -60,12 +61,12 @@ def test_gate_energy_vec_monotonic():
 
 def test_nearest_rounding():
     e_exact = gate_energy(16, 0.8, "xor", mode="nearest")
-    e_round = gate_energy(16, 0.75, "xor", mode="nearest")
+    e_round = gate_energy(16, 0.78, "xor", mode="nearest")
     assert e_exact == e_round
 
 
 def test_vector_api():
-    v = np.array([0.6, 0.75, 0.8])
+    v = np.array([0.6, 0.7, 0.8])
     arr = energy_model.gate_energy_vec(28, v, "and")
     assert arr.shape == v.shape
 
