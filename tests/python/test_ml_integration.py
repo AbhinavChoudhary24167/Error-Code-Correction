@@ -466,6 +466,7 @@ def test_ml_check_drift_fail_on_drift_exits_nonzero():
     assert payload["status"]["drift_detected"] is True
     assert res.returncode != 0
 
+
 def test_ml_report_card_cli_smoke_and_output_resolution():
     base = _new_base("report_card")
     dataset_dir = base / "dataset"

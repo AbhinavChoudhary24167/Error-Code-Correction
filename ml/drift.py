@@ -15,6 +15,13 @@ from .predict import _ood_score, load_model_bundle, resolve_thresholds
 _EPS = 1e-9
 
 
+DRIFT_POLICY_THRESHOLDS: dict[str, dict[str, float]] = {
+    "psi": {"warn": 0.2, "fail": 0.3},
+    "confidence_shift": {"warn": 0.1, "fail": 0.2},
+    "ood_rate_delta": {"warn": 0.05, "fail": 0.1},
+}
+
+
 def _psi_1d(reference: np.ndarray, current: np.ndarray, bins: int = 10) -> float:
     ref = np.asarray(reference, dtype=float)
     cur = np.asarray(current, dtype=float)
@@ -138,12 +145,12 @@ def compute_drift_report(model_dir: Path, new_data_dir: Path) -> dict[str, Any]:
     max_psi = float(max(psi_map.values()) if psi_map else 0.0)
     mean_psi = float(np.mean(list(psi_map.values())) if psi_map else 0.0)
 
-    psi_warn = 0.2
-    psi_crit = 0.3
-    ood_warn = 0.05
-    ood_crit = 0.1
-    conf_warn = 0.1
-    conf_crit = 0.2
+    psi_warn = float(DRIFT_POLICY_THRESHOLDS["psi"]["warn"])
+    psi_crit = float(DRIFT_POLICY_THRESHOLDS["psi"]["fail"])
+    ood_warn = float(DRIFT_POLICY_THRESHOLDS["ood_rate_delta"]["warn"])
+    ood_crit = float(DRIFT_POLICY_THRESHOLDS["ood_rate_delta"]["fail"])
+    conf_warn = float(DRIFT_POLICY_THRESHOLDS["confidence_shift"]["warn"])
+    conf_crit = float(DRIFT_POLICY_THRESHOLDS["confidence_shift"]["fail"])
 
     drift_detected = bool(
         max_psi >= psi_warn or abs(ood_rate_delta) >= ood_warn or abs(confidence_shift) >= conf_warn
@@ -173,12 +180,74 @@ def compute_drift_report(model_dir: Path, new_data_dir: Path) -> dict[str, Any]:
     }
 
 
-def check_drift(model_dir: Path, new_data_dir: Path, out_path: Path) -> dict[str, Any]:
+def compute_drift_policy(report: dict[str, Any]) -> dict[str, Any]:
+    summary = report.get("summary", {})
+    max_psi = float(summary.get("max_psi", 0.0))
+    confidence_shift = float(report.get("confidence_shift", 0.0))
+    confidence_drop = max(0.0, -confidence_shift)
+    ood_rate_delta = abs(float(report.get("ood_rate_delta", 0.0)))
+
+    warn_hits: list[str] = []
+    fail_hits: list[str] = []
+
+    if max_psi >= float(DRIFT_POLICY_THRESHOLDS["psi"]["warn"]):
+        warn_hits.append("psi")
+    if max_psi >= float(DRIFT_POLICY_THRESHOLDS["psi"]["fail"]):
+        fail_hits.append("psi")
+
+    if confidence_drop >= float(DRIFT_POLICY_THRESHOLDS["confidence_shift"]["warn"]):
+        warn_hits.append("confidence_shift")
+    if confidence_drop >= float(DRIFT_POLICY_THRESHOLDS["confidence_shift"]["fail"]):
+        fail_hits.append("confidence_shift")
+
+    if ood_rate_delta >= float(DRIFT_POLICY_THRESHOLDS["ood_rate_delta"]["warn"]):
+        warn_hits.append("ood_rate_delta")
+    if ood_rate_delta >= float(DRIFT_POLICY_THRESHOLDS["ood_rate_delta"]["fail"]):
+        fail_hits.append("ood_rate_delta")
+
+    action = "none"
+    if fail_hits:
+        action = "fail"
+    elif warn_hits:
+        action = "warn"
+
+    retrain_recommended = bool(action != "none")
+    return {
+        "policy_version": 1,
+        "thresholds": DRIFT_POLICY_THRESHOLDS,
+        "actions": {
+            "warn_threshold_hit": bool(warn_hits),
+            "fail_threshold_hit": bool(fail_hits),
+            "retrain_recommended": retrain_recommended,
+            "action": action,
+        },
+        "triggered_metrics": {
+            "warn": sorted(set(warn_hits)),
+            "fail": sorted(set(fail_hits)),
+        },
+    }
+
+
+def check_drift(
+    model_dir: Path,
+    new_data_dir: Path,
+    out_path: Path,
+    *,
+    policy_out_path: Path | None = None,
+) -> dict[str, Any]:
     report = compute_drift_report(model_dir, new_data_dir)
     out_path = out_path.resolve()
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
-    return {
+    artifacts: dict[str, Any] = {
         "drift": out_path,
         "drift_detected": bool(report["status"]["drift_detected"]),
     }
+    if policy_out_path is not None:
+        policy_payload = compute_drift_policy(report)
+        policy_out_path = policy_out_path.resolve()
+        policy_out_path.parent.mkdir(parents=True, exist_ok=True)
+        policy_out_path.write_text(json.dumps(policy_payload, indent=2, sort_keys=True), encoding="utf-8")
+        artifacts["drift_policy"] = policy_out_path
+        artifacts["policy_action"] = str(policy_payload["actions"]["action"])
+    return artifacts
