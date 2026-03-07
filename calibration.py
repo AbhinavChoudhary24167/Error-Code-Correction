@@ -51,6 +51,9 @@ def load_calibration(path: Path) -> Dict[int, Dict[float, dict]]:
                 "tempC": entry["tempC"],
                 "gates": gates,
             }
+            for optional_field in ["corner", "activity_class"]:
+                if optional_field in entry:
+                    calib[node][vdd][optional_field] = entry[optional_field]
         vols_sorted = sorted(calib[node])
         for gate_name in ["xor", "and", "adder_stage"]:
             vals = [calib[node][vol]["gates"][gate_name] for vol in vols_sorted]
@@ -59,3 +62,51 @@ def load_calibration(path: Path) -> Dict[int, Dict[float, dict]]:
                     f"{gate_name} energy non-monotonic in VDD for node {node_str}"
                 )
     return calib
+
+
+def get_calibration_envelope(calib: Dict[int, Dict[float, dict]]) -> dict:
+    """Return read-only envelope metadata for runtime range checks.
+
+    The returned metadata is additive and does not alter existing CLI output
+    formatting or the schema returned by :func:`load_calibration`.
+    """
+
+    nodes = sorted(calib)
+    vdds = sorted({vdd for node_data in calib.values() for vdd in node_data})
+    temperatures = sorted(
+        {
+            float(entry["tempC"])
+            for node_data in calib.values()
+            for entry in node_data.values()
+        }
+    )
+    corners = sorted(
+        {
+            str(entry["corner"])
+            for node_data in calib.values()
+            for entry in node_data.values()
+            if "corner" in entry
+        }
+    )
+    activity_classes = sorted(
+        {
+            str(entry["activity_class"])
+            for node_data in calib.values()
+            for entry in node_data.values()
+            if "activity_class" in entry
+        }
+    )
+
+    return {
+        "nodes_nm": nodes,
+        "node_nm_min": min(nodes),
+        "node_nm_max": max(nodes),
+        "vdd_points": vdds,
+        "vdd_min": min(vdds),
+        "vdd_max": max(vdds),
+        "tempC_points": temperatures,
+        "tempC_min": min(temperatures),
+        "tempC_max": max(temperatures),
+        "corners": corners,
+        "activity_classes": activity_classes,
+    }
