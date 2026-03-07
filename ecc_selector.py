@@ -94,6 +94,64 @@ _CODE_DB: Dict[str, _CodeInfo] = {
 }
 
 
+def _parity_bits_secded(word_bits: int) -> int:
+    p = 1
+    while (2**p) < (word_bits + p + 1):
+        p += 1
+    return p + 1
+
+
+def _parity_bits_taec(word_bits: int) -> int:
+    patterns = 1 + word_bits + max(0, word_bits - 1) + max(0, word_bits - 2)
+    p = 1
+    while (2**p) < patterns:
+        p += 1
+    return p
+
+
+def _parity_bits_bch(word_bits: int) -> int:
+    patterns = 1 + word_bits + (word_bits * max(0, word_bits - 1) // 2)
+    p = 1
+    while (2**p) < patterns:
+        p += 1
+    return p
+
+
+for _wb in (8, 16, 32):
+    _CODE_DB[f"sram-secded-{_wb}"] = _CodeInfo(
+        "SEC-DED",
+        parity_bits=_parity_bits_secded(_wb),
+        latency_ns=0.85 + 0.02 * (_wb / 8),
+        area_logic_mm2=0.45 + 0.05 * (_wb / 8),
+        word_bits=_wb,
+        notes=f"SRAM SEC-DED ({_wb}-bit word)",
+    )
+    _CODE_DB[f"sram-taec-{_wb}"] = _CodeInfo(
+        "TAEC",
+        parity_bits=_parity_bits_taec(_wb),
+        latency_ns=1.1 + 0.05 * (_wb / 8),
+        area_logic_mm2=0.60 + 0.08 * (_wb / 8),
+        word_bits=_wb,
+        notes=f"SRAM TAEC ({_wb}-bit word)",
+    )
+    _CODE_DB[f"sram-bch-{_wb}"] = _CodeInfo(
+        "BCH",
+        parity_bits=_parity_bits_bch(_wb),
+        latency_ns=1.4 + 0.08 * (_wb / 8),
+        area_logic_mm2=0.85 + 0.11 * (_wb / 8),
+        word_bits=_wb,
+        notes=f"SRAM BCH ({_wb}-bit word)",
+    )
+    _CODE_DB[f"sram-polar-{_wb}"] = _CodeInfo(
+        "POLAR",
+        parity_bits=max(1, _wb // 2),
+        latency_ns=1.35 + 0.07 * (_wb / 8),
+        area_logic_mm2=0.78 + 0.10 * (_wb / 8),
+        word_bits=_wb,
+        notes=f"SRAM Polar ({_wb}-bit word)",
+    )
+
+
 # ---------------------------------------------------------------------------
 # Pareto helpers
 
@@ -1143,5 +1201,4 @@ __all__ = ["select", "_pareto_front", "_nsga2_sort"]
 
 if __name__ == "__main__":
     main()
-
 

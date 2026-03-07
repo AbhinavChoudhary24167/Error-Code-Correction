@@ -38,6 +38,7 @@ from fit import (
 from energy_model import UncertaintyValidationError, energy_report
 from validation.output_sanity import OutputSanityError
 from ecc_selector import select
+from sram_workflow import run_sram_backend, run_sram_selection, write_sram_records_csv
 
 
 def _format_reliability_report(result: dict) -> str:
@@ -416,6 +417,56 @@ def main() -> None:
     report_parser.add_argument("--tempC", type=float, required=True)
     report_parser.add_argument("--json", action="store_true")
 
+    sram_parser = sub.add_parser("sram", help="SRAM-oriented ECC workflows")
+    sram_sub = sram_parser.add_subparsers(dest="sram_command")
+
+    sram_sim = sram_sub.add_parser("simulate", help="Run SRAM ECC simulation")
+    sram_sim.add_argument("--size-kb", type=int, required=True, choices=[64, 128, 256])
+    sram_sim.add_argument("--word-bits", type=int, required=True, choices=[8, 16, 32])
+    sram_sim.add_argument("--scheme", type=str, required=True, choices=["sec-ded", "taec", "bch", "polar"])
+    sram_sim.add_argument("--iterations", type=int, default=5000)
+    sram_sim.add_argument("--seed", type=int, default=42)
+    sram_sim.add_argument("--fault-model", type=str, default="adjacent")
+    sram_sim.add_argument("--json", action="store_true")
+    sram_sim.add_argument("--out-csv", type=Path, default=None)
+
+    sram_stress = sram_sub.add_parser("stress", help="Run SRAM stress campaign")
+    sram_stress.add_argument("--size-kb", type=int, required=True, choices=[64, 128, 256])
+    sram_stress.add_argument("--word-bits", type=int, required=True, choices=[8, 16, 32])
+    sram_stress.add_argument("--scheme", type=str, required=True, choices=["sec-ded", "taec", "bch", "polar"])
+    sram_stress.add_argument("--iterations", type=int, default=20000)
+    sram_stress.add_argument("--seed", type=int, default=42)
+    sram_stress.add_argument("--fault-model", type=str, default="geoburst")
+    sram_stress.add_argument("--json", action="store_true")
+    sram_stress.add_argument("--out-csv", type=Path, default=None)
+
+    sram_cmp = sram_sub.add_parser("compare", help="Compare SRAM ECC schemes")
+    sram_cmp.add_argument("--size-kb", type=int, required=True, choices=[64, 128, 256])
+    sram_cmp.add_argument("--word-bits", type=int, required=True, choices=[8, 16, 32])
+    sram_cmp.add_argument("--schemes", type=str, default="sec-ded,taec,bch,polar")
+    sram_cmp.add_argument("--iterations", type=int, default=10000)
+    sram_cmp.add_argument("--seed", type=int, default=42)
+    sram_cmp.add_argument("--fault-model", type=str, default="adjacent")
+    sram_cmp.add_argument("--json", action="store_true")
+    sram_cmp.add_argument("--out-csv", type=Path, default=None)
+
+    sram_sel = sram_sub.add_parser("select", help="SRAM-aware deterministic ECC selection")
+    sram_sel.add_argument("--size-kb", type=int, required=True, choices=[64, 128, 256])
+    sram_sel.add_argument("--word-bits", type=int, required=True, choices=[8, 16, 32])
+    sram_sel.add_argument("--schemes", type=str, default="sec-ded,taec,bch,polar")
+    sram_sel.add_argument("--node", type=int, required=True)
+    sram_sel.add_argument("--vdd", type=float, required=True)
+    sram_sel.add_argument("--temp", type=float, required=True)
+    sram_sel.add_argument("--ci", type=float, required=True)
+    sram_sel.add_argument("--bitcell-um2", type=float, required=True)
+    sram_sel.add_argument("--lifetime-h", type=float, default=float("nan"))
+    sram_sel.add_argument("--mbu", type=str, default="moderate")
+    sram_sel.add_argument("--scrub-s", type=float, default=10.0)
+    sram_sel.add_argument("--alt-km", type=float, default=0.0)
+    sram_sel.add_argument("--latitude", type=float, default=45.0)
+    sram_sel.add_argument("--flux-rel", type=float, default=None)
+    sram_sel.add_argument("--report", type=Path, default=None)
+    sram_sel.add_argument("--emit-candidates", type=Path, default=None)
     ml_parser = sub.add_parser("ml", help="Optional ML advisory workflows")
     ml_sub = ml_parser.add_subparsers(dest="ml_command")
 
@@ -596,6 +647,88 @@ def main() -> None:
         else:
             parser.error("ml subcommand required")
         return
+
+    if args.command == "sram":
+        repo_root = Path(__file__).resolve().parent
+        if args.sram_command in {"simulate", "stress", "compare"}:
+            if args.sram_command in {"simulate", "stress"}:
+                schemes = [args.scheme]
+            else:
+                schemes = [c.strip() for c in args.schemes.split(",") if c.strip()]
+            try:
+                result = run_sram_backend(
+                    repo_root=repo_root,
+                    mode=args.sram_command,
+                    size_kb=args.size_kb,
+                    word_bits=args.word_bits,
+                    schemes=schemes,
+                    iterations=args.iterations,
+                    seed=args.seed,
+                    fault_model=args.fault_model,
+                )
+            except Exception as exc:
+                parser.error(str(exc))
+
+            if args.out_csv:
+                write_sram_records_csv(args.out_csv, result["records"])
+
+            if args.json:
+                print(json.dumps(result, indent=2, sort_keys=True))
+            else:
+                records = result.get("records", [])
+                print(f"backend={result['backend']} scenario_hash={result['scenario_hash']} records={len(records)}")
+                for rec in records:
+                    print(
+                        f"{rec['codec']} reliability={rec['reliability_success']:.4f} "
+                        f"sdc={rec['sdc_rate']:.3e} energy_proxy={rec['energy_proxy']:.4f} "
+                        f"latency_proxy={rec['latency_proxy']:.4f} utility={rec['utility']:.4f}"
+                    )
+            return
+
+        if args.sram_command == "select":
+            schemes = [c.strip() for c in args.schemes.split(",") if c.strip()]
+            try:
+                result = run_sram_selection(
+                    schemes=schemes,
+                    size_kb=args.size_kb,
+                    word_bits=args.word_bits,
+                    node=args.node,
+                    vdd=args.vdd,
+                    temp=args.temp,
+                    ci=args.ci,
+                    bitcell_um2=args.bitcell_um2,
+                    lifetime_h=args.lifetime_h,
+                    mbu=args.mbu,
+                    scrub_s=args.scrub_s,
+                    flux_rel=args.flux_rel,
+                    alt_km=args.alt_km,
+                    latitude_deg=args.latitude,
+                )
+            except Exception as exc:
+                parser.error(str(exc))
+
+            if args.report:
+                args.report.write_text(json.dumps(result, indent=2, sort_keys=True), encoding="utf-8")
+            if args.emit_candidates:
+                import csv
+
+                rows = result.get("candidate_records", [])
+                if rows:
+                    fieldnames = list(rows[0].keys())
+                else:
+                    fieldnames = ["code", "FIT", "carbon_kg", "latency_ns", "ESII", "NESII", "GS"]
+                with args.emit_candidates.open("w", newline="", encoding="utf-8") as fh:
+                    writer = csv.DictWriter(fh, fieldnames=fieldnames, extrasaction="ignore")
+                    writer.writeheader()
+                    for row in rows:
+                        writer.writerow(row)
+
+            if result.get("best"):
+                best = result["best"]
+                print(f"{best['code']} ESII={best['ESII']:.3g} NESII={best['NESII']:.2f} GS={best['GS']:.2f}")
+            return
+
+        parser.error("sram subcommand required")
 
     if args.command == "plot":
         if args.plot_command == "pareto":
