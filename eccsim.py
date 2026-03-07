@@ -35,7 +35,7 @@ from fit import (
     mttf_from_fit,
     FitEstimate,
 )
-from energy_model import energy_report
+from energy_model import UncertaintyValidationError, energy_report
 from ecc_selector import select
 
 
@@ -173,6 +173,23 @@ def main() -> None:
     energy_parser.add_argument("--lifetime-h", type=float, required=True)
     energy_parser.add_argument(
         "--report", type=str, choices=["json"], default=None
+    )
+    energy_parser.add_argument(
+        "--uncertainty-path",
+        type=Path,
+        default=None,
+        help="Optional uncertainty sidecar JSON to compute confidence indicators",
+    )
+    energy_parser.add_argument(
+        "--strict-validation",
+        action="store_true",
+        help="Reject predictions when uncertainty metadata is missing or too wide",
+    )
+    energy_parser.add_argument(
+        "--max-relative-stddev",
+        type=float,
+        default=0.25,
+        help="Maximum allowed relative stddev for strict validation",
     )
 
     carbon_parser = sub.add_parser("carbon", help="Estimate carbon footprint")
@@ -1006,14 +1023,21 @@ def main() -> None:
         return
 
     if args.command == "energy":
-        result = energy_report(
-            args.code,
-            args.node,
-            args.vdd,
-            args.temp,
-            args.ops,
-            args.lifetime_h,
-        )
+        try:
+            result = energy_report(
+                args.code,
+                args.node,
+                args.vdd,
+                args.temp,
+                args.ops,
+                args.lifetime_h,
+                uncertainty_path=args.uncertainty_path,
+                include_confidence=args.uncertainty_path is not None,
+                strict_validation=args.strict_validation,
+                max_relative_stddev=args.max_relative_stddev,
+            )
+        except UncertaintyValidationError as exc:
+            energy_parser.error(str(exc))
         if args.report == "json":
             json.dump(result, sys.stdout)
             sys.stdout.write("\n")

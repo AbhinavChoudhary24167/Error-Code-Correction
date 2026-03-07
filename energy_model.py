@@ -10,8 +10,9 @@ linear interpolation over voltage and node and return energies in joules
 from __future__ import annotations
 
 import logging
+import json
 from pathlib import Path
-from typing import Sequence
+from typing import Dict, Sequence
 
 import numpy as np
 import math
@@ -22,6 +23,147 @@ from calibration import load_calibration as _load_calib
 _CALIB = _load_calib(Path(__file__).with_name("tech_calib.json"))
 
 _LOGGER = logging.getLogger(__name__)
+
+
+class UncertaintyValidationError(ValueError):
+    """Raised when uncertainty metadata is missing or violates strict bounds."""
+
+
+def load_calibration_uncertainty(path: Path) -> Dict[int, Dict[float, dict]]:
+    """Load uncertainty sidecar keyed by node and VDD.
+
+    Expected shape mirrors ``tech_calib.json`` key hierarchy with uncertainty
+    statistics under ``gates.<gate>`` records.
+    """
+
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    out: Dict[int, Dict[float, dict]] = {}
+    for node_key, node_data in raw.items():
+        node_nm = int(node_key)
+        out[node_nm] = {}
+        for vdd_key, vdd_data in node_data.items():
+            vdd = float(vdd_key)
+            gates = vdd_data.get("gates", {})
+            if set(gates) != {"xor", "and", "adder_stage"}:
+                raise ValueError(
+                    f"Missing uncertainty gate entries for node {node_key} VDD {vdd_key}"
+                )
+            gate_out = {}
+            for gate_name, stats in gates.items():
+                required = {"n", "mean"}
+                missing = required - set(stats)
+                if missing:
+                    raise ValueError(
+                        f"Missing {missing} for {node_key}/{vdd_key}/{gate_name}"
+                    )
+                n = int(stats["n"])
+                mean = float(stats["mean"])
+                stddev = float(stats.get("stddev", 0.0))
+                ci95 = stats.get("ci95")
+                if n <= 0:
+                    raise ValueError("Uncertainty sample count n must be positive")
+                if mean <= 0.0:
+                    raise ValueError("Uncertainty mean must be positive")
+                if stddev < 0.0:
+                    raise ValueError("Uncertainty stddev must be non-negative")
+                gate_out[gate_name] = {
+                    "n": n,
+                    "mean": mean,
+                    "stddev": stddev,
+                    "ci95": ci95,
+                }
+            out[node_nm][vdd] = {"gates": gate_out}
+    return out
+
+
+def _uncertainty_at_node(
+    uncertainty: Dict[int, Dict[float, dict]],
+    node_nm: int,
+    gate: str,
+    v: np.ndarray,
+    field: str,
+) -> np.ndarray:
+    table = uncertainty[node_nm]
+    vols = np.array(sorted(table))
+    vals = np.array([float(table[vol]["gates"][gate].get(field, 0.0)) for vol in vols])
+    return np.interp(v, vols, vals)
+
+
+def uncertainty_stats_vec(
+    node_nm: float,
+    vdd_array: Sequence[float],
+    gate: str,
+    uncertainty: Dict[int, Dict[float, dict]],
+) -> dict:
+    """Interpolate uncertainty metadata for a gate over VDD and node."""
+
+    v = np.asanyarray(vdd_array, dtype=float)
+    nodes = np.array(sorted(uncertainty))
+    means = np.stack(
+        [_uncertainty_at_node(uncertainty, int(n), gate, v, "mean") for n in nodes],
+        axis=0,
+    )
+    stddevs = np.stack(
+        [_uncertainty_at_node(uncertainty, int(n), gate, v, "stddev") for n in nodes],
+        axis=0,
+    )
+    ns = np.stack(
+        [_uncertainty_at_node(uncertainty, int(n), gate, v, "n") for n in nodes],
+        axis=0,
+    )
+    mean_interp = np.array([np.interp(node_nm, nodes, means[:, i]) for i in range(v.size)])
+    std_interp = np.array([np.interp(node_nm, nodes, stddevs[:, i]) for i in range(v.size)])
+    n_interp = np.array([np.interp(node_nm, nodes, ns[:, i]) for i in range(v.size)])
+    return {"mean": mean_interp, "stddev": std_interp, "n": n_interp}
+
+
+def operation_confidence(
+    code: str,
+    node_nm: float,
+    vdd: float,
+    *,
+    uncertainty_path: Path,
+    word_bits: int = 64,
+    max_relative_stddev: float = 0.25,
+    strict_validation: bool = False,
+) -> dict:
+    """Return additive confidence indicators for a dynamic energy estimate."""
+
+    uncertainty = load_calibration_uncertainty(uncertainty_path)
+    primitives = primitive_counts(code, word_bits)
+    weighted_mean = 0.0
+    weighted_var = 0.0
+    sample_counts = []
+    for gate in ("xor", "and", "adder_stage"):
+        stats = uncertainty_stats_vec(node_nm, np.array([vdd]), gate, uncertainty)
+        mean = float(stats["mean"].item())
+        stddev = float(stats["stddev"].item())
+        n = int(round(float(stats["n"].item())))
+        if strict_validation and n <= 0:
+            raise UncertaintyValidationError(
+                f"Missing uncertainty sample count for {gate} at node={node_nm}, vdd={vdd}"
+            )
+        weighted_mean += primitives[gate] * mean
+        weighted_var += (primitives[gate] * stddev) ** 2
+        sample_counts.append(n)
+    combined_stddev = float(math.sqrt(weighted_var))
+    if weighted_mean <= 0.0:
+        relative_stddev = 0.0
+    else:
+        relative_stddev = combined_stddev / weighted_mean
+    if strict_validation and relative_stddev > max_relative_stddev:
+        raise UncertaintyValidationError(
+            "Uncertainty too wide for strict validation: "
+            f"relative_stddev={relative_stddev:.6f} > {max_relative_stddev:.6f}"
+        )
+    confidence_score = max(0.0, min(1.0, 1.0 - (relative_stddev / max_relative_stddev)))
+    return {
+        "uncertainty_used": True,
+        "sample_count_min": int(min(sample_counts)) if sample_counts else 0,
+        "relative_stddev": float(relative_stddev),
+        "confidence_score": float(confidence_score),
+        "confidence_threshold": float(max_relative_stddev),
+    }
 
 
 def _nearest(v: float, choices) -> float:
@@ -375,10 +517,31 @@ def energy_report(
     word_bits: int = 64,
     corner: str = "tt",
     mode: str = "pwl",
+    uncertainty_path: Path | None = None,
+    include_confidence: bool = False,
+    strict_validation: bool = False,
+    max_relative_stddev: float = 0.25,
 ) -> Dict[str, float]:
     dyn = dynamic_energy_j(ops, code, node_nm, vdd, word_bits=word_bits, mode=mode)
     leak = leakage_energy_j(vdd, node_nm, temp_c, code, lifetime_h, corner=corner)
-    return {"dynamic_J": dyn, "leakage_J": leak, "total_J": dyn + leak}
+    result = {"dynamic_J": dyn, "leakage_J": leak, "total_J": dyn + leak}
+    if include_confidence or strict_validation:
+        if uncertainty_path is None:
+            if strict_validation:
+                raise UncertaintyValidationError(
+                    "Strict validation requires uncertainty metadata path"
+                )
+            return result
+        result["confidence"] = operation_confidence(
+            code,
+            node_nm,
+            vdd,
+            uncertainty_path=uncertainty_path,
+            word_bits=word_bits,
+            strict_validation=strict_validation,
+            max_relative_stddev=max_relative_stddev,
+        )
+    return result
 
 
 if __name__ == "__main__":
