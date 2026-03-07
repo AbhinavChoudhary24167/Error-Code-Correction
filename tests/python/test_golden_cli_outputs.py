@@ -1,4 +1,4 @@
-﻿import csv
+import csv
 import json
 import math
 import subprocess
@@ -215,3 +215,49 @@ def test_golden_legacy_ecc_selector_cli():
     res = _run(cmd)
     assert res.stdout == (FIXTURES / "ecc_selector_legacy.stdout.txt").read_text(encoding="utf-8")
     assert res.stderr == (FIXTURES / "ecc_selector_legacy.stderr.txt").read_text(encoding="utf-8")
+
+
+def test_golden_energy_sanity_warning_text():
+    cmd = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "energy",
+        "--code",
+        "sec-ded",
+        "--node",
+        "7",
+        "--vdd",
+        "0.8",
+        "--temp",
+        "75",
+        "--ops",
+        "-5",
+        "--lifetime-h",
+        "10",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO, check=True)
+    assert res.stderr == (FIXTURES / "energy_sanity_warning.stderr.txt").read_text(encoding="utf-8")
+
+
+def test_golden_energy_sanity_strict_error_text():
+    cmd = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "energy",
+        "--code",
+        "sec-ded",
+        "--node",
+        "7",
+        "--vdd",
+        "0.8",
+        "--temp",
+        "75",
+        "--ops",
+        "-5",
+        "--lifetime-h",
+        "10",
+        "--strict-sanity",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO, check=False)
+    assert res.returncode == 2
+    assert (FIXTURES / "energy_sanity_strict_error.txt").read_text(encoding="utf-8") in res.stderr

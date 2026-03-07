@@ -18,6 +18,11 @@ import numpy as np
 import math
 
 from calibration import load_calibration as _load_calib
+from validation.output_sanity import (
+    enforce_sanity,
+    validate_metric_non_negative,
+    validate_operating_point,
+)
 
 
 _CALIB = _load_calib(Path(__file__).with_name("tech_calib.json"))
@@ -521,10 +526,28 @@ def energy_report(
     include_confidence: bool = False,
     strict_validation: bool = False,
     max_relative_stddev: float = 0.25,
+    strict_sanity: bool = False,
 ) -> Dict[str, float]:
     dyn = dynamic_energy_j(ops, code, node_nm, vdd, word_bits=word_bits, mode=mode)
     leak = leakage_energy_j(vdd, node_nm, temp_c, code, lifetime_h, corner=corner)
     result = {"dynamic_J": dyn, "leakage_J": leak, "total_J": dyn + leak}
+    sanity_warnings = []
+    sanity_warnings.extend(
+        validate_operating_point(
+            _CALIB,
+            node_nm=node_nm,
+            vdd=vdd,
+        )
+    )
+    sanity_warnings.extend(
+        validate_metric_non_negative(
+            {"dynamic_J": dyn, "leakage_J": leak, "total_J": dyn + leak},
+            context={"node": node_nm, "vdd": vdd, "gate": code},
+        )
+    )
+    enforce_sanity(sanity_warnings, strict=strict_sanity)
+    if sanity_warnings:
+        result["sanity_warnings"] = sanity_warnings
     if include_confidence or strict_validation:
         if uncertainty_path is None:
             if strict_validation:

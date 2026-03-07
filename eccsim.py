@@ -36,6 +36,7 @@ from fit import (
     FitEstimate,
 )
 from energy_model import UncertaintyValidationError, energy_report
+from validation.output_sanity import OutputSanityError
 from ecc_selector import select
 
 
@@ -190,6 +191,11 @@ def main() -> None:
         type=float,
         default=0.25,
         help="Maximum allowed relative stddev for strict validation",
+    )
+    energy_parser.add_argument(
+        "--strict-sanity",
+        action="store_true",
+        help="Hard-fail when output sanity checks detect implausible values",
     )
 
     carbon_parser = sub.add_parser("carbon", help="Estimate carbon footprint")
@@ -1035,8 +1041,9 @@ def main() -> None:
                 include_confidence=args.uncertainty_path is not None,
                 strict_validation=args.strict_validation,
                 max_relative_stddev=args.max_relative_stddev,
+                strict_sanity=args.strict_sanity,
             )
-        except UncertaintyValidationError as exc:
+        except (UncertaintyValidationError, OutputSanityError) as exc:
             energy_parser.error(str(exc))
         if args.report == "json":
             json.dump(result, sys.stdout)
@@ -1045,6 +1052,8 @@ def main() -> None:
             print(f"{'Dynamic (J)':<15} {result['dynamic_J']:.3e}")
             print(f"{'Leakage (J)':<15} {result['leakage_J']:.3e}")
             print(f"{'Total (J)':<15} {result['total_J']:.3e}")
+        for warning in result.get("sanity_warnings", []):
+            print(f"warning: {warning}", file=sys.stderr)
         return
 
     if args.command == "reliability":
