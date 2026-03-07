@@ -467,6 +467,14 @@ def main() -> None:
     sram_sel.add_argument("--flux-rel", type=float, default=None)
     sram_sel.add_argument("--report", type=Path, default=None)
     sram_sel.add_argument("--emit-candidates", type=Path, default=None)
+    sram_sel.add_argument("--ml-model", type=Path, default=None)
+    sram_sel.add_argument("--ml-confidence-min", type=float, default=None)
+    sram_sel.add_argument("--ml-ood-max", type=float, default=None)
+    sram_sel.add_argument(
+        "--ml-policy",
+        choices=["carbon_min", "fit_min", "energy_min", "utility_balanced"],
+        default=None,
+    )
     ml_parser = sub.add_parser("ml", help="Optional ML advisory workflows")
     ml_sub = ml_parser.add_subparsers(dest="ml_command")
 
@@ -703,6 +711,10 @@ def main() -> None:
                     flux_rel=args.flux_rel,
                     alt_km=args.alt_km,
                     latitude_deg=args.latitude,
+                    ml_model=args.ml_model,
+                    ml_confidence_min=args.ml_confidence_min,
+                    ml_ood_max=args.ml_ood_max,
+                    ml_policy=args.ml_policy,
                 )
             except Exception as exc:
                 parser.error(str(exc))
