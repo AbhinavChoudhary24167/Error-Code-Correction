@@ -6,6 +6,7 @@ import uuid
 from pathlib import Path
 
 import joblib
+import pandas as pd
 
 from ml.dataset import build_dataset
 from ml.evaluate import evaluate_model
@@ -385,3 +386,138 @@ def test_backward_compatible_model_loading_without_feature_lists():
     assert isinstance(pred["ml_recommendation"], str)
     assert "predictions" in pred
 
+
+def test_ml_check_drift_cli_writes_stable_report():
+    base = _new_base("drift_report")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    out_path = base / "drift.json"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=6)
+    train_models(dataset_dir, model_dir, seed=6)
+
+    cmd = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "check-drift",
+        "--model",
+        str(model_dir),
+        "--new-data",
+        str(dataset_dir),
+        "--out",
+        str(out_path),
+    ]
+    res = subprocess.run(cmd, check=True, capture_output=True, text=True, cwd=REPO)
+
+    assert out_path.is_file()
+    assert "drift:" in res.stdout
+    payload = json.loads(out_path.read_text(encoding="utf-8"))
+    assert set(payload.keys()) == {
+        "population_stability_index",
+        "ood_rate_delta",
+        "confidence_shift",
+        "summary",
+        "status",
+    }
+    assert isinstance(payload["ood_rate_delta"], float)
+    assert isinstance(payload["confidence_shift"], float)
+    assert isinstance(payload["population_stability_index"], dict)
+    assert isinstance(payload["summary"]["max_psi"], float)
+    assert isinstance(payload["status"]["drift_detected"], bool)
+    assert payload["status"]["severity"] in {"none", "medium", "high"}
+
+
+def test_ml_check_drift_fail_on_drift_exits_nonzero():
+    base = _new_base("drift_fail")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    shifted_dir = base / "shifted"
+    out_path = base / "drift_shifted.json"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=8)
+    train_models(dataset_dir, model_dir, seed=8)
+
+    shifted_dir.mkdir(parents=True, exist_ok=True)
+    df = pd.read_csv(dataset_dir / "dataset.csv")
+    if "capacity_gib" in df.columns:
+        df["capacity_gib"] = df["capacity_gib"].astype(float) * 50.0 + 1000.0
+    if "temp" in df.columns:
+        df["temp"] = df["temp"].astype(float) + 80.0
+    df.to_csv(shifted_dir / "dataset.csv", index=False)
+
+    cmd = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "check-drift",
+        "--model",
+        str(model_dir),
+        "--new-data",
+        str(shifted_dir),
+        "--out",
+        str(out_path),
+        "--fail-on-drift",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO)
+
+    assert out_path.is_file()
+    payload = json.loads(out_path.read_text(encoding="utf-8"))
+    assert payload["status"]["drift_detected"] is True
+    assert res.returncode != 0
+
+def test_ml_report_card_cli_smoke_and_output_resolution():
+    base = _new_base("report_card")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=13)
+    train_models(dataset_dir, model_dir, seed=13)
+    evaluate_model(dataset_dir, model_dir, eval_dir)
+
+    # report-card reads optional evaluation.json from model directory.
+    (model_dir / "evaluation.json").write_text(
+        (eval_dir / "evaluation.json").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+
+    out_rel = Path("report_card_from_cli.md")
+    cmd_report = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "report-card",
+        "--model",
+        str(model_dir),
+        "--out",
+        str(out_rel),
+    ]
+    res = subprocess.run(cmd_report, check=True, capture_output=True, text=True, cwd=base)
+
+    report_path = base / out_rel
+    assert report_path.is_file()
+    assert res.stdout.strip() == f"report_card: {report_path}"
+
+    content = report_path.read_text(encoding="utf-8")
+    assert "# ECC ML Report Card" in content
+    for heading in ("## Training Metrics", "## Thresholds", "## Uncertainty", "## Evaluation"):
+        assert heading in content
+
+
+def test_ml_report_card_requires_core_artifacts():
+    base = _new_base("report_card_missing")
+    model_dir = base / "model"
+    model_dir.mkdir(parents=True, exist_ok=True)
+
+    cmd_report = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "report-card",
+        "--model",
+        str(model_dir),
+    ]
+    res = subprocess.run(cmd_report, capture_output=True, text=True, cwd=REPO)
+    assert res.returncode != 0
+    assert "Missing required artifact" in (res.stderr + res.stdout)

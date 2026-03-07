@@ -446,15 +446,19 @@ def main() -> None:
     ml_eval.add_argument("--ood-threshold", type=float, default=None)
     ml_eval.add_argument("--json", action="store_true")
 
-    ml_report = ml_sub.add_parser("report-card", help="Generate consolidated ML report card")
-    ml_report.add_argument("--model", type=Path, required=True, help="Model directory")
-    ml_report.add_argument("--out", type=Path, default=None, help="Output report markdown path")
-
-    ml_drift = ml_sub.add_parser("check-drift", help="Check model drift against new data")
+    ml_drift = ml_sub.add_parser("check-drift", help="Compute ML data drift report")
     ml_drift.add_argument("--model", type=Path, required=True, help="Model directory")
     ml_drift.add_argument("--new-data", type=Path, required=True, help="New dataset directory")
-    ml_drift.add_argument("--out", type=Path, default=None, help="Drift output JSON path")
+    ml_drift.add_argument("--out", type=Path, default=Path("drift.json"), help="Drift report path")
     ml_drift.add_argument("--fail-on-drift", action="store_true")
+    ml_report_card = ml_sub.add_parser("report-card", help="Generate consolidated model report card")
+    ml_report_card.add_argument("--model", type=Path, required=True, help="Model directory")
+    ml_report_card.add_argument(
+        "--out",
+        type=Path,
+        default=Path("model_card.md"),
+        help="Markdown output path (relative paths are resolved from current working directory)",
+    )
 
     args = parser.parse_args()
 
@@ -511,19 +515,23 @@ def main() -> None:
             else:
                 for key in ("evaluation",):
                     print(f"{key}: {artifacts[key]}")
-        elif args.ml_command == "report-card":
-            from ml.lifecycle import generate_report_card
-
-            out = generate_report_card(args.model, args.out)
-            print(f"report_card: {out}")
         elif args.ml_command == "check-drift":
-            from ml.lifecycle import check_drift
+            from ml.drift import check_drift
 
-            out_path = args.out if args.out is not None else (args.model / "drift.json")
-            out, drift_detected = check_drift(args.model, args.new_data, out_path)
-            print(f"drift: {out}")
-            if args.fail_on_drift and drift_detected:
+            artifacts = check_drift(
+                args.model,
+                args.new_data,
+                args.out,
+            )
+            print(f"drift: {artifacts['drift']}")
+            if args.fail_on_drift and bool(artifacts["drift_detected"]):
                 raise SystemExit(2)
+        elif args.ml_command == "report-card":
+            from ml.report_card import generate_report_card
+
+            artifacts = generate_report_card(args.model, args.out)
+            for key in ("report_card",):
+                print(f"{key}: {artifacts[key]}")
         else:
             parser.error("ml subcommand required")
         return
