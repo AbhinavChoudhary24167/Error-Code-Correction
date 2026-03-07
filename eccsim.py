@@ -446,6 +446,11 @@ def main() -> None:
     ml_eval.add_argument("--ood-threshold", type=float, default=None)
     ml_eval.add_argument("--json", action="store_true")
 
+    ml_drift = ml_sub.add_parser("check-drift", help="Compute ML data drift report")
+    ml_drift.add_argument("--model", type=Path, required=True, help="Model directory")
+    ml_drift.add_argument("--new-data", type=Path, required=True, help="New dataset directory")
+    ml_drift.add_argument("--out", type=Path, default=Path("drift.json"), help="Drift report path")
+    ml_drift.add_argument("--fail-on-drift", action="store_true")
     ml_report_card = ml_sub.add_parser("report-card", help="Generate consolidated model report card")
     ml_report_card.add_argument("--model", type=Path, required=True, help="Model directory")
     ml_report_card.add_argument(
@@ -510,6 +515,17 @@ def main() -> None:
             else:
                 for key in ("evaluation",):
                     print(f"{key}: {artifacts[key]}")
+        elif args.ml_command == "check-drift":
+            from ml.drift import check_drift
+
+            artifacts = check_drift(
+                args.model,
+                args.new_data,
+                args.out,
+            )
+            print(f"drift: {artifacts['drift']}")
+            if args.fail_on_drift and bool(artifacts["drift_detected"]):
+                raise SystemExit(2)
         elif args.ml_command == "report-card":
             from ml.report_card import generate_report_card
 
