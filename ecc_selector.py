@@ -749,6 +749,11 @@ def _selector_args_parser() -> argparse.ArgumentParser:
         default=None,
     )
     parser.add_argument("--ml-debug", action="store_true", help="Emit JSON-only ML diagnostics")
+    parser.add_argument(
+        "--strict-sanity",
+        action="store_true",
+        help="Hard-fail when sanity checks detect implausible predictions",
+    )
 
     return parser
 
@@ -940,6 +945,7 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
             confidence_min_override=args.ml_confidence_min,
             ood_threshold_override=args.ml_ood_max,
             policy_override=args.ml_policy,
+            strict_sanity=args.strict_sanity,
         )
 
         reasons: list[str] = []
@@ -957,6 +963,10 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
             "predictions": pred.get("predictions", {}),
             "prediction_set": pred.get("prediction_set"),
         }
+        sanity_warnings = list(pred.get("sanity_warnings", []))
+        if sanity_warnings:
+            candidate_diag["sanity_warnings"] = sanity_warnings
+
         if reasons:
             candidate_diag["reasons"] = reasons
             rejected_entries.append(candidate_diag)

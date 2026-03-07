@@ -16,6 +16,10 @@ from .features import (
     row_to_feature_dict,
 )
 from .model_registry import load_model_bundle as _load_model_bundle
+from validation.output_sanity import (
+    enforce_sanity,
+    validate_metric_non_negative,
+)
 
 
 DEFAULT_THRESHOLDS: dict[str, float | str] = {
@@ -191,6 +195,7 @@ def predict_with_model(
     confidence_min_override: float | None = None,
     ood_threshold_override: float | None = None,
     policy_override: str | None = None,
+    strict_sanity: bool = False,
 ) -> dict[str, object]:
     """Predict recommended code and reliability/energy/carbon metrics."""
 
@@ -221,6 +226,19 @@ def predict_with_model(
     pred_fit = float(reg_fit.predict(X)[0])
     pred_carbon = float(reg_carbon.predict(X)[0])
     pred_energy = float(reg_energy.predict(X)[0])
+
+    sanity_warnings = validate_metric_non_negative(
+        {
+            "FIT": pred_fit,
+            "carbon_kg": pred_carbon,
+            "energy_kWh": pred_energy,
+        },
+        context={
+            "node": row.get("node", "unknown"),
+            "vdd": row.get("vdd", "unknown"),
+        },
+    )
+    enforce_sanity(sanity_warnings, strict=strict_sanity)
 
     thresholds = resolve_thresholds(
         bundle.get("thresholds", {}),
@@ -275,6 +293,7 @@ def predict_with_model(
         "prediction_set": prediction_set,
         "selected_policy": str(thresholds["ml_policy"]),
         "thresholds_used": thresholds,
+        "sanity_warnings": sanity_warnings,
     }
 
 
