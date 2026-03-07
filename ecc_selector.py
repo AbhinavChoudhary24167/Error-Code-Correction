@@ -26,6 +26,7 @@ import json
 import math
 
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
+from carbon_model import estimate_carbon_bounds
 from energy_model import scrub_energy_kwh
 from esii import ESIIInputs, compute_esii, normalise_esii
 from fit import (
@@ -456,6 +457,7 @@ def select(
     alt_km: float = 0.0,
     latitude_deg: float = 45.0,
     flux_rel: float | None = None,
+    carbon_policy: str | None = None,
     **kwargs,
 ) -> Dict[str, object]:
     """Return a recommended ECC and the Pareto frontier.
@@ -529,6 +531,18 @@ def select(
         rec["violations"] = violations
 
         recs.append(rec)
+
+        if carbon_policy:
+            carbon_bounds = estimate_carbon_bounds(
+                node_nm=int(kwargs["node"]),
+                area_cm2=(float(rec["area_logic_mm2"]) + float(rec["area_macro_mm2"])) * 0.01,
+                energy_joules=(float(rec["E_dyn_kWh"]) + float(rec["E_leak_kWh"]) + float(rec["E_scrub_kWh"])) * 3_600_000.0,
+                grid_factor_kgco2e_per_kwh=float(kwargs["ci"]),
+                lifetime_energy_joules=(float(rec["E_dyn_kWh"]) + float(rec["E_leak_kWh"]) + float(rec["E_scrub_kWh"])) * 3_600_000.0,
+            )
+            rec["static_carbon_kgco2e"] = carbon_bounds["nominal"]["static_carbon_kgco2e"]
+            rec["dynamic_carbon_kgco2e"] = carbon_bounds["nominal"]["dynamic_carbon_kgco2e"]
+            rec["carbon_bounds"] = carbon_bounds
 
     scenario = dict(kwargs)
     scenario.update(
@@ -654,7 +668,40 @@ def select(
         and (lat_max is None or r["latency_ns"] <= lat_max)
     ]
 
-    if fit_max is not None or lat_max is not None:
+    selected_policy = (carbon_policy or "").strip().lower()
+    if selected_policy:
+        decision_mode = "carbon-policy"
+        policy_candidates = feasible if feasible else recs
+        if selected_policy == "minimum_total_carbon":
+            best = min(policy_candidates, key=lambda r: (r["carbon_kg"], -r["NESII"]))
+        elif selected_policy == "minimum_dynamic_carbon":
+            best = min(policy_candidates, key=lambda r: (r["dynamic_carbon_kgco2e"], r["carbon_kg"]))
+        elif selected_policy == "minimum_static_carbon":
+            best = min(policy_candidates, key=lambda r: (r["static_carbon_kgco2e"], r["carbon_kg"]))
+        elif selected_policy == "balanced_carbon_energy":
+            tot_vals = [float(r["carbon_kg"]) for r in policy_candidates]
+            en_vals = [float(r["E_dyn_kWh"]) + float(r["E_leak_kWh"]) + float(r["E_scrub_kWh"]) for r in policy_candidates]
+
+            def _norm(vals: list[float], x: float) -> float:
+                lo = min(vals)
+                hi = max(vals)
+                if hi <= lo:
+                    return 0.0
+                return (x - lo) / (hi - lo)
+
+            best = min(
+                policy_candidates,
+                key=lambda r: (
+                    0.5 * _norm(tot_vals, float(r["carbon_kg"]))
+                    + 0.5 * _norm(en_vals, float(r["E_dyn_kWh"]) + float(r["E_leak_kWh"]) + float(r["E_scrub_kWh"])),
+                    -float(r["NESII"]),
+                ),
+            )
+        else:
+            raise ValueError(
+                "carbon_policy must be one of: minimum_total_carbon, minimum_dynamic_carbon, minimum_static_carbon, balanced_carbon_energy"
+            )
+    elif fit_max is not None or lat_max is not None:
         decision_mode = "epsilon-constraint"
         if feasible:
             best = min(feasible, key=lambda r: (r["carbon_kg"], -r["NESII"]))
@@ -1201,4 +1248,3 @@ __all__ = ["select", "_pareto_front", "_nsga2_sort"]
 
 if __name__ == "__main__":
     main()
-
