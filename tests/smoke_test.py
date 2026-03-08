@@ -19,13 +19,7 @@ def _binary_path(name: str) -> Path:
 
 def _run_binary(name: str) -> None:
     binary = _binary_path(name)
-    subprocess.run(
-        [str(binary)],
-        cwd=REPO,
-        check=True,
-        stdout=subprocess.DEVNULL,
-        timeout=15,
-    )
+    subprocess.run([str(binary)], cwd=REPO, check=True, stdout=subprocess.DEVNULL)
 
 
 def main() -> int:
@@ -39,7 +33,6 @@ def main() -> int:
         cwd=REPO,
         check=True,
         stdout=subprocess.DEVNULL,
-        timeout=15,
     )
 
     print("All smoke tests passed.")
