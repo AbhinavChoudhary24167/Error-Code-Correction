@@ -1,10 +1,34 @@
-"""Voltage and technology aware energy model.
+"""Voltage and technology-aware ECC energy model.
 
-At import-time the module loads ``tech_calib.json`` which maps a CMOS process
-node and supply voltage to the energy cost of XOR, AND and adder-stage
-primitives.  Functions in this module expose helpers that perform piecewise
-linear interpolation over voltage and node and return energies in joules
-(``J``) or energy-per-correction (``J/bit``).
+Scientific intent
+-----------------
+The model estimates ECC logic energy from an XOR/AND/adder abstraction instead
+of full transistor-level switching simulation. This keeps command-line analysis
+fast and deterministic while preserving first-order code-complexity trends.
+
+Calibration strategy
+--------------------
+``tech_calib.json`` is loaded at import time and treated as the authoritative
+technology table. The table is keyed by process node (nm) and VDD (V), with
+per-operation energies for ``xor``, ``and``, and ``adder_stage`` in joules.
+Runtime lookups use either:
+
+* ``mode='pwl'``: piecewise-linear interpolation in voltage and then node.
+* ``mode='nearest'``: nearest-neighbour lookup (legacy compatibility mode).
+
+Core equations and units
+------------------------
+* Gate energy: :math:`E_g(node, VDD)` [J/op].
+* Read-path estimate: :math:`E_{read} = N_{xor}E_{xor} + N_{and}E_{and}` [J].
+* Energy per correction (EPC): :math:`EPC = E_{total} / N_{corr}` [J/bit].
+
+Engineering assumptions
+-----------------------
+* Gate-level abstraction is a surrogate for transistor-level power.
+* Node scaling is represented via the calibration table (not compact-model
+  re-solving at runtime).
+* VDD scaling follows calibrated lookup/interpolation, which approximates
+  dynamic power trends while retaining stable CLI behavior.
 """
 
 from __future__ import annotations
@@ -179,7 +203,7 @@ def _nearest(v: float, choices) -> float:
 def gate_energy(
     node_nm: float, vdd: float, gate: str, *, mode: str = "pwl"
 ) -> float:
-    """Return energy of a gate operation.
+    """Return interpolated energy per primitive gate operation.
 
     Parameters
     ----------
@@ -193,7 +217,7 @@ def gate_energy(
     Returns
     -------
     float
-        Energy in joules (J) for the specified gate.
+        Energy in joules (J/op) for the specified primitive operation.
     """
     if gate not in {"xor", "and", "adder_stage"}:
         raise KeyError(gate)
@@ -208,7 +232,7 @@ def gate_energy_vec(
     *,
     mode: str = "pwl",
 ) -> np.ndarray:
-    """Vectorised gate energy lookup.
+    """Vectorised gate-energy lookup with node/VDD interpolation.
 
     Parameters
     ----------
@@ -219,7 +243,8 @@ def gate_energy_vec(
     gate : str
         Either ``"xor"`` or ``"and"``.
     mode : str
-        Currently only ``"nearest"`` is supported.
+        ``"pwl"`` performs piecewise-linear interpolation over calibration
+        points. ``"nearest"`` uses nearest calibrated VDD/node entries.
     """
     v = np.asanyarray(vdd_array, dtype=float)
     if mode == "nearest":
@@ -263,7 +288,7 @@ def estimate_energy(
     node_nm: int = 28,
     vdd: float = 0.8,
 ) -> float:
-    """Estimate the energy required to read a word.
+    """Estimate ECC dynamic energy for a read-side operation.
 
     Parameters
     ----------
@@ -275,7 +300,8 @@ def estimate_energy(
     Returns
     -------
     float
-        Estimated energy in joules (``J``) for the read operation.
+        Estimated energy in joules (``J``) computed as
+        ``parity_bits * E_xor + detected_errors * E_and``.
     """
     if parity_bits < 0 or detected_errors < 0:
         raise ValueError("Counts must be non-negative")
@@ -339,7 +365,7 @@ def epc(
     node_nm: int = 28,
     vdd: float = 0.8,
 ) -> float:
-    """Return energy per corrected bit.
+    """Return energy per corrected bit (EPC).
 
     Parameters
     ----------
@@ -353,7 +379,8 @@ def epc(
     Returns
     -------
     float
-        Energy per corrected bit in joules/bit (``J/bit``).
+        Energy per corrected bit in joules per bit (``J/bit``):
+        ``estimate_energy(xor_cnt, and_cnt) / corrections``.
     """
     if corrections <= 0:
         raise ValueError("corrections must be positive")
