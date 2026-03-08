@@ -159,7 +159,7 @@ python3 eccsim.py carbon --areas 0.1,0.2 --alpha 120,140 --ci 0.55 --Edyn 0.01 -
 python3 eccsim.py carbon --calibrated --node 7 --area-cm2 0.02 --grid-region us --years 5 --accesses-per-day 1000000 --areas 0.1,0.2 --alpha 120,140 --ci 0.38 --Edyn 0.01 --Eleak 0.02
 
 # Selector with optional carbon policy (default remains unchanged when omitted)
-python3 eccsim.py select --codes sec-ded-64,sec-daec-64,taec-64 --node 16 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 0.475 --bitcell-um2 0.08 --carbon-policy minimum_total_carbon
+python3 eccsim.py select --codes sec-ded-64,sec-daec-64,taec-64 --node 16 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 0.301 --bitcell-um2 0.08 --carbon-policy minimum_total_carbon
 ```
 
 See `docs/carbon_calibration.md` for equations, units, assumptions, and uncertainty behavior.
