@@ -17,6 +17,7 @@ import argparse
 import hashlib
 import subprocess
 from pathlib import Path
+import csv
 import json
 import sys
 from typing import Dict
@@ -41,6 +42,7 @@ from validation.output_sanity import OutputSanityError
 from ecc_selector import select
 from sram_workflow import run_sram_backend, run_sram_selection, write_sram_records_csv
 from schema import SELECT_CANDIDATE_CSV_FIELDS, TARGET_FEASIBLE_CSV_FIELDS
+from integrated_toolkit import ToolkitInput, evaluate_toolkit
 
 
 def _format_reliability_report(result: dict) -> str:
@@ -577,7 +579,125 @@ def main() -> None:
         help="Markdown output path (relative paths are resolved from current working directory)",
     )
 
+    eval_parser = sub.add_parser("evaluate", help="Integrated SRAM ECC evaluation toolkit")
+    eval_parser.add_argument("--capacity", type=float, required=True, help="SRAM capacity in GiB")
+    eval_parser.add_argument("--word-length", type=int, required=True)
+    eval_parser.add_argument("--node", type=int, required=True)
+    eval_parser.add_argument("--vdd", type=float, required=True)
+    eval_parser.add_argument("--temp", type=float, required=True)
+    eval_parser.add_argument("--ber", type=float, default=None)
+    eval_parser.add_argument("--ser", type=float, default=None)
+    eval_parser.add_argument("--altitude", type=float, default=0.0, help="Altitude in km")
+    eval_parser.add_argument("--burst-length", type=int, default=1)
+    eval_parser.add_argument("--fault-modes", nargs="+", default=["sbu", "dbu", "mbu", "burst"])
+    eval_parser.add_argument("--ci", type=float, default=0.55)
+    eval_parser.add_argument("--grid-score", type=float, default=None)
+    eval_parser.add_argument("--sustainability-mode", action="store_true")
+    eval_parser.add_argument("--ml-enabled", action="store_true")
+    eval_parser.add_argument("--ml-model", type=Path, default=None)
+    eval_parser.add_argument("--ml-confidence-min", type=float, default=None)
+    eval_parser.add_argument("--ml-ood-max", type=float, default=None)
+    eval_parser.add_argument("--outdir", type=Path, required=True)
+
+    compare_parser = sub.add_parser("compare", help="Run integrated evaluation from JSON config")
+    compare_parser.add_argument("--input-config", type=Path, required=True)
+    compare_parser.add_argument("--outdir", type=Path, required=True)
+
+    pareto_parser = sub.add_parser("pareto", help="Generate pareto plots from integrated CSV")
+    pareto_parser.add_argument("--input", type=Path, required=True)
+    pareto_parser.add_argument("--outdir", type=Path, required=True)
+
+    report_top = sub.add_parser("report", help="Regenerate integrated report from all_candidates.csv")
+    report_top.add_argument("--input", type=Path, required=True)
+    report_top.add_argument("--outdir", type=Path, required=True)
+
+    ml_infer = sub.add_parser("ml-infer", help="Run integrated evaluation in ML-advisory mode")
+    ml_infer.add_argument("--input-config", type=Path, required=True)
+    ml_infer.add_argument("--model", type=Path, required=True)
+    ml_infer.add_argument("--outdir", type=Path, required=True)
+
     args = parser.parse_args()
+
+    if args.command == "evaluate":
+        cfg = ToolkitInput(
+            sram_capacity_gib=args.capacity,
+            word_length_bits=args.word_length,
+            tech_node_nm=args.node,
+            vdd_volts=args.vdd,
+            temperature_c=args.temp,
+            ber=args.ber,
+            ser=args.ser,
+            altitude_km=args.altitude,
+            burst_length=args.burst_length,
+            fault_modes=tuple(args.fault_modes),
+            carbon_intensity_kgco2_per_kwh=args.ci,
+            grid_score=args.grid_score,
+            sustainability_mode=bool(args.sustainability_mode),
+            ml_enabled=bool(args.ml_enabled),
+            ml_model=args.ml_model,
+            ml_confidence_min=args.ml_confidence_min,
+            ml_ood_max=args.ml_ood_max,
+            output_dir=args.outdir,
+        )
+        result = evaluate_toolkit(cfg)
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return
+
+    if args.command in {"compare", "ml-infer"}:
+        payload = _load_json(args.input_config)
+        payload["output_dir"] = Path(args.outdir)
+        if args.command == "ml-infer":
+            payload["ml_enabled"] = True
+            payload["ml_model"] = Path(args.model)
+        cfg = ToolkitInput(**payload)
+        result = evaluate_toolkit(cfg)
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return
+
+    if args.command == "pareto":
+        from analysis.plot_pipeline import PlotRequest, generate_pareto_plot
+
+        outdir = Path(args.outdir)
+        outdir.mkdir(parents=True, exist_ok=True)
+        img = outdir / "pareto_energy_vs_reliability.png"
+        generate_pareto_plot(
+            PlotRequest(
+                from_path=args.input,
+                out_path=img,
+                x="energy_total_j",
+                y="FIT",
+                scenario_filters={},
+                show_dominated=True,
+                save_metadata=True,
+                strict_scenario=False,
+                error_on_empty=False,
+                log_x=False,
+                log_y=True,
+                x_objective="min",
+                y_objective="min",
+                allow_recompute=False,
+            )
+        )
+        print(str(img))
+        return
+
+    if args.command == "report":
+        rows = []
+        with args.input.open("r", encoding="utf-8") as fh:
+            reader = csv.DictReader(fh)
+            rows = list(reader)
+        outdir = Path(args.outdir)
+        summary = outdir / "summary"
+        summary.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "rows": len(rows),
+            "columns": list(rows[0].keys()) if rows else [],
+            "note": "Generated from existing all_candidates.csv; no recomputation performed.",
+        }
+        (summary / "integrated_report.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        (summary / "integrated_report.md").write_text("# Integrated Report\n\n" + json.dumps(payload, indent=2), encoding="utf-8")
+        print(json.dumps(payload, indent=2))
+        return
 
     if args.command == "ml":
         if args.ml_command == "build-dataset":
@@ -1366,7 +1486,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
 
 
