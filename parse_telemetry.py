@@ -16,24 +16,10 @@ import pandas as pd
 from jsonschema import ValidationError, validate
 
 from energy_model import estimate_energy
+from schema import TELEMETRY_FIELDS
 
 # Order of fields in the canonical schema/CSV
-FIELDS: list[str] = [
-    "workload_id",
-    "node_nm",
-    "vdd",
-    "tempC",
-    "clk_MHz",
-    "xor_toggles",
-    "and_toggles",
-    "add_toggles",
-    "corr_events",
-    "words",
-    "accesses",
-    "scrub_s",
-    "capacity_gib",
-    "runtime_s",
-]
+FIELDS: list[str] = list(TELEMETRY_FIELDS)
 
 _INT_FIELDS: Iterable[str] = {
     "node_nm",
