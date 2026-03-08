@@ -40,6 +40,7 @@ from energy_model import UncertaintyValidationError, energy_report
 from validation.output_sanity import OutputSanityError
 from ecc_selector import select
 from sram_workflow import run_sram_backend, run_sram_selection, write_sram_records_csv
+from schema import SELECT_CANDIDATE_CSV_FIELDS, TARGET_FEASIBLE_CSV_FIELDS
 
 
 def _format_reliability_report(result: dict) -> str:
@@ -929,20 +930,7 @@ def main() -> None:
         if args.emit_candidates:
             import csv
 
-            fieldnames = [
-                "code",
-                "scrub_s",
-                "FIT",
-                "carbon_kg",
-                "latency_ns",
-                "ESII",
-                "NESII",
-                "GS",
-                "areas",
-                "energies",
-                "violations",
-                "scenario_hash",
-            ]
+            fieldnames = list(SELECT_CANDIDATE_CSV_FIELDS)
             with open(args.emit_candidates, "w", newline="") as fh:
                 writer = csv.DictWriter(fh, fieldnames=fieldnames)
                 writer.writeheader()
@@ -1050,22 +1038,7 @@ def main() -> None:
         feasible = [r for r in records if metric(r) <= args.target]
 
         import csv
-        fieldnames = [
-            "code",
-            "fit_bit",
-            "fit_word_post",
-            "FIT",
-            "carbon_kg",
-            "ESII",
-            "NESII",
-            "GS",
-            "scrub_s",
-            "area_logic_mm2",
-            "area_macro_mm2",
-            "E_dyn_kWh",
-            "E_leak_kWh",
-            "E_scrub_kWh",
-        ]
+        fieldnames = list(TARGET_FEASIBLE_CSV_FIELDS)
         with open(args.feasible, "w", newline="") as fh:
             writer = csv.DictWriter(fh, fieldnames=fieldnames, extrasaction="ignore")
             writer.writeheader()

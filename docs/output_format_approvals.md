@@ -13,3 +13,12 @@ Approved changes:
 - APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/hazucha_default.stdout.txt
 - APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/esii_default.json
 - APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/smoke_test.stdout.txt
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/select.stdout.txt
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/target.stdout.txt
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/ecc_selector_legacy.stdout.txt
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/ecc_selector_legacy.stderr.txt
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/reliability_report.json
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/select_candidates.csv
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/select_pareto.csv
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/target_choice.json
+- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/target_feasible.csv
