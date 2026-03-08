@@ -62,9 +62,9 @@ ifeq ($(OS),Windows_NT)
 	python ecc_selector.py 1e-6 2 0.6 1e-15 1 --sustainability >NUL
 	set PYTHONPATH=.&& pytest -q tests/python
 else
-	./tests/smoke_test.sh
+	python tests/smoke_test.py
 	PYTHONPATH=. pytest -q tests/python
 endif
 
 epc-report:
-	python3 parse_telemetry.py --csv $(CSV) --node $(NODE) --vdd $(VDD)
+	python parse_telemetry.py --csv $(CSV) --node $(NODE) --vdd $(VDD)
