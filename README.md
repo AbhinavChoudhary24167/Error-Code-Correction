@@ -502,3 +502,55 @@ Goal: assess if ML can assist scenario triage.
 
 This framework’s core strength is **cross-domain coupling with deterministic reproducibility**: reliability, energy, carbon, and selection outputs are generated through a stable, test-guarded CLI contract. Scientifically, it is strongest as a **comparative architecture-decision engine** rather than an absolute silicon signoff model. The models intentionally simplify device physics and manufacturing complexity into calibrated surrogates, which is appropriate for early-stage design-space exploration, policy analysis, and research reproducibility. Future extension is naturally additive: richer calibration datasets, broader ECC families, tighter uncertainty quantification, and improved ML explainability can be incorporated without breaking baseline deterministic behavior.
 
+
+## Integrated SRAM ECC Evaluation Toolkit (research workflow)
+
+A new additive CLI path provides one-shot integrated evaluation while preserving existing commands and output contracts.
+
+### One-command integrated run
+
+```bash
+python eccsim.py evaluate \
+  --capacity 8 \
+  --word-length 64 \
+  --node 14 \
+  --vdd 0.8 \
+  --temp 75 \
+  --ber 1e-9 \
+  --altitude 1.5 \
+  --fault-modes sbu dbu mbu burst \
+  --ci 0.55 \
+  --grid-score 0.62 \
+  --outdir results/run1
+```
+
+### Config-driven run
+
+```bash
+python eccsim.py compare --input-config config.json --outdir results/run2
+```
+
+### Additional helpers
+
+```bash
+python eccsim.py pareto --input results/run1/data/all_candidates.csv --outdir results/run1/plots
+python eccsim.py report --input results/run1/data/all_candidates.csv --outdir results/run1
+python eccsim.py ml-infer --input-config config.json --model model.pkl --outdir results/run3
+```
+
+### Output package layout
+
+The integrated run writes a unified package under one output directory:
+
+- `summary/` integrated JSON/Markdown/txt report
+- `data/` candidate-level CSV/JSON, Pareto points, metric definitions, calibration context
+- `tables/` full and condensed ECC comparison tables and per-code tables
+- `plots/` Pareto and ranking figures
+- `ml/` separate advisory-only ML outputs and baseline comparison
+
+### Scientific limits and transparency
+
+- ML remains advisory-only; deterministic baseline selection remains primary.
+- Unsupported schemes are explicitly listed as "known but not evaluated".
+- Quantities that are unavailable from existing models are emitted as `null` and documented in report limitations.
+- Fault-mode handling is explicit about requested mode vs selector approximation.
