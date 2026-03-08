@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Mapping
 
 from ml.predict import predict_with_model, resolve_thresholds
+from schema import get_semantic_value
 
 
 _ML_POLICIES = {"carbon_min", "fit_min", "energy_min", "utility_balanced"}
@@ -32,7 +33,7 @@ def build_sram_feature_row(
 ) -> dict[str, object]:
     """Build an SRAM-aware feature row from selector candidate/scenario fields."""
 
-    fit_val = float(candidate.get("FIT", 0.0))
+    fit_val = float(get_semantic_value(candidate, "fit", 0.0))
     return {
         # Core selector-compatible features.
         "code": str(candidate.get("code", "")),
@@ -57,9 +58,9 @@ def build_sram_feature_row(
         "sdc_rate": fit_val * 1e-12,
         "correction_rate": candidate.get("correction_rate", 0.0),
         "detection_rate": candidate.get("detection_rate", 0.0),
-        "energy_proxy": candidate.get("E_scrub_kWh"),
+        "energy_proxy": get_semantic_value(candidate, "energy_scrub_kwh"),
         "latency_proxy": candidate.get("latency_ns"),
-        "utility": candidate.get("NESII"),
+        "utility": get_semantic_value(candidate, "nesii"),
     }
 
 
