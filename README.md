@@ -208,7 +208,7 @@ Below are stable command entry points and interpretation notes.
 ## 3.1 Energy
 
 ```bash
-python3 eccsim.py energy --code <sec-ded|sec-daec|taec|polar> --node <nm> --vdd <V> --temp <C> --ops <count> --lifetime-h <hours>
+python eccsim.py energy --code <sec-ded|sec-daec|taec|polar> --node <nm> --vdd <V> --temp <C> --ops <count> --lifetime-h <hours>
 ```
 
 - `--code`: ECC family for primitive-count model.
@@ -221,7 +221,7 @@ Output includes Dynamic (J), Leakage (J), Total (J). Interpretation: dynamic res
 ## 3.2 Carbon
 
 ```bash
-python3 eccsim.py carbon --areas <logic_mm2,macro_mm2> --alpha <logic_alpha,macro_alpha> --ci <kgCO2e/kWh> --Edyn <kWh> --Eleak <kWh>
+python eccsim.py carbon --areas <logic_mm2,macro_mm2> --alpha <logic_alpha,macro_alpha> --ci <kgCO2e/kWh> --Edyn <kWh> --Eleak <kWh>
 ```
 
 Legacy mode output: embodied, operational, total carbon.
@@ -229,7 +229,7 @@ Legacy mode output: embodied, operational, total carbon.
 Calibrated mode (additive behavior):
 
 ```bash
-python3 eccsim.py carbon --calibrated --node <nm> --area-cm2 <cm2> --grid-region <region> --years <y> --accesses-per-day <n> --areas ... --alpha ... --ci ... --Edyn ... --Eleak ...
+python eccsim.py carbon --calibrated --node <nm> --area-cm2 <cm2> --grid-region <region> --years <y> --accesses-per-day <n> --areas ... --alpha ... --ci ... --Edyn ... --Eleak ...
 ```
 
 Interpretation: embodied reflects fabrication assumptions; operational reflects grid and workload energy scaling.
@@ -237,7 +237,7 @@ Interpretation: embodied reflects fabrication assumptions; operational reflects 
 ## 3.3 ESII
 
 ```bash
-python3 eccsim.py esii --fit-base <FIT> --fit-ecc <FIT> --e-dyn-j <J> --e-leak-j <J> --ci <kgCO2e/kWh> --embodied-kgco2e <kg> --basis <per_gib|system>
+python eccsim.py esii --fit-base <FIT> --fit-ecc <FIT> --e-dyn-j <J> --e-leak-j <J> --ci <kgCO2e/kWh> --embodied-kgco2e <kg> --basis <per_gib|system>
 ```
 
 Interpretation: ESII/NESII combine reliability improvement and carbon/energy burdens into integrated sustainability-style scores.
@@ -245,7 +245,7 @@ Interpretation: ESII/NESII combine reliability improvement and carbon/energy bur
 ## 3.4 Selection
 
 ```bash
-python3 eccsim.py select --codes <comma-list> --node <nm> --vdd <V> --temp <C> --mbu <none|light|moderate|heavy> --capacity-gib <GiB> --ci <kgCO2e/kWh> --bitcell-um2 <um2>
+python eccsim.py select --codes <comma-list> --node <nm> --vdd <V> --temp <C> --mbu <none|light|moderate|heavy> --capacity-gib <GiB> --ci <kgCO2e/kWh> --bitcell-um2 <um2>
 ```
 
 Optional constraint syntax:
@@ -259,7 +259,7 @@ Interpretation: deterministic multi-objective recommendation across FIT/carbon/l
 ## 3.5 Reliability
 
 ```bash
-python3 eccsim.py reliability hazucha --qcrit <pC> --qs <pC> --area <mm2> [--alt-km ... --latitude ...]
+python eccsim.py reliability hazucha --qcrit <pC> --qs <pC> --area <mm2> [--alt-km ... --latitude ...]
 ```
 
 Returns SER-like scalar from the Hazucha-style model path; engineering interpretation is relative soft-error sensitivity under specified charge/area/environment assumptions.
@@ -267,9 +267,9 @@ Returns SER-like scalar from the Hazucha-style model path; engineering interpret
 ## 3.6 ML
 
 ```bash
-python3 eccsim.py ml train --dataset <dir> --model-out <dir>
-python3 eccsim.py ml evaluate --dataset <dir> --model <dir> --out <dir>
-python3 eccsim.py ml report-card --model <dir> --out <path>
+python eccsim.py ml train --dataset <dir> --model-out <dir>
+python eccsim.py ml evaluate --dataset <dir> --model <dir> --out <dir>
+python eccsim.py ml report-card --model <dir> --out <path>
 ```
 
 Recommended sequence for reproducible evaluation:
@@ -295,10 +295,13 @@ Recommended sequence for reproducible evaluation:
 ```bash
 git clone <repo>
 cd Error-Code-Correction
-python3 -m venv .venv
+python -m venv .venv
+# Linux/macOS:
 source .venv/bin/activate
-pip install -U pip
-pip install -r requirements.txt
+# Windows PowerShell:
+# .\.venv\Scripts\Activate.ps1
+python -m pip install -U pip
+python -m pip install -r requirements.txt
 ```
 
 ## 4.3 Build + tests + smoke
@@ -306,8 +309,8 @@ pip install -r requirements.txt
 ```bash
 make
 make test
-python3 -m pytest -q
-bash tests/smoke_test.sh
+python -m pytest -q
+python tests/smoke_test.py
 ```
 
 ---
@@ -321,7 +324,7 @@ The following were executed on this repository revision; values are **actual CLI
 Command:
 
 ```bash
-python3 eccsim.py energy --code sec-ded --node 7 --vdd 0.8 --temp 45 --ops 1000000 --lifetime-h 8760
+python eccsim.py energy --code sec-ded --node 7 --vdd 0.8 --temp 45 --ops 1000000 --lifetime-h 8760
 ```
 
 Output:
@@ -339,7 +342,7 @@ Interpretation: leakage dominates for this long-lifetime scenario.
 Command:
 
 ```bash
-python3 eccsim.py carbon --areas 0.1,0.2 --alpha 120,140 --ci 0.55 --Edyn 0.01 --Eleak 0.02
+python eccsim.py carbon --areas 0.1,0.2 --alpha 120,140 --ci 0.55 --Edyn 0.01 --Eleak 0.02
 ```
 
 Output:
@@ -357,7 +360,7 @@ Interpretation: embodied term dominates under the supplied area/alpha assumption
 Command:
 
 ```bash
-python3 eccsim.py select --codes sec-ded-64,sec-daec-64,taec-64,bch-63 --node 7 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 400 --bitcell-um2 0.08
+python eccsim.py select --codes sec-ded-64,sec-daec-64,taec-64,bch-63 --node 7 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 400 --bitcell-um2 0.08
 ```
 
 Output:
@@ -375,7 +378,7 @@ Interpretation: in this scenario, selector deterministic decision chooses BCH ca
 Command (schema-valid example row):
 
 ```bash
-python3 - <<'PY'
+python - <<'PY'
 from parse_telemetry import compute_epc
 te,epc=compute_epc('/tmp/telemetry_demo.csv')
 print(f'Total energy (J): {te:.3e}')
@@ -397,7 +400,7 @@ Interpretation: one correction event with modest toggle counts yields identical 
 Command:
 
 ```bash
-python3 ecc_selector.py --ml-model /tmp/ml_model --node 14 --vdd 0.8 --temp 75 --capacity-gib 8 --ci 0.55 --bitcell-um2 0.04 --json
+python ecc_selector.py --ml-model /tmp/ml_model --node 14 --vdd 0.8 --temp 75 --capacity-gib 8 --ci 0.55 --bitcell-um2 0.04 --json
 ```
 
 Key output fields:

@@ -1,4 +1,5 @@
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -8,7 +9,7 @@ FIXTURES = REPO / "tests" / "fixtures" / "golden"
 
 def test_smoke_test_script_stdout_golden():
     result = subprocess.run(
-        ["bash", "tests/smoke_test.sh"],
+        [sys.executable, "tests/smoke_test.py"],
         cwd=REPO,
         check=True,
         capture_output=True,
