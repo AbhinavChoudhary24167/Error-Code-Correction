@@ -1,10 +1,13 @@
 """Environmental Sustainability Improvement Index (ESII).
 
-This module provides helpers to compute the ESII given reliability
-improvements and carbon cost components.  The ESII is defined as the ratio of
-failure rate improvement to the total carbon footprint associated with the
-technique.  In addition to the main :func:`compute_esii` routine the module
-offers utilities for deriving embodied-carbon terms from hardware properties.
+The revised ESII is a bounded sustainability utility in ``[0, 1]``:
+
+``ESII = U_rel * (w_E * U_energy + w_C * U_carbon) / (w_E + w_C)``
+
+where ``U_rel`` captures reliability improvement in log-risk space and
+``U_energy``/``U_carbon`` penalise operational and carbon burdens through
+dimensionless saturating transforms.  The formulation avoids exploding ratios,
+is monotonic in expected directions and remains finite across wide FIT ranges.
 """
 
 from __future__ import annotations
@@ -15,6 +18,33 @@ from typing import Dict, Iterable, List, Literal, Tuple
 import numpy as np
 
 KWH_PER_J = 3_600_000.0  # 1 kWh = 3.6e6 J
+FIT_FLOOR = 1e-30
+LOG_RELIABILITY_HALFSAT_DECADES = 2.0
+ENERGY_HALFSAT_KWH = 1.0
+CARBON_HALFSAT_KG = 1.0
+EPS = 1e-12
+
+
+def safe_div(num: float, den: float, eps: float = EPS) -> float:
+    """Return ``num / den`` using ``eps`` to prevent divide-by-zero."""
+    return num / max(abs(den), eps)
+
+
+def safe_log10(x: float, floor: float = FIT_FLOOR) -> float:
+    """Return ``log10(max(x, floor))`` for stable log-domain arithmetic."""
+    return float(np.log10(max(x, floor)))
+
+
+def clamp01(x: float) -> float:
+    """Clamp ``x`` to the closed interval ``[0, 1]``."""
+    return max(0.0, min(1.0, float(x)))
+
+
+def bounded_cost_utility(cost: float, halfsat: float, eps: float = EPS) -> float:
+    """Map a non-negative cost to a bounded utility in ``(0, 1]``."""
+    c = max(float(cost), 0.0)
+    h = max(float(halfsat), eps)
+    return 1.0 / (1.0 + c / h)
 
 
 @dataclass(frozen=True)
@@ -56,8 +86,17 @@ def _j_to_kwh(x: float) -> float:
 def compute_esii(inp: ESIIInputs) -> Dict[str, float]:
     """Return ESII and a compact breakdown.
 
-    The dictionary contains the ESII value along with the individual components
-    contributing to the carbon footprint.
+    Reliability term
+    ----------------
+    ``U_rel`` uses log-risk reduction in FIT decades:
+
+    ``d_rel = max(log10(fit_base + floor) - log10(fit_ecc + floor), 0)``
+    ``U_rel = d_rel / (d_rel + LOG_RELIABILITY_HALFSAT_DECADES)``
+
+    Burden terms
+    ------------
+    Operational energy and total carbon are converted to bounded utilities via
+    reciprocal saturation.  The final ESII is bounded in ``[0, 1]``.
     """
 
     e_dyn_kwh = _j_to_kwh(inp.e_dyn)
@@ -68,12 +107,27 @@ def compute_esii(inp: ESIIInputs) -> Dict[str, float]:
     )
     total_kgco2e = operational_kgco2e + inp.embodied_kgco2e
 
+    log_fit_base = safe_log10(max(inp.fit_base, 0.0) + FIT_FLOOR)
+    log_fit_ecc = safe_log10(max(inp.fit_ecc, 0.0) + FIT_FLOOR)
+    reliability_decades = max(log_fit_base - log_fit_ecc, 0.0)
+    reliability_score = safe_div(
+        reliability_decades,
+        reliability_decades + LOG_RELIABILITY_HALFSAT_DECADES,
+    )
+    energy_score = bounded_cost_utility(e_dyn_kwh + e_leak_kwh + e_scrub_kwh, ENERGY_HALFSAT_KWH)
+    carbon_score = bounded_cost_utility(total_kgco2e, CARBON_HALFSAT_KG)
+
+    burden_blend = 0.5 * energy_score + 0.5 * carbon_score
+    esii = clamp01(reliability_score * burden_blend)
     delta_fit = max(inp.fit_base - inp.fit_ecc, 0.0)
-    esii = 0.0 if total_kgco2e < 1e-12 else delta_fit / total_kgco2e
 
     return {
         "ESII": esii,
         "delta_FIT": delta_fit,
+        "reliability_decades": reliability_decades,
+        "reliability_score": reliability_score,
+        "energy_score": energy_score,
+        "carbon_score": carbon_score,
         "operational_kgCO2e": operational_kgco2e,
         "embodied_kgCO2e": inp.embodied_kgco2e,
         "total_kgCO2e": total_kgco2e,
@@ -130,4 +184,3 @@ def normalise_esii(values: Iterable[float], eps: float = 1e-9) -> Tuple[List[flo
     denom = p95 - p5 + eps
     norm = 100.0 * (clipped - p5) / denom
     return norm.tolist(), float(p5), float(p95)
-
