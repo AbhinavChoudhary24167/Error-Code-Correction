@@ -1,7 +1,7 @@
 {
   "node_defaults": {
     "28": {
-      "area_scaling_factor": 1.0,
+      "design_area_multiplier": 1.0,
       "fab_intensity_kgco2e_per_cm2": {
         "min": 20.0,
         "nominal": 25.0,
@@ -15,7 +15,7 @@
       "uncertainty_margin": 0.2
     },
     "16": {
-      "area_scaling_factor": 1.0,
+      "design_area_multiplier": 1.0,
       "fab_intensity_kgco2e_per_cm2": {
         "min": 40.0,
         "nominal": 50.0,
@@ -29,7 +29,7 @@
       "uncertainty_margin": 0.2
     },
     "7": {
-      "area_scaling_factor": 1.0,
+      "design_area_multiplier": 1.0,
       "fab_intensity_kgco2e_per_cm2": {
         "min": 80.0,
         "nominal": 100.0,
@@ -45,13 +45,22 @@
   },
   "grid_defaults": {
     "regions_kgco2e_per_kwh": {
-      "global_avg": 0.475,
+      "global_avg": 0.301,
       "india": 0.725,
       "us": 0.38,
       "europe": 0.295,
       "brazil": 0.082,
       "iceland": 0.028
     },
+    "region_provenance": {
+      "global_avg": "IEA electricity intensity global average proxy (kgCO2e/kWh)",
+      "india": "Regional default proxy",
+      "us": "Regional default proxy",
+      "europe": "Regional default proxy",
+      "brazil": "Regional default proxy",
+      "iceland": "Regional default proxy"
+    },
+    "scenario_provenance": "Best/worst scenario factors are stress-test envelopes and not region-average factors.",
     "best_case_kgco2e_per_kwh": 0.02,
     "worst_case_kgco2e_per_kwh": 0.9
   },

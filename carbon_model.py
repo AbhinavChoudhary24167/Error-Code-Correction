@@ -36,15 +36,31 @@ def _as_float(value: float | int | None, name: str, *, allow_none: bool = False)
     return out
 
 
-def _resolve_node(node_nm: int, calib: Mapping[str, Any]) -> dict[str, Any]:
+def _as_positive(value: float | int | None, name: str) -> float:
+    out = float(_as_float(value, name))
+    if out <= 0.0:
+        raise ValueError(f"{name} must be positive")
+    return out
+
+
+def _resolve_node(node_nm: int, calib: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
     nodes = calib["node_defaults"]
-    key = str(int(node_nm))
+    requested = int(node_nm)
+    key = str(requested)
     if key in nodes:
-        return dict(nodes[key])
+        return dict(nodes[key]), {
+            "requested_node_nm": requested,
+            "calibrated_node_nm": requested,
+            "node_mapping_mode": "exact",
+        }
     # Fallback to nearest configured node for backward-compatible operation.
     choices = sorted(int(k) for k in nodes)
-    nearest = min(choices, key=lambda n: abs(n - int(node_nm)))
-    return dict(nodes[str(nearest)])
+    nearest = min(choices, key=lambda n: abs(n - requested))
+    return dict(nodes[str(nearest)]), {
+        "requested_node_nm": requested,
+        "calibrated_node_nm": nearest,
+        "node_mapping_mode": "nearest_calibrated",
+    }
 
 
 def _resolve_area_cm2(
@@ -81,13 +97,15 @@ def estimate_embodied_carbon(
     """Estimate embodied/static carbon with nominal and bounded variants."""
 
     calib = _load_calibration(calib_path)
-    node_cfg = _resolve_node(node_nm, calib)
+    node_cfg, node_meta = _resolve_node(node_nm, calib)
     intensity_cfg = node_cfg["fab_intensity_kgco2e_per_cm2"]
     yield_cfg = node_cfg["yield_loss_factor"]
 
     scaling = float(
         _as_float(
-            area_scaling_factor if area_scaling_factor is not None else node_cfg.get("area_scaling_factor", 1.0),
+            area_scaling_factor
+            if area_scaling_factor is not None
+            else node_cfg.get("design_area_multiplier", node_cfg.get("area_scaling_factor", 1.0)),
             "area_scaling_factor",
         )
     )
@@ -97,20 +115,18 @@ def estimate_embodied_carbon(
         bitcell_area_um2=bitcell_area_um2,
         area_scaling_factor=scaling,
     )
-    resolved_yield = float(
-        _as_float(yield_loss_factor if yield_loss_factor is not None else yield_cfg["nominal"], "yield_loss_factor")
+    resolved_yield = _as_positive(
+        yield_loss_factor if yield_loss_factor is not None else yield_cfg["nominal"], "yield_loss_factor"
     )
-    resolved_intensity = float(
-        _as_float(
-            fab_intensity_kgco2e_per_cm2 if fab_intensity_kgco2e_per_cm2 is not None else intensity_cfg["nominal"],
-            "fab_intensity_kgco2e_per_cm2",
-        )
+    resolved_intensity = _as_positive(
+        fab_intensity_kgco2e_per_cm2 if fab_intensity_kgco2e_per_cm2 is not None else intensity_cfg["nominal"],
+        "fab_intensity_kgco2e_per_cm2",
     )
     margin = float(_as_float(uncertainty_margin if uncertainty_margin is not None else node_cfg["uncertainty_margin"], "uncertainty_margin"))
 
     nominal = resolved_area_cm2 * resolved_intensity * resolved_yield
-    best_case = resolved_area_cm2 * float(intensity_cfg["min"]) * float(yield_cfg["min"]) * (1.0 - margin)
-    worst_case = resolved_area_cm2 * float(intensity_cfg["max"]) * float(yield_cfg["max"]) * (1.0 + margin)
+    best_case = resolved_area_cm2 * float(intensity_cfg["min"]) * float(yield_cfg["min"])
+    worst_case = resolved_area_cm2 * float(intensity_cfg["max"]) * float(yield_cfg["max"])
 
     return {
         "nominal_kgco2e": nominal,
@@ -120,14 +136,17 @@ def estimate_embodied_carbon(
         "worst_case_kgco2e": worst_case,
         "assumptions": {
             "node_nm": int(node_nm),
+            **node_meta,
             "effective_area_cm2": resolved_area_cm2,
             "fab_intensity_kgco2e_per_cm2": resolved_intensity,
             "yield_loss_factor": resolved_yield,
             "uncertainty_margin": margin,
             "area_proxy_used": area_cm2 is None,
+            "area_source": "proxy" if area_cm2 is None else "direct_input",
             "memory_bits": memory_bits,
             "bitcell_area_um2": bitcell_area_um2,
             "area_scaling_factor": scaling,
+            "design_area_multiplier": scaling,
         },
     }
 
@@ -153,6 +172,23 @@ def estimate_operational_carbon(
     lifetime_cfg = calib["lifetime_defaults"]
 
     energy_per_unit_j = float(_as_float(energy_joules, "energy_joules"))
+
+    scaling_inputs = {
+        "total_accesses": total_accesses,
+        "workload_repetitions": workload_repetitions,
+        "accesses_per_day": accesses_per_day,
+        "years": years,
+    }
+    if lifetime_energy_joules is not None and any(v is not None for v in scaling_inputs.values()):
+        raise ValueError(
+            "Ambiguous workload specification: lifetime_energy_joules cannot be combined with total_accesses, workload_repetitions, years, or accesses_per_day"
+        )
+    if total_accesses is not None and workload_repetitions is not None:
+        raise ValueError("Ambiguous workload specification: provide only one of total_accesses or workload_repetitions")
+    if total_accesses is not None and (years is not None or accesses_per_day is not None):
+        raise ValueError("Ambiguous workload specification: total_accesses cannot be combined with years/accesses_per_day")
+    if workload_repetitions is not None and (years is not None or accesses_per_day is not None):
+        raise ValueError("Ambiguous workload specification: workload_repetitions cannot be combined with years/accesses_per_day")
     if lifetime_energy_joules is not None:
         total_energy_j = float(_as_float(lifetime_energy_joules, "lifetime_energy_joules"))
         lifetime_mode = "explicit_lifetime_energy"
@@ -163,8 +199,8 @@ def estimate_operational_carbon(
         total_energy_j = energy_per_unit_j * float(_as_float(workload_repetitions, "workload_repetitions"))
         lifetime_mode = "workload_repetitions"
     else:
-        yrs = float(_as_float(years if years is not None else lifetime_cfg.get("years", 1.0), "years"))
-        apd = float(_as_float(accesses_per_day if accesses_per_day is not None else lifetime_cfg.get("accesses_per_day", 1.0), "accesses_per_day"))
+        yrs = _as_positive(years if years is not None else lifetime_cfg.get("years", 1.0), "years")
+        apd = _as_positive(accesses_per_day if accesses_per_day is not None else lifetime_cfg.get("accesses_per_day", 1.0), "accesses_per_day")
         total_energy_j = energy_per_unit_j * apd * 365.0 * yrs
         lifetime_mode = "accesses_per_day_and_years"
 
@@ -174,8 +210,10 @@ def estimate_operational_carbon(
             available = ", ".join(sorted(regions.keys()))
             raise ValueError(f"Unknown grid_region={grid_region}; available: {available}")
         grid_factor = float(regions[grid_region])
+        grid_override_used = False
     else:
         grid_factor = float(_as_float(grid_factor_kgco2e_per_kwh, "grid_factor_kgco2e_per_kwh"))
+        grid_override_used = True
 
     best_grid = float(
         _as_float(
@@ -203,11 +241,16 @@ def estimate_operational_carbon(
         "lifetime_energy_joules": total_energy_j,
         "assumptions": {
             "grid_region": grid_region,
+            "requested_grid_region": grid_region,
             "grid_factor_kgco2e_per_kwh": grid_factor,
+            "grid_factor_override_used": grid_override_used,
+            "grid_region_provenance": grid_cfg.get("region_provenance", {}).get(grid_region, "unspecified"),
+            "grid_scenario_provenance": grid_cfg.get("scenario_provenance", "unspecified"),
             "best_grid_factor_kgco2e_per_kwh": best_grid,
             "worst_grid_factor_kgco2e_per_kwh": worst_grid,
             "lifetime_mode": lifetime_mode,
             "energy_joules_per_unit": energy_per_unit_j,
+            "dynamic_carbon_scope": "lifetime",
         },
     }
 
@@ -289,6 +332,17 @@ def estimate_carbon_bounds(
 
     return {
         "nominal": nominal,
+        "uncertainty": {
+            "static_carbon_kgco2e": {
+                "lower_bound_kgco2e": embodied["lower_bound_kgco2e"],
+                "upper_bound_kgco2e": embodied["upper_bound_kgco2e"],
+            },
+            "total_carbon_kgco2e": {
+                "lower_bound_kgco2e": embodied["lower_bound_kgco2e"] + operational["nominal_kgco2e"],
+                "upper_bound_kgco2e": embodied["upper_bound_kgco2e"] + operational["nominal_kgco2e"],
+            },
+            "uncertainty_margin": embodied["assumptions"]["uncertainty_margin"],
+        },
         "best_case": best_case,
         "worst_case": worst_case,
         "assumptions": {
