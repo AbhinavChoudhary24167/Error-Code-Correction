@@ -152,8 +152,11 @@ public:
             result.corrected_bits = 1;
             result.detail = "Corrected overall parity bit";
         } else if (result.syndrome != 0 && overall_parity_odd) {
-            result.status = DecodeStatus::Corrected;
-            if (result.syndrome >= 1 && result.syndrome <= total_bits_ - 1) {
+            if (result.syndrome < 1 || result.syndrome > total_bits_ - 1) {
+                result.status = DecodeStatus::DetectedUncorrectable;
+                result.detail = "Syndrome out of valid range — likely 3+ bit error";
+            } else {
+                result.status = DecodeStatus::Corrected;
                 flipBit1(working, result.syndrome);
                 result.corrected_bits = 1;
                 result.detail = "Corrected by syndrome";
@@ -212,6 +215,11 @@ private:
     }
 };
 
+// Parity is computed via a non-cryptographic XOR-fold hash.
+// Minimum Hamming distance is NOT guaranteed algebraically.
+// Error correction is done by exhaustive candidate search (O(n^w) per decode
+// where w is the maximum correction weight). This is NOT a BCH or standard
+// TAEC code. Rename prefix "Hash" reflects the actual construction.
 class ChecksumSearchCodecBase : public ECCCodec {
 public:
     ChecksumSearchCodecBase(std::string codec_name,
@@ -379,22 +387,27 @@ private:
     }
 };
 
-class TAECCodec final : public ChecksumSearchCodecBase {
+class HashAEC3Codec final : public ChecksumSearchCodecBase {
 public:
-    explicit TAECCodec(int data_bits)
-        : ChecksumSearchCodecBase("TAEC", data_bits, 12, 3, 3,
-                                  "Corrects up to 3 adjacent flips (search-based)",
-                                  "High-probability detection via 12-bit checksum") {}
+    explicit HashAEC3Codec(int data_bits)
+        : ChecksumSearchCodecBase("HashAEC3", data_bits, 12, 3, 3,
+                                  "Probabilistic correction up to 3 adjacent flips (search-based)",
+                                  "Probabilistic detection via 12-bit checksum") {}
 };
 
-class BCHCodec final : public ChecksumSearchCodecBase {
+class HashEC2Codec final : public ChecksumSearchCodecBase {
 public:
-    explicit BCHCodec(int data_bits)
-        : ChecksumSearchCodecBase("BCH", data_bits, 16, 2, 0,
-                                  "Corrects up to 2 bit flips (t=2 emulation)",
-                                  "High-probability detection via 16-bit checksum") {}
+    explicit HashEC2Codec(int data_bits)
+        : ChecksumSearchCodecBase("HashEC2", data_bits, 16, 2, 0,
+                                  "Probabilistic correction up to 2 bit flips (search-based)",
+                                  "Probabilistic detection via 16-bit checksum") {}
 };
 
+// This is a CRC-8-aided Reed-Muller code, NOT a standard polar code.
+// Frozen positions are assigned as the first (n - total_info_bits) indices,
+// NOT by Bhattacharyya parameter or Gaussian approximation ordering.
+// The decoder uses single-flip exhaustive search, not successive cancellation.
+// Published polar code BER curves are not directly comparable to this codec.
 class PolarCodec final : public ECCCodec {
 public:
     explicit PolarCodec(int data_bits)
@@ -415,14 +428,14 @@ public:
         }
     }
 
-    std::string name() const override { return "Polar"; }
+    std::string name() const override { return "CRC-RM"; }
     int dataBits() const override { return data_bits_; }
     int codewordBits() const override { return n_; }
 
     ECCMetadata metadata() const override {
-        return ECCMetadata{"Polar", n_ - data_bits_,
-                           "Corrects low-weight noise by CRC-aided single-flip search",
-                           "CRC8 + frozen-bit constraints detect most multi-bit errors"};
+        return ECCMetadata{"CRC-RM", n_ - data_bits_,
+                           "CRC-aided single-flip search correction (heuristic)",
+                           "CRC8 + frozen-bit constraints detect many multi-bit errors"};
     }
 
     uint64_t encode(uint64_t data) const override {
@@ -563,6 +576,8 @@ private:
         }
     }
 
+    // CRC-8/ROHC: poly=0x07, init=0xFF, no final XOR, MSB-first bit processing.
+    // Internally consistent for ECC purposes; not interoperable with CRC-8/SMBUS.
     static uint8_t crc8(uint64_t payload, int data_bits) {
         uint8_t crc = 0xFF;
         constexpr uint8_t poly = 0x07;
@@ -582,13 +597,13 @@ static std::unique_ptr<ECCCodec> createCodec(const std::string& codec_name, int 
     if (codec_name == "secded") {
         return std::make_unique<HammingSecdedCodec>(word_bits);
     }
-    if (codec_name == "taec") {
-        return std::make_unique<TAECCodec>(word_bits);
+    if (codec_name == "taec" || codec_name == "hashaec3") {
+        return std::make_unique<HashAEC3Codec>(word_bits);
     }
-    if (codec_name == "bch") {
-        return std::make_unique<BCHCodec>(word_bits);
+    if (codec_name == "bch" || codec_name == "hashec2") {
+        return std::make_unique<HashEC2Codec>(word_bits);
     }
-    if (codec_name == "polar") {
+    if (codec_name == "polar" || codec_name == "crcrm") {
         return std::make_unique<PolarCodec>(word_bits);
     }
     throw std::invalid_argument("Unknown codec: " + codec_name);
@@ -651,8 +666,8 @@ struct ConfidenceInterval {
 struct ResearchMetrics {
     int parity_bits = 0;
     double codeword_expansion_pct = 0.0;
-    double normalized_energy = 0.0;
-    double normalized_latency = 0.0;
+    double heuristic_energy_score = 0.0;
+    double heuristic_latency_score = 0.0;
     double correction_success_pct = 0.0;
     double detection_success_pct = 0.0;
     double sdc_pct = 0.0;
@@ -678,6 +693,7 @@ public:
         DecodeStatus status = DecodeStatus::Clean;
         int syndrome = 0;
         bool mismatch_vs_golden = false;
+        bool was_miscorrected = false;
     };
 
     SRAMSimulator(SRAMConfig cfg, std::unique_ptr<ECCCodec> codec, std::uint32_t seed = 1234567)
@@ -720,6 +736,9 @@ public:
             memory_[address] = codec_->encode(decoded.data);
         }
         if ((decoded.status == DecodeStatus::Clean || decoded.status == DecodeStatus::Corrected) && rr.mismatch_vs_golden) {
+            if (decoded.status == DecodeStatus::Corrected) {
+                rr.was_miscorrected = true;
+            }
             rr.status = DecodeStatus::UndetectedError;
         }
 
@@ -809,6 +828,10 @@ public:
     bool injectUndetectedPattern(std::size_t address, int max_weight = 4) {
         checkAddress(address);
         if (max_weight < 2 || codec_->codewordBits() > 40) {
+            if (codec_->codewordBits() > 40) {
+                std::cerr << "[warn] injectUndetectedPattern: codeword too wide ("
+                          << codec_->codewordBits() << " bits); skipping O(n^4) search\n";
+            }
             return false;
         }
 
@@ -1049,17 +1072,21 @@ public:
         m.sdc_pct = s.total_reads == 0 ? 0.0 : (100.0 * s.undetected_errors / static_cast<double>(s.total_reads));
         m.miscorrection_pct = s.corrected_errors == 0 ? 0.0 : (100.0 * s.miscorrections / static_cast<double>(s.corrected_errors));
 
+        // NOTE: The following scores use arbitrary unit weights (1.0 encode,
+        // 1.2 decode, 1.8 correction; 0.5/0.5 latency split). They are
+        // relative heuristics for comparing codecs within this simulator only.
+        // They are NOT derived from a physical hardware energy or timing model.
         const double energy_raw = (1.0 * s.encode_ops) + (1.2 * s.decode_ops) + (1.8 * s.correction_ops);
-        m.normalized_energy = s.total_reads == 0 ? 0.0 : energy_raw / static_cast<double>(s.total_reads + s.total_writes + 1);
+        m.heuristic_energy_score = s.total_reads == 0 ? 0.0 : energy_raw / static_cast<double>(s.total_reads + s.total_writes + 1);
 
         const double parity_factor = 1.0 + static_cast<double>(m.parity_bits) / std::max(1, codec.dataBits());
         const double decode_factor = 1.0 + (0.02 * m.parity_bits);
-        m.normalized_latency = 0.5 * parity_factor + 0.5 * decode_factor;
+        m.heuristic_latency_score = 0.5 * parity_factor + 0.5 * decode_factor;
 
         m.effective_protection_score = (0.55 * m.detection_success_pct + 0.35 * m.correction_success_pct -
                                         0.5 * m.sdc_pct - 0.2 * m.miscorrection_pct) /
-                                       (1.0 + 0.01 * m.codeword_expansion_pct + 0.15 * m.normalized_energy +
-                                        0.15 * m.normalized_latency);
+                                       (1.0 + 0.01 * m.codeword_expansion_pct + 0.15 * m.heuristic_energy_score +
+                                        0.15 * m.heuristic_latency_score);
         return m;
     }
 };
@@ -1072,15 +1099,15 @@ public:
             throw std::runtime_error("Failed to open CSV export path: " + path);
         }
         out << "codec,size_kb,word_bits,fault_model,iterations,total_reads,total_writes,corrected,detected_uncorrectable,undetected,"
-               "miscorrections,correction_rate,detection_rate,sdc_rate,parity_bits,expansion_pct,normalized_energy,normalized_latency,"
+               "miscorrections,correction_rate,detection_rate,sdc_rate,parity_bits,expansion_pct,heuristic_energy_score,heuristic_latency_score,"
                "correction_success_pct,detection_success_pct,sdc_pct,miscorrection_pct,effective_protection_score\n";
         for (const auto& r : rows) {
             out << r.codec << ',' << (r.config.total_bytes / 1024) << ',' << r.config.word_width_bits << ',' << r.fault_model << ','
                 << r.iterations << ',' << r.stats.total_reads << ',' << r.stats.total_writes << ',' << r.stats.corrected_errors << ','
                 << r.stats.detected_uncorrectable << ',' << r.stats.undetected_errors << ',' << r.stats.miscorrections << ','
                 << r.stats.correctionRate() << ',' << r.stats.detectionRate() << ',' << r.stats.sdcRate() << ','
-                << r.metrics.parity_bits << ',' << r.metrics.codeword_expansion_pct << ',' << r.metrics.normalized_energy << ','
-                << r.metrics.normalized_latency << ',' << r.metrics.correction_success_pct << ',' << r.metrics.detection_success_pct << ','
+                << r.metrics.parity_bits << ',' << r.metrics.codeword_expansion_pct << ',' << r.metrics.heuristic_energy_score << ','
+                << r.metrics.heuristic_latency_score << ',' << r.metrics.correction_success_pct << ',' << r.metrics.detection_success_pct << ','
                 << r.metrics.sdc_pct << ',' << r.metrics.miscorrection_pct << ',' << r.metrics.effective_protection_score << "\n";
         }
     }
@@ -1110,8 +1137,8 @@ public:
                 << "      \"metrics\": {\n"
                 << "        \"parity_bits\": " << r.metrics.parity_bits << ",\n"
                 << "        \"expansion_pct\": " << r.metrics.codeword_expansion_pct << ",\n"
-                << "        \"normalized_energy\": " << r.metrics.normalized_energy << ",\n"
-                << "        \"normalized_latency\": " << r.metrics.normalized_latency << ",\n"
+                << "        \"heuristic_energy_score\": " << r.metrics.heuristic_energy_score << ",\n"
+                << "        \"heuristic_latency_score\": " << r.metrics.heuristic_latency_score << ",\n"
                 << "        \"correction_success_pct\": " << r.metrics.correction_success_pct << ",\n"
                 << "        \"detection_success_pct\": " << r.metrics.detection_success_pct << ",\n"
                 << "        \"sdc_pct\": " << r.metrics.sdc_pct << ",\n"
@@ -1130,6 +1157,9 @@ public:
     }
 };
 
+// Wilson score CI for a proportion. Valid when samples are i.i.d. Bernoulli.
+// In stress-test mode with legacy sweeps enabled, samples are NOT independent
+// (systematic single-bit sweeps dominate). Treat reported CI as approximate.
 static ConfidenceInterval wilson95(std::uint64_t hits, std::uint64_t total) {
     if (total == 0) {
         return {};
@@ -1177,13 +1207,13 @@ public:
             if (rr.status == DecodeStatus::Corrected) {
                 ++stats.corrected_errors;
                 ++stats.correction_ops;
-                if (rr.mismatch_vs_golden) {
-                    ++stats.miscorrections;
-                }
             } else if (rr.status == DecodeStatus::DetectedUncorrectable) {
                 ++stats.detected_uncorrectable;
             } else if (rr.status == DecodeStatus::UndetectedError) {
                 ++stats.undetected_errors;
+            }
+            if (rr.was_miscorrected) {
+                ++stats.miscorrections;
             }
 
             if (options.verbose && options.progress_interval > 0 && (i % options.progress_interval == 0)) {
@@ -1273,8 +1303,8 @@ static void printStats(const StressStats& s) {
 static void printResearchSummary(const ECCCodec& codec, const StressStats& s) {
     const auto m = MetricsCalculator::calculate(codec, s);
     std::cout << "  research: parity_bits=" << m.parity_bits << ", expansion_pct=" << std::fixed << std::setprecision(2)
-              << m.codeword_expansion_pct << ", energy_norm=" << m.normalized_energy
-              << ", latency_norm=" << m.normalized_latency << ", corr_success_pct=" << m.correction_success_pct
+              << m.codeword_expansion_pct << ", energy_heuristic=" << m.heuristic_energy_score
+              << ", latency_heuristic=" << m.heuristic_latency_score << ", corr_success_pct=" << m.correction_success_pct
               << ", detect_success_pct=" << m.detection_success_pct << ", sdc_pct=" << m.sdc_pct
               << ", miscorrection_pct=" << m.miscorrection_pct << ", eps=" << m.effective_protection_score << "\n";
 }
@@ -1373,7 +1403,7 @@ static std::vector<CampaignResult> runCompare(SRAMConfig cfg, std::size_t iterat
                   << "-bit, fault-model=" << fm_cfg.model << ", iterations=" << iterations << "\n";
         std::cout << "  " << std::left << std::setw(8) << "Codec" << std::right << std::setw(10) << "Corr%"
                   << std::setw(10) << "Det%" << std::setw(10) << "SDC%" << std::setw(10) << "Red%"
-                  << std::setw(12) << "EnergyN" << std::setw(12) << "LatencyN" << "\n";
+                  << std::setw(12) << "EnergyH" << std::setw(12) << "LatencyH" << "\n";
     }
 
     for (const auto& c : codecs) {
@@ -1402,8 +1432,8 @@ static std::vector<CampaignResult> runCompare(SRAMConfig cfg, std::size_t iterat
             std::cout << "  " << std::left << std::setw(8) << sim.codec().name() << std::right << std::setw(10)
                       << std::fixed << std::setprecision(2) << m.correction_success_pct << std::setw(10)
                       << m.detection_success_pct << std::setw(10) << m.sdc_pct << std::setw(10)
-                      << m.codeword_expansion_pct << std::setw(12) << m.normalized_energy << std::setw(12)
-                      << m.normalized_latency << "\n";
+                      << m.codeword_expansion_pct << std::setw(12) << m.heuristic_energy_score << std::setw(12)
+                      << m.heuristic_latency_score << "\n";
         }
     }
     return results;
@@ -1432,12 +1462,13 @@ static std::vector<CampaignResult> runMonteCarlo(const std::string& codec_name, 
     auto result = buildCampaignResult(sim.codec(), cfg, fault_model->name(), iterations, stats);
     std::cout << "  CI95 SDC: [" << result.sdc_ci.lower << ", " << result.sdc_ci.upper << "]"
               << ", undetected: [" << result.undetected_ci.lower << ", " << result.undetected_ci.upper << "]\n";
+    std::cout << "  (CI assumes i.i.d. samples; legacy sweeps introduce correlation)\n";
     return {result};
 }
 
 static void printUsage(const char* argv0) {
     std::cout << "Usage: " << argv0
-              << " [--mode demo|stress|compare|montecarlo] [--codec secded|taec|bch|polar|all]"
+              << " [--mode demo|stress|compare|montecarlo] [--codec secded|taec|hashaec3|bch|hashec2|polar|crcrm|all]"
                  " [--size-kb 64|128|256] [--word-bits 8|16|32] [--iterations N] [--seed N] [--verbose]"
                  " [--fault-model legacy|adjacent|row|column|retention|soft|geoburst|faultmap]"
                  " [--adjacency-radius N] [--adjacency-shape horizontal|vertical|clustered]"
