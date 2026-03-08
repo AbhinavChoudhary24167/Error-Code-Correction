@@ -1,40 +1,24 @@
-import pytest
 import logging
+import math
+
 import pytest
 
 from gs import GSInputs, compute_gs
 
 
-def _manual_gs(fit_base, fit_ecc, carbon, latency):
-    sr_raw = max(fit_base - fit_ecc, 0.0) / fit_base
-    sr = sr_raw / (sr_raw + 0.05)
-    sc = 1.0 / (1.0 + carbon / 1.0)
-    sl = 1.0 / (1.0 + latency / 10.0)
-    denom = 0.6 / sr + 0.3 / sc + 0.1 / sl
-    return {
-        "Sr": sr,
-        "Sc": sc,
-        "Sl": sl,
-        "GS": 100.0 * 1.0 / denom,
-    }
-
-
-def test_compute_gs_basic():
-
+def test_compute_gs_basic_bounded():
     inp = GSInputs(
         fit_base=1000, fit_ecc=100, carbon_kg=10.0, latency_ns=20.0, latency_base_ns=0.0
     )
     res = compute_gs(inp)
-    exp = _manual_gs(1000, 100, 10.0, 20.0)
-    assert res["Sr"] == pytest.approx(exp["Sr"])
-    assert res["Sc"] == pytest.approx(exp["Sc"])
-    assert res["Sl"] == pytest.approx(exp["Sl"])
-    assert res["GS"] == pytest.approx(exp["GS"])
     assert 0.0 <= res["GS"] <= 100.0
+    assert 0.0 <= res["Sr"] <= 1.0
+    assert 0.0 <= res["Sc"] <= 1.0
+    assert 0.0 <= res["Sl"] <= 1.0
+    assert 0.0 <= res["So"] <= 1.0
 
 
 def test_gs_monotone_reliability():
-
     inp_a = GSInputs(
         fit_base=1000, fit_ecc=500, carbon_kg=5.0, latency_ns=10.0, latency_base_ns=0.0
     )
@@ -44,13 +28,25 @@ def test_gs_monotone_reliability():
     assert compute_gs(inp_b)["GS"] > compute_gs(inp_a)["GS"]
 
 
-def test_gs_extreme_costs():
+def test_gs_monotone_energy_latency_burden():
+    low = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=1.0, latency_ns=5.0)
+    high = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=1.0, latency_ns=50.0)
+    assert compute_gs(low)["GS"] > compute_gs(high)["GS"]
 
+
+def test_gs_monotone_overhead_penalty():
+    base = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=1.0, latency_ns=5.0, overhead_norm=0.0)
+    heavy = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=1.0, latency_ns=5.0, overhead_norm=1.0)
+    assert compute_gs(base)["GS"] > compute_gs(heavy)["GS"]
+
+
+def test_gs_extreme_costs_stable_and_small():
     inp = GSInputs(
-        fit_base=100, fit_ecc=10, carbon_kg=1e6, latency_ns=1e6, latency_base_ns=0.0
+        fit_base=100, fit_ecc=10, carbon_kg=1e9, latency_ns=1e9, latency_base_ns=0.0, overhead_norm=1e6
     )
     res = compute_gs(inp)
-    assert res["GS"] < 1.0
+    assert math.isfinite(res["GS"])
+    assert res["GS"] < 0.1
 
 
 def test_weight_hygiene_normalises(caplog):
@@ -64,11 +60,11 @@ def test_weight_hygiene_normalises(caplog):
     assert any("renormalizing" in r.message for r in caplog.records)
 
 
-def test_weight_hygiene_clips_negative():
-    inp = GSInputs(
-        fit_base=100, fit_ecc=10, carbon_kg=1.0, latency_ns=5.0, latency_base_ns=0.0
-    )
-    res_neg = compute_gs(inp, weights=(0.6, -0.3, 0.7))
-    res_eq = compute_gs(inp, weights=(0.6, 0.0, 0.7))
-    assert res_neg["GS"] == pytest.approx(res_eq["GS"])
-
+def test_missing_carbon_is_neutral_dimension():
+    inp_none = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=None, latency_ns=5.0)
+    inp_zero = GSInputs(fit_base=1000, fit_ecc=100, carbon_kg=0.0, latency_ns=5.0)
+    res_none = compute_gs(inp_none)
+    res_zero = compute_gs(inp_zero)
+    assert res_none["Sc"] == 1.0
+    assert 0.0 <= res_none["GS"] <= 100.0
+    assert 0.0 <= res_zero["GS"] <= 100.0

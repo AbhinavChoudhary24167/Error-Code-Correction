@@ -1,13 +1,15 @@
-"""Goodness Score (GS) metric.
+"""GREEN Score (GS) metric.
 
-The GS aggregates reliability, carbon efficiency and latency
-friendliness into a single bounded index on [0, 100].  The
-three sub-scores are mapped to [0, 1] via simple saturation
-transforms before combining them using a weighted harmonic mean.
+GS is a bounded composite merit score in ``[0, 100]`` built from normalised
+sub-utilities:
 
-The default weights ``(wR, wC, wL) = (0.6, 0.3, 0.1)`` reflect the
-primacy of reliability in SRAM contexts.  Each sub-score is
-returned alongside the raw metrics for transparency.
+* ``Sr`` (reliability utility): log-risk reduction utility in FIT decades.
+* ``Sc`` (carbon utility): saturating inverse burden utility.
+* ``Sl`` (latency utility): saturating inverse burden utility.
+* ``So`` (overhead utility): optional saturating inverse burden utility.
+
+The final score uses a weighted geometric mean of strictly positive bounded
+utilities, preserving monotonicity while strongly penalising weak dimensions.
 """
 
 from __future__ import annotations
@@ -20,125 +22,124 @@ import math
 from typing import Dict, Tuple
 
 
+FIT_FLOOR = 1e-30
+LOG_RELIABILITY_HALFSAT_DECADES = 2.0
+CARBON_HALFSAT_KG = 1.0
+LATENCY_HALFSAT_NS = 10.0
+OVERHEAD_HALFSAT = 0.25
+EPS = 1e-12
+
+
 @dataclass(frozen=True)
 class GSInputs:
     """Inputs required to compute the GS metric.
 
-    Parameters
-    ----------
-    fit_base : float
-
-        Baseline system FIT with *no* ECC applied.  Units are failures in
-        time (FIT) for the whole system rather than per‑GiB metrics.
-    fit_ecc : float
-        System FIT with the candidate ECC applied.
-    carbon_kg : float
-        Carbon footprint attributable to the candidate.  ``carbon_scope``
-        specifies whether this represents the ECC overhead only or the total
-        system impact.
-    latency_ns : float
-        End‑to‑end latency including ECC decode.  ``latency_base_ns`` captures
-        the decode‑free baseline.
-    carbon_scope : str, optional
-        Either ``"ecc_only"`` or ``"total"`` for transparency; it does not
-        affect the calculation.
-    latency_base_ns : float, optional
-        Baseline latency without ECC in nanoseconds.  Defaults to ``0.0``.
-
-        Baseline system FIT.
-    fit_ecc : float
-        System FIT with ECC applied.
-    carbon_kg : float
-        Total carbon footprint in kilograms of CO2e.
-    latency_ns : float
-        Decode latency in nanoseconds.
-
+    ``carbon_kg`` may be ``None`` when carbon is unavailable; in that case GS
+    treats carbon as neutral (utility 1.0) and re-normalises active weights.
+    ``overhead_norm`` is an optional dimensionless implementation burden in
+    ``[0, +inf)`` (e.g., area/parity overhead ratio).
     """
 
     fit_base: float
     fit_ecc: float
-    carbon_kg: float
+    carbon_kg: float | None
     latency_ns: float
 
     carbon_scope: str = "total"
     latency_base_ns: float = 0.0
-
-
-# Placeholder scale parameters for the saturation functions
-_SR_SCALE = 0.05
-_SC_SCALE = 1.0
-_SL_SCALE = 10.0
-
+    overhead_norm: float = 0.0
 
 
 _log = logging.getLogger(__name__)
 
 
-
-def _sat_improvement(x: float, k: float) -> float:
-    """Saturating transform for beneficial quantities."""
-    return x / (x + k)
+def safe_div(num: float, den: float, eps: float = EPS) -> float:
+    return num / max(abs(den), eps)
 
 
-def _sat_cost(x: float, k: float) -> float:
-    """Saturating transform for cost-like quantities (lower is better)."""
-    return 1.0 / (1.0 + x / k)
+def clamp01(x: float) -> float:
+    return max(0.0, min(1.0, float(x)))
+
+
+def _safe_log10(x: float) -> float:
+    return math.log10(max(x, FIT_FLOOR))
+
+
+def _benefit_utility_log_decades(base: float, improved: float) -> float:
+    decades = max(_safe_log10(max(base, 0.0) + FIT_FLOOR) - _safe_log10(max(improved, 0.0) + FIT_FLOOR), 0.0)
+    return clamp01(safe_div(decades, decades + LOG_RELIABILITY_HALFSAT_DECADES))
+
+
+def _cost_utility(cost: float, halfsat: float) -> float:
+    c = max(float(cost), 0.0)
+    h = max(float(halfsat), EPS)
+    return 1.0 / (1.0 + c / h)
 
 
 def compute_gs(
     inp: GSInputs,
     *,
-    weights: Tuple[float, float, float] = (0.6, 0.3, 0.1),
-    sr_scale: float = _SR_SCALE,
-    sc_scale: float = _SC_SCALE,
-    sl_scale: float = _SL_SCALE,
+    weights: Tuple[float, float, float, float] = (0.6, 0.25, 0.1, 0.05),
+    carbon_halfsat_kg: float = CARBON_HALFSAT_KG,
+    latency_halfsat_ns: float = LATENCY_HALFSAT_NS,
+    overhead_halfsat: float = OVERHEAD_HALFSAT,
 ) -> Dict[str, float]:
     """Return GS and individual sub-scores.
 
-    The function applies saturating transforms to each raw metric and then
-    aggregates the resulting sub-scores via a weighted harmonic mean.  The
-    final GS is scaled to lie within ``[0, 100]``.
+    The result is mathematically bounded to ``[0, 100]`` and finite for all
+    non-negative inputs.
     """
 
     fit_base = max(inp.fit_base, 0.0)
     fit_ecc = max(inp.fit_ecc, 0.0)
-    carbon = max(inp.carbon_kg, 0.0)
-
     latency = max(inp.latency_ns - inp.latency_base_ns, 0.0)
 
+    sr = _benefit_utility_log_decades(fit_base, fit_ecc)
+    sl = _cost_utility(latency, latency_halfsat_ns)
+    so = _cost_utility(inp.overhead_norm, overhead_halfsat)
 
+    carbon_available = inp.carbon_kg is not None
+    sc = _cost_utility(inp.carbon_kg or 0.0, carbon_halfsat_kg) if carbon_available else 1.0
+
+    if len(weights) == 3:
+        wR, wC, wL = weights
+        wO = 0.0
+    elif len(weights) == 4:
+        wR, wC, wL, wO = weights
+    else:
+        raise ValueError("weights must have length 3 or 4")
+
+    active = [
+        ("Sr", sr, max(wR, 0.0), True),
+        ("Sc", sc, max(wC, 0.0), carbon_available),
+        ("Sl", sl, max(wL, 0.0), True),
+        ("So", so, max(wO, 0.0), True),
+    ]
+    active = [item for item in active if item[3] and item[2] > 0.0]
+    if not active:
+        raise ValueError("at least one positive active weight is required")
+
+    total_w = sum(item[2] for item in active)
+    if not math.isclose(total_w, 1.0):
+        _log.warning("renormalizing GS weights to sum to 1 across active dimensions")
+
+    log_sum = 0.0
+    for _, score, w, _ in active:
+        wn = w / total_w
+        log_sum += wn * math.log(max(score, EPS))
+
+    gs = clamp01(math.exp(log_sum)) * 100.0
     delta_fit = max(fit_base - fit_ecc, 0.0)
-    rel_gain = 0.0 if fit_base <= 0 else delta_fit / fit_base
-
-    sr = _sat_improvement(rel_gain, sr_scale)
-    sc = _sat_cost(carbon, sc_scale)
-    sl = _sat_cost(latency, sl_scale)
-
-    # Weighted harmonic mean; clamp sub-scores to avoid division by zero
-    wR, wC, wL = weights
-
-    ws = [max(w, 0.0) for w in (wR, wC, wL)]
-    total = sum(ws)
-    if total <= 0:
-        raise ValueError("weights must be non-negative and not all zero")
-    if any(w != orig for w, orig in zip(ws, (wR, wC, wL))) or not math.isclose(total, 1.0):
-        _log.warning("renormalizing GS weights to sum to 1")
-    ws = [w / total for w in ws]
-    wR, wC, wL = ws
-
-    eps = 1e-9
-    denom = wR / max(sr, eps) + wC / max(sc, eps) + wL / max(sl, eps)
-    gs = (wR + wC + wL) / denom * 100.0
 
     return {
         "GS": gs,
         "Sr": sr,
         "Sc": sc,
         "Sl": sl,
+        "So": so,
         "delta_FIT": delta_fit,
-        "total_kgCO2e": carbon,
+        "total_kgCO2e": float(inp.carbon_kg or 0.0),
         "latency_ns": latency,
-
         "carbon_scope": inp.carbon_scope,
     }
 
