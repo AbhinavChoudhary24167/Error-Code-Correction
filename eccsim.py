@@ -723,16 +723,20 @@ def main() -> None:
                 print(f"{key}: {artifacts[key]}")
         elif args.ml_command == "split-dataset":
             from ml.splits import create_deterministic_splits
-
-            split_path = create_deterministic_splits(
-                args.dataset,
-                args.out,
-                seed=args.seed,
-                train_ratio=args.train_ratio,
-                validation_ratio=args.validation_ratio,
-                holdout_ratio=args.holdout_ratio,
-                group_column=args.group_column,
-            )
+            try:
+                split_path = create_deterministic_splits(
+                    args.dataset,
+                    args.out,
+                    seed=args.seed,
+                    train_ratio=args.train_ratio,
+                    validation_ratio=args.validation_ratio,
+                    holdout_ratio=args.holdout_ratio,
+                    group_column=args.group_column,
+                )
+            except FileNotFoundError as exc:
+                ml_split.error(
+                    f"{exc}. Run `ml build-dataset --from <artifacts_dir> --out {args.dataset}` first."
+                )
             print(f"splits: {split_path}")
         elif args.ml_command == "train":
             from ml.train import train_models
@@ -944,8 +948,13 @@ def main() -> None:
             classify_archetypes(args.from_csv, args.out)
         elif args.analyze_command == "surface":
             from analysis.surface import analyze_surface
-
-            analyze_surface(args.cand_csv, args.out_csv, args.plot)
+            try:
+                analyze_surface(args.cand_csv, args.out_csv, args.plot)
+            except FileNotFoundError as exc:
+                surface_parser.error(
+                    f"{exc}. Generate candidates first via `select --emit-candidates <path>` "
+                    "or point --from-candidates to an existing CSV."
+                )
         elif args.analyze_command == "sensitivity":
             from analysis.sensitivity import analyze_sensitivity
             if (args.factor2 is None) != (args.grid2 is None):
@@ -1486,7 +1495,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
 
 
