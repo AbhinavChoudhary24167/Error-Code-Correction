@@ -70,3 +70,39 @@ def test_compare_from_config(tmp_path: Path):
     payload = json.loads(res.stdout)
     assert payload["evaluated_schemes"] >= 1
     assert (outdir / "tables" / "ecc_comparison_full.csv").exists()
+
+
+def test_evaluate_populates_ecc_name_and_carbon_fields(tmp_path: Path):
+    outdir = tmp_path / "run3"
+    _run(
+        "evaluate",
+        "--capacity",
+        "32",
+        "--word-length",
+        "16",
+        "--node",
+        "28",
+        "--vdd",
+        "0.75",
+        "--temp",
+        "100",
+        "--ber",
+        "1e-12",
+        "--altitude",
+        "5",
+        "--fault-modes",
+        "sbu",
+        "dbu",
+        "mbu",
+        "burst",
+        "--ci",
+        "0.55",
+        "--grid-score",
+        "0.75",
+        "--outdir",
+        str(outdir),
+    )
+    rows = json.loads((outdir / "data" / "all_candidates.json").read_text(encoding="utf-8"))
+    assert rows
+    assert all(row.get("ecc_name") for row in rows)
+    assert all(row.get("total_carbon_kgco2e") is not None for row in rows)

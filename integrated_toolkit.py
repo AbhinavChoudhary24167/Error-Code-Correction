@@ -180,6 +180,15 @@ def _plot_scatter(rows: list[dict[str, Any]], x: str, y: str, out: Path, title: 
     plt.close(fig)
 
 
+def _safe_float(value: Any) -> float | None:
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def evaluate_toolkit(inp: ToolkitInput) -> dict[str, Any]:
     _validate(inp)
     dirs = _mkdirs(inp.output_dir)
@@ -187,6 +196,7 @@ def evaluate_toolkit(inp: ToolkitInput) -> dict[str, Any]:
     codes, evaluated, known_not_evaluated = _candidate_codes(inp.word_length_bits)
     if not codes:
         raise ValueError("No implemented ECC codes for this word length")
+    code_to_name = {item["selector_code"]: item["ecc_name"] for item in evaluated}
 
     rows: list[dict[str, Any]] = []
     unsupported_fault_modes: list[str] = []
@@ -215,13 +225,18 @@ def evaluate_toolkit(inp: ToolkitInput) -> dict[str, Any]:
         for rec in res.get("candidate_records", []):
             e_kwh = float(rec.get("E_dyn_kWh", 0.0)) + float(rec.get("E_leak_kWh", 0.0)) + float(rec.get("E_scrub_kWh", 0.0))
             operational_carbon = inp.carbon_intensity_kgco2_per_kwh * e_kwh
-            embodied = max(0.0, float(rec.get("carbon_kg", 0.0)) - operational_carbon)
+            total_carbon = _safe_float(rec.get("carbon_kg"))
+            if total_carbon is None:
+                total_carbon = operational_carbon
+            embodied = max(0.0, total_carbon - operational_carbon)
+            code = rec.get("code")
+            ecc_name = rec.get("family") or code_to_name.get(code)
             rows.append(
                 {
                     "run_id": res.get("scenario_hash"),
-                    "ecc_name": rec.get("family"),
-                    "ecc_family": rec.get("family"),
-                    "code": rec.get("code"),
+                    "ecc_name": ecc_name,
+                    "ecc_family": ecc_name,
+                    "code": code,
                     "fault_mode": fault_mode,
                     "fault_model_requested": fault_mode,
                     "fault_model_simulated": "selector_mbu_class",
@@ -241,7 +256,7 @@ def evaluate_toolkit(inp: ToolkitInput) -> dict[str, Any]:
                     "gate_overhead": None,
                     "operational_carbon_kgco2e": operational_carbon,
                     "embodied_carbon_kgco2e": embodied,
-                    "total_carbon_kgco2e": rec.get("carbon_kg"),
+                    "total_carbon_kgco2e": total_carbon,
                     "grid_score": inp.grid_score,
                     "carbon_intensity": inp.carbon_intensity_kgco2_per_kwh,
                     "GREEN_Score": rec.get("GS"),
