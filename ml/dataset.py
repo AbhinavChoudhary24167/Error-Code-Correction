@@ -184,7 +184,11 @@ def _collect_training_rows(
             sources.append(str(path))
 
     if not rows:
-        raise ValueError(f"No usable CSV rows found under {from_dir}")
+        raise ValueError(
+            "No usable CSV rows found under "
+            f"{from_dir}. Expected candidate/surface CSV artifacts (for example "
+            "results/<run>/data/all_candidates.csv)."
+        )
 
     # Scenario-level label policy.
     groups: dict[str, list[dict[str, object]]] = {}
