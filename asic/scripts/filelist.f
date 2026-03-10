@@ -1,0 +1,11 @@
++incdir+asic/include
+asic/include/ecc_pkg.sv
+asic/rtl/common/ecc_bitflip_corrector.sv
+asic/rtl/secded/secded_codec.sv
+asic/rtl/secdaec/secdaec_codec.sv
+asic/rtl/taec/taec_codec.sv
+asic/rtl/bch/bch_codec.sv
+asic/rtl/polar/polar_pkg.sv
+asic/rtl/polar/polar_codec.sv
+asic/rtl/sram/sram_wrappers.sv
+asic/rtl/common/ecc_entries.sv
