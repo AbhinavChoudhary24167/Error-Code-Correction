@@ -4,8 +4,7 @@ const state = {
   globalPoints: [],
   selected: null,
   selectedCandidateIndex: 0,
-  numericFields: [],
-  tutorialCases: null
+  numericFields: []
 };
 
 const summaryMetrics = [
@@ -66,7 +65,6 @@ async function init() {
     state.config = await fetchJSON('datasets.json');
     populateDatasetSelect();
     await loadGlobalPoints();
-    state.tutorialCases = await fetchJSON('tutorial_cases.json').catch(() => null);
     populateMetricControls();
 
     const firstKey = Object.keys(state.config)[0];
@@ -227,7 +225,6 @@ async function loadDataset(key) {
   updateFeasibleTable(cache.sensitivity);
   updateVoltageControls(cache.sensitivity);
   updateArchetypes(cache.archetypes);
-  updateTutorial();
   updateLeaderboard();
   updateScatter();
 }
@@ -491,48 +488,6 @@ function updateArchetypes(archetypes) {
     }
 
     container.appendChild(card);
-  });
-}
-
-function updateTutorial() {
-  const tutorial = state.tutorialCases?.datasets?.[state.selected];
-  const baselineEl = document.getElementById('tutorial-baseline');
-  const casesEl = document.getElementById('tutorial-cases');
-
-  if (!baselineEl || !casesEl) {
-    return;
-  }
-
-  baselineEl.innerHTML = '';
-  casesEl.innerHTML = '';
-
-  if (!tutorial || !Array.isArray(tutorial.cases)) {
-    baselineEl.textContent = 'Tutorial cases unavailable for this dataset.';
-    return;
-  }
-
-  const baseline = tutorial.baseline || {};
-  baselineEl.innerHTML = `
-    <strong>Baseline inference:</strong>
-    FIT ${formatScientific(baseline.fit)} ·
-    Carbon ${formatNumber(baseline.carbon_kg, 3)} kg/GiB ·
-    Latency ${formatNumber(baseline.latency_ns, 3)} ns
-  `;
-
-  tutorial.cases.forEach((item, index) => {
-    const card = document.createElement('article');
-    card.className = 'tutorial-card';
-    card.innerHTML = `
-      <h3>Case ${index + 1}: ${item.title}</h3>
-      <p><strong>Lever:</strong> ${item.lever}</p>
-      <p><strong>What this lever does:</strong> ${item.lever_effect}</p>
-      <p><strong>Result inference:</strong> ${item.inference}</p>
-      <p class="result-row">FIT ${formatScientific(item.result?.fit)} · Carbon ${formatNumber(
-        item.result?.carbon_kg,
-        3
-      )} kg/GiB · Latency ${formatNumber(item.result?.latency_ns, 3)} ns</p>
-    `;
-    casesEl.appendChild(card);
   });
 }
 
