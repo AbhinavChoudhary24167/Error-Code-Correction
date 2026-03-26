@@ -2,7 +2,10 @@ const state = {
   config: {},
   datasetCache: {},
   globalPoints: [],
-  selected: null
+  selected: null,
+  selectedCandidateIndex: 0,
+  numericFields: [],
+  tutorialCases: null
 };
 
 const summaryMetrics = [
@@ -29,9 +32,7 @@ const summaryMetrics = [
   {
     label: 'Latency',
     value: (row) =>
-      row?.latency_ns != null
-        ? `${formatNumber(row.latency_ns, 2)} ns`
-        : '—',
+      row?.latency_ns != null ? `${formatNumber(row.latency_ns, 2)} ns` : '—',
     detail: (row) =>
       row?.esii != null && row?.nesii != null
         ? `ESII ${formatNumber(row.esii, 3)} · NESII ${formatNumber(row.nesii, 1)}%`
@@ -65,6 +66,8 @@ async function init() {
     state.config = await fetchJSON('datasets.json');
     populateDatasetSelect();
     await loadGlobalPoints();
+    state.tutorialCases = await fetchJSON('tutorial_cases.json').catch(() => null);
+    populateMetricControls();
 
     const firstKey = Object.keys(state.config)[0];
     if (firstKey) {
@@ -77,8 +80,21 @@ async function init() {
   }
 
   document.getElementById('dataset').addEventListener('change', async (event) => {
+    state.selectedCandidateIndex = 0;
     await loadDataset(event.target.value);
   });
+
+  document.getElementById('candidate').addEventListener('change', (event) => {
+    state.selectedCandidateIndex = Number(event.target.value) || 0;
+    renderCurrentCandidate();
+    updateParetoTable();
+  });
+
+  document.getElementById('leader-metric').addEventListener('change', updateLeaderboard);
+  document.getElementById('leader-dir').addEventListener('change', updateLeaderboard);
+
+  document.getElementById('x-metric').addEventListener('change', () => updateScatter());
+  document.getElementById('y-metric').addEventListener('change', () => updateScatter());
 
   document.getElementById('vdd-slider').addEventListener('input', (event) => {
     const sensitivity = state.datasetCache[state.selected]?.sensitivity;
@@ -102,12 +118,14 @@ function populateDatasetSelect() {
 async function loadGlobalPoints() {
   const entries = Object.entries(state.config);
   const points = [];
+
   for (const [key, info] of entries) {
     try {
       const rows = await d3.csv(info.pareto, d3.autoType);
       if (rows.length) {
-        const row = rows[0];
-        points.push({ key, label: info.label, row });
+        rows.forEach((row, index) => {
+          points.push({ key, label: info.label, row, index });
+        });
         state.datasetCache[key] = state.datasetCache[key] || {};
         state.datasetCache[key].pareto = rows;
       }
@@ -115,77 +133,172 @@ async function loadGlobalPoints() {
       console.warn(`Unable to load pareto data for ${key}`, error);
     }
   }
+
   state.globalPoints = points;
-  updateScatter();
+  inferNumericFields();
+}
+
+function inferNumericFields() {
+  const firstRow = state.globalPoints[0]?.row;
+  if (!firstRow) {
+    state.numericFields = [];
+    return;
+  }
+
+  const fields = Object.keys(firstRow).filter((field) =>
+    state.globalPoints.some((point) => Number.isFinite(Number(point.row[field])))
+  );
+
+  state.numericFields = fields;
+}
+
+function populateMetricControls() {
+  const fields = state.numericFields.length
+    ? state.numericFields
+    : ['carbon_kg', 'fit', 'latency_ns'];
+
+  populateSelect('leader-metric', fields, 'fit');
+  populateSelect('x-metric', fields, 'carbon_kg');
+  populateSelect('y-metric', fields, 'fit');
+}
+
+function populateSelect(id, fields, fallback) {
+  const select = document.getElementById(id);
+  if (!select) return;
+
+  select.innerHTML = '';
+  fields.forEach((field) => {
+    const option = document.createElement('option');
+    option.value = field;
+    option.textContent = humanizeField(field);
+    select.appendChild(option);
+  });
+
+  if (fields.includes(fallback)) {
+    select.value = fallback;
+  }
 }
 
 async function loadDataset(key) {
   state.selected = key;
   const info = state.config[key];
-  if (!info) {
-    return;
-  }
+  if (!info) return;
 
   const cache = state.datasetCache[key] || {};
   const tasks = [];
 
   if (!cache.pareto) {
     tasks.push(
-      d3
-        .csv(info.pareto, d3.autoType)
-        .then((rows) => {
-          cache.pareto = rows;
-        })
-        .catch((error) => {
-          console.error(`Failed to load pareto for ${key}`, error);
-          cache.pareto = [];
-        })
+      d3.csv(info.pareto, d3.autoType).then((rows) => {
+        cache.pareto = rows;
+      })
     );
   }
 
   if (!cache.archetypes) {
-    tasks.push(
-      fetchJSON(info.archetypes)
-        .then((json) => {
-          cache.archetypes = json;
-        })
-        .catch((error) => {
-          console.error(`Failed to load archetypes for ${key}`, error);
-          cache.archetypes = null;
-        })
-    );
+    tasks.push(fetchJSON(info.archetypes).then((json) => {
+      cache.archetypes = json;
+    }))
   }
 
   if (!cache.sensitivity) {
-    tasks.push(
-      fetchJSON(info.sensitivity)
-        .then((json) => {
-          cache.sensitivity = json;
-        })
-        .catch((error) => {
-          console.error(`Failed to load sensitivity for ${key}`, error);
-          cache.sensitivity = null;
-        })
-    );
+    tasks.push(fetchJSON(info.sensitivity).then((json) => {
+      cache.sensitivity = json;
+    }))
   }
 
   if (tasks.length) {
-    await Promise.all(tasks);
+    try {
+      await Promise.all(tasks);
+    } catch (error) {
+      console.error(`Failed to load one or more artifacts for ${key}`, error);
+    }
   }
 
   state.datasetCache[key] = cache;
 
-  const row = cache.pareto?.[0];
+  if (state.selectedCandidateIndex >= (cache.pareto?.length || 0)) {
+    state.selectedCandidateIndex = 0;
+  }
+
+  renderCurrentCandidate();
+  populateCandidateSelect(cache.pareto || []);
+  updateParetoTable();
+  updateFeasibleTable(cache.sensitivity);
+  updateVoltageControls(cache.sensitivity);
+  updateArchetypes(cache.archetypes);
+  updateTutorial();
+  updateLeaderboard();
+  updateScatter();
+}
+
+function renderCurrentCandidate() {
+  const row = state.datasetCache[state.selected]?.pareto?.[state.selectedCandidateIndex];
   if (row) {
     renderSummary(row);
   } else {
     showError('summary', 'No Pareto data found.');
   }
+}
 
-  updateFeasibleTable(cache.sensitivity);
-  updateVoltageControls(cache.sensitivity);
-  updateArchetypes(cache.archetypes);
-  updateScatter();
+function populateCandidateSelect(rows) {
+  const select = document.getElementById('candidate');
+  select.innerHTML = '';
+
+  if (!rows.length) {
+    const option = document.createElement('option');
+    option.value = '0';
+    option.textContent = 'No candidates';
+    select.appendChild(option);
+    select.disabled = true;
+    return;
+  }
+
+  select.disabled = false;
+  rows.forEach((row, idx) => {
+    const option = document.createElement('option');
+    option.value = String(idx);
+    option.textContent = `${row.code ?? 'candidate'} · FIT ${formatScientific(
+      row.fit
+    )} · Carbon ${formatNumber(row.carbon_kg, 2)}`;
+    select.appendChild(option);
+  });
+
+  select.value = String(state.selectedCandidateIndex);
+}
+
+function updateParetoTable() {
+  const tbody = document.querySelector('#pareto-table tbody');
+  tbody.innerHTML = '';
+
+  const rows = state.datasetCache[state.selected]?.pareto || [];
+  if (!rows.length) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = 4;
+    td.textContent = 'No candidate rows found.';
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    return;
+  }
+
+  rows.forEach((row, idx) => {
+    const tr = document.createElement('tr');
+    if (idx === state.selectedCandidateIndex) tr.classList.add('selected');
+    tr.innerHTML = `
+      <td>${row.code ?? '—'}</td>
+      <td>${formatScientific(row.fit)}</td>
+      <td>${formatNumber(row.carbon_kg, 2)}</td>
+      <td>${formatNumber(row.latency_ns, 2)}</td>
+    `;
+    tr.addEventListener('click', () => {
+      state.selectedCandidateIndex = idx;
+      document.getElementById('candidate').value = String(idx);
+      renderCurrentCandidate();
+      updateParetoTable();
+    });
+    tbody.appendChild(tr);
+  });
 }
 
 function renderSummary(row) {
@@ -381,12 +494,101 @@ function updateArchetypes(archetypes) {
   });
 }
 
-function updateScatter() {
-  const svg = d3.select('#comparison-chart');
-  const node = svg.node();
-  if (!node) {
+function updateTutorial() {
+  const tutorial = state.tutorialCases?.datasets?.[state.selected];
+  const baselineEl = document.getElementById('tutorial-baseline');
+  const casesEl = document.getElementById('tutorial-cases');
+
+  if (!baselineEl || !casesEl) {
     return;
   }
+
+  baselineEl.innerHTML = '';
+  casesEl.innerHTML = '';
+
+  if (!tutorial || !Array.isArray(tutorial.cases)) {
+    baselineEl.textContent = 'Tutorial cases unavailable for this dataset.';
+    return;
+  }
+
+  const baseline = tutorial.baseline || {};
+  baselineEl.innerHTML = `
+    <strong>Baseline inference:</strong>
+    FIT ${formatScientific(baseline.fit)} ·
+    Carbon ${formatNumber(baseline.carbon_kg, 3)} kg/GiB ·
+    Latency ${formatNumber(baseline.latency_ns, 3)} ns
+  `;
+
+  tutorial.cases.forEach((item, index) => {
+    const card = document.createElement('article');
+    card.className = 'tutorial-card';
+    card.innerHTML = `
+      <h3>Case ${index + 1}: ${item.title}</h3>
+      <p><strong>Lever:</strong> ${item.lever}</p>
+      <p><strong>What this lever does:</strong> ${item.lever_effect}</p>
+      <p><strong>Result inference:</strong> ${item.inference}</p>
+      <p class="result-row">FIT ${formatScientific(item.result?.fit)} · Carbon ${formatNumber(
+        item.result?.carbon_kg,
+        3
+      )} kg/GiB · Latency ${formatNumber(item.result?.latency_ns, 3)} ns</p>
+    `;
+    casesEl.appendChild(card);
+  });
+}
+
+function updateLeaderboard() {
+  const metric = document.getElementById('leader-metric').value;
+  const direction = document.getElementById('leader-dir').value;
+  const tbody = document.querySelector('#leaderboard tbody');
+  tbody.innerHTML = '';
+
+  const rows = state.globalPoints
+    .filter((point) => Number.isFinite(Number(point.row[metric])))
+    .sort((a, b) => {
+      const av = Number(a.row[metric]);
+      const bv = Number(b.row[metric]);
+      return direction === 'desc' ? bv - av : av - bv;
+    });
+
+  if (!rows.length) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = 3;
+    td.textContent = 'No comparable rows found.';
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    return;
+  }
+
+  rows.forEach((point) => {
+    const tr = document.createElement('tr');
+    if (point.key === state.selected && point.index === state.selectedCandidateIndex) {
+      tr.classList.add('selected');
+    }
+
+    tr.innerHTML = `
+      <td>${point.label}</td>
+      <td>${point.row.code ?? '—'}</td>
+      <td>${formatMetricValue(point.row[metric])}</td>
+    `;
+
+    tr.addEventListener('click', async () => {
+      document.getElementById('dataset').value = point.key;
+      state.selectedCandidateIndex = point.index;
+      await loadDataset(point.key);
+      document.getElementById('candidate').value = String(point.index);
+    });
+
+    tbody.appendChild(tr);
+  });
+}
+
+function updateScatter() {
+  const metricX = document.getElementById('x-metric').value;
+  const metricY = document.getElementById('y-metric').value;
+  const svg = d3.select('#comparison-chart');
+  const node = svg.node();
+  if (!node) return;
 
   const width = node.getBoundingClientRect().width || 640;
   const height = node.getBoundingClientRect().height || 320;
@@ -395,40 +597,23 @@ function updateScatter() {
   svg.attr('viewBox', `0 0 ${width} ${height}`);
   svg.selectAll('*').remove();
 
-  const points = state.globalPoints.filter((point) => point.row);
-  if (!points.length) {
-    return;
-  }
+  const points = state.globalPoints.filter(
+    (point) => Number.isFinite(Number(point.row[metricX])) && Number.isFinite(Number(point.row[metricY]))
+  );
+  if (!points.length) return;
 
-  if (state.selected && state.datasetCache[state.selected]?.pareto?.[0]) {
-    const current = points.find((point) => point.key === state.selected);
-    if (current) {
-      current.row = state.datasetCache[state.selected].pareto[0];
-    }
-  }
-
-  const xValues = points.map((point) => point.row.carbon_kg).filter(isFinite);
-  const yValues = points.map((point) => point.row.fit).filter((value) => value > 0);
-
-  if (!xValues.length || !yValues.length) {
-    return;
-  }
+  const xValues = points.map((point) => Number(point.row[metricX]));
+  const yValues = points.map((point) => Number(point.row[metricY]));
 
   const xExtent = d3.extent(xValues);
   const yExtent = d3.extent(yValues);
+  if (!xExtent || !yExtent) return;
 
-  const xScale = d3
-    .scaleLinear()
-    .domain([Math.max(0, xExtent[0] * 0.9), xExtent[1] * 1.1])
-    .range([margin.left, width - margin.right]);
+  const xRange = paddedExtent(xExtent);
+  const yRange = paddedExtent(yExtent);
 
-  const yDomainMin = yExtent[0] === yExtent[1] ? yExtent[0] / 10 : yExtent[0];
-  const yDomainMax = yExtent[0] === yExtent[1] ? yExtent[1] * 10 : yExtent[1];
-
-  const yScale = d3
-    .scaleLog()
-    .domain([yDomainMin, yDomainMax])
-    .range([height - margin.bottom, margin.top]);
+  const xScale = d3.scaleLinear().domain(xRange).range([margin.left, width - margin.right]);
+  const yScale = d3.scaleLinear().domain(yRange).range([height - margin.bottom, margin.top]);
 
   const xAxis = (g) =>
     g
@@ -442,13 +627,13 @@ function updateScatter() {
           .attr('fill', 'currentColor')
           .attr('text-anchor', 'end')
           .attr('font-weight', '600')
-          .text('Carbon footprint (kg/GiB)')
+          .text(humanizeField(metricX))
       );
 
   const yAxis = (g) =>
     g
       .attr('transform', `translate(${margin.left}, 0)`)
-      .call(d3.axisLeft(yScale).ticks(6, '.1e'))
+      .call(d3.axisLeft(yScale).ticks(6))
       .call((axis) =>
         axis
           .append('text')
@@ -457,32 +642,44 @@ function updateScatter() {
           .attr('fill', 'currentColor')
           .attr('text-anchor', 'start')
           .attr('font-weight', '600')
-          .text('Failure rate (FIT)')
+          .text(humanizeField(metricY))
       );
 
   svg.append('g').attr('class', 'axis axis-x').call(xAxis);
   svg.append('g').attr('class', 'axis axis-y').call(yAxis);
 
-  const pointGroup = svg.append('g').attr('class', 'points');
-
-  const formatter = d3.format('.2e');
-
-  pointGroup
+  svg
+    .append('g')
     .selectAll('circle')
     .data(points)
     .join('circle')
-    .attr('cx', (d) => xScale(d.row.carbon_kg))
-    .attr('cy', (d) => yScale(Math.max(d.row.fit, yDomainMin)))
-    .attr('r', (d) => (d.key === state.selected ? 9 : 6))
-    .attr('fill', (d) => (d.key === state.selected ? 'var(--accent)' : 'rgba(148, 163, 184, 0.65)'))
+    .attr('cx', (d) => xScale(Number(d.row[metricX])))
+    .attr('cy', (d) => yScale(Number(d.row[metricY])))
+    .attr('r', (d) => (d.key === state.selected && d.index === state.selectedCandidateIndex ? 9 : 6))
+    .attr('fill', (d) =>
+      d.key === state.selected && d.index === state.selectedCandidateIndex
+        ? 'var(--accent)'
+        : 'rgba(148, 163, 184, 0.65)'
+    )
     .attr('stroke', 'rgba(255, 255, 255, 0.85)')
-    .attr('stroke-width', (d) => (d.key === state.selected ? 2.2 : 1.2))
+    .attr('stroke-width', (d) => (d.key === state.selected && d.index === state.selectedCandidateIndex ? 2.2 : 1.2))
+    .on('click', async (_, d) => {
+      document.getElementById('dataset').value = d.key;
+      state.selectedCandidateIndex = d.index;
+      await loadDataset(d.key);
+      document.getElementById('candidate').value = String(d.index);
+    })
     .append('title')
-    .text((d) =>
-      `${d.label}\nCarbon: ${formatNumber(d.row.carbon_kg, 2)} kg/GiB\nFIT: ${formatter(
-        d.row.fit
-      )}`
-    );
+    .text((d) => `${d.label}\n${humanizeField(metricX)}: ${formatMetricValue(d.row[metricX])}\n${humanizeField(metricY)}: ${formatMetricValue(d.row[metricY])}`);
+}
+
+function paddedExtent([lo, hi]) {
+  if (lo === hi) {
+    const delta = lo === 0 ? 1 : Math.abs(lo) * 0.1;
+    return [lo - delta, hi + delta];
+  }
+  const pad = (hi - lo) * 0.1;
+  return [lo - pad, hi + pad];
 }
 
 async function fetchJSON(url) {
@@ -497,9 +694,7 @@ async function fetchJSON(url) {
 
 function showError(containerId, message) {
   const container = document.getElementById(containerId);
-  if (!container) {
-    return;
-  }
+  if (!container) return;
   container.innerHTML = '';
   const error = document.createElement('p');
   error.textContent = message;
@@ -545,18 +740,32 @@ function formatRange(lower, upper) {
 }
 
 function formatBound(value) {
-  if (value == null) {
-    return '—';
-  }
-  if (value === 'inf' || value === Infinity) {
-    return '∞';
-  }
+  if (value == null) return '—';
+  if (value === 'inf' || value === Infinity) return '∞';
+
   const numeric = Number(value);
-  if (!Number.isFinite(numeric)) {
-    return String(value);
-  }
-  if (Math.abs(numeric) >= 1_000 || Math.abs(numeric) < 0.01) {
+  if (!Number.isFinite(numeric)) return String(value);
+
+  if (Math.abs(numeric) >= 1_000 || (Math.abs(numeric) > 0 && Math.abs(numeric) < 0.01)) {
     return numeric.toExponential(1);
   }
+
   return formatNumber(numeric, 2);
+}
+
+function humanizeField(field) {
+  return String(field)
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function formatMetricValue(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) {
+    return value == null ? '—' : String(value);
+  }
+  if (Math.abs(numeric) >= 1_000 || (Math.abs(numeric) > 0 && Math.abs(numeric) < 0.01)) {
+    return numeric.toExponential(2);
+  }
+  return formatNumber(numeric, 3);
 }

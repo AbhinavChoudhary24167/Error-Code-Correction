@@ -1,0 +1,97 @@
+{
+  "generated_from": "web/datasets.json",
+  "datasets": {
+    "sku-32b-1Gb": {
+      "label": "32-bit word, 1 Gb array (mbu-light, CI 0.55, scrub 5s)",
+      "baseline": {
+        "fit": 4.974450049130922e-19,
+        "carbon_kg": 6.16870912003691,
+        "latency_ns": 1.0
+      },
+      "cases": [
+        {
+          "id": "reliability_guardband",
+          "title": "Reliability Guardband",
+          "lever": "Tighten reliability policy",
+          "lever_effect": "Shorter scrub window and conservative recovery margin.",
+          "result": {
+            "fit": 3.0841590304611714e-19,
+            "carbon_kg": 6.723892940840233,
+            "latency_ns": 1.03
+          },
+          "inference": "Reliability Guardband predicts FIT=3.08e-19, carbon=6.724 kg/GiB, latency=1.030 ns. Use this mode when 'Tighten reliability policy' aligns with program priorities."
+        },
+        {
+          "id": "carbon_saver",
+          "title": "Carbon Saver",
+          "lever": "Relax carbon-sensitive operating mode",
+          "lever_effect": "Lower activity budget with reduced scrub duty cycle.",
+          "result": {
+            "fit": 6.566274064852817e-19,
+            "carbon_kg": 4.996654387229897,
+            "latency_ns": 0.98
+          },
+          "inference": "Carbon Saver predicts FIT=6.57e-19, carbon=4.997 kg/GiB, latency=0.980 ns. Use this mode when 'Relax carbon-sensitive operating mode' aligns with program priorities."
+        },
+        {
+          "id": "latency_first",
+          "title": "Latency First",
+          "lever": "Prioritize fast decode path",
+          "lever_effect": "Aggressive decode pipeline; moderate reliability trade-off.",
+          "result": {
+            "fit": 5.869851057974487e-19,
+            "carbon_kg": 6.353770393638017,
+            "latency_ns": 0.82
+          },
+          "inference": "Latency First predicts FIT=5.87e-19, carbon=6.354 kg/GiB, latency=0.820 ns. Use this mode when 'Prioritize fast decode path' aligns with program priorities."
+        }
+      ]
+    },
+    "sku-64b-128Gb": {
+      "label": "64-bit word, 128 Gb array (mbu-light, CI 0.55, scrub 5s)",
+      "baseline": {
+        "fit": 6.36729606288758e-17,
+        "carbon_kg": 687.9947673647245,
+        "latency_ns": 1.0
+      },
+      "cases": [
+        {
+          "id": "reliability_guardband",
+          "title": "Reliability Guardband",
+          "lever": "Tighten reliability policy",
+          "lever_effect": "Shorter scrub window and conservative recovery margin.",
+          "result": {
+            "fit": 3.9477235589902994e-17,
+            "carbon_kg": 749.9142964275497,
+            "latency_ns": 1.03
+          },
+          "inference": "Reliability Guardband predicts FIT=3.95e-17, carbon=749.914 kg/GiB, latency=1.030 ns. Use this mode when 'Tighten reliability policy' aligns with program priorities."
+        },
+        {
+          "id": "carbon_saver",
+          "title": "Carbon Saver",
+          "lever": "Relax carbon-sensitive operating mode",
+          "lever_effect": "Lower activity budget with reduced scrub duty cycle.",
+          "result": {
+            "fit": 8.404830803011606e-17,
+            "carbon_kg": 557.2757615654268,
+            "latency_ns": 0.98
+          },
+          "inference": "Carbon Saver predicts FIT=8.40e-17, carbon=557.276 kg/GiB, latency=0.980 ns. Use this mode when 'Relax carbon-sensitive operating mode' aligns with program priorities."
+        },
+        {
+          "id": "latency_first",
+          "title": "Latency First",
+          "lever": "Prioritize fast decode path",
+          "lever_effect": "Aggressive decode pipeline; moderate reliability trade-off.",
+          "result": {
+            "fit": 7.513409354207344e-17,
+            "carbon_kg": 708.6346103856662,
+            "latency_ns": 0.82
+          },
+          "inference": "Latency First predicts FIT=7.51e-17, carbon=708.635 kg/GiB, latency=0.820 ns. Use this mode when 'Prioritize fast decode path' aligns with program priorities."
+        }
+      ]
+    }
+  }
+}
