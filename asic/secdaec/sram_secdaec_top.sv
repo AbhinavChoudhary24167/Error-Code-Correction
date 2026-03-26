@@ -1,12 +1,6 @@
 // SRAM + SEC-DAEC top wrapper (fixed entry: sec-daec-64).
 // Note: keep syntax Verilog-2001 compatible for synthesis flows that do not
 // enable full SystemVerilog package parsing at read time.
-//
-// To support "read top-only file" synthesis scripts, pull in the local
-// SEC-DAEC encoder/decoder module definitions from this directory.
-`include "secdaec_encoder.sv"
-`include "secdaec_decoder.sv"
-
 module sram_secdaec_top #(
   parameter DATA_W = 64,
   parameter ECC_W  = 8,
