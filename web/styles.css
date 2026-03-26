@@ -293,3 +293,68 @@ main {
     height: 260px;
   }
 }
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 211, 252, 0.6);
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  cursor: help;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+  background: rgba(14, 116, 144, 0.2);
+}
+
+.theory-panel {
+  background: linear-gradient(140deg, rgba(15, 23, 42, 0.78), rgba(30, 41, 59, 0.72));
+}
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.theory-card,
+.command-card {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: rgba(15, 23, 42, 0.78);
+}
+
+.theory-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.98rem;
+  color: #bae6fd;
+}
+
+.theory-card p,
+.command-card p {
+  margin: 0;
+  font-size: 0.87rem;
+}
+
+.command-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.7rem;
+}
+
+.command-card strong {
+  display: block;
+  color: #7dd3fc;
+  margin-bottom: 0.3rem;
+}
+
+.tutorial-card .delta-row {
+  margin-top: 0.35rem;
+  color: #bfdbfe;
+  font-size: 0.82rem;
+}

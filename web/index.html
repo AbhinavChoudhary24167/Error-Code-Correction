@@ -32,7 +32,7 @@
 
     <main>
       <section class="panel">
-        <h2>Choose a dataset</h2>
+        <h2>Choose a dataset <span class="info-icon" title="Switch between precomputed SRAM study datasets from reports/examples.">ⓘ</span></h2>
         <p>
           Dataset entries come from <code>web/datasets.json</code> and point to
           versioned artifacts already tracked by this repository.
@@ -42,6 +42,39 @@
           <select id="dataset"></select>
         </label>
       </section>
+
+
+      <section class="panel theory-panel">
+        <h2>What is happening & why (theory quick map)</h2>
+        <p>
+          This dashboard mirrors the repository workflow: reliability and SER models
+          estimate FIT, energy/carbon models estimate efficiency impact, and the
+          selector reports Pareto-optimal ECC choices. Use these notes as a fast
+          onboarding guide.
+        </p>
+        <div class="theory-grid">
+          <article class="theory-card">
+            <h3>1) Reliability lens <span class="info-icon" title="FIT represents failures-in-time after ECC + policy assumptions.">ⓘ</span></h3>
+            <p>Lower FIT means stronger resilience, but may require stricter scrub/recovery policy.</p>
+          </article>
+          <article class="theory-card">
+            <h3>2) Carbon & energy lens <span class="info-icon" title="Carbon combines embodied and operational impacts from model artifacts.">ⓘ</span></h3>
+            <p>Lower carbon can reduce operational burden, but can shift reliability or latency behavior.</p>
+          </article>
+          <article class="theory-card">
+            <h3>3) Pareto lens <span class="info-icon" title="Pareto points are non-dominated candidates across reliability, carbon, and latency objectives.">ⓘ</span></h3>
+            <p>Each candidate is a trade-off: improve one objective and another may worsen.</p>
+          </article>
+        </div>
+        <div class="command-grid">
+          <article class="command-card"><strong>Dataset</strong><p>Switches study scenario and all downstream tables/charts.</p></article>
+          <article class="command-card"><strong>Candidate</strong><p>Picks a specific Pareto row for summary + highlight.</p></article>
+          <article class="command-card"><strong>Vdd slider</strong><p>Shows recommended code and feasible options at that voltage.</p></article>
+          <article class="command-card"><strong>Rank by / Direction</strong><p>Changes leaderboard sort objective and ordering.</p></article>
+          <article class="command-card"><strong>X-axis / Y-axis</strong><p>Changes scatter axes to inspect different objective interactions.</p></article>
+        </div>
+      </section>
+
 
       <section class="panel">
         <h2>Pareto summary</h2>
@@ -80,7 +113,7 @@
       <section class="panel">
         <h2>Voltage sensitivity</h2>
         <div class="slider-row">
-          <label for="vdd-slider">Supply voltage (Vdd)</label>
+          <label for="vdd-slider">Supply voltage (Vdd) <span class="info-icon" title="Moves across the sensitivity grid to show feasible codes and recommendations vs Vdd.">ⓘ</span></label>
           <input type="range" id="vdd-slider" min="0" max="1" step="0.01" />
           <div class="vdd-readout">
             <span id="vdd-value">0.00 V</span>
