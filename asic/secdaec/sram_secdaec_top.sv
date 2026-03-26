@@ -1,28 +1,35 @@
 // SRAM + SEC-DAEC top wrapper (fixed entry: sec-daec-64).
+// Note: keep syntax Verilog-2001 compatible for synthesis flows that do not
+// enable full SystemVerilog package parsing at read time.
 module sram_secdaec_top #(
-  parameter int DATA_W = 64,
-  parameter int ECC_W  = ecc_pkg::hamming_parity_bits(DATA_W) + 1,
-  parameter int CODE_W = DATA_W + ECC_W,
-  parameter int ADDR_W = 8,
-  parameter int DEPTH  = (1 << ADDR_W)
+  parameter DATA_W = 64,
+  parameter ECC_W  = 8,
+  parameter CODE_W = DATA_W + ECC_W,
+  parameter ADDR_W = 8,
+  parameter DEPTH  = (1 << ADDR_W)
 ) (
-  input  logic              clk,
-  input  logic              rst_n,
-  input  logic              cs,
-  input  logic              we,
-  input  logic [ADDR_W-1:0] addr,
-  input  logic [DATA_W-1:0] wdata,
-  output logic [DATA_W-1:0] rdata,
-  output logic              valid,
-  output logic              err_detected,
-  output logic              err_corrected,
-  output logic              err_uncorrectable,
-  output logic              double_error,
-  output logic              adjacent_error,
-  output logic              triple_adjacent_error
+  input                   clk,
+  input                   rst_n,
+  input                   cs,
+  input                   we,
+  input      [ADDR_W-1:0] addr,
+  input      [DATA_W-1:0] wdata,
+  output     [DATA_W-1:0] rdata,
+  output                  valid,
+  output                  err_detected,
+  output                  err_corrected,
+  output                  err_uncorrectable,
+  output                  double_error,
+  output                  adjacent_error,
+  output                  triple_adjacent_error
 );
-  logic [CODE_W-1:0] enc_code, rd_code, corr_code;
-  logic dec_det, dec_cor, dec_unc, dec_adj;
+  wire [CODE_W-1:0] enc_code;
+  wire [CODE_W-1:0] rd_code;
+  wire [CODE_W-1:0] corr_code;
+  wire dec_det;
+  wire dec_cor;
+  wire dec_unc;
+  wire dec_adj;
 
   secdaec_64_encoder #(.DATA_W(DATA_W), .ECC_W(ECC_W), .CODE_W(CODE_W)) u_enc (
     .data_i(wdata), .codeword_o(enc_code)
