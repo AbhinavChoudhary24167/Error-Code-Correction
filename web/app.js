@@ -4,8 +4,7 @@ const state = {
   globalPoints: [],
   selected: null,
   selectedCandidateIndex: 0,
-  numericFields: [],
-  tutorialCases: null
+  numericFields: []
 };
 
 const summaryMetrics = [
@@ -66,7 +65,6 @@ async function init() {
     state.config = await fetchJSON('datasets.json');
     populateDatasetSelect();
     await loadGlobalPoints();
-    state.tutorialCases = await fetchJSON('tutorial_cases.json').catch(() => null);
     populateMetricControls();
 
     const firstKey = Object.keys(state.config)[0];
@@ -227,7 +225,6 @@ async function loadDataset(key) {
   updateFeasibleTable(cache.sensitivity);
   updateVoltageControls(cache.sensitivity);
   updateArchetypes(cache.archetypes);
-  updateTutorial();
   updateLeaderboard();
   updateScatter();
 }
@@ -494,52 +491,6 @@ function updateArchetypes(archetypes) {
   });
 }
 
-function updateTutorial() {
-  const tutorial = state.tutorialCases?.datasets?.[state.selected];
-  const baselineEl = document.getElementById('tutorial-baseline');
-  const casesEl = document.getElementById('tutorial-cases');
-
-  if (!baselineEl || !casesEl) {
-    return;
-  }
-
-  baselineEl.innerHTML = '';
-  casesEl.innerHTML = '';
-
-  if (!tutorial || !Array.isArray(tutorial.cases)) {
-    baselineEl.textContent = 'Tutorial cases unavailable for this dataset.';
-    return;
-  }
-
-  const baseline = tutorial.baseline || {};
-  baselineEl.innerHTML = `
-    <strong>Baseline inference:</strong>
-    FIT ${formatScientific(baseline.fit)} ·
-    Carbon ${formatNumber(baseline.carbon_kg, 3)} kg/GiB ·
-    Latency ${formatNumber(baseline.latency_ns, 3)} ns
-  `;
-
-  tutorial.cases.forEach((item, index) => {
-    const card = document.createElement('article');
-    card.className = 'tutorial-card';
-    card.innerHTML = `
-      <h3>Case ${index + 1}: ${item.title}</h3>
-      <p><strong>Lever:</strong> ${item.lever} <span class="info-icon" title="${item.lever_effect}">ⓘ</span></p>
-      <p><strong>What this lever does:</strong> ${item.lever_effect}</p>
-      <p><strong>Result inference:</strong> ${item.inference}</p>
-      <p class="result-row">FIT ${formatScientific(item.result?.fit)} · Carbon ${formatNumber(
-        item.result?.carbon_kg,
-        3
-      )} kg/GiB · Latency ${formatNumber(item.result?.latency_ns, 3)} ns</p>
-      <p class="delta-row">Δ vs baseline → FIT ${formatDelta(item.result?.fit, baseline.fit)} · Carbon ${formatDelta(
-        item.result?.carbon_kg,
-        baseline.carbon_kg
-      )} · Latency ${formatDelta(item.result?.latency_ns, baseline.latency_ns)}</p>
-    `;
-    casesEl.appendChild(card);
-  });
-}
-
 function updateLeaderboard() {
   const metric = document.getElementById('leader-metric').value;
   const direction = document.getElementById('leader-dir').value;
@@ -755,17 +706,6 @@ function formatBound(value) {
   }
 
   return formatNumber(numeric, 2);
-}
-
-function formatDelta(value, baseline) {
-  const numeric = Number(value);
-  const base = Number(baseline);
-  if (!Number.isFinite(numeric) || !Number.isFinite(base) || base === 0) {
-    return '—';
-  }
-  const ratio = ((numeric - base) / Math.abs(base)) * 100;
-  const sign = ratio > 0 ? '+' : '';
-  return `${sign}${ratio.toFixed(1)}%`;
 }
 
 function humanizeField(field) {
