@@ -135,7 +135,7 @@ module taec_8b_decoder(
     end else if ((syndrome_out == {4{1'b0}}) && overall) begin
       cw_work[12] = ~cw_work[12];
       error_corrected = 1'b1;
-      error_position = 4'd13;
+      error_position = 13[3:0];
     end
 
     corrected_codeword_o = cw_work;

@@ -100,7 +100,7 @@ module bch_51b_decoder(
           cw_work[b] = ~cw_work[b];
           error_corrected = 1'b1;
           found = 1'b1;
-          error_position = (b+1);
+          error_position = (b+1)[6:0];
         end
       end
       if (!found)

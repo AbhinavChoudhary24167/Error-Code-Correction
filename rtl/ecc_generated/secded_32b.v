@@ -117,7 +117,7 @@ module secded_32b_decoder(
     end else if ((syndrome_out == {6{1'b0}}) && overall) begin
       cw_work[38] = ~cw_work[38];
       error_corrected = 1'b1;
-      error_position = 6'd39;
+      error_position = 39[5:0];
     end else if ((syndrome_out != {6{1'b0}}) && !overall) begin
       uncorrectable_error = 1'b1;
     end

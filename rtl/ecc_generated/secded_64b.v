@@ -117,7 +117,7 @@ module secded_64b_decoder(
     end else if ((syndrome_out == {7{1'b0}}) && overall) begin
       cw_work[71] = ~cw_work[71];
       error_corrected = 1'b1;
-      error_position = 7'd72;
+      error_position = 72[6:0];
     end else if ((syndrome_out != {7{1'b0}}) && !overall) begin
       uncorrectable_error = 1'b1;
     end
