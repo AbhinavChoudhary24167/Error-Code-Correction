@@ -3,8 +3,8 @@
   --bg: #0f172a;
   --panel-bg: rgba(15, 23, 42, 0.65);
   --panel-border: rgba(148, 163, 184, 0.3);
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
   --accent: #38bdf8;
   --accent-soft: rgba(56, 189, 248, 0.15);
   --card-bg: rgba(30, 41, 59, 0.7);
@@ -99,13 +99,35 @@ main {
   font-weight: 600;
 }
 
-.dataset-select select {
+.dataset-select select,
+.toolbar select {
   padding: 0.6rem 0.75rem;
   border-radius: 12px;
   border: 1px solid rgba(148, 163, 184, 0.4);
   background: rgba(15, 23, 42, 0.6);
   color: var(--text-primary);
   font-size: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.toolbar.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
 }
 
 .summary-grid {
@@ -181,12 +203,68 @@ main {
   font-size: 0.95rem;
 }
 
+.compact-table th,
+.compact-table td {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.88rem;
+}
+
 .data-table tbody tr:last-child td {
   border-bottom: none;
 }
 
 .data-table tbody tr.selected {
   background: rgba(56, 189, 248, 0.12);
+}
+
+.data-table tbody tr {
+  cursor: pointer;
+}
+
+
+.data-table th {
+  background: rgba(30, 41, 59, 0.8);
+  position: sticky;
+  top: 0;
+}
+
+.tutorial-baseline {
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.tutorial-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.tutorial-card {
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 14px;
+  padding: 0.9rem;
+}
+
+.tutorial-card h3 {
+  margin: 0 0 0.5rem;
+  color: #7dd3fc;
+  font-size: 1rem;
+}
+
+.tutorial-card p {
+  margin: 0.3rem 0;
+  font-size: 0.88rem;
+}
+
+.tutorial-card .result-row {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #bae6fd;
 }
 
 .archetype-grid {
@@ -230,6 +308,7 @@ main {
 
 #comparison-chart circle {
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 #comparison-chart circle:hover {
@@ -259,4 +338,69 @@ main {
   #comparison-chart {
     height: 260px;
   }
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 211, 252, 0.6);
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  cursor: help;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+  background: rgba(14, 116, 144, 0.2);
+}
+
+.theory-panel {
+  background: linear-gradient(140deg, rgba(15, 23, 42, 0.78), rgba(30, 41, 59, 0.72));
+}
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.theory-card,
+.command-card {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: rgba(15, 23, 42, 0.78);
+}
+
+.theory-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.98rem;
+  color: #bae6fd;
+}
+
+.theory-card p,
+.command-card p {
+  margin: 0;
+  font-size: 0.87rem;
+}
+
+.command-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.7rem;
+}
+
+.command-card strong {
+  display: block;
+  color: #7dd3fc;
+  margin-bottom: 0.3rem;
+}
+
+.tutorial-card .delta-row {
+  margin-top: 0.35rem;
+  color: #bfdbfe;
+  font-size: 0.82rem;
 }

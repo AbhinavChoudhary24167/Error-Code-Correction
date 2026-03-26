@@ -17,26 +17,25 @@
       <div>
         <h1>SRAM ECC Design Explorer</h1>
         <p>
-          Explore example design trade-offs that ship with the
-          <code>Error-Code-Correction</code> repository. The dashboard presents
-          Pareto-optimal error correction configurations, archetype
-          classifications, and voltage sensitivity for representative SKUs.
+          Dynamic dashboard built from repository artifacts in
+          <code>reports/examples</code>. Explore Pareto points, archetypes,
+          voltage sensitivity, and cross-SKU metric rankings without any
+          external backend.
         </p>
       </div>
       <div class="cta">
         <a href="https://github.com/" target="_blank" rel="noreferrer">
-          Learn how to deploy on GitHub Pages
+          Deploy on GitHub Pages
         </a>
       </div>
     </header>
 
     <main>
       <section class="panel">
-        <h2>Choose a dataset</h2>
+        <h2>Choose a dataset <span class="info-icon" title="Switch between precomputed SRAM study datasets from reports/examples.">ⓘ</span></h2>
         <p>
-          Each dataset corresponds to one of the example benchmark reports in
-          <code>reports/examples</code>. Select a SKU to inspect its best-known
-          configuration at a 5&nbsp;s scrub interval.
+          Dataset entries come from <code>web/datasets.json</code> and point to
+          versioned artifacts already tracked by this repository.
         </p>
         <label class="dataset-select">
           <span>Dataset</span>
@@ -44,19 +43,77 @@
         </label>
       </section>
 
+
+      <section class="panel theory-panel">
+        <h2>What is happening & why (theory quick map)</h2>
+        <p>
+          This dashboard mirrors the repository workflow: reliability and SER models
+          estimate FIT, energy/carbon models estimate efficiency impact, and the
+          selector reports Pareto-optimal ECC choices. Use these notes as a fast
+          onboarding guide.
+        </p>
+        <div class="theory-grid">
+          <article class="theory-card">
+            <h3>1) Reliability lens <span class="info-icon" title="FIT represents failures-in-time after ECC + policy assumptions.">ⓘ</span></h3>
+            <p>Lower FIT means stronger resilience, but may require stricter scrub/recovery policy.</p>
+          </article>
+          <article class="theory-card">
+            <h3>2) Carbon & energy lens <span class="info-icon" title="Carbon combines embodied and operational impacts from model artifacts.">ⓘ</span></h3>
+            <p>Lower carbon can reduce operational burden, but can shift reliability or latency behavior.</p>
+          </article>
+          <article class="theory-card">
+            <h3>3) Pareto lens <span class="info-icon" title="Pareto points are non-dominated candidates across reliability, carbon, and latency objectives.">ⓘ</span></h3>
+            <p>Each candidate is a trade-off: improve one objective and another may worsen.</p>
+          </article>
+        </div>
+        <div class="command-grid">
+          <article class="command-card"><strong>Dataset</strong><p>Switches study scenario and all downstream tables/charts.</p></article>
+          <article class="command-card"><strong>Candidate</strong><p>Picks a specific Pareto row for summary + highlight.</p></article>
+          <article class="command-card"><strong>Vdd slider</strong><p>Shows recommended code and feasible options at that voltage.</p></article>
+          <article class="command-card"><strong>Rank by / Direction</strong><p>Changes leaderboard sort objective and ordering.</p></article>
+          <article class="command-card"><strong>X-axis / Y-axis</strong><p>Changes scatter axes to inspect different objective interactions.</p></article>
+        </div>
+      </section>
+
+
       <section class="panel">
         <h2>Pareto summary</h2>
         <div id="summary" class="summary-grid" aria-live="polite"></div>
         <p class="footnote">
-          Values are reported per GiB and come directly from the
-          <code>pareto.csv</code> artifact for the selected configuration.
+          Metrics are read from the selected row in
+          <code>pareto.csv</code>.
         </p>
+      </section>
+
+      <section class="panel">
+        <h2>Pareto candidate explorer <span class="info-icon" title="Each row is a non-dominated candidate; selecting one updates the summary and comparison charts.">ⓘ</span></h2>
+        <p>
+          Pick any candidate row from the selected dataset to refresh summary and
+          compare alternatives.
+        </p>
+        <div class="toolbar">
+          <label>
+            Candidate
+            <select id="candidate"></select>
+          </label>
+        </div>
+        <table id="pareto-table" class="data-table compact-table">
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">FIT</th>
+              <th scope="col">Carbon (kg)</th>
+              <th scope="col">Latency (ns)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </section>
 
       <section class="panel">
         <h2>Voltage sensitivity</h2>
         <div class="slider-row">
-          <label for="vdd-slider">Supply voltage (Vdd)</label>
+          <label for="vdd-slider">Supply voltage (Vdd) <span class="info-icon" title="Moves across the sensitivity grid to show feasible codes and recommendations vs Vdd.">ⓘ</span></label>
           <input type="range" id="vdd-slider" min="0" max="1" step="0.01" />
           <div class="vdd-readout">
             <span id="vdd-value">0.00 V</span>
@@ -81,20 +138,68 @@
       </section>
 
       <section class="panel">
-        <h2>Carbon vs. FIT comparison</h2>
+        <h2>Cross-SKU leaderboard <span class="info-icon" title="Ranks all available Pareto points across datasets for the selected metric and direction.">ⓘ</span></h2>
+        <div class="toolbar split">
+          <label>
+            Rank by
+            <select id="leader-metric"></select>
+          </label>
+          <label>
+            Direction
+            <select id="leader-dir">
+              <option value="asc">Lower is better</option>
+              <option value="desc">Higher is better</option>
+            </select>
+          </label>
+        </div>
+        <table id="leaderboard" class="data-table compact-table">
+          <thead>
+            <tr>
+              <th scope="col">Dataset</th>
+              <th scope="col">Code</th>
+              <th scope="col">Metric value</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+
+      <section class="panel">
+        <h2>New-onboarder tutorial (dummy walkthrough) <span class="info-icon" title="Three backend-computed what-if cases explain lever behavior and expected trade-offs.">ⓘ</span></h2>
         <p>
-          The scatter plot compares the shipped Pareto points for all example
-          SKUs. The selected dataset is highlighted.
+          This guided block explains each lever and provides three backend-computed
+          what-if cases for the selected dataset. Use it as a quick start before
+          exploring custom trade-offs.
         </p>
-        <svg id="comparison-chart" role="img" aria-label="Scatter plot comparing carbon and FIT"></svg>
+        <div id="tutorial-baseline" class="tutorial-baseline"></div>
+        <div id="tutorial-cases" class="tutorial-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Dynamic scatter view <span class="info-icon" title="Pick any numeric Pareto columns for X/Y to inspect cross-SKU trade-off shape.">ⓘ</span></h2>
+        <p>
+          Compare all datasets with selectable axes from available numeric
+          fields.
+        </p>
+        <div class="toolbar split">
+          <label>
+            X-axis
+            <select id="x-metric"></select>
+          </label>
+          <label>
+            Y-axis
+            <select id="y-metric"></select>
+          </label>
+        </div>
+        <svg id="comparison-chart" role="img" aria-label="Scatter plot comparing selected metrics"></svg>
       </section>
     </main>
 
     <footer class="page-footer">
       <p>
-        The dashboard is static and can be hosted as-is on GitHub Pages. To
-        update the data, regenerate the CSV/JSON artifacts and refresh the
-        <code>datasets.json</code> manifest.
+        The dashboard is static and can be hosted directly. Refresh
+        <code>datasets.json</code> to include additional report artifacts.
       </p>
     </footer>
 
