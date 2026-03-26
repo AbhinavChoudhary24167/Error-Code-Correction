@@ -99,13 +99,35 @@ main {
   font-weight: 600;
 }
 
-.dataset-select select {
+.dataset-select select,
+.toolbar select {
   padding: 0.6rem 0.75rem;
   border-radius: 12px;
   border: 1px solid rgba(148, 163, 184, 0.4);
   background: rgba(15, 23, 42, 0.6);
   color: var(--text-primary);
   font-size: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.toolbar.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
 }
 
 .summary-grid {
@@ -181,12 +203,22 @@ main {
   font-size: 0.95rem;
 }
 
+.compact-table th,
+.compact-table td {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.88rem;
+}
+
 .data-table tbody tr:last-child td {
   border-bottom: none;
 }
 
 .data-table tbody tr.selected {
   background: rgba(56, 189, 248, 0.12);
+}
+
+.data-table tbody tr {
+  cursor: pointer;
 }
 
 .archetype-grid {
@@ -230,6 +262,7 @@ main {
 
 #comparison-chart circle {
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 #comparison-chart circle:hover {
