@@ -107,6 +107,7 @@ python3 -m pip install -r requirements.txt
 
 Build C++ binaries:
 
+Energy:
 ```bash
 make
 ```
