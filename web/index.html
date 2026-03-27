@@ -13,183 +13,196 @@
     />
   </head>
   <body>
-    <header class="page-header">
-      <div>
-        <h1>SRAM ECC Design Explorer</h1>
-        <p>
-          Dynamic dashboard built from repository artifacts in
-          <code>reports/examples</code>. Explore Pareto points, archetypes,
-          voltage sensitivity, and cross-SKU metric rankings without any
-          external backend.
-        </p>
-      </div>
-      <div class="cta">
-        <a href="https://github.com/" target="_blank" rel="noreferrer">
-          Deploy on GitHub Pages
-        </a>
-      </div>
-    </header>
-
-    <main>
-      <section class="panel">
-        <h2>Choose a dataset <span class="info-icon" title="Switch between precomputed SRAM study datasets from reports/examples.">ⓘ</span></h2>
-        <p>
-          Dataset entries come from <code>web/datasets.json</code> and point to
-          versioned artifacts already tracked by this repository.
-        </p>
-        <label class="dataset-select">
-          <span>Dataset</span>
-          <select id="dataset"></select>
-        </label>
-      </section>
-
-
-      <section class="panel theory-panel">
-        <h2>What is happening & why (theory quick map)</h2>
-        <p>
-          This dashboard mirrors the repository workflow: reliability and SER models
-          estimate FIT, energy/carbon models estimate efficiency impact, and the
-          selector reports Pareto-optimal ECC choices. Use these notes as a fast
-          onboarding guide.
-        </p>
-        <div class="theory-grid">
-          <article class="theory-card">
-            <h3>1) Reliability lens <span class="info-icon" title="FIT represents failures-in-time after ECC + policy assumptions.">ⓘ</span></h3>
-            <p>Lower FIT means stronger resilience, but may require stricter scrub/recovery policy.</p>
-          </article>
-          <article class="theory-card">
-            <h3>2) Carbon & energy lens <span class="info-icon" title="Carbon combines embodied and operational impacts from model artifacts.">ⓘ</span></h3>
-            <p>Lower carbon can reduce operational burden, but can shift reliability or latency behavior.</p>
-          </article>
-          <article class="theory-card">
-            <h3>3) Pareto lens <span class="info-icon" title="Pareto points are non-dominated candidates across reliability, carbon, and latency objectives.">ⓘ</span></h3>
-            <p>Each candidate is a trade-off: improve one objective and another may worsen.</p>
-          </article>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">ECC Explorer</p>
+          <h1>SRAM ECC Design Explorer</h1>
+          <p class="sidebar-intro">A guided, first-time-friendly view into ECC trade-offs from local report artifacts.</p>
         </div>
-        <div class="command-grid">
-          <article class="command-card"><strong>Dataset</strong><p>Switches study scenario and all downstream tables/charts.</p></article>
-          <article class="command-card"><strong>Candidate</strong><p>Picks a specific Pareto row for summary + highlight.</p></article>
-          <article class="command-card"><strong>Vdd slider</strong><p>Shows recommended code and feasible options at that voltage.</p></article>
-          <article class="command-card"><strong>Rank by / Direction</strong><p>Changes leaderboard sort objective and ordering.</p></article>
-          <article class="command-card"><strong>X-axis / Y-axis</strong><p>Changes scatter axes to inspect different objective interactions.</p></article>
-        </div>
-      </section>
+        <nav class="nav-links" aria-label="Dashboard sections">
+          <a href="#/overview" data-route="overview">Overview</a>
+          <a href="#/analytics" data-route="analytics">Analytics</a>
+          <a href="#/reports" data-route="reports">Reports</a>
+          <a href="#/configuration" data-route="configuration">Configuration</a>
+          <a href="#/help" data-route="help">Help</a>
+        </nav>
+      </aside>
 
-
-      <section class="panel">
-        <h2>Pareto summary</h2>
-        <div id="summary" class="summary-grid" aria-live="polite"></div>
-        <p class="footnote">
-          Metrics are read from the selected row in
-          <code>pareto.csv</code>.
-        </p>
-      </section>
-
-      <section class="panel">
-        <h2>Pareto candidate explorer</h2>
-        <p>
-          Pick any candidate row from the selected dataset to refresh summary and
-          compare alternatives.
-        </p>
-        <div class="toolbar">
-          <label>
-            Candidate
-            <select id="candidate"></select>
-          </label>
-        </div>
-        <table id="pareto-table" class="data-table compact-table">
-          <thead>
-            <tr>
-              <th scope="col">Code</th>
-              <th scope="col">FIT</th>
-              <th scope="col">Carbon (kg)</th>
-              <th scope="col">Latency (ns)</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
-
-      <section class="panel">
-        <h2>Voltage sensitivity</h2>
-        <div class="slider-row">
-          <label for="vdd-slider">Supply voltage (Vdd) <span class="info-icon" title="Moves across the sensitivity grid to show feasible codes and recommendations vs Vdd.">ⓘ</span></label>
-          <input type="range" id="vdd-slider" min="0" max="1" step="0.01" />
-          <div class="vdd-readout">
-            <span id="vdd-value">0.00 V</span>
-            <span id="vdd-recommendation"></span>
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Localhost-ready</p>
+            <h2 id="page-title">Overview</h2>
+            <p id="page-subtitle">Start here for a quick orientation and recommended next steps.</p>
           </div>
-        </div>
-        <table id="feasible" class="data-table">
-          <thead>
-            <tr>
-              <th scope="col">Voltage (V)</th>
-              <th scope="col">Recommended code</th>
-              <th scope="col">Feasible options</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
+          <div class="dataset-select">
+            <label for="dataset">Dataset</label>
+            <select id="dataset"></select>
+          </div>
+        </header>
 
-      <section class="panel">
-        <h2>Archetype classification</h2>
-        <div id="archetypes" class="archetype-grid"></div>
-      </section>
+        <section class="view is-active" data-view="overview">
+          <article class="panel hero">
+            <h3>Welcome 👋</h3>
+            <p>
+              This dashboard helps you compare ECC candidates by reliability (FIT), carbon, latency, and voltage behavior.
+              Use the guided path below, then dive deeper in Analytics and Reports.
+            </p>
+            <div class="journey-grid">
+              <article class="journey-card">
+                <h4>1. Choose a dataset</h4>
+                <p>Switch between study SKUs in the header selector.</p>
+              </article>
+              <article class="journey-card">
+                <h4>2. Explore trade-offs</h4>
+                <p>See calibrated charts with readable scales and labels.</p>
+              </article>
+              <article class="journey-card">
+                <h4>3. Review details</h4>
+                <p>Use the reports page for candidate-level and cross-SKU tables.</p>
+              </article>
+            </div>
+          </article>
 
-      <section class="panel">
-        <h2>Cross-SKU leaderboard</h2>
-        <div class="toolbar split">
-          <label>
-            Rank by
-            <select id="leader-metric"></select>
-          </label>
-          <label>
-            Direction
-            <select id="leader-dir">
-              <option value="asc">Lower is better</option>
-              <option value="desc">Higher is better</option>
-            </select>
-          </label>
-        </div>
-        <table id="leaderboard" class="data-table compact-table">
-          <thead>
-            <tr>
-              <th scope="col">Dataset</th>
-              <th scope="col">Code</th>
-              <th scope="col">Metric value</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
+          <section class="panel">
+            <h3>Current candidate snapshot</h3>
+            <p id="overview-blurb">Select a dataset to populate the summary cards.</p>
+            <div id="summary" class="summary-grid" aria-live="polite"></div>
+          </section>
+        </section>
 
-      <section class="panel">
-        <h2>Dynamic scatter view</h2>
-        <p>
-          Compare all datasets with selectable axes from available numeric
-          fields.
-        </p>
-        <div class="toolbar split">
-          <label>
-            X-axis
-            <select id="x-metric"></select>
-          </label>
-          <label>
-            Y-axis
-            <select id="y-metric"></select>
-          </label>
-        </div>
-        <svg id="comparison-chart" role="img" aria-label="Scatter plot comparing selected metrics"></svg>
-      </section>
-    </main>
+        <section class="view" data-view="analytics">
+          <section class="panel">
+            <h3>Dynamic scatter view</h3>
+            <p id="scatter-description">Compare candidate metrics across all datasets.</p>
+            <div class="toolbar split">
+              <label>
+                X-axis
+                <select id="x-metric"></select>
+              </label>
+              <label>
+                Y-axis
+                <select id="y-metric"></select>
+              </label>
+            </div>
+            <svg id="comparison-chart" role="img" aria-label="Scatter plot comparing selected metrics"></svg>
+            <p class="footnote" id="chart-scale-note"></p>
+          </section>
 
-    <footer class="page-footer">
-      <p>
-        The dashboard is static and can be hosted directly. Refresh
-        <code>datasets.json</code> to include additional report artifacts.
-      </p>
-    </footer>
+          <section class="panel">
+            <h3>Voltage sensitivity</h3>
+            <div class="slider-row">
+              <label for="vdd-slider">Supply voltage (Vdd)</label>
+              <input type="range" id="vdd-slider" min="0" max="1" step="0.01" />
+              <div class="vdd-readout">
+                <span id="vdd-value">0.00 V</span>
+                <span id="vdd-recommendation"></span>
+              </div>
+            </div>
+            <table id="feasible" class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Voltage (V)</th>
+                  <th scope="col">Recommended code</th>
+                  <th scope="col">Feasible options</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </section>
+
+          <section class="panel">
+            <h3>Archetype classification</h3>
+            <div id="archetypes" class="archetype-grid"></div>
+          </section>
+        </section>
+
+        <section class="view" data-view="reports">
+          <section class="panel">
+            <h3>Pareto candidate explorer</h3>
+            <div class="toolbar">
+              <label>
+                Candidate
+                <select id="candidate"></select>
+              </label>
+            </div>
+            <table id="pareto-table" class="data-table compact-table">
+              <thead>
+                <tr>
+                  <th scope="col">Code</th>
+                  <th scope="col">FIT</th>
+                  <th scope="col">Carbon (kg)</th>
+                  <th scope="col">Latency (ns)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </section>
+
+          <section class="panel">
+            <h3>Cross-SKU leaderboard</h3>
+            <div class="toolbar split">
+              <label>
+                Rank by
+                <select id="leader-metric"></select>
+              </label>
+              <label>
+                Direction
+                <select id="leader-dir">
+                  <option value="asc">Lower is better</option>
+                  <option value="desc">Higher is better</option>
+                </select>
+              </label>
+            </div>
+            <table id="leaderboard" class="data-table compact-table">
+              <thead>
+                <tr>
+                  <th scope="col">Dataset</th>
+                  <th scope="col">Code</th>
+                  <th scope="col">Metric value</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </section>
+        </section>
+
+        <section class="view" data-view="configuration">
+          <section class="panel">
+            <h3>How controls map to output</h3>
+            <div class="command-grid">
+              <article class="command-card"><strong>Dataset</strong><p>Switches study scenario and all tables/charts.</p></article>
+              <article class="command-card"><strong>Candidate</strong><p>Picks a specific Pareto row for summary + highlight.</p></article>
+              <article class="command-card"><strong>Vdd slider</strong><p>Shows recommended code and feasible options at that voltage.</p></article>
+              <article class="command-card"><strong>Rank by / Direction</strong><p>Changes leaderboard sort objective and ordering.</p></article>
+              <article class="command-card"><strong>X-axis / Y-axis</strong><p>Changes scatter axes to inspect different interactions.</p></article>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" data-view="help">
+          <section class="panel">
+            <h3>Help & interpretation guide</h3>
+            <div class="theory-grid">
+              <article class="theory-card">
+                <h4>Reliability lens</h4>
+                <p>Lower FIT means stronger resilience, usually with performance/energy trade-offs.</p>
+              </article>
+              <article class="theory-card">
+                <h4>Carbon & energy lens</h4>
+                <p>Lower carbon can reduce operational burden, but may impact other objectives.</p>
+              </article>
+              <article class="theory-card">
+                <h4>Pareto lens</h4>
+                <p>Pareto points are non-dominated candidates across reliability, carbon, and latency.</p>
+              </article>
+            </div>
+            <p class="footnote">All data comes from repository artifacts configured in <code>web/datasets.json</code>.</p>
+          </section>
+        </section>
+      </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script>
     <script src="app.js" type="module"></script>
