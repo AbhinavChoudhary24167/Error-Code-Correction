@@ -1,28 +1,16 @@
 # Error-Code-Correction (ECC) Design & Analysis Framework
 
-Deterministic SRAM ECC evaluation stack spanning **reliability (SER/FIT)**, **energy**, **carbon**, **multi-objective selection**, and **advisory ML**. Baseline selection is deterministic; ML is explicitly gated and fallback-safe.
+A research-oriented toolkit for evaluating SRAM ECC choices across **reliability**, **energy**, and **carbon** metrics, then making deterministic multi-objective selections.
+
+The repository combines:
+- C++ simulation binaries for ECC/fault workflows,
+- Python CLIs for analysis and reporting,
+- calibration/config datasets,
+- optional ML advisory tooling (fallback-safe; deterministic selector remains the baseline).
 
 ---
 
-## Table of Contents
-
-1. [Quick Start (Exact Reproducible Path)](#quick-start-exact-reproducible-path)
-2. [Technical Overview](#technical-overview)
-3. [Architecture / System Design](#architecture--system-design)
-4. [Methodology / Algorithms](#methodology--algorithms)
-5. [Mathematical / Modeling Details](#mathematical--modeling-details)
-6. [CLI Technical Reference](#cli-technical-reference)
-7. [Experimental Setup / Simulation Details](#experimental-setup--simulation-details)
-8. [Metrics and Evaluation Outputs](#metrics-and-evaluation-outputs)
-9. [Project Structure](#project-structure)
-10. [Design Trade-offs and Assumptions](#design-trade-offs-and-assumptions)
-11. [Technical Limitations](#technical-limitations)
-12. [Reproducibility Checklist](#reproducibility-checklist)
-13. [Extended Documentation](#extended-documentation)
-
----
-
-## Quick Start (Exact Reproducible Path)
+## Quick Start
 
 ```bash
 git clone <repo-url>
@@ -32,13 +20,12 @@ source .venv/bin/activate  # Windows PowerShell: .\.venv\Scripts\Activate.ps1
 python3 -m pip install -U pip
 python3 -m pip install -r requirements.txt
 
-# required project checks
 make
 make test
 python3 -m pytest -q
 ```
 
-Minimal deterministic selector run:
+Run a first end-to-end selector example:
 
 ```bash
 python3 eccsim.py select \
@@ -50,404 +37,292 @@ python3 eccsim.py select \
 
 ---
 
-## Technical Overview
+## What this project does
 
-This repository integrates four technical layers that are usually analyzed separately:
+This project evaluates ECC options under realistic trade-offs instead of looking at correction strength alone. It helps answer:
 
-1. **Reliability layer**: SER/BER/FIT estimation with ECC coverage and scrub effects (`ser_model.py`, `fit.py`, `mbu.py`, `qcrit_loader.py`).
-2. **Energy layer**: technology- and voltage-aware primitive energy estimation (`energy_model.py`, `tech_calib.json`).
-3. **Carbon layer**: embodied + operational lifetime carbon accounting with calibration and bounds (`carbon_model.py`, `carbon.py`, `carbon_calib.json`, `carbon_defaults.json`).
-4. **Selection layer**: deterministic multi-objective ranking and decision policies over FIT/carbon/latency (`ecc_selector.py`, `analysis/`).
-
-Additional integration components:
-
-- **CLI orchestration** via `eccsim.py`.
-- **Telemetry normalization/EPC path** via `parse_telemetry.py` and telemetry schema validation.
-- **Integrated packaging flow** (`evaluate`, `compare`, `pareto`, `report`) in `integrated_toolkit.py`.
-- **Advisory ML lifecycle** (`ml/`) with confidence/OOD gating and deterministic fallback.
+- How reliability changes under different fault/severity assumptions.
+- What ECC energy overhead looks like at different node/VDD points.
+- How embodied + operational carbon combine for a candidate design.
+- Which candidates are Pareto-efficient under fit/carbon/latency objectives.
 
 ---
 
-## Architecture / System Design
+## Why it exists
 
-### Core data flow
-
-1. **Scenario definition**
-   - CLI arguments or JSON config provide operating point and policy context: node, VDD, temperature, capacity, MBU severity, scrub interval, carbon intensity, etc.
-2. **Reliability computation**
-   - SER/FIT is computed with Hazucha/environment scaling and ECC-specific coverage maps.
-3. **Energy computation**
-   - Dynamic + leakage + scrub energy are computed from calibrated gate-energy tables and primitive operation counts.
-4. **Carbon computation**
-   - Embodied and operational carbon are composed from area/energy + calibration defaults/overrides.
-5. **Candidate record synthesis**
-   - Each ECC candidate gets a structured record (`FIT`, `ESII`, `NESII`, `GS`, `carbon_kg`, latency, quality metadata, provenance fields).
-6. **Frontier and decision**
-   - NSGA-II style front ranking + explicit Pareto extraction + knee/constraint/policy decision rule.
-7. **Optional ML advisory overlay**
-   - ML prediction is accepted only if confidence and OOD gates pass; otherwise deterministic baseline remains final decision.
-
-### Determinism / compatibility invariants
-
-- Deterministic selector path is authoritative.
-- ML is non-authoritative advisory.
-- Output schema stability is protected by tests and golden fixtures (`tests/fixtures/golden/`, `test_output_format_changelog_policy.py`, `test_cli_output_contracts.py`).
+ECC design selection is usually fragmented across separate reliability, power, and sustainability spreadsheets or scripts. This repository provides a reproducible, test-guarded workflow and stable output formats so that comparisons can be rerun and audited.
 
 ---
 
-## Methodology / Algorithms
+## Who it is for
 
-### 1) Reliability modeling workflow
-
-- Single-bit and multi-bit upset rates are aggregated into pre-ECC FIT (`compute_fit_pre`).
-- Post-ECC FIT (`compute_fit_post`) models:
-  - uncorrected instantaneous MBUs by pattern-dependent coverage, and
-  - scrub-window accumulation of independent upsets with combinatorial scaling.
-- System FIT scales by memory word count (`fit_system`), then MTTF is derived (`mttf_from_fit`).
-
-Coverage functions are generated by `ecc_coverage_factory` for:
-- `SEC-DED`, `SEC-DAEC`, `TAEC`, `BCH`, and `POLAR-*` variants.
-
-### 2) Selector algorithm workflow (`select(...)`)
-
-Per-candidate metrics are generated from reliability + energy + carbon models and then passed through:
-
-1. Constraint filtering (`fit_max`, `latency_ns_max`, `carbon_kg_max`).
-2. GS annotation.
-3. NESII normalization:
-   - winsorized normalization by default,
-   - deterministic fallback to min-max for small-N or degenerate bounds.
-4. NSGA-II style non-dominated sorting + crowding distance on normalized `(FIT, carbon_kg, latency_ns)`.
-5. Explicit Pareto extraction with ε-dominance on normalized axes.
-6. Decision rule:
-   - `carbon_policy` mode (several explicit policies), or
-   - epsilon-constraint mode, or
-   - knee mode with perpendicular-distance criterion; NESII tie preference can supersede knee pick.
-7. Frontier quality metrics (`hypervolume`, `Schott spacing`).
-
-### 3) Telemetry + EPC workflow
-
-`parse_telemetry.py`:
-- validates CSV rows against `docs/schema/telemetry.schema.json`,
-- enforces canonical field order/types,
-- computes EPC from cumulative toggles and corrections:
-  - sum `xor_toggles`, `and_toggles`, `corr_events`,
-  - call `estimate_energy(...)`,
-  - return total energy and `energy / corrections`.
-
-### 4) Advisory ML workflow
-
-`ml/predict.py` executes:
-1. feature row construction from scenario inputs,
-2. classifier prediction and confidence extraction,
-3. regressor predictions (`FIT`, `carbon_kg`, `energy_kWh`),
-4. threshold resolution (defaults + model thresholds + overrides),
-5. OOD score calculation (`zscore`, `mahalanobis`, or `iforest`),
-6. gating decision:
-   - reject on `ood_score > ood_threshold` or `confidence < confidence_min`,
-   - emit fallback reason,
-   - preserve deterministic baseline as final choice.
+- **First-time readers**: understand how ECC options are compared in a structured way.
+- **Contributors**: extend models, datasets, or CLI paths with regression tests.
+- **Researchers/reviewers**: replay results and inspect assumptions and artifacts.
+- **Recruiters/hiring teams**: quickly assess technical scope (modeling, tooling, testing, reproducibility).
 
 ---
 
-## Mathematical / Modeling Details
+## Main capabilities
 
-### Reliability (SER / BER / FIT)
-
-From `ser_model.py` and `fit.py`:
-
-- Hazucha-style node FIT:
-  \[
-  \text{SER}_{\text{hazucha}} = C \cdot \phi_{rel} \cdot A \cdot e^{-Q_{crit}/Q_s}
-  \]
-
-- 4-state SER scaling model:
-  \[
-  \text{SER}(V_{DD}) = \frac{\epsilon_1\epsilon_2\epsilon_3\epsilon_4}{V_{DD}^{k}}
-  \]
-
-- BER for `nodes` storage nodes:
-  \[
-  \text{BER} = 1 - (1-\text{SER})^{\text{nodes}}
-  \]
-
-- Post-ECC scrub accumulation term in `compute_fit_post`:
-  \[
-  \text{accum} = \binom{w}{2}\tau\,10^9\,(1-C_{2,nonadj})\,\lambda_1^2
-  \]
-  where \(\lambda_1=\text{fit\_bit}/10^9\), \(\tau\) in hours.
-
-### Energy model
-
-From `energy_model.py`:
-
-- Gate lookup:
-  \[
-  E_g = E_g(\text{node}, V_{DD})\;[J/op]
-  \]
-- Read-path surrogate:
-  \[
-  E_{read} = N_{xor}E_{xor} + N_{and}E_{and}
-  \]
-- EPC:
-  \[
-  EPC = \frac{E_{total}}{N_{corr}}
-  \]
-
-Interpolation modes:
-- `pwl`: piecewise-linear across VDD then node,
-- `nearest`: nearest calibrated VDD/node (legacy compatibility mode).
-
-Uncertainty sidecar (`tech_calib_uncertainty.json`) supports confidence indicators and strict validation via relative standard deviation thresholds.
-
-### Carbon model
-
-From `carbon_model.py` / `carbon.py`:
-
-- Embodied:
-  \[
-  C_{emb} = A_{cm^2} \cdot I_{fab} \cdot Y_{loss}
-  \]
-
-- Operational:
-  \[
-  E_{kWh} = \frac{E_J}{3.6\times10^6},\quad C_{op}=E_{kWh}\cdot CI_{grid}
-  \]
-
-- Total:
-  \[
-  C_{tot} = C_{emb} + C_{op}
-  \]
-
-`estimate_carbon_bounds(...)` returns nominal and bounded variants with node/grid/lifetime assumptions attached in provenance metadata.
-
-### ESII / NESII / GS
-
-- ESII (`esii.py`) bounded in `[0,1]`:
-  \[
-  \text{ESII}=U_{rel}\cdot\frac{w_EU_{energy}+w_CU_{carbon}}{w_E+w_C}
-  \]
-  where reliability uses log-risk reduction saturation and burden terms use bounded cost utilities.
-- NESII uses winsorized min-max normalization (5th/95th percentile anchors), with deterministic fallback where needed.
-- GS (`gs.py`) uses weighted geometric mean over bounded sub-utilities (`Sr`, `Sc`, `Sl`, optional `So`).
+- Deterministic ECC selection across reliability/carbon/latency objectives (`eccsim.py select`).
+- Reliability calculations and Hazucha-style modeling (`eccsim.py reliability`, `ser_model.py`, `fit.py`).
+- Energy estimation with calibration-aware interpolation (`energy_model.py`).
+- Carbon estimation in legacy and calibrated modes (`eccsim.py carbon`, `carbon_model.py`, `carbon.py`).
+- ESII/NESII-style sustainability scoring (`eccsim.py esii`, `scores.py`, `esii.py`).
+- Telemetry ingestion + EPC computation (`parse_telemetry.py`, telemetry schema docs).
+- Integrated toolkit workflow producing summary/data/tables/plots outputs (`eccsim.py evaluate|compare|pareto|report`).
+- Optional ML advisory path with confidence/OOD gating and deterministic fallback (`eccsim.py ml`, `ml/`, `ecc_selector.py --ml-model`).
 
 ---
 
-## CLI Technical Reference
+## Requirements
 
-Primary entrypoint:
+Inferred from repository configuration:
+
+- **Python**: 3.10+ (recommended by project docs).
+- **C++ compiler**: supporting C++17 (`Makefile` uses `-std=c++17`).
+- **Build/test tools**: `make`, `pytest`.
+- **Python libraries** (`requirements.txt`):
+  - `numpy`
+  - `pandas`
+  - `pytest`
+  - `jsonschema`
+  - `matplotlib`
+  - `pyyaml`
+  - `scikit-learn==1.7.2`
+
+---
+
+## Setup and installation
+
+```bash
+git clone <repo-url>
+cd Error-Code-Correction
+python3 -m venv .venv
+source .venv/bin/activate  # Windows PowerShell: .\.venv\Scripts\Activate.ps1
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+```
+
+Build C++ binaries:
+
+Energy:
+```bash
+make
+```
+
+Run project-required validation commands:
+
+```bash
+make test
+python3 -m pytest -q
+```
+
+---
+
+## Usage
+
+Top-level CLI help:
 
 ```bash
 python3 eccsim.py --help
 ```
 
-Current command surface:
+### 1) Energy estimation
 
-- `energy` – ECC energy estimation.
-- `carbon` – legacy + calibrated carbon estimation.
-- `esii` – ESII computation.
-- `select` – deterministic multi-objective selector.
-- `target` – min-carbon ECC subject to BER/UWER target.
-- `analyze` – post-selection analytics.
-- `plot` – plotting utilities.
-- `reliability` – reliability calculations (`hazucha` path).
-- `sram` – SRAM workflow adapters (including backend bridging).
-- `ml` – advisory ML train/evaluate/report operations.
-- `evaluate`, `compare`, `pareto`, `report`, `ml-infer` – integrated toolkit commands.
-
-### Representative command lines
-
-Energy:
 ```bash
-python3 eccsim.py energy --code sec-ded --node 7 --vdd 0.8 --temp 45 --ops 1000000 --lifetime-h 8760
+python3 eccsim.py energy \
+  --code sec-ded --node 7 --vdd 0.8 --temp 45 \
+  --ops 1000000 --lifetime-h 8760
 ```
 
-Carbon (legacy):
+### 2) Carbon estimation (legacy + calibrated)
+
+Legacy:
+
 ```bash
-python3 eccsim.py carbon --areas 0.1,0.2 --alpha 120,140 --ci 0.55 --Edyn 0.01 --Eleak 0.02
+python3 eccsim.py carbon \
+  --areas 0.1,0.2 --alpha 120,140 --ci 0.55 \
+  --Edyn 0.01 --Eleak 0.02
 ```
 
-Carbon (calibrated):
+Calibrated mode:
+
 ```bash
-python3 eccsim.py carbon --calibrated --node 7 --area-cm2 0.15 --grid-region global_avg --years 5 --accesses-per-day 1000000 --areas 0.1,0.2 --alpha 120,140 --ci 0.55 --Edyn 0.01 --Eleak 0.02
+python3 eccsim.py carbon \
+  --calibrated --node 7 --area-cm2 0.15 --grid-region global_avg \
+  --years 5 --accesses-per-day 1000000 \
+  --areas 0.1,0.2 --alpha 120,140 --ci 0.55 --Edyn 0.01 --Eleak 0.02
 ```
 
-Selection with explicit constraints:
+### 3) ECC selection
+
 ```bash
-python3 eccsim.py select --codes sec-ded-64,sec-daec-64,taec-64,bch-63 --node 7 --vdd 0.8 --temp 45 --mbu moderate --capacity-gib 16 --ci 0.55 --bitcell-um2 0.08 --constraints fit_max=1e-9,latency_ns_max=10,carbon_kg_max=5
+python3 eccsim.py select \
+  --codes sec-ded-64,sec-daec-64,taec-64,bch-63 \
+  --node 7 --vdd 0.8 --temp 45 \
+  --mbu moderate --capacity-gib 16 \
+  --ci 0.55 --bitcell-um2 0.08
 ```
 
-Reliability:
+Optional constraints:
+
+```bash
+--constraints fit_max=1e-9,latency_ns_max=10,carbon_kg_max=5
+```
+
+### 4) Reliability path
+
 ```bash
 python3 eccsim.py reliability hazucha --qcrit 0.4 --qs 1.0 --area 1.0
 ```
 
-Integrated toolkit:
+### 5) Integrated toolkit workflow
+
 ```bash
-python3 eccsim.py evaluate --capacity 8 --word-length 64 --node 14 --vdd 0.8 --temp 75 --fault-modes sbu dbu mbu burst --ci 0.55 --grid-score 0.62 --outdir results/run1
+python3 eccsim.py evaluate \
+  --capacity 8 --word-length 64 \
+  --node 14 --vdd 0.8 --temp 75 \
+  --fault-modes sbu dbu mbu burst \
+  --ci 0.55 --grid-score 0.62 --outdir results/run1
+```
+
+Config-driven run:
+
+```bash
 python3 eccsim.py compare --input-config config.json --outdir results/run2
+```
+
+Post-processing:
+
+```bash
 python3 eccsim.py pareto --input results/run1/data/all_candidates.csv --outdir results/run1/plots
 python3 eccsim.py report --input results/run1/data/all_candidates.csv --outdir results/run1
 ```
 
----
+### 6) Optional ML advisory workflow
 
-## Experimental Setup / Simulation Details
-
-### Build/test stack
-
-- C++ binaries compiled by `Makefile` (`-std=c++17`):
-  - `BCHvsHamming`
-  - `Hamming32bit1Gb`
-  - `Hamming64bit128Gb`
-  - `SATDemo`
-  - `PracticalSRAMSimulator`
-- C++ unit test binary:
-  - `tests/unit/SecDaec64_test`
-- Python test matrix in `tests/python/` (CLI contracts, golden outputs, calibration/provenance, ML lifecycle, analysis utilities, selector behavior).
-
-### Parameterized SKU studies
-
-`scripts/run_sku_studies.sh` executes a scenario sweep over:
-- SKUs: `sku-64b-128Gb`, `sku-32b-1Gb`
-- MBU severities: `light`, `moderate`, `heavy`
-- Carbon intensity values: `0.30`, `0.55`, `0.90`
-- Scrub intervals (s): `5`, `10`, `20`, `40`
-
-Artifacts are written under `reports/examples/...` including `pareto.csv`, `tradeoffs.json`, `archetypes.json`, sensitivity outputs, and scenario manifests.
-
-### SRAM backend integration path
-
-`sram_workflow.py` can use:
-- `cpp-practical` backend when `PracticalSRAMSimulator` exists,
-- deterministic Python fallback proxies when binary backend is absent.
-
-Supported SRAM settings:
-- sizes: `64`, `128`, `256` KB,
-- word widths: `8`, `16`, `32`,
-- schemes: `sec-ded`, `taec`, `bch`, `polar`.
+```bash
+python3 eccsim.py ml --help
+python3 eccsim.py ml train --help
+python3 eccsim.py ml evaluate --help
+python3 eccsim.py ml report-card --help
+```
 
 ---
 
-## Metrics and Evaluation Outputs
+## Inputs and outputs
 
-### Candidate-level metrics (selector/integrated paths)
+### Common inputs
 
-Typical fields include:
-- reliability: `FIT`, `fit_base`, `fit_word_post`, `fit_bit`,
-- energy: `E_dyn_kWh`, `E_leak_kWh`, `E_scrub_kWh`,
-- carbon: `carbon_kg`, optional `static_carbon_kgco2e`, `dynamic_carbon_kgco2e`,
-- performance/implementation: `latency_ns`, `area_logic_mm2`, `area_macro_mm2`, parity/meta notes,
-- sustainability/composite: `ESII`, `NESII`, `GS`, `Sr`, `Sc`, `Sl`,
-- optimization metadata: `front_rank`, `crowding`, `pareto`,
-- quality/provenance: `quality.hypervolume`, `quality.spacing`, `scenario_hash`, normalization metadata.
+- CLI parameters for node/VDD/temp/workload/fault assumptions.
+- Calibration files (`tech_calib.json`, `tech_calib_uncertainty.json`, `carbon_defaults.json`, `config/signoff_thresholds.json`).
+- Schema-constrained datasets (`data/`, `schemas/`, `docs/schema/`).
+- Optional telemetry CSV for EPC calculation (`parse_telemetry.py`).
 
-### Integrated toolkit output package
+### Common outputs
 
-`eccsim.py evaluate ... --outdir <dir>` writes:
-- `summary/`: integrated summary documents,
-- `data/`: machine-readable candidate datasets,
-- `tables/`: tabular comparisons,
-- `plots/`: Pareto/ranking figures,
-- `ml/`: ML advisory artifacts separated from deterministic baseline outputs.
+- Terminal summaries for point analyses.
+- JSON/CSV artifacts from selection and integrated workflows.
+- Plot artifacts from analysis and toolkit plotting paths.
+- Example generated artifacts under `reports/examples/`.
 
-### Telemetry schema fields
+Integrated toolkit output layout (`--outdir`):
 
-Canonical telemetry CSV fields are fixed (ordered):
-`workload_id, node_nm, vdd, tempC, clk_MHz, xor_toggles, and_toggles, add_toggles, corr_events, words, accesses, scrub_s, capacity_gib, runtime_s`.
+- `summary/`
+- `data/`
+- `tables/`
+- `plots/`
+- `ml/`
 
 ---
 
-## Project Structure
+## Architecture overview
+
+High-level flow:
+
+1. **Reliability backend** computes SER/FIT style metrics (`ser_model.py`, `fit.py`, `mbu.py`, `qcrit_loader.py`).
+2. **Energy backend** maps ECC primitive activity to calibrated energy (`energy_model.py`, `gate_energy.hpp`, `src/energy_loader.*`).
+3. **Carbon backend** combines embodied + operational terms (`carbon_model.py`, `carbon.py`).
+4. **Selector** builds candidate records and applies deterministic multi-objective decision logic (`ecc_selector.py`, `scores.py`).
+5. **Orchestration/packaging** handled by CLI entry points (`eccsim.py`, `integrated_toolkit.py`, `analysis/`).
+6. **ML advisory** can suggest alternatives but is confidence/OOD-gated and fallback-safe (`ml/`, `ml/sram_advisory.py`).
+
+---
+
+## Project structure
 
 ```text
 .
-├── eccsim.py                         # Main CLI orchestrator
-├── ecc_selector.py                   # Deterministic selector + ML advisory gate path
-├── integrated_toolkit.py             # evaluate/compare/pareto/report pipeline
-├── ser_model.py                      # SER/BER models + Hazucha helpers
-├── fit.py                            # FIT aggregation, ECC coverage, MTTF helpers
-├── energy_model.py                   # Calibrated gate-energy model + uncertainty hooks
-├── carbon_model.py                   # Calibrated carbon bounds/assumptions model
-├── carbon.py                         # Legacy embodied/operational carbon helpers
-├── parse_telemetry.py                # Schema validation + EPC computation
-├── sram_workflow.py                  # SRAM backend bridge + selector adapters
-├── analysis/                         # Pareto, sensitivity, knee, hypervolume, plotting
-├── ml/                               # Advisory ML dataset/splits/train/evaluate/predict
-├── data/, schemas/, docs/schema/     # Data contracts and validation schemas
-├── configs/, config/                 # Scenario/archetype/signoff configuration assets
-├── reports/                          # Calibration provenance + example study artifacts
-├── scripts/                          # Scenario sweeps and report packaging helpers
-├── tests/                            # Unit/smoke/golden/contract/integration tests
-├── asic/, rtl/                       # HDL codecs/wrappers/testbenches/scripts
-├── src/                              # Shared C++ support modules
-├── Makefile                          # Build + test automation
-└── requirements.txt                  # Python runtime dependencies
+├── eccsim.py                  # Main CLI entry point
+├── ecc_selector.py            # Deterministic selector + optional ML advisory gate
+├── integrated_toolkit.py      # Integrated evaluate/compare/pareto/report workflow
+├── energy_model.py            # Energy models + calibration interpolation
+├── carbon_model.py            # Calibrated carbon model
+├── carbon.py                  # Legacy carbon calculations and helpers
+├── ser_model.py / fit.py      # Reliability and FIT modeling utilities
+├── parse_telemetry.py         # Telemetry schema validation + EPC computation
+├── analysis/                  # Tradeoff, pareto, sensitivity, plotting pipeline
+├── ml/                        # Advisory ML lifecycle (dataset/splits/train/evaluate/predict)
+├── data/                      # Data assets and lightweight schema artifacts
+├── schemas/                   # JSON schema files
+├── docs/                      # Design notes, model docs, schema docs, signoff docs
+├── tests/                     # Python + C++ tests, smoke tests, golden fixtures
+├── reports/                   # Example output artifacts and calibration manifests
+├── asic/ / rtl/               # SystemVerilog codecs/wrappers/testbenches and scripts
+├── src/                       # Shared C++ sources
+├── Makefile                   # Build + test automation
+└── requirements.txt           # Python dependencies
 ```
 
 ---
 
-## Design Trade-offs and Assumptions
+## Important commands
 
-- **Model fidelity vs runtime determinism**: energy and reliability models are surrogate/calibrated abstractions, not SPICE/foundry signoff engines.
-- **Calibration dependency**: operating-point behavior is defined by versioned calibration files; extrapolation is intentionally constrained/clamped.
-- **Selector objective framing**: Pareto axes are fixed to FIT/carbon/latency; weights are retained for compatibility but core ranking uses non-dominated sorting and deterministic decision logic.
-- **Normalization behavior**: NESII normalization uses winsorization but has explicit deterministic fallbacks for small/degenerate candidate sets.
-- **ML governance**: advisory ML cannot silently replace deterministic baseline; threshold/OOD failures must resolve to fallback.
-- **Schema/contract stability**: CLI/CSV/JSON field contracts are intentionally regression-tested and should not be changed without explicit flags and test updates.
-
----
-
-## Technical Limitations
-
-- ECC candidate database is intentionally limited to supported code families in `_CODE_DB` and SRAM adapters.
-- Absolute numeric accuracy is bounded by calibration quality and proxy model assumptions.
-- Some advanced selector metadata (e.g., NSGA parameters) are configured for deterministic reproducibility and not tuned as full evolutionary optimization runs.
-- Carbon modeling is calibrated and bounded but is not a complete lifecycle assessment engine.
-- ML OOD methods depend on available bundle artifacts (Mahalanobis/IsolationForest can degrade to z-score fallback).
-- SRAM C++ backend integration requires built `PracticalSRAMSimulator`; otherwise deterministic proxy fallback is used.
-
----
-
-## Reproducibility Checklist
-
-### Environment and dependencies
-
-- Python dependencies from `requirements.txt`:
-  - `numpy`, `pandas`, `pytest`, `jsonschema`, `matplotlib`, `pyyaml`, `scikit-learn==1.7.2`
-- Build toolchain:
-  - `make`, C++17-capable compiler (`g++` default in `Makefile`).
-
-### Required validation commands
-
-```bash
-make
-make test
-python3 -m pytest -q
-```
-
-### Version fingerprinting
-
-`eccsim.py --version` prints:
-- current Git hash,
-- SHA256 of `tech_calib.json`,
-- semantic version from `VERSION`.
-
-```bash
-python3 eccsim.py --version
-```
-
-### Exact artifact-oriented rerun flow
-
-1. Build binaries (`make`).
-2. Run validation (`make test`, `pytest`).
-3. Execute deterministic scenario(s) with `eccsim.py select`.
-4. Run integrated packaging (`eccsim.py evaluate ... --outdir ...`).
-5. For benchmark sweeps, run `scripts/run_sku_studies.sh` and compare outputs under `reports/examples/`.
+- Build C++ binaries:
+  ```bash
+  make
+  ```
+- Run make-based tests:
+  ```bash
+  make test
+  ```
+- Run Python test suite:
+  ```bash
+  python3 -m pytest -q
+  ```
+- Smoke test script:
+  ```bash
+  python3 tests/smoke_test.py
+  ```
+- Print version fingerprint:
+  ```bash
+  python3 eccsim.py --version
+  ```
 
 ---
 
-## Extended Documentation
+## Example workflow (first-time contributor)
+
+1. Set up a virtual environment and install dependencies.
+2. Run `make`, `make test`, and `python3 -m pytest -q` to confirm a healthy baseline.
+3. Run one `eccsim.py select` scenario and inspect output.
+4. Run `eccsim.py evaluate ... --outdir results/run1` and inspect generated `summary/`, `data/`, and `plots/`.
+5. Review related documentation in `docs/` before modifying models.
+
+---
+
+## Limitations and assumptions
+
+- The framework is intended for **comparative design-space exploration**, not transistor-level signoff.
+- Models are calibration/data dependent; interpretation should include scenario assumptions.
+- Some metrics are proxies designed for ranking consistency across candidates.
+- ML outputs are advisory-only; deterministic selection remains the authoritative baseline.
+
+---
+
+## Additional documentation
 
 - `docs/ProjectOverview.md`
 - `docs/SimulatorOverview.md`
@@ -455,22 +330,16 @@ python3 eccsim.py --version
 - `docs/ESII.md`
 - `docs/analysis.md`
 - `docs/ml_design.md`
-- `docs/ml_scope_implementation_plan.md`
 - `docs/drift_policy.md`
-- `docs/calibration_signoff_envelope.md`
-- `docs/carbon_calibration.md`
 - `docs/schema/telemetry.md`
 - `docs/SIGNOFF_CHECKLIST.md`
-- `reports/calibration/METHOD.md`
 
 ---
 
-## Contributing and Security
+## Contributing
 
+Please read:
 - `CONTRIBUTING.md`
 - `SECURITY.md`
 
-Engineering invariants for contributions:
-- preserve backward compatibility,
-- avoid schema/output contract breaks without explicit flags,
-- keep deterministic selector path authoritative; ML remains advisory.
+When contributing, keep output schema/CLI contracts stable unless introducing explicit new flags and corresponding tests.
