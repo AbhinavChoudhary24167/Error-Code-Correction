@@ -211,6 +211,26 @@ python3 eccsim.py ml report-card --help
 
 ---
 
+
+## Interactive Guided Mode
+
+For first-time users and demos, launch the additive guided wizard frontend:
+
+```bash
+python ecc_wizard.py
+```
+
+The wizard exposes menu-driven paths for:
+- energy estimation,
+- carbon estimation (legacy/calibrated),
+- deterministic ECC selection (with/without constraints),
+- Hazucha/report reliability workflows,
+- integrated evaluate workflow artifact generation,
+- config-driven compare runs,
+- optional ML advisory lifecycle guidance (deterministic fallback preserved).
+
+Each mode presents theory, example commands, output-interpretation notes, validated prompts, and generated underlying `python eccsim.py ...` commands with run/print/save choices.
+
 ## Inputs and outputs
 
 ### Common inputs
