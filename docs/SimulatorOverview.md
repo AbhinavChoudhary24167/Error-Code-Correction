@@ -56,3 +56,13 @@ spreadsheet tools or pandas for further analysis:
 
 The `energy_model.py` script estimates the energy cost of a read operation based on the number of evaluated parity bits and detected errors. `ecc_selector.py` recommends an ECC scheme given runtime conditions such as bit error rate and energy budget.
 
+
+## Interactive Guided Frontend
+
+An additive menu-driven frontend is available for onboarding and demos:
+
+```bash
+python ecc_wizard.py
+```
+
+The wizard does not replace existing CLI paths. It collects validated inputs, prints theory/interpretation notes, constructs the exact underlying `python eccsim.py ...` command, and lets users run it, print only, or save it for reproducible execution.
