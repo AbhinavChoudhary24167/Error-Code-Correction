@@ -30,12 +30,14 @@ DEFAULT_THRESHOLDS: dict[str, float | str] = {
     "conformal_alpha": 0.1,
     "prediction_set_min_coverage": 0.0,
     "ml_policy": "carbon_min",
+    "ood_feature_scope": "full",
     # Internal helper for prediction-set construction.
     "conformal_prob_min": 0.5,
 }
 
 _ALLOWED_OOD_METHODS = {"zscore", "mahalanobis", "iforest"}
 _ALLOWED_POLICIES = {"carbon_min", "fit_min", "energy_min", "utility_balanced"}
+_ALLOWED_OOD_FEATURE_SCOPES = {"full", "scenario"}
 
 
 def load_model_bundle(model_dir: Path) -> dict:
@@ -67,6 +69,7 @@ def resolve_thresholds(
     confidence_min_override: float | None = None,
     ood_threshold_override: float | None = None,
     policy_override: str | None = None,
+    ood_feature_scope_override: str | None = None,
 ) -> dict[str, float | str]:
     """Resolve thresholds with backward-compatible defaults and overrides."""
 
@@ -100,6 +103,10 @@ def resolve_thresholds(
     if policy not in _ALLOWED_POLICIES:
         policy = "carbon_min"
     resolved["ml_policy"] = policy
+    ood_feature_scope = str(merged.get("ood_feature_scope", "full")).strip().lower()
+    if ood_feature_scope not in _ALLOWED_OOD_FEATURE_SCOPES:
+        ood_feature_scope = "full"
+    resolved["ood_feature_scope"] = ood_feature_scope
 
     if confidence_min_override is not None:
         resolved["confidence_min"] = float(confidence_min_override)
@@ -110,8 +117,28 @@ def resolve_thresholds(
         override_policy = str(policy_override).strip().lower()
         if override_policy in _ALLOWED_POLICIES:
             resolved["ml_policy"] = override_policy
+    if ood_feature_scope_override is not None:
+        override_scope = str(ood_feature_scope_override).strip().lower()
+        if override_scope in _ALLOWED_OOD_FEATURE_SCOPES:
+            resolved["ood_feature_scope"] = override_scope
 
     return resolved
+
+
+def _resolve_ood_numeric_features(numeric_features: list[str], scope: str) -> list[str]:
+    if scope == "scenario":
+        preferred = [
+            "node",
+            "vdd",
+            "temp",
+            "capacity_gib",
+            "ci",
+            "bitcell_um2",
+            "scrub_s",
+        ]
+        selected = [name for name in preferred if name in numeric_features]
+        return selected if selected else list(numeric_features)
+    return list(numeric_features)
 
 
 def _zscore_map(
@@ -195,6 +222,7 @@ def predict_with_model(
     confidence_min_override: float | None = None,
     ood_threshold_override: float | None = None,
     policy_override: str | None = None,
+    ood_feature_scope_override: str | None = None,
     strict_sanity: bool = False,
 ) -> dict[str, object]:
     """Predict recommended code and reliability/energy/carbon metrics."""
@@ -246,14 +274,17 @@ def predict_with_model(
         confidence_min_override=confidence_min_override,
         ood_threshold_override=ood_threshold_override,
         policy_override=policy_override,
+        ood_feature_scope_override=ood_feature_scope_override,
     )
 
     ood_method = str(thresholds["ood_method"])
+    ood_scope = str(thresholds.get("ood_feature_scope", "full"))
+    ood_numeric_features = _resolve_ood_numeric_features(numeric_features, ood_scope)
     ood_score, ood_detail = _ood_score(
         bundle,
         feature_row,
         method=ood_method,
-        numeric_features=numeric_features,
+        numeric_features=ood_numeric_features,
     )
     confidence_min = float(thresholds["confidence_min"])
     ood_threshold = float(thresholds["ood_threshold"])
@@ -281,6 +312,7 @@ def predict_with_model(
         },
         "ood": ood,
         "ood_method": ood_method,
+        "ood_feature_scope": ood_scope,
         "ood_score": ood_score,
         "ood_threshold": ood_threshold,
         # Legacy compatibility fields.

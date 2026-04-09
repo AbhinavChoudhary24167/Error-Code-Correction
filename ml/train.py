@@ -226,6 +226,23 @@ def _calibrate_ood(
     return ood_payload, float(ood_threshold)
 
 
+def _resolve_ood_numeric_features(numeric_features: list[str], scope: str) -> list[str]:
+    scope_norm = str(scope).strip().lower()
+    if scope_norm == "scenario":
+        preferred = [
+            "node",
+            "vdd",
+            "temp",
+            "capacity_gib",
+            "ci",
+            "bitcell_um2",
+            "scrub_s",
+        ]
+        selected = [name for name in preferred if name in numeric_features]
+        return selected if selected else list(numeric_features)
+    return list(numeric_features)
+
+
 def train_models(
     dataset_dir: Path,
     model_out: Path,
@@ -237,12 +254,16 @@ def train_models(
     ood_method: str = "zscore",
     ood_quantile: float = 0.995,
     conformal_alpha: float = 0.1,
+    ood_feature_scope: str = "full",
 ) -> dict[str, Path]:
     """Train classifier/regressors and persist model artifacts."""
 
     dataset_dir = dataset_dir.resolve()
     model_out = model_out.resolve()
     model_out.mkdir(parents=True, exist_ok=True)
+    ood_feature_scope = str(ood_feature_scope).strip().lower()
+    if ood_feature_scope not in {"full", "scenario"}:
+        raise ValueError("ood_feature_scope must be one of: full, scenario")
 
     dataset_path = dataset_dir / "dataset.csv"
     if not dataset_path.is_file():
@@ -385,10 +406,11 @@ def train_models(
             "stds": stds,
         }
     }
+    ood_numeric_features = _resolve_ood_numeric_features(numeric_features, ood_feature_scope)
     ood_payload, ood_threshold = _calibrate_ood(
         bundle_stub=bundle_stub,
         X_train=X_train,
-        numeric_features=numeric_features,
+        numeric_features=ood_numeric_features,
         method=ood_method,
         quantile=float(ood_quantile),
         seed=seed,
@@ -402,6 +424,7 @@ def train_models(
         "conformal_alpha": float(conformal_alpha),
         "prediction_set_min_coverage": float(pred_set_coverage),
         "ml_policy": "carbon_min",
+        "ood_feature_scope": str(ood_feature_scope).strip().lower(),
         # Internal helper key used during prediction set construction.
         "conformal_prob_min": float(prob_floor),
     }

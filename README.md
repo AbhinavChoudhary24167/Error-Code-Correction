@@ -209,6 +209,14 @@ python3 eccsim.py ml evaluate --help
 python3 eccsim.py ml report-card --help
 ```
 
+For narrow scenario datasets, train with scenario-scoped OOD gating to keep advisory mode meaningful while preserving explicit fallback:
+
+```bash
+python3 eccsim.py ml train \
+  --dataset <dataset_dir> --model-out <model_dir> \
+  --ood-feature-scope scenario
+```
+
 ---
 
 
