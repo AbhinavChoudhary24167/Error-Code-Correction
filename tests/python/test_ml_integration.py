@@ -83,6 +83,45 @@ def test_ml_train_to_predict_smoke():
         assert math.isfinite(float(pred["predictions"][key]))
 
 
+def test_ml_scenario_scoped_ood_enables_advisory_divergence():
+    model_dir = _prepare_model(
+        "scenario_scope_divergence",
+        seed=4,
+        ood_feature_scope="scenario",
+    )
+    cmd = [
+        sys.executable,
+        str(REPO / "ecc_selector.py"),
+        "--ml-model",
+        str(model_dir),
+        "--node",
+        "14",
+        "--vdd",
+        "0.8",
+        "--temp",
+        "75",
+        "--capacity-gib",
+        "8",
+        "--ci",
+        "0.55",
+        "--bitcell-um2",
+        "0.04",
+        "--scrub-s",
+        "5",
+        "--ml-policy",
+        "utility_balanced",
+        "--json",
+    ]
+    res = subprocess.run(cmd, check=True, capture_output=True, text=True, cwd=REPO)
+    data = json.loads(res.stdout)
+
+    assert data["fallback_used"] is False
+    assert data["baseline_recommendation"] == "bch-63"
+    assert data["final_decision"] == "sec-ded-64"
+    assert data["final_decision"] != data["baseline_recommendation"]
+
+
+
 def test_selector_ood_fallback():
     model_dir = _prepare_model("ood", seed=1)
     cmd = [
@@ -205,6 +244,7 @@ def test_thresholds_schema_and_uncertainty_artifact():
         "confidence_min",
         "ood_max_abs_z",
         "ood_method",
+        "ood_feature_scope",
         "ood_threshold",
         "conformal_alpha",
         "prediction_set_min_coverage",

@@ -848,6 +848,7 @@ def _selector_args_parser() -> argparse.ArgumentParser:
     parser.add_argument("--carbon-kg-max", type=float, default=None)
     parser.add_argument("--ml-confidence-min", type=float, default=None)
     parser.add_argument("--ml-ood-max", type=float, default=None)
+    parser.add_argument("--ml-ood-feature-scope", choices=["full", "scenario"], default=None)
     parser.add_argument(
         "--ml-policy",
         choices=["carbon_min", "fit_min", "energy_min", "utility_balanced"],
@@ -1025,6 +1026,7 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
         confidence_min_override=args.ml_confidence_min,
         ood_threshold_override=args.ml_ood_max,
         policy_override=args.ml_policy,
+        ood_feature_scope_override=args.ml_ood_feature_scope,
     )
     selected_policy = str(resolved_thresholds.get("ml_policy", "carbon_min"))
 
@@ -1050,6 +1052,7 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
             confidence_min_override=args.ml_confidence_min,
             ood_threshold_override=args.ml_ood_max,
             policy_override=args.ml_policy,
+            ood_feature_scope_override=args.ml_ood_feature_scope,
             strict_sanity=args.strict_sanity,
         )
 
@@ -1136,6 +1139,7 @@ def _run_ml_advisory(args: argparse.Namespace) -> dict[str, object]:
                 "confidence_score": float(ml_prediction.get("confidence", 0.0)) if ml_prediction else 0.0,
                 "confidence_threshold": float(resolved_thresholds.get("confidence_min", 0.6)),
                 "ood_method": str(resolved_thresholds.get("ood_method", "zscore")),
+                "ood_feature_scope": str(resolved_thresholds.get("ood_feature_scope", "full")),
                 "ood_score": float(ml_prediction.get("ood_score", 0.0)) if ml_prediction else 0.0,
                 "ood_threshold": float(resolved_thresholds.get("ood_threshold", 4.0)),
                 "in_distribution": bool(ml_prediction.get("in_distribution", False)) if ml_prediction else False,

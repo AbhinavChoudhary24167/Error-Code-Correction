@@ -44,3 +44,7 @@
 - OOD is based on max absolute z-score against training feature statistics.
 - Confidence threshold and OOD threshold are stored in `thresholds.json`.
 - Any uncertainty path is explicit and traceable in CLI output via fallback reason.
+- OOD feature scope is configurable (`ood_feature_scope`):
+  - `full` (default): use all active numeric model features.
+  - `scenario`: use scenario-driving features only (`node`, `vdd`, `temp`, `capacity_gib`, `ci`, `bitcell_um2`, `scrub_s`) for OOD gating.
+    This avoids advisory suppression caused by code-specific metric shifts when scenario variation is narrow.

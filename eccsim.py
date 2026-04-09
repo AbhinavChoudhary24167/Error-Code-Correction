@@ -545,6 +545,7 @@ def main() -> None:
     ml_train.add_argument("--calibrate-confidence", choices=["none", "isotonic", "platt"], default="none")
     ml_train.add_argument("--confidence-target-metric", choices=["accuracy", "f1_macro"], default="accuracy")
     ml_train.add_argument("--ood-method", choices=["zscore", "mahalanobis", "iforest"], default="zscore")
+    ml_train.add_argument("--ood-feature-scope", choices=["full", "scenario"], default="full")
     ml_train.add_argument("--ood-quantile", type=_bounded_open_01, default=0.995)
     ml_train.add_argument("--conformal-alpha", type=_bounded_open_01, default=0.1)
 
@@ -749,6 +750,7 @@ def main() -> None:
                 calibrate_confidence=args.calibrate_confidence,
                 confidence_target_metric=args.confidence_target_metric,
                 ood_method=args.ood_method,
+                ood_feature_scope=args.ood_feature_scope,
                 ood_quantile=args.ood_quantile,
                 conformal_alpha=args.conformal_alpha,
             )
@@ -1495,6 +1497,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
 
