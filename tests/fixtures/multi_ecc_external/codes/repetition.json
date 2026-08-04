@@ -1,0 +1,88 @@
+{
+  "canonical_equivalence_class_id": "test-only-repetition-3-1-v1",
+  "code_id": "test-repetition-3-1-v1",
+  "code_spec_id": "test-repetition-3-1-v1",
+  "content_hashes": {
+    "algorithm": "sha256",
+    "manifest_sha256": "fcadee24604829eb3c7ba12db5f7c8696047922a4f87f9d0733087915d81befb",
+    "matrix_sha256": "041830f3e3a1cb295aee68ce3488b56a7bcb4cde617790b0722e739915f336b7",
+    "source_files": {
+      "tests/fixtures/multi_ecc_external/plugin.py": "905bbe1f08b6783229d442e5bb28153284688741e5829ed063f47d098030d56b"
+    }
+  },
+  "decoder_policy": {
+    "policy_id": "majority-vote-v1"
+  },
+  "distance_evidence": {
+    "designed_distance_lower_bound": null,
+    "exact_minimum_distance": null,
+    "method": "not established"
+  },
+  "encoder_id": "test-repetition-3-1-v1-systematic-encoder",
+  "family": "test-only repetition",
+  "field": {
+    "kind": "GF(2)",
+    "order": 2
+  },
+  "guaranteed_correction_set": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "generator": "all_combinations",
+      "weight": 1
+    }
+  ],
+  "guaranteed_detection_set": [],
+  "k": 1,
+  "known_miscorrection_domain": [
+    {
+      "domain": "all double-bit errors",
+      "expected_behavior": "majority decoder miscorrects"
+    }
+  ],
+  "license": "MIT repository code; cited evidence retains its original provenance",
+  "matrix_definition": {
+    "deterministic_generator": {
+      "callable": "../plugin.py::repetition_matrix",
+      "parameters": {}
+    }
+  },
+  "n": 3,
+  "name": "External acceptance-test repetition (3,1)",
+  "proof_references": [
+    {
+      "path": "tests/fixtures/multi_ecc_external/plugin.py",
+      "role": "external executable test plugin"
+    }
+  ],
+  "puncturing": {
+    "enabled": false,
+    "parameters": null
+  },
+  "redundancy": 2,
+  "schema_version": 1,
+  "shortening": {
+    "enabled": false,
+    "parameters": null
+  },
+  "source_provenance": [
+    {
+      "path": "tests/fixtures/multi_ecc_external/plugin.py",
+      "role": "external executable test plugin"
+    }
+  ],
+  "symbol_width": 1,
+  "systematic": {
+    "data_positions": [
+      0
+    ],
+    "enabled": true
+  },
+  "unsupported_error_classes": [
+    "scientific comparison",
+    "double-bit detection"
+  ],
+  "version": "1.0.0"
+}

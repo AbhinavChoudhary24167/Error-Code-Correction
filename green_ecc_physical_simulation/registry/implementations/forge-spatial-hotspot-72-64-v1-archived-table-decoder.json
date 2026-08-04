@@ -1,0 +1,536 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_declared_table_adapter",
+    "parameters": {
+      "table_path": "reports/code_synthesis_64/code.json"
+    }
+  },
+  "architecture_style": "reference_only",
+  "backend_id": null,
+  "capability_claims": {
+    "claimed_error_classes": [
+      {
+        "acceptable_statuses": [
+          "CORRECTED"
+        ],
+        "class_id": "all-archived-correction-table-entries",
+        "generator": "explicit",
+        "kind": "correction",
+        "positions": [
+          [
+            64
+          ],
+          [
+            65
+          ],
+          [
+            66
+          ],
+          [
+            45,
+            46
+          ],
+          [
+            0
+          ],
+          [
+            67
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            68
+          ],
+          [
+            57
+          ],
+          [
+            38,
+            39
+          ],
+          [
+            5
+          ],
+          [
+            47
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            23,
+            24
+          ],
+          [
+            9
+          ],
+          [
+            15,
+            16
+          ],
+          [
+            56
+          ],
+          [
+            69
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            10
+          ],
+          [
+            57,
+            58
+          ],
+          [
+            11
+          ],
+          [
+            32
+          ],
+          [
+            13
+          ],
+          [
+            48
+          ],
+          [
+            15
+          ],
+          [
+            4
+          ],
+          [
+            16
+          ],
+          [
+            18
+          ],
+          [
+            58
+          ],
+          [
+            40
+          ],
+          [
+            44,
+            45
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            59
+          ],
+          [
+            47,
+            48
+          ],
+          [
+            60
+          ],
+          [
+            61
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            70
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            53,
+            54
+          ],
+          [
+            20
+          ],
+          [
+            31,
+            32
+          ],
+          [
+            50
+          ],
+          [
+            22
+          ],
+          [
+            17
+          ],
+          [
+            52
+          ],
+          [
+            24
+          ],
+          [
+            25
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            32,
+            33
+          ],
+          [
+            62
+          ],
+          [
+            23
+          ],
+          [
+            27
+          ],
+          [
+            63,
+            64
+          ],
+          [
+            63
+          ],
+          [
+            41,
+            42
+          ],
+          [
+            69,
+            70
+          ],
+          [
+            35
+          ],
+          [
+            31
+          ],
+          [
+            36,
+            37
+          ],
+          [
+            12
+          ],
+          [
+            43
+          ],
+          [
+            33
+          ],
+          [
+            29
+          ],
+          [
+            37,
+            38
+          ],
+          [
+            61,
+            62
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            18
+          ],
+          [
+            71
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            20,
+            21
+          ],
+          [
+            30
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            36
+          ],
+          [
+            25,
+            26
+          ],
+          [
+            38
+          ],
+          [
+            34
+          ],
+          [
+            51,
+            52
+          ],
+          [
+            19
+          ],
+          [
+            41
+          ],
+          [
+            53
+          ],
+          [
+            26,
+            27
+          ],
+          [
+            44
+          ],
+          [
+            48,
+            49
+          ],
+          [
+            39
+          ],
+          [
+            45
+          ],
+          [
+            6
+          ],
+          [
+            46
+          ],
+          [
+            39,
+            40
+          ],
+          [
+            14
+          ],
+          [
+            40,
+            41
+          ],
+          [
+            28
+          ],
+          [
+            42,
+            43
+          ],
+          [
+            49
+          ],
+          [
+            46,
+            47
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            70,
+            71
+          ],
+          [
+            21
+          ],
+          [
+            51
+          ],
+          [
+            26
+          ],
+          [
+            28,
+            29
+          ],
+          [
+            42
+          ],
+          [
+            19,
+            20
+          ],
+          [
+            54
+          ],
+          [
+            52,
+            53
+          ],
+          [
+            55
+          ],
+          [
+            30,
+            31
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35,
+            36
+          ],
+          [
+            37
+          ],
+          [
+            34,
+            35
+          ],
+          [
+            29,
+            30
+          ],
+          [
+            49,
+            50
+          ],
+          [
+            27,
+            28
+          ],
+          [
+            43,
+            44
+          ],
+          [
+            55,
+            56
+          ]
+        ],
+        "weight": 1
+      }
+    ],
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "exact binary linear [72,64] code with d=3",
+    "physical_characterization": null,
+    "software_reference": "archived deterministic syndrome correction table"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "forge-spatial-hotspot-72-64-v1",
+  "code_spec_id": "forge-spatial-hotspot-72-64-v1",
+  "compatible_deployment_architectures": [
+    "fixed-forge-spatial-hotspot-72-64-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "forge-spatial-hotspot-72-64-v1-archived-syndrome-table",
+  "decoder_top": null,
+  "encoder_id": "forge-spatial-hotspot-72-64-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": null,
+  "evidence_level": "exact_functional_reference",
+  "failed_capabilities": [],
+  "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "f025f21e2a4ca7aaffe6905b7e78378e2107970d5878ad12abcc6b208769d093",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {},
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "reports/code_synthesis_64/code.json",
+    "reports/code_synthesis_64/verification_report.json"
+  ],
+  "source_hashes": {
+    "reports/code_synthesis_64/code.json": "c16faae44b2d5ecf9946f9dea91d1522ab9b0c54d3609cf0cbecd97eae8e46d9",
+    "reports/code_synthesis_64/verification_report.json": "3b93b4af2e50e3f8c11344cb9cd54e67cb49fd33104076e0c8fd288f66a6ab2f"
+  },
+  "source_provenance": [
+    {
+      "path": "reports/code_synthesis_64/code.json",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/code_synthesis_64/verification_report.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "unlisted error masks",
+    "physical PPA"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/code_synthesis_64/verification_report.json",
+      "status": "passed",
+      "test_id": "forge-spatial-hotspot-72-64-v1-archived-verification"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all 123 archived syndrome-table leaders",
+    "all-single-bit correction"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": null
+}

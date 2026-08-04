@@ -1,0 +1,55 @@
+{
+  "fixed_baseline_regret": {
+    "hsiao-generated-combinational-72-64-v1": {
+      "comparable_feasible_scenarios": 96,
+      "constraint_failure_or_missing_scenarios": 96,
+      "max_analytical_energy_regret_j": 3.6874384600000176e-06,
+      "mean_analytical_energy_regret_j": 6.111646347735354e-07,
+      "mean_fractional_regret": 0.004588455264899204,
+      "metric_evidence_level": "analytical_sensitivity",
+      "total_analytical_energy_regret_j": 5.867180493825939e-05
+    },
+    "secded-rtl-combinational-72-64-v1": {
+      "comparable_feasible_scenarios": 96,
+      "constraint_failure_or_missing_scenarios": 96,
+      "max_analytical_energy_regret_j": 1.3287439100000023e-05,
+      "mean_analytical_energy_regret_j": 4.550051297435939e-06,
+      "mean_fractional_regret": 0.02498984051632304,
+      "metric_evidence_level": "analytical_sensitivity",
+      "total_analytical_energy_regret_j": 0.00043680492455385015
+    },
+    "shortened-bch-85-64-t3-v1-reference-decoder": {
+      "comparable_feasible_scenarios": 192,
+      "constraint_failure_or_missing_scenarios": 0,
+      "max_analytical_energy_regret_j": 0.00018427320272,
+      "mean_analytical_energy_regret_j": 5.825339323146327e-05,
+      "mean_fractional_regret": 0.21937056992463944,
+      "metric_evidence_level": "analytical_sensitivity",
+      "total_analytical_energy_regret_j": 0.011184651500440948
+    }
+  },
+  "pareto_membership_frequency": {
+    "forge-spatial-hotspot-72-64-v1-archived-table-decoder": 64,
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder": 32,
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder": 64,
+    "hsiao-generated-combinational-72-64-v1": 96,
+    "odd-column-secded-4-8-archived-table-decoder": 64,
+    "odd-column-secded-64-72-archived-table-decoder": 32,
+    "primitive-bch-63-51-t2-v1-reference-decoder": 160,
+    "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 96,
+    "safeforge-robust-8-4-v1-archived-table-decoder": 32,
+    "secded-rtl-combinational-72-64-v1": 32,
+    "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+    "shortened-bch-78-64-t2-v1-reference-decoder": 160,
+    "shortened-bch-85-64-t3-v1-reference-decoder": 128,
+    "taec-rtl-bounded-72-64-v1": 32
+  },
+  "schema_version": 1,
+  "winner_frequency": {
+    "hsiao-generated-combinational-72-64-v1": 64,
+    "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+    "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+    "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+    "shortened-bch-85-64-t3-v1-reference-decoder": 32
+  }
+}

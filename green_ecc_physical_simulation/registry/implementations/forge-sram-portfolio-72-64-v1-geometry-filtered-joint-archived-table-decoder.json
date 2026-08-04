@@ -1,0 +1,460 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_declared_table_adapter",
+    "parameters": {
+      "table_path": "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json"
+    }
+  },
+  "architecture_style": "reference_only",
+  "backend_id": null,
+  "capability_claims": {
+    "claimed_error_classes": [
+      {
+        "acceptable_statuses": [
+          "CORRECTED"
+        ],
+        "class_id": "all-archived-correction-table-entries",
+        "generator": "explicit",
+        "kind": "correction",
+        "positions": [
+          [
+            64
+          ],
+          [
+            65
+          ],
+          [
+            66
+          ],
+          [
+            0
+          ],
+          [
+            67
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            68
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            56
+          ],
+          [
+            69
+          ],
+          [
+            10
+          ],
+          [
+            40,
+            48
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            54
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            57
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            58
+          ],
+          [
+            19
+          ],
+          [
+            59
+          ],
+          [
+            6,
+            14
+          ],
+          [
+            60
+          ],
+          [
+            61
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            70
+          ],
+          [
+            20
+          ],
+          [
+            47,
+            55
+          ],
+          [
+            21
+          ],
+          [
+            22
+          ],
+          [
+            23
+          ],
+          [
+            24
+          ],
+          [
+            25
+          ],
+          [
+            62
+          ],
+          [
+            26
+          ],
+          [
+            27
+          ],
+          [
+            42,
+            50
+          ],
+          [
+            36
+          ],
+          [
+            63
+          ],
+          [
+            29
+          ],
+          [
+            44,
+            52
+          ],
+          [
+            69,
+            70
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            33,
+            41
+          ],
+          [
+            32
+          ],
+          [
+            54,
+            62
+          ],
+          [
+            45,
+            53
+          ],
+          [
+            19,
+            27
+          ],
+          [
+            14,
+            22
+          ],
+          [
+            34
+          ],
+          [
+            17,
+            25
+          ],
+          [
+            71
+          ],
+          [
+            33,
+            34
+          ],
+          [
+            35
+          ],
+          [
+            28
+          ],
+          [
+            37
+          ],
+          [
+            38
+          ],
+          [
+            39
+          ],
+          [
+            46,
+            54
+          ],
+          [
+            40
+          ],
+          [
+            41
+          ],
+          [
+            42
+          ],
+          [
+            43
+          ],
+          [
+            13,
+            21
+          ],
+          [
+            32,
+            33
+          ],
+          [
+            44
+          ],
+          [
+            49,
+            57
+          ],
+          [
+            45
+          ],
+          [
+            46
+          ],
+          [
+            47
+          ],
+          [
+            48
+          ],
+          [
+            49
+          ],
+          [
+            25,
+            33
+          ],
+          [
+            70,
+            71
+          ],
+          [
+            50
+          ],
+          [
+            51
+          ],
+          [
+            52
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            20,
+            28
+          ],
+          [
+            53
+          ],
+          [
+            54,
+            55
+          ],
+          [
+            36,
+            44
+          ],
+          [
+            13
+          ],
+          [
+            36,
+            37
+          ],
+          [
+            28,
+            29
+          ],
+          [
+            29,
+            37
+          ],
+          [
+            55
+          ],
+          [
+            53,
+            54
+          ],
+          [
+            34,
+            42
+          ],
+          [
+            33
+          ],
+          [
+            34,
+            35
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            55,
+            56
+          ]
+        ],
+        "weight": 1
+      }
+    ],
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "exact binary linear [72,64] code with d=4",
+    "physical_characterization": null,
+    "software_reference": "archived deterministic syndrome correction table"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+  "code_spec_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+  "compatible_deployment_architectures": [
+    "fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-syndrome-table",
+  "decoder_top": null,
+  "encoder_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": null,
+  "evidence_level": "exact_functional_reference",
+  "failed_capabilities": [],
+  "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "f05c00b53c6a50247a633fee76116e12e53e4903bf03e8f0c1fc9e0f2fcd681e",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {},
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+    "reports/portfolio_cosynthesis/result_manifest.json"
+  ],
+  "source_hashes": {
+    "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json": "b2af2e875579455bdb932e24429058c3812449433f4fa64c672f3fa0b49916db",
+    "reports/portfolio_cosynthesis/result_manifest.json": "f00d6a8c88b7a3e7079668db1233603b39be4e32c4f602e453c07bb162550311"
+  },
+  "source_provenance": [
+    {
+      "path": "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/portfolio_cosynthesis/result_manifest.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "unlisted error masks",
+    "physical PPA"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/portfolio_cosynthesis/result_manifest.json",
+      "status": "passed",
+      "test_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-verification"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all 104 archived syndrome-table leaders",
+    "all-single-bit correction"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": null
+}

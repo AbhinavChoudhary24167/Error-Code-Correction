@@ -1,0 +1,39 @@
+{
+  "active_implementation": "hsiao-generated-combinational-72-64-v1",
+  "allowed_implementation_ids": [
+    "hsiao-generated-combinational-72-64-v1"
+  ],
+  "architecture_id": "fixed-hsiao-whole-memory-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "90c9c4e90da22ce85d2ef6034390c94c933d44165884d53c1e91de91747388a0",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {},
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

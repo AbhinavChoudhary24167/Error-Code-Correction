@@ -1,0 +1,104 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "3/3",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 3
+      },
+      "passed": true,
+      "passed_count": 3,
+      "patterns": 3
+    }
+  ],
+  "code_id": "test-repetition-3-1-v1",
+  "exhaustive_small_code": {
+    "cases": 16,
+    "deterministic": true,
+    "performed": true
+  },
+  "failures": [],
+  "implementation_hash": "ba1194cde7435c39b4cf4ebc0cb2611ca3fe5fdbaf78cb1208e3dcaee9c120dc",
+  "implementation_id": "test-repetition-majority-reference-v1",
+  "matrix_hash": "041830f3e3a1cb295aee68ce3488b56a7bcb4cde617790b0722e739915f336b7",
+  "miscorrection_probes": [
+    {
+      "domain": "all double-bit errors",
+      "expected": "majority decoder miscorrects",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "tests/fixtures/multi_ecc_external/evidence.json",
+      "present": true,
+      "test_id": "external_plugin_exhaustive_acceptance"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1
+  ],
+  "tested_universe_hash": "a68ce6b2350885ddcfcc5087d96f40c076e6527ebc4f84d1c25e5f7bacba42df",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "e24596a723c4527d3efbfc125dab891f4c13ee5ab9303373366488fa4ca0969b",
+  "verification_status": "passed"
+}

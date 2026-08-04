@@ -1,0 +1,1465 @@
+{
+  "rows": [
+    {
+      "backend_id": null,
+      "capability_verification_status": "rejected",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "30/63",
+          "failed_patterns": [
+            [
+              30
+            ],
+            [
+              31
+            ],
+            [
+              32
+            ],
+            [
+              33
+            ],
+            [
+              34
+            ],
+            [
+              35
+            ],
+            [
+              36
+            ],
+            [
+              37
+            ],
+            [
+              38
+            ],
+            [
+              39
+            ],
+            [
+              40
+            ],
+            [
+              41
+            ],
+            [
+              42
+            ],
+            [
+              43
+            ],
+            [
+              44
+            ],
+            [
+              45
+            ],
+            [
+              46
+            ],
+            [
+              47
+            ],
+            [
+              48
+            ],
+            [
+              49
+            ]
+          ],
+          "failure_count": 33,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 30,
+            "MISCORRECTED": 33
+          },
+          "passed": false,
+          "passed_count": 30,
+          "patterns": 63
+        }
+      ],
+      "code_spec_id": "repository-cyclic-63-51-v1",
+      "decoder_policy_id": "bounded-valid-codeword-search-weight2-v1",
+      "encoder_id": "repository-cyclic-63-51-v1-systematic-encoder",
+      "evidence_level": "rtl_and_exact_functional",
+      "failed_capabilities": [
+        "all-single-bit correction: 33/63 failures",
+        "BCH designed-distance-five identity"
+      ],
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "representative_counterexamples": [
+        [
+          30
+        ]
+      ],
+      "unsupported_capabilities": [
+        "selection eligibility"
+      ],
+      "verification_status": "failed",
+      "verified_capabilities": []
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "8/8",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 8
+          },
+          "passed": true,
+          "passed_count": 8,
+          "patterns": 8
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "13/13",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 13
+          },
+          "passed": true,
+          "passed_count": 13,
+          "patterns": 13
+        }
+      ],
+      "code_spec_id": "forge-hotspot-8-4-v1",
+      "decoder_policy_id": "forge-hotspot-8-4-v1-archived-syndrome-table",
+      "encoder_id": "forge-hotspot-8-4-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 13 archived syndrome-table leaders",
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "123/123",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 123
+          },
+          "passed": true,
+          "passed_count": 123,
+          "patterns": 123
+        }
+      ],
+      "code_spec_id": "forge-spatial-hotspot-72-64-v1",
+      "decoder_policy_id": "forge-spatial-hotspot-72-64-v1-archived-syndrome-table",
+      "encoder_id": "forge-spatial-hotspot-72-64-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 123 archived syndrome-table leaders",
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "104/104",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 104
+          },
+          "passed": true,
+          "passed_count": 104,
+          "patterns": 104
+        }
+      ],
+      "code_spec_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "decoder_policy_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-syndrome-table",
+      "encoder_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 104 archived syndrome-table leaders",
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "96/96",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 96
+          },
+          "passed": true,
+          "passed_count": 96,
+          "patterns": 96
+        }
+      ],
+      "code_spec_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "decoder_policy_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-syndrome-table",
+      "encoder_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 96 archived syndrome-table leaders",
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED",
+            "DETECTED_UNCORRECTABLE"
+          ],
+          "class_id": "all-double-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "2556/2556",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_detection",
+          "outcome_counts": {
+            "DETECTED_UNCORRECTABLE": 2556
+          },
+          "passed": true,
+          "passed_count": 2556,
+          "patterns": 2556
+        }
+      ],
+      "code_spec_id": "hsiao-secded-72-64-v1",
+      "decoder_policy_id": "minimum-weight-single-syndrome-v1",
+      "encoder_id": "hsiao-secded-72-64-v1-systematic-encoder",
+      "evidence_level": "rtl_and_exact_functional",
+      "failed_capabilities": [],
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "weight>=2 correction",
+        "weight>=3 detection"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-single-bit correction",
+        "all-double-bit detection"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "8/8",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 8
+          },
+          "passed": true,
+          "passed_count": 8,
+          "patterns": 8
+        },
+        {
+          "acceptable_statuses": [
+            "DETECTED_UNCORRECTABLE"
+          ],
+          "class_id": "all-double-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "28/28",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_detection",
+          "outcome_counts": {
+            "DETECTED_UNCORRECTABLE": 28
+          },
+          "passed": true,
+          "passed_count": 28,
+          "patterns": 28
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "8/8",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 8
+          },
+          "passed": true,
+          "passed_count": 8,
+          "patterns": 8
+        }
+      ],
+      "code_spec_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "odd-column-secded-4-8-archived-syndrome-table",
+      "encoder_id": "odd-column-secded-4-8-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 8 archived syndrome-table leaders",
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "DETECTED_UNCORRECTABLE"
+          ],
+          "class_id": "all-double-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "2556/2556",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_detection",
+          "outcome_counts": {
+            "DETECTED_UNCORRECTABLE": 2556
+          },
+          "passed": true,
+          "passed_count": 2556,
+          "patterns": 2556
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        }
+      ],
+      "code_spec_id": "odd-column-secded-64-72",
+      "decoder_policy_id": "odd-column-secded-64-72-archived-syndrome-table",
+      "encoder_id": "odd-column-secded-64-72-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 72 archived syndrome-table leaders",
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-1-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "63/63",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 63
+          },
+          "passed": true,
+          "passed_count": 63,
+          "patterns": 63
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-2-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "1953/1953",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 1953
+          },
+          "passed": true,
+          "passed_count": 1953,
+          "patterns": 1953
+        }
+      ],
+      "code_spec_id": "primitive-bch-63-51-t2-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t2-v1",
+      "encoder_id": "primitive-bch-63-51-t2-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "guaranteed correction beyond t=2",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-weight-1 correction",
+        "all-weight-2 correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "56/56",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 56
+          },
+          "passed": true,
+          "passed_count": 56,
+          "patterns": 56
+        }
+      ],
+      "code_spec_id": "safeforge-robust-72-64-mapping-v1",
+      "decoder_policy_id": "safeforge-robust-72-64-mapping-v1-archived-syndrome-table",
+      "encoder_id": "safeforge-robust-72-64-mapping-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 56 archived syndrome-table leaders"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-archived-correction-table-entries",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "8/8",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 8
+          },
+          "passed": true,
+          "passed_count": 8,
+          "patterns": 8
+        }
+      ],
+      "code_spec_id": "safeforge-robust-8-4-v1",
+      "decoder_policy_id": "safeforge-robust-8-4-v1-archived-syndrome-table",
+      "encoder_id": "safeforge-robust-8-4-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "unlisted error masks",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all 8 archived syndrome-table leaders"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "rejected",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED",
+            "DETECTED_UNCORRECTABLE"
+          ],
+          "class_id": "all-double-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "2254/2556",
+          "failed_patterns": [
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              22
+            ],
+            [
+              0,
+              23
+            ],
+            [
+              0,
+              54
+            ],
+            [
+              0,
+              65
+            ],
+            [
+              0,
+              66
+            ],
+            [
+              0,
+              71
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              20
+            ],
+            [
+              1,
+              21
+            ],
+            [
+              1,
+              52
+            ],
+            [
+              1,
+              65
+            ],
+            [
+              1,
+              66
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              18
+            ],
+            [
+              2,
+              19
+            ],
+            [
+              2,
+              49
+            ],
+            [
+              2,
+              64
+            ]
+          ],
+          "failure_count": 302,
+          "kind": "guaranteed_detection",
+          "outcome_counts": {
+            "CORRECTED": 10,
+            "DETECTED_UNCORRECTABLE": 2244,
+            "MISCORRECTED": 302
+          },
+          "passed": false,
+          "passed_count": 2254,
+          "patterns": 2556
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-adjacent-double-data-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "10/63",
+          "failed_patterns": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              9,
+              10
+            ],
+            [
+              11,
+              12
+            ],
+            [
+              12,
+              13
+            ],
+            [
+              13,
+              14
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              15,
+              16
+            ],
+            [
+              16,
+              17
+            ],
+            [
+              18,
+              19
+            ],
+            [
+              19,
+              20
+            ],
+            [
+              20,
+              21
+            ],
+            [
+              21,
+              22
+            ],
+            [
+              22,
+              23
+            ],
+            [
+              23,
+              24
+            ],
+            [
+              24,
+              25
+            ],
+            [
+              26,
+              27
+            ],
+            [
+              27,
+              28
+            ]
+          ],
+          "failure_count": 53,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "CORRECTED": 10,
+            "MISCORRECTED": 53
+          },
+          "passed": false,
+          "passed_count": 10,
+          "patterns": 63
+        }
+      ],
+      "code_spec_id": "extended-hamming-secded-72-64-v1",
+      "decoder_policy_id": "repository-bounded-adjacent-double-v1",
+      "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+      "evidence_level": "rtl_and_exact_functional",
+      "failed_capabilities": [
+        "all-double-bit detection: 302/2556 silent miscorrections",
+        "implementation_claim_correction class failed: all-adjacent-double-data-errors"
+      ],
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "representative_counterexamples": [
+        [
+          0,
+          7
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "unsupported_capabilities": [
+        "unrestricted adjacent-double correction guarantee"
+      ],
+      "verification_status": "failed",
+      "verified_capabilities": [
+        "all-single-bit correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED",
+            "DETECTED_UNCORRECTABLE"
+          ],
+          "class_id": "all-double-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "2556/2556",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_detection",
+          "outcome_counts": {
+            "DETECTED_UNCORRECTABLE": 2556
+          },
+          "passed": true,
+          "passed_count": 2556,
+          "patterns": 2556
+        }
+      ],
+      "code_spec_id": "extended-hamming-secded-72-64-v1",
+      "decoder_policy_id": "repository-secded-v1",
+      "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+      "evidence_level": "rtl_and_exact_functional",
+      "failed_capabilities": [],
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "weight>=2 correction",
+        "weight>=3 detection"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-single-bit correction",
+        "all-double-bit detection"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-1-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "71/71",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 71
+          },
+          "passed": true,
+          "passed_count": 71,
+          "patterns": 71
+        }
+      ],
+      "code_spec_id": "shortened-bch-71-64-t1-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t1-v1",
+      "encoder_id": "shortened-bch-71-64-t1-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "guaranteed correction beyond t=1",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-weight-1 correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-1-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "78/78",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 78
+          },
+          "passed": true,
+          "passed_count": 78,
+          "patterns": 78
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-2-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "3003/3003",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 3003
+          },
+          "passed": true,
+          "passed_count": 3003,
+          "patterns": 3003
+        }
+      ],
+      "code_spec_id": "shortened-bch-78-64-t2-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t2-v1",
+      "encoder_id": "shortened-bch-78-64-t2-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "guaranteed correction beyond t=2",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-weight-1 correction",
+        "all-weight-2 correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "fully_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-1-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "85/85",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 85
+          },
+          "passed": true,
+          "passed_count": 85,
+          "patterns": 85
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-2-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "3570/3570",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 3570
+          },
+          "passed": true,
+          "passed_count": 3570,
+          "patterns": 3570
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-weight-3-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "98770/98770",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 98770
+          },
+          "passed": true,
+          "passed_count": 98770,
+          "patterns": 98770
+        }
+      ],
+      "code_spec_id": "shortened-bch-85-64-t3-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t3-v1",
+      "encoder_id": "shortened-bch-85-64-t3-v1-systematic-encoder",
+      "evidence_level": "exact_functional_reference",
+      "failed_capabilities": [],
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "representative_counterexamples": [],
+      "unsupported_capabilities": [
+        "guaranteed correction beyond t=3",
+        "physical PPA"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-weight-1 correction",
+        "all-weight-2 correction",
+        "all-weight-3 correction"
+      ]
+    },
+    {
+      "backend_id": null,
+      "capability_verification_status": "partially_verified",
+      "class_results": [
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-single-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "72/72",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_correction",
+          "outcome_counts": {
+            "CORRECTED": 72
+          },
+          "passed": true,
+          "passed_count": 72,
+          "patterns": 72
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED",
+            "DETECTED_UNCORRECTABLE"
+          ],
+          "class_id": "all-double-bit-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "2556/2556",
+          "failed_patterns": [],
+          "failure_count": 0,
+          "kind": "guaranteed_detection",
+          "outcome_counts": {
+            "DETECTED_UNCORRECTABLE": 2556
+          },
+          "passed": true,
+          "passed_count": 2556,
+          "patterns": 2556
+        },
+        {
+          "acceptable_statuses": [
+            "CORRECTED"
+          ],
+          "class_id": "all-adjacent-triple-data-errors",
+          "data_independence": {
+            "established": true,
+            "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+            "payloads_per_mask": 1
+          },
+          "exact_fraction": "0/62",
+          "failed_patterns": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              2,
+              3,
+              4
+            ],
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              4,
+              5,
+              6
+            ],
+            [
+              5,
+              6,
+              7
+            ],
+            [
+              6,
+              7,
+              8
+            ],
+            [
+              7,
+              8,
+              9
+            ],
+            [
+              8,
+              9,
+              10
+            ],
+            [
+              9,
+              10,
+              11
+            ],
+            [
+              10,
+              11,
+              12
+            ],
+            [
+              11,
+              12,
+              13
+            ],
+            [
+              12,
+              13,
+              14
+            ],
+            [
+              13,
+              14,
+              15
+            ],
+            [
+              14,
+              15,
+              16
+            ],
+            [
+              15,
+              16,
+              17
+            ],
+            [
+              16,
+              17,
+              18
+            ],
+            [
+              17,
+              18,
+              19
+            ],
+            [
+              18,
+              19,
+              20
+            ],
+            [
+              19,
+              20,
+              21
+            ]
+          ],
+          "failure_count": 62,
+          "kind": "implementation_claim_correction",
+          "outcome_counts": {
+            "MISCORRECTED": 62
+          },
+          "passed": false,
+          "passed_count": 0,
+          "patterns": 62
+        }
+      ],
+      "code_spec_id": "extended-hamming-secded-72-64-v1",
+      "decoder_policy_id": "repository-bounded-adjacent-triple-v1",
+      "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+      "evidence_level": "rtl_and_exact_functional",
+      "failed_capabilities": [
+        "adjacent-triple correction guarantee",
+        "implementation_claim_correction class failed: all-adjacent-triple-data-errors"
+      ],
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "representative_counterexamples": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "unsupported_capabilities": [
+        "full TAEC guarantee"
+      ],
+      "verification_status": "passed",
+      "verified_capabilities": [
+        "all-single-bit correction",
+        "all-double-bit detection"
+      ]
+    }
+  ],
+  "schema_version": 1
+}

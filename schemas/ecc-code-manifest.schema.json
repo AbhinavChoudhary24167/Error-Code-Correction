@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/ecc-code-manifest.schema.json",
+  "title": "GREEN-ECC-PHY mathematical ECC code manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "code_id", "canonical_equivalence_class_id", "family", "name",
+    "version", "field", "k", "n", "redundancy", "symbol_width", "systematic",
+    "matrix_definition", "shortening", "puncturing", "guaranteed_correction_set",
+    "guaranteed_detection_set", "known_miscorrection_domain", "unsupported_error_classes",
+    "decoder_policy", "proof_references", "source_provenance", "license", "content_hashes"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "code_spec_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "encoder_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "code_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "canonical_equivalence_class_id": {"type": "string", "minLength": 1},
+    "family": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "minLength": 1},
+    "field": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "order"],
+      "properties": {"kind": {"type": "string"}, "order": {"type": "integer", "minimum": 2}}
+    },
+    "k": {"type": "integer", "minimum": 1},
+    "n": {"type": "integer", "minimum": 2},
+    "redundancy": {"type": "integer", "minimum": 1},
+    "symbol_width": {"type": "integer", "minimum": 1},
+    "systematic": {
+      "type": "object", "additionalProperties": false,
+      "required": ["enabled", "data_positions"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "data_positions": {"type": "array", "uniqueItems": true, "items": {"type": "integer", "minimum": 0}}
+      }
+    },
+    "matrix_definition": {
+      "type": "object", "additionalProperties": false,
+      "oneOf": [
+        {"required": ["generator_matrix", "parity_check_matrix"]},
+        {"required": ["deterministic_generator"]}
+      ],
+      "properties": {
+        "generator_matrix": {"$ref": "#/$defs/binaryMatrix"},
+        "parity_check_matrix": {"$ref": "#/$defs/binaryMatrix"},
+        "deterministic_generator": {
+          "type": "object", "additionalProperties": false,
+          "required": ["callable", "parameters"],
+          "properties": {"callable": {"type": "string", "minLength": 3}, "parameters": {"type": "object"}}
+        }
+      }
+    },
+    "shortening": {"type": "object"},
+    "puncturing": {"type": "object"},
+    "guaranteed_correction_set": {"type": "array", "items": {"$ref": "#/$defs/errorClass"}},
+    "guaranteed_detection_set": {"type": "array", "items": {"$ref": "#/$defs/errorClass"}},
+    "known_miscorrection_domain": {"type": "array", "items": {"type": "object"}},
+    "unsupported_error_classes": {"type": "array", "items": {"type": "string"}},
+    "distance_evidence": {"type": "object"},
+    "decoder_policy": {"type": "object"},
+    "proof_references": {"type": "array", "items": {"$ref": "#/$defs/reference"}},
+    "source_provenance": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/reference"}},
+    "license": {"type": "string", "minLength": 1},
+    "content_hashes": {"$ref": "#/$defs/contentHashes"}
+  },
+  "$defs": {
+    "binaryMatrix": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 1, "items": {"type": "integer", "enum": [0, 1]}}},
+    "errorClass": {
+      "type": "object", "additionalProperties": false,
+      "required": ["class_id", "generator", "weight", "acceptable_statuses"],
+      "properties": {
+        "class_id": {"type": "string"}, "generator": {"enum": ["all_combinations", "adjacent_windows", "explicit"]},
+        "weight": {"type": "integer", "minimum": 0},
+        "positions": {"type": "array", "items": {"type": "array", "items": {"type": "integer", "minimum": 0}}},
+        "acceptable_statuses": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "reference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "role"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "role": {"type": "string", "minLength": 1}}
+    },
+    "contentHashes": {
+      "type": "object", "additionalProperties": false,
+      "required": ["algorithm", "manifest_sha256", "matrix_sha256", "source_files"],
+      "properties": {
+        "algorithm": {"const": "sha256"}, "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "matrix_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_files": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+      }
+    }
+  }
+}

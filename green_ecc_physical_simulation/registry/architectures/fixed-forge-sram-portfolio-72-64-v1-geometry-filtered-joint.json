@@ -1,0 +1,42 @@
+{
+  "active_implementation": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "a8cf10a021d11143373f4bda1f94e3acf83bb983cf9c74b3fb3008d4ab37bb32",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json": "b2af2e875579455bdb932e24429058c3812449433f4fa64c672f3fa0b49916db",
+    "reports/portfolio_cosynthesis/result_manifest.json": "f00d6a8c88b7a3e7079668db1233603b39be4e32c4f602e453c07bb162550311"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

@@ -1,0 +1,710 @@
+{
+  "implementations": {
+    "forge-hotspot-8-4-v1-archived-table-decoder": {
+      "code_rate": 0.5,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 4,
+      "n": 8,
+      "parity_bits": 4,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 2.0
+        },
+        "per_information_bit_encoded_bits": 2.0,
+        "protected_512b_cache_line": {
+          "codewords_required": 128,
+          "encoded_bits": 1024,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 16,
+          "encoded_bits": 128,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 18,
+        "decoder_compare_literals": 52,
+        "decoder_complexity_proxy": 82,
+        "decoder_table_entries": 13,
+        "encoder_xor_operations": 8,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 6,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 12
+      },
+      "verified_error_profile_id": "exact-error-profile-forge-hotspot-8-4-v1-archived-table-decoder"
+    },
+    "forge-spatial-hotspot-72-64-v1-archived-table-decoder": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 3,
+        "exact_minimum_distance": 3,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 174,
+        "decoder_compare_literals": 984,
+        "decoder_complexity_proxy": 1372,
+        "decoder_table_entries": 123,
+        "encoder_xor_operations": 206,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 12,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 214
+      },
+      "verified_error_profile_id": "exact-error-profile-forge-spatial-hotspot-72-64-v1-archived-table-decoder"
+    },
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 136,
+        "decoder_compare_literals": 832,
+        "decoder_complexity_proxy": 1178,
+        "decoder_table_entries": 104,
+        "encoder_xor_operations": 202,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 12,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 210
+      },
+      "verified_error_profile_id": "exact-error-profile-forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder"
+    },
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 120,
+        "decoder_compare_literals": 768,
+        "decoder_complexity_proxy": 1096,
+        "decoder_table_entries": 96,
+        "encoder_xor_operations": 200,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 12,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 208
+      },
+      "verified_error_profile_id": "exact-error-profile-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder"
+    },
+    "hsiao-generated-combinational-72-64-v1": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "exact dual enumeration plus binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 72,
+        "decoder_compare_literals": 576,
+        "decoder_complexity_proxy": 856,
+        "decoder_table_entries": 72,
+        "encoder_xor_operations": 200,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 12,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 208
+      },
+      "verified_error_profile_id": "exact-error-profile-hsiao-generated-combinational-72-64-v1"
+    },
+    "odd-column-secded-4-8-archived-table-decoder": {
+      "code_rate": 0.5,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 4,
+      "n": 8,
+      "parity_bits": 4,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 2.0
+        },
+        "per_information_bit_encoded_bits": 2.0,
+        "protected_512b_cache_line": {
+          "codewords_required": 128,
+          "encoded_bits": 1024,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 16,
+          "encoded_bits": 128,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 8,
+        "decoder_compare_literals": 32,
+        "decoder_complexity_proxy": 52,
+        "decoder_table_entries": 8,
+        "encoder_xor_operations": 8,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 5,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 12
+      },
+      "verified_error_profile_id": "exact-error-profile-odd-column-secded-4-8-archived-table-decoder"
+    },
+    "odd-column-secded-64-72-archived-table-decoder": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 72,
+        "decoder_compare_literals": 576,
+        "decoder_complexity_proxy": 888,
+        "decoder_table_entries": 72,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 13,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 240
+      },
+      "verified_error_profile_id": "exact-error-profile-odd-column-secded-64-72-archived-table-decoder"
+    },
+    "primitive-bch-63-51-t2-v1-reference-decoder": {
+      "code_rate": 0.8095238095238095,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 5,
+        "exact_minimum_distance": 5,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 51,
+      "n": 63,
+      "parity_bits": 12,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.2352941176470589
+        },
+        "per_information_bit_encoded_bits": 1.2352941176470589,
+        "protected_512b_cache_line": {
+          "codewords_required": 11,
+          "encoded_bits": 693,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 49
+        },
+        "protected_64b_word": {
+          "codewords_required": 2,
+          "encoded_bits": 126,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 64,
+          "padding_information_bits": 38
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 3969,
+        "decoder_compare_literals": 24192,
+        "decoder_complexity_proxy": 28489,
+        "decoder_table_entries": 2016,
+        "encoder_xor_operations": 316,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 16,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 328
+      },
+      "verified_error_profile_id": "exact-error-profile-primitive-bch-63-51-t2-v1-reference-decoder"
+    },
+    "safeforge-robust-72-64-mapping-v1-archived-table-decoder": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 117,
+        "decoder_compare_literals": 448,
+        "decoder_complexity_proxy": 805,
+        "decoder_table_entries": 56,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 12,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 240
+      },
+      "verified_error_profile_id": "exact-error-profile-safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    "safeforge-robust-8-4-v1-archived-table-decoder": {
+      "code_rate": 0.5,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 3,
+        "exact_minimum_distance": 3,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 4,
+      "n": 8,
+      "parity_bits": 4,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 2.0
+        },
+        "per_information_bit_encoded_bits": 2.0,
+        "protected_512b_cache_line": {
+          "codewords_required": 128,
+          "encoded_bits": 1024,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 16,
+          "encoded_bits": 128,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 12,
+        "decoder_compare_literals": 32,
+        "decoder_complexity_proxy": 53,
+        "decoder_table_entries": 8,
+        "encoder_xor_operations": 5,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 5,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 9
+      },
+      "verified_error_profile_id": "exact-error-profile-safeforge-robust-8-4-v1-archived-table-decoder"
+    },
+    "secded-rtl-combinational-72-64-v1": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "exact dual enumeration plus binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 72,
+        "decoder_compare_literals": 576,
+        "decoder_complexity_proxy": 888,
+        "decoder_table_entries": 72,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 13,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 240
+      },
+      "verified_error_profile_id": "exact-error-profile-secded-rtl-combinational-72-64-v1"
+    },
+    "shortened-bch-71-64-t1-v1-reference-decoder": {
+      "code_rate": 0.9014084507042254,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 3,
+        "exact_minimum_distance": 3,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 71,
+      "parity_bits": 7,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.109375
+        },
+        "per_information_bit_encoded_bits": 1.109375,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 568,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 71,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 71,
+        "decoder_compare_literals": 497,
+        "decoder_complexity_proxy": 773,
+        "decoder_table_entries": 71,
+        "encoder_xor_operations": 198,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 12,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 205
+      },
+      "verified_error_profile_id": "exact-error-profile-shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    "shortened-bch-78-64-t2-v1-reference-decoder": {
+      "code_rate": 0.8205128205128205,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 5,
+        "exact_minimum_distance": 5,
+        "method": "dual enumeration plus exact binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 78,
+      "parity_bits": 14,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.21875
+        },
+        "per_information_bit_encoded_bits": 1.21875,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 624,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 78,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 6084,
+        "decoder_compare_literals": 43134,
+        "decoder_complexity_proxy": 49677,
+        "decoder_table_entries": 3081,
+        "encoder_xor_operations": 445,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 18,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 459
+      },
+      "verified_error_profile_id": "exact-error-profile-shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    "shortened-bch-85-64-t3-v1-reference-decoder": {
+      "code_rate": 0.7529411764705882,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 7,
+        "exact_minimum_distance": null,
+        "method": "narrow-sense BCH consecutive-root bound"
+      },
+      "k": 64,
+      "n": 85,
+      "parity_bits": 21,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.328125
+        },
+        "per_information_bit_encoded_bits": 1.328125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 680,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 85,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 303535,
+        "decoder_compare_literals": 2150925,
+        "decoder_complexity_proxy": 2455149,
+        "decoder_table_entries": 102425,
+        "encoder_xor_operations": 668,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 23,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 689
+      },
+      "verified_error_profile_id": "exact-error-profile-shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    "taec-rtl-bounded-72-64-v1": {
+      "code_rate": 0.8888888888888888,
+      "distance_evidence": {
+        "designed_distance_lower_bound": 4,
+        "exact_minimum_distance": 4,
+        "method": "exact dual enumeration plus binary MacWilliams transform"
+      },
+      "k": 64,
+      "n": 72,
+      "parity_bits": 8,
+      "payload_normalization": {
+        "equal_data_capacity_scaling": {
+          "encoded_bits_per_information_bit": 1.125
+        },
+        "per_information_bit_encoded_bits": 1.125,
+        "protected_512b_cache_line": {
+          "codewords_required": 8,
+          "encoded_bits": 576,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": true,
+          "information_payload_bits": 512,
+          "padding_information_bits": 0
+        },
+        "protected_64b_word": {
+          "codewords_required": 1,
+          "encoded_bits": 72,
+          "fragmentation_policy": "ceil(payload/k) independent systematic codewords; final unused information coordinates fixed to zero",
+          "fragmented": false,
+          "information_payload_bits": 64,
+          "padding_information_bits": 0
+        }
+      },
+      "storage_metadata_bits_per_codeword": 0,
+      "structural_metrics": {
+        "correction_mask_ones": 72,
+        "decoder_compare_literals": 576,
+        "decoder_complexity_proxy": 888,
+        "decoder_table_entries": 72,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "logic_depth_proxy": 13,
+        "metric_class": "exact_matrix_counts_and_technology_independent_structural_proxies",
+        "physical_interpretation": null,
+        "syndrome_xor_operations": 240
+      },
+      "verified_error_profile_id": "exact-error-profile-taec-rtl-bounded-72-64-v1"
+    }
+  },
+  "schema_version": 1
+}

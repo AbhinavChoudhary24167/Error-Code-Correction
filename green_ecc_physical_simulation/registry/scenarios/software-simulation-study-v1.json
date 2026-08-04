@@ -1,0 +1,143 @@
+{
+  "adjacency_definition": "linear consecutive coordinates within each encoded codeword; adjacency never crosses a codeword, word, bank, or page boundary",
+  "analytical_model": {
+    "evidence_level": "analytical_sensitivity",
+    "model_id": "green-ecc-explicit-sensitivity-energy-v1",
+    "parameters": {
+      "bit_access_energy_j_at_1v": 1e-15,
+      "leakage_power_w_per_stored_bit_at_25c": 1e-15,
+      "scrub_read_write_energy_multiplier": 2.0,
+      "temperature_leakage_multiplier_at_85c": 2.0,
+      "xor_activity_energy_j_at_1v": 2e-16
+    },
+    "provenance": "explicit sensitivity parameters selected before winners; no measured technology library, SRAM macro, activity trace, or PDK"
+  },
+  "comparison_payloads_bits": [
+    1,
+    64,
+    512
+  ],
+  "equal_information_capacity_bits": 8388608,
+  "fault_profiles": {
+    "adjacent_mbu": {
+      "class_probability_per_codeword_access": {
+        "adjacent_double": 4e-08,
+        "adjacent_triple": 5e-09,
+        "nonadjacent_double": 5e-09,
+        "nonadjacent_triple": 0.0,
+        "single": 5e-08
+      },
+      "provenance": "explicit uncalibrated sensitivity profile; not a measured SER/FIT distribution"
+    },
+    "sbu_dominant": {
+      "class_probability_per_codeword_access": {
+        "adjacent_double": 1e-09,
+        "adjacent_triple": 0.0,
+        "nonadjacent_double": 1e-09,
+        "nonadjacent_triple": 0.0,
+        "single": 9.8e-08
+      },
+      "provenance": "explicit uncalibrated sensitivity profile; not a measured SER/FIT distribution"
+    },
+    "triple_stress": {
+      "class_probability_per_codeword_access": {
+        "adjacent_double": 2e-08,
+        "adjacent_triple": 3e-08,
+        "nonadjacent_double": 1e-08,
+        "nonadjacent_triple": 1e-08,
+        "single": 3e-08
+      },
+      "provenance": "explicit uncalibrated sensitivity stress profile; not a measured radiation result"
+    }
+  },
+  "grid": {
+    "carbon_intensity_kgco2_per_kwh": [
+      0.1,
+      0.7
+    ],
+    "fault_profile_ids": [
+      "sbu_dominant",
+      "adjacent_mbu",
+      "triple_stress"
+    ],
+    "reliability_requirement_ids": [
+      "service",
+      "stringent"
+    ],
+    "scrub_interval_s": [
+      1.0,
+      3600.0
+    ],
+    "supply_voltage_v": [
+      0.8,
+      1.0
+    ],
+    "temperature_c": [
+      25.0,
+      85.0
+    ],
+    "workload_ids": [
+      "low_activity",
+      "high_activity"
+    ]
+  },
+  "physical_metrics": null,
+  "preregistration_sha256": "eef89577ec920ba33d59c564c969e3b4cd550deb756c5db6ccc94568ed080654",
+  "preregistration_status": "parameters materialized by catalogue build before scenario winners are computed",
+  "reliability_requirements": {
+    "service": {
+      "max_due_probability_per_64b_access": 1e-06,
+      "max_sdc_probability_per_64b_access": 1e-08
+    },
+    "stringent": {
+      "max_due_probability_per_64b_access": 1e-07,
+      "max_sdc_probability_per_64b_access": 1e-12
+    }
+  },
+  "schema_version": 1,
+  "selector": {
+    "hard_constraints": [
+      "verification_status",
+      "sdc_limit",
+      "due_limit"
+    ],
+    "objective_order": [
+      "modelled_total_energy_j",
+      "decoder_complexity_proxy",
+      "encoded_bits_per_64b",
+      "implementation_id"
+    ],
+    "selector_id": "verified-feasible-lexicographic-v1",
+    "weights": null
+  },
+  "study_id": "green-ecc-phy-software-simulation-v1",
+  "uncertainty_models": {
+    "base": {
+      "bit_energy_scale": 1.0,
+      "leakage_scale": 1.0,
+      "xor_energy_scale": 1.0
+    },
+    "logic_dominated": {
+      "bit_energy_scale": 0.5,
+      "leakage_scale": 0.5,
+      "xor_energy_scale": 2.0
+    },
+    "storage_dominated": {
+      "bit_energy_scale": 1.5,
+      "leakage_scale": 1.5,
+      "xor_energy_scale": 0.5
+    }
+  },
+  "workloads": {
+    "high_activity": {
+      "lifetime_s": 3600.0,
+      "payload_accesses": 1000000000,
+      "write_fraction": 0.5
+    },
+    "low_activity": {
+      "lifetime_s": 3600.0,
+      "payload_accesses": 1000000,
+      "write_fraction": 0.1
+    }
+  }
+}

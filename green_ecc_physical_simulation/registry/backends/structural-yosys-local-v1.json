@@ -1,0 +1,22 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.backends:create_null_safe_backend"
+  },
+  "available": true,
+  "backend_id": "structural-yosys-local-v1",
+  "corner": null,
+  "evidence_paths": [
+    "reports/safeforge_hardware_validation/nominal_robust_structural_comparison.json"
+  ],
+  "kind": "structural_synthesis_only",
+  "library": null,
+  "manifest_sha256": "ec6084cc7215a323223624f48db5de2f9909377e26cee3befb1e4338a414fea2",
+  "pdk": null,
+  "reason": "Yosys generic logic only; no Liberty timing, power, or physical area",
+  "schema_version": 1,
+  "technology": null,
+  "temperature": null,
+  "timing_constraints": null,
+  "tool": "Yosys 0.30+48",
+  "voltage": null
+}

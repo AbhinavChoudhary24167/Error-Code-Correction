@@ -1,0 +1,45 @@
+{
+  "active_implementation": "secded-rtl-combinational-72-64-v1",
+  "allowed_implementation_ids": [
+    "secded-rtl-combinational-72-64-v1",
+    "secdaec-rtl-bounded-72-64-v1",
+    "taec-rtl-bounded-72-64-v1"
+  ],
+  "architecture_id": "adaptive-shared-page-v1",
+  "architecture_type": "adaptive_shared_datapath",
+  "configuration_mechanism": {
+    "kind": "protected_mode_register"
+  },
+  "controller": {
+    "kind": "repository_transition_controller",
+    "physical_cost": null
+  },
+  "deployment_scope": "page_granularity",
+  "fallback_implementation": "secded-rtl-combinational-72-64-v1",
+  "manifest_sha256": "604448dd06892edbea5760cd80f7156eaf8b986af9bd6f8973d0cdeadce87402",
+  "metadata": {
+    "bits_per_unit": 3,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "gated_parallel_or_shared",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": true
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "asic/rtl/common/green_ecc_select_mux.sv": "d990f794d6ed81bcc5828c47f03c0dfc4a37232817efeabe50c238133f795359",
+    "asic/rtl/common/green_ecc_transition_controller.sv": "bc06e508b8af5e2e6c5cf50f2bf65d6456c2829be976b327d6175d4333ddf654",
+    "reports/safeforge_hardware_validation/validation_summary.json": "31ca783b82b1a009138dbee6dd9424ff2bc76eb1d7d482d4371621c409fdcc88"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": true,
+    "verification_required": true
+  }
+}

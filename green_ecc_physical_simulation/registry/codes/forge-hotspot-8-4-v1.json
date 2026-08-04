@@ -1,0 +1,182 @@
+{
+  "canonical_equivalence_class_id": "archived-matrix-49dc2e5537bc0a4c1ab1",
+  "code_id": "forge-hotspot-8-4-v1",
+  "code_spec_id": "forge-hotspot-8-4-v1",
+  "content_hashes": {
+    "algorithm": "sha256",
+    "manifest_sha256": "b292ed394670631ac146200756565d38ce6537c33fa58cd50b0c05fa691f8b00",
+    "matrix_sha256": "49dc2e5537bc0a4c1ab13f59c47c38452508d34711701d108fcf8c7c79ac50af",
+    "source_files": {
+      "reports/code_synthesis/code.json": "ceeaa2dbeae8a488e147c1c343b8e0a921003b98d72f7c70bc219c04d280de54",
+      "reports/code_synthesis/verification_report.json": "689f5a993b15fff9330dbdced65a14a2c3a805d29a2669b602df9cc6fb7d2102"
+    }
+  },
+  "decoder_policy": {
+    "all_single_entries_present": true,
+    "correction_entry_count": 13,
+    "policy_id": "forge-hotspot-8-4-v1-archived-syndrome-table"
+  },
+  "distance_evidence": {
+    "designed_distance_lower_bound": 4,
+    "exact_minimum_distance": 4,
+    "method": "dual enumeration plus exact binary MacWilliams transform"
+  },
+  "encoder_id": "forge-hotspot-8-4-v1-systematic-encoder",
+  "family": "SafeForge/CodeForge synthesized binary linear code",
+  "field": {
+    "kind": "GF(2)",
+    "order": 2
+  },
+  "guaranteed_correction_set": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "generator": "all_combinations",
+      "weight": 1
+    }
+  ],
+  "guaranteed_detection_set": [],
+  "k": 4,
+  "known_miscorrection_domain": [
+    {
+      "domain": "error masks outside the explicitly verified deployed syndrome table",
+      "expected_behavior": "may be detected uncorrectable or silently miscorrected"
+    }
+  ],
+  "license": "MIT repository code; cited evidence retains its original provenance",
+  "matrix_definition": {
+    "generator_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "parity_check_matrix": [
+      [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "n": 8,
+  "name": "Archived synthesized code forge-hotspot-8-4-v1",
+  "proof_references": [
+    {
+      "path": "reports/code_synthesis/code.json",
+      "role": "archived exact G, H, coordinate order, and deployed syndrome table"
+    },
+    {
+      "path": "reports/code_synthesis/verification_report.json",
+      "role": "archived generation/verification evidence"
+    }
+  ],
+  "puncturing": {
+    "enabled": false,
+    "parameters": null
+  },
+  "redundancy": 4,
+  "schema_version": 1,
+  "shortening": {
+    "enabled": false,
+    "parameters": null
+  },
+  "source_provenance": [
+    {
+      "path": "reports/code_synthesis/code.json",
+      "role": "archived exact G, H, coordinate order, and deployed syndrome table"
+    },
+    {
+      "path": "reports/code_synthesis/verification_report.json",
+      "role": "archived generation/verification evidence"
+    }
+  ],
+  "symbol_width": 1,
+  "systematic": {
+    "data_positions": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "enabled": true
+  },
+  "unsupported_error_classes": [
+    "family-wide correction claims beyond the exact deployed table",
+    "physical PPA claims"
+  ],
+  "version": "1.0.0"
+}

@@ -183,6 +183,10 @@ def main() -> None:
     )
     sub = parser.add_subparsers(dest="command")
 
+    from green_ecc_phy.cli import add_parsers as add_multi_ecc_parsers
+
+    multi_ecc_parsers = add_multi_ecc_parsers(sub)
+
     doctor_parser = sub.add_parser(
         "doctor", help="Diagnose Python, build tools, data files, and runtime compatibility"
     )
@@ -712,6 +716,11 @@ def main() -> None:
     ml_infer.add_argument("--outdir", type=Path, required=True)
 
     args = parser.parse_args()
+
+    from green_ecc_phy.cli import handle as handle_multi_ecc_cli
+
+    if handle_multi_ecc_cli(args, repo_root=repo_path, parsers=multi_ecc_parsers):
+        return
 
     if args.command == "doctor":
         from validation.environment_doctor import run_environment_doctor

@@ -1,0 +1,173 @@
+{
+  "canonical_equivalence_class_id": "archived-matrix-0ac2f963bef8de2c0417",
+  "code_id": "safeforge-robust-8-4-v1",
+  "code_spec_id": "safeforge-robust-8-4-v1",
+  "content_hashes": {
+    "algorithm": "sha256",
+    "manifest_sha256": "595d0a35278b813309b64b5170c21b026a016a3a5a999de97c105196beb0b11f",
+    "matrix_sha256": "0ac2f963bef8de2c041768b64945ddab3b0b0df9eca3d2559d4be2e43d97b034",
+    "source_files": {
+      "reports/safeforge_study/result_manifest.json": "8aaacf73b5e17377358691e0cabd03c1fe5432c7f6d2a5344c467f2504c7c248",
+      "reports/safeforge_study/robust_cosynthesized_code.json": "247be4593243f9962f4a7a4cc22613393ecb5051f5a1b30dfd4c6a2bca3407c0"
+    }
+  },
+  "decoder_policy": {
+    "all_single_entries_present": false,
+    "correction_entry_count": 8,
+    "policy_id": "safeforge-robust-8-4-v1-archived-syndrome-table"
+  },
+  "distance_evidence": {
+    "designed_distance_lower_bound": 3,
+    "exact_minimum_distance": 3,
+    "method": "dual enumeration plus exact binary MacWilliams transform"
+  },
+  "encoder_id": "safeforge-robust-8-4-v1-systematic-encoder",
+  "family": "SafeForge/CodeForge synthesized binary linear code",
+  "field": {
+    "kind": "GF(2)",
+    "order": 2
+  },
+  "guaranteed_correction_set": [],
+  "guaranteed_detection_set": [],
+  "k": 4,
+  "known_miscorrection_domain": [
+    {
+      "domain": "error masks outside the explicitly verified deployed syndrome table",
+      "expected_behavior": "may be detected uncorrectable or silently miscorrected"
+    }
+  ],
+  "license": "MIT repository code; cited evidence retains its original provenance",
+  "matrix_definition": {
+    "generator_matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    ],
+    "parity_check_matrix": [
+      [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "n": 8,
+  "name": "Archived synthesized code safeforge-robust-8-4-v1",
+  "proof_references": [
+    {
+      "path": "reports/safeforge_study/robust_cosynthesized_code.json",
+      "role": "archived exact G, H, coordinate order, and deployed syndrome table"
+    },
+    {
+      "path": "reports/safeforge_study/result_manifest.json",
+      "role": "archived generation/verification evidence"
+    }
+  ],
+  "puncturing": {
+    "enabled": false,
+    "parameters": null
+  },
+  "redundancy": 4,
+  "schema_version": 1,
+  "shortening": {
+    "enabled": false,
+    "parameters": null
+  },
+  "source_provenance": [
+    {
+      "path": "reports/safeforge_study/robust_cosynthesized_code.json",
+      "role": "archived exact G, H, coordinate order, and deployed syndrome table"
+    },
+    {
+      "path": "reports/safeforge_study/result_manifest.json",
+      "role": "archived generation/verification evidence"
+    }
+  ],
+  "symbol_width": 1,
+  "systematic": {
+    "data_positions": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "enabled": true
+  },
+  "unsupported_error_classes": [
+    "family-wide correction claims beyond the exact deployed table",
+    "physical PPA claims"
+  ],
+  "version": "1.0.0"
+}

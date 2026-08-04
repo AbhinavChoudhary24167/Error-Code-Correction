@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/deployment-architecture.schema.json",
+  "title": "GREEN-ECC-PHY deployment architecture",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "architecture_id", "architecture_type", "deployment_scope",
+    "allowed_implementation_ids", "active_implementation", "configuration_mechanism", "mux_topology",
+    "controller", "metadata", "transition_sequencing", "reencoding_requirements",
+    "fallback_implementation", "transition_cost_evidence", "physical_characterization_identity",
+    "source_hashes", "manifest_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "architecture_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "architecture_type": {"enum": ["fixed", "configurable_gated_parallel", "adaptive_shared_datapath"]},
+    "deployment_scope": {"enum": ["whole_memory", "bank_granularity", "page_granularity"]},
+    "allowed_implementation_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "active_implementation": {"type": "string"},
+    "configuration_mechanism": {"type": "object"},
+    "mux_topology": {"type": "object"},
+    "controller": {"type": "object"},
+    "metadata": {"type": "object"},
+    "transition_sequencing": {"type": "object"},
+    "reencoding_requirements": {"type": "object"},
+    "fallback_implementation": {"type": ["string", "null"]},
+    "transition_cost_evidence": {"type": ["object", "null"]},
+    "physical_characterization_identity": {"type": ["string", "null"]},
+    "source_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

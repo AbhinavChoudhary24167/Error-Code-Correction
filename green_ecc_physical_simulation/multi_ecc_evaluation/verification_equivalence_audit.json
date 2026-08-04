@@ -1,0 +1,73 @@
+{
+  "audit_sha256": "192fad7295c10fa03a17ce54e4a15bf9587c96cd4728b4e074cd05b7d3e73ef7",
+  "hsiao_versus_positional_extended_hamming": {
+    "coordinate_or_row_basis_equivalence": null,
+    "counted_as_same_code": false,
+    "minimum_distances": [
+      4,
+      4
+    ],
+    "reason": "matching dimensions/spectrum are insufficient; exhaustive GL(8,2) equivalence is intractable and no explicit mapping is archived",
+    "same_dimensions": true,
+    "same_exact_weight_enumerator": false,
+    "status": "not_established"
+  },
+  "polar_registration": {
+    "reason": "transform RTL and Bhattacharyya models lack a validated deterministic deployed SC/SCL decoder guarantee under the declared SRAM error classes",
+    "registered": false
+  },
+  "same_code_implementation_groups": {
+    "extended-hamming-secded-72-64-v1": [
+      "secdaec-rtl-bounded-72-64-v1",
+      "secded-rtl-combinational-72-64-v1",
+      "taec-rtl-bounded-72-64-v1"
+    ],
+    "forge-hotspot-8-4-v1": [
+      "forge-hotspot-8-4-v1-archived-table-decoder"
+    ],
+    "forge-spatial-hotspot-72-64-v1": [
+      "forge-spatial-hotspot-72-64-v1-archived-table-decoder"
+    ],
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint": [
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder"
+    ],
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint": [
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder"
+    ],
+    "hsiao-secded-72-64-v1": [
+      "hsiao-generated-combinational-72-64-v1"
+    ],
+    "odd-column-secded-4-8": [
+      "odd-column-secded-4-8-archived-table-decoder"
+    ],
+    "odd-column-secded-64-72": [
+      "odd-column-secded-64-72-archived-table-decoder"
+    ],
+    "primitive-bch-63-51-t2-v1": [
+      "primitive-bch-63-51-t2-v1-reference-decoder"
+    ],
+    "repository-cyclic-63-51-v1": [
+      "cyclic-rtl-bounded-search-63-51-v1"
+    ],
+    "safeforge-robust-72-64-mapping-v1": [
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    ],
+    "safeforge-robust-8-4-v1": [
+      "safeforge-robust-8-4-v1-archived-table-decoder"
+    ],
+    "shortened-bch-71-64-t1-v1": [
+      "shortened-bch-71-64-t1-v1-reference-decoder"
+    ],
+    "shortened-bch-78-64-t2-v1": [
+      "shortened-bch-78-64-t2-v1-reference-decoder"
+    ],
+    "shortened-bch-85-64-t3-v1": [
+      "shortened-bch-85-64-t3-v1-reference-decoder"
+    ]
+  },
+  "schema_version": 1,
+  "secdaec_and_taec_policy_identity": {
+    "code_id": "extended-hamming-secded-72-64-v1",
+    "status": "same mathematical code, distinct decoder-policy implementations"
+  }
+}

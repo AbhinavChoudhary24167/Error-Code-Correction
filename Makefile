@@ -43,7 +43,7 @@ clean:
 
 -include $(DEP)
 
-.PHONY: test clean gtest
+.PHONY: test clean gtest safeforge-decisive
 
 # Build and run C++ unit tests without relying on CMake or external gtest
 gtest: tests/unit/SecDaec64_test
@@ -68,3 +68,6 @@ endif
 
 epc-report:
 	python parse_telemetry.py --csv $(CSV) --node $(NODE) --vdd $(VDD)
+
+safeforge-decisive:
+	python scripts/run_safeforge_decisive_study.py --config configs/safeforge_decisive_72.json --outdir reports/safeforge_decisive_72

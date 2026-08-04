@@ -1,0 +1,39 @@
+{
+  "active_implementation": "secded-rtl-combinational-72-64-v1",
+  "allowed_implementation_ids": [
+    "secded-rtl-combinational-72-64-v1"
+  ],
+  "architecture_id": "fixed-secded-whole-memory-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "7aee942436648cbcd1a0646fba66d8230a605919ccea772ba3bb43d923d061ba",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {},
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

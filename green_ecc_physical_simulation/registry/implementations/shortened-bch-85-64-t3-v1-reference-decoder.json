@@ -1,0 +1,117 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.bch:create_bch_adapter",
+    "parameters": {
+      "m": 7,
+      "primitive_polynomial": 131,
+      "t": 3
+    }
+  },
+  "architecture_style": "reference_only",
+  "backend_id": null,
+  "capability_claims": {
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "primitive BCH with designed distance >= 7",
+    "physical_characterization": null,
+    "software_reference": "systematic encoder, GF syndromes, deterministic bounded locator"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "shortened-bch-85-64-t3-v1",
+  "code_spec_id": "shortened-bch-85-64-t3-v1",
+  "compatible_deployment_architectures": [
+    "fixed-shortened-bch-85-64-t3-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "primitive-bch-bounded-syndrome-t3-v1",
+  "decoder_top": null,
+  "encoder_id": "shortened-bch-85-64-t3-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": null,
+  "evidence_level": "exact_functional_reference",
+  "failed_capabilities": [],
+  "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "ab60e497f8f344df751fda7c1c9b40cd1211d88b8ba58fc2519fc0cfb297b4aa",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {
+    "K": 64,
+    "M": 7,
+    "N": 85,
+    "T": 3
+  },
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "green_ecc_phy/bch.py",
+    "green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json",
+    "tests/python/test_bch_reference.py"
+  ],
+  "source_hashes": {
+    "green_ecc_phy/bch.py": "6588df802ad9eb73f4d5b5d777dd7f811c3f8506b31efdda8b344b0a8f8a1785",
+    "green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json": "1367181ca19fdfd9c3f8eb8ae12f81fe5eb3e86fadec5c2a7820d20625155918",
+    "tests/python/test_bch_reference.py": "d49c09741ff3d6196636e486f5fec0f162db4b7acfe5b91d8092e6e2fa710256"
+  },
+  "source_provenance": [
+    {
+      "path": "green_ecc_phy/bch.py",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "tests/python/test_bch_reference.py",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "guaranteed correction beyond t=3",
+    "physical PPA"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json",
+      "status": "passed",
+      "test_id": "exhaustive_masks_through_t3"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all-weight-1 correction",
+    "all-weight-2 correction",
+    "all-weight-3 correction"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": null
+}

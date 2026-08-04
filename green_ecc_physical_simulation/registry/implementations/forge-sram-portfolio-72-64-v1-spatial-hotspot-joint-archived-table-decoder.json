@@ -1,0 +1,428 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_declared_table_adapter",
+    "parameters": {
+      "table_path": "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json"
+    }
+  },
+  "architecture_style": "reference_only",
+  "backend_id": null,
+  "capability_claims": {
+    "claimed_error_classes": [
+      {
+        "acceptable_statuses": [
+          "CORRECTED"
+        ],
+        "class_id": "all-archived-correction-table-entries",
+        "generator": "explicit",
+        "kind": "correction",
+        "positions": [
+          [
+            64
+          ],
+          [
+            65
+          ],
+          [
+            66
+          ],
+          [
+            0
+          ],
+          [
+            67
+          ],
+          [
+            53
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            68
+          ],
+          [
+            4
+          ],
+          [
+            37
+          ],
+          [
+            11
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            38,
+            39
+          ],
+          [
+            56
+          ],
+          [
+            69
+          ],
+          [
+            32,
+            33
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            10
+          ],
+          [
+            6
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            31,
+            32
+          ],
+          [
+            15
+          ],
+          [
+            23,
+            24
+          ],
+          [
+            57
+          ],
+          [
+            16
+          ],
+          [
+            17
+          ],
+          [
+            18
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            58
+          ],
+          [
+            19
+          ],
+          [
+            44,
+            45
+          ],
+          [
+            59
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            60
+          ],
+          [
+            61
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            70
+          ],
+          [
+            20
+          ],
+          [
+            21
+          ],
+          [
+            22
+          ],
+          [
+            32
+          ],
+          [
+            24
+          ],
+          [
+            25
+          ],
+          [
+            62
+          ],
+          [
+            26
+          ],
+          [
+            27
+          ],
+          [
+            28
+          ],
+          [
+            63,
+            64
+          ],
+          [
+            63
+          ],
+          [
+            43
+          ],
+          [
+            69,
+            70
+          ],
+          [
+            30
+          ],
+          [
+            31
+          ],
+          [
+            23
+          ],
+          [
+            33
+          ],
+          [
+            34
+          ],
+          [
+            19,
+            20
+          ],
+          [
+            71
+          ],
+          [
+            37,
+            38
+          ],
+          [
+            35
+          ],
+          [
+            36
+          ],
+          [
+            5
+          ],
+          [
+            29
+          ],
+          [
+            39
+          ],
+          [
+            40
+          ],
+          [
+            36,
+            37
+          ],
+          [
+            41
+          ],
+          [
+            42
+          ],
+          [
+            38
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            44
+          ],
+          [
+            45
+          ],
+          [
+            46
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            47
+          ],
+          [
+            48
+          ],
+          [
+            49
+          ],
+          [
+            50
+          ],
+          [
+            51
+          ],
+          [
+            52
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1
+          ],
+          [
+            42,
+            43
+          ],
+          [
+            54
+          ],
+          [
+            53,
+            54
+          ],
+          [
+            28,
+            29
+          ],
+          [
+            55
+          ],
+          [
+            29,
+            30
+          ],
+          [
+            34,
+            35
+          ],
+          [
+            55,
+            56
+          ]
+        ],
+        "weight": 1
+      }
+    ],
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "exact binary linear [72,64] code with d=4",
+    "physical_characterization": null,
+    "software_reference": "archived deterministic syndrome correction table"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+  "code_spec_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+  "compatible_deployment_architectures": [
+    "fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-syndrome-table",
+  "decoder_top": null,
+  "encoder_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": null,
+  "evidence_level": "exact_functional_reference",
+  "failed_capabilities": [],
+  "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "f632a2d70072e0deeabf40402fb6588aa42da03c20d5ea44f5c2b0a75feb17ec",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {},
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+    "reports/portfolio_cosynthesis/result_manifest.json"
+  ],
+  "source_hashes": {
+    "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json": "8b49a279c3a78b1e96dc8fbba2ee44f9b0a6b897bc6b7effc068af4a55269c54",
+    "reports/portfolio_cosynthesis/result_manifest.json": "f00d6a8c88b7a3e7079668db1233603b39be4e32c4f602e453c07bb162550311"
+  },
+  "source_provenance": [
+    {
+      "path": "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/portfolio_cosynthesis/result_manifest.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "unlisted error masks",
+    "physical PPA"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/portfolio_cosynthesis/result_manifest.json",
+      "status": "passed",
+      "test_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-verification"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all 96 archived syndrome-table leaders",
+    "all-single-bit correction"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": null
+}

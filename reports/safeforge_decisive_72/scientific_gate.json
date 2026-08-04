@@ -1,0 +1,21 @@
+{
+  "kill_criteria_triggered": [
+    "practical 72-bit worst-case DUE remains close to one at the system-derived SDC target",
+    "joint optimization does not beat the strong sequential placement-collision baseline",
+    "no raw or measurement-derived held-out bit-exact dataset is available",
+    "deployment depends on an unmeasured outside-support tail bound",
+    "the decisive joint policy has no characterized-library or placed-and-routed cost result"
+  ],
+  "overall_status": "failed_negative_result",
+  "scientific_gate": {
+    "beats_policy_only": true,
+    "beats_strong_sequential": false,
+    "heldout_experimental_shift": false,
+    "independent_certificates": true,
+    "new_exact_formulation_present": true,
+    "nontrivial_availability_at_stringent_bound": false,
+    "practical_physical_cost_quantified": false,
+    "tail_accounted": true,
+    "tail_empirically_justified": false
+  }
+}

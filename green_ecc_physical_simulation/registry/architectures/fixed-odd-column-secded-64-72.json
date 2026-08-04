@@ -1,0 +1,42 @@
+{
+  "active_implementation": "odd-column-secded-64-72-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "odd-column-secded-64-72-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-odd-column-secded-64-72",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "31ca20177a0a6ff939fd86e7de450e280a77fe9f2ea939e8c86330d2a39bf905",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/code_synthesis_64/baselines/odd_column_secded_code.json": "5b5b5332ed1aca726f0824dd074301e2d1a13a78f40d17563eae229ba18b4061",
+    "reports/code_synthesis_64/verification_report.json": "3b93b4af2e50e3f8c11344cb9cd54e67cb49fd33104076e0c8fd288f66a6ab2f"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

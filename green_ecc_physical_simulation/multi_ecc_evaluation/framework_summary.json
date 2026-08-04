@@ -1,0 +1,362 @@
+{
+  "adaptation_break_even": null,
+  "all_physical_metrics_unsupported": true,
+  "appropriate_claim": "scenario-aware selection is supported within this exact-functional plus analytical-sensitivity software model; no physical-PPA or silicon winner is claimed",
+  "architecture_feasibility": "unresolved_without_characterized_mux_controller_metadata_and_transition_costs",
+  "characterization_result_count": 18,
+  "framework_and_extensibility_gate": {
+    "comparison_fairness_automatic": true,
+    "external_test_ecc_without_core_change": true,
+    "machine_checkable_provenance": true,
+    "missing_evidence_remains_null": true,
+    "multiple_codes_registered": true,
+    "normalized_functional_contract": true,
+    "one_code_has_multiple_implementations": true,
+    "passed": true
+  },
+  "framework_gate": {
+    "comparison_fairness_automatic": true,
+    "external_test_ecc_without_core_change": true,
+    "machine_checkable_provenance": true,
+    "missing_evidence_remains_null": true,
+    "multiple_codes_registered": true,
+    "normalized_functional_contract": true,
+    "one_code_has_multiple_implementations": true,
+    "passed": true
+  },
+  "functional_and_analytical_simulation_gate": {
+    "all_physical_fields_remain_null": true,
+    "all_registered_implementations_verified_or_rejected": true,
+    "decision_rule_applied": "scenario_aware_selection_supported_within_analytical_model",
+    "fair_payload_normalization_completed": true,
+    "passed": true,
+    "rejected_cyclic_kept_separate": true,
+    "scenario_grid_completed": true,
+    "valid_primitive_bch_exhaustive_t2": true
+  },
+  "implementations_per_code": {
+    "extended-hamming-secded-72-64-v1": [
+      "secdaec-rtl-bounded-72-64-v1",
+      "secded-rtl-combinational-72-64-v1",
+      "taec-rtl-bounded-72-64-v1"
+    ],
+    "forge-hotspot-8-4-v1": [
+      "forge-hotspot-8-4-v1-archived-table-decoder"
+    ],
+    "forge-spatial-hotspot-72-64-v1": [
+      "forge-spatial-hotspot-72-64-v1-archived-table-decoder"
+    ],
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint": [
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder"
+    ],
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint": [
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder"
+    ],
+    "hsiao-secded-72-64-v1": [
+      "hsiao-generated-combinational-72-64-v1"
+    ],
+    "odd-column-secded-4-8": [
+      "odd-column-secded-4-8-archived-table-decoder"
+    ],
+    "odd-column-secded-64-72": [
+      "odd-column-secded-64-72-archived-table-decoder"
+    ],
+    "primitive-bch-63-51-t2-v1": [
+      "primitive-bch-63-51-t2-v1-reference-decoder"
+    ],
+    "repository-cyclic-63-51-v1": [
+      "cyclic-rtl-bounded-search-63-51-v1"
+    ],
+    "safeforge-robust-72-64-mapping-v1": [
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    ],
+    "safeforge-robust-8-4-v1": [
+      "safeforge-robust-8-4-v1-archived-table-decoder"
+    ],
+    "shortened-bch-71-64-t1-v1": [
+      "shortened-bch-71-64-t1-v1-reference-decoder"
+    ],
+    "shortened-bch-78-64-t2-v1": [
+      "shortened-bch-78-64-t2-v1-reference-decoder"
+    ],
+    "shortened-bch-85-64-t3-v1": [
+      "shortened-bch-85-64-t3-v1-reference-decoder"
+    ]
+  },
+  "mux_controller_overhead": null,
+  "physical_backend_coverage": {
+    "cadence-st65-unavailable-v1": {
+      "available": false,
+      "kind": "cadence_genus_innovus_tempus",
+      "physical_metrics_available": false,
+      "reason": "Cadence tools, ST65 PDK, and characterized libraries are not locally discoverable"
+    },
+    "not-characterized-v1": {
+      "available": false,
+      "kind": "unavailable",
+      "physical_metrics_available": false,
+      "reason": "Explicit null backend for unsupported physical evidence"
+    },
+    "openroad-sky130-unavailable-v1": {
+      "available": false,
+      "kind": "yosys_opensta_openroad",
+      "physical_metrics_available": false,
+      "reason": "OpenSTA/OpenROAD/SKY130/OpenRAM and characterized SRAM collateral are unavailable"
+    },
+    "structural-yosys-local-v1": {
+      "available": true,
+      "kind": "structural_synthesis_only",
+      "physical_metrics_available": false,
+      "reason": "Yosys generic logic only; no Liberty timing, power, or physical area"
+    }
+  },
+  "physical_scientific_result_gate": {
+    "measured_mux_controller_overhead_changes_feasibility": false,
+    "passed": false,
+    "physical_characterization_exposes_analytical_error": false,
+    "physical_metrics_reverse_proxy_selection": false,
+    "reproducible_physical_break_even_boundary": false,
+    "same_code_implementations_change_physical_winner": false
+  },
+  "proxy_to_physical_winner_changes": null,
+  "recommendation_stability_under_uncertainty": {
+    "base": {
+      "base_winner_agreement_count": 192,
+      "base_winner_agreement_fraction": 1.0,
+      "winner_frequency": {
+        "hsiao-generated-combinational-72-64-v1": 64,
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+        "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+        "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+        "shortened-bch-85-64-t3-v1-reference-decoder": 32
+      }
+    },
+    "logic_dominated": {
+      "base_winner_agreement_count": 190,
+      "base_winner_agreement_fraction": 0.9895833333333334,
+      "winner_frequency": {
+        "hsiao-generated-combinational-72-64-v1": 64,
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+        "safeforge-robust-8-4-v1-archived-table-decoder": 2,
+        "shortened-bch-71-64-t1-v1-reference-decoder": 30,
+        "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+        "shortened-bch-85-64-t3-v1-reference-decoder": 32
+      }
+    },
+    "storage_dominated": {
+      "base_winner_agreement_count": 192,
+      "base_winner_agreement_fraction": 1.0,
+      "winner_frequency": {
+        "hsiao-generated-combinational-72-64-v1": 64,
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+        "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+        "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+        "shortened-bch-85-64-t3-v1-reference-decoder": 32
+      }
+    }
+  },
+  "registered_code_specifications": 15,
+  "registered_encoder_decoder_implementations": 17,
+  "registered_hardware_implementations": 17,
+  "research_contribution_gate": {
+    "measured_mux_controller_overhead_changes_feasibility": false,
+    "passed": false,
+    "physical_characterization_exposes_analytical_error": false,
+    "physical_metrics_reverse_proxy_selection": false,
+    "reproducible_physical_break_even_boundary": false,
+    "same_code_implementations_change_physical_winner": false
+  },
+  "same_code_implementation_variation": {
+    "functional": "SECDED passes its full declared universe; bounded TAEC passes only the shared SECDED universe and fails 62/62 adjacent triples; bounded SEC-DAEC fails both its double-detection and adjacent-pair claims",
+    "physical": null
+  },
+  "schema_version": 1,
+  "selectable_candidate_count": 15,
+  "software_simulation_study": {
+    "adaptive_threshold": {
+      "best_single_fixed_candidate": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "evidence_level": "analytical_sensitivity",
+      "gross_oracle_advantage_j_across_comparable_grid": 0.011184651500440948,
+      "hypothetical_sweep": [
+        {
+          "beneficial": true,
+          "hypothetical_overhead_fraction_of_gross_gain": 0.0,
+          "net_analytical_gain_j": 0.011184651500440948
+        },
+        {
+          "beneficial": true,
+          "hypothetical_overhead_fraction_of_gross_gain": 0.1,
+          "net_analytical_gain_j": 0.010066186350396853
+        },
+        {
+          "beneficial": true,
+          "hypothetical_overhead_fraction_of_gross_gain": 0.25,
+          "net_analytical_gain_j": 0.00838848862533071
+        },
+        {
+          "beneficial": true,
+          "hypothetical_overhead_fraction_of_gross_gain": 0.5,
+          "net_analytical_gain_j": 0.005592325750220474
+        },
+        {
+          "beneficial": true,
+          "hypothetical_overhead_fraction_of_gross_gain": 0.75,
+          "net_analytical_gain_j": 0.002796162875110237
+        },
+        {
+          "beneficial": false,
+          "hypothetical_overhead_fraction_of_gross_gain": 1.0,
+          "net_analytical_gain_j": 0.0
+        },
+        {
+          "beneficial": false,
+          "hypothetical_overhead_fraction_of_gross_gain": 1.25,
+          "net_analytical_gain_j": -0.002796162875110237
+        },
+        {
+          "beneficial": false,
+          "hypothetical_overhead_fraction_of_gross_gain": 1.5,
+          "net_analytical_gain_j": -0.005592325750220474
+        }
+      ],
+      "maximum_tolerable_total_analytical_overhead_j": 0.011184651500440948,
+      "physical_break_even": null,
+      "status": "parameterized_analytical_threshold",
+      "symbolic_condition": "E_mux + E_controller + N_transition*E_transition + N_reencoded_bits*E_reencode_per_bit < E_best_fixed - E_oracle"
+    },
+    "decision_rule_result": "scenario_aware_selection_supported_within_analytical_model",
+    "evidence_scope": "exact software functional execution plus preregistered analytical sensitivity model; no physical PPA",
+    "feasible_scenario_count": 192,
+    "fixed_baseline_regret": {
+      "hsiao-generated-combinational-72-64-v1": {
+        "comparable_feasible_scenarios": 96,
+        "constraint_failure_or_missing_scenarios": 96,
+        "max_analytical_energy_regret_j": 3.6874384600000176e-06,
+        "mean_analytical_energy_regret_j": 6.111646347735354e-07,
+        "mean_fractional_regret": 0.004588455264899204,
+        "metric_evidence_level": "analytical_sensitivity",
+        "total_analytical_energy_regret_j": 5.867180493825939e-05
+      },
+      "secded-rtl-combinational-72-64-v1": {
+        "comparable_feasible_scenarios": 96,
+        "constraint_failure_or_missing_scenarios": 96,
+        "max_analytical_energy_regret_j": 1.3287439100000023e-05,
+        "mean_analytical_energy_regret_j": 4.550051297435939e-06,
+        "mean_fractional_regret": 0.02498984051632304,
+        "metric_evidence_level": "analytical_sensitivity",
+        "total_analytical_energy_regret_j": 0.00043680492455385015
+      },
+      "shortened-bch-85-64-t3-v1-reference-decoder": {
+        "comparable_feasible_scenarios": 192,
+        "constraint_failure_or_missing_scenarios": 0,
+        "max_analytical_energy_regret_j": 0.00018427320272,
+        "mean_analytical_energy_regret_j": 5.825339323146327e-05,
+        "mean_fractional_regret": 0.21937056992463944,
+        "metric_evidence_level": "analytical_sensitivity",
+        "total_analytical_energy_regret_j": 0.011184651500440948
+      }
+    },
+    "inventory_row_count": 30,
+    "legacy_selector_comparison": {
+      "agreement": null,
+      "reason": "legacy selector uses nominal SEC-DAEC/TAEC/BCH family aliases and surrogate constants that do not map one-to-one to functionally verified code_spec_id/decoder_policy_id identities",
+      "status": "not_applied"
+    },
+    "no_winner_scenario_count": 0,
+    "pareto_membership_frequency": {
+      "forge-spatial-hotspot-72-64-v1-archived-table-decoder": 64,
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder": 32,
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder": 64,
+      "hsiao-generated-combinational-72-64-v1": 96,
+      "odd-column-secded-4-8-archived-table-decoder": 64,
+      "odd-column-secded-64-72-archived-table-decoder": 32,
+      "primitive-bch-63-51-t2-v1-reference-decoder": 160,
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 96,
+      "safeforge-robust-8-4-v1-archived-table-decoder": 32,
+      "secded-rtl-combinational-72-64-v1": 32,
+      "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+      "shortened-bch-78-64-t2-v1-reference-decoder": 160,
+      "shortened-bch-85-64-t3-v1-reference-decoder": 128,
+      "taec-rtl-bounded-72-64-v1": 32
+    },
+    "physical_metrics_all_null": true,
+    "preregistration_sha256": "eef89577ec920ba33d59c564c969e3b4cd550deb756c5db6ccc94568ed080654",
+    "registered_code_specifications": 15,
+    "registered_encoder_decoder_implementations": 17,
+    "scenario_count": 192,
+    "schema_version": 1,
+    "selectable_implementation_count": 15,
+    "study_id": "green-ecc-phy-software-simulation-v1",
+    "summary_sha256": "da81326aaeb509e17e396eee0d1c3eb458432cf3505d06b6b5f81fff2c5d10e2",
+    "uncertainty_stability": {
+      "base": {
+        "base_winner_agreement_count": 192,
+        "base_winner_agreement_fraction": 1.0,
+        "winner_frequency": {
+          "hsiao-generated-combinational-72-64-v1": 64,
+          "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+          "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+          "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+          "shortened-bch-85-64-t3-v1-reference-decoder": 32
+        }
+      },
+      "logic_dominated": {
+        "base_winner_agreement_count": 190,
+        "base_winner_agreement_fraction": 0.9895833333333334,
+        "winner_frequency": {
+          "hsiao-generated-combinational-72-64-v1": 64,
+          "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+          "safeforge-robust-8-4-v1-archived-table-decoder": 2,
+          "shortened-bch-71-64-t1-v1-reference-decoder": 30,
+          "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+          "shortened-bch-85-64-t3-v1-reference-decoder": 32
+        }
+      },
+      "storage_dominated": {
+        "base_winner_agreement_count": 192,
+        "base_winner_agreement_fraction": 1.0,
+        "winner_frequency": {
+          "hsiao-generated-combinational-72-64-v1": 64,
+          "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+          "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+          "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+          "shortened-bch-85-64-t3-v1-reference-decoder": 32
+        }
+      }
+    },
+    "winner_frequency": {
+      "hsiao-generated-combinational-72-64-v1": 64,
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+      "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+      "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+      "shortened-bch-85-64-t3-v1-reference-decoder": 32
+    }
+  },
+  "strongest_negative_result": "No physical selection, implementation PPA comparison, MUX/controller overhead, or measured break-even result is possible; the repository SEC-DAEC and historical cyclic/BCH-labelled implementations remain rejected.",
+  "strongest_positive_result": "Functionally distinct verified implementations win different preregistered analytical scenario regions, with non-zero fixed-baseline regret and high sensitivity stability.",
+  "summary_sha256": "e8d2b22cc9752d6260d77775854c7f9a839307961fec39ed9b4dbcf57e3f6406",
+  "verification": {
+    "passed": [
+      "forge-hotspot-8-4-v1-archived-table-decoder",
+      "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "hsiao-generated-combinational-72-64-v1",
+      "odd-column-secded-4-8-archived-table-decoder",
+      "odd-column-secded-64-72-archived-table-decoder",
+      "primitive-bch-63-51-t2-v1-reference-decoder",
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "safeforge-robust-8-4-v1-archived-table-decoder",
+      "secded-rtl-combinational-72-64-v1",
+      "shortened-bch-71-64-t1-v1-reference-decoder",
+      "shortened-bch-78-64-t2-v1-reference-decoder",
+      "shortened-bch-85-64-t3-v1-reference-decoder",
+      "taec-rtl-bounded-72-64-v1"
+    ],
+    "rejected": [
+      "cyclic-rtl-bounded-search-63-51-v1",
+      "secdaec-rtl-bounded-72-64-v1"
+    ]
+  },
+  "verified_capability_count": 31
+}

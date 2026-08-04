@@ -1,0 +1,42 @@
+{
+  "active_implementation": "safeforge-robust-8-4-v1-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "safeforge-robust-8-4-v1-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-safeforge-robust-8-4-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "3bc9b68854ae7ec3e792dec66b205625b6c557c580ea7e954a7b61800992a1cd",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/safeforge_study/result_manifest.json": "8aaacf73b5e17377358691e0cabd03c1fe5432c7f6d2a5344c467f2504c7c248",
+    "reports/safeforge_study/robust_cosynthesized_code.json": "247be4593243f9962f4a7a4cc22613393ecb5051f5a1b30dfd4c6a2bca3407c0"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

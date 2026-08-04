@@ -1,0 +1,42 @@
+{
+  "active_implementation": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "forge-spatial-hotspot-72-64-v1-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-forge-spatial-hotspot-72-64-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "63f7ddac623856d250a2383f843735a5e02d3980581e4158c6ff3527ed01b1d8",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/code_synthesis_64/code.json": "c16faae44b2d5ecf9946f9dea91d1522ab9b0c54d3609cf0cbecd97eae8e46d9",
+    "reports/code_synthesis_64/verification_report.json": "3b93b4af2e50e3f8c11344cb9cd54e67cb49fd33104076e0c8fd288f66a6ab2f"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "study_id": "safeforge-certified-availability-negative-72-64-v1",
+  "fixed_code": "reports/code_synthesis_64/baselines/odd_column_secded_code.json",
+  "nominal_distribution": "configs/fault_distributions/benchmarks/spatial_hot_spots.json",
+  "support_expansions": [
+    "configs/fault_distributions/benchmarks/distribution_shift.json",
+    "configs/fault_distributions/benchmarks/voltage_sensitive.json",
+    "configs/fault_distributions/benchmarks/mixed_sbu_dbu_mbu.json"
+  ],
+  "ambiguity": {
+    "ambiguity_id": "decisive-72bit-tv-0.05-engineering-sensitivity",
+    "type": "total_variation",
+    "radius": 0.05,
+    "calibration": {
+      "kind": "engineering_sensitivity",
+      "description": "Not a statistical confidence region; retained to test the central hypothesis under material distribution shift."
+    }
+  },
+  "primary_system_target_id": "server_class_engineering_point",
+  "operating_points": [
+    {
+      "system_target_id": "conservative_safety_engineering_point",
+      "mission_hours": 8760,
+      "target": {"kind": "system_sdc_fit", "value": 0.1},
+      "exposure": {"kind": "system_event_fit", "event_fit_upper": 1000.0},
+      "tail": {"probability_upper": 1e-5, "sdc_probability_upper": 1.0},
+      "target_basis": "Declared stringent engineering sensitivity point; not a quoted industry standard.",
+      "assumptions": ["1000 FIT is treated as a system-wide relevant event-rate upper bound only for this sensitivity.", "The 1e-5 outside-support probability is unmeasured and therefore not deployment evidence."]
+    },
+    {
+      "system_target_id": "server_class_engineering_point",
+      "mission_hours": 8760,
+      "target": {"kind": "system_sdc_fit", "value": 1.0},
+      "exposure": {"kind": "system_event_fit", "event_fit_upper": 1000.0},
+      "tail": {"probability_upper": 1e-5, "sdc_probability_upper": 1.0},
+      "target_basis": "Server-class named engineering sensitivity point; not a quoted industry standard.",
+      "assumptions": ["1000 FIT is a system-event sensitivity, not the benchmark raw_fit reinterpreted as measurement.", "Tail SDC is bounded by one."]
+    },
+    {
+      "system_target_id": "embedded_edge_engineering_point",
+      "mission_hours": 8760,
+      "target": {"kind": "system_sdc_fit", "value": 10.0},
+      "exposure": {"kind": "system_event_fit", "event_fit_upper": 1000.0},
+      "tail": {"probability_upper": 1e-5, "sdc_probability_upper": 1.0},
+      "target_basis": "Embedded/edge named engineering sensitivity point; not a quoted industry standard.",
+      "assumptions": ["The event-rate and tail inputs require replacement by product-specific confidence bounds before deployment."]
+    },
+    {
+      "system_target_id": "unbounded_tail_fail_closed",
+      "mission_hours": 8760,
+      "target": {"kind": "system_sdc_fit", "value": 1.0},
+      "exposure": {"kind": "system_event_fit", "event_fit_upper": 1000.0},
+      "target_basis": "Fail-closed sensitivity with no outside-support bound.",
+      "assumptions": ["No tail probability is asserted."]
+    }
+  ],
+  "placement_constraints": {
+    "allowed_families": ["identity", "interleaved", "cyclic", "adjacent_swap", "bank_rotation"],
+    "cyclic_shift_count": 15,
+    "bank_rotation_size": 8,
+    "maximum_data_displacement_bits": 63,
+    "fixed_data_positions": [],
+    "word_organization": "one 72-bit physical word; no cross-word permutation",
+    "bank_subarray_scope": "placement occurs within one word in one declared subarray",
+    "burst_orientation": "physical bit index order",
+    "parity_placement": "fixed positions 64 through 71",
+    "metadata_protection": "no in-word metadata positions declared",
+    "implementation_note": "displacement is an index proxy and is not routed wirelength"
+  },
+  "heldout_synthetic_distributions": [
+    "configs/fault_distributions/benchmarks/temperature_sensitive.json",
+    "configs/fault_distributions/benchmarks/geometry_filtered.json",
+    "configs/fault_distributions/benchmarks/non_adjacent_mbu.json"
+  ]
+}

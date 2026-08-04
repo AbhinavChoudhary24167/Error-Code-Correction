@@ -1,0 +1,112 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_bounded_cyclic_adapter",
+    "parameters": {
+      "search_weight": 2
+    }
+  },
+  "architecture_style": "combinational",
+  "backend_id": null,
+  "capability_claims": {
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "degree-12 cyclic code; distance-5 BCH identity unproved",
+    "physical_characterization": null,
+    "rtl": "bounded <=2 candidate search with archived triple miscorrection"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "repository-cyclic-63-51-v1",
+  "code_spec_id": "repository-cyclic-63-51-v1",
+  "compatible_deployment_architectures": [
+    "fixed-cyclic-whole-memory-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "bounded-valid-codeword-search-weight2-v1",
+  "decoder_top": "bch_decoder",
+  "encoder_id": "repository-cyclic-63-51-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": "bch_encoder",
+  "evidence_level": "rtl_and_exact_functional",
+  "failed_capabilities": [
+    "all-single-bit correction: 33/63 failures",
+    "BCH designed-distance-five identity"
+  ],
+  "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "7cdd673caaed8ff82b0f0dd0231e13485ebdd529b3a0881f47ed1ddddb5ab4d5",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {
+    "G_POLY": "13'b1_000111101011",
+    "K": 51,
+    "N": 63
+  },
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "asic/rtl/bch/bch_codec.sv",
+    "asic/tb/tb_bch.sv",
+    "reports/safeforge_hardware_validation/validation_summary.json"
+  ],
+  "source_hashes": {
+    "asic/rtl/bch/bch_codec.sv": "4fd6d0a91efc255ab1964d7db417d18f14e178149739a68666cb520c02102639",
+    "asic/tb/tb_bch.sv": "627151112f27ff482d4ef2750f7b1a3a90dd347e4ab0d601199514499e5733c9",
+    "reports/safeforge_hardware_validation/validation_summary.json": "31ca783b82b1a009138dbee6dd9424ff2bc76eb1d7d482d4371621c409fdcc88"
+  },
+  "source_provenance": [
+    {
+      "path": "asic/rtl/bch/bch_codec.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "asic/tb/tb_bch.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "selection eligibility"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "status": "passed",
+      "test_id": "tb_bch"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [],
+  "version": "1.0.0",
+  "wrapper_module": "bch_63"
+}

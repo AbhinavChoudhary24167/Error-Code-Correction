@@ -1,0 +1,42 @@
+{
+  "active_implementation": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "0c9a90aefa7540becde72366850adc8818d97c8310bf5b9261af8a1b536c8e88",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json": "8b49a279c3a78b1e96dc8fbba2ee44f9b0a6b897bc6b7effc068af4a55269c54",
+    "reports/portfolio_cosynthesis/result_manifest.json": "f00d6a8c88b7a3e7079668db1233603b39be4e32c4f602e453c07bb162550311"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

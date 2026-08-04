@@ -1,0 +1,124 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-archived-correction-table-entries",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "96/96",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "CORRECTED": 96
+      },
+      "passed": true,
+      "passed_count": 96,
+      "patterns": 96
+    }
+  ],
+  "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "f632a2d70072e0deeabf40402fb6588aa42da03c20d5ea44f5c2b0a75feb17ec",
+  "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+  "matrix_hash": "09ca9d26918c9cfcf90238941a39f7addce39fb2563b8187c86684c7d051e8b9",
+  "miscorrection_probes": [
+    {
+      "domain": "error masks outside the explicitly verified deployed syndrome table",
+      "expected": "may be detected uncorrectable or silently miscorrected",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/portfolio_cosynthesis/result_manifest.json",
+      "present": true,
+      "test_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-verification"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "6a54a30b5ba812f6f658d7af89e03d3079ec94655ef848ac17e9e8262e1908cd",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "ab045fe773cf9342b562d07d3af8ebc1d768a245b39c7051ccefe4f02a306f99",
+  "verification_status": "passed"
+}

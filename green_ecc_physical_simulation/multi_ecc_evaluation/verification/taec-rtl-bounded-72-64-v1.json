@@ -1,0 +1,249 @@
+{
+  "capability_failures": [
+    "implementation_claim_correction class failed: all-adjacent-triple-data-errors"
+  ],
+  "capability_verification_status": "partially_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED",
+        "DETECTED_UNCORRECTABLE"
+      ],
+      "class_id": "all-double-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "2556/2556",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_detection",
+      "outcome_counts": {
+        "DETECTED_UNCORRECTABLE": 2556
+      },
+      "passed": true,
+      "passed_count": 2556,
+      "patterns": 2556
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-adjacent-triple-data-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "0/62",
+      "failed_patterns": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10
+        ],
+        [
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12
+        ],
+        [
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14
+        ],
+        [
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16
+        ],
+        [
+          15,
+          16,
+          17
+        ],
+        [
+          16,
+          17,
+          18
+        ],
+        [
+          17,
+          18,
+          19
+        ],
+        [
+          18,
+          19,
+          20
+        ],
+        [
+          19,
+          20,
+          21
+        ]
+      ],
+      "failure_count": 62,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "MISCORRECTED": 62
+      },
+      "passed": false,
+      "passed_count": 0,
+      "patterns": 62
+    }
+  ],
+  "code_id": "extended-hamming-secded-72-64-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "9574608fdc35dded0366ccfe7c526be31806978fdf0acffb4130ba0890c18c51",
+  "implementation_id": "taec-rtl-bounded-72-64-v1",
+  "matrix_hash": "40bc866e1a85aa0d8597f49fa6e97bc29a5e64d75631e13ba90ec2befcd3f749",
+  "miscorrection_probes": [
+    {
+      "domain": "odd weight >=3",
+      "expected": "may alias a single-error syndrome",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "tb_taec"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "f070b6f886ded81aba2d0b3e0b76fa82eaea08b583dd61eff929cc65a2ec806a",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "1faf1df3d6ba854c87736403dce49abf789a80c71e5cd7368d1b791e7f0c3a64",
+  "verification_status": "passed"
+}

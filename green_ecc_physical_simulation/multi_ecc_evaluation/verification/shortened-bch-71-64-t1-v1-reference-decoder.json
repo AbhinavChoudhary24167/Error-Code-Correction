@@ -1,0 +1,103 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-weight-1-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "71/71",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 71
+      },
+      "passed": true,
+      "passed_count": 71,
+      "patterns": 71
+    }
+  ],
+  "code_id": "shortened-bch-71-64-t1-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "ab634b27462d6c41f3579fe6891c0fbb1189c90e75deead16bef805a4cebc1c6",
+  "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+  "matrix_hash": "bccf6d736155bfd00081ce82e82ea5e92d1695e5ba5fe6f7cbba10e6b2818600",
+  "miscorrection_probes": [
+    {
+      "domain": "weights greater than bounded correction strength t=1",
+      "expected": "may be detected uncorrectable or silently miscorrected",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json",
+      "present": true,
+      "test_id": "exhaustive_masks_through_t1"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "74d96c669cce6ef2af6f01f7b30a65cdcd0927f580264356795c8717bb06801f",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "3069575efb8f8123810676cb8e9a6adef1594eb2768ce87f669bf5776479679b",
+  "verification_status": "passed"
+}

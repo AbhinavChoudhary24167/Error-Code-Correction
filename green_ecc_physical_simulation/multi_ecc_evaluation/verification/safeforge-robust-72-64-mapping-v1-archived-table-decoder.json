@@ -1,0 +1,103 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-archived-correction-table-entries",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "56/56",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "CORRECTED": 56
+      },
+      "passed": true,
+      "passed_count": 56,
+      "patterns": 56
+    }
+  ],
+  "code_id": "safeforge-robust-72-64-mapping-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "85a5caef370d266cbda8281ad02dc7d2f113b5286cdd4e5774f9392914203fb0",
+  "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+  "matrix_hash": "e35ef5501ec323bb0f5089c3701d3e6e87fa3d8f1e5f25b553eb069943c71bb0",
+  "miscorrection_probes": [
+    {
+      "domain": "error masks outside the explicitly verified deployed syndrome table",
+      "expected": "may be detected uncorrectable or silently miscorrected",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_64_study/result_manifest.json",
+      "present": true,
+      "test_id": "safeforge-robust-72-64-mapping-v1-archived-verification"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "e53eac56594942382c6d7bbe4f29fac86698d4e9e75a13e5477ab516fbbb2087",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "1b514de190df7d1631e527ae4673cad66339342c5d1701a3e8f5ea78ea074b68",
+  "verification_status": "passed"
+}

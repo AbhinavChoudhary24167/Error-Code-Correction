@@ -136,6 +136,20 @@ python3 scripts/run_safeforge_hardening.py
 python3 scripts/run_safeforge_hardware_validation.py
 ```
 
+The decisive fixed-Hsiao placement/policy gate is reproduced with:
+
+```bash
+make safeforge-decisive
+```
+
+It preserves the conventional `(72,64)` Hsiao column multiset, derives the decoder
+SDC limit from explicit system-event units and tail bounds, solves the finite
+syndrome-action problem exactly, independently verifies its certificates, and
+enumerates 87 constrained placements. The checked-in result is negative: joint and
+strong sequential placement both reach worst-case DUE `0.9810098871`, so the
+positive availability-recovery hypothesis is not claimed. See
+`docs/SAFEFORGE_DECISIVE_REPORT.md` and `docs/SAFEFORGE_DECISIVE_FORMULATION.md`.
+
 The first command enumerates all 255 nonzero 8-bit errors and all 1,091,058
 72-bit errors through weight four, validates metric contexts, runs controlled
 gain-source ablations, and produces fixed-code SDC-DUE frontiers plus

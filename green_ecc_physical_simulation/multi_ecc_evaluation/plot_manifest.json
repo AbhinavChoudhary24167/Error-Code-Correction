@@ -1,0 +1,43 @@
+{
+  "plot_manifest_sha256": "02c172a173b4583871e6a00037e2deb7069639bd22fc6c599e15e146208feff4",
+  "plots": [
+    {
+      "plot": "reliability_cost_pareto.png",
+      "record_ids": [
+        "candidate-0feaba4dfb1080175c19",
+        "candidate-4c6bf0506e65213149b2",
+        "candidate-4e565729abd75fd93cd0",
+        "candidate-bd3fae38626550a2fb3c",
+        "candidate-2d5dea5a13fc43274776",
+        "candidate-cdb938979f53dd85c4fc",
+        "candidate-7e7c1bf5438cdbe479a7",
+        "candidate-4fb5db765215a0e92c81",
+        "candidate-42f8a23ad0effdef1915",
+        "candidate-65fd2e49cf4794d1ba8b",
+        "candidate-828fcbff4cca91b65e93",
+        "candidate-74713d7012d2e8a51f01",
+        "candidate-58b972ce1ae1eb000e8a",
+        "candidate-d0db90432f3fb225d94c",
+        "candidate-fe169ee27f4fdcf002ea"
+      ],
+      "scenario_id": "scenario-eee577f15334e845"
+    },
+    {
+      "plot": "winner_frequency.png",
+      "source": "software_study_summary.json#winner_frequency"
+    },
+    {
+      "plot": "scenario_region_heatmap.png",
+      "source": "scenario_regions.json"
+    },
+    {
+      "plot": "fixed_baseline_regret.png",
+      "source": "pareto_and_regret.json#fixed_baseline_regret"
+    },
+    {
+      "plot": "uncertainty_stability.png",
+      "source": "uncertainty_and_sensitivity.json#uncertainty_stability"
+    }
+  ],
+  "schema_version": 1
+}

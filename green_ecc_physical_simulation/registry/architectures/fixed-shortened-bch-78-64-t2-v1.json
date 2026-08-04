@@ -1,0 +1,42 @@
+{
+  "active_implementation": "shortened-bch-78-64-t2-v1-reference-decoder",
+  "allowed_implementation_ids": [
+    "shortened-bch-78-64-t2-v1-reference-decoder"
+  ],
+  "architecture_id": "fixed-shortened-bch-78-64-t2-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "ab0942364edc02a95d4ec91566381ff838bd58ba635f9fe5dfaffabc55d6f1d6",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "green_ecc_phy/bch.py": "6588df802ad9eb73f4d5b5d777dd7f811c3f8506b31efdda8b344b0a8f8a1785",
+    "green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json": "1367181ca19fdfd9c3f8eb8ae12f81fe5eb3e86fadec5c2a7820d20625155918"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

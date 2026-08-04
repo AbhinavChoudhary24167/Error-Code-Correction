@@ -1,0 +1,167 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "rejected",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "30/63",
+      "failed_patterns": [
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ]
+      ],
+      "failure_count": 33,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 30,
+        "MISCORRECTED": 33
+      },
+      "passed": false,
+      "passed_count": 30,
+      "patterns": 63
+    }
+  ],
+  "code_id": "repository-cyclic-63-51-v1",
+  "exhaustive_small_code": null,
+  "failures": [
+    "guaranteed_correction class failed: all-single-bit-errors"
+  ],
+  "implementation_hash": "7cdd673caaed8ff82b0f0dd0231e13485ebdd529b3a0881f47ed1ddddb5ab4d5",
+  "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+  "matrix_hash": "da68eda6f3ec09f4d759a3860903eca9021ad23f8a0a4a519c3edbb3988ab5f0",
+  "miscorrection_probes": [
+    {
+      "domain": "some triple-bit errors",
+      "expected": "known <=2-search alias",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "tb_bch"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    750599937895082,
+    1501199875790165,
+    2251799813685247
+  ],
+  "tested_universe_hash": "08dacf93f6e526247a6a2322488737f692be42e5dff057a4693d0accc8882395",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "4ff319ada6e28ad1071bbbdd3f8e4c5e374874cf8ad4a758cad607f9c060a06b",
+  "verification_status": "failed"
+}

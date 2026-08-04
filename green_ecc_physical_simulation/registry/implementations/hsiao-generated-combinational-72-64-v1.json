@@ -1,0 +1,115 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_linear_adapter",
+    "parameters": {
+      "policy": "single_error"
+    }
+  },
+  "architecture_style": "combinational",
+  "backend_id": null,
+  "capability_claims": {
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "SECDED",
+    "physical_characterization": null,
+    "rtl": "generated combinational RTL"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "hsiao-secded-72-64-v1",
+  "code_spec_id": "hsiao-secded-72-64-v1",
+  "compatible_deployment_architectures": [
+    "fixed-hsiao-whole-memory-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "minimum-weight-single-syndrome-v1",
+  "decoder_top": "hsiao_secded_72_64_v1_decoder",
+  "encoder_id": "hsiao-secded-72-64-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": "hsiao_secded_72_64_v1_encoder",
+  "evidence_level": "rtl_and_exact_functional",
+  "failed_capabilities": [],
+  "implementation_id": "hsiao-generated-combinational-72-64-v1",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "c8cea4fddc7761f2ab28f0ba0f5dd99afcaec08068d12143faa28da203a2dabf",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {},
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+    "reports/safeforge_hardware_validation/validation_summary.json"
+  ],
+  "source_hashes": {
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv": "9f74648a861c0506bdd698ab53bb47f8f999eed2bdcc1f6e3c0cf548d9929bfb",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+    "reports/safeforge_hardware_validation/validation_summary.json": "31ca783b82b1a009138dbee6dd9424ff2bc76eb1d7d482d4371621c409fdcc88"
+  },
+  "source_provenance": [
+    {
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "weight>=2 correction",
+    "weight>=3 detection"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "status": "passed",
+      "test_id": "safeforge_72_modeled_campaign"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all-single-bit correction",
+    "all-double-bit detection"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": null
+}

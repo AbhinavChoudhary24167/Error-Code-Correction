@@ -1,0 +1,42 @@
+{
+  "active_implementation": "forge-hotspot-8-4-v1-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "forge-hotspot-8-4-v1-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-forge-hotspot-8-4-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "e47731f8b65baeb220f97fd5128be382e35c329c9b8ba20c52c1998186c75d9d",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/code_synthesis/code.json": "ceeaa2dbeae8a488e147c1c343b8e0a921003b98d72f7c70bc219c04d280de54",
+    "reports/code_synthesis/verification_report.json": "689f5a993b15fff9330dbdced65a14a2c3a805d29a2669b602df9cc6fb7d2102"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

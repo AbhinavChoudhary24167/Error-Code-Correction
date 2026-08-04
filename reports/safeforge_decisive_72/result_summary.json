@@ -1,0 +1,138 @@
+{
+  "claim_status": "publication_grade_negative_result_candidate",
+  "due_reduction": {
+    "versus_policy_only_absolute": 0.018990112925571623,
+    "versus_policy_only_relative": 0.018990112925571623,
+    "versus_sequential_absolute": 0.0,
+    "versus_sequential_relative": 0.0
+  },
+  "gate": {
+    "kill_criteria_triggered": [
+      "practical 72-bit worst-case DUE remains close to one at the system-derived SDC target",
+      "joint optimization does not beat the strong sequential placement-collision baseline",
+      "no raw or measurement-derived held-out bit-exact dataset is available",
+      "deployment depends on an unmeasured outside-support tail bound",
+      "the decisive joint policy has no characterized-library or placed-and-routed cost result"
+    ],
+    "overall_status": "failed_negative_result",
+    "scientific_gate": {
+      "beats_policy_only": true,
+      "beats_strong_sequential": false,
+      "heldout_experimental_shift": false,
+      "independent_certificates": true,
+      "new_exact_formulation_present": true,
+      "nontrivial_availability_at_stringent_bound": false,
+      "practical_physical_cost_quantified": false,
+      "tail_accounted": true,
+      "tail_empirically_justified": false
+    }
+  },
+  "heldout_status": "synthetic_only_not_experimental_validation",
+  "joint_library_optimality": {
+    "absolute_gap_over_declared_library": 0.0,
+    "excluded_domain": "all other data-column permutations and non-fixed parity placements",
+    "global_permutation_optimality_claim": false,
+    "proven_over_declared_library": true
+  },
+  "joint_metrics": {
+    "a_posteriori_absolute_gap": 0.0,
+    "nominal": {
+      "corrected": 0.06899011292557167,
+      "due": 0.9310098870744283,
+      "residual": 0.9310098870744283,
+      "sdc": 0.0
+    },
+    "policy_id": "exact-safe-d2d5114153951dbb3509",
+    "selected_correction_count": 52,
+    "worst_case": {
+      "due": 0.9810098870744284,
+      "residual": 0.9810098870744284,
+      "sdc": 0.0
+    }
+  },
+  "placement_library_size": 87,
+  "primary_system_target": {
+    "assumptions": [
+      "1000 FIT is a system-event sensitivity, not the benchmark raw_fit reinterpreted as measurement.",
+      "Tail SDC is bounded by one."
+    ],
+    "budget_sha256": "8ed5597fd620d594df5f588427fcd4a020a8c4a5bdc4856177f7f32e7e6f117c",
+    "conditional_sdc_budget_modeled_support": 0.0009900099000990008,
+    "conditional_sdc_budget_total": 0.0009999999999999998,
+    "deployment_feasible_from_declared_bounds": true,
+    "exposure": {
+      "confidence": null,
+      "confidence_status": "declared_upper_bound_without_statistical_confidence",
+      "event_fit_upper": 1000.0000000000001,
+      "event_rate_upper_per_hour": 1.0000000000000002e-06,
+      "formula": "system_event_fit * 1e-9 events/hour",
+      "kind": "system_event_fit",
+      "terms": {
+        "system_event_fit": 1000.0
+      }
+    },
+    "mission_hours": 8760.0,
+    "schema_version": 1,
+    "system_target_id": "server_class_engineering_point",
+    "tail": {
+      "confidence": null,
+      "formula": "p_total <= (1-eta)*p_support + eta*p_tail_upper",
+      "probability_upper": 1e-05,
+      "sdc_probability_upper": 1.0,
+      "status": "bounded_engineering_assumption"
+    },
+    "target": {
+      "formula": "system_sdc_fit * 1e-9 hours^-1",
+      "kind": "system_sdc_fit",
+      "rate_upper_per_hour": 1e-09,
+      "system_sdc_fit": 1.0
+    },
+    "target_basis": "Server-class named engineering sensitivity point; not a quoted industry standard."
+  },
+  "projected_system_sdc": {
+    "conservative_safety_engineering_point": {
+      "meets_system_target": true,
+      "mission_sdc_probability_upper": 8.759999616312012e-08,
+      "support_conditional_sdc": 0.0,
+      "system_sdc_fit_upper": 0.010000000000000002,
+      "system_sdc_rate_upper_per_hour": 1.0000000000000003e-11,
+      "tail_status": "bounded_engineering_assumption",
+      "total_conditional_sdc_upper": 1e-05
+    },
+    "embedded_edge_engineering_point": {
+      "meets_system_target": true,
+      "mission_sdc_probability_upper": 8.759999616312012e-08,
+      "support_conditional_sdc": 0.0,
+      "system_sdc_fit_upper": 0.010000000000000002,
+      "system_sdc_rate_upper_per_hour": 1.0000000000000003e-11,
+      "tail_status": "bounded_engineering_assumption",
+      "total_conditional_sdc_upper": 1e-05
+    },
+    "server_class_engineering_point": {
+      "meets_system_target": true,
+      "mission_sdc_probability_upper": 8.759999616312012e-08,
+      "support_conditional_sdc": 0.0,
+      "system_sdc_fit_upper": 0.010000000000000002,
+      "system_sdc_rate_upper_per_hour": 1.0000000000000003e-11,
+      "tail_status": "bounded_engineering_assumption",
+      "total_conditional_sdc_upper": 1e-05
+    },
+    "unbounded_tail_fail_closed": {
+      "meets_system_target": false,
+      "mission_sdc_probability_upper": 0.008721742991964444,
+      "support_conditional_sdc": 0.0,
+      "system_sdc_fit_upper": 1000.0000000000001,
+      "system_sdc_rate_upper_per_hour": 1.0000000000000002e-06,
+      "tail_status": "unbounded_tail_fail_closed",
+      "total_conditional_sdc_upper": 1.0
+    }
+  },
+  "schema_version": 1,
+  "selected_placement_ids": {
+    "fault_aware_conventional": "conventional-fixed",
+    "joint": "even-odd-interleave",
+    "policy_only": "conventional-fixed",
+    "sequential": "even-odd-interleave"
+  },
+  "study_id": "safeforge-certified-availability-negative-72-64-v1"
+}

@@ -1,0 +1,39 @@
+{
+  "active_implementation": "test-repetition-majority-reference-v1",
+  "allowed_implementation_ids": [
+    "test-repetition-majority-reference-v1"
+  ],
+  "architecture_id": "test-fixed-repetition-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "1234e1093eff92ef7a4a2d20c4fb48391eb2ba609d4f9ec6465c004248017878",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {},
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

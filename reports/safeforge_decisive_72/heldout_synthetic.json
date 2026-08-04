@@ -1,0 +1,75 @@
+{
+  "evaluated_without_retuning": [
+    {
+      "distribution_id": "temperature_sensitive-72bit-seed5209-v1",
+      "metrics": {
+        "corrected": 0.07670187793427219,
+        "due": 0.9045481220657278,
+        "residual": 0.9232981220657278,
+        "sdc": 0.01875
+      },
+      "outside_training_support_pattern_count": 69,
+      "provenance_kind": "synthetic",
+      "retuned": false
+    },
+    {
+      "distribution_id": "geometry_filtered-72bit-seed5210-v1",
+      "metrics": {
+        "corrected": 0.05241343896713613,
+        "due": 0.7132115610328639,
+        "residual": 0.9475865610328639,
+        "sdc": 0.234375
+      },
+      "outside_training_support_pattern_count": 61,
+      "provenance_kind": "synthetic",
+      "retuned": false
+    },
+    {
+      "distribution_id": "non_adjacent_mbu-72bit-seed5204-v1",
+      "metrics": {
+        "corrected": 0.0277777777777779,
+        "due": 0.8402777777777777,
+        "residual": 0.9722222222222221,
+        "sdc": 0.13194444444444445
+      },
+      "outside_training_support_pattern_count": 137,
+      "provenance_kind": "synthetic",
+      "retuned": false
+    }
+  ],
+  "oracles": [
+    {
+      "deployable": false,
+      "distribution_id": "temperature_sensitive-72bit-seed5209-v1",
+      "label": "test-distribution-specialized oracle",
+      "metrics": {
+        "corrected": 0.6328931924882629,
+        "due": 0.0,
+        "residual": 0.3671068075117371,
+        "sdc": 0.3671068075117371
+      }
+    },
+    {
+      "deployable": false,
+      "distribution_id": "geometry_filtered-72bit-seed5210-v1",
+      "label": "test-distribution-specialized oracle",
+      "metrics": {
+        "corrected": 0.5566461267605634,
+        "due": 0.0,
+        "residual": 0.44335387323943665,
+        "sdc": 0.44335387323943665
+      }
+    },
+    {
+      "deployable": false,
+      "distribution_id": "non_adjacent_mbu-72bit-seed5204-v1",
+      "label": "test-distribution-specialized oracle",
+      "metrics": {
+        "corrected": 0.6597222222222223,
+        "due": 0.0,
+        "residual": 0.34027777777777773,
+        "sdc": 0.34027777777777773
+      }
+    }
+  ]
+}

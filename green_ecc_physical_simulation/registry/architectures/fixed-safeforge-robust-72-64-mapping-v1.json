@@ -1,0 +1,42 @@
+{
+  "active_implementation": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+  "allowed_implementation_ids": [
+    "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+  ],
+  "architecture_id": "fixed-safeforge-robust-72-64-mapping-v1",
+  "architecture_type": "fixed",
+  "configuration_mechanism": {
+    "kind": "static"
+  },
+  "controller": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "deployment_scope": "whole_memory",
+  "fallback_implementation": null,
+  "manifest_sha256": "9ad7bf5e3d3eb1bc65b306c37cf5a0265f2567e2baad5cb7967e4db804548d99",
+  "metadata": {
+    "bits_per_unit": 0,
+    "protection": "triplicated mode identity"
+  },
+  "mux_topology": {
+    "kind": "none",
+    "physical_cost": null
+  },
+  "physical_characterization_identity": null,
+  "reencoding_requirements": {
+    "energy": null,
+    "latency": null,
+    "required": false
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "reports/safeforge_64_study/code.json": "279005e299fa1f701430f235d5e833f156af30cf7920f0d803179a23c26a3f7a",
+    "reports/safeforge_64_study/result_manifest.json": "850fefdb9c0f2cec125291461f7a60b993127fb17b35c1e88ec0832aa46edec3"
+  },
+  "transition_cost_evidence": null,
+  "transition_sequencing": {
+    "required": false,
+    "verification_required": true
+  }
+}

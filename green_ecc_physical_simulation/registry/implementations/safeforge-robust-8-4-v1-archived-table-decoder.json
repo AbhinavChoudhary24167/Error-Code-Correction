@@ -1,0 +1,143 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_declared_table_adapter",
+    "parameters": {
+      "table_path": "reports/safeforge_study/robust_cosynthesized_code.json"
+    }
+  },
+  "architecture_style": "reference_only",
+  "backend_id": null,
+  "capability_claims": {
+    "claimed_error_classes": [
+      {
+        "acceptable_statuses": [
+          "CORRECTED"
+        ],
+        "class_id": "all-archived-correction-table-entries",
+        "generator": "explicit",
+        "kind": "correction",
+        "positions": [
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            1
+          ],
+          [
+            7
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "weight": 1
+      }
+    ],
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "exact binary linear [8,4] code with d=3",
+    "physical_characterization": null,
+    "software_reference": "archived deterministic syndrome correction table"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "safeforge-robust-8-4-v1",
+  "code_spec_id": "safeforge-robust-8-4-v1",
+  "compatible_deployment_architectures": [
+    "fixed-safeforge-robust-8-4-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "safeforge-robust-8-4-v1-archived-syndrome-table",
+  "decoder_top": null,
+  "encoder_id": "safeforge-robust-8-4-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": null,
+  "evidence_level": "exact_functional_reference",
+  "failed_capabilities": [],
+  "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "eea0d9fb49aaffde79e1a33c16c50efe3fb56efea06af78dfb68cd7d0c3e606a",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {},
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "reports/safeforge_study/robust_cosynthesized_code.json",
+    "reports/safeforge_study/result_manifest.json"
+  ],
+  "source_hashes": {
+    "reports/safeforge_study/result_manifest.json": "8aaacf73b5e17377358691e0cabd03c1fe5432c7f6d2a5344c467f2504c7c248",
+    "reports/safeforge_study/robust_cosynthesized_code.json": "247be4593243f9962f4a7a4cc22613393ecb5051f5a1b30dfd4c6a2bca3407c0"
+  },
+  "source_provenance": [
+    {
+      "path": "reports/safeforge_study/robust_cosynthesized_code.json",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/safeforge_study/result_manifest.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "unlisted error masks",
+    "physical PPA"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/safeforge_study/result_manifest.json",
+      "status": "passed",
+      "test_id": "safeforge-robust-8-4-v1-archived-verification"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all 8 archived syndrome-table leaders"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": null
+}

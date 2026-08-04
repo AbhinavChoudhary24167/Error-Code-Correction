@@ -1,0 +1,153 @@
+{
+  "canonical_equivalence_class_id": "repository-degree12-cyclic-63-51-v1",
+  "code_id": "repository-cyclic-63-51-v1",
+  "code_spec_id": "repository-cyclic-63-51-v1",
+  "content_hashes": {
+    "algorithm": "sha256",
+    "manifest_sha256": "b35abe29756dca3c65641f163ab6eac2ce532a8f641d39d4938cc6892bbf8db3",
+    "matrix_sha256": "da68eda6f3ec09f4d759a3860903eca9021ad23f8a0a4a519c3edbb3988ab5f0",
+    "source_files": {
+      "asic/rtl/bch/bch_codec.sv": "4fd6d0a91efc255ab1964d7db417d18f14e178149739a68666cb520c02102639",
+      "asic/tb/tb_bch.sv": "627151112f27ff482d4ef2750f7b1a3a90dd347e4ab0d601199514499e5733c9"
+    }
+  },
+  "decoder_policy": {
+    "policy_id": "bounded-valid-codeword-search-weight2-v1",
+    "search_weight": 2
+  },
+  "distance_evidence": {
+    "designed_distance_lower_bound": null,
+    "exact_minimum_distance": 2,
+    "method": "exact dual enumeration plus binary MacWilliams transform"
+  },
+  "encoder_id": "repository-cyclic-63-51-v1-systematic-encoder",
+  "family": "BCH candidate / cyclic code",
+  "field": {
+    "kind": "GF(2)",
+    "order": 2
+  },
+  "guaranteed_correction_set": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "generator": "all_combinations",
+      "weight": 1
+    }
+  ],
+  "guaranteed_detection_set": [],
+  "k": 51,
+  "known_miscorrection_domain": [
+    {
+      "domain": "some triple-bit errors",
+      "expected_behavior": "known <=2-search alias"
+    }
+  ],
+  "license": "MIT repository code; cited evidence retains its original provenance",
+  "matrix_definition": {
+    "deterministic_generator": {
+      "callable": "green_ecc_phy.matrices:cyclic_systematic",
+      "parameters": {
+        "generator_polynomial": 4587,
+        "k": 51,
+        "n": 63
+      }
+    }
+  },
+  "n": 63,
+  "name": "Repository degree-12 systematic cyclic (63,51) code",
+  "proof_references": [
+    {
+      "path": "asic/rtl/bch/bch_codec.sv",
+      "role": "systematic polynomial encoder and bounded decoder"
+    },
+    {
+      "path": "asic/tb/tb_bch.sv",
+      "role": "positive and negative RTL tests"
+    }
+  ],
+  "puncturing": {
+    "enabled": false,
+    "parameters": null
+  },
+  "redundancy": 12,
+  "schema_version": 1,
+  "shortening": {
+    "enabled": false,
+    "parameters": null
+  },
+  "source_provenance": [
+    {
+      "path": "asic/rtl/bch/bch_codec.sv",
+      "role": "systematic polynomial encoder and bounded decoder"
+    },
+    {
+      "path": "asic/tb/tb_bch.sv",
+      "role": "positive and negative RTL tests"
+    }
+  ],
+  "symbol_width": 1,
+  "systematic": {
+    "data_positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "enabled": true
+  },
+  "unsupported_error_classes": [
+    "BCH distance-5 claim",
+    "guaranteed double-error correction",
+    "guaranteed triple-error detection"
+  ],
+  "version": "1.0.0"
+}

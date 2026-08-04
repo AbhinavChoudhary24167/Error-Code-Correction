@@ -1,0 +1,24 @@
+{
+  "artifacts": {
+    "certificate_verification.json": "85e5622fd6f38668a60e7d780ee22a0836a871ab69b88150a6aea0ef3d992428",
+    "certificates/fault_aware_conventional.json": "a209ddebd7e6cc0f5a9fb07f928513134e97523e349eb0381fc482f3b470a070",
+    "certificates/joint.json": "4891e1cfabbe243ce073f6ac449a8a2745fa2658c4edbc919f5337fc73ec7301",
+    "certificates/policy_only.json": "a209ddebd7e6cc0f5a9fb07f928513134e97523e349eb0381fc482f3b470a070",
+    "certificates/sequential.json": "4891e1cfabbe243ce073f6ac449a8a2745fa2658c4edbc919f5337fc73ec7301",
+    "code_and_evidence_audit.json": "d2f722a012f97801e279668a1152f2e1d52c0fe7cc458131d43f402fae08309b",
+    "hardware_evidence.json": "66968e2bb8c61dec2db45d5e2f94f0778adae7d510ab3d3fb1dfa43e5c1bef8a",
+    "heldout_synthetic.json": "091815a36c8fd73e2bcbda49fa5ed8d6104e1297fe258d32728390fd99cf521d",
+    "placement_policy_study.json": "68404f5869274741259b8082d66422a444786290c4d179d847142aed0e30dd25",
+    "result_summary.json": "9658f2be41af43b92f083e06c05626ebf8f25146d0aa502f174ed6f608e78f6b",
+    "risk_coverage.csv": "551493447be8ee832d8afd22caffecf91f2b69009f90a544ec7ee6dc57680362",
+    "risk_coverage.png": "657943ea784faac88c1b423441d192efa47ef1193701175e20929713ced38f0b",
+    "risk_coverage.svg": "68600d1bf314ec5ace9ccbef4ad1da55ef7187444b5e777a4b8bd8ac2cd63b90",
+    "scientific_gate.json": "1f090b95a5052ff747f8b207cd3ec840457b602efd9d1cfc76cba818e563820b",
+    "system_budgets.json": "2a6cab14f24e6f43d6e444ce7ec19de62377b14ba2a33878446b3290d9b388e6"
+  },
+  "config_sha256": "90c62bdf040e85c8e57b15d71dae4eae9671edd91ab406ed8138da7587d20808",
+  "manifest_sha256": "6643c26f54cca8930b14e7d692cd53791c0cf80908e0c27e4cbd5149a7744a70",
+  "reproduction_command": "python scripts/run_safeforge_decisive_study.py --config configs/safeforge_decisive_72.json --outdir reports/safeforge_decisive_72",
+  "schema_version": 1,
+  "study_id": "safeforge-certified-availability-negative-72-64-v1"
+}

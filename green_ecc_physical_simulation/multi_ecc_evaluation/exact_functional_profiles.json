@@ -1,0 +1,3158 @@
+{
+  "profiles": {
+    "forge-hotspot-8-4-v1-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 4,
+            "DETECTED_UNCORRECTABLE": 3
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 4,
+            "detected_uncorrectable_or_abstained": 3,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 7,
+              "exact_fraction": "4/7",
+              "numerator": 4
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 7,
+              "exact_fraction": "3/7",
+              "numerator": 3
+            },
+            "silent_miscorrection": {
+              "denominator": 7,
+              "exact_fraction": "0/7",
+              "numerator": 0
+            }
+          },
+          "patterns": 7,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1
+            ],
+            "detected_uncorrectable_or_abstained": [
+              3,
+              4
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 6
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 6
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 6,
+              "exact_fraction": "0/6",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 6,
+              "exact_fraction": "0/6",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 6,
+              "exact_fraction": "6/6",
+              "numerator": 6
+            }
+          },
+          "patterns": 6,
+          "representative_patterns": {
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 16,
+            "DETECTED_UNCORRECTABLE": 5
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 1,
+            "detected_uncorrectable_or_abstained": 5,
+            "silent_miscorrection": 15
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 21,
+              "exact_fraction": "1/21",
+              "numerator": 1
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 21,
+              "exact_fraction": "5/21",
+              "numerator": 5
+            },
+            "silent_miscorrection": {
+              "denominator": 21,
+              "exact_fraction": "15/21",
+              "numerator": 15
+            }
+          },
+          "patterns": 21,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              2,
+              7
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ],
+            "silent_miscorrection": [
+              0,
+              4
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 50
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 50
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 50,
+              "exact_fraction": "0/50",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 50,
+              "exact_fraction": "0/50",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 50,
+              "exact_fraction": "50/50",
+              "numerator": 50
+            }
+          },
+          "patterns": 50,
+          "representative_patterns": {
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 8
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 8,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 8,
+              "exact_fraction": "8/8",
+              "numerator": 8
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 8,
+              "exact_fraction": "0/8",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 8,
+              "exact_fraction": "0/8",
+              "numerator": 0
+            }
+          },
+          "patterns": 8,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "forge-hotspot-8-4-v1",
+      "decoder_policy_id": "forge-hotspot-8-4-v1-archived-syndrome-table",
+      "encoder_id": "forge-hotspot-8-4-v1-systematic-encoder",
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "k": 4,
+      "n": 8,
+      "profile_id": "exact-error-profile-forge-hotspot-8-4-v1-archived-table-decoder",
+      "profile_sha256": "7e622a2c3108560404c209bdb3d88a7373f21310756ecbd28d4a5e245697a89c",
+      "schema_version": 1
+    },
+    "forge-spatial-hotspot-72-64-v1-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 51,
+            "DETECTED_UNCORRECTABLE": 20
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 51,
+            "detected_uncorrectable_or_abstained": 20,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "51/71",
+              "numerator": 51
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "20/71",
+              "numerator": 20
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              3,
+              4
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 48,
+            "DETECTED_UNCORRECTABLE": 22
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 22,
+            "silent_miscorrection": 48
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "22/70",
+              "numerator": 22
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "48/70",
+              "numerator": 48
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              12,
+              13,
+              14
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 1014,
+            "DETECTED_UNCORRECTABLE": 1471
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 1471,
+            "silent_miscorrection": 1014
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "1471/2485",
+              "numerator": 1471
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "1014/2485",
+              "numerator": 1014
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ],
+            "silent_miscorrection": [
+              0,
+              6
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 32865,
+            "DETECTED_UNCORRECTABLE": 26629,
+            "NO_ERROR": 76
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 26629,
+            "silent_miscorrection": 32941
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "26629/59570",
+              "numerator": 26629
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "32941/59570",
+              "numerator": 32941
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              21
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "forge-spatial-hotspot-72-64-v1",
+      "decoder_policy_id": "forge-spatial-hotspot-72-64-v1-archived-syndrome-table",
+      "encoder_id": "forge-spatial-hotspot-72-64-v1-systematic-encoder",
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "profile_sha256": "9b6978598b93a1718a9b490ba6398f9a7b9955d5db045b3f334ef8d01a4318f8",
+      "schema_version": 1
+    },
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 12,
+            "DETECTED_UNCORRECTABLE": 59
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 12,
+            "detected_uncorrectable_or_abstained": 59,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "12/71",
+              "numerator": 12
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "59/71",
+              "numerator": 59
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              9,
+              10
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 44,
+            "DETECTED_UNCORRECTABLE": 26
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 26,
+            "silent_miscorrection": 44
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "26/70",
+              "numerator": 26
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "44/70",
+              "numerator": 44
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              11,
+              12,
+              13
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 589,
+            "DETECTED_UNCORRECTABLE": 1896
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 20,
+            "detected_uncorrectable_or_abstained": 1896,
+            "silent_miscorrection": 569
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "20/2485",
+              "numerator": 20
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "1896/2485",
+              "numerator": 1896
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "569/2485",
+              "numerator": 569
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              5,
+              13
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ],
+            "silent_miscorrection": [
+              0,
+              10
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 33936,
+            "DETECTED_UNCORRECTABLE": 25634
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 25634,
+            "silent_miscorrection": 33936
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "25634/59570",
+              "numerator": 25634
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "33936/59570",
+              "numerator": 33936
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              13
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "decoder_policy_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-syndrome-table",
+      "encoder_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-systematic-encoder",
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "profile_sha256": "16174e034e0c3a535b657cfea8eae42f6cacf89cf44663b9c0d3e0817a9a02d1",
+      "schema_version": 1
+    },
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 24,
+            "DETECTED_UNCORRECTABLE": 47
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 24,
+            "detected_uncorrectable_or_abstained": 47,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "24/71",
+              "numerator": 24
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "47/71",
+              "numerator": 47
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              1,
+              2
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 52,
+            "DETECTED_UNCORRECTABLE": 18
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 18,
+            "silent_miscorrection": 52
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "18/70",
+              "numerator": 18
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "52/70",
+              "numerator": 52
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              1,
+              2,
+              3
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 455,
+            "DETECTED_UNCORRECTABLE": 2030
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2030,
+            "silent_miscorrection": 455
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "2030/2485",
+              "numerator": 2030
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "455/2485",
+              "numerator": 455
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ],
+            "silent_miscorrection": [
+              0,
+              5
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 34112,
+            "DETECTED_UNCORRECTABLE": 25458
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 25458,
+            "silent_miscorrection": 34112
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "25458/59570",
+              "numerator": 25458
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "34112/59570",
+              "numerator": 34112
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              4
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "decoder_policy_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-syndrome-table",
+      "encoder_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-systematic-encoder",
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "profile_sha256": "ff019aec52649565d6353626fc6e2f7046be4a37ae47e17409e394ef84d73ce4",
+      "schema_version": 1
+    },
+    "hsiao-generated-combinational-72-64-v1": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 71
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 71,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "71/71",
+              "numerator": 71
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 46,
+            "DETECTED_UNCORRECTABLE": 24
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 24,
+            "silent_miscorrection": 46
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "24/70",
+              "numerator": 24
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "46/70",
+              "numerator": 46
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              27,
+              28,
+              29
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 2485
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2485,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "2485/2485",
+              "numerator": 2485
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 34118,
+            "DETECTED_UNCORRECTABLE": 25452
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 25452,
+            "silent_miscorrection": 34118
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "25452/59570",
+              "numerator": 25452
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "34118/59570",
+              "numerator": 34118
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              26
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "hsiao-secded-72-64-v1",
+      "decoder_policy_id": "minimum-weight-single-syndrome-v1",
+      "encoder_id": "hsiao-secded-72-64-v1-systematic-encoder",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-hsiao-generated-combinational-72-64-v1",
+      "profile_sha256": "6ad786a893089f9717410cd80c4c499cebffad0ad892f6a8f1a18af8d442de31",
+      "schema_version": 1
+    },
+    "odd-column-secded-4-8-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 7
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 7,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 7,
+              "exact_fraction": "0/7",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 7,
+              "exact_fraction": "7/7",
+              "numerator": 7
+            },
+            "silent_miscorrection": {
+              "denominator": 7,
+              "exact_fraction": "0/7",
+              "numerator": 0
+            }
+          },
+          "patterns": 7,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 6
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 6
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 6,
+              "exact_fraction": "0/6",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 6,
+              "exact_fraction": "0/6",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 6,
+              "exact_fraction": "6/6",
+              "numerator": 6
+            }
+          },
+          "patterns": 6,
+          "representative_patterns": {
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 21
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 21,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 21,
+              "exact_fraction": "0/21",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 21,
+              "exact_fraction": "21/21",
+              "numerator": 21
+            },
+            "silent_miscorrection": {
+              "denominator": 21,
+              "exact_fraction": "0/21",
+              "numerator": 0
+            }
+          },
+          "patterns": 21,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 50
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 50
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 50,
+              "exact_fraction": "0/50",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 50,
+              "exact_fraction": "0/50",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 50,
+              "exact_fraction": "50/50",
+              "numerator": 50
+            }
+          },
+          "patterns": 50,
+          "representative_patterns": {
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 8
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 8,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 8,
+              "exact_fraction": "8/8",
+              "numerator": 8
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 8,
+              "exact_fraction": "0/8",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 8,
+              "exact_fraction": "0/8",
+              "numerator": 0
+            }
+          },
+          "patterns": 8,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "odd-column-secded-4-8-archived-syndrome-table",
+      "encoder_id": "odd-column-secded-4-8-systematic-encoder",
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "k": 4,
+      "n": 8,
+      "profile_id": "exact-error-profile-odd-column-secded-4-8-archived-table-decoder",
+      "profile_sha256": "596d79e652835f4aa9aa4720c823fb316a86cb531163c047bfb35d28de20915a",
+      "schema_version": 1
+    },
+    "odd-column-secded-64-72-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 71
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 71,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "71/71",
+              "numerator": 71
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 69,
+            "DETECTED_UNCORRECTABLE": 1
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 1,
+            "silent_miscorrection": 69
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "1/70",
+              "numerator": 1
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "69/70",
+              "numerator": 69
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              69,
+              70,
+              71
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 2485
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2485,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "2485/2485",
+              "numerator": 2485
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 45235,
+            "DETECTED_UNCORRECTABLE": 14335
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 14335,
+            "silent_miscorrection": 45235
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "14335/59570",
+              "numerator": 14335
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "45235/59570",
+              "numerator": 45235
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              4,
+              57
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "odd-column-secded-64-72",
+      "decoder_policy_id": "odd-column-secded-64-72-archived-syndrome-table",
+      "encoder_id": "odd-column-secded-64-72-systematic-encoder",
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-odd-column-secded-64-72-archived-table-decoder",
+      "profile_sha256": "df962f22f9694954ebb16bf036c5616b941cb00a95200b9044a80267bfae26f8",
+      "schema_version": 1
+    },
+    "primitive-bch-63-51-t2-v1-reference-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 62
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 62,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 62,
+              "exact_fraction": "62/62",
+              "numerator": 62
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 62,
+              "exact_fraction": "0/62",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 62,
+              "exact_fraction": "0/62",
+              "numerator": 0
+            }
+          },
+          "patterns": 62,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 61
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 61,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 61,
+              "exact_fraction": "0/61",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 61,
+              "exact_fraction": "61/61",
+              "numerator": 61
+            },
+            "silent_miscorrection": {
+              "denominator": 61,
+              "exact_fraction": "0/61",
+              "numerator": 0
+            }
+          },
+          "patterns": 61,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 1891
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 1891,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 1891,
+              "exact_fraction": "1891/1891",
+              "numerator": 1891
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 1891,
+              "exact_fraction": "0/1891",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 1891,
+              "exact_fraction": "0/1891",
+              "numerator": 0
+            }
+          },
+          "patterns": 1891,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 18900,
+            "DETECTED_UNCORRECTABLE": 20750
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 20750,
+            "silent_miscorrection": 18900
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 39650,
+              "exact_fraction": "0/39650",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 39650,
+              "exact_fraction": "20750/39650",
+              "numerator": 20750
+            },
+            "silent_miscorrection": {
+              "denominator": 39650,
+              "exact_fraction": "18900/39650",
+              "numerator": 18900
+            }
+          },
+          "patterns": 39650,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              4
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 63
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 63,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 63,
+              "exact_fraction": "63/63",
+              "numerator": 63
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 63,
+              "exact_fraction": "0/63",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 63,
+              "exact_fraction": "0/63",
+              "numerator": 0
+            }
+          },
+          "patterns": 63,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "primitive-bch-63-51-t2-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t2-v1",
+      "encoder_id": "primitive-bch-63-51-t2-v1-systematic-encoder",
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "k": 51,
+      "n": 63,
+      "profile_id": "exact-error-profile-primitive-bch-63-51-t2-v1-reference-decoder",
+      "profile_sha256": "3e7d31d5997c8d59a241a817e00b690b50bcca9e59a5c3181013bed51dc46895",
+      "schema_version": 1
+    },
+    "safeforge-robust-72-64-mapping-v1-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 2,
+            "DETECTED_UNCORRECTABLE": 69
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 2,
+            "detected_uncorrectable_or_abstained": 69,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "2/71",
+              "numerator": 2
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "69/71",
+              "numerator": 69
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              38,
+              39
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 1,
+            "DETECTED_UNCORRECTABLE": 69
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 1,
+            "detected_uncorrectable_or_abstained": 69,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "1/70",
+              "numerator": 1
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "69/70",
+              "numerator": 69
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              69,
+              70,
+              71
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 722,
+            "DETECTED_UNCORRECTABLE": 1763
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 37,
+            "detected_uncorrectable_or_abstained": 1763,
+            "silent_miscorrection": 685
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "37/2485",
+              "numerator": 37
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "1763/2485",
+              "numerator": 1763
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "685/2485",
+              "numerator": 685
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              18
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ],
+            "silent_miscorrection": [
+              0,
+              9
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 6441,
+            "DETECTED_UNCORRECTABLE": 53129
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 10,
+            "detected_uncorrectable_or_abstained": 53129,
+            "silent_miscorrection": 6431
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "10/59570",
+              "numerator": 10
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "53129/59570",
+              "numerator": 53129
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "6431/59570",
+              "numerator": 6431
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              7,
+              28,
+              57
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              4
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 6,
+            "DETECTED_UNCORRECTABLE": 66
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 6,
+            "detected_uncorrectable_or_abstained": 66,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "6/72",
+              "numerator": 6
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "66/72",
+              "numerator": 66
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              4
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "safeforge-robust-72-64-mapping-v1",
+      "decoder_policy_id": "safeforge-robust-72-64-mapping-v1-archived-syndrome-table",
+      "encoder_id": "safeforge-robust-72-64-mapping-v1-systematic-encoder",
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "profile_sha256": "99069596aac883418ddfec575068eba0ac9fbb854e0637c81ac9ed3fb54eda7d",
+      "schema_version": 1
+    },
+    "safeforge-robust-8-4-v1-archived-table-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 3,
+            "DETECTED_UNCORRECTABLE": 4
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 3,
+            "detected_uncorrectable_or_abstained": 4,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 7,
+              "exact_fraction": "3/7",
+              "numerator": 3
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 7,
+              "exact_fraction": "4/7",
+              "numerator": 4
+            },
+            "silent_miscorrection": {
+              "denominator": 7,
+              "exact_fraction": "0/7",
+              "numerator": 0
+            }
+          },
+          "patterns": 7,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1
+            ],
+            "detected_uncorrectable_or_abstained": [
+              3,
+              4
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 6
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 6,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 6,
+              "exact_fraction": "0/6",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 6,
+              "exact_fraction": "6/6",
+              "numerator": 6
+            },
+            "silent_miscorrection": {
+              "denominator": 6,
+              "exact_fraction": "0/6",
+              "numerator": 0
+            }
+          },
+          "patterns": 6,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 13,
+            "DETECTED_UNCORRECTABLE": 8
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 1,
+            "detected_uncorrectable_or_abstained": 8,
+            "silent_miscorrection": 12
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 21,
+              "exact_fraction": "1/21",
+              "numerator": 1
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 21,
+              "exact_fraction": "8/21",
+              "numerator": 8
+            },
+            "silent_miscorrection": {
+              "denominator": 21,
+              "exact_fraction": "12/21",
+              "numerator": 12
+            }
+          },
+          "patterns": 21,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              3
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ],
+            "silent_miscorrection": [
+              0,
+              4
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 27,
+            "DETECTED_UNCORRECTABLE": 19,
+            "NO_ERROR": 4
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 19,
+            "silent_miscorrection": 31
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 50,
+              "exact_fraction": "0/50",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 50,
+              "exact_fraction": "19/50",
+              "numerator": 19
+            },
+            "silent_miscorrection": {
+              "denominator": 50,
+              "exact_fraction": "31/50",
+              "numerator": 31
+            }
+          },
+          "patterns": 50,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              4
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 4,
+            "DETECTED_UNCORRECTABLE": 4
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 4,
+            "detected_uncorrectable_or_abstained": 4,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 8,
+              "exact_fraction": "4/8",
+              "numerator": 4
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 8,
+              "exact_fraction": "4/8",
+              "numerator": 4
+            },
+            "silent_miscorrection": {
+              "denominator": 8,
+              "exact_fraction": "0/8",
+              "numerator": 0
+            }
+          },
+          "patterns": 8,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              1
+            ],
+            "detected_uncorrectable_or_abstained": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "safeforge-robust-8-4-v1",
+      "decoder_policy_id": "safeforge-robust-8-4-v1-archived-syndrome-table",
+      "encoder_id": "safeforge-robust-8-4-v1-systematic-encoder",
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "k": 4,
+      "n": 8,
+      "profile_id": "exact-error-profile-safeforge-robust-8-4-v1-archived-table-decoder",
+      "profile_sha256": "e0e2987403918c836b56169a444cb8c7e29db8c99d4af31ff36bc338d4ed3a0c",
+      "schema_version": 1
+    },
+    "secded-rtl-combinational-72-64-v1": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 71
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 71,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "71/71",
+              "numerator": 71
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 68,
+            "DETECTED_UNCORRECTABLE": 2
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2,
+            "silent_miscorrection": 68
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "2/70",
+              "numerator": 2
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "68/70",
+              "numerator": 68
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              68,
+              69,
+              70
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 2485
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2485,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "2485/2485",
+              "numerator": 2485
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 45236,
+            "DETECTED_UNCORRECTABLE": 14334
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 14334,
+            "silent_miscorrection": 45236
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "14334/59570",
+              "numerator": 14334
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "45236/59570",
+              "numerator": 45236
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              4,
+              57
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "extended-hamming-secded-72-64-v1",
+      "decoder_policy_id": "repository-secded-v1",
+      "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-secded-rtl-combinational-72-64-v1",
+      "profile_sha256": "13616afd14b64316ed12f46ffa38472eb1400f103649950f81a969410809017c",
+      "schema_version": 1
+    },
+    "shortened-bch-71-64-t1-v1-reference-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 63,
+            "DETECTED_UNCORRECTABLE": 7
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 7,
+            "silent_miscorrection": 63
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "7/70",
+              "numerator": 7
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "63/70",
+              "numerator": 63
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              57,
+              58
+            ],
+            "silent_miscorrection": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 14,
+            "DETECTED_UNCORRECTABLE": 55
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 55,
+            "silent_miscorrection": 14
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 69,
+              "exact_fraction": "0/69",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 69,
+              "exact_fraction": "55/69",
+              "numerator": 55
+            },
+            "silent_miscorrection": {
+              "denominator": 69,
+              "exact_fraction": "14/69",
+              "numerator": 14
+            }
+          },
+          "patterns": 69,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              8,
+              9,
+              10
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 1332,
+            "DETECTED_UNCORRECTABLE": 1083
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 1083,
+            "silent_miscorrection": 1332
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2415,
+              "exact_fraction": "0/2415",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2415,
+              "exact_fraction": "1083/2415",
+              "numerator": 1083
+            },
+            "silent_miscorrection": {
+              "denominator": 2415,
+              "exact_fraction": "1332/2415",
+              "numerator": 1332
+            }
+          },
+          "patterns": 2415,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              9
+            ],
+            "silent_miscorrection": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 30922,
+            "DETECTED_UNCORRECTABLE": 25699,
+            "NO_ERROR": 465
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 25699,
+            "silent_miscorrection": 31387
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 57086,
+              "exact_fraction": "0/57086",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 57086,
+              "exact_fraction": "25699/57086",
+              "numerator": 25699
+            },
+            "silent_miscorrection": {
+              "denominator": 57086,
+              "exact_fraction": "31387/57086",
+              "numerator": 31387
+            }
+          },
+          "patterns": 57086,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              4
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 71
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 71,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "71/71",
+              "numerator": 71
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "shortened-bch-71-64-t1-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t1-v1",
+      "encoder_id": "shortened-bch-71-64-t1-v1-systematic-encoder",
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "k": 64,
+      "n": 71,
+      "profile_id": "exact-error-profile-shortened-bch-71-64-t1-v1-reference-decoder",
+      "profile_sha256": "b3a19fa95c53853ddeae1df34d0e10ff40ff60fae498ab5ec1cc206357ab56aa",
+      "schema_version": 1
+    },
+    "shortened-bch-78-64-t2-v1-reference-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 77
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 77,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 77,
+              "exact_fraction": "77/77",
+              "numerator": 77
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 77,
+              "exact_fraction": "0/77",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 77,
+              "exact_fraction": "0/77",
+              "numerator": 0
+            }
+          },
+          "patterns": 77,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 76
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 76,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 76,
+              "exact_fraction": "0/76",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 76,
+              "exact_fraction": "76/76",
+              "numerator": 76
+            },
+            "silent_miscorrection": {
+              "denominator": 76,
+              "exact_fraction": "0/76",
+              "numerator": 0
+            }
+          },
+          "patterns": 76,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 2926
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 2926,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2926,
+              "exact_fraction": "2926/2926",
+              "numerator": 2926
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2926,
+              "exact_fraction": "0/2926",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 2926,
+              "exact_fraction": "0/2926",
+              "numerator": 0
+            }
+          },
+          "patterns": 2926,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 13780,
+            "DETECTED_UNCORRECTABLE": 62220
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 62220,
+            "silent_miscorrection": 13780
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 76000,
+              "exact_fraction": "0/76000",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 76000,
+              "exact_fraction": "62220/76000",
+              "numerator": 62220
+            },
+            "silent_miscorrection": {
+              "denominator": 76000,
+              "exact_fraction": "13780/76000",
+              "numerator": 13780
+            }
+          },
+          "patterns": 76000,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1,
+              3
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              11
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 78
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 78,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 78,
+              "exact_fraction": "78/78",
+              "numerator": 78
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 78,
+              "exact_fraction": "0/78",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 78,
+              "exact_fraction": "0/78",
+              "numerator": 0
+            }
+          },
+          "patterns": 78,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "shortened-bch-78-64-t2-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t2-v1",
+      "encoder_id": "shortened-bch-78-64-t2-v1-systematic-encoder",
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "k": 64,
+      "n": 78,
+      "profile_id": "exact-error-profile-shortened-bch-78-64-t2-v1-reference-decoder",
+      "profile_sha256": "cf877a2fb82d0c0bc3750b66cd262477d32b3d414c6a1928288a4dbbddb0ac6c",
+      "schema_version": 1
+    },
+    "shortened-bch-85-64-t3-v1-reference-decoder": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 84
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 84,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 84,
+              "exact_fraction": "84/84",
+              "numerator": 84
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 84,
+              "exact_fraction": "0/84",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 84,
+              "exact_fraction": "0/84",
+              "numerator": 0
+            }
+          },
+          "patterns": 84,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 83
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 83,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 83,
+              "exact_fraction": "83/83",
+              "numerator": 83
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 83,
+              "exact_fraction": "0/83",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 83,
+              "exact_fraction": "0/83",
+              "numerator": 0
+            }
+          },
+          "patterns": 83,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 3486
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 3486,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 3486,
+              "exact_fraction": "3486/3486",
+              "numerator": 3486
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 3486,
+              "exact_fraction": "0/3486",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 3486,
+              "exact_fraction": "0/3486",
+              "numerator": 0
+            }
+          },
+          "patterns": 3486,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 98687
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 98687,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 98687,
+              "exact_fraction": "98687/98687",
+              "numerator": 98687
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 98687,
+              "exact_fraction": "0/98687",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 98687,
+              "exact_fraction": "0/98687",
+              "numerator": 0
+            }
+          },
+          "patterns": 98687,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 85
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 85,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 85,
+              "exact_fraction": "85/85",
+              "numerator": 85
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 85,
+              "exact_fraction": "0/85",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 85,
+              "exact_fraction": "0/85",
+              "numerator": 0
+            }
+          },
+          "patterns": 85,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "shortened-bch-85-64-t3-v1",
+      "decoder_policy_id": "primitive-bch-bounded-syndrome-t3-v1",
+      "encoder_id": "shortened-bch-85-64-t3-v1-systematic-encoder",
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "k": 64,
+      "n": 85,
+      "profile_id": "exact-error-profile-shortened-bch-85-64-t3-v1-reference-decoder",
+      "profile_sha256": "0f1c1014de1068bf210079916c9780506b90ada8a7868018d1b0180b797d9dd4",
+      "schema_version": 1
+    },
+    "taec-rtl-bounded-72-64-v1": {
+      "adjacency_definition": "consecutive canonical encoded-codeword coordinates; no cross-codeword boundary",
+      "classes": {
+        "adjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 71
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 71,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 71,
+              "exact_fraction": "71/71",
+              "numerator": 71
+            },
+            "silent_miscorrection": {
+              "denominator": 71,
+              "exact_fraction": "0/71",
+              "numerator": 0
+            }
+          },
+          "patterns": 71,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              1
+            ]
+          }
+        },
+        "adjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 68,
+            "DETECTED_UNCORRECTABLE": 2
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2,
+            "silent_miscorrection": 68
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 70,
+              "exact_fraction": "0/70",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 70,
+              "exact_fraction": "2/70",
+              "numerator": 2
+            },
+            "silent_miscorrection": {
+              "denominator": 70,
+              "exact_fraction": "68/70",
+              "numerator": 68
+            }
+          },
+          "patterns": 70,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              68,
+              69,
+              70
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "nonadjacent_double": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "DETECTED_UNCORRECTABLE": 2485
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 2485,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 2485,
+              "exact_fraction": "2485/2485",
+              "numerator": 2485
+            },
+            "silent_miscorrection": {
+              "denominator": 2485,
+              "exact_fraction": "0/2485",
+              "numerator": 0
+            }
+          },
+          "patterns": 2485,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              2
+            ]
+          }
+        },
+        "nonadjacent_triple": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 45236,
+            "DETECTED_UNCORRECTABLE": 14334
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 0,
+            "detected_uncorrectable_or_abstained": 14334,
+            "silent_miscorrection": 45236
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 59570,
+              "exact_fraction": "0/59570",
+              "numerator": 0
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 59570,
+              "exact_fraction": "14334/59570",
+              "numerator": 14334
+            },
+            "silent_miscorrection": {
+              "denominator": 59570,
+              "exact_fraction": "45236/59570",
+              "numerator": 45236
+            }
+          },
+          "patterns": 59570,
+          "representative_patterns": {
+            "detected_uncorrectable_or_abstained": [
+              0,
+              4,
+              57
+            ],
+            "silent_miscorrection": [
+              0,
+              1,
+              3
+            ]
+          }
+        },
+        "single": {
+          "data_independence_proof": "linear encoder and translation-invariant deterministic syndrome policy",
+          "decoder_status_counts": {
+            "CORRECTED": 72
+          },
+          "evidence_level": "exact_exhaustive_canonical_codeword",
+          "outcome_counts": {
+            "corrected_to_golden_data": 72,
+            "detected_uncorrectable_or_abstained": 0,
+            "silent_miscorrection": 0
+          },
+          "outcome_fractions": {
+            "corrected_to_golden_data": {
+              "denominator": 72,
+              "exact_fraction": "72/72",
+              "numerator": 72
+            },
+            "detected_uncorrectable_or_abstained": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            },
+            "silent_miscorrection": {
+              "denominator": 72,
+              "exact_fraction": "0/72",
+              "numerator": 0
+            }
+          },
+          "patterns": 72,
+          "representative_patterns": {
+            "corrected_to_golden_data": [
+              0
+            ]
+          }
+        }
+      },
+      "code_spec_id": "extended-hamming-secded-72-64-v1",
+      "decoder_policy_id": "repository-bounded-adjacent-triple-v1",
+      "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "k": 64,
+      "n": 72,
+      "profile_id": "exact-error-profile-taec-rtl-bounded-72-64-v1",
+      "profile_sha256": "dcc2ba863009f5daa8cef68ba849b1bea9aca5597349f37a2e321a1790afe2f7",
+      "schema_version": 1
+    }
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "assumptions": [
+      "1000 FIT is treated as a system-wide relevant event-rate upper bound only for this sensitivity.",
+      "The 1e-5 outside-support probability is unmeasured and therefore not deployment evidence."
+    ],
+    "budget_sha256": "a9366cdadba27e69c386b31f74ed1d025d69b6d9960c65e3fc4a245f0fc4d0f4",
+    "conditional_sdc_budget_modeled_support": 9.000090000900009e-05,
+    "conditional_sdc_budget_total": 0.0001,
+    "deployment_feasible_from_declared_bounds": true,
+    "exposure": {
+      "confidence": null,
+      "confidence_status": "declared_upper_bound_without_statistical_confidence",
+      "event_fit_upper": 1000.0000000000001,
+      "event_rate_upper_per_hour": 1.0000000000000002e-06,
+      "formula": "system_event_fit * 1e-9 events/hour",
+      "kind": "system_event_fit",
+      "terms": {
+        "system_event_fit": 1000.0
+      }
+    },
+    "mission_hours": 8760.0,
+    "schema_version": 1,
+    "system_target_id": "conservative_safety_engineering_point",
+    "tail": {
+      "confidence": null,
+      "formula": "p_total <= (1-eta)*p_support + eta*p_tail_upper",
+      "probability_upper": 1e-05,
+      "sdc_probability_upper": 1.0,
+      "status": "bounded_engineering_assumption"
+    },
+    "target": {
+      "formula": "system_sdc_fit * 1e-9 hours^-1",
+      "kind": "system_sdc_fit",
+      "rate_upper_per_hour": 1.0000000000000002e-10,
+      "system_sdc_fit": 0.10000000000000002
+    },
+    "target_basis": "Declared stringent engineering sensitivity point; not a quoted industry standard."
+  },
+  {
+    "assumptions": [
+      "1000 FIT is a system-event sensitivity, not the benchmark raw_fit reinterpreted as measurement.",
+      "Tail SDC is bounded by one."
+    ],
+    "budget_sha256": "8ed5597fd620d594df5f588427fcd4a020a8c4a5bdc4856177f7f32e7e6f117c",
+    "conditional_sdc_budget_modeled_support": 0.0009900099000990008,
+    "conditional_sdc_budget_total": 0.0009999999999999998,
+    "deployment_feasible_from_declared_bounds": true,
+    "exposure": {
+      "confidence": null,
+      "confidence_status": "declared_upper_bound_without_statistical_confidence",
+      "event_fit_upper": 1000.0000000000001,
+      "event_rate_upper_per_hour": 1.0000000000000002e-06,
+      "formula": "system_event_fit * 1e-9 events/hour",
+      "kind": "system_event_fit",
+      "terms": {
+        "system_event_fit": 1000.0
+      }
+    },
+    "mission_hours": 8760.0,
+    "schema_version": 1,
+    "system_target_id": "server_class_engineering_point",
+    "tail": {
+      "confidence": null,
+      "formula": "p_total <= (1-eta)*p_support + eta*p_tail_upper",
+      "probability_upper": 1e-05,
+      "sdc_probability_upper": 1.0,
+      "status": "bounded_engineering_assumption"
+    },
+    "target": {
+      "formula": "system_sdc_fit * 1e-9 hours^-1",
+      "kind": "system_sdc_fit",
+      "rate_upper_per_hour": 1e-09,
+      "system_sdc_fit": 1.0
+    },
+    "target_basis": "Server-class named engineering sensitivity point; not a quoted industry standard."
+  },
+  {
+    "assumptions": [
+      "The event-rate and tail inputs require replacement by product-specific confidence bounds before deployment."
+    ],
+    "budget_sha256": "0252e027a85e5d380007622c9eaaec81857cc0cc4a39a21948ac1b6aa69d3eab",
+    "conditional_sdc_budget_modeled_support": 0.009990099900999009,
+    "conditional_sdc_budget_total": 0.009999999999999998,
+    "deployment_feasible_from_declared_bounds": true,
+    "exposure": {
+      "confidence": null,
+      "confidence_status": "declared_upper_bound_without_statistical_confidence",
+      "event_fit_upper": 1000.0000000000001,
+      "event_rate_upper_per_hour": 1.0000000000000002e-06,
+      "formula": "system_event_fit * 1e-9 events/hour",
+      "kind": "system_event_fit",
+      "terms": {
+        "system_event_fit": 1000.0
+      }
+    },
+    "mission_hours": 8760.0,
+    "schema_version": 1,
+    "system_target_id": "embedded_edge_engineering_point",
+    "tail": {
+      "confidence": null,
+      "formula": "p_total <= (1-eta)*p_support + eta*p_tail_upper",
+      "probability_upper": 1e-05,
+      "sdc_probability_upper": 1.0,
+      "status": "bounded_engineering_assumption"
+    },
+    "target": {
+      "formula": "system_sdc_fit * 1e-9 hours^-1",
+      "kind": "system_sdc_fit",
+      "rate_upper_per_hour": 1e-08,
+      "system_sdc_fit": 10.0
+    },
+    "target_basis": "Embedded/edge named engineering sensitivity point; not a quoted industry standard."
+  },
+  {
+    "assumptions": [
+      "No tail probability is asserted."
+    ],
+    "budget_sha256": "95e801f152ffa134da795ec835257db5e220b005c189531669feee06a663375c",
+    "conditional_sdc_budget_modeled_support": null,
+    "conditional_sdc_budget_total": 0.0009999999999999998,
+    "deployment_feasible_from_declared_bounds": false,
+    "exposure": {
+      "confidence": null,
+      "confidence_status": "declared_upper_bound_without_statistical_confidence",
+      "event_fit_upper": 1000.0000000000001,
+      "event_rate_upper_per_hour": 1.0000000000000002e-06,
+      "formula": "system_event_fit * 1e-9 events/hour",
+      "kind": "system_event_fit",
+      "terms": {
+        "system_event_fit": 1000.0
+      }
+    },
+    "mission_hours": 8760.0,
+    "schema_version": 1,
+    "system_target_id": "unbounded_tail_fail_closed",
+    "tail": {
+      "confidence": null,
+      "formula": "p_total <= (1-eta)*p_support + eta*p_tail_upper",
+      "probability_upper": null,
+      "sdc_probability_upper": null,
+      "status": "unbounded_tail_fail_closed"
+    },
+    "target": {
+      "formula": "system_sdc_fit * 1e-9 hours^-1",
+      "kind": "system_sdc_fit",
+      "rate_upper_per_hour": 1e-09,
+      "system_sdc_fit": 1.0
+    },
+    "target_basis": "Fail-closed sensitivity with no outside-support bound."
+  }
+]

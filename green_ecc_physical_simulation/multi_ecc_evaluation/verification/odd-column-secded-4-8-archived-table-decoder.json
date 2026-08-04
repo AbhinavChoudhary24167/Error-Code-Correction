@@ -1,0 +1,149 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "8/8",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 8
+      },
+      "passed": true,
+      "passed_count": 8,
+      "patterns": 8
+    },
+    {
+      "acceptable_statuses": [
+        "DETECTED_UNCORRECTABLE"
+      ],
+      "class_id": "all-double-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "28/28",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_detection",
+      "outcome_counts": {
+        "DETECTED_UNCORRECTABLE": 28
+      },
+      "passed": true,
+      "passed_count": 28,
+      "patterns": 28
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-archived-correction-table-entries",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "8/8",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "CORRECTED": 8
+      },
+      "passed": true,
+      "passed_count": 8,
+      "patterns": 8
+    }
+  ],
+  "code_id": "odd-column-secded-4-8",
+  "exhaustive_small_code": {
+    "cases": 4096,
+    "deterministic": true,
+    "performed": true
+  },
+  "failures": [],
+  "implementation_hash": "592f5379bb95a77899f80d10054152ecef5ba777416e2639960eaafd3f6bfa77",
+  "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+  "matrix_hash": "7d9acf2646a27cf06ea471cbf59e1441b9f016e7521b04392ef331d3594183b1",
+  "miscorrection_probes": [
+    {
+      "domain": "error masks outside the explicitly verified deployed syndrome table",
+      "expected": "may be detected uncorrectable or silently miscorrected",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/code_synthesis/verification_report.json",
+      "present": true,
+      "test_id": "odd-column-secded-4-8-archived-verification"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    5,
+    10,
+    15
+  ],
+  "tested_universe_hash": "1037f7c3a6d59bcc89b8d79d685271c9a3584e6a59618dfa0e41e32b3df99ef2",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "4e624e54f209b6a03df3c2ea20f8f2c336d8beba68b2ade398da6f1c985476d9",
+  "verification_status": "passed"
+}

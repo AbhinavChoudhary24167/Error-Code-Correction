@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/experimental-fault-map.schema.json",
+  "title": "SafeForge raw bit-exact experimental campaign manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "campaign_id", "evidence_level", "bit_width", "word_mapping", "experiment", "licensing"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "campaign_id": {"type": "string", "minLength": 1},
+    "evidence_level": {"const": "A_raw_bit_exact_experimental"},
+    "bit_width": {"const": 72},
+    "word_mapping": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["physical_to_logical_map_source", "interleaving", "word_address_definition"]
+    },
+    "experiment": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["device", "memory", "procedure", "repeated_trials", "event_association_rule"]
+    },
+    "licensing": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["data_owner", "license", "redistribution_allowed"]
+    }
+  }
+}

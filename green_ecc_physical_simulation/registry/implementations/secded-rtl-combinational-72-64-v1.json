@@ -1,0 +1,119 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_linear_adapter",
+    "parameters": {
+      "policy": "single_error"
+    }
+  },
+  "architecture_style": "combinational",
+  "backend_id": null,
+  "capability_claims": {
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "SECDED",
+    "physical_characterization": null,
+    "rtl": "single correction and double detection tested"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "extended-hamming-secded-72-64-v1",
+  "code_spec_id": "extended-hamming-secded-72-64-v1",
+  "compatible_deployment_architectures": [
+    "fixed-secded-whole-memory-v1",
+    "configurable-gated-parallel-bank-v1",
+    "adaptive-shared-page-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "repository-secded-v1",
+  "decoder_top": "secded_decoder",
+  "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": "secded_encoder",
+  "evidence_level": "rtl_and_exact_functional",
+  "failed_capabilities": [],
+  "implementation_id": "secded-rtl-combinational-72-64-v1",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "85f6f0ee3c8884b68bd618c1312f9cf40184a5303570cfb5c99596f99a8fcbde",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {
+    "DATA_W": 64
+  },
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "asic/include/ecc_pkg.sv",
+    "asic/rtl/secded/secded_codec.sv",
+    "asic/tb/tb_secded.sv",
+    "reports/safeforge_hardware_validation/validation_summary.json"
+  ],
+  "source_hashes": {
+    "asic/include/ecc_pkg.sv": "1bac05cada6c2fb15d47e5071674844f349079e4198594e4ae244a521817704a",
+    "asic/rtl/secded/secded_codec.sv": "42b40b93ff82a386e786c6b51c035c03aabe5fd845cd133cf6194a6c175c2076",
+    "asic/tb/tb_secded.sv": "1c857345bdbdff9f3579d31362563789f4fc23500a4fc64acdda1dd45ae6f13f",
+    "reports/safeforge_hardware_validation/validation_summary.json": "31ca783b82b1a009138dbee6dd9424ff2bc76eb1d7d482d4371621c409fdcc88"
+  },
+  "source_provenance": [
+    {
+      "path": "asic/include/ecc_pkg.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "asic/rtl/secded/secded_codec.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "asic/tb/tb_secded.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "weight>=2 correction",
+    "weight>=3 detection"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "status": "passed",
+      "test_id": "tb_secded"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all-single-bit correction",
+    "all-double-bit detection"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": "sec_ded_64"
+}

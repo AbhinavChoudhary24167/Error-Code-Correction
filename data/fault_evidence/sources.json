@@ -27,7 +27,15 @@
           "mapping_assumptions": ["physical cell distance cannot be converted to logical word adjacency without a layout/interleaving map"]
         }
       ],
-      "url": "https://www.osti.gov/servlets/purl/2004056"
+      "url": "https://www.osti.gov/servlets/purl/2004056",
+      "evidence_level": "C_literature_aggregate",
+      "raw_bit_level_data_available": false,
+      "raw_data_search_status": "No public raw address/coordinate archive was identified from the paper, DOI, or institutional record as of the audit date.",
+      "spatial_resolution": "Published cluster shapes and cell-distance rule; no reusable physical-to-logical address map.",
+      "transformation_to_72bit": "Only multiplicity/cluster intervals can constrain a synthetic 72-bit support.",
+      "information_lost": ["event-level coordinates", "word membership", "array interleaving", "per-condition sample identities"],
+      "sample_independence": "not recoverable from aggregate publication",
+      "licensing_and_redistribution": "Public manuscript accessible through OSTI; no separate raw-data license or redistribution grant was identified."
     },
     {
       "source_id": "perez-celis-wirthlin-2020",
@@ -42,7 +50,15 @@
         {"quantity": "classified MCU event fraction", "device": "XCZU9EG", "value": 0.0559, "extraction_method": "reported aggregate", "confidence_interval": "not published in reusable numeric form"}
       ],
       "mapping_assumptions": ["device-family values define a sensitivity range, not a pooled population confidence interval", "CRAM/BRAM physical addresses are not mapped directly to a 72-bit SRAM word"],
-      "url": "https://par.nsf.gov/servlets/purl/10184000"
+      "url": "https://par.nsf.gov/servlets/purl/10184000",
+      "evidence_level": "C_literature_aggregate",
+      "raw_bit_level_data_available": false,
+      "raw_data_search_status": "The method states that radiation campaigns collect upset-cell lists, but no reusable list was identified in the public paper/institutional pages as of the audit date.",
+      "spatial_resolution": "Frame/bit logical offsets and reconstructed shape frequencies are reported in aggregate.",
+      "transformation_to_72bit": "A device-specific frame/bit-to-word and interleave map would be required before replay.",
+      "information_lost": ["upset-cell list", "event association", "physical layout", "72-bit word boundaries"],
+      "sample_independence": "scrub-cycle and event associations are not available in reusable raw form",
+      "licensing_and_redistribution": "Public manuscript is available; IEEE text carries reuse restrictions and no raw-data license was identified."
     },
     {
       "source_id": "salami-unsal-kestelman-2019",
@@ -55,7 +71,15 @@
         {"quantity": "additional faults detectable but not correctable", "value": 0.07, "extraction_method": "reported rounded aggregate", "confidence_interval": "not reported"}
       ],
       "mapping_assumptions": ["correctable is treated as an SBU aggregate only because the authors attribute the result to single-bit faults", "the 7% detected category is not converted to a bit-exact DBU PMF"],
-      "url": "https://arxiv.org/abs/1903.12514"
+      "url": "https://arxiv.org/abs/1903.12514",
+      "evidence_level": "C_literature_aggregate",
+      "raw_bit_level_data_available": false,
+      "raw_data_search_status": "No public per-read fault-map archive or source repository was identified from the paper/title/author search as of the audit date.",
+      "spatial_resolution": "Published correctable/detectable rates; no public bit coordinates used here.",
+      "transformation_to_72bit": "Only the reported multiplicity coverage interval is used; no vectors are synthesized from plots.",
+      "information_lost": ["BRAM address", "bit offset", "voltage-specific trial identity", "device identity"],
+      "sample_independence": "not recoverable from aggregate publication",
+      "licensing_and_redistribution": "Public arXiv manuscript; no separate experimental-data license or redistribution grant was identified."
     },
     {
       "source_id": "soyturk-et-al-2019",
@@ -69,7 +93,15 @@
         {"quantity": "spatial distribution", "value": "faults cluster by column and exhibit voltage inclusion", "extraction_method": "reported hardware-map observation", "confidence_interval": "not reported"}
       ],
       "mapping_assumptions": ["persistent faulty-bit count per SRAM macro is not event multiplicity within one ECC word", "spatial locality is used as a structured uncertainty constraint, not as a direct transient PMF"],
-      "url": "https://arxiv.org/abs/1912.00154"
+      "url": "https://arxiv.org/abs/1912.00154",
+      "evidence_level": "C_literature_aggregate",
+      "raw_bit_level_data_available": false,
+      "raw_data_search_status": "The paper says hardware-guided maps were used, but no legally reusable map archive or accompanying license was identified from repository and data-catalog searches as of the audit date.",
+      "spatial_resolution": "Original experiment used 16-Kbit maps; this audit has only published counts and spatial aggregates.",
+      "transformation_to_72bit": "Requires original coordinates, macro geometry, word slicing, and an explicit interleave map.",
+      "information_lost": ["fault coordinates", "voltage per map", "device per map", "trial grouping", "72-bit word membership"],
+      "sample_independence": "maps may share device/voltage structure; independence cannot be established from aggregates",
+      "licensing_and_redistribution": "Public arXiv manuscript; no raw-map license or redistribution grant was identified."
     },
     {
       "source_id": "nasa-kintex-ultrascale-see-report-2020",
@@ -81,9 +113,23 @@
         {"quantity": "BRAM multiplicity collection method", "value": "post-processing classifies 1-bit, 2-bit, 3-bit, and higher errors with stated >=95% event-association confidence", "extraction_method": "test-report methodology", "confidence_interval": "histogram values were not recoverable from the public report text used here"}
       ],
       "mapping_assumptions": ["methodological evidence only; no numeric PMF constraint is instantiated without the histogram"],
-      "url": "https://ntrs.nasa.gov/api/citations/20205007765/downloads/20205007765.pdf"
+      "url": "https://ntrs.nasa.gov/api/citations/20205007765/downloads/20205007765.pdf",
+      "evidence_level": "C_literature_aggregate",
+      "raw_bit_level_data_available": false,
+      "raw_data_search_status": "The public test report documents collection methodology but the underlying event file was not identified as a downloadable dataset.",
+      "spatial_resolution": "BRAM multiplicity categories in the report methodology.",
+      "transformation_to_72bit": "Would require the raw event file plus RAMB36 address and word-layout metadata.",
+      "information_lost": ["event vectors", "addresses", "fluence-linked trial identity", "word mapping"],
+      "sample_independence": "not recoverable without event timestamps/run identifiers",
+      "licensing_and_redistribution": "NASA technical report is public; no separate raw-event archive or data license was identified."
     }
   ],
+  "evidence_level_definitions": {
+    "A_raw_bit_exact_experimental": "Raw event vectors with experiment identity, geometry/word mapping, and redistribution terms.",
+    "B_measurement_derived_replay": "Released or author-supplied pattern replay with traceable transformation but incomplete original coordinates.",
+    "C_literature_aggregate": "Published multiplicity/spatial aggregates used only as ambiguity constraints."
+  },
   "ingested_bit_exact_datasets": [],
+  "ingested_measurement_derived_replays": [],
   "conclusion": "The available evidence supports source-specific aggregate ambiguity sets, not one pooled measured word-level PMF. Literature-derived and synthetic artifacts remain separate."
 }

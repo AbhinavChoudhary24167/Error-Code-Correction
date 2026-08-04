@@ -1,0 +1,4124 @@
+{
+  "adaptive_threshold": {
+    "best_single_fixed_candidate": "shortened-bch-85-64-t3-v1-reference-decoder",
+    "evidence_level": "analytical_sensitivity",
+    "gross_oracle_advantage_j_across_comparable_grid": 0.011184651500440948,
+    "hypothetical_sweep": [
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.0,
+        "net_analytical_gain_j": 0.011184651500440948
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.1,
+        "net_analytical_gain_j": 0.010066186350396853
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.25,
+        "net_analytical_gain_j": 0.00838848862533071
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.5,
+        "net_analytical_gain_j": 0.005592325750220474
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.75,
+        "net_analytical_gain_j": 0.002796162875110237
+      },
+      {
+        "beneficial": false,
+        "hypothetical_overhead_fraction_of_gross_gain": 1.0,
+        "net_analytical_gain_j": 0.0
+      },
+      {
+        "beneficial": false,
+        "hypothetical_overhead_fraction_of_gross_gain": 1.25,
+        "net_analytical_gain_j": -0.002796162875110237
+      },
+      {
+        "beneficial": false,
+        "hypothetical_overhead_fraction_of_gross_gain": 1.5,
+        "net_analytical_gain_j": -0.005592325750220474
+      }
+    ],
+    "maximum_tolerable_total_analytical_overhead_j": 0.011184651500440948,
+    "physical_break_even": null,
+    "status": "parameterized_analytical_threshold",
+    "symbolic_condition": "E_mux + E_controller + N_transition*E_transition + N_reencoded_bits*E_reencode_per_bit < E_best_fixed - E_oracle"
+  },
+  "per_scenario": [
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-eee577f15334e845",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-54c4a418080f7f94",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-4533e39980b083ff",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d74aaacb82cfb4a2",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-89773d2600d12b29",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-a131389785caf8e6",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-558319feb983415f",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-43097b1c923efccb",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-ce272efe54154152",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9d9099c29b272caa",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-4e1dcec8cf24a93f",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6260002532ac1456",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-dddfa62c303777e3",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-977f7d7ccdd740b5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-8b0f949622f3e8c6",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-dc51086f2d8792fc",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a12797adc8a2f43d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-502586fe43c428fc",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-2b2a15b9502f7294",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-a715272532942ce0",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-34423a7f8528000a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f3eab42cfbe8d4b5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-b0b7b762cc379cde",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-faf60e45d95bef7a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-16cdf83ce8d79a32",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-008aabb6f8c2930e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-815218832108c6a9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-90af821f270ad59d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-531d9642fda3c267",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-8818ebe02baadcae",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a127e7047de42687",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-23984089ef9d7755",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c7be56d583a43019",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-c8720af89d73aac1",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c12baddd558637c5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1d0af33553f85c0d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-af2571fc827ce427",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-bff5ece812952d85",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-972a3fe38a5acda9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-abe9c77a67b776ba",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-e17ae1339dba0467",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-185c6199420f1b18",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-cdd8c35431ca715c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-0485a01316121fc2",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-093d357aca90b707",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9b3f9e319bd3a2d9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1fb8cfa3c3609571",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-5eefc731a97671c7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-37f54bcc582e104d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-7e44ef5a48a84874",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-cfca35c84a287485",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-95eade6d5b120a51",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c628b3651e94ddf9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-e2cf0ab70e1d9fd7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-90dea3f4b50493e7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-c26e625afe26b393",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-23dba77a716c6dc0",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f756819fcbf5bb86",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-20c9f5e30ffef31e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6c8d2869551e375d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-fb71a68075b68896",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-98bef5c493f94ea5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-68dad974d1bc0c4e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-01801d0ad052bf59",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-12d48c805d4e7ad0",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-56b5fe73e60bd536",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d0078551b688351c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-702041bdd6efb425",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-3974852da84ebfbd",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d034250b7e1582e4",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-e052b2efa24e9084",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f44d13b3ddf253b0",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-ac2d8de37bdedae7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5117b99d1aa2d1b4",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-0f2f99254527af94",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-4cc8018c16694e2f",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c49f1dbc399687e1",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-c75601ab26c3cfb9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5cee3aaf6275eb00",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-590367f68e42853b",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-bc1d3fefa7535853",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-45f6cfc85042fa53",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-843312e6529e9766",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-262c6a76e2b21e0a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-bea1622dfb2700b3",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-606b9fe0f508f517",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-02a1f200edde8b3a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3dc4b9f88cd96fde",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-778c66b591d7dc55",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-f233aaa9dc8f0f41",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d5788125f4d91a27",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-b02fddd407f484ec",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-a1cdecad908f2486",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1f6f70de2d76fdb1",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-6ff2d7f5f17e7d02",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-caaef2ff4f8a539e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-f4ff5eeada4ce50a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-fddd0c8a0febf5bb",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-13b22d95b8a01b18",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-01ccec5b2f7566d4",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-37505f8274d72b38",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-f9862069683f7dad",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-cc52c2c28eb2cf37",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-7408d75672e82c62",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-2e34504fe4c7a959",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-65214a73b4079400",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-2e0fadac37c11a30",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-076e35db0a0db7de",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-e62eaa57d8800bd1",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-79bc5a907dc60028",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-91cb96848d96cb47",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-4b02a515026bbd9a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-f6c59e27a55e2520",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-8c6089e539381309",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a75b63f5eb87110e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-98d666ae6f710161",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-902344004c16dcae",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-4393234f5438c87e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-26a9a659be42e754",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-72429cf521799450",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-2bb973e9421cc427",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-9225d5a0cceb39ef",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-90e57f3f6c623b2d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-ae31e74c098042a7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-206a6235a441138d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-d7e769a377b02b6b",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-b704c572deb6c89a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-ad87abaa2895f9e2",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-5c940bb744429036",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d4018c18837251d9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-8e2f27d1fb9bc6a5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-a26a8bfa1ec1824d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-d278424d425c9a9c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-9d0bb70bdabdaed7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-dbabadfab0eda69a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c4ed3084098104a7",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-deeda274bb947f50",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-b134d018430bb994",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c71755f9ca5952b2",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-409ba1ae54bf1e8c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-540360c316e691db",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6b74e9cbc0058424",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-e78d0033e7a1fe8e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-011140ac0e3ab810",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-16993709a6c2da80",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-0f643d0260ddfed5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-3e63e7274053f1b9",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3ee775489a49959c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5a9f867ccc783459",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-0669d4feaf3c87d0",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-42f46a08aa10561c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-6196f62a79dfc3cb",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-ca0330b0cfed952e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-8dfaa32f743a9953",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c300a66b51a8538b",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f0038acdc6364756",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-75eb016b703d265c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-114be0f73c036481",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-5e5f528358fafa4d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-7fa8f148481213d6",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-33908b7d5ce49c52",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-7399dc68ca1c17f5",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-1cd91b0dc027474c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-3cf7c9612dfb0482",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-04bf123e54b5f888",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f13bce4cbb9594f8",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1df19f286abc8b5a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d25c9fde1b907eb3",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-349f212caa0e408f",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-42785cbd69484929",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-6daa873ae64ae22a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-e30da48d33167e70",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-1aef6ac8b43e4863",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-6262ecda4288ab58",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3593c0786b7ca854",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-cfbd7c0eff8391bf",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-9bb2b87de3f9d416",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1545605da3fa6e89",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1852529f6ab87c01",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9dc9c349d7df8fbf",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-7500e22d6f87aa4d",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-ace0db66cab57f5b",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-8161943a891b9d0f",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-85469ce7743525eb",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5eaa7b2996bfa6c2",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-fa510b5a4d4e444b",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-da127d5ec493669b",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-aa915900a89a23ce",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-be3efb0ee6c0f31a",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-3538a18d154c4a3c",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-37be8843fcb90e6e",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-54d7bc8dab25e5fa",
+      "stable": true,
+      "uncertainty_model_id": "base",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-eee577f15334e845",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-54c4a418080f7f94",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-4533e39980b083ff",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d74aaacb82cfb4a2",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-89773d2600d12b29",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-a131389785caf8e6",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-558319feb983415f",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-43097b1c923efccb",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-ce272efe54154152",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9d9099c29b272caa",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-4e1dcec8cf24a93f",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6260002532ac1456",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-dddfa62c303777e3",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-977f7d7ccdd740b5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-8b0f949622f3e8c6",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-dc51086f2d8792fc",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a12797adc8a2f43d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-502586fe43c428fc",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-2b2a15b9502f7294",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-a715272532942ce0",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-34423a7f8528000a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f3eab42cfbe8d4b5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-b0b7b762cc379cde",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-faf60e45d95bef7a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-16cdf83ce8d79a32",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-008aabb6f8c2930e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-815218832108c6a9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-90af821f270ad59d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-531d9642fda3c267",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-8818ebe02baadcae",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a127e7047de42687",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-23984089ef9d7755",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c7be56d583a43019",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-c8720af89d73aac1",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c12baddd558637c5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1d0af33553f85c0d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-af2571fc827ce427",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-bff5ece812952d85",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-972a3fe38a5acda9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-abe9c77a67b776ba",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-e17ae1339dba0467",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-185c6199420f1b18",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-cdd8c35431ca715c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-0485a01316121fc2",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-093d357aca90b707",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9b3f9e319bd3a2d9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1fb8cfa3c3609571",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-5eefc731a97671c7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-37f54bcc582e104d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-7e44ef5a48a84874",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-cfca35c84a287485",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-95eade6d5b120a51",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c628b3651e94ddf9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-e2cf0ab70e1d9fd7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-90dea3f4b50493e7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-c26e625afe26b393",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-23dba77a716c6dc0",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f756819fcbf5bb86",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-20c9f5e30ffef31e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6c8d2869551e375d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-fb71a68075b68896",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-98bef5c493f94ea5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-68dad974d1bc0c4e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-01801d0ad052bf59",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-12d48c805d4e7ad0",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-56b5fe73e60bd536",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d0078551b688351c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-702041bdd6efb425",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-3974852da84ebfbd",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d034250b7e1582e4",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-e052b2efa24e9084",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f44d13b3ddf253b0",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-ac2d8de37bdedae7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5117b99d1aa2d1b4",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-0f2f99254527af94",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-4cc8018c16694e2f",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c49f1dbc399687e1",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-c75601ab26c3cfb9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5cee3aaf6275eb00",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-590367f68e42853b",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-bc1d3fefa7535853",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-45f6cfc85042fa53",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-843312e6529e9766",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-262c6a76e2b21e0a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-bea1622dfb2700b3",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-606b9fe0f508f517",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-02a1f200edde8b3a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3dc4b9f88cd96fde",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-778c66b591d7dc55",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-f233aaa9dc8f0f41",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d5788125f4d91a27",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-b02fddd407f484ec",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-a1cdecad908f2486",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1f6f70de2d76fdb1",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-6ff2d7f5f17e7d02",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-caaef2ff4f8a539e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-f4ff5eeada4ce50a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-fddd0c8a0febf5bb",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-13b22d95b8a01b18",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-01ccec5b2f7566d4",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-37505f8274d72b38",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-f9862069683f7dad",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-cc52c2c28eb2cf37",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-7408d75672e82c62",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-2e34504fe4c7a959",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-65214a73b4079400",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-2e0fadac37c11a30",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-076e35db0a0db7de",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-e62eaa57d8800bd1",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-79bc5a907dc60028",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-91cb96848d96cb47",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-4b02a515026bbd9a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-f6c59e27a55e2520",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-8c6089e539381309",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a75b63f5eb87110e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-98d666ae6f710161",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-902344004c16dcae",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-4393234f5438c87e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-26a9a659be42e754",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-72429cf521799450",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-2bb973e9421cc427",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-9225d5a0cceb39ef",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-90e57f3f6c623b2d",
+      "stable": false,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-8-4-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-ae31e74c098042a7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-206a6235a441138d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-d7e769a377b02b6b",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-b704c572deb6c89a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-ad87abaa2895f9e2",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-5c940bb744429036",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d4018c18837251d9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-8e2f27d1fb9bc6a5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-a26a8bfa1ec1824d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-d278424d425c9a9c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-9d0bb70bdabdaed7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-dbabadfab0eda69a",
+      "stable": false,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-8-4-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c4ed3084098104a7",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-deeda274bb947f50",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-b134d018430bb994",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c71755f9ca5952b2",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-409ba1ae54bf1e8c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-540360c316e691db",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6b74e9cbc0058424",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-e78d0033e7a1fe8e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-011140ac0e3ab810",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-16993709a6c2da80",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-0f643d0260ddfed5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-3e63e7274053f1b9",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3ee775489a49959c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5a9f867ccc783459",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-0669d4feaf3c87d0",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-42f46a08aa10561c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-6196f62a79dfc3cb",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-ca0330b0cfed952e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-8dfaa32f743a9953",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c300a66b51a8538b",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f0038acdc6364756",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-75eb016b703d265c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-114be0f73c036481",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-5e5f528358fafa4d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-7fa8f148481213d6",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-33908b7d5ce49c52",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-7399dc68ca1c17f5",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-1cd91b0dc027474c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-3cf7c9612dfb0482",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-04bf123e54b5f888",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f13bce4cbb9594f8",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1df19f286abc8b5a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d25c9fde1b907eb3",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-349f212caa0e408f",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-42785cbd69484929",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-6daa873ae64ae22a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-e30da48d33167e70",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-1aef6ac8b43e4863",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-6262ecda4288ab58",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3593c0786b7ca854",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-cfbd7c0eff8391bf",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-9bb2b87de3f9d416",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1545605da3fa6e89",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1852529f6ab87c01",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9dc9c349d7df8fbf",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-7500e22d6f87aa4d",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-ace0db66cab57f5b",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-8161943a891b9d0f",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-85469ce7743525eb",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5eaa7b2996bfa6c2",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-fa510b5a4d4e444b",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-da127d5ec493669b",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-aa915900a89a23ce",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-be3efb0ee6c0f31a",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-3538a18d154c4a3c",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-37be8843fcb90e6e",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-54d7bc8dab25e5fa",
+      "stable": true,
+      "uncertainty_model_id": "logic_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-eee577f15334e845",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-54c4a418080f7f94",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-4533e39980b083ff",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d74aaacb82cfb4a2",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-89773d2600d12b29",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-a131389785caf8e6",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-558319feb983415f",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-43097b1c923efccb",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-ce272efe54154152",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9d9099c29b272caa",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-4e1dcec8cf24a93f",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6260002532ac1456",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-dddfa62c303777e3",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-977f7d7ccdd740b5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-8b0f949622f3e8c6",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-dc51086f2d8792fc",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a12797adc8a2f43d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-502586fe43c428fc",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-2b2a15b9502f7294",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-a715272532942ce0",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-34423a7f8528000a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f3eab42cfbe8d4b5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-b0b7b762cc379cde",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-faf60e45d95bef7a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-16cdf83ce8d79a32",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-008aabb6f8c2930e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-815218832108c6a9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-90af821f270ad59d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-531d9642fda3c267",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-8818ebe02baadcae",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a127e7047de42687",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-23984089ef9d7755",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c7be56d583a43019",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-c8720af89d73aac1",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c12baddd558637c5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1d0af33553f85c0d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-af2571fc827ce427",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-bff5ece812952d85",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-972a3fe38a5acda9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-abe9c77a67b776ba",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-e17ae1339dba0467",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-185c6199420f1b18",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-cdd8c35431ca715c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-0485a01316121fc2",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-093d357aca90b707",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9b3f9e319bd3a2d9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1fb8cfa3c3609571",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-5eefc731a97671c7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-37f54bcc582e104d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-7e44ef5a48a84874",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-cfca35c84a287485",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-95eade6d5b120a51",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c628b3651e94ddf9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-e2cf0ab70e1d9fd7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-90dea3f4b50493e7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-c26e625afe26b393",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-23dba77a716c6dc0",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f756819fcbf5bb86",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-20c9f5e30ffef31e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6c8d2869551e375d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-fb71a68075b68896",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-98bef5c493f94ea5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-68dad974d1bc0c4e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-01801d0ad052bf59",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-12d48c805d4e7ad0",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-56b5fe73e60bd536",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d0078551b688351c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-702041bdd6efb425",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-3974852da84ebfbd",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d034250b7e1582e4",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-e052b2efa24e9084",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f44d13b3ddf253b0",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-ac2d8de37bdedae7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5117b99d1aa2d1b4",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-0f2f99254527af94",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-4cc8018c16694e2f",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c49f1dbc399687e1",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-c75601ab26c3cfb9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5cee3aaf6275eb00",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-590367f68e42853b",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-bc1d3fefa7535853",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-45f6cfc85042fa53",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-843312e6529e9766",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-262c6a76e2b21e0a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-bea1622dfb2700b3",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-606b9fe0f508f517",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-02a1f200edde8b3a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3dc4b9f88cd96fde",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-778c66b591d7dc55",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-f233aaa9dc8f0f41",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-d5788125f4d91a27",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-b02fddd407f484ec",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-a1cdecad908f2486",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1f6f70de2d76fdb1",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-6ff2d7f5f17e7d02",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-caaef2ff4f8a539e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-f4ff5eeada4ce50a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-fddd0c8a0febf5bb",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-13b22d95b8a01b18",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-01ccec5b2f7566d4",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-37505f8274d72b38",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-f9862069683f7dad",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-cc52c2c28eb2cf37",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-7408d75672e82c62",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-2e34504fe4c7a959",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-65214a73b4079400",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-2e0fadac37c11a30",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-076e35db0a0db7de",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-e62eaa57d8800bd1",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-79bc5a907dc60028",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-91cb96848d96cb47",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-4b02a515026bbd9a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-f6c59e27a55e2520",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-8c6089e539381309",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-a75b63f5eb87110e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-98d666ae6f710161",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-902344004c16dcae",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-4393234f5438c87e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-26a9a659be42e754",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-72429cf521799450",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-2bb973e9421cc427",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-9225d5a0cceb39ef",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-90e57f3f6c623b2d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-ae31e74c098042a7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-206a6235a441138d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-d7e769a377b02b6b",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-b704c572deb6c89a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-ad87abaa2895f9e2",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-5c940bb744429036",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d4018c18837251d9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-8e2f27d1fb9bc6a5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-a26a8bfa1ec1824d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-d278424d425c9a9c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-9d0bb70bdabdaed7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-dbabadfab0eda69a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c4ed3084098104a7",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-deeda274bb947f50",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-b134d018430bb994",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-c71755f9ca5952b2",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-409ba1ae54bf1e8c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-540360c316e691db",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-6b74e9cbc0058424",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-e78d0033e7a1fe8e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-011140ac0e3ab810",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-16993709a6c2da80",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-0f643d0260ddfed5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-3e63e7274053f1b9",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3ee775489a49959c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5a9f867ccc783459",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-0669d4feaf3c87d0",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-42f46a08aa10561c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-6196f62a79dfc3cb",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-ca0330b0cfed952e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-8dfaa32f743a9953",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-c300a66b51a8538b",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f0038acdc6364756",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-75eb016b703d265c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-114be0f73c036481",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-5e5f528358fafa4d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-7fa8f148481213d6",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-33908b7d5ce49c52",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-7399dc68ca1c17f5",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-1cd91b0dc027474c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-3cf7c9612dfb0482",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-04bf123e54b5f888",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-f13bce4cbb9594f8",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1df19f286abc8b5a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-d25c9fde1b907eb3",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-349f212caa0e408f",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-42785cbd69484929",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-6daa873ae64ae22a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-e30da48d33167e70",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-1aef6ac8b43e4863",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-6262ecda4288ab58",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-3593c0786b7ca854",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-cfbd7c0eff8391bf",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-9bb2b87de3f9d416",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-1545605da3fa6e89",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-1852529f6ab87c01",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-9dc9c349d7df8fbf",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-7500e22d6f87aa4d",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-ace0db66cab57f5b",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "scenario_id": "scenario-8161943a891b9d0f",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-71-64-t1-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-85469ce7743525eb",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-5eaa7b2996bfa6c2",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-fa510b5a4d4e444b",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "hsiao-generated-combinational-72-64-v1",
+      "scenario_id": "scenario-da127d5ec493669b",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "base_winner": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "scenario_id": "scenario-aa915900a89a23ce",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-78-64-t2-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-be3efb0ee6c0f31a",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-3538a18d154c4a3c",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    },
+    {
+      "base_winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "scenario_id": "scenario-37be8843fcb90e6e",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "safeforge-robust-72-64-mapping-v1-archived-table-decoder"
+    },
+    {
+      "base_winner": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "scenario_id": "scenario-54d7bc8dab25e5fa",
+      "stable": true,
+      "uncertainty_model_id": "storage_dominated",
+      "winner": "shortened-bch-85-64-t3-v1-reference-decoder"
+    }
+  ],
+  "schema_version": 1,
+  "uncertainty_stability": {
+    "base": {
+      "base_winner_agreement_count": 192,
+      "base_winner_agreement_fraction": 1.0,
+      "winner_frequency": {
+        "hsiao-generated-combinational-72-64-v1": 64,
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+        "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+        "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+        "shortened-bch-85-64-t3-v1-reference-decoder": 32
+      }
+    },
+    "logic_dominated": {
+      "base_winner_agreement_count": 190,
+      "base_winner_agreement_fraction": 0.9895833333333334,
+      "winner_frequency": {
+        "hsiao-generated-combinational-72-64-v1": 64,
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+        "safeforge-robust-8-4-v1-archived-table-decoder": 2,
+        "shortened-bch-71-64-t1-v1-reference-decoder": 30,
+        "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+        "shortened-bch-85-64-t3-v1-reference-decoder": 32
+      }
+    },
+    "storage_dominated": {
+      "base_winner_agreement_count": 192,
+      "base_winner_agreement_fraction": 1.0,
+      "winner_frequency": {
+        "hsiao-generated-combinational-72-64-v1": 64,
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+        "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+        "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+        "shortened-bch-85-64-t3-v1-reference-decoder": 32
+      }
+    }
+  }
+}

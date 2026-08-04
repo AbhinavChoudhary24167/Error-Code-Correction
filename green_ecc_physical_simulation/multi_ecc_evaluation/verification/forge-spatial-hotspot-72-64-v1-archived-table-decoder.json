@@ -1,0 +1,124 @@
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-archived-correction-table-entries",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "123/123",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "CORRECTED": 123
+      },
+      "passed": true,
+      "passed_count": 123,
+      "patterns": 123
+    }
+  ],
+  "code_id": "forge-spatial-hotspot-72-64-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "f025f21e2a4ca7aaffe6905b7e78378e2107970d5878ad12abcc6b208769d093",
+  "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+  "matrix_hash": "d84b4d8d12941b3defc9279055319795c1291c48c881e4dd0fea8e7ce3de6b02",
+  "miscorrection_probes": [
+    {
+      "domain": "error masks outside the explicitly verified deployed syndrome table",
+      "expected": "may be detected uncorrectable or silently miscorrected",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/code_synthesis_64/verification_report.json",
+      "present": true,
+      "test_id": "forge-spatial-hotspot-72-64-v1-archived-verification"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "5e34d205de11b845e397beb31edbf6ed0f09c676ea8a495a5226feb296cd3453",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "21e1c0f8efb7a225fbf8d0c24dd2b8569866399183f0a30bec88d7f25c10d757",
+  "verification_status": "passed"
+}

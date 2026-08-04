@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "campaign_id": "replace-with-immutable-campaign-id",
+  "evidence_level": "A_raw_bit_exact_experimental",
+  "bit_width": 72,
+  "word_mapping": {
+    "physical_to_logical_map_source": "replace-with-board-and-bitstream-specific-map",
+    "interleaving": "declare-none-or-exact-function",
+    "word_address_definition": "replace-with-controller-address-to-72-bit-word-definition"
+  },
+  "experiment": {
+    "device": "replace-with-part-serial-and-board",
+    "memory": "replace-with-SRAM-or-BRAM-instance",
+    "procedure": "write pattern, establish condition, read, timestamp, restore, repeat",
+    "repeated_trials": 0,
+    "event_association_rule": "replace-with-time/spatial clustering rule fixed before collection"
+  },
+  "licensing": {
+    "data_owner": "replace-with-owner",
+    "license": "replace-with-SPDX-or-explicit-terms",
+    "redistribution_allowed": false
+  }
+}

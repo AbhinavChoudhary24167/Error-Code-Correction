@@ -1,0 +1,137 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.adapters:create_linear_adapter",
+    "parameters": {
+      "policy": "bounded_adjacent_double"
+    }
+  },
+  "architecture_style": "combinational",
+  "backend_id": null,
+  "capability_claims": {
+    "adjacency_definition": "consecutive canonical data coordinates 0..63 within one protected word; no word, bank, page, or parity-boundary crossing",
+    "claimed_error_classes": [
+      {
+        "acceptable_statuses": [
+          "CORRECTED"
+        ],
+        "class_id": "all-adjacent-double-data-errors",
+        "coordinate_count": 64,
+        "generator": "adjacent_windows",
+        "kind": "correction",
+        "weight": 2
+      }
+    ],
+    "data_independence_proof": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+    "mathematical": "same extended-Hamming codeword set as SECDED",
+    "physical_characterization": null,
+    "rtl": "bounded adjacent-pair search; not a universal SEC-DAEC proof"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "extended-hamming-secded-72-64-v1",
+  "code_spec_id": "extended-hamming-secded-72-64-v1",
+  "compatible_deployment_architectures": [
+    "configurable-gated-parallel-bank-v1",
+    "adaptive-shared-page-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "repository-bounded-adjacent-double-v1",
+  "decoder_top": "secdaec_decoder",
+  "encoder_id": "extended-hamming-secded-72-64-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": "secdaec_encoder",
+  "evidence_level": "rtl_and_exact_functional",
+  "failed_capabilities": [
+    "all-double-bit detection: 302/2556 silent miscorrections"
+  ],
+  "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "f5f39a417c6dc2d364a951c3ab2453d7b7ce49ae4a479130640ea7e139db8e1b",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {
+    "DATA_W": 64
+  },
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "asic/include/ecc_pkg.sv",
+    "asic/rtl/secded/secded_codec.sv",
+    "asic/rtl/secdaec/secdaec_codec.sv",
+    "asic/tb/tb_secdaec.sv",
+    "reports/safeforge_hardware_validation/validation_summary.json"
+  ],
+  "source_hashes": {
+    "asic/include/ecc_pkg.sv": "1bac05cada6c2fb15d47e5071674844f349079e4198594e4ae244a521817704a",
+    "asic/rtl/secdaec/secdaec_codec.sv": "ab544c0cd57603da703b5ea9bccb7837212f0f4e0488a93f982bd4ca4224673b",
+    "asic/rtl/secded/secded_codec.sv": "42b40b93ff82a386e786c6b51c035c03aabe5fd845cd133cf6194a6c175c2076",
+    "asic/tb/tb_secdaec.sv": "3c792fdd39b2e19dfce05f897193031056238030c57f9ec37bdddb5a8f6b5945",
+    "reports/safeforge_hardware_validation/validation_summary.json": "31ca783b82b1a009138dbee6dd9424ff2bc76eb1d7d482d4371621c409fdcc88"
+  },
+  "source_provenance": [
+    {
+      "path": "asic/include/ecc_pkg.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "asic/rtl/secded/secded_codec.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "asic/rtl/secdaec/secdaec_codec.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "asic/tb/tb_secdaec.sv",
+      "role": "RTL/reference/evidence"
+    },
+    {
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "role": "RTL/reference/evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "unrestricted adjacent-double correction guarantee"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "rtl_reference_differential",
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "status": "passed",
+      "test_id": "tb_secdaec"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all-single-bit correction"
+  ],
+  "version": "1.0.0",
+  "wrapper_module": "sec_daec_64"
+}

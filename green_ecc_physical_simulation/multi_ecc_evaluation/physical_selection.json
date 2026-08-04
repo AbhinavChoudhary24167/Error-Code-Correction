@@ -1,0 +1,790 @@
+{
+  "candidate_count": 0,
+  "comparison_basis": "equal_data_width",
+  "comparison_views": {
+    "equal_area_budget": {
+      "fairness_rule": "requires an explicit scenario area budget and non-null characterized area",
+      "groups": [
+        {
+          "candidate_count": 18,
+          "comparison_key": null,
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0",
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-45ac546063efe46021b99583",
+            "characterization-49c387d2f8c45207e0e3f593",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-75c089fdc28377eb2ecfafc3",
+            "characterization-872c4d8739c764a609060d4d",
+            "characterization-8f205bf58d54b4e5fa185350",
+            "characterization-91816bc164082c72b1a68ca9",
+            "characterization-98e86ea2ff604971ddb598ba",
+            "characterization-a2570a1886d86ef135218a41",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        }
+      ]
+    },
+    "equal_codeword_width": {
+      "fairness_rule": "compare only identical n",
+      "groups": [
+        {
+          "candidate_count": 1,
+          "comparison_key": 63,
+          "result_ids": [
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 71,
+          "result_ids": [
+            "characterization-a2570a1886d86ef135218a41"
+          ]
+        },
+        {
+          "candidate_count": 11,
+          "comparison_key": 72,
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0",
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-98e86ea2ff604971ddb598ba",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 78,
+          "result_ids": [
+            "characterization-45ac546063efe46021b99583"
+          ]
+        },
+        {
+          "candidate_count": 3,
+          "comparison_key": 8,
+          "result_ids": [
+            "characterization-75c089fdc28377eb2ecfafc3",
+            "characterization-872c4d8739c764a609060d4d",
+            "characterization-8f205bf58d54b4e5fa185350"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 85,
+          "result_ids": [
+            "characterization-91816bc164082c72b1a68ca9"
+          ]
+        }
+      ]
+    },
+    "equal_data_width": {
+      "fairness_rule": "compare only identical k",
+      "groups": [
+        {
+          "candidate_count": 3,
+          "comparison_key": 4,
+          "result_ids": [
+            "characterization-75c089fdc28377eb2ecfafc3",
+            "characterization-872c4d8739c764a609060d4d",
+            "characterization-8f205bf58d54b4e5fa185350"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 51,
+          "result_ids": [
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 14,
+          "comparison_key": 64,
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0",
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-45ac546063efe46021b99583",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-91816bc164082c72b1a68ca9",
+            "characterization-98e86ea2ff604971ddb598ba",
+            "characterization-a2570a1886d86ef135218a41",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        }
+      ]
+    },
+    "equal_guaranteed_reliability": {
+      "fairness_rule": "compare only identical declared guaranteed correction/detection domains",
+      "groups": [
+        {
+          "candidate_count": 1,
+          "comparison_key": "2d06a74e065a901d1dd585375c3331b0f1285b33a97fa6c64749cac08a371acb",
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0"
+          ]
+        },
+        {
+          "candidate_count": 5,
+          "comparison_key": "6a87c7735424c318f98cf6d5ea24321a4e62392f8d5f4e8c259a3052d8c31d09",
+          "result_ids": [
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "925ee8fd321fac04a39c9d4af79731ab145da9630ddd61673913551cbc52cc8a",
+          "result_ids": [
+            "characterization-a2570a1886d86ef135218a41"
+          ]
+        },
+        {
+          "candidate_count": 4,
+          "comparison_key": "b69ef3cdcc20f124f6f6529aa5b2145c91cd8e4aea83ea1fbd7d0075902513a9",
+          "result_ids": [
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-8f205bf58d54b4e5fa185350",
+            "characterization-98e86ea2ff604971ddb598ba"
+          ]
+        },
+        {
+          "candidate_count": 2,
+          "comparison_key": "d084ee9c4c46e71c1dc6d27a7bca172c74c7667a4159f9d8a5561cd5d676b374",
+          "result_ids": [
+            "characterization-45ac546063efe46021b99583",
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 2,
+          "comparison_key": "e67fa9d5d27d0d222b5b528179d6158d2fb523f2dd927dbec20d787d78d96508",
+          "result_ids": [
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-75c089fdc28377eb2ecfafc3"
+          ]
+        },
+        {
+          "candidate_count": 2,
+          "comparison_key": "f25c6f6ae93f08ac846f9b3d732ac172e9181dbfb29b9149094ee799dea05e8f",
+          "result_ids": [
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-872c4d8739c764a609060d4d"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "f4da12647b31c8cd52714f09c37d2285d62e315a538e02549ad8862152145add",
+          "result_ids": [
+            "characterization-91816bc164082c72b1a68ca9"
+          ]
+        }
+      ]
+    },
+    "equal_redundancy": {
+      "fairness_rule": "compare only identical n-k",
+      "groups": [
+        {
+          "candidate_count": 1,
+          "comparison_key": 12,
+          "result_ids": [
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 14,
+          "result_ids": [
+            "characterization-45ac546063efe46021b99583"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 21,
+          "result_ids": [
+            "characterization-91816bc164082c72b1a68ca9"
+          ]
+        },
+        {
+          "candidate_count": 3,
+          "comparison_key": 4,
+          "result_ids": [
+            "characterization-75c089fdc28377eb2ecfafc3",
+            "characterization-872c4d8739c764a609060d4d",
+            "characterization-8f205bf58d54b4e5fa185350"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": 7,
+          "result_ids": [
+            "characterization-a2570a1886d86ef135218a41"
+          ]
+        },
+        {
+          "candidate_count": 11,
+          "comparison_key": 8,
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0",
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-98e86ea2ff604971ddb598ba",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        }
+      ]
+    },
+    "equal_timing_target": {
+      "fairness_rule": "compare only identical timing-constraint identities",
+      "groups": [
+        {
+          "candidate_count": 18,
+          "comparison_key": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0",
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-45ac546063efe46021b99583",
+            "characterization-49c387d2f8c45207e0e3f593",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-75c089fdc28377eb2ecfafc3",
+            "characterization-872c4d8739c764a609060d4d",
+            "characterization-8f205bf58d54b4e5fa185350",
+            "characterization-91816bc164082c72b1a68ca9",
+            "characterization-98e86ea2ff604971ddb598ba",
+            "characterization-a2570a1886d86ef135218a41",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        }
+      ]
+    },
+    "equal_workload": {
+      "fairness_rule": "compare only identical workload/activity identities",
+      "groups": [
+        {
+          "candidate_count": 18,
+          "comparison_key": "functional-uniform-placeholder-v1",
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0",
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-1527009f55da69bbadbe2a2b",
+            "characterization-1eec66b86c26ac39c4f75b28",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-3c27719cdaad40b9258f665c",
+            "characterization-45ac546063efe46021b99583",
+            "characterization-49c387d2f8c45207e0e3f593",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-6ceae9ead3b263164d2e4605",
+            "characterization-75c089fdc28377eb2ecfafc3",
+            "characterization-872c4d8739c764a609060d4d",
+            "characterization-8f205bf58d54b4e5fa185350",
+            "characterization-91816bc164082c72b1a68ca9",
+            "characterization-98e86ea2ff604971ddb598ba",
+            "characterization-a2570a1886d86ef135218a41",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        }
+      ]
+    },
+    "same_code_across_deployment_architectures": {
+      "fairness_rule": "hold code_id fixed and vary architecture_id",
+      "groups": [
+        {
+          "candidate_count": 5,
+          "comparison_key": "extended-hamming-secded-72-64-v1",
+          "result_ids": [
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-hotspot-8-4-v1",
+          "result_ids": [
+            "characterization-8f205bf58d54b4e5fa185350"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-spatial-hotspot-72-64-v1",
+          "result_ids": [
+            "characterization-98e86ea2ff604971ddb598ba"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+          "result_ids": [
+            "characterization-1eec66b86c26ac39c4f75b28"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+          "result_ids": [
+            "characterization-1527009f55da69bbadbe2a2b"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "hsiao-secded-72-64-v1",
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "odd-column-secded-4-8",
+          "result_ids": [
+            "characterization-872c4d8739c764a609060d4d"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "odd-column-secded-64-72",
+          "result_ids": [
+            "characterization-3c27719cdaad40b9258f665c"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "primitive-bch-63-51-t2-v1",
+          "result_ids": [
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "safeforge-robust-72-64-mapping-v1",
+          "result_ids": [
+            "characterization-6ceae9ead3b263164d2e4605"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "safeforge-robust-8-4-v1",
+          "result_ids": [
+            "characterization-75c089fdc28377eb2ecfafc3"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-71-64-t1-v1",
+          "result_ids": [
+            "characterization-a2570a1886d86ef135218a41"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-78-64-t2-v1",
+          "result_ids": [
+            "characterization-45ac546063efe46021b99583"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-85-64-t3-v1",
+          "result_ids": [
+            "characterization-91816bc164082c72b1a68ca9"
+          ]
+        }
+      ]
+    },
+    "same_code_different_implementations": {
+      "fairness_rule": "hold code_id fixed and vary implementation_id",
+      "groups": [
+        {
+          "candidate_count": 5,
+          "comparison_key": "extended-hamming-secded-72-64-v1",
+          "result_ids": [
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-b69186c2f3313f9a142dced8",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-hotspot-8-4-v1",
+          "result_ids": [
+            "characterization-8f205bf58d54b4e5fa185350"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-spatial-hotspot-72-64-v1",
+          "result_ids": [
+            "characterization-98e86ea2ff604971ddb598ba"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+          "result_ids": [
+            "characterization-1eec66b86c26ac39c4f75b28"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+          "result_ids": [
+            "characterization-1527009f55da69bbadbe2a2b"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "hsiao-secded-72-64-v1",
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "odd-column-secded-4-8",
+          "result_ids": [
+            "characterization-872c4d8739c764a609060d4d"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "odd-column-secded-64-72",
+          "result_ids": [
+            "characterization-3c27719cdaad40b9258f665c"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "primitive-bch-63-51-t2-v1",
+          "result_ids": [
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "safeforge-robust-72-64-mapping-v1",
+          "result_ids": [
+            "characterization-6ceae9ead3b263164d2e4605"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "safeforge-robust-8-4-v1",
+          "result_ids": [
+            "characterization-75c089fdc28377eb2ecfafc3"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-71-64-t1-v1",
+          "result_ids": [
+            "characterization-a2570a1886d86ef135218a41"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-78-64-t2-v1",
+          "result_ids": [
+            "characterization-45ac546063efe46021b99583"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-85-64-t3-v1",
+          "result_ids": [
+            "characterization-91816bc164082c72b1a68ca9"
+          ]
+        }
+      ]
+    },
+    "same_implementation_across_corners": {
+      "fairness_rule": "hold implementation_id fixed and vary backend/corner",
+      "groups": [
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-hotspot-8-4-v1-archived-table-decoder",
+          "result_ids": [
+            "characterization-8f205bf58d54b4e5fa185350"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+          "result_ids": [
+            "characterization-98e86ea2ff604971ddb598ba"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+          "result_ids": [
+            "characterization-1eec66b86c26ac39c4f75b28"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+          "result_ids": [
+            "characterization-1527009f55da69bbadbe2a2b"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "hsiao-generated-combinational-72-64-v1",
+          "result_ids": [
+            "characterization-0463d06109e129670f4f25e0"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "odd-column-secded-4-8-archived-table-decoder",
+          "result_ids": [
+            "characterization-872c4d8739c764a609060d4d"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "odd-column-secded-64-72-archived-table-decoder",
+          "result_ids": [
+            "characterization-3c27719cdaad40b9258f665c"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "primitive-bch-63-51-t2-v1-reference-decoder",
+          "result_ids": [
+            "characterization-49c387d2f8c45207e0e3f593"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+          "result_ids": [
+            "characterization-6ceae9ead3b263164d2e4605"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "safeforge-robust-8-4-v1-archived-table-decoder",
+          "result_ids": [
+            "characterization-75c089fdc28377eb2ecfafc3"
+          ]
+        },
+        {
+          "candidate_count": 3,
+          "comparison_key": "secded-rtl-combinational-72-64-v1",
+          "result_ids": [
+            "characterization-07e747838dcc00c99dae94a8",
+            "characterization-3206dcf4e2aaf52ecfeabc4e",
+            "characterization-cdac41fd97a68646e62ba5e1"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-71-64-t1-v1-reference-decoder",
+          "result_ids": [
+            "characterization-a2570a1886d86ef135218a41"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-78-64-t2-v1-reference-decoder",
+          "result_ids": [
+            "characterization-45ac546063efe46021b99583"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "comparison_key": "shortened-bch-85-64-t3-v1-reference-decoder",
+          "result_ids": [
+            "characterization-91816bc164082c72b1a68ca9"
+          ]
+        },
+        {
+          "candidate_count": 2,
+          "comparison_key": "taec-rtl-bounded-72-64-v1",
+          "result_ids": [
+            "characterization-4eb379821d2e7a0d1d53ab56",
+            "characterization-b69186c2f3313f9a142dced8"
+          ]
+        }
+      ]
+    }
+  },
+  "direction": "min",
+  "objective": "encoder_energy",
+  "proxy_to_physical_winner_changed": null,
+  "proxy_winner": null,
+  "rejected": [
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported",
+        "data width differs"
+      ],
+      "result_id": "characterization-8f205bf58d54b4e5fa185350"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-98e86ea2ff604971ddb598ba"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-1eec66b86c26ac39c4f75b28"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-1527009f55da69bbadbe2a2b"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-0463d06109e129670f4f25e0"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported",
+        "data width differs"
+      ],
+      "result_id": "characterization-872c4d8739c764a609060d4d"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-3c27719cdaad40b9258f665c"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported",
+        "data width differs"
+      ],
+      "result_id": "characterization-49c387d2f8c45207e0e3f593"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-6ceae9ead3b263164d2e4605"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported",
+        "data width differs"
+      ],
+      "result_id": "characterization-75c089fdc28377eb2ecfafc3"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-3206dcf4e2aaf52ecfeabc4e"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-cdac41fd97a68646e62ba5e1"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-07e747838dcc00c99dae94a8"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-a2570a1886d86ef135218a41"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-45ac546063efe46021b99583"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-91816bc164082c72b1a68ca9"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-b69186c2f3313f9a142dced8"
+    },
+    {
+      "reasons": [
+        "not physical characterization",
+        "objective encoder_energy is unsupported"
+      ],
+      "result_id": "characterization-4eb379821d2e7a0d1d53ab56"
+    }
+  ],
+  "schema_version": 1,
+  "scientific_interpretation": "No physical winner is available; structural-only and unavailable backends are excluded.",
+  "selection_sha256": "35b66bfd02cabb5a5c8ac4b83dd6dbe85e931692d0959fffa6b34d49a20681bf",
+  "winner": null
+}
