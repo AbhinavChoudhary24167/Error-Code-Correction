@@ -1,0 +1,64 @@
+{
+  "evidence_classes": [
+    "analytical_model",
+    "unsupported"
+  ],
+  "figure_id": "adaptive_overhead_threshold",
+  "records": {
+    "best_single_fixed_candidate": "shortened-bch-85-64-t3-v1-reference-decoder",
+    "gross_oracle_advantage_j": 0.011184651500440948,
+    "maximum_tolerable_total_analytical_overhead_j": 0.011184651500440948,
+    "physical_break_even": null,
+    "status": "parameterized_analytical_threshold",
+    "sweep_rows": [
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.0,
+        "net_analytical_gain_j": 0.011184651500440948
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.1,
+        "net_analytical_gain_j": 0.010066186350396853
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.25,
+        "net_analytical_gain_j": 0.00838848862533071
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.5,
+        "net_analytical_gain_j": 0.005592325750220474
+      },
+      {
+        "beneficial": true,
+        "hypothetical_overhead_fraction_of_gross_gain": 0.75,
+        "net_analytical_gain_j": 0.002796162875110237
+      },
+      {
+        "beneficial": false,
+        "hypothetical_overhead_fraction_of_gross_gain": 1.0,
+        "net_analytical_gain_j": 0.0
+      },
+      {
+        "beneficial": false,
+        "hypothetical_overhead_fraction_of_gross_gain": 1.25,
+        "net_analytical_gain_j": -0.002796162875110237
+      },
+      {
+        "beneficial": false,
+        "hypothetical_overhead_fraction_of_gross_gain": 1.5,
+        "net_analytical_gain_j": -0.005592325750220474
+      }
+    ],
+    "symbolic_condition": "E_mux + E_controller + N_transition*E_transition + N_reencoded_bits*E_reencode_per_bit < E_best_fixed - E_oracle"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json",
+      "sha256": "57f3d7d1239f248a9b050c28ade2b8efc31213ec667e5b792fc36636a5cc7268"
+    }
+  ]
+}

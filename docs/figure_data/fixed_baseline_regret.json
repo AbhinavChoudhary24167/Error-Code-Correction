@@ -1,0 +1,49 @@
+{
+  "evidence_classes": [
+    "analytical_model"
+  ],
+  "figure_id": "fixed_baseline_regret",
+  "records": {
+    "baseline_rows": [
+      {
+        "comparable_feasible_scenarios": 96,
+        "constraint_failure_or_missing_scenarios": 96,
+        "implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "max_analytical_energy_regret_j": 3.6874384600000176e-06,
+        "mean_analytical_energy_regret_j": 6.111646347735354e-07,
+        "mean_fractional_regret": 0.004588455264899204,
+        "metric_evidence_level": "analytical_sensitivity",
+        "total_analytical_energy_regret_j": 5.867180493825939e-05
+      },
+      {
+        "comparable_feasible_scenarios": 96,
+        "constraint_failure_or_missing_scenarios": 96,
+        "implementation_id": "secded-rtl-combinational-72-64-v1",
+        "max_analytical_energy_regret_j": 1.3287439100000023e-05,
+        "mean_analytical_energy_regret_j": 4.550051297435939e-06,
+        "mean_fractional_regret": 0.02498984051632304,
+        "metric_evidence_level": "analytical_sensitivity",
+        "total_analytical_energy_regret_j": 0.00043680492455385015
+      },
+      {
+        "comparable_feasible_scenarios": 192,
+        "constraint_failure_or_missing_scenarios": 0,
+        "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+        "max_analytical_energy_regret_j": 0.00018427320272,
+        "mean_analytical_energy_regret_j": 5.825339323146327e-05,
+        "mean_fractional_regret": 0.21937056992463944,
+        "metric_evidence_level": "analytical_sensitivity",
+        "total_analytical_energy_regret_j": 0.011184651500440948
+      }
+    ],
+    "regret_definition": "R_s(b) = E_s(b) - E_s(w_s); fractional regret divides by E_s(b); infeasible baselines are reported separately",
+    "scenario_count": 192
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json",
+      "sha256": "9283368f4cd4c5fea778463503d5013abaecea9aebc2a7eebb58b792ca720b51"
+    }
+  ]
+}

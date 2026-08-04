@@ -1,0 +1,69 @@
+{
+  "evidence_classes": [
+    "analytical_model"
+  ],
+  "figure_id": "recommendation_stability",
+  "records": {
+    "uncertainty_rows": [
+      {
+        "ambiguous_or_changed_scenarios": 0,
+        "deterministic_samples_per_scenario": 1,
+        "distribution": "deterministic preregistered scale tuple; no random sampling",
+        "scenario_evaluations": 192,
+        "seed": null,
+        "stability_fraction": 1.0,
+        "stable_scenarios": 192,
+        "uncertainty_model_id": "base",
+        "winner_frequency": {
+          "hsiao-generated-combinational-72-64-v1": 64,
+          "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+          "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+          "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+          "shortened-bch-85-64-t3-v1-reference-decoder": 32
+        }
+      },
+      {
+        "ambiguous_or_changed_scenarios": 2,
+        "deterministic_samples_per_scenario": 1,
+        "distribution": "deterministic preregistered scale tuple; no random sampling",
+        "scenario_evaluations": 192,
+        "seed": null,
+        "stability_fraction": 0.9895833333333334,
+        "stable_scenarios": 190,
+        "uncertainty_model_id": "logic_dominated",
+        "winner_frequency": {
+          "hsiao-generated-combinational-72-64-v1": 64,
+          "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+          "safeforge-robust-8-4-v1-archived-table-decoder": 2,
+          "shortened-bch-71-64-t1-v1-reference-decoder": 30,
+          "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+          "shortened-bch-85-64-t3-v1-reference-decoder": 32
+        }
+      },
+      {
+        "ambiguous_or_changed_scenarios": 0,
+        "deterministic_samples_per_scenario": 1,
+        "distribution": "deterministic preregistered scale tuple; no random sampling",
+        "scenario_evaluations": 192,
+        "seed": null,
+        "stability_fraction": 1.0,
+        "stable_scenarios": 192,
+        "uncertainty_model_id": "storage_dominated",
+        "winner_frequency": {
+          "hsiao-generated-combinational-72-64-v1": 64,
+          "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 32,
+          "shortened-bch-71-64-t1-v1-reference-decoder": 32,
+          "shortened-bch-78-64-t2-v1-reference-decoder": 32,
+          "shortened-bch-85-64-t3-v1-reference-decoder": 32
+        }
+      }
+    ]
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json",
+      "sha256": "57f3d7d1239f248a9b050c28ade2b8efc31213ec667e5b792fc36636a5cc7268"
+    }
+  ]
+}

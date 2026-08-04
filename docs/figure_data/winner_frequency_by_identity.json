@@ -1,0 +1,100 @@
+{
+  "evidence_classes": [
+    "exact_functional",
+    "analytical_model"
+  ],
+  "figure_id": "winner_frequency_by_identity",
+  "records": {
+    "identity_groups": {
+      "Deployment architecture": [
+        {
+          "identity_id": "fixed-hsiao-whole-memory-v1",
+          "selected_percent": 33.333333333333336,
+          "selected_scenarios": 64
+        },
+        {
+          "identity_id": "fixed-safeforge-robust-72-64-mapping-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "fixed-shortened-bch-71-64-t1-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "fixed-shortened-bch-78-64-t2-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "fixed-shortened-bch-85-64-t3-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        }
+      ],
+      "Implementation / decoder policy": [
+        {
+          "identity_id": "hsiao-generated-combinational-72-64-v1",
+          "selected_percent": 33.333333333333336,
+          "selected_scenarios": 64
+        },
+        {
+          "identity_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        }
+      ],
+      "Mathematical code": [
+        {
+          "identity_id": "hsiao-secded-72-64-v1",
+          "selected_percent": 33.333333333333336,
+          "selected_scenarios": 64
+        },
+        {
+          "identity_id": "safeforge-robust-72-64-mapping-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "shortened-bch-71-64-t1-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "shortened-bch-78-64-t2-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        },
+        {
+          "identity_id": "shortened-bch-85-64-t3-v1",
+          "selected_percent": 16.666666666666668,
+          "selected_scenarios": 32
+        }
+      ]
+    },
+    "scenario_count": 192
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+      "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+    }
+  ]
+}

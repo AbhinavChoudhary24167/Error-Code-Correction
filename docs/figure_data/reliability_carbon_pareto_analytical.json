@@ -1,0 +1,139 @@
+{
+  "evidence_classes": [
+    "exact_functional",
+    "analytical_model"
+  ],
+  "figure_id": "reliability_carbon_pareto_analytical",
+  "records": {
+    "embodied_carbon": null,
+    "excluded": {
+      "forge-hotspot-8-4-v1-archived-table-decoder": "ineligible_or_hard_constraint_failed"
+    },
+    "operational_carbon_provenance": "energy / 3.6e6 \u00d7 scenario carbon intensity",
+    "records": [
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 3.828208981799823e-12,
+        "analytical_sdc_probability_per_64b_access": 1.142857175562284e-08,
+        "feasible": false,
+        "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.1537920858211564e-12,
+        "analytical_sdc_probability_per_64b_access": 4.080482618462611e-10,
+        "feasible": true,
+        "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.1537764413077338e-12,
+        "analytical_sdc_probability_per_64b_access": 2.289738398886243e-10,
+        "feasible": true,
+        "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.1537686190563563e-12,
+        "analytical_sdc_probability_per_64b_access": 1.8309853633269313e-10,
+        "feasible": true,
+        "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.153768618971023e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "pareto_2d": true
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 3.828208981629156e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.153893774537956e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.3674309878144004e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.153893774508445e-12,
+        "analytical_sdc_probability_per_64b_access": 2.7565394411510624e-10,
+        "feasible": true,
+        "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 3.828021248301512e-12,
+        "analytical_sdc_probability_per_64b_access": 9.142857138044747e-09,
+        "feasible": true,
+        "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.153893774537956e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "secded-rtl-combinational-72-64-v1",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.123855047385956e-12,
+        "analytical_sdc_probability_per_64b_access": 1.4515527668734762e-09,
+        "feasible": true,
+        "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+        "pareto_2d": true
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.334161354551823e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.544374632941867e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+        "pareto_2d": false
+      },
+      {
+        "analytical_operational_carbon_kgco2e_per_scenario": 2.153893774537956e-12,
+        "analytical_sdc_probability_per_64b_access": 0.0,
+        "feasible": true,
+        "implementation_id": "taec-rtl-bounded-72-64-v1",
+        "pareto_2d": false
+      }
+    ],
+    "scenario_factors": {
+      "carbon_intensity_kgco2_per_kwh": 0.1,
+      "fault_profile_ids": "sbu_dominant",
+      "reliability_requirement_ids": "service",
+      "scenario_id": "scenario-eee577f15334e845",
+      "scrub_interval_s": 1.0,
+      "supply_voltage_v": 0.8,
+      "temperature_c": 25.0,
+      "workload_ids": "low_activity"
+    },
+    "scenario_id": "scenario-eee577f15334e845"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+      "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+    }
+  ]
+}

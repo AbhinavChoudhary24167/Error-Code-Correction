@@ -1,0 +1,137 @@
+{
+  "evidence_classes": [
+    "analytical_model",
+    "structural_tool"
+  ],
+  "figure_id": "energy_complexity_pareto_analytical",
+  "records": {
+    "excluded": {
+      "forge-hotspot-8-4-v1-archived-table-decoder": "ineligible_or_hard_constraint_failed"
+    },
+    "records": [
+      {
+        "analytical_total_energy_j_per_scenario": 0.00013781552334479362,
+        "feasible": false,
+        "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+        "logic_depth_proxy": 6.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.753651508956162e-05,
+        "feasible": true,
+        "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+        "logic_depth_proxy": 12.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.753595188707842e-05,
+        "feasible": true,
+        "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+        "logic_depth_proxy": 12.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.753567028602882e-05,
+        "feasible": true,
+        "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+        "logic_depth_proxy": 12.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.753567028295682e-05,
+        "feasible": true,
+        "implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "logic_depth_proxy": 12.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 0.00013781552333864963,
+        "feasible": true,
+        "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+        "logic_depth_proxy": 5.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.754017588336642e-05,
+        "feasible": true,
+        "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+        "logic_depth_proxy": 13.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 8.522751556131841e-05,
+        "feasible": true,
+        "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+        "logic_depth_proxy": 16.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.754017588230402e-05,
+        "feasible": true,
+        "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+        "logic_depth_proxy": 12.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 0.00013780876493885442,
+        "feasible": true,
+        "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+        "logic_depth_proxy": 5.0,
+        "pareto_2d": true
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.754017588336642e-05,
+        "feasible": true,
+        "implementation_id": "secded-rtl-combinational-72-64-v1",
+        "logic_depth_proxy": 13.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.645878170589441e-05,
+        "feasible": true,
+        "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+        "logic_depth_proxy": 12.0,
+        "pareto_2d": true
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 8.402980876386562e-05,
+        "feasible": true,
+        "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+        "logic_depth_proxy": 18.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 9.159748678590722e-05,
+        "feasible": true,
+        "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+        "logic_depth_proxy": 23.0,
+        "pareto_2d": false
+      },
+      {
+        "analytical_total_energy_j_per_scenario": 7.754017588336642e-05,
+        "feasible": true,
+        "implementation_id": "taec-rtl-bounded-72-64-v1",
+        "logic_depth_proxy": 13.0,
+        "pareto_2d": false
+      }
+    ],
+    "scenario_factors": {
+      "carbon_intensity_kgco2_per_kwh": 0.1,
+      "fault_profile_ids": "sbu_dominant",
+      "reliability_requirement_ids": "service",
+      "scenario_id": "scenario-eee577f15334e845",
+      "scrub_interval_s": 1.0,
+      "supply_voltage_v": 0.8,
+      "temperature_c": 25.0,
+      "workload_ids": "low_activity"
+    },
+    "scenario_id": "scenario-eee577f15334e845"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+      "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+    }
+  ]
+}

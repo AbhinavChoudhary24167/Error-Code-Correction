@@ -1,0 +1,163 @@
+{
+  "evidence_classes": [
+    "structural_tool",
+    "unsupported"
+  ],
+  "figure_id": "physical_evidence_gap",
+  "records": {
+    "backend_rows": [
+      {
+        "available": {
+          "mux_controller": false,
+          "physical_area": false,
+          "physical_energy": false,
+          "physical_timing": false,
+          "routing": false,
+          "structural_tool": false,
+          "transition_reencoding": false
+        },
+        "backend_id": "cadence-st65-unavailable-v1",
+        "configured_available": false,
+        "physical_metrics_available": false,
+        "reason": "Cadence tools, ST65 PDK, and characterized libraries are not locally discoverable"
+      },
+      {
+        "available": {
+          "mux_controller": false,
+          "physical_area": false,
+          "physical_energy": false,
+          "physical_timing": false,
+          "routing": false,
+          "structural_tool": false,
+          "transition_reencoding": false
+        },
+        "backend_id": "not-characterized-v1",
+        "configured_available": false,
+        "physical_metrics_available": false,
+        "reason": "Explicit null backend for unsupported physical evidence"
+      },
+      {
+        "available": {
+          "mux_controller": false,
+          "physical_area": false,
+          "physical_energy": false,
+          "physical_timing": false,
+          "routing": false,
+          "structural_tool": false,
+          "transition_reencoding": false
+        },
+        "backend_id": "openroad-sky130-unavailable-v1",
+        "configured_available": false,
+        "physical_metrics_available": false,
+        "reason": "OpenSTA/OpenROAD/SKY130/OpenRAM and characterized SRAM collateral are unavailable"
+      },
+      {
+        "available": {
+          "mux_controller": false,
+          "physical_area": false,
+          "physical_energy": false,
+          "physical_timing": false,
+          "routing": false,
+          "structural_tool": true,
+          "transition_reencoding": false
+        },
+        "backend_id": "structural-yosys-local-v1",
+        "configured_available": true,
+        "physical_metrics_available": false,
+        "reason": "Yosys generic logic only; no Liberty timing, power, or physical area"
+      }
+    ],
+    "physical_gate": {
+      "measured_mux_controller_overhead_changes_feasibility": false,
+      "passed": false,
+      "physical_characterization_exposes_analytical_error": false,
+      "physical_metrics_reverse_proxy_selection": false,
+      "reproducible_physical_break_even_boundary": false,
+      "same_code_implementations_change_physical_winner": false
+    },
+    "physical_selection_computable": false
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-hotspot-8-4-v1-archived-table-decoder--fixed-forge-hotspot-8-4-v1.json",
+      "sha256": "8b9cbc7227922a316a3ded0b2bd9b2941e71f890d73ba10e35dee85a7ac9266d"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-spatial-hotspot-72-64-v1-archived-table-decoder--fixed-forge-spatial-hotspot-72-64-v1.json",
+      "sha256": "83f4ef8b1e5f7a252c1e68d4b75a2e1f6a4faa44b5bfedcbf309e13833d59900"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder--fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+      "sha256": "fe0dea6d115baf0f11ed132abd7515f362df4c3cc83d1d797bca2732143eee2c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder--fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+      "sha256": "84cf153c9a00b7e7e974c5287852a8d9e69dc22a82a379562445a9b845542af3"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/hsiao-generated-combinational-72-64-v1--fixed-hsiao-whole-memory-v1.json",
+      "sha256": "cbf030d5e4bbf01f366436c372e31b480d866ba7f01b994c7664cc7b18eb370b"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/odd-column-secded-4-8-archived-table-decoder--fixed-odd-column-secded-4-8.json",
+      "sha256": "7a13416431645d21fe6d75b8bdcba890a103ad350a45dedfc5e27c2a6ba15a63"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/odd-column-secded-64-72-archived-table-decoder--fixed-odd-column-secded-64-72.json",
+      "sha256": "e27ef410cfdd5599de50eef79d90287c66d2e0a7985300f0dbb77e8e9eeccb7d"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/primitive-bch-63-51-t2-v1-reference-decoder--fixed-primitive-bch-63-51-t2-v1.json",
+      "sha256": "b2c5a0c30d4537cb5c8afa895c004bb5d829f961c0bca5934d87ece79f009c97"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/safeforge-robust-72-64-mapping-v1-archived-table-decoder--fixed-safeforge-robust-72-64-mapping-v1.json",
+      "sha256": "e5744be4990ce657eae8104258dab9e3bbf284ef65c4c5f7b9875749ebd0c749"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/safeforge-robust-8-4-v1-archived-table-decoder--fixed-safeforge-robust-8-4-v1.json",
+      "sha256": "8db35d57adfdc38d1793b11e5400f85aa757170f0b50f867a116ce2af4835799"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--adaptive-shared-page-v1.json",
+      "sha256": "96fcf641b1a5f8374cc5d497722dad9c0abe839e5ff26ea329138683cb905917"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--configurable-gated-parallel-bank-v1.json",
+      "sha256": "21ef5d40da992b3d722a0967237d4470f500aca9197e61924860474561694515"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--fixed-secded-whole-memory-v1.json",
+      "sha256": "140a975268a592d83557b10612f77104d9a9446ca736482fb1dd67e80bb33560"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-71-64-t1-v1-reference-decoder--fixed-shortened-bch-71-64-t1-v1.json",
+      "sha256": "25fdcda4fad06d962a68d1e840cd86561598979ce9b8ab57a2690a68f69cf38c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-78-64-t2-v1-reference-decoder--fixed-shortened-bch-78-64-t2-v1.json",
+      "sha256": "741a2f4b365861a2366443a0ade9ae9315db503dc010cec46ae6d28b4e1aa093"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-85-64-t3-v1-reference-decoder--fixed-shortened-bch-85-64-t3-v1.json",
+      "sha256": "277a11a05a4b107a5d332062a5a710f048c142f038e05747303a3e98453febe7"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/taec-rtl-bounded-72-64-v1--adaptive-shared-page-v1.json",
+      "sha256": "2dbfc413c73ecdcb07c90a5bd408d8468450be81efb21ce829a20563c7dbf828"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/taec-rtl-bounded-72-64-v1--configurable-gated-parallel-bank-v1.json",
+      "sha256": "fdaa8dbb7486d6dc7d68ee9ad487871d1d28f438a8b63d291202a250310c2b3e"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/framework_summary.json",
+      "sha256": "c7fa209c4a83b3db6735487a5184c99bac5a4919d7535b674754ca44e05ec7f4"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/manifest.json",
+      "sha256": "110faf74fc02691a0cafc006841c18bd9ec982ab5f2ab45eeee5d03c68928daa"
+    }
+  ]
+}

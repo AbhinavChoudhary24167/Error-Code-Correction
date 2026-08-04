@@ -1,0 +1,68 @@
+{
+  "evidence_classes": [
+    "analytical_model"
+  ],
+  "figure_id": "sensitivity_ranked",
+  "records": {
+    "causal_interpretation": false,
+    "factor_rows": [
+      {
+        "carbon_group_range": 0.05392000742513468,
+        "energy_group_range": 0.10088258989278046,
+        "factor": "fault_profile_ids",
+        "reliability_group_range": 0.31080405143427253,
+        "winner_distribution_max_total_variation": 1.0
+      },
+      {
+        "carbon_group_range": 0.04955112196490494,
+        "energy_group_range": 0.09270854650480723,
+        "factor": "reliability_requirement_ids",
+        "reliability_group_range": 0.7449714762927316,
+        "winner_distribution_max_total_variation": 0.6666666666666666
+      },
+      {
+        "carbon_group_range": 0.18332116701333512,
+        "energy_group_range": 0.3429879741049759,
+        "factor": "workload_ids",
+        "reliability_group_range": 0.0,
+        "winner_distribution_max_total_variation": 0.0
+      },
+      {
+        "carbon_group_range": 0.2957850175208769,
+        "energy_group_range": 0.0,
+        "factor": "carbon_intensity_kgco2_per_kwh",
+        "reliability_group_range": 0.0,
+        "winner_distribution_max_total_variation": 0.0
+      },
+      {
+        "carbon_group_range": 0.07445995889682472,
+        "energy_group_range": 0.13931217474795984,
+        "factor": "scrub_interval_s",
+        "reliability_group_range": 0.0,
+        "winner_distribution_max_total_variation": 0.0
+      },
+      {
+        "carbon_group_range": 0.05666376635539633,
+        "energy_group_range": 0.10601607410660513,
+        "factor": "supply_voltage_v",
+        "reliability_group_range": 0.0,
+        "winner_distribution_max_total_variation": 0.0
+      },
+      {
+        "carbon_group_range": 0.04541502924738051,
+        "energy_group_range": 0.08497005080894002,
+        "factor": "temperature_c",
+        "reliability_group_range": 0.0,
+        "winner_distribution_max_total_variation": 0.0
+      }
+    ],
+    "method": "For numeric outcomes: range of factor-level means divided by full outcome range. For selector outcome: maximum pairwise total-variation distance between winner distributions."
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+      "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+    }
+  ]
+}

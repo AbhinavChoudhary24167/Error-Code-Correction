@@ -1,0 +1,217 @@
+{
+  "evidence_classes": [
+    "exact_functional"
+  ],
+  "figure_id": "code_rate_redundancy",
+  "records": {
+    "code_rows": [
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "extended-hamming-secded-72-64-v1",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.5,
+        "code_spec_id": "forge-hotspot-8-4-v1",
+        "encoded_bits_per_64b_payload": 128,
+        "k": 4,
+        "n": 8,
+        "padding_information_bits": 0,
+        "parity_bits": 4
+      },
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "forge-spatial-hotspot-72-64-v1",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "hsiao-secded-72-64-v1",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.5,
+        "code_spec_id": "odd-column-secded-4-8",
+        "encoded_bits_per_64b_payload": 128,
+        "k": 4,
+        "n": 8,
+        "padding_information_bits": 0,
+        "parity_bits": 4
+      },
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "odd-column-secded-64-72",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.8095238095238095,
+        "code_spec_id": "primitive-bch-63-51-t2-v1",
+        "encoded_bits_per_64b_payload": 126,
+        "k": 51,
+        "n": 63,
+        "padding_information_bits": 38,
+        "parity_bits": 12
+      },
+      {
+        "code_rate": 0.8095238095238095,
+        "code_spec_id": "repository-cyclic-63-51-v1",
+        "encoded_bits_per_64b_payload": 126,
+        "k": 51,
+        "n": 63,
+        "padding_information_bits": 38,
+        "parity_bits": 12
+      },
+      {
+        "code_rate": 0.8888888888888888,
+        "code_spec_id": "safeforge-robust-72-64-mapping-v1",
+        "encoded_bits_per_64b_payload": 72,
+        "k": 64,
+        "n": 72,
+        "padding_information_bits": 0,
+        "parity_bits": 8
+      },
+      {
+        "code_rate": 0.5,
+        "code_spec_id": "safeforge-robust-8-4-v1",
+        "encoded_bits_per_64b_payload": 128,
+        "k": 4,
+        "n": 8,
+        "padding_information_bits": 0,
+        "parity_bits": 4
+      },
+      {
+        "code_rate": 0.9014084507042254,
+        "code_spec_id": "shortened-bch-71-64-t1-v1",
+        "encoded_bits_per_64b_payload": 71,
+        "k": 64,
+        "n": 71,
+        "padding_information_bits": 0,
+        "parity_bits": 7
+      },
+      {
+        "code_rate": 0.8205128205128205,
+        "code_spec_id": "shortened-bch-78-64-t2-v1",
+        "encoded_bits_per_64b_payload": 78,
+        "k": 64,
+        "n": 78,
+        "padding_information_bits": 0,
+        "parity_bits": 14
+      },
+      {
+        "code_rate": 0.7529411764705882,
+        "code_spec_id": "shortened-bch-85-64-t3-v1",
+        "encoded_bits_per_64b_payload": 85,
+        "k": 64,
+        "n": 85,
+        "padding_information_bits": 0,
+        "parity_bits": 21
+      }
+    ],
+    "normalization": "ceil(64/k) independent codewords; final information word is zero padded"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/normalized_exact_metrics.json",
+      "sha256": "865c5ade7f9f5055f33a0b6c82f559b9270c7da9d2d67dc6431a5a18953e811a"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/extended-hamming-secded-72-64-v1.json",
+      "sha256": "874eb82c2ea8c9d6129f38fe34ded3b90b6e72aba4b0bcd7a8f446adf1e843a2"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-hotspot-8-4-v1.json",
+      "sha256": "31030dccfe2e2219794d576cfb28058c8195c09300634a6aa29553d80fa2877f"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-spatial-hotspot-72-64-v1.json",
+      "sha256": "9610328a5385a823cbe1c603a8df3a2897ea50ddde4e80f793be944c758922b8"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+      "sha256": "4d193c25f1f6583b1ba215e92b669763a260e32177df01fc1e1bb7bfddbfbb10"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+      "sha256": "5605e9732fc161bc088dd60fbe6785bcd48c49a6b7471f6029dfb45e999926cc"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json",
+      "sha256": "3a107aa324767839bb098b36b72f576562bade35534b04f94c6d5eaa7f5e1e3c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-4-8.json",
+      "sha256": "9b15120e5bee3164b5c0c3ed19aef24775652a7ca0878e04e70441b2d5c2e64e"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-64-72.json",
+      "sha256": "51bc798455bc229079d011e7b9125e7902445b26810e82c030a29620f4937455"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/primitive-bch-63-51-t2-v1.json",
+      "sha256": "da32aa9d2cb3fe08e9e2de20cb32f972ee0d498ceae632975f60f13414f77731"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/repository-cyclic-63-51-v1.json",
+      "sha256": "73e55d93c71bc83300351077af8bef7bff40d4ccc464db8033e020e8c4c88d27"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-72-64-mapping-v1.json",
+      "sha256": "1880087a596d1b9296cab0d55cd88c2ea1e93995bd2da7439d7585aaa8b8e335"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-8-4-v1.json",
+      "sha256": "ab99c9585ec8bcf5c949b4281e8094c75937a59ff12154623b29c35321407575"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-71-64-t1-v1.json",
+      "sha256": "304a53132d350243d6ddb9ed1f7c737b19d1be11038eac52042a8989753da056"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-78-64-t2-v1.json",
+      "sha256": "ec4ffe75d8204dfa5e39a4c41186b61f37d89ecc907d9cc96fbae89ba6898f5a"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-85-64-t3-v1.json",
+      "sha256": "ae7df7f14043e0017074772ec13c5567d5518213d57bb02d6bcdfb24914ffc52"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/registry.json",
+      "sha256": "625b88cadc7768e79194381ae78acebc6075eca49f83df15b3e9d708de697a23"
+    }
+  ]
+}

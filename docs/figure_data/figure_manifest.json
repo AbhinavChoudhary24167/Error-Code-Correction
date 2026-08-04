@@ -1,0 +1,1350 @@
+{
+  "deterministic_ordering": true,
+  "figures": [
+    {
+      "alt_text": "Portfolio identities and verification states, including rejected and experimental inventory entries.",
+      "caption": "Bars count implementations per mathematical code; hatching distinguishes partial and rejected status.",
+      "evidence_classes": [
+        "exact_functional",
+        "unsupported"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/registered_portfolio_overview.json",
+          "sha256": "8f7f12fef172573830b5ffb318d291ead83d7181de7e6f010b4529927a8f6a09"
+        },
+        {
+          "path": "docs/figure_data/registered_portfolio_overview.csv",
+          "sha256": "8d4d0850c52301d5a52b153c0d3df636cfc800217a0c383058ddc58a3e8a4195"
+        }
+      ],
+      "figure_id": "registered_portfolio_overview",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/registered_portfolio_overview.pdf",
+          "sha256": "dfe63bd831f56597c5283f440fa87f6239bc1052e391fa8154d455cc9f5ec6cf"
+        },
+        "png": {
+          "path": "docs/figures/registered_portfolio_overview.png",
+          "sha256": "de22f0458c9be574625ef5ac3b5f2e98e5fbd3f9c102aecaaa0a631e5d582c73"
+        },
+        "svg": {
+          "path": "docs/figures/registered_portfolio_overview.svg",
+          "sha256": "ab495240fc19b958e9c49c708ef574d4169ce5850227de7f7bbfb19e529c1c3b"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/ECC_CATALOGUE.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/ecc_scope_matrix.json",
+          "sha256": "b2d477e7e0a89164246bdac0f769b20f46ad4d113be74a3950e75e7c310efd46"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json",
+          "sha256": "f84950d38106312b25b8b4207e8e4f49f136632c38ef274d7237766a74580bf2"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/adaptive-shared-page-v1.json",
+          "sha256": "0f5b14b01a47ec76d502c4da9bc493b9f1b45a458e6e5eb422c9dae74bb47eba"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/configurable-gated-parallel-bank-v1.json",
+          "sha256": "c9d53a0f6a3e0610f6fcbaa7e582c67c138a231cb02cf49ac6b9e76dd7d9f3ac"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-cyclic-whole-memory-v1.json",
+          "sha256": "aaa3d8b64e63b36c182ff3316ec03b3cb6e7104bff5535054954aaf27819c3d4"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-hotspot-8-4-v1.json",
+          "sha256": "afe1cd9cd4fbbdbf9eff74f732b94cd0e08c6ec21cd96391035645702a267fc3"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-spatial-hotspot-72-64-v1.json",
+          "sha256": "8457554cc443678852b69fcc4ed18f2b46e2b45c50ec840727a46ba055a47281"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+          "sha256": "dedd0a230fedf2fd38aeb9afc22169bf998b0f9336630e03b221edd47de5b02c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+          "sha256": "84f76c592f92f153ca98ca7161e5b14f447cfdb068d0059815a6869964a4ba50"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-hsiao-whole-memory-v1.json",
+          "sha256": "14f147881d495da759830f3119b84770a58329192c6b3000be7a14d093ab1d22"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-odd-column-secded-4-8.json",
+          "sha256": "f67ea5e766a583d9bdd448d57cf8b573bb2f5a631cbf4b7baf92059ca2b0feaf"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-odd-column-secded-64-72.json",
+          "sha256": "f4ca87242faf00044d144b79cea010fdebe9be5b6383ac2de9673e69ad905535"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-primitive-bch-63-51-t2-v1.json",
+          "sha256": "d920b70e34c139b1340a72bbe233a20fb865e635aa0ef6ec3cf1769519bbaf5e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-safeforge-robust-72-64-mapping-v1.json",
+          "sha256": "9ee5702edb26203c96f6afacc2b98867c21f7dc4e5fd6aab2d730d2782044857"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-safeforge-robust-8-4-v1.json",
+          "sha256": "251ce31274a5dcfff7b2c24c714baefb7f460a3789b56956a981d22ac41c7bf0"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-secded-whole-memory-v1.json",
+          "sha256": "ced9cb17da7f00b2055952226f7cb2130052e5cf23aa3c1e27e232e7db54c611"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-shortened-bch-71-64-t1-v1.json",
+          "sha256": "ad2d15e0364abfcc6b748565d64824f5e383ce3bf4f10fa8a873c35440dc7e39"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-shortened-bch-78-64-t2-v1.json",
+          "sha256": "def106d3c088450712279a983589b8905060d023861ad601fea81d67a3cc0c3b"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/architectures/fixed-shortened-bch-85-64-t3-v1.json",
+          "sha256": "6b5fce3351cac9809852bc0505cd25b455c40a92f90f6917ff1861208d7b10dd"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/extended-hamming-secded-72-64-v1.json",
+          "sha256": "874eb82c2ea8c9d6129f38fe34ded3b90b6e72aba4b0bcd7a8f446adf1e843a2"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-hotspot-8-4-v1.json",
+          "sha256": "31030dccfe2e2219794d576cfb28058c8195c09300634a6aa29553d80fa2877f"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-spatial-hotspot-72-64-v1.json",
+          "sha256": "9610328a5385a823cbe1c603a8df3a2897ea50ddde4e80f793be944c758922b8"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+          "sha256": "4d193c25f1f6583b1ba215e92b669763a260e32177df01fc1e1bb7bfddbfbb10"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+          "sha256": "5605e9732fc161bc088dd60fbe6785bcd48c49a6b7471f6029dfb45e999926cc"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json",
+          "sha256": "3a107aa324767839bb098b36b72f576562bade35534b04f94c6d5eaa7f5e1e3c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-4-8.json",
+          "sha256": "9b15120e5bee3164b5c0c3ed19aef24775652a7ca0878e04e70441b2d5c2e64e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-64-72.json",
+          "sha256": "51bc798455bc229079d011e7b9125e7902445b26810e82c030a29620f4937455"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/primitive-bch-63-51-t2-v1.json",
+          "sha256": "da32aa9d2cb3fe08e9e2de20cb32f972ee0d498ceae632975f60f13414f77731"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/repository-cyclic-63-51-v1.json",
+          "sha256": "73e55d93c71bc83300351077af8bef7bff40d4ccc464db8033e020e8c4c88d27"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-72-64-mapping-v1.json",
+          "sha256": "1880087a596d1b9296cab0d55cd88c2ea1e93995bd2da7439d7585aaa8b8e335"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-8-4-v1.json",
+          "sha256": "ab99c9585ec8bcf5c949b4281e8094c75937a59ff12154623b29c35321407575"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-71-64-t1-v1.json",
+          "sha256": "304a53132d350243d6ddb9ed1f7c737b19d1be11038eac52042a8989753da056"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-78-64-t2-v1.json",
+          "sha256": "ec4ffe75d8204dfa5e39a4c41186b61f37d89ecc907d9cc96fbae89ba6898f5a"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-85-64-t3-v1.json",
+          "sha256": "ae7df7f14043e0017074772ec13c5567d5518213d57bb02d6bcdfb24914ffc52"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/cyclic-rtl-bounded-search-63-51-v1.json",
+          "sha256": "a4f04416481a93ebd12d22cafbb0cc8dac85a4d710b60e81f24e4fb23cf71d93"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/forge-hotspot-8-4-v1-archived-table-decoder.json",
+          "sha256": "643ac7c274b22bfe80f9bb242247d87876bedc059ac596277847ed55aba7d6bd"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/forge-spatial-hotspot-72-64-v1-archived-table-decoder.json",
+          "sha256": "603f4b8557f492d69eeeb520ba0b896dc3a3f303d53ecc15bdc5e96187e8a208"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder.json",
+          "sha256": "752f625eaa3c3641a121b8228f030489e56a12b669014cab2f281350ae3e60cf"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder.json",
+          "sha256": "ba07f8757402bdb877d483ea48f9152cec02a50e14b4306a095769189c97126f"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/hsiao-generated-combinational-72-64-v1.json",
+          "sha256": "288a94739e397997fa21c3df43d45a99a503d188ef824fd0c23e93c2bbb9a38a"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/odd-column-secded-4-8-archived-table-decoder.json",
+          "sha256": "14c92412d38712ec94c97e0d04307318b230a745e493d16c3628af98bfd3775c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/odd-column-secded-64-72-archived-table-decoder.json",
+          "sha256": "8a7a52d7d689f18cf3b40f32edb80f35aefe20f549f6cc0909279ba3c554c04b"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/primitive-bch-63-51-t2-v1-reference-decoder.json",
+          "sha256": "721de5f88e878c3eeb3a93797bd49b1026a594e5f6be86a3b10dc9b35e458e69"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/safeforge-robust-72-64-mapping-v1-archived-table-decoder.json",
+          "sha256": "03ececb646ab8743ced57c6a337fda20463d2a178e0820bf02aaec25df73061e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/safeforge-robust-8-4-v1-archived-table-decoder.json",
+          "sha256": "5271849ab01a1d2a2e7bcba2ab8d3d0c1d5626c7a69289c4c8b7cafcee38f2db"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/secdaec-rtl-bounded-72-64-v1.json",
+          "sha256": "bd6faf2d447e47098c330e3dc0b42c31feb4dcfeba51c0a064ad8dd6ae8d24b7"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/secded-rtl-combinational-72-64-v1.json",
+          "sha256": "af0a0b350bcaf4f812820cab4ba67a33fd94ed889aaf8c8366225c27af23349d"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/shortened-bch-71-64-t1-v1-reference-decoder.json",
+          "sha256": "89593a1e77b7a7c483f6b4165f90068560c43d041402e0a0bbb40233f996a2f1"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/shortened-bch-78-64-t2-v1-reference-decoder.json",
+          "sha256": "d0e4e7edf45e493a893fd39303d82590e46faee6614e70d5b95581b0d5c335a4"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/shortened-bch-85-64-t3-v1-reference-decoder.json",
+          "sha256": "7086020185f144251ac9be086e9cb71cb9f6cee1ef0451ea3356cf766408bf5c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/implementations/taec-rtl-bounded-72-64-v1.json",
+          "sha256": "d9226e2016c2e37af7827589a0e22566aba45386685b43f5853a58410e500c9c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/registry.json",
+          "sha256": "625b88cadc7768e79194381ae78acebc6075eca49f83df15b3e9d708de697a23"
+        }
+      ],
+      "title": "Registered portfolio overview"
+    },
+    {
+      "alt_text": "Parity, rate, and equal-64-bit-payload storage for each registered mathematical code.",
+      "caption": "Compare k/n only with the adjacent equal-payload normalization; short-k codes require multiple codewords.",
+      "evidence_classes": [
+        "exact_functional"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/code_rate_redundancy.json",
+          "sha256": "6ad865425c5ba8eb46f746c2c37db8c4b1b1f9ab1079595a746497ab0345e17e"
+        },
+        {
+          "path": "docs/figure_data/code_rate_redundancy.csv",
+          "sha256": "32c5d81ba729e3f5830c17b1ce7e5a2b89dfb449e39695c4b84c45abf3e645c8"
+        }
+      ],
+      "figure_id": "code_rate_redundancy",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/code_rate_redundancy.pdf",
+          "sha256": "d109debf5e2aab6e7a4940b5b8601588dd3dac97819cd23bc8d2badf24d3a169"
+        },
+        "png": {
+          "path": "docs/figures/code_rate_redundancy.png",
+          "sha256": "85d0b87bcaa70b85df70d1eb7fb523b8942de21c097c9f7627a28b816b8183b3"
+        },
+        "svg": {
+          "path": "docs/figures/code_rate_redundancy.svg",
+          "sha256": "5c8c93b8d5f53763b5edb74eedbeb49e1a75eb4462611de258fab5081940a58a"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/CONCEPTS_AND_IDENTITIES.md",
+        "docs/FAIR_COMPARISON.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/normalized_exact_metrics.json",
+          "sha256": "865c5ade7f9f5055f33a0b6c82f559b9270c7da9d2d67dc6431a5a18953e811a"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/extended-hamming-secded-72-64-v1.json",
+          "sha256": "874eb82c2ea8c9d6129f38fe34ded3b90b6e72aba4b0bcd7a8f446adf1e843a2"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-hotspot-8-4-v1.json",
+          "sha256": "31030dccfe2e2219794d576cfb28058c8195c09300634a6aa29553d80fa2877f"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-spatial-hotspot-72-64-v1.json",
+          "sha256": "9610328a5385a823cbe1c603a8df3a2897ea50ddde4e80f793be944c758922b8"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+          "sha256": "4d193c25f1f6583b1ba215e92b669763a260e32177df01fc1e1bb7bfddbfbb10"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+          "sha256": "5605e9732fc161bc088dd60fbe6785bcd48c49a6b7471f6029dfb45e999926cc"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json",
+          "sha256": "3a107aa324767839bb098b36b72f576562bade35534b04f94c6d5eaa7f5e1e3c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-4-8.json",
+          "sha256": "9b15120e5bee3164b5c0c3ed19aef24775652a7ca0878e04e70441b2d5c2e64e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-64-72.json",
+          "sha256": "51bc798455bc229079d011e7b9125e7902445b26810e82c030a29620f4937455"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/primitive-bch-63-51-t2-v1.json",
+          "sha256": "da32aa9d2cb3fe08e9e2de20cb32f972ee0d498ceae632975f60f13414f77731"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/repository-cyclic-63-51-v1.json",
+          "sha256": "73e55d93c71bc83300351077af8bef7bff40d4ccc464db8033e020e8c4c88d27"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-72-64-mapping-v1.json",
+          "sha256": "1880087a596d1b9296cab0d55cd88c2ea1e93995bd2da7439d7585aaa8b8e335"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-8-4-v1.json",
+          "sha256": "ab99c9585ec8bcf5c949b4281e8094c75937a59ff12154623b29c35321407575"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-71-64-t1-v1.json",
+          "sha256": "304a53132d350243d6ddb9ed1f7c737b19d1be11038eac52042a8989753da056"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-78-64-t2-v1.json",
+          "sha256": "ec4ffe75d8204dfa5e39a4c41186b61f37d89ecc907d9cc96fbae89ba6898f5a"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-85-64-t3-v1.json",
+          "sha256": "ae7df7f14043e0017074772ec13c5567d5518213d57bb02d6bcdfb24914ffc52"
+        },
+        {
+          "path": "green_ecc_physical_simulation/registry/registry.json",
+          "sha256": "625b88cadc7768e79194381ae78acebc6075eca49f83df15b3e9d708de697a23"
+        }
+      ],
+      "title": "Code-rate and redundancy comparison"
+    },
+    {
+      "alt_text": "Implementation capability cells marked verified, partial, rejected, unsupported, or not applicable.",
+      "caption": "Read across a row: a family label never substitutes for a verified cell.",
+      "evidence_classes": [
+        "exact_functional",
+        "unsupported"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/capability_verification_heatmap.json",
+          "sha256": "12fcbae557854c1aa8f80a3308de8ff2fffe422dd41be1035648a260f1f52749"
+        }
+      ],
+      "figure_id": "capability_verification_heatmap",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/capability_verification_heatmap.pdf",
+          "sha256": "635e864c83ee184b8804ce2001c65d695486d83014ed28b700c4152d29a404b2"
+        },
+        "png": {
+          "path": "docs/figures/capability_verification_heatmap.png",
+          "sha256": "b6befc98e03b733acb2c225c737a1a5445186acef8b2cd91240465a03adcc44f"
+        },
+        "svg": {
+          "path": "docs/figures/capability_verification_heatmap.svg",
+          "sha256": "d42cc3db2d3aa7b696a7ae739cca6a820b6dabfe29f8c1f0107cbd61db41e58f"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/VERIFICATION_METHODOLOGY.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json",
+          "sha256": "f84950d38106312b25b8b4207e8e4f49f136632c38ef274d7237766a74580bf2"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/cyclic-rtl-bounded-search-63-51-v1.json",
+          "sha256": "f132e10a0ff9000619ccf586f3ef000e0aa0779da03d1dc740b7d101053680c1"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-hotspot-8-4-v1-archived-table-decoder.json",
+          "sha256": "3c4f3040679c2d7fde75b46087a599d6a245ec83385034a04f04fe66326c464e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-spatial-hotspot-72-64-v1-archived-table-decoder.json",
+          "sha256": "c737489f0394f485dc36058a7cd3d0b48367f641373d55ef2475811db0ea36db"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder.json",
+          "sha256": "edf35dce852f7c09802aef9c515e6cd01c5032fb47ffee517bd95d37932a85fc"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder.json",
+          "sha256": "a1dd14df91642e2dd73bbd0750bbedffbb3838c1b75a05276520145e1952e01b"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/hsiao-generated-combinational-72-64-v1.json",
+          "sha256": "bbc35755bb144c80145a242c79a5a17e9a5dd95f45d5cb1b92afcfe5de3b6413"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/odd-column-secded-4-8-archived-table-decoder.json",
+          "sha256": "569660ffb2f2fe6af3410e320352cd6b1c3e85036651bc9c4411a318a7da62fa"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/odd-column-secded-64-72-archived-table-decoder.json",
+          "sha256": "3ecfb0dea734fbae73ee5e797ac4d6fae6d41a8fa01f85608acb48770a5af3e6"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/primitive-bch-63-51-t2-v1-reference-decoder.json",
+          "sha256": "d36b0cc0c81995cdf7f9ad710574e3ac64728e4497a97482b8dd34fa4cddf12c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/safeforge-robust-72-64-mapping-v1-archived-table-decoder.json",
+          "sha256": "91a8ef030ceb449b1d7c57858bae9606ad2e732541ef2b954d24002d8b222260"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/safeforge-robust-8-4-v1-archived-table-decoder.json",
+          "sha256": "37cef7dc67b0a8e040b54d7679fb95596d3e80464aaf18a6fc7452b61d93b5d8"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/secdaec-rtl-bounded-72-64-v1.json",
+          "sha256": "56de06e5bcc4ef75709eb3b9b5dd63200a094a60f96c01aadd088fd29f2f5176"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/secded-rtl-combinational-72-64-v1.json",
+          "sha256": "93d77fb3d171bfd52be23b808bc94a2e3fa6be9d1936cd7ea1a4c236c37091fb"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/shortened-bch-71-64-t1-v1-reference-decoder.json",
+          "sha256": "30b9a47add3f103fbbd03d4d2cab57ec8c53b6c55d53ce3f560abe5a45539ba6"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/shortened-bch-78-64-t2-v1-reference-decoder.json",
+          "sha256": "65490434d9ec62a05b200bd29877263efcfd6aa5e56c10b0711d5b6cdf20f793"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/shortened-bch-85-64-t3-v1-reference-decoder.json",
+          "sha256": "daac4cc03903feb6e919e734e16523223a8136d55b6695ad0c19bf844f40790a"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/taec-rtl-bounded-72-64-v1.json",
+          "sha256": "5b464f3202b74fbfef00fdb94ae0b0e3e5b4ce454febbfa4c49ff9dcd5a7cca7"
+        }
+      ],
+      "title": "Capability-verification heatmap"
+    },
+    {
+      "alt_text": "Exact outcome proportions over declared verification universes, including SEC-DAEC and cyclic-labelled failures.",
+      "caption": "A red hatched share is silent miscorrection; totals are exact tested patterns, not sampled rates.",
+      "evidence_classes": [
+        "exact_functional"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/error_outcome_distributions.json",
+          "sha256": "b5fcff6c09134f678fe46a371f100252dc0df5cb4a2869aa68bc502138c7d38a"
+        },
+        {
+          "path": "docs/figure_data/error_outcome_distributions.csv",
+          "sha256": "2d3e5dd43282fc1084760ef8d351ab79e9ccbc6cffeaa9fdf304ec3d91ef9035"
+        }
+      ],
+      "figure_id": "error_outcome_distributions",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/error_outcome_distributions.pdf",
+          "sha256": "3b1a1dd2fa5c3dd9daafb2ea2bb46ce8e40496e1869e2666aa9fd4c7214c08c4"
+        },
+        "png": {
+          "path": "docs/figures/error_outcome_distributions.png",
+          "sha256": "0d2b91f1c8878f3826e16feb29f1e563ccc515bc9d2f49b852de4bfdd24b319c"
+        },
+        "svg": {
+          "path": "docs/figures/error_outcome_distributions.svg",
+          "sha256": "cca72c8fba93788937402c57564647e8e62f0431fb2369531687fcb1c1adcc62"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/VERIFICATION_METHODOLOGY.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json",
+          "sha256": "f84950d38106312b25b8b4207e8e4f49f136632c38ef274d7237766a74580bf2"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/cyclic-rtl-bounded-search-63-51-v1.json",
+          "sha256": "f132e10a0ff9000619ccf586f3ef000e0aa0779da03d1dc740b7d101053680c1"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-hotspot-8-4-v1-archived-table-decoder.json",
+          "sha256": "3c4f3040679c2d7fde75b46087a599d6a245ec83385034a04f04fe66326c464e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-spatial-hotspot-72-64-v1-archived-table-decoder.json",
+          "sha256": "c737489f0394f485dc36058a7cd3d0b48367f641373d55ef2475811db0ea36db"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder.json",
+          "sha256": "edf35dce852f7c09802aef9c515e6cd01c5032fb47ffee517bd95d37932a85fc"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder.json",
+          "sha256": "a1dd14df91642e2dd73bbd0750bbedffbb3838c1b75a05276520145e1952e01b"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/hsiao-generated-combinational-72-64-v1.json",
+          "sha256": "bbc35755bb144c80145a242c79a5a17e9a5dd95f45d5cb1b92afcfe5de3b6413"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/odd-column-secded-4-8-archived-table-decoder.json",
+          "sha256": "569660ffb2f2fe6af3410e320352cd6b1c3e85036651bc9c4411a318a7da62fa"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/odd-column-secded-64-72-archived-table-decoder.json",
+          "sha256": "3ecfb0dea734fbae73ee5e797ac4d6fae6d41a8fa01f85608acb48770a5af3e6"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/primitive-bch-63-51-t2-v1-reference-decoder.json",
+          "sha256": "d36b0cc0c81995cdf7f9ad710574e3ac64728e4497a97482b8dd34fa4cddf12c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/safeforge-robust-72-64-mapping-v1-archived-table-decoder.json",
+          "sha256": "91a8ef030ceb449b1d7c57858bae9606ad2e732541ef2b954d24002d8b222260"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/safeforge-robust-8-4-v1-archived-table-decoder.json",
+          "sha256": "37cef7dc67b0a8e040b54d7679fb95596d3e80464aaf18a6fc7452b61d93b5d8"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/secdaec-rtl-bounded-72-64-v1.json",
+          "sha256": "56de06e5bcc4ef75709eb3b9b5dd63200a094a60f96c01aadd088fd29f2f5176"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/secded-rtl-combinational-72-64-v1.json",
+          "sha256": "93d77fb3d171bfd52be23b808bc94a2e3fa6be9d1936cd7ea1a4c236c37091fb"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/shortened-bch-71-64-t1-v1-reference-decoder.json",
+          "sha256": "30b9a47add3f103fbbd03d4d2cab57ec8c53b6c55d53ce3f560abe5a45539ba6"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/shortened-bch-78-64-t2-v1-reference-decoder.json",
+          "sha256": "65490434d9ec62a05b200bd29877263efcfd6aa5e56c10b0711d5b6cdf20f793"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/shortened-bch-85-64-t3-v1-reference-decoder.json",
+          "sha256": "daac4cc03903feb6e919e734e16523223a8136d55b6695ad0c19bf844f40790a"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/verification/taec-rtl-bounded-72-64-v1.json",
+          "sha256": "5b464f3202b74fbfef00fdb94ae0b0e3e5b4ce454febbfa4c49ff9dcd5a7cca7"
+        }
+      ],
+      "title": "Exact error-outcome distributions"
+    },
+    {
+      "alt_text": "Evidence presence for each generated implementation/architecture characterization record.",
+      "caption": "Grey cells are not characterized and must not be read as zero.",
+      "evidence_classes": [
+        "exact_functional",
+        "analytical_model",
+        "structural_tool",
+        "unsupported"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/evidence_availability_matrix.json",
+          "sha256": "34ca73cddaca7c5cb6272e0021ccd280ad9d989b0443f25005dc45784fb4078e"
+        }
+      ],
+      "figure_id": "evidence_availability_matrix",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/evidence_availability_matrix.pdf",
+          "sha256": "32dbf2b0f679b6f5c5a6e93faf9d90782933b9c4db9fc9b05a40b928034b12c5"
+        },
+        "png": {
+          "path": "docs/figures/evidence_availability_matrix.png",
+          "sha256": "1eff0fe2104ad5a37a7575d772cdf53db7293c92d735667dbcf93cd9ea4151b9"
+        },
+        "svg": {
+          "path": "docs/figures/evidence_availability_matrix.svg",
+          "sha256": "f7da0bf72f62a4208cad6f9a95f16bd38c355f1936e9e2de498a67a519424597"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/CHARACTERIZATION_AND_EVIDENCE.md",
+        "docs/LIMITATIONS_AND_VALID_CLAIMS.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-hotspot-8-4-v1-archived-table-decoder--fixed-forge-hotspot-8-4-v1.json",
+          "sha256": "8b9cbc7227922a316a3ded0b2bd9b2941e71f890d73ba10e35dee85a7ac9266d"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-spatial-hotspot-72-64-v1-archived-table-decoder--fixed-forge-spatial-hotspot-72-64-v1.json",
+          "sha256": "83f4ef8b1e5f7a252c1e68d4b75a2e1f6a4faa44b5bfedcbf309e13833d59900"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder--fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+          "sha256": "fe0dea6d115baf0f11ed132abd7515f362df4c3cc83d1d797bca2732143eee2c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder--fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+          "sha256": "84cf153c9a00b7e7e974c5287852a8d9e69dc22a82a379562445a9b845542af3"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/hsiao-generated-combinational-72-64-v1--fixed-hsiao-whole-memory-v1.json",
+          "sha256": "cbf030d5e4bbf01f366436c372e31b480d866ba7f01b994c7664cc7b18eb370b"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/odd-column-secded-4-8-archived-table-decoder--fixed-odd-column-secded-4-8.json",
+          "sha256": "7a13416431645d21fe6d75b8bdcba890a103ad350a45dedfc5e27c2a6ba15a63"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/odd-column-secded-64-72-archived-table-decoder--fixed-odd-column-secded-64-72.json",
+          "sha256": "e27ef410cfdd5599de50eef79d90287c66d2e0a7985300f0dbb77e8e9eeccb7d"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/primitive-bch-63-51-t2-v1-reference-decoder--fixed-primitive-bch-63-51-t2-v1.json",
+          "sha256": "b2c5a0c30d4537cb5c8afa895c004bb5d829f961c0bca5934d87ece79f009c97"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/safeforge-robust-72-64-mapping-v1-archived-table-decoder--fixed-safeforge-robust-72-64-mapping-v1.json",
+          "sha256": "e5744be4990ce657eae8104258dab9e3bbf284ef65c4c5f7b9875749ebd0c749"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/safeforge-robust-8-4-v1-archived-table-decoder--fixed-safeforge-robust-8-4-v1.json",
+          "sha256": "8db35d57adfdc38d1793b11e5400f85aa757170f0b50f867a116ce2af4835799"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--adaptive-shared-page-v1.json",
+          "sha256": "96fcf641b1a5f8374cc5d497722dad9c0abe839e5ff26ea329138683cb905917"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--configurable-gated-parallel-bank-v1.json",
+          "sha256": "21ef5d40da992b3d722a0967237d4470f500aca9197e61924860474561694515"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--fixed-secded-whole-memory-v1.json",
+          "sha256": "140a975268a592d83557b10612f77104d9a9446ca736482fb1dd67e80bb33560"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-71-64-t1-v1-reference-decoder--fixed-shortened-bch-71-64-t1-v1.json",
+          "sha256": "25fdcda4fad06d962a68d1e840cd86561598979ce9b8ab57a2690a68f69cf38c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-78-64-t2-v1-reference-decoder--fixed-shortened-bch-78-64-t2-v1.json",
+          "sha256": "741a2f4b365861a2366443a0ade9ae9315db503dc010cec46ae6d28b4e1aa093"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-85-64-t3-v1-reference-decoder--fixed-shortened-bch-85-64-t3-v1.json",
+          "sha256": "277a11a05a4b107a5d332062a5a710f048c142f038e05747303a3e98453febe7"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/taec-rtl-bounded-72-64-v1--adaptive-shared-page-v1.json",
+          "sha256": "2dbfc413c73ecdcb07c90a5bd408d8468450be81efb21ce829a20563c7dbf828"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/taec-rtl-bounded-72-64-v1--configurable-gated-parallel-bank-v1.json",
+          "sha256": "fdaa8dbb7486d6dc7d68ee9ad487871d1d28f438a8b63d291202a250310c2b3e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/manifest.json",
+          "sha256": "110faf74fc02691a0cafc006841c18bd9ec982ab5f2ab45eeee5d03c68928daa"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/software_study_summary.json",
+          "sha256": "4de6e90e8745420fb91576208a1c7e89fe19da01a235653781b481d20f122607"
+        }
+      ],
+      "title": "Evidence-availability matrix"
+    },
+    {
+      "alt_text": "Technology-independent operation counts and structural proxies for selectable implementations.",
+      "caption": "Use only for structural comparison; neither axis is physical area, energy, or delay.",
+      "evidence_classes": [
+        "exact_functional",
+        "structural_tool"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/structural_complexity_structural_only.json",
+          "sha256": "fb2be62161d672b7a7e882143cc560e1b11832b615e2d0f102cd73ca45fde283"
+        },
+        {
+          "path": "docs/figure_data/structural_complexity_structural_only.csv",
+          "sha256": "5f000e63f4cf3231cf8b15b897b4563556b8bcff7bfaea28a927e2857faea1fb"
+        }
+      ],
+      "figure_id": "structural_complexity_structural_only",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/structural_complexity_structural_only.pdf",
+          "sha256": "6aebab990f452b6178503b0ff9eac7a023ea4e65f6f6b2184270cec140381123"
+        },
+        "png": {
+          "path": "docs/figures/structural_complexity_structural_only.png",
+          "sha256": "b9cdbd7c5a90c2e2d6e3854a37b25b0b799cea211038d35aad4461d1aed9b65c"
+        },
+        "svg": {
+          "path": "docs/figures/structural_complexity_structural_only.svg",
+          "sha256": "70937bbfc39772b0b5ac64dfe98832ca790271c54327d2628dee82da61f80d6a"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/CHARACTERIZATION_AND_EVIDENCE.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/normalized_exact_metrics.json",
+          "sha256": "865c5ade7f9f5055f33a0b6c82f559b9270c7da9d2d67dc6431a5a18953e811a"
+        }
+      ],
+      "title": "Structural-complexity comparison"
+    },
+    {
+      "alt_text": "Feasible, infeasible, dominated, Pareto, selected, and knee candidates in one traceable scenario.",
+      "caption": "Both displayed objectives are minimized; five-objective membership is independently recomputed after hard constraints.",
+      "evidence_classes": [
+        "exact_functional",
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/reliability_cost_pareto_analytical.json",
+          "sha256": "f6ecf04a7c4970488687f9b47f1c1d6ef9f258ea48edb91a51f60b435cd562bc"
+        }
+      ],
+      "figure_id": "reliability_cost_pareto_analytical",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/reliability_cost_pareto_analytical.pdf",
+          "sha256": "3ea4836ea09c3d7c45bfc51e7fb692d39e2f7794e88c5e479b3a6792c4558a5a"
+        },
+        "png": {
+          "path": "docs/figures/reliability_cost_pareto_analytical.png",
+          "sha256": "848f0bd2e5fa920c12aad52a1a399016f0c994cae80a5cd0f4e2837c2c97bae3"
+        },
+        "svg": {
+          "path": "docs/figures/reliability_cost_pareto_analytical.svg",
+          "sha256": "ab13db12707a84d58faeeb58f15d0f4d6cf5cdf3038a6ba7a457caf54374dedc"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/PARETO_AND_SELECTION.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+          "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+        }
+      ],
+      "title": "Reliability-versus-cost Pareto frontier"
+    },
+    {
+      "alt_text": "Analytical SDC versus operational carbon for one traceable scenario; embodied carbon is absent.",
+      "caption": "Operational carbon is proportional to scenario energy at fixed grid intensity; no embodied component is fabricated.",
+      "evidence_classes": [
+        "exact_functional",
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/reliability_carbon_pareto_analytical.json",
+          "sha256": "cf7765f2849d254ce5ee2e596f2479dbb6a5fdcb3d9c5f1645f049865450e37e"
+        }
+      ],
+      "figure_id": "reliability_carbon_pareto_analytical",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/reliability_carbon_pareto_analytical.pdf",
+          "sha256": "2818d07592477d2118bb6dbed3a7cce81eecdf2c809f245d4fa1d4928f82b241"
+        },
+        "png": {
+          "path": "docs/figures/reliability_carbon_pareto_analytical.png",
+          "sha256": "5fa7b204322ea095dc887eee38ea3e865ef33783604368347b114e9fad3b00c1"
+        },
+        "svg": {
+          "path": "docs/figures/reliability_carbon_pareto_analytical.svg",
+          "sha256": "9385f993b8857780d1e0b60a76de5d01f937ca937f99e37c883ce967d2ea53fe"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/ENERGY_AND_CARBON_MODELS.md",
+        "docs/PARETO_AND_SELECTION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+          "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+        }
+      ],
+      "title": "Reliability-versus-carbon Pareto frontier"
+    },
+    {
+      "alt_text": "Analytical energy versus technology-independent logic-depth proxy.",
+      "caption": "The horizontal axis is a structural proxy, not measured latency.",
+      "evidence_classes": [
+        "analytical_model",
+        "structural_tool"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/energy_complexity_pareto_analytical.json",
+          "sha256": "5d2b10ec21fae90c539ed77cd22f1a767d53bdfe801eb632ac8c906ea1d2c4ff"
+        }
+      ],
+      "figure_id": "energy_complexity_pareto_analytical",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/energy_complexity_pareto_analytical.pdf",
+          "sha256": "6d1c36f47a43b7caeaa573469980fb369055566b3f1126d8c2b789b243474478"
+        },
+        "png": {
+          "path": "docs/figures/energy_complexity_pareto_analytical.png",
+          "sha256": "591d69002e8f976bac305462220c017df31a560464a867b75670a09853b9d4cb"
+        },
+        "svg": {
+          "path": "docs/figures/energy_complexity_pareto_analytical.svg",
+          "sha256": "d1a0f79fc23ff3c1c6da5e4cb976e25c687bb470a266cf1ca6220ffb22311e7e"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/PARETO_AND_SELECTION.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+          "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+        }
+      ],
+      "title": "Energy-versus-complexity Pareto frontier"
+    },
+    {
+      "alt_text": "Scenario shares in which each implementation is Pareto-optimal or selected.",
+      "caption": "A candidate can be Pareto-optimal without being the minimum-energy winner.",
+      "evidence_classes": [
+        "exact_functional",
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/multi_scenario_pareto_summary.json",
+          "sha256": "61c907fc58f74138819cc7373dea457584ee589836ebbf664908118e936f0d54"
+        },
+        {
+          "path": "docs/figure_data/multi_scenario_pareto_summary.csv",
+          "sha256": "2d243a4e2d3524dd42729f31498b8045226ea82a67ddc510ebd4ccd7893b89b3"
+        }
+      ],
+      "figure_id": "multi_scenario_pareto_summary",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/multi_scenario_pareto_summary.pdf",
+          "sha256": "aa8bd287b8279b9dc46e73c9b2e8b751b01789f4e022476e5c6246db7bb53750"
+        },
+        "png": {
+          "path": "docs/figures/multi_scenario_pareto_summary.png",
+          "sha256": "12c468a8481dfada0720fcd05180024c6ed96f024841d463fc628327e90108f6"
+        },
+        "svg": {
+          "path": "docs/figures/multi_scenario_pareto_summary.svg",
+          "sha256": "04be1eff28bc1bd434b3328db2101ed4456dbbf369129f56a49910138c3f35af"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json",
+          "sha256": "9283368f4cd4c5fea778463503d5013abaecea9aebc2a7eebb58b792ca720b51"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/software_study_summary.json",
+          "sha256": "4de6e90e8745420fb91576208a1c7e89fe19da01a235653781b481d20f122607"
+        }
+      ],
+      "title": "Multi-scenario Pareto summary"
+    },
+    {
+      "alt_text": "Categorical winners by fault/reliability region and an exact voltage-temperature slice.",
+      "caption": "Cells are computed scenarios or modal aggregates; no categorical interpolation is used.",
+      "evidence_classes": [
+        "exact_functional",
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/winner_region_heatmaps.json",
+          "sha256": "0324740149f66f6f14f947dc8773472ce90e16b338ad669da586ab7aedcac805"
+        }
+      ],
+      "figure_id": "winner_region_heatmaps",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/winner_region_heatmaps.pdf",
+          "sha256": "b75e78590cc87d75b42de92b96fce2ab4886b4c8cc4c1610be27e7b884cceb03"
+        },
+        "png": {
+          "path": "docs/figures/winner_region_heatmaps.png",
+          "sha256": "27971d04881c85df7e82c478982b43feee97111cf4a8c4ea6b9f38c1577f925c"
+        },
+        "svg": {
+          "path": "docs/figures/winner_region_heatmaps.svg",
+          "sha256": "cfb324e465795e51374fa4a7fe9e8d874c139f39f5a2f6c20b3b1ba48cc1d223"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/SCENARIOS_AND_WORKLOADS.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_regions.json",
+          "sha256": "9f84c9d4eadb8af814d773d95d93809e0761bd530fba661e9007772aeac6c2f7"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+          "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+        }
+      ],
+      "title": "Winner-region heatmaps"
+    },
+    {
+      "alt_text": "Winner counts kept separate for code, implementation, and architecture identities.",
+      "caption": "Equal counts across panels do not make the identity layers interchangeable.",
+      "evidence_classes": [
+        "exact_functional",
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/winner_frequency_by_identity.json",
+          "sha256": "69185c71854c325a98ceaa5142a3b28d1c603f0e96367de4fc4fe3c34cf61eca"
+        }
+      ],
+      "figure_id": "winner_frequency_by_identity",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/winner_frequency_by_identity.pdf",
+          "sha256": "77ac389072b22c362087f7d538bfae58c9ec4405daead8d9e558b4d66ac362b0"
+        },
+        "png": {
+          "path": "docs/figures/winner_frequency_by_identity.png",
+          "sha256": "1af913bd2815bda71d873efe98dd5d55bb7850930584eb56aeae4358e5101239"
+        },
+        "svg": {
+          "path": "docs/figures/winner_frequency_by_identity.svg",
+          "sha256": "c6d94521f634aa5dc6cf38871984594853f701534eb376fd682bd467e2007c63"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/CONCEPTS_AND_IDENTITIES.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+          "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+        }
+      ],
+      "title": "Winner frequency by identity"
+    },
+    {
+      "alt_text": "Analytical energy regret and hard-constraint failures for preregistered fixed baselines.",
+      "caption": "Regret is computed only where the baseline is feasible; infeasible scenarios are shown separately.",
+      "evidence_classes": [
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/fixed_baseline_regret.json",
+          "sha256": "1d867edebc2e1237a8011a1a406a45a2d4a5e1fd17809c320bf876a6cc0cad0d"
+        },
+        {
+          "path": "docs/figure_data/fixed_baseline_regret.csv",
+          "sha256": "50ccbdf8a0fd1b8ac06944233b250000ec88214a41c23ba30b8676677e0ab158"
+        }
+      ],
+      "figure_id": "fixed_baseline_regret",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/fixed_baseline_regret.pdf",
+          "sha256": "f63870b7bae7231bf02cc85be4eee14b6bfea91f27a34eed457fefec375f2695"
+        },
+        "png": {
+          "path": "docs/figures/fixed_baseline_regret.png",
+          "sha256": "1b951ec0494c899bb22efde24549559f4af7385c50bce51a907c31a57dda103f"
+        },
+        "svg": {
+          "path": "docs/figures/fixed_baseline_regret.svg",
+          "sha256": "6202997acdd9c4df2d503b067f08baf9748b75317246bf039eb18ffbab09986c"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/FAIR_COMPARISON.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json",
+          "sha256": "9283368f4cd4c5fea778463503d5013abaecea9aebc2a7eebb58b792ca720b51"
+        }
+      ],
+      "title": "Fixed-baseline regret"
+    },
+    {
+      "alt_text": "Base-winner agreement under three deterministic sensitivity parameter sets.",
+      "caption": "These are discrete scale cases, not Monte Carlo confidence intervals; seed is not applicable.",
+      "evidence_classes": [
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/recommendation_stability.json",
+          "sha256": "2a73a8573c8f0c65619a1208ffa0df879e110e39e37c3c35ef80ee0f228240e3"
+        }
+      ],
+      "figure_id": "recommendation_stability",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/recommendation_stability.pdf",
+          "sha256": "418bc1c3665a6dfad4f2c1a5f3ab3ad195d8bfbebbfc2354280d68abd467bf7f"
+        },
+        "png": {
+          "path": "docs/figures/recommendation_stability.png",
+          "sha256": "b32f9e51442900dcdd8d31f3b1d1d0b975490fa76167bd4a4a7098ea50f5efc8"
+        },
+        "svg": {
+          "path": "docs/figures/recommendation_stability.svg",
+          "sha256": "3b97e272922d075b8bb8404402bfd1009bdde31b862763f81e99db5024c134ec"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/PARETO_AND_SELECTION.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json",
+          "sha256": "57f3d7d1239f248a9b050c28ade2b8efc31213ec667e5b792fc36636a5cc7268"
+        }
+      ],
+      "title": "Recommendation stability"
+    },
+    {
+      "alt_text": "Descriptive grouped-range sensitivity of reliability, energy, carbon, and selection outcome to scenario factors.",
+      "caption": "Ranks show association within this preregistered grid, not causal importance beyond it.",
+      "evidence_classes": [
+        "analytical_model"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/sensitivity_ranked.json",
+          "sha256": "5e1f6e59452094bc11d572bdcab9b42d3ecd7c6a769a5250c9591e44f0395292"
+        },
+        {
+          "path": "docs/figure_data/sensitivity_ranked.csv",
+          "sha256": "5bdeca71c75f8d6ccc60fb19573fc73d0037eda76e42ae2a8dd31a897ccfb981"
+        }
+      ],
+      "figure_id": "sensitivity_ranked",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/sensitivity_ranked.pdf",
+          "sha256": "e9d0aae4bd65e9afba525e881fd924728dc27947f2f0acbe70428a06a1326214"
+        },
+        "png": {
+          "path": "docs/figures/sensitivity_ranked.png",
+          "sha256": "b103b7b9dde661a7845ebd30c063fafc606235688d039d99120b32e180ea0c5a"
+        },
+        "svg": {
+          "path": "docs/figures/sensitivity_ranked.svg",
+          "sha256": "db980196efeb868c73341cee981cf4e3d383ae78a998f38e2c3f26e3050204f7"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/SCENARIOS_AND_WORKLOADS.md",
+        "docs/RESULTS_AND_INTERPRETATION.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+          "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+        }
+      ],
+      "title": "Ranked sensitivity"
+    },
+    {
+      "alt_text": "Net analytical gain as hypothetical adaptation overhead consumes the gross oracle advantage.",
+      "caption": "The threshold is parameterized and analytical; missing physical overhead prevents an actual break-even claim.",
+      "evidence_classes": [
+        "analytical_model",
+        "unsupported"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/adaptive_overhead_threshold.json",
+          "sha256": "40cd5163a2a5ace5f66f0c50af621468ce7c9725d43f88d563cf5695651b8413"
+        }
+      ],
+      "figure_id": "adaptive_overhead_threshold",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/adaptive_overhead_threshold.pdf",
+          "sha256": "37a11c0936e2135f48b98805632b84567f41b28a42bf4b6cab65389ddcb0989a"
+        },
+        "png": {
+          "path": "docs/figures/adaptive_overhead_threshold.png",
+          "sha256": "a459adb8396d47d9ec0843d803829419d608d0a5dfde6f318fb84dfa47adc61c"
+        },
+        "svg": {
+          "path": "docs/figures/adaptive_overhead_threshold.svg",
+          "sha256": "931fc6d9ee64fae7a936e13851001c7f7223f82dddf3c0cc1f3da58b51d1208a"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/ENERGY_AND_CARBON_MODELS.md",
+        "docs/LIMITATIONS_AND_VALID_CLAIMS.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json",
+          "sha256": "57f3d7d1239f248a9b050c28ade2b8efc31213ec667e5b792fc36636a5cc7268"
+        }
+      ],
+      "title": "Adaptive-overhead threshold"
+    },
+    {
+      "alt_text": "Backend coverage matrix showing the absence of physical objectives.",
+      "caption": "Generic Yosys structure is available, but physical area, timing, energy, routing, and adaptive overhead remain null.",
+      "evidence_classes": [
+        "structural_tool",
+        "unsupported"
+      ],
+      "figure_data": [
+        {
+          "path": "docs/figure_data/physical_evidence_gap.json",
+          "sha256": "fec8ca651524686c8bd5b2d4934d52479f5a8d934868cc61a6b1f231dea46fe7"
+        }
+      ],
+      "figure_id": "physical_evidence_gap",
+      "files": {
+        "pdf": {
+          "path": "docs/figures/physical_evidence_gap.pdf",
+          "sha256": "2fae83c38a200adf089692ecf8b0c160a8340cd31aa3323fb8647e750154bc37"
+        },
+        "png": {
+          "path": "docs/figures/physical_evidence_gap.png",
+          "sha256": "718636a1c0fae7f687fea51bf2934f8fd249d665fcbc245cd126395c567876cc"
+        },
+        "svg": {
+          "path": "docs/figures/physical_evidence_gap.svg",
+          "sha256": "a72429100d397acba9ae8e31025f4e72fd62d80486e6f2f3aa66a710661b5b57"
+        }
+      },
+      "generation_command": "python scripts/generate_documentation_figures.py",
+      "included_in": [
+        "docs/CHARACTERIZATION_AND_EVIDENCE.md",
+        "docs/LIMITATIONS_AND_VALID_CLAIMS.md"
+      ],
+      "source_artifacts": [
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-hotspot-8-4-v1-archived-table-decoder--fixed-forge-hotspot-8-4-v1.json",
+          "sha256": "8b9cbc7227922a316a3ded0b2bd9b2941e71f890d73ba10e35dee85a7ac9266d"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-spatial-hotspot-72-64-v1-archived-table-decoder--fixed-forge-spatial-hotspot-72-64-v1.json",
+          "sha256": "83f4ef8b1e5f7a252c1e68d4b75a2e1f6a4faa44b5bfedcbf309e13833d59900"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder--fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+          "sha256": "fe0dea6d115baf0f11ed132abd7515f362df4c3cc83d1d797bca2732143eee2c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder--fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+          "sha256": "84cf153c9a00b7e7e974c5287852a8d9e69dc22a82a379562445a9b845542af3"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/hsiao-generated-combinational-72-64-v1--fixed-hsiao-whole-memory-v1.json",
+          "sha256": "cbf030d5e4bbf01f366436c372e31b480d866ba7f01b994c7664cc7b18eb370b"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/odd-column-secded-4-8-archived-table-decoder--fixed-odd-column-secded-4-8.json",
+          "sha256": "7a13416431645d21fe6d75b8bdcba890a103ad350a45dedfc5e27c2a6ba15a63"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/odd-column-secded-64-72-archived-table-decoder--fixed-odd-column-secded-64-72.json",
+          "sha256": "e27ef410cfdd5599de50eef79d90287c66d2e0a7985300f0dbb77e8e9eeccb7d"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/primitive-bch-63-51-t2-v1-reference-decoder--fixed-primitive-bch-63-51-t2-v1.json",
+          "sha256": "b2c5a0c30d4537cb5c8afa895c004bb5d829f961c0bca5934d87ece79f009c97"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/safeforge-robust-72-64-mapping-v1-archived-table-decoder--fixed-safeforge-robust-72-64-mapping-v1.json",
+          "sha256": "e5744be4990ce657eae8104258dab9e3bbf284ef65c4c5f7b9875749ebd0c749"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/safeforge-robust-8-4-v1-archived-table-decoder--fixed-safeforge-robust-8-4-v1.json",
+          "sha256": "8db35d57adfdc38d1793b11e5400f85aa757170f0b50f867a116ce2af4835799"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--adaptive-shared-page-v1.json",
+          "sha256": "96fcf641b1a5f8374cc5d497722dad9c0abe839e5ff26ea329138683cb905917"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--configurable-gated-parallel-bank-v1.json",
+          "sha256": "21ef5d40da992b3d722a0967237d4470f500aca9197e61924860474561694515"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/secded-rtl-combinational-72-64-v1--fixed-secded-whole-memory-v1.json",
+          "sha256": "140a975268a592d83557b10612f77104d9a9446ca736482fb1dd67e80bb33560"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-71-64-t1-v1-reference-decoder--fixed-shortened-bch-71-64-t1-v1.json",
+          "sha256": "25fdcda4fad06d962a68d1e840cd86561598979ce9b8ab57a2690a68f69cf38c"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-78-64-t2-v1-reference-decoder--fixed-shortened-bch-78-64-t2-v1.json",
+          "sha256": "741a2f4b365861a2366443a0ade9ae9315db503dc010cec46ae6d28b4e1aa093"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/shortened-bch-85-64-t3-v1-reference-decoder--fixed-shortened-bch-85-64-t3-v1.json",
+          "sha256": "277a11a05a4b107a5d332062a5a710f048c142f038e05747303a3e98453febe7"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/taec-rtl-bounded-72-64-v1--adaptive-shared-page-v1.json",
+          "sha256": "2dbfc413c73ecdcb07c90a5bd408d8468450be81efb21ce829a20563c7dbf828"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/characterization/taec-rtl-bounded-72-64-v1--configurable-gated-parallel-bank-v1.json",
+          "sha256": "fdaa8dbb7486d6dc7d68ee9ad487871d1d28f438a8b63d291202a250310c2b3e"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/framework_summary.json",
+          "sha256": "c7fa209c4a83b3db6735487a5184c99bac5a4919d7535b674754ca44e05ec7f4"
+        },
+        {
+          "path": "green_ecc_physical_simulation/multi_ecc_evaluation/manifest.json",
+          "sha256": "110faf74fc02691a0cafc006841c18bd9ec982ab5f2ab45eeee5d03c68928daa"
+        }
+      ],
+      "title": "Physical-evidence gap"
+    }
+  ],
+  "generator": "scripts/generate_documentation_figures.py",
+  "manifest_sha256": "9ae56b1d21cc60d7bb9e4426dccc6070d4bc1da4bb79f2741bc00405a7f69227",
+  "omitted_figures": [
+    {
+      "evidence_class": "unsupported",
+      "figure_id": "physical_pareto_frontier",
+      "reason": "all physical objectives are null; a physical Pareto frontier is not computable"
+    },
+    {
+      "evidence_class": "unsupported",
+      "figure_id": "embodied_carbon_pareto",
+      "reason": "the scenario study contains operational carbon only; implementation-specific embodied carbon provenance is unavailable"
+    },
+    {
+      "evidence_class": "unsupported",
+      "figure_id": "measured_latency_pareto",
+      "reason": "no characterized timing or measured delay is available; the generated energy-complexity plot uses an explicit structural depth proxy"
+    }
+  ],
+  "pareto_validation": {
+    "duplicate_point_policy": "retain all identity-distinct epsilon-equivalent points",
+    "hard_constraint_order": [
+      "functional verification",
+      "scenario SDC limit",
+      "scenario DUE limit",
+      "non-null finite objectives",
+      "Pareto dominance"
+    ],
+    "mismatch_count": 0,
+    "objectives": [
+      {
+        "direction": "min",
+        "epsilon": 0.0,
+        "name": "SDC probability"
+      },
+      {
+        "direction": "min",
+        "epsilon": 0.0,
+        "name": "DUE probability"
+      },
+      {
+        "direction": "min",
+        "epsilon": 0.0,
+        "name": "total energy"
+      },
+      {
+        "direction": "min",
+        "epsilon": 0.0,
+        "name": "encoded bits"
+      },
+      {
+        "direction": "min",
+        "epsilon": 0.0,
+        "name": "decoder complexity"
+      }
+    ],
+    "scenarios_checked": 192
+  },
+  "png_dpi": 320,
+  "schema_version": 1
+}

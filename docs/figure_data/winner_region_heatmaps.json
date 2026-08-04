@@ -1,0 +1,82 @@
+{
+  "evidence_classes": [
+    "exact_functional",
+    "analytical_model"
+  ],
+  "figure_id": "winner_region_heatmaps",
+  "records": {
+    "category_codes": {
+      "hsiao-generated-combinational-72-64-v1": "W1",
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder": "W2",
+      "shortened-bch-71-64-t1-v1-reference-decoder": "W3",
+      "shortened-bch-78-64-t2-v1-reference-decoder": "W4",
+      "shortened-bch-85-64-t3-v1-reference-decoder": "W5"
+    },
+    "category_mapping": {
+      "hsiao-generated-combinational-72-64-v1": 0,
+      "safeforge-robust-72-64-mapping-v1-archived-table-decoder": 1,
+      "shortened-bch-71-64-t1-v1-reference-decoder": 2,
+      "shortened-bch-78-64-t2-v1-reference-decoder": 3,
+      "shortened-bch-85-64-t3-v1-reference-decoder": 4
+    },
+    "fault_profiles": [
+      "adjacent_mbu",
+      "sbu_dominant",
+      "triple_stress"
+    ],
+    "fault_requirement_winners": [
+      [
+        "hsiao-generated-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-reference-decoder"
+      ],
+      [
+        "shortened-bch-71-64-t1-v1-reference-decoder",
+        "hsiao-generated-combinational-72-64-v1"
+      ],
+      [
+        "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+        "shortened-bch-85-64-t3-v1-reference-decoder"
+      ]
+    ],
+    "fixed_slice_factors": {
+      "carbon_intensity_kgco2_per_kwh": 0.1,
+      "fault_profile_ids": "sbu_dominant",
+      "reliability_requirement_ids": "service",
+      "scrub_interval_s": 1.0,
+      "workload_ids": "low_activity"
+    },
+    "reliability_requirements": [
+      "service",
+      "stringent"
+    ],
+    "temperatures_c": [
+      25.0,
+      85.0
+    ],
+    "voltage_temperature_winners": [
+      [
+        "shortened-bch-71-64-t1-v1-reference-decoder",
+        "shortened-bch-71-64-t1-v1-reference-decoder"
+      ],
+      [
+        "shortened-bch-71-64-t1-v1-reference-decoder",
+        "shortened-bch-71-64-t1-v1-reference-decoder"
+      ]
+    ],
+    "voltages_v": [
+      0.8,
+      1.0
+    ]
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_regions.json",
+      "sha256": "9f84c9d4eadb8af814d773d95d93809e0761bd530fba661e9007772aeac6c2f7"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json",
+      "sha256": "2d9c9ee0d6d07048e34ab96bdfd8222a1e87350dcab763a529392d47acbd0fb7"
+    }
+  ]
+}

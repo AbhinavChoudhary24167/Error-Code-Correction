@@ -1,0 +1,289 @@
+{
+  "evidence_classes": [
+    "exact_functional",
+    "unsupported"
+  ],
+  "figure_id": "registered_portfolio_overview",
+  "records": {
+    "code_rows": [
+      {
+        "code_spec_id": "extended-hamming-secded-72-64-v1",
+        "partially_verified": 1,
+        "rejected": 1,
+        "verified": 1
+      },
+      {
+        "code_spec_id": "forge-hotspot-8-4-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "forge-spatial-hotspot-72-64-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "hsiao-secded-72-64-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "odd-column-secded-4-8",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "odd-column-secded-64-72",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "primitive-bch-63-51-t2-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "repository-cyclic-63-51-v1",
+        "rejected": 1
+      },
+      {
+        "code_spec_id": "safeforge-robust-72-64-mapping-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "safeforge-robust-8-4-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "shortened-bch-71-64-t1-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "shortened-bch-78-64-t2-v1",
+        "verified": 1
+      },
+      {
+        "code_spec_id": "shortened-bch-85-64-t3-v1",
+        "verified": 1
+      }
+    ],
+    "summary": {
+      "architecture_count": 17,
+      "excluded_code_rows": 1,
+      "experimental_inventory_rows": 3
+    }
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/ecc_scope_matrix.json",
+      "sha256": "b2d477e7e0a89164246bdac0f769b20f46ad4d113be74a3950e75e7c310efd46"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json",
+      "sha256": "f84950d38106312b25b8b4207e8e4f49f136632c38ef274d7237766a74580bf2"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/adaptive-shared-page-v1.json",
+      "sha256": "0f5b14b01a47ec76d502c4da9bc493b9f1b45a458e6e5eb422c9dae74bb47eba"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/configurable-gated-parallel-bank-v1.json",
+      "sha256": "c9d53a0f6a3e0610f6fcbaa7e582c67c138a231cb02cf49ac6b9e76dd7d9f3ac"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-cyclic-whole-memory-v1.json",
+      "sha256": "aaa3d8b64e63b36c182ff3316ec03b3cb6e7104bff5535054954aaf27819c3d4"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-hotspot-8-4-v1.json",
+      "sha256": "afe1cd9cd4fbbdbf9eff74f732b94cd0e08c6ec21cd96391035645702a267fc3"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-spatial-hotspot-72-64-v1.json",
+      "sha256": "8457554cc443678852b69fcc4ed18f2b46e2b45c50ec840727a46ba055a47281"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+      "sha256": "dedd0a230fedf2fd38aeb9afc22169bf998b0f9336630e03b221edd47de5b02c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+      "sha256": "84f76c592f92f153ca98ca7161e5b14f447cfdb068d0059815a6869964a4ba50"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-hsiao-whole-memory-v1.json",
+      "sha256": "14f147881d495da759830f3119b84770a58329192c6b3000be7a14d093ab1d22"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-odd-column-secded-4-8.json",
+      "sha256": "f67ea5e766a583d9bdd448d57cf8b573bb2f5a631cbf4b7baf92059ca2b0feaf"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-odd-column-secded-64-72.json",
+      "sha256": "f4ca87242faf00044d144b79cea010fdebe9be5b6383ac2de9673e69ad905535"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-primitive-bch-63-51-t2-v1.json",
+      "sha256": "d920b70e34c139b1340a72bbe233a20fb865e635aa0ef6ec3cf1769519bbaf5e"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-safeforge-robust-72-64-mapping-v1.json",
+      "sha256": "9ee5702edb26203c96f6afacc2b98867c21f7dc4e5fd6aab2d730d2782044857"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-safeforge-robust-8-4-v1.json",
+      "sha256": "251ce31274a5dcfff7b2c24c714baefb7f460a3789b56956a981d22ac41c7bf0"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-secded-whole-memory-v1.json",
+      "sha256": "ced9cb17da7f00b2055952226f7cb2130052e5cf23aa3c1e27e232e7db54c611"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-shortened-bch-71-64-t1-v1.json",
+      "sha256": "ad2d15e0364abfcc6b748565d64824f5e383ce3bf4f10fa8a873c35440dc7e39"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-shortened-bch-78-64-t2-v1.json",
+      "sha256": "def106d3c088450712279a983589b8905060d023861ad601fea81d67a3cc0c3b"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/architectures/fixed-shortened-bch-85-64-t3-v1.json",
+      "sha256": "6b5fce3351cac9809852bc0505cd25b455c40a92f90f6917ff1861208d7b10dd"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/extended-hamming-secded-72-64-v1.json",
+      "sha256": "874eb82c2ea8c9d6129f38fe34ded3b90b6e72aba4b0bcd7a8f446adf1e843a2"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-hotspot-8-4-v1.json",
+      "sha256": "31030dccfe2e2219794d576cfb28058c8195c09300634a6aa29553d80fa2877f"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-spatial-hotspot-72-64-v1.json",
+      "sha256": "9610328a5385a823cbe1c603a8df3a2897ea50ddde4e80f793be944c758922b8"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json",
+      "sha256": "4d193c25f1f6583b1ba215e92b669763a260e32177df01fc1e1bb7bfddbfbb10"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json",
+      "sha256": "5605e9732fc161bc088dd60fbe6785bcd48c49a6b7471f6029dfb45e999926cc"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json",
+      "sha256": "3a107aa324767839bb098b36b72f576562bade35534b04f94c6d5eaa7f5e1e3c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-4-8.json",
+      "sha256": "9b15120e5bee3164b5c0c3ed19aef24775652a7ca0878e04e70441b2d5c2e64e"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/odd-column-secded-64-72.json",
+      "sha256": "51bc798455bc229079d011e7b9125e7902445b26810e82c030a29620f4937455"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/primitive-bch-63-51-t2-v1.json",
+      "sha256": "da32aa9d2cb3fe08e9e2de20cb32f972ee0d498ceae632975f60f13414f77731"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/repository-cyclic-63-51-v1.json",
+      "sha256": "73e55d93c71bc83300351077af8bef7bff40d4ccc464db8033e020e8c4c88d27"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-72-64-mapping-v1.json",
+      "sha256": "1880087a596d1b9296cab0d55cd88c2ea1e93995bd2da7439d7585aaa8b8e335"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/safeforge-robust-8-4-v1.json",
+      "sha256": "ab99c9585ec8bcf5c949b4281e8094c75937a59ff12154623b29c35321407575"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-71-64-t1-v1.json",
+      "sha256": "304a53132d350243d6ddb9ed1f7c737b19d1be11038eac52042a8989753da056"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-78-64-t2-v1.json",
+      "sha256": "ec4ffe75d8204dfa5e39a4c41186b61f37d89ecc907d9cc96fbae89ba6898f5a"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/codes/shortened-bch-85-64-t3-v1.json",
+      "sha256": "ae7df7f14043e0017074772ec13c5567d5518213d57bb02d6bcdfb24914ffc52"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/cyclic-rtl-bounded-search-63-51-v1.json",
+      "sha256": "a4f04416481a93ebd12d22cafbb0cc8dac85a4d710b60e81f24e4fb23cf71d93"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/forge-hotspot-8-4-v1-archived-table-decoder.json",
+      "sha256": "643ac7c274b22bfe80f9bb242247d87876bedc059ac596277847ed55aba7d6bd"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/forge-spatial-hotspot-72-64-v1-archived-table-decoder.json",
+      "sha256": "603f4b8557f492d69eeeb520ba0b896dc3a3f303d53ecc15bdc5e96187e8a208"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder.json",
+      "sha256": "752f625eaa3c3641a121b8228f030489e56a12b669014cab2f281350ae3e60cf"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder.json",
+      "sha256": "ba07f8757402bdb877d483ea48f9152cec02a50e14b4306a095769189c97126f"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/hsiao-generated-combinational-72-64-v1.json",
+      "sha256": "288a94739e397997fa21c3df43d45a99a503d188ef824fd0c23e93c2bbb9a38a"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/odd-column-secded-4-8-archived-table-decoder.json",
+      "sha256": "14c92412d38712ec94c97e0d04307318b230a745e493d16c3628af98bfd3775c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/odd-column-secded-64-72-archived-table-decoder.json",
+      "sha256": "8a7a52d7d689f18cf3b40f32edb80f35aefe20f549f6cc0909279ba3c554c04b"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/primitive-bch-63-51-t2-v1-reference-decoder.json",
+      "sha256": "721de5f88e878c3eeb3a93797bd49b1026a594e5f6be86a3b10dc9b35e458e69"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/safeforge-robust-72-64-mapping-v1-archived-table-decoder.json",
+      "sha256": "03ececb646ab8743ced57c6a337fda20463d2a178e0820bf02aaec25df73061e"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/safeforge-robust-8-4-v1-archived-table-decoder.json",
+      "sha256": "5271849ab01a1d2a2e7bcba2ab8d3d0c1d5626c7a69289c4c8b7cafcee38f2db"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/secdaec-rtl-bounded-72-64-v1.json",
+      "sha256": "bd6faf2d447e47098c330e3dc0b42c31feb4dcfeba51c0a064ad8dd6ae8d24b7"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/secded-rtl-combinational-72-64-v1.json",
+      "sha256": "af0a0b350bcaf4f812820cab4ba67a33fd94ed889aaf8c8366225c27af23349d"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/shortened-bch-71-64-t1-v1-reference-decoder.json",
+      "sha256": "89593a1e77b7a7c483f6b4165f90068560c43d041402e0a0bbb40233f996a2f1"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/shortened-bch-78-64-t2-v1-reference-decoder.json",
+      "sha256": "d0e4e7edf45e493a893fd39303d82590e46faee6614e70d5b95581b0d5c335a4"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/shortened-bch-85-64-t3-v1-reference-decoder.json",
+      "sha256": "7086020185f144251ac9be086e9cb71cb9f6cee1ef0451ea3356cf766408bf5c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/implementations/taec-rtl-bounded-72-64-v1.json",
+      "sha256": "d9226e2016c2e37af7827589a0e22566aba45386685b43f5853a58410e500c9c"
+    },
+    {
+      "path": "green_ecc_physical_simulation/registry/registry.json",
+      "sha256": "625b88cadc7768e79194381ae78acebc6075eca49f83df15b3e9d708de697a23"
+    }
+  ]
+}

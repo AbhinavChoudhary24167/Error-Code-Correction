@@ -1,0 +1,129 @@
+{
+  "evidence_classes": [
+    "exact_functional",
+    "analytical_model"
+  ],
+  "figure_id": "multi_scenario_pareto_summary",
+  "records": {
+    "implementation_rows": [
+      {
+        "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+        "pareto_percent": 0.0,
+        "pareto_scenarios": 0,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+        "pareto_percent": 33.333333333333336,
+        "pareto_scenarios": 64,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+        "pareto_percent": 16.666666666666668,
+        "pareto_scenarios": 32,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+        "pareto_percent": 33.333333333333336,
+        "pareto_scenarios": 64,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "pareto_percent": 50.0,
+        "pareto_scenarios": 96,
+        "selected_percent": 33.333333333333336,
+        "selected_scenarios": 64
+      },
+      {
+        "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+        "pareto_percent": 33.333333333333336,
+        "pareto_scenarios": 64,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+        "pareto_percent": 16.666666666666668,
+        "pareto_scenarios": 32,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+        "pareto_percent": 83.33333333333333,
+        "pareto_scenarios": 160,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+        "pareto_percent": 50.0,
+        "pareto_scenarios": 96,
+        "selected_percent": 16.666666666666668,
+        "selected_scenarios": 32
+      },
+      {
+        "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+        "pareto_percent": 16.666666666666668,
+        "pareto_scenarios": 32,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "secded-rtl-combinational-72-64-v1",
+        "pareto_percent": 16.666666666666668,
+        "pareto_scenarios": 32,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      },
+      {
+        "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+        "pareto_percent": 16.666666666666668,
+        "pareto_scenarios": 32,
+        "selected_percent": 16.666666666666668,
+        "selected_scenarios": 32
+      },
+      {
+        "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+        "pareto_percent": 83.33333333333333,
+        "pareto_scenarios": 160,
+        "selected_percent": 16.666666666666668,
+        "selected_scenarios": 32
+      },
+      {
+        "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+        "pareto_percent": 66.66666666666667,
+        "pareto_scenarios": 128,
+        "selected_percent": 16.666666666666668,
+        "selected_scenarios": 32
+      },
+      {
+        "implementation_id": "taec-rtl-bounded-72-64-v1",
+        "pareto_percent": 16.666666666666668,
+        "pareto_scenarios": 32,
+        "selected_percent": 0.0,
+        "selected_scenarios": 0
+      }
+    ],
+    "no_winner_scenario_count": 0,
+    "scenario_count": 192
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json",
+      "sha256": "9283368f4cd4c5fea778463503d5013abaecea9aebc2a7eebb58b792ca720b51"
+    },
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/software_study_summary.json",
+      "sha256": "4de6e90e8745420fb91576208a1c7e89fe19da01a235653781b481d20f122607"
+    }
+  ]
+}

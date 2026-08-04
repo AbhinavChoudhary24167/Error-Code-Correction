@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Telemetry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "workload_id",
+    "node_nm",
+    "vdd",
+    "tempC",
+    "clk_MHz",
+    "xor_toggles",
+    "and_toggles",
+    "add_toggles",
+    "corr_events",
+    "words",
+    "accesses",
+    "scrub_s",
+    "capacity_gib",
+    "runtime_s"
+  ],
+  "properties": {
+    "workload_id": {"type": "string"},
+    "node_nm": {"type": "integer", "minimum": 1},
+    "vdd": {"type": "number", "exclusiveMinimum": 0},
+    "tempC": {"type": "number"},
+    "clk_MHz": {"type": "number", "exclusiveMinimum": 0},
+    "xor_toggles": {"type": "integer", "minimum": 0},
+    "and_toggles": {"type": "integer", "minimum": 0},
+    "add_toggles": {"type": "integer", "minimum": 0},
+    "corr_events": {"type": "integer", "minimum": 0},
+    "words": {"type": "integer", "minimum": 0},
+    "accesses": {"type": "integer", "minimum": 0},
+    "scrub_s": {"type": "number", "minimum": 0},
+    "capacity_gib": {"type": "number", "exclusiveMinimum": 0},
+    "runtime_s": {"type": "number", "exclusiveMinimum": 0}
+  }
+}

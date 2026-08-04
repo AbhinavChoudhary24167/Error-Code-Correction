@@ -1,0 +1,155 @@
+{
+  "evidence_classes": [
+    "exact_functional",
+    "structural_tool"
+  ],
+  "figure_id": "structural_complexity_structural_only",
+  "records": {
+    "implementation_rows": [
+      {
+        "decoder_complexity_proxy": 82,
+        "encoder_xor_operations": 8,
+        "generic_structural_cell_count": null,
+        "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+        "logic_depth_proxy": 6,
+        "normalized_decoder_complexity": 3.3399194916479614e-05,
+        "syndrome_xor_operations": 12
+      },
+      {
+        "decoder_complexity_proxy": 1372,
+        "encoder_xor_operations": 206,
+        "generic_structural_cell_count": null,
+        "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+        "logic_depth_proxy": 12,
+        "normalized_decoder_complexity": 0.000558825553968415,
+        "syndrome_xor_operations": 214
+      },
+      {
+        "decoder_complexity_proxy": 1178,
+        "encoder_xor_operations": 202,
+        "generic_structural_cell_count": null,
+        "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+        "logic_depth_proxy": 12,
+        "normalized_decoder_complexity": 0.00047980794648308517,
+        "syndrome_xor_operations": 210
+      },
+      {
+        "decoder_complexity_proxy": 1096,
+        "encoder_xor_operations": 200,
+        "generic_structural_cell_count": null,
+        "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+        "logic_depth_proxy": 12,
+        "normalized_decoder_complexity": 0.0004464087515666055,
+        "syndrome_xor_operations": 208
+      },
+      {
+        "decoder_complexity_proxy": 856,
+        "encoder_xor_operations": 200,
+        "generic_structural_cell_count": null,
+        "implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "logic_depth_proxy": 12,
+        "normalized_decoder_complexity": 0.00034865501034764084,
+        "syndrome_xor_operations": 208
+      },
+      {
+        "decoder_complexity_proxy": 52,
+        "encoder_xor_operations": 8,
+        "generic_structural_cell_count": null,
+        "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+        "logic_depth_proxy": 5,
+        "normalized_decoder_complexity": 2.117997726410902e-05,
+        "syndrome_xor_operations": 12
+      },
+      {
+        "decoder_complexity_proxy": 888,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+        "logic_depth_proxy": 13,
+        "normalized_decoder_complexity": 0.00036168884251016947,
+        "syndrome_xor_operations": 240
+      },
+      {
+        "decoder_complexity_proxy": 28489,
+        "encoder_xor_operations": 316,
+        "generic_structural_cell_count": null,
+        "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+        "logic_depth_proxy": 16,
+        "normalized_decoder_complexity": 0.011603776389946191,
+        "syndrome_xor_operations": 328
+      },
+      {
+        "decoder_complexity_proxy": 805,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+        "logic_depth_proxy": 12,
+        "normalized_decoder_complexity": 0.0003278823403386108,
+        "syndrome_xor_operations": 240
+      },
+      {
+        "decoder_complexity_proxy": 53,
+        "encoder_xor_operations": 5,
+        "generic_structural_cell_count": null,
+        "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+        "logic_depth_proxy": 5,
+        "normalized_decoder_complexity": 2.158728451918804e-05,
+        "syndrome_xor_operations": 9
+      },
+      {
+        "decoder_complexity_proxy": 888,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "implementation_id": "secded-rtl-combinational-72-64-v1",
+        "logic_depth_proxy": 13,
+        "normalized_decoder_complexity": 0.00036168884251016947,
+        "syndrome_xor_operations": 240
+      },
+      {
+        "decoder_complexity_proxy": 773,
+        "encoder_xor_operations": 198,
+        "generic_structural_cell_count": null,
+        "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+        "logic_depth_proxy": 12,
+        "normalized_decoder_complexity": 0.00031484850817608217,
+        "syndrome_xor_operations": 205
+      },
+      {
+        "decoder_complexity_proxy": 49677,
+        "encoder_xor_operations": 445,
+        "generic_structural_cell_count": null,
+        "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+        "logic_depth_proxy": 18,
+        "normalized_decoder_complexity": 0.020233802510560457,
+        "syndrome_xor_operations": 459
+      },
+      {
+        "decoder_complexity_proxy": 2455149,
+        "encoder_xor_operations": 668,
+        "generic_structural_cell_count": null,
+        "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+        "logic_depth_proxy": 23,
+        "normalized_decoder_complexity": 1.0,
+        "syndrome_xor_operations": 689
+      },
+      {
+        "decoder_complexity_proxy": 888,
+        "encoder_xor_operations": 232,
+        "generic_structural_cell_count": null,
+        "implementation_id": "taec-rtl-bounded-72-64-v1",
+        "logic_depth_proxy": 13,
+        "normalized_decoder_complexity": 0.00036168884251016947,
+        "syndrome_xor_operations": 240
+      }
+    ],
+    "normalization_denominator_decoder_complexity_proxy": 2455149,
+    "null_note": "generic_structural_cell_count is null where no comparable synthesis count exists"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "green_ecc_physical_simulation/multi_ecc_evaluation/normalized_exact_metrics.json",
+      "sha256": "865c5ade7f9f5055f33a0b6c82f559b9270c7da9d2d67dc6431a5a18953e811a"
+    }
+  ]
+}
