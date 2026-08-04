@@ -4,9 +4,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import warnings
-from numpy.exceptions import RankWarning
 
-from analysis.tradeoff import analyze_tradeoffs, TradeoffConfig
+from analysis.tradeoff import analyze_tradeoffs, RankWarning, TradeoffConfig
 
 
 def create_pareto(tmp_path: Path) -> Path:

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "portfolio_id": "forge-sram-portfolio-72-64-v1",
+  "k": 64,
+  "r": 8,
+  "regimes": [
+    {
+      "regime_id": "spatial-hotspot",
+      "probability": 0.55,
+      "fault_distribution": "configs/fault_distributions/benchmarks/spatial_hot_spots.json"
+    },
+    {
+      "regime_id": "geometry-filtered",
+      "probability": 0.45,
+      "fault_distribution": "configs/fault_distributions/benchmarks/geometry_filtered.json"
+    }
+  ],
+  "validation_distributions": [
+    "configs/fault_distributions/benchmarks/mixed_sbu_dbu_mbu.json"
+  ],
+  "shifted_distributions": [
+    "configs/fault_distributions/benchmarks/distribution_shift.json",
+    "configs/fault_distributions/benchmarks/voltage_sensitive.json"
+  ],
+  "code_template": {
+    "decoder_policy": {
+      "mandatory_correct_families": ["sbu"],
+      "detect_only_families": []
+    },
+    "matrix_constraints": {
+      "min_row_weight": 8,
+      "max_row_weight": 56,
+      "min_data_column_weight": 2,
+      "max_data_column_weight": 7
+    },
+    "constraints": {
+      "max_sdc_probability": 0.0,
+      "max_residual_fit": 700.0,
+      "max_matrix_xor_gates": 640
+    },
+    "hardware_model": {
+      "max_xor_fanin": 2,
+      "hardware_aware": true
+    },
+    "search": {
+      "timeout_seconds": 30.0,
+      "seed": 7201,
+      "beam_width": 2,
+      "iterations": 3,
+      "mutations_per_candidate": 4
+    }
+  },
+  "cosynthesis": {
+    "seed": 7301,
+    "iterations": 3,
+    "candidates_per_mode": 3,
+    "timeout_seconds": 30.0
+  },
+  "safety": {
+    "max_sdc_probability": 0.0,
+    "max_residual_fit": 1000.0
+  }
+}

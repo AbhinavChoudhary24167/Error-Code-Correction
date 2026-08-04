@@ -18,6 +18,7 @@ from analysis.scenario_resolver import (
     filter_by_scenario,
     normalise_scenario_filters,
 )
+from visualization_runtime import configure_matplotlib_cache
 
 
 COLUMN_ALIASES: dict[str, str] = {
@@ -331,6 +332,7 @@ def _render_plot(
     resolution: ScenarioResolution,
 ) -> None:
     try:
+        configure_matplotlib_cache()
         import matplotlib
         matplotlib.use("Agg", force=True)
         import matplotlib.pyplot as plt  # type: ignore

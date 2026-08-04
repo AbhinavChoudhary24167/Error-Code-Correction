@@ -1,0 +1,138 @@
+{
+  "baseline": {
+    "code_id": "odd-column-secded-4-8",
+    "fit": {
+      "model": "raw_fit multiplied by conditional modeled-error outcome mass",
+      "raw_fit": 1000.0,
+      "residual_fit": 520.0,
+      "sdc_fit": 0.0
+    },
+    "probability_mass": {
+      "corrected": 0.48,
+      "decoder_failure": 0.0,
+      "due": 0.52,
+      "residual": 0.52,
+      "sdc": 0.0,
+      "sum": 1.0
+    },
+    "structural_hardware": {
+      "decoder": {
+        "correction_mask_ones": 8,
+        "correction_output_or_proxy": 0,
+        "syndrome_compare_literals": 32,
+        "syndrome_table_entries": 8
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 8,
+        "parity_equation_inputs": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "matrix_xor_gates": 20,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "3": 4
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 12
+      }
+    }
+  },
+  "comparison_kind": "equal_redundancy",
+  "generated": {
+    "code_id": "forge-hotspot-8-4-v1",
+    "fit": {
+      "model": "raw_fit multiplied by conditional modeled-error outcome mass",
+      "raw_fit": 1000.0,
+      "residual_fit": 89.99999999999999,
+      "sdc_fit": 0.0
+    },
+    "probability_mass": {
+      "corrected": 0.9099999999999999,
+      "decoder_failure": 0.0,
+      "due": 0.08999999999999998,
+      "residual": 0.08999999999999998,
+      "sdc": 0.0,
+      "sum": 0.9999999999999999
+    },
+    "structural_hardware": {
+      "decoder": {
+        "correction_mask_ones": 18,
+        "correction_output_or_proxy": 10,
+        "syndrome_compare_literals": 52,
+        "syndrome_table_entries": 13
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 8,
+        "parity_equation_inputs": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "matrix_xor_gates": 20,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "3": 4
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 12
+      }
+    }
+  },
+  "k": 4,
+  "physical_ppa": null,
+  "r": 4
+}

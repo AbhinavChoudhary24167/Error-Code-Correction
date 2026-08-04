@@ -1,0 +1,194 @@
+{
+  "bit_width": 8,
+  "distribution_id": "small-hotspot-8bit-v1",
+  "normalization": {
+    "probability_sum": 1.0,
+    "tolerance": 1e-12,
+    "valid": true
+  },
+  "patterns": [
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-0",
+      "positions": [
+        0
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-1",
+      "positions": [
+        1
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-2",
+      "positions": [
+        2
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-3",
+      "positions": [
+        3
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-4",
+      "positions": [
+        4
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-5",
+      "positions": [
+        5
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-6",
+      "positions": [
+        6
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "sbu",
+      "metadata": {},
+      "pattern_id": "sbu-7",
+      "positions": [
+        7
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {
+        "hotspot": true
+      },
+      "pattern_id": "adj-dbu-0-1",
+      "positions": [
+        0,
+        1
+      ],
+      "probability": 0.25
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "adj-dbu-1-2",
+      "positions": [
+        1,
+        2
+      ],
+      "probability": 0.08
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "adj-dbu-2-3",
+      "positions": [
+        2,
+        3
+      ],
+      "probability": 0.06
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "adj-dbu-3-4",
+      "positions": [
+        3,
+        4
+      ],
+      "probability": 0.04
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "adj-dbu-4-5",
+      "positions": [
+        4,
+        5
+      ],
+      "probability": 0.03
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "adj-dbu-5-6",
+      "positions": [
+        5,
+        6
+      ],
+      "probability": 0.02
+    },
+    {
+      "family": "adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "adj-dbu-6-7",
+      "positions": [
+        6,
+        7
+      ],
+      "probability": 0.01
+    },
+    {
+      "family": "non_adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "nonadj-dbu-0-3",
+      "positions": [
+        0,
+        3
+      ],
+      "probability": 0.01
+    },
+    {
+      "family": "non_adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "nonadj-dbu-1-5",
+      "positions": [
+        1,
+        5
+      ],
+      "probability": 0.01
+    },
+    {
+      "family": "non_adjacent_dbu",
+      "metadata": {},
+      "pattern_id": "nonadj-dbu-2-7",
+      "positions": [
+        2,
+        7
+      ],
+      "probability": 0.01
+    }
+  ],
+  "provenance": {
+    "derivation": "Hand-specified conditional-on-error PMF for Stage 1 exact synthesis and falsification.",
+    "description": "Small exhaustive feasibility PMF with one dominant adjacent double-bit hotspot; not a silicon measurement.",
+    "kind": "synthetic",
+    "seed": 4101,
+    "source": null
+  },
+  "raw_fit": 1000.0,
+  "schema_version": 1
+}

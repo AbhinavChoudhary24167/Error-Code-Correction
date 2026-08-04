@@ -1,0 +1,5795 @@
+{
+  "changing_read_write_intensity": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.21552,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.21552,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.21552,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.23744860799999998,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.21552,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.21552,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.21552,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22343999999999997,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22343999999999997,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22343999999999997,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.245368608,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22343999999999997,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22343999999999997,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22343999999999997,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20892000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20892000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20892000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.230848608,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20892000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20892000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20892000000000002,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20952,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.23028000000000004,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860000000000003,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.28092,
+        "transitions": 0
+      }
+    ]
+  },
+  "combined_changes": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7794706250000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7125206820000001,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7125206820000001,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.75436929,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7125206820000001,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7125206820000001,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7125206820000001,
+        "transitions": 3
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.8140306249999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7470806819999998,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7470806819999998,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7889292899999998,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7470806819999998,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7470806819999998,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7470806819999998,
+        "transitions": 3
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7658706250000001,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.698920682,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.698920682,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.74076929,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.698920682,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.698920682,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.698920682,
+        "transitions": 3
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7666706250000002,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.7329106249999997,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [],
+        "policy": "best_static",
+        "reason": "no single ECC is feasible across the complete trace",
+        "status": "infeasible",
+        "total_objective": null,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.75238475,
+        "transitions": 0
+      }
+    ]
+  },
+  "grid_carbon_transition": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.02132,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.02132,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.02132,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.097168608,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.02132,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.02132,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.02132,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.07724,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.07724,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.07724,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.153088608,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.07724,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.07724,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.07724,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0051200000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0051200000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0051200000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0809686080000003,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0051200000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0051200000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0051200000000002,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0057199999999997,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.1128800000000003,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.9564,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.3605600000000002,
+        "transitions": 0
+      }
+    ]
+  },
+  "one_time_sbu_to_mbu": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2678,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.112482912,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.112482912,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.22201152,
+        "transitions": 2
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.112482912,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.112482912,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.112482912,
+        "transitions": 1
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.32372,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.1684029120000001,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.1684029120000001,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2779315200000003,
+        "transitions": 2
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.1684029120000001,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.1684029120000001,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.1684029120000001,
+        "transitions": 1
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2515999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0962829120000002,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0962829120000002,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2058115200000001,
+        "transitions": 2
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0962829120000002,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0962829120000002,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.0962829120000002,
+        "transitions": 1
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2522,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2028799999999997,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.2654,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 1.23696,
+        "transitions": 0
+      }
+    ]
+  },
+  "periodic_fault_transitions": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17839999999999995,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16613718400000002,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16613718400000002,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18982288000000003,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17284287999999995,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16613718400000002,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17284287999999995,
+        "transitions": 4
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18096,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.168697184,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.168697184,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19238287999999998,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17540288,
+        "transitions": 4
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.168697184,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17540288,
+        "transitions": 4
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17120000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22499747200000003,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17896,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17632000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17120000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22499747200000003,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17120000000000002,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17200000000000001,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16383999999999999,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17160000000000003,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16896,
+        "transitions": 0
+      }
+    ]
+  },
+  "short_noisy_fluctuations": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.07413999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.08094719999999998,
+        "transitions": 10
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.07413999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.07525257599999999,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.07413999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.08094719999999998,
+        "transitions": 10
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.07413999999999998,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0719,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0787072,
+        "transitions": 10
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0719,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.07301257600000001,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0719,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0787072,
+        "transitions": 10
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0719,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0679,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16645759999999998,
+        "transitions": 10
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0679,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.076264,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0679,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.16645759999999998,
+        "transitions": 10
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0679,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.0687,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.06604,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.06438,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.072744,
+        "transitions": 0
+      }
+    ]
+  },
+  "stationary_mbu": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12528000000000003,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.1272,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11988,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12047999999999998,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.13188,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.15960000000000005,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11435999999999998,
+        "transitions": 0
+      }
+    ]
+  },
+  "stationary_sbu": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10871999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10871999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10871999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12408860799999998,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10871999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10871999999999998,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10871999999999998,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11064000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11064000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11064000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.12600860800000002,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11064000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11064000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11064000000000002,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10332000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10332000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10332000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11868860800000001,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10332000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10332000000000002,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10332000000000002,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.10392,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.11388,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.09780000000000004,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.13908,
+        "transitions": 0
+      }
+    ]
+  },
+  "temperature_vdd_phases": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19068225,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19068225,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19068225,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.212770858,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19068225,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19068225,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19068225,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860224999999995,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860224999999995,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860224999999995,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.22069085799999996,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860224999999995,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860224999999995,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.19860224999999995,
+        "transitions": 0
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18408225000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18408225000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18408225000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20617085800000004,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18408225000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18408225000000003,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18408225000000003,
+        "transitions": 0
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.18468225,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.20192381250000005,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.17376225000000003,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.24610794374999997,
+        "transitions": 0
+      }
+    ]
+  },
+  "uncertain_transitions": {
+    "adaptive-parallel-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.34340000000000004,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3184943679999999,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3184943679999999,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.34516287999999995,
+        "transitions": 2
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.32120860799999995,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3184943679999999,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.32120860799999995,
+        "transitions": 3
+      }
+    ],
+    "adaptive-shared-page": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.35395999999999994,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.329054368,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.329054368,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3557228799999999,
+        "transitions": 2
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3317686079999999,
+        "transitions": 3
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.329054368,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3317686079999999,
+        "transitions": 3
+      }
+    ],
+    "adaptive-shared-whole": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.33460000000000006,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "fault_regime_lookup",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.366317472,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "greedy",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.34346,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_hysteresis",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.35131999999999997,
+        "transitions": 0
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "robust_transition_aware",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.332462912,
+        "transitions": 1
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "sec-ded-64",
+          "taec-64"
+        ],
+        "policy": "snapshot_oracle",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.366317472,
+        "transitions": 7
+      },
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "transition_aware_dp",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.332462912,
+        "transitions": 1
+      }
+    ],
+    "configurable-gated-bank": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.33540000000000003,
+        "transitions": 0
+      }
+    ],
+    "fixed-secdaec": [
+      {
+        "path": [
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64",
+          "sec-daec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.32083999999999996,
+        "transitions": 0
+      }
+    ],
+    "fixed-secded": [
+      {
+        "path": [
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64",
+          "sec-ded-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.3297,
+        "transitions": 0
+      }
+    ],
+    "fixed-taec": [
+      {
+        "path": [
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64",
+          "taec-64"
+        ],
+        "policy": "best_static",
+        "reason": "",
+        "status": "ok",
+        "total_objective": 0.33756,
+        "transitions": 0
+      }
+    ]
+  }
+}

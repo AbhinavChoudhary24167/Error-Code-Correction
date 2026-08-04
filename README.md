@@ -20,6 +20,7 @@ source .venv/bin/activate  # Windows PowerShell: .\.venv\Scripts\Activate.ps1
 python3 -m pip install -U pip
 python3 -m pip install -r requirements.txt
 
+python3 eccsim.py doctor --strict
 make
 make test
 python3 -m pytest -q
@@ -73,6 +74,52 @@ ECC design selection is usually fragmented across separate reliability, power, a
 - Telemetry ingestion + EPC computation (`parse_telemetry.py`, telemetry schema docs).
 - Integrated toolkit workflow producing summary/data/tables/plots outputs (`eccsim.py evaluate|compare|pareto|report`).
 - Optional ML advisory path with confidence/OOD gating and deterministic fallback (`eccsim.py ml`, `ml/`, `ecc_selector.py --ml-model`).
+- Architecture-aware ECC design-space exploration with exact logical MUX counts,
+  fixed-width storage layout, protected mode metadata, uncertainty propagation,
+  baselines, and deployable SystemVerilog configuration (`eccsim.py architecture`).
+
+### Architecture-aware revision study
+
+Run the reviewer-response study from its versioned configuration:
+
+```bash
+python3 scripts/run_revision_study.py
+```
+
+The command writes machine-readable candidate, baseline, topology, robustness,
+Polar-ablation, scalability, deployment, provenance, table, and vector-figure
+artifacts under `reports/revision/iccad1723/`. The default configuration uses
+exact Pareto enumeration. It reports exact MUX depth and 2:1-cell counts but
+leaves adaptive area, delay, energy, leakage, and incremental embodied carbon
+as `null`: this checkout has no Liberty file, synthesis/STA report, SPICE deck,
+or measured MUX/controller characterization. Supply records conforming to
+`schemas/mux-characterization.schema.json` and ancillary characterization in
+`schemas/architecture-dse-config.schema.json` to enable those physical terms.
+
+The three deployment claims are deliberately separate: design-time fixed ECC
+has zero selection/reconfiguration overhead; boot-time or bank configuration
+charges the selectable fabric but not recurring migration; runtime adaptation
+also charges protected state and data re-encoding/migration. See
+`docs/architecture_aware_dse.md` and `REVISION_RESPONSE.md`.
+
+### Transition-aware scheduling study
+
+GREEN-ECC can determine whether changing ECC is worthwhile across an ordered
+operating trace. The additive scheduler compares fixed, configurable, and
+adaptive designs; charges migration and continuing hardware overhead; enforces
+reliability, latency, dwell, and switching constraints; and emits a
+transition-safe policy:
+
+```bash
+python3 eccsim.py schedule \
+  --config configs/transition_schedule.example.json \
+  --outdir reports/transition_aware
+```
+
+The example is explicitly a synthetic physical-unit sensitivity study. It
+demonstrates break-even regions but is not a synthesis, PVT, or silicon result.
+See `docs/RESEARCH_NOVELTY.md` and `docs/transition_aware_formulation.md` for
+the research question, equations, literature boundary, and unsupported claims.
 
 ---
 
@@ -114,9 +161,16 @@ make
 Run project-required validation commands:
 
 ```bash
+python3 eccsim.py doctor --strict
 make test
 python3 -m pytest -q
 ```
+
+The environment doctor checks the active Python interpreter, required packages,
+build tools, calibration files, workspace permissions, and Windows GNU runtime
+resolution. Use `--json` for a machine-readable report. On Windows, it will flag
+cases where another application supplies an incompatible `libstdc++-6.dll`
+earlier on `PATH` than the compiler toolchain.
 
 ---
 
@@ -311,6 +365,10 @@ High-level flow:
   ```bash
   make
   ```
+- Diagnose the local environment:
+  ```bash
+  python3 eccsim.py doctor --strict
+  ```
 - Run make-based tests:
   ```bash
   make test
@@ -346,6 +404,27 @@ High-level flow:
 - Models are calibration/data dependent; interpretation should include scenario assumptions.
 - Some metrics are proxies designed for ranking consistency across candidates.
 - ML outputs are advisory-only; deterministic selection remains the authoritative baseline.
+
+### Probability-aware ECC forging
+
+The additive `codeforge/` research prototype synthesizes systematic short-block
+codes from explicit fault-pattern PMFs, verifies actual decoder outcomes, and can
+search a same-dimension portfolio plus an exactly reconstructable shared XOR graph.
+
+```bash
+python3 eccsim.py forge-code --config configs/code_synthesis.example.json --outdir reports/code_synthesis
+python3 eccsim.py forge-portfolio --config configs/portfolio_cosynthesis.example.json --outdir reports/portfolio_cosynthesis
+python3 eccsim.py verify-code --code reports/code_synthesis/code.json --fault-model configs/fault_distributions/small_hotspot_8bit.json
+python3 scripts/run_codeforge_study.py
+```
+
+The 12 canonical, seeded synthetic PMFs are under
+`configs/fault_distributions/benchmarks/`. Generated artifacts include matrices,
+decoder maps and certificates, Python/C++ reference models, SystemVerilog, shared
+graph RTL, figures, and hashed manifests. Structural XOR counts are proxies only.
+Without a characterized synthesis/STA flow and measured transition costs, physical
+PPA and scheduler net-benefit claims remain unsupported. See
+`docs/PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md` for the evidence-gated conclusions.
 
 ---
 

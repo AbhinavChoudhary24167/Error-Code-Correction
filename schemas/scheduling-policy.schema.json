@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/scheduling-policy.schema.json",
+  "title": "GREEN-ECC scheduling policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "objective", "minimum_dwell_epochs", "prediction_horizon_epochs",
+    "minimum_benefit_margin", "confidence_threshold", "chance_constraint_epsilon",
+    "risk_aversion_z", "safe_fallback_ecc", "fault_regime_lookup"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "objective": {"enum": ["lifecycle_energy_j", "lifecycle_carbon_kgco2e"]},
+    "minimum_dwell_epochs": {"type": "integer", "minimum": 1},
+    "prediction_horizon_epochs": {"type": "integer", "minimum": 1},
+    "minimum_benefit_margin": {"type": "number", "minimum": 0},
+    "maximum_transitions": {"type": ["integer", "null"], "minimum": 0},
+    "maximum_switch_rate_per_epoch": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "confidence_threshold": {"type": "number", "minimum": 0, "maximum": 1},
+    "chance_constraint_epsilon": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+    "risk_aversion_z": {"type": "number", "minimum": 0},
+    "safe_fallback_ecc": {"type": "string", "minLength": 1},
+    "area_limit_mm2": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "fault_regime_lookup": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    }
+  }
+}

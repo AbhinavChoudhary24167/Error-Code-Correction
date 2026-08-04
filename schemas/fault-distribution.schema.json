@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/fault-distribution.schema.json",
+  "title": "GREEN-ECC finite fault-pattern probability distribution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "distribution_id", "bit_width", "provenance", "patterns"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "distribution_id": {"type": "string", "minLength": 1},
+    "bit_width": {"type": "integer", "minimum": 1},
+    "raw_fit": {"type": ["number", "null"], "minimum": 0},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["kind", "description", "seed"],
+      "properties": {
+        "kind": {"enum": ["measured", "fitted", "projected", "synthetic"]},
+        "description": {"type": "string", "minLength": 1},
+        "source": {"type": ["string", "null"]},
+        "derivation": {"type": ["string", "null"]},
+        "seed": {"type": ["integer", "null"]}
+      }
+    },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "patterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["pattern_id", "positions", "probability", "family"],
+        "properties": {
+          "pattern_id": {"type": "string", "minLength": 1},
+          "positions": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "integer", "minimum": 0}
+          },
+          "probability": {"type": "number", "minimum": 0, "maximum": 1},
+          "family": {"type": "string", "minLength": 1},
+          "metadata": {"type": "object", "additionalProperties": true}
+        }
+      }
+    }
+  }
+}

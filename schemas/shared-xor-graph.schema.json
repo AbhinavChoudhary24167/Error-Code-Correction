@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/shared-xor-graph.schema.json",
+  "title": "GREEN-ECC shared XOR graph",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "graph_kind", "code_ids", "encoder", "syndrome", "total_xor_gates", "equivalence_verified"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "graph_kind": {"const": "shared_binary_linear_transform"},
+    "code_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "encoder": {"type": "object"},
+    "syndrome": {"type": "object"},
+    "total_xor_gates": {"type": "integer", "minimum": 0},
+    "equivalence_verified": {"const": true}
+  }
+}

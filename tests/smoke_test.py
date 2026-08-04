@@ -19,7 +19,13 @@ def _binary_path(name: str) -> Path:
 
 def _run_binary(name: str) -> None:
     binary = _binary_path(name)
-    subprocess.run([str(binary)], cwd=REPO, check=True, stdout=subprocess.DEVNULL)
+    subprocess.run(
+        [str(binary), "--smoke"],
+        cwd=REPO,
+        check=True,
+        stdout=subprocess.DEVNULL,
+        timeout=15,
+    )
 
 
 def main() -> int:

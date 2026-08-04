@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "environment-doctor.schema.json",
+  "title": "ECC Environment Doctor Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "overall_status",
+    "environment",
+    "checks",
+    "remediation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "overall_status": {
+      "enum": ["pass", "warning", "error"]
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "python_executable", "repository"],
+      "properties": {
+        "platform": {"type": "string"},
+        "python_executable": {"type": "string"},
+        "repository": {"type": "string"}
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "summary", "details"],
+        "properties": {
+          "id": {"type": "string"},
+          "status": {"enum": ["pass", "warning", "error", "skipped"]},
+          "summary": {"type": "string"},
+          "details": {
+            "type": "object",
+            "additionalProperties": {"type": "string"}
+          },
+          "remediation": {"type": "string"}
+        }
+      }
+    },
+    "remediation": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    }
+  }
+}

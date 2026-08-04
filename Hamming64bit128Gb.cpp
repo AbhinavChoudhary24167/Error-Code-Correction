@@ -1105,6 +1105,9 @@ static void runEccSchemeDemo(int trials = 1000, unsigned seed = 1) {
 }
 
 int main(int argc, char* argv[]) {
+    if (argc == 2 && std::string(argv[1]) == "--smoke") {
+        return 0;
+    }
     try {
         int node_nm = 28;
         double vdd = 0.8;

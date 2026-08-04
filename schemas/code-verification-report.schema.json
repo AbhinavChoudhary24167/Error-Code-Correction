@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/code-verification-report.schema.json",
+  "title": "GREEN-ECC exhaustive code verification report",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "verification_status", "code_id", "distribution_id", "matrix_checks", "decoder_checks", "campaign", "probability_mass", "constraint_results", "per_pattern"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "verification_status": {"enum": ["passed", "failed"]},
+    "code_id": {"type": "string"},
+    "distribution_id": {"type": "string"},
+    "matrix_checks": {"type": "object"},
+    "decoder_checks": {"type": "object"},
+    "campaign": {"type": "object"},
+    "probability_mass": {
+      "type": "object",
+      "required": ["corrected", "due", "sdc", "decoder_failure", "residual", "sum"],
+      "properties": {
+        "corrected": {"type": "number", "minimum": 0, "maximum": 1},
+        "due": {"type": "number", "minimum": 0, "maximum": 1},
+        "sdc": {"type": "number", "minimum": 0, "maximum": 1},
+        "decoder_failure": {"type": "number", "minimum": 0, "maximum": 1},
+        "residual": {"type": "number", "minimum": 0, "maximum": 1},
+        "sum": {"type": "number"}
+      }
+    },
+    "constraint_results": {"type": "object"},
+    "per_pattern": {"type": "array", "items": {"type": "object"}}
+  }
+}

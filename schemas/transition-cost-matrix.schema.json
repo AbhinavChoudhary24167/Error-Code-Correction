@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/transition-cost-matrix.schema.json",
+  "title": "GREEN-ECC transition cost model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "base"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "base": {"$ref": "#/$defs/cost"},
+    "overrides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from_ecc", "to_ecc"],
+        "additionalProperties": true,
+        "properties": {
+          "from_ecc": {"type": "string"},
+          "to_ecc": {"type": "string"},
+          "migration_energy_j_per_word": {"type": ["number", "null"], "minimum": 0},
+          "migration_latency_s_per_word": {"type": ["number", "null"], "minimum": 0},
+          "control_energy_j": {"type": ["number", "null"], "minimum": 0},
+          "control_latency_s": {"type": ["number", "null"], "minimum": 0},
+          "one_time_carbon_kgco2e": {"type": ["number", "null"], "minimum": 0},
+          "allowed": {"type": "boolean"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "cost": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "migration_energy_j_per_word", "migration_latency_s_per_word",
+        "control_energy_j", "control_latency_s", "characterization_status"
+      ],
+      "properties": {
+        "migration_energy_j_per_word": {"type": ["number", "null"], "minimum": 0},
+        "migration_latency_s_per_word": {"type": ["number", "null"], "minimum": 0},
+        "control_energy_j": {"type": ["number", "null"], "minimum": 0},
+        "control_latency_s": {"type": ["number", "null"], "minimum": 0},
+        "one_time_carbon_kgco2e": {"type": ["number", "null"], "minimum": 0},
+        "dual_format_during_migration": {"type": "boolean"},
+        "allowed": {"type": "boolean"},
+        "characterization_status": {"type": "string"}
+      }
+    }
+  }
+}

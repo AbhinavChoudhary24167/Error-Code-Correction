@@ -1,0 +1,104 @@
+{
+  "base_seed": 5200,
+  "benchmarks": [
+    {
+      "distribution_id": "uniform_sbu-72bit-seed5200-v1",
+      "family": "uniform_sbu",
+      "file": "uniform_sbu.json",
+      "pattern_count": 72,
+      "provenance_kind": "synthetic",
+      "seed": 5200
+    },
+    {
+      "distribution_id": "adjacent_dbu-72bit-seed5201-v1",
+      "family": "adjacent_dbu",
+      "file": "adjacent_dbu.json",
+      "pattern_count": 71,
+      "provenance_kind": "synthetic",
+      "seed": 5201
+    },
+    {
+      "distribution_id": "adjacent_triple_bit_upset-72bit-seed5202-v1",
+      "family": "adjacent_triple_bit_upset",
+      "file": "adjacent_triple_bit_upset.json",
+      "pattern_count": 70,
+      "provenance_kind": "synthetic",
+      "seed": 5202
+    },
+    {
+      "distribution_id": "variable_length_bursts-72bit-seed5203-v1",
+      "family": "variable_length_bursts",
+      "file": "variable_length_bursts.json",
+      "pattern_count": 210,
+      "provenance_kind": "synthetic",
+      "seed": 5203
+    },
+    {
+      "distribution_id": "non_adjacent_mbu-72bit-seed5204-v1",
+      "family": "non_adjacent_mbu",
+      "file": "non_adjacent_mbu.json",
+      "pattern_count": 144,
+      "provenance_kind": "synthetic",
+      "seed": 5204
+    },
+    {
+      "distribution_id": "mixed_sbu_dbu_mbu-72bit-seed5205-v1",
+      "family": "mixed_sbu_dbu_mbu",
+      "file": "mixed_sbu_dbu_mbu.json",
+      "pattern_count": 215,
+      "provenance_kind": "synthetic",
+      "seed": 5205
+    },
+    {
+      "distribution_id": "spatial_hot_spots-72bit-seed5206-v1",
+      "family": "spatial_hot_spots",
+      "file": "spatial_hot_spots.json",
+      "pattern_count": 143,
+      "provenance_kind": "synthetic",
+      "seed": 5206
+    },
+    {
+      "distribution_id": "bit_position_asymmetry-72bit-seed5207-v1",
+      "family": "bit_position_asymmetry",
+      "file": "bit_position_asymmetry.json",
+      "pattern_count": 72,
+      "provenance_kind": "synthetic",
+      "seed": 5207
+    },
+    {
+      "distribution_id": "voltage_sensitive-72bit-seed5208-v1",
+      "family": "voltage_sensitive",
+      "file": "voltage_sensitive.json",
+      "pattern_count": 213,
+      "provenance_kind": "synthetic",
+      "seed": 5208
+    },
+    {
+      "distribution_id": "temperature_sensitive-72bit-seed5209-v1",
+      "family": "temperature_sensitive",
+      "file": "temperature_sensitive.json",
+      "pattern_count": 215,
+      "provenance_kind": "synthetic",
+      "seed": 5209
+    },
+    {
+      "distribution_id": "geometry_filtered-72bit-seed5210-v1",
+      "family": "geometry_filtered",
+      "file": "geometry_filtered.json",
+      "pattern_count": 207,
+      "provenance_kind": "synthetic",
+      "seed": 5210
+    },
+    {
+      "distribution_id": "distribution_shift-72bit-seed5211-v1",
+      "family": "distribution_shift",
+      "file": "distribution_shift.json",
+      "pattern_count": 357,
+      "provenance_kind": "synthetic",
+      "seed": 5211
+    }
+  ],
+  "bit_width": 72,
+  "generator": "codeforge.benchmarks.build_benchmark",
+  "schema_version": 1
+}

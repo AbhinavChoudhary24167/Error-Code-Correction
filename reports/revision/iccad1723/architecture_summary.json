@@ -1,0 +1,21 @@
+{
+  "candidate_scenario_evaluations": 15,
+  "completed_scenarios": 3,
+  "ecc_configuration_count": 5,
+  "ecc_family_count": 5,
+  "green_vs_lookup_differences": 3,
+  "limitations": [
+    "No manuscript or thesis LaTeX sources are present in this checkout.",
+    "No characterized MUX/library/PVT record is shipped; adaptive physical PPA remains null unless supplied.",
+    "Legacy selector candidate area and latency are projected constants, not synthesis results.",
+    "Legacy selector dynamic and leakage energy are unavailable; only scrub energy is populated.",
+    "Monte Carlo uses declared independent uniform intervals and is a robustness stress test."
+  ],
+  "observed_runtime_seconds": 1.1948827000014717,
+  "polar_pareto_memberships": 0,
+  "scenario_count": 3,
+  "schema_version": 1,
+  "selection_algorithm": "exact Pareto enumeration plus declared preference cost",
+  "theoretical_memory_complexity": "O(S*C)",
+  "theoretical_time_complexity": "O(S*C^2) for S scenarios and C feasible configurations"
+}

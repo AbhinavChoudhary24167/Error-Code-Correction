@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "deployable-ecc-configuration.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "architecture_mode", "hardware_topology", "selection_granularity",
+    "safe_fallback_config_id", "metadata_format", "mode_policy",
+    "selected_configurations", "selected_results", "scenario_decisions", "selection_fabric",
+    "controller_configuration", "register_map",
+    "transition_safety", "validation_level", "provenance"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "architecture_mode": {"enum": ["design_time_fixed", "boot_time_or_bank_configurable", "runtime_adaptive"]},
+    "hardware_topology": {"enum": ["fixed", "parallel", "gated_parallel", "shared_reconfigurable"]},
+    "selection_granularity": {"enum": ["design", "boot", "bank", "page", "epoch", "runtime"]},
+    "safe_fallback_config_id": {"type": "string"},
+    "metadata_format": {"type": "object"},
+    "mode_policy": {"type": "object", "additionalProperties": {"type": "string"}},
+    "selected_configurations": {"type": "object"},
+    "selected_results": {"type": "object"},
+    "scenario_decisions": {"type": "object"},
+    "selection_fabric": {"type": "object"},
+    "controller_configuration": {"type": "object"},
+    "register_map": {"type": "object"},
+    "transition_safety": {"type": "string"},
+    "validation_level": {"enum": ["conditional_projected", "characterized_input"]},
+    "provenance": {"type": "object"}
+  }
+}

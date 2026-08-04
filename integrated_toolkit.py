@@ -7,6 +7,9 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from visualization_runtime import configure_matplotlib_cache
+
+configure_matplotlib_cache()
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt

@@ -1,0 +1,19 @@
+{
+  "generated_mode_ids": [
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint"
+  ],
+  "portfolio_id": "forge-sram-portfolio-72-64-v1",
+  "reason": "The scheduler requires physical per-access, leakage, latency, embodied, configuration, and migration costs. Only structural XOR proxies are available.",
+  "required_characterization": [
+    "per-mode encoder/decoder energy",
+    "shared-fabric leakage",
+    "critical path latency",
+    "configuration storage and integrity cost",
+    "re-encoding energy and duration",
+    "synthesis-tool separate-versus-shared baseline"
+  ],
+  "schema_version": 1,
+  "status": "blocked_pending_physical_energy_latency_and_transition_characterization",
+  "technology_specific_net_benefit": null
+}

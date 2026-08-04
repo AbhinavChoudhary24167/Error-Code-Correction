@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mux-characterization.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "switching_activity_convention", "records"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "description": {"type": "string"},
+    "switching_activity_convention": {"type": "string"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "area_um2", "delay_ns", "switched_capacitance_f", "leakage_current_a",
+          "switching_activity", "source", "node_nm", "vdd", "temperature_c",
+          "process_corner", "library", "tool", "tool_version", "calibration_source"
+        ],
+        "properties": {
+          "area_um2": {"type": "number", "minimum": 0},
+          "delay_ns": {"type": "number", "minimum": 0},
+          "switched_capacitance_f": {"type": "number", "minimum": 0},
+          "leakage_current_a": {"type": "number", "minimum": 0},
+          "switching_activity": {"type": "number", "minimum": 0, "maximum": 1},
+          "source": {"enum": ["measured", "synthesized", "simulated", "calibrated", "projected", "analytical"]},
+          "node_nm": {"type": "integer", "minimum": 1},
+          "vdd": {"type": "number", "exclusiveMinimum": 0},
+          "temperature_c": {"type": "number"},
+          "process_corner": {"type": "string", "minLength": 1},
+          "library": {"type": "string", "minLength": 1},
+          "tool": {"type": "string", "minLength": 1},
+          "tool_version": {"type": "string", "minLength": 1},
+          "calibration_source": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    name: Linux / Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Diagnose environment
+        run: python eccsim.py doctor --strict
+
+      - name: Build native simulators
+        run: make
+
+      - name: Run make test contract
+        run: make test
+
+      - name: Run complete Python suite
+        run: python -m pytest -q
+
+  windows:
+    name: Windows / Python 3.11 / UCRT64
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Set up matching GNU build and runtime tools
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          path-type: inherit
+          install: >-
+            make
+            mingw-w64-ucrt-x86_64-gcc
+
+      - name: Diagnose, build, and test
+        shell: msys2 {0}
+        run: |
+          python eccsim.py doctor --strict
+          # Select POSIX recipes because this step runs under MSYS2 bash.
+          make OS=
+          make OS= test
+          python -m pytest -q
+
+  rtl:
+    name: RTL regression / Icarus Verilog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Run RTL regression
+        run: bash asic/scripts/regress.sh

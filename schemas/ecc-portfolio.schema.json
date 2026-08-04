@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/ecc-portfolio.schema.json",
+  "title": "GREEN-ECC generated ECC portfolio",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "portfolio_id", "k", "r", "n", "modes", "assignments", "shared_graph", "search", "safety_policy"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "portfolio_id": {"type": "string"},
+    "k": {"type": "integer"},
+    "r": {"type": "integer"},
+    "n": {"type": "integer"},
+    "modes": {"type": "array", "minItems": 2, "items": {"type": "object"}},
+    "assignments": {"type": "object"},
+    "shared_graph": {"type": "object"},
+    "search": {"type": "object"},
+    "safety_policy": {"type": "object"}
+  }
+}

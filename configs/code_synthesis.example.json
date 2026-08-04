@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "code_id": "forge-hotspot-8-4-v1",
+  "method": "exact_exhaustive",
+  "k": 4,
+  "r": 4,
+  "fault_distribution": "configs/fault_distributions/small_hotspot_8bit.json",
+  "decoder_policy": {
+    "mandatory_correct_families": ["sbu"],
+    "detect_only_families": []
+  },
+  "matrix_constraints": {
+    "min_row_weight": 2,
+    "max_row_weight": 6,
+    "min_data_column_weight": 2,
+    "max_data_column_weight": 4
+  },
+  "constraints": {
+    "max_sdc_probability": 0.0,
+    "max_residual_fit": 100.0,
+    "max_matrix_xor_gates": 24
+  },
+  "hardware_model": {
+    "max_xor_fanin": 2
+  },
+  "search": {
+    "timeout_seconds": 60.0,
+    "seed": 4101
+  }
+}

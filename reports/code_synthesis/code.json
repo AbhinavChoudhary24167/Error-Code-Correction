@@ -1,0 +1,274 @@
+{
+  "G": [
+    [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  ],
+  "H": [
+    [
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "code_class": "binary_systematic_linear_block",
+  "code_id": "forge-hotspot-8-4-v1",
+  "column_syndromes": [
+    "1011",
+    "1110",
+    "0111",
+    "1101",
+    "0001",
+    "0010",
+    "0100",
+    "1000"
+  ],
+  "constraints": {
+    "max_matrix_xor_gates": 24,
+    "max_residual_fit": 100.0,
+    "max_sdc_probability": 0.0
+  },
+  "decoder": {
+    "correction_entries": [
+      {
+        "positions": [
+          4
+        ],
+        "syndrome": "0001"
+      },
+      {
+        "positions": [
+          5
+        ],
+        "syndrome": "0010"
+      },
+      {
+        "positions": [
+          4,
+          5
+        ],
+        "syndrome": "0011"
+      },
+      {
+        "positions": [
+          6
+        ],
+        "syndrome": "0100"
+      },
+      {
+        "positions": [
+          0,
+          1
+        ],
+        "syndrome": "0101"
+      },
+      {
+        "positions": [
+          2
+        ],
+        "syndrome": "0111"
+      },
+      {
+        "positions": [
+          7
+        ],
+        "syndrome": "1000"
+      },
+      {
+        "positions": [
+          1,
+          2
+        ],
+        "syndrome": "1001"
+      },
+      {
+        "positions": [
+          2,
+          3
+        ],
+        "syndrome": "1010"
+      },
+      {
+        "positions": [
+          0
+        ],
+        "syndrome": "1011"
+      },
+      {
+        "positions": [
+          3
+        ],
+        "syndrome": "1101"
+      },
+      {
+        "positions": [
+          1
+        ],
+        "syndrome": "1110"
+      },
+      {
+        "positions": [
+          2,
+          7
+        ],
+        "syndrome": "1111"
+      }
+    ],
+    "type": "hard_decision_syndrome_table"
+  },
+  "k": 4,
+  "n": 8,
+  "r": 4,
+  "schema_version": 1,
+  "structural_hardware": {
+    "decoder": {
+      "correction_mask_ones": 18,
+      "correction_output_or_proxy": 10,
+      "syndrome_compare_literals": 52,
+      "syndrome_table_entries": 13
+    },
+    "encoder": {
+      "max_balanced_depth": 2,
+      "naive_xor_gates": 8,
+      "parity_equation_inputs": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "matrix_xor_gates": 20,
+    "max_xor_fanin": 2,
+    "model": "technology-independent structural proxy",
+    "physical_ppa": null,
+    "routing": {
+      "codeword_bit_fanout": [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "column_weight_histogram": {
+        "1": 4,
+        "3": 4
+      },
+      "max_codeword_bit_fanout": 3
+    },
+    "syndrome": {
+      "equation_inputs": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "max_balanced_depth": 2,
+      "naive_xor_gates": 12
+    }
+  },
+  "synthesis": {
+    "candidate_matrices_considered": 7920,
+    "decoder_assignments_evaluated": 33,
+    "feasible_candidates": 33,
+    "hardware_aware_tie_break": true,
+    "method": "exact_exhaustive_systematic_column_enumeration",
+    "objective_order": [
+      "maximize corrected probability mass",
+      "minimize SDC probability mass",
+      "minimize structural matrix XOR count",
+      "minimize syndrome-table entries",
+      "minimize correction-mask ones",
+      "minimize balanced XOR depth",
+      "lexicographic matrix tie-break"
+    ],
+    "optimality_proven": true,
+    "runtime_seconds": 0.5782107999984873,
+    "search_complete": true,
+    "solver_dependency": null,
+    "status": "optimal",
+    "theoretical_candidate_matrices": 7920,
+    "timeout_seconds": 60.0
+  },
+  "synthesis_distribution_id": "small-hotspot-8bit-v1",
+  "synthesis_probability_mass": {
+    "corrected": 0.9099999999999999,
+    "due": 0.09000000000000008,
+    "sdc": 0.0
+  },
+  "systematic": true
+}

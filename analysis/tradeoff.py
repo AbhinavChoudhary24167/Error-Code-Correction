@@ -9,7 +9,10 @@ import numpy as np
 import pandas as pd
 from statistics import NormalDist
 import warnings
-from numpy.exceptions import RankWarning
+try:
+    from numpy.exceptions import RankWarning
+except ImportError:  # NumPy < 2.0
+    from numpy import RankWarning
 
 from analysis.hv import normalize, hypervolume, schott_spacing
 

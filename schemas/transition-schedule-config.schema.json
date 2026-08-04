@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/transition-schedule-config.schema.json",
+  "title": "GREEN-ECC transition-aware study configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "study_id", "model_status", "modes", "designs",
+    "transition_costs", "policy", "trace_generators", "uncertainty_samples"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "study_id": {"type": "string", "minLength": 1},
+    "model_status": {"enum": ["synthetic_sensitivity", "analytical", "characterized_input"]},
+    "modes": {"type": "array", "minItems": 2, "items": {"type": "object"}},
+    "designs": {"type": "array", "minItems": 2, "items": {"type": "object"}},
+    "transition_costs": {"type": "object"},
+    "policy": {"type": "object"},
+    "traces": {"type": "array", "items": {"type": "object"}},
+    "trace_files": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "trace_generators": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "uncertainty_samples": {"type": "integer", "minimum": 1},
+    "uncertainty_seed": {"type": "integer"},
+    "sweeps": {"type": "object"}
+  }
+}

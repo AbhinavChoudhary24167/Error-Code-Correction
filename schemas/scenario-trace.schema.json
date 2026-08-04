@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/scenario-trace.schema.json",
+  "title": "GREEN-ECC ordered scenario trace",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "trace_id", "source", "epochs"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "trace_id": {"type": "string", "minLength": 1},
+    "source": {"enum": ["deterministic", "generated_synthetic", "user_supplied"]},
+    "seed": {"type": ["integer", "null"]},
+    "generator": {"type": ["object", "null"]},
+    "epochs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/epoch"}
+    }
+  },
+  "$defs": {
+    "epoch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "epoch_id", "duration_s", "accesses", "active_words", "fault_regime",
+        "vdd_volts", "temperature_c", "read_fraction", "write_fraction",
+        "latency_limit_ns", "fit_limit", "grid_carbon_intensity_kgco2e_per_kwh"
+      ],
+      "properties": {
+        "epoch_id": {"type": "string", "minLength": 1},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "accesses": {"type": "integer", "minimum": 1},
+        "active_words": {"type": "integer", "minimum": 1},
+        "fault_regime": {"type": "string", "minLength": 1},
+        "fit_multiplier": {"type": "number", "exclusiveMinimum": 0, "default": 1},
+        "vdd_volts": {"type": "number", "exclusiveMinimum": 0},
+        "temperature_c": {"type": "number"},
+        "read_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "write_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "latency_limit_ns": {"type": "number", "exclusiveMinimum": 0},
+        "fit_limit": {"type": "number", "minimum": 0},
+        "grid_carbon_intensity_kgco2e_per_kwh": {"type": "number", "minimum": 0},
+        "active_region_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": {"type": "number", "minimum": 0}
+        }
+      }
+    }
+  }
+}

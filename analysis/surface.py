@@ -9,6 +9,7 @@ from typing import Optional
 import pandas as pd
 
 from analysis.pareto import pareto_partition
+from visualization_runtime import configure_matplotlib_cache
 
 import subprocess
 import hashlib
@@ -73,6 +74,7 @@ def analyze_surface(
 
     if plot is not None:
         try:
+            configure_matplotlib_cache()
             import matplotlib
             matplotlib.use("Agg", force=True)
             import matplotlib.pyplot as plt  # type: ignore

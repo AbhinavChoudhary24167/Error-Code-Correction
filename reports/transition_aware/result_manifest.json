@@ -1,0 +1,180 @@
+{
+  "files": {
+    "data/break_even.csv": "a5971b34276d322a2aaa3d8cf35fc10f21fecc5259372d9acfa934123f8d2ecf",
+    "data/design_comparison.csv": "e858db78c87ce451f3b1d5c48355d8313d0d4c874bf5614b5679b91f1e8495a4",
+    "data/figure_takeaways.json": "370221bccf833ef80401033289eb0754ee987d792c4d1ac2388f558ddf2480ca",
+    "data/granularity_comparison.json": "d835af57888244885b798e89642ac0e6b84498633bc11ecd4c40f5b5bea4ac5a",
+    "data/hypothesis_results.json": "7744d5b36cf10f2127f5e04c9b90cac56915f3df7c5e1093d7f00676566ad675",
+    "data/joint_schedule.csv": "94a0c2a7cde49e5421244f753e6edb59e70cfbca2a23a35ab778f943258c6d26",
+    "data/policy_comparison.json": "8d59dc8653bfe361118ee27f9779e980ed9c070d45650537e12e87688a25c605",
+    "data/regime_sweep.json": "3f5bbb59507bd12e0f0f23ba5ebcfa5f3c9b821bacf61e65c56117321afcf7da",
+    "data/robustness.json": "6d18ef6fa55811dbfaa2e357f0b56f7294bcf7c871d519d98ce981d122b2c394",
+    "data/scalability.json": "b331db744048f4c11e89081e6c064467b793956ef53a23666bc387ee40c1d296",
+    "data/schedule_result.json": "b960d2fa2e389a57ecf2f71aa2a29b3172ea726c648bae07c8c96a63de8b8d8a",
+    "deployment/green_ecc_schedule_pkg.sv": "e38a40bb750f02f84d467331e6bcdc25c1eebe6ecd5c72f649a827b4f67091f5",
+    "deployment/schedule_register_map.json": "e6f923f1560ffd59e561535741abcaba25c91984408a1a12d1304ce3a405c4cc",
+    "deployment/transition_policy.json": "f7d230a05ee9880c522e9a2630beeb4ab2b95c955acf9fb1132d8fae25fc7744",
+    "figures/architecture_mode_comparison.png": "325466c2970d2d7cf661e358360b33e07f14857a189deb180065bfef82587b26",
+    "figures/architecture_mode_comparison.svg": "3b2c62d653900779c3d25c0e3708d402085bd8bcee850a1825124a58ec1130ff",
+    "figures/benefit_waterfall.png": "adce8dc474ae7101e3f9b98e9601da85c1e27303c44f19dcf39f5511e0a679d8",
+    "figures/benefit_waterfall.svg": "4f0b2aa58a41a3637607e804808fdfff9a381c7d6a45982feb11ef3ecef71e50",
+    "figures/break_even_regime_map.png": "1e374c2af43ce1a4d3ad0a91817f226eb386bad8cb537a79ac13c74b5cc620f3",
+    "figures/break_even_regime_map.svg": "e4a7ac2ae418ddbe7b53e251aad5943bdfbfc698b0cabaf9388d9b1b74eec995",
+    "figures/policy_timeline.png": "224e2969475ca3b6633291d939a6335560c590c9cf1c052bc42c04f8079f0be5",
+    "figures/policy_timeline.svg": "c58aca3e8a566e6fc86fae963ef0a1d87c7d4c01737f482d9280cea1373ad911",
+    "figures/robustness_regret.png": "42c1056dee4bdb24cc4ca2cd925f93ed68ef3934e2d207dc48755f4455c276f5",
+    "figures/robustness_regret.svg": "861ad8b799d237a3ac80bc56f8ca6d409cbc28ac811e69af336d51a79412650f",
+    "figures/scheduler_scalability.png": "ef69ca08fd8778fce6ec42866e4ae9acbfe6c82c2a46525fe38d519dd1dc122a",
+    "figures/scheduler_scalability.svg": "eb61df20d481305233a1e88ac6755975d6e970299be65cababb75f7f977f9bcc",
+    "figures/scheduling_formulation.png": "c679d8fc65c62d90c9d387138485a0b27d8853b6354b2fc97f61cabf06db802c",
+    "figures/scheduling_formulation.svg": "3f5fd4093a45d1fefe7a6bf754d23a16513714d19033cfc0d39f4375ed3c2502",
+    "figures/topology_granularity_regime.png": "8518ed8c7588552335f04283d5508d98f02e847134424dbfef278274d285b4e4",
+    "figures/topology_granularity_regime.svg": "a6d13617d6699570fd0405290d62d6f4bcdbe5deb052b51ffea391871766d4bd",
+    "findings.md": "d06c73f72b167af7cf31a2d4bce1dbbc09311c937f82210779b69a5967c75118",
+    "resolved_config.json": "9e321c579baddfd60f6792bcc18f3b8ea46f58717b51e150fcce22f502911610",
+    "traces/changing_read_write_intensity.json": "a8555a27bdc735e918be2efac285b1458dab4a95abeb1e37ca0aaee84b63ee73",
+    "traces/combined_changes.json": "dc52a616aad39e522f01d39f355bf0d68a4734bf0181634e9d3b07fdaa8fcdc6",
+    "traces/grid_carbon_transition.json": "61833ad130d7a880cf1b41a896d8b6ec2831fc84869c5ddbf3c9be6b7d147bc8",
+    "traces/one_time_sbu_to_mbu.json": "f45da9f1e50ce12fd7eb1edc20eaebc49b1b689ed267f1c80b69c9733af8f841",
+    "traces/periodic_fault_transitions.json": "c8635be02f562a8fcddb2f330a8382931b3ad29bec3254c1eba04c2697064f36",
+    "traces/short_noisy_fluctuations.json": "86e1d0e296be19dd50a8649b5f2c8250102dbed4c1c32871086265ecbf05174c",
+    "traces/stationary_mbu.json": "ff15b0effe260225d3cd9b08372cc1c45345a334ad9e69ea108b57378351330e",
+    "traces/stationary_sbu.json": "34aea83f85266faf707171de8ea14b743470ea00e4addf2f8ca6b1d6a5119c4e",
+    "traces/temperature_vdd_phases.json": "0cbeb361385bc3f45868091dedb34ab7dcbd3118bb7933a15e9de666ba9a1c1d",
+    "traces/uncertain_transitions.json": "b4ed7ecc79bffaaae150dcda6016724a2a91b9e318b8d0d295551914d9e6dd4d"
+  },
+  "generated_trace_sources": {
+    "changing_read_write_intensity": {
+      "generator": {
+        "accesses_per_epoch": 20000000,
+        "epoch_count": 12,
+        "family": "changing_read_write_intensity",
+        "seed": 1729
+      },
+      "seed": 1729,
+      "source": "generated_synthetic"
+    },
+    "combined_changes": {
+      "generator": {
+        "accesses_per_epoch": 50000000,
+        "epoch_count": 16,
+        "family": "combined_changes",
+        "period_epochs": 4,
+        "seed": 1731
+      },
+      "seed": 1731,
+      "source": "generated_synthetic"
+    },
+    "grid_carbon_transition": {
+      "generator": {
+        "accesses_per_epoch": 100000000,
+        "epoch_count": 12,
+        "family": "grid_carbon_transition",
+        "seed": 1730
+      },
+      "seed": 1730,
+      "source": "generated_synthetic"
+    },
+    "one_time_sbu_to_mbu": {
+      "generator": {
+        "accesses_per_epoch": 100000000,
+        "epoch_count": 12,
+        "family": "one_time_sbu_to_mbu",
+        "seed": 1725
+      },
+      "seed": 1725,
+      "source": "generated_synthetic"
+    },
+    "periodic_fault_transitions": {
+      "generator": {
+        "accesses_per_epoch": 10000000,
+        "epoch_count": 16,
+        "family": "periodic_fault_transitions",
+        "period_epochs": 2,
+        "seed": 1726
+      },
+      "seed": 1726,
+      "source": "generated_synthetic"
+    },
+    "short_noisy_fluctuations": {
+      "generator": {
+        "accesses_per_epoch": 4000000,
+        "epoch_count": 16,
+        "family": "short_noisy_fluctuations",
+        "period_epochs": 3,
+        "seed": 1727
+      },
+      "seed": 1727,
+      "source": "generated_synthetic"
+    },
+    "stationary_mbu": {
+      "generator": {
+        "accesses_per_epoch": 10000000,
+        "epoch_count": 12,
+        "family": "stationary_mbu",
+        "seed": 1724
+      },
+      "seed": 1724,
+      "source": "generated_synthetic"
+    },
+    "stationary_sbu": {
+      "generator": {
+        "accesses_per_epoch": 10000000,
+        "epoch_count": 12,
+        "family": "stationary_sbu",
+        "seed": 1723
+      },
+      "seed": 1723,
+      "source": "generated_synthetic"
+    },
+    "temperature_vdd_phases": {
+      "generator": {
+        "accesses_per_epoch": 20000000,
+        "epoch_count": 12,
+        "family": "temperature_vdd_phases",
+        "seed": 1728
+      },
+      "seed": 1728,
+      "source": "generated_synthetic"
+    },
+    "uncertain_transitions": {
+      "generator": {
+        "accesses_per_epoch": 20000000,
+        "epoch_count": 16,
+        "family": "uncertain_transitions",
+        "period_epochs": 4,
+        "relative_uncertainty": 0.25,
+        "seed": 1732
+      },
+      "seed": 1732,
+      "source": "generated_synthetic"
+    }
+  },
+  "input_config": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\configs\\transition_schedule.example.json",
+  "input_config_sha256": "5c524b1b83a3b798d2cfe1d36d6315786c41d8d655dce3f892c2f8e1269e1525",
+  "manifest_version": 1,
+  "observed_runtime_seconds": 20.202655599990976,
+  "repository_commit": "31f6a8482c3d595d244545e4730bfc355d7af530",
+  "repository_dirty": true,
+  "reproduction_command": "python eccsim.py schedule --config C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\configs\\transition_schedule.example.json --outdir C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\reports\\transition_aware",
+  "result_run_id": "c5ef5b3d50fac062",
+  "source_files": {
+    "architecture/break_even.py": "378175127748b7f2e723c58b6ee55d9c1b4531c8c7455ba23077b65e7d57b8bb",
+    "architecture/granularity.py": "5c9fefedb8fedeb9c4bd4f039490b0c98c34c1da7c84c2973396393b8f0eab6f",
+    "architecture/hysteresis.py": "2adb8115fc5a71316aa15d9afcfc3a908baa258227f982ccae8ffcc426b0d3f8",
+    "architecture/schedule_explain.py": "0d4f24a795156b0c074fba76d0906ccdd05adb7220ac1dd75ccd9eaec28a44ba",
+    "architecture/schedule_pipeline.py": "f38076cee6a77555bfdca0e2449eda60fcb01b911197761853ed8b72e129f0a7",
+    "architecture/scheduling.py": "9a3b3fb0e21fd9990b9e59beebea191d78ba9867bf4840bc31758e9ca6f7522f",
+    "architecture/traces.py": "dec6f79b69b70b4297865f16d24715a5a6340485e00a78cf9295645d2c546e01",
+    "architecture/transitions.py": "ab42e9da294e809e17a84e89d7ce2dc28dca9a09b50b73bfa1a4be30ff407625",
+    "asic/rtl/common/green_ecc_transition_controller.sv": "bc06e508b8af5e2e6c5cf50f2bf65d6456c2829be976b327d6175d4333ddf654",
+    "configs/transition_schedule.example.json": "5c524b1b83a3b798d2cfe1d36d6315786c41d8d655dce3f892c2f8e1269e1525",
+    "eccsim.py": "f9d0db36ebb1f34a90467339e99cd27af29af3df9db254f90461e5e90d0d28aa",
+    "schemas/scenario-trace.schema.json": "6ae84a598660dd2bfb322662c357d359c2540aabfd3af0a5f4f994d17a720490",
+    "schemas/schedule-result.schema.json": "ded93dfbf8e4b62c3e06e53bd9157d9b92f26f28491f75bbfcab29d6edcfc28c",
+    "schemas/scheduling-policy.schema.json": "f4c0c4be6fae26a8353240db60226a4ff3bb0b751e6fa183702a0b4c870873e8",
+    "schemas/transition-cost-matrix.schema.json": "38b5f63c3ed894c7457884ea1dd54fb210c746c4d79b85c03e826c40febfa19a",
+    "schemas/transition-schedule-config.schema.json": "2dd7fc638449a808b7b06d34a70ef4b879ee5cff5ef4490b7d9a52866ae0b541"
+  },
+  "source_tree_sha256": "4ac929afbe05b7dd9bbf5401df4112400f7870d17d7c9db07a418c10dadfd38e"
+}

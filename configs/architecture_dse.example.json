@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "architecture": {
+    "deployment_mode": "runtime_adaptive",
+    "topology": "gated_parallel",
+    "selection_granularity": "bank",
+    "mux_implementation": "pruned",
+    "process_corner": "tt",
+    "status_width_bits": 4,
+    "metadata_protection": "triplicated",
+    "safe_fallback_config_id": "sec-ded-64",
+    "inactive_leakage_factor": 0.1,
+    "inactive_glitch_activity": 0.02,
+    "mux_failure_probability": null,
+    "controller_failure_probability": null
+  },
+  "mux_characterization_path": "mux_characterization.template.json",
+  "embodied_carbon": null,
+  "preference_weights": {
+    "reliability": 1.0,
+    "carbon": 1.0,
+    "latency": 0.25
+  },
+  "uncertainty": {
+    "samples": 300,
+    "seed": 1723,
+    "relative_intervals": {
+      "fit": 0.2,
+      "energy": 0.15,
+      "carbon": 0.2,
+      "latency": 0.1
+    }
+  },
+  "candidates": [
+    {
+      "config_id": "sec-ded-64",
+      "family": "SEC-DED",
+      "variant": "Hamming SEC-DED (72,64)",
+      "selector_code": "sec-ded-64",
+      "n": 72,
+      "k": 64,
+      "correction_bits": 1,
+      "detection_bits": 2,
+      "adjacency_assumption": "none",
+      "supported_nodes_nm": [7, 16, 28],
+      "vdd_range": [0.55, 0.85],
+      "temperature_range_c": [-40, 125]
+    },
+    {
+      "config_id": "sec-daec-64",
+      "family": "SEC-DAEC",
+      "variant": "SEC-DAEC 64-bit payload",
+      "selector_code": "sec-daec-64",
+      "n": 73,
+      "k": 64,
+      "correction_bits": 1,
+      "detection_bits": 2,
+      "burst_length": 2,
+      "adjacency_assumption": "adjacent double-bit correction",
+      "supported_nodes_nm": [7, 16, 28],
+      "vdd_range": [0.55, 0.85],
+      "temperature_range_c": [-40, 125]
+    },
+    {
+      "config_id": "taec-64",
+      "family": "TAEC",
+      "variant": "TAEC 64-bit payload",
+      "selector_code": "taec-64",
+      "n": 75,
+      "k": 64,
+      "correction_bits": 1,
+      "detection_bits": 3,
+      "burst_length": 3,
+      "adjacency_assumption": "triple-adjacent-error correction",
+      "supported_nodes_nm": [7, 16, 28],
+      "vdd_range": [0.55, 0.85],
+      "temperature_range_c": [-40, 125]
+    },
+    {
+      "config_id": "bch-63-51-t2",
+      "family": "BCH",
+      "variant": "BCH(63,51,t=2)",
+      "selector_code": "bch-63",
+      "n": 63,
+      "k": 51,
+      "correction_bits": 2,
+      "detection_bits": 4,
+      "adjacency_assumption": "none",
+      "supported_nodes_nm": [7, 16, 28],
+      "vdd_range": [0.55, 0.85],
+      "temperature_range_c": [-40, 125]
+    },
+    {
+      "config_id": "polar-64-48-sc",
+      "family": "POLAR",
+      "variant": "Polar(64,48) successive-cancellation",
+      "selector_code": "polar-64-48",
+      "n": 64,
+      "k": 48,
+      "correction_bits": 1,
+      "detection_bits": 1,
+      "adjacency_assumption": "legacy analytical coverage mapping",
+      "decoder_implementation": "successive_cancellation_projected",
+      "supported_nodes_nm": [7, 16, 28],
+      "vdd_range": [0.55, 0.85],
+      "temperature_range_c": [-40, 125]
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "moderate-low-carbon",
+      "node_nm": 16,
+      "vdd": 0.8,
+      "temperature_c": 75,
+      "capacity_gib": 1.0,
+      "logical_width_bits": 64,
+      "bitcell_area_um2": 0.08,
+      "carbon_intensity_kgco2e_per_kwh": 0.08,
+      "fault_regime": "moderate",
+      "lifetime_hours": 43800,
+      "bit_failure_probability": 1e-12,
+      "constraints": {},
+      "workload": {
+        "read_fraction": 0.7,
+        "write_fraction": 0.3,
+        "total_accesses": 1000000000,
+        "decision_epochs": 12,
+        "migrated_words_per_transition": 1048576
+      }
+    },
+    {
+      "scenario_id": "moderate-high-carbon",
+      "node_nm": 16,
+      "vdd": 0.8,
+      "temperature_c": 75,
+      "capacity_gib": 1.0,
+      "logical_width_bits": 64,
+      "bitcell_area_um2": 0.08,
+      "carbon_intensity_kgco2e_per_kwh": 0.725,
+      "fault_regime": "moderate",
+      "lifetime_hours": 43800,
+      "bit_failure_probability": 1e-12,
+      "constraints": {},
+      "workload": {
+        "read_fraction": 0.7,
+        "write_fraction": 0.3,
+        "total_accesses": 1000000000,
+        "decision_epochs": 12,
+        "migrated_words_per_transition": 1048576
+      }
+    },
+    {
+      "scenario_id": "heavy-fault-regime",
+      "node_nm": 16,
+      "vdd": 0.8,
+      "temperature_c": 75,
+      "capacity_gib": 1.0,
+      "logical_width_bits": 64,
+      "bitcell_area_um2": 0.08,
+      "carbon_intensity_kgco2e_per_kwh": 0.38,
+      "fault_regime": "heavy",
+      "lifetime_hours": 43800,
+      "bit_failure_probability": 1e-12,
+      "constraints": {},
+      "workload": {
+        "read_fraction": 0.9,
+        "write_fraction": 0.1,
+        "total_accesses": 1000000000,
+        "decision_epochs": 24,
+        "migrated_words_per_transition": 1048576
+      }
+    }
+  ]
+}

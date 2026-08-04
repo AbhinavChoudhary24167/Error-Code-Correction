@@ -1,0 +1,40 @@
+[
+  {
+    "deployment_mode": "design_time_fixed",
+    "hardware_topology": "fixed",
+    "interpretation": "Only the selected ECC is instantiated; selector and migration overhead are zero.",
+    "mux_2to1_count": 0,
+    "protected_metadata_bits": 0,
+    "reconfiguration_charged": false
+  },
+  {
+    "deployment_mode": "boot_time_or_bank_configurable",
+    "hardware_topology": "gated_parallel",
+    "interpretation": "MUX/controller/metadata are required; recurring data migration is not charged.",
+    "mux_2to1_count": 784,
+    "protected_metadata_bits": 9,
+    "reconfiguration_charged": false
+  },
+  {
+    "deployment_mode": "runtime_adaptive",
+    "example_reconfiguration": {
+      "amortized_energy_j_per_access": null,
+      "control_energy_j": null,
+      "energy_j_total": null,
+      "latency_ns_total": null,
+      "migrated_words_per_transition": 1048576,
+      "migrated_words_total": 11534336,
+      "migration_energy_j": 976.4254352101972,
+      "model": "N_migrated * (legacy old per-access energy + legacy new per-access energy) + control; read/decode and encode/write are not separable in current legacy energy records.",
+      "new_encode_write_energy_j_per_word_proxy": 5.0792283242496e-05,
+      "old_read_decode_energy_j_per_word_proxy": 3.3861522161664e-05,
+      "temporary_capacity_bits": 134217728,
+      "transitions": 11
+    },
+    "hardware_topology": "gated_parallel",
+    "interpretation": "Selector execution, protected mode state, safe transition, and migration are charged.",
+    "mux_2to1_count": 784,
+    "protected_metadata_bits": 9,
+    "reconfiguration_charged": true
+  }
+]

@@ -22,6 +22,21 @@ import json
 import sys
 from typing import Dict
 
+from visualization_runtime import configure_matplotlib_cache
+
+configure_matplotlib_cache()
+
+
+# Keep the environment diagnostic available even when optional scientific
+# dependencies are missing. All other commands retain their existing import and
+# dispatch behavior.
+if __name__ == "__main__" and len(sys.argv) >= 2 and sys.argv[1] == "doctor":
+    from validation.environment_doctor import doctor_cli
+
+    raise SystemExit(
+        doctor_cli(sys.argv[2:], repo_root=Path(__file__).resolve().parent)
+    )
+
 from esii import ESIIInputs
 from scores import compute_scores
 from carbon import embodied_kgco2e, operational_kgco2e, default_alpha
@@ -167,6 +182,57 @@ def main() -> None:
         version=f"{git_hash} {tech_hash} {version_base}",
     )
     sub = parser.add_subparsers(dest="command")
+
+    doctor_parser = sub.add_parser(
+        "doctor", help="Diagnose Python, build tools, data files, and runtime compatibility"
+    )
+    doctor_parser.add_argument("--json", action="store_true", help="Emit diagnostics as JSON")
+    doctor_parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit with status 1 when a required check fails",
+    )
+
+    architecture_parser = sub.add_parser(
+        "architecture",
+        help="Run architecture-aware ECC DSE and emit a deployable configuration",
+    )
+    architecture_parser.add_argument("--config", type=Path, required=True)
+    architecture_parser.add_argument("--outdir", type=Path, required=True)
+
+    schedule_parser = sub.add_parser(
+        "schedule",
+        help="Run transition-aware ECC/architecture scheduling over ordered traces",
+    )
+    schedule_parser.add_argument("--config", type=Path, required=True)
+    schedule_parser.add_argument("--outdir", type=Path, required=True)
+
+    forge_code_parser = sub.add_parser(
+        "forge-code",
+        help="Synthesize and independently certify a short systematic binary ECC",
+    )
+    forge_code_parser.add_argument("--config", type=Path, required=True)
+    forge_code_parser.add_argument("--outdir", type=Path, required=True)
+
+    forge_portfolio_parser = sub.add_parser(
+        "forge-portfolio",
+        help="Jointly search a short-block ECC portfolio and its shared XOR graph",
+    )
+    forge_portfolio_parser.add_argument("--config", type=Path, required=True)
+    forge_portfolio_parser.add_argument("--outdir", type=Path, required=True)
+
+    verify_code_parser = sub.add_parser(
+        "verify-code",
+        help="Independently verify an external or GREEN-ECC linear code against a fault PMF",
+    )
+    verify_code_parser.add_argument("--code", type=Path, required=True)
+    verify_code_parser.add_argument("--fault-model", type=Path, required=True)
+    verify_code_parser.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="Optional path for the JSON report; stdout is always emitted",
+    )
 
     energy_parser = sub.add_parser("energy", help="Estimate energy use")
     energy_parser.add_argument(
@@ -618,6 +684,81 @@ def main() -> None:
     ml_infer.add_argument("--outdir", type=Path, required=True)
 
     args = parser.parse_args()
+
+    if args.command == "doctor":
+        from validation.environment_doctor import run_environment_doctor
+
+        exit_code = run_environment_doctor(
+            repo_path,
+            json_output=bool(args.json),
+            strict=bool(args.strict),
+        )
+        if exit_code:
+            raise SystemExit(exit_code)
+        return
+
+    if args.command == "architecture":
+        from architecture.pipeline import run_architecture_dse
+
+        try:
+            result = run_architecture_dse(args.config, args.outdir, repo_root=repo_path)
+        except (KeyError, TypeError, ValueError) as exc:
+            architecture_parser.error(str(exc))
+        print(json.dumps(result["summary"], indent=2, sort_keys=True))
+        return
+
+    if args.command == "schedule":
+        from jsonschema import ValidationError
+        from architecture.schedule_pipeline import run_transition_schedule
+
+        try:
+            result = run_transition_schedule(args.config, args.outdir, repo_root=repo_path)
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            schedule_parser.error(str(exc))
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return
+
+    if args.command == "forge-code":
+        from jsonschema import ValidationError
+        from codeforge.pipeline import run_code_synthesis
+
+        try:
+            result = run_code_synthesis(args.config, args.outdir, repo_root=repo_path)
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            forge_code_parser.error(str(exc))
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return
+
+    if args.command == "forge-portfolio":
+        from jsonschema import ValidationError
+        from codeforge.portfolio_pipeline import run_portfolio_cosynthesis
+
+        try:
+            result = run_portfolio_cosynthesis(args.config, args.outdir, repo_root=repo_path)
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            forge_portfolio_parser.error(str(exc))
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return
+
+    if args.command == "verify-code":
+        from jsonschema import ValidationError
+        from codeforge.pipeline import verify_external_code
+
+        try:
+            result = verify_external_code(
+                args.code,
+                args.fault_model,
+                repo_root=repo_path,
+            )
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            verify_code_parser.error(str(exc))
+        rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
+        if args.out is not None:
+            destination = args.out if args.out.is_absolute() else repo_path / args.out
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(rendered, encoding="utf-8")
+        print(rendered, end="")
+        return
 
     if args.command == "evaluate":
         cfg = ToolkitInput(

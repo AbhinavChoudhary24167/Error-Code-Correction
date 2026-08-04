@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "architecture-dse-config.schema.json",
+  "title": "GREEN-ECC architecture-aware DSE configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "architecture", "candidates", "scenarios"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "mux_characterization_path": {"type": ["string", "null"]},
+    "architecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deployment_mode", "topology", "safe_fallback_config_id"],
+      "properties": {
+        "deployment_mode": {
+          "enum": ["design_time_fixed", "boot_time_or_bank_configurable", "runtime_adaptive"]
+        },
+        "topology": {"enum": ["fixed", "parallel", "gated_parallel", "shared_reconfigurable"]},
+        "selection_granularity": {"enum": ["design", "boot", "bank", "page", "epoch", "runtime"]},
+        "mux_implementation": {"enum": ["pruned", "padded"]},
+        "process_corner": {"type": "string", "minLength": 1},
+        "status_width_bits": {"type": "integer", "minimum": 0},
+        "metadata_protection": {"enum": ["none", "parity", "triplicated"]},
+        "safe_fallback_config_id": {"type": "string", "minLength": 1},
+        "inactive_leakage_factor": {"type": "number", "minimum": 0},
+        "inactive_glitch_activity": {"type": "number", "minimum": 0, "maximum": 1},
+        "mux_failure_probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "controller_failure_probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "path_overrides": {"type": "object"},
+        "ancillary_characterization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "controller_area_um2", "controller_energy_j_per_access", "controller_delay_ns",
+            "controller_leakage_power_w", "metadata_energy_j_per_access", "metadata_delay_ns",
+            "metadata_leakage_power_w", "source"
+          ],
+          "properties": {
+            "controller_area_um2": {"type": "number", "minimum": 0},
+            "controller_energy_j_per_access": {"type": "number", "minimum": 0},
+            "controller_delay_ns": {"type": "number", "minimum": 0},
+            "controller_leakage_power_w": {"type": "number", "minimum": 0},
+            "metadata_energy_j_per_access": {"type": "number", "minimum": 0},
+            "metadata_delay_ns": {"type": "number", "minimum": 0},
+            "metadata_leakage_power_w": {"type": "number", "minimum": 0},
+            "source": {"enum": ["measured", "synthesized", "simulated", "calibrated", "projected", "analytical"]}
+          }
+        }
+      }
+    },
+    "embodied_carbon": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["manufacturing_intensity_kgco2e_per_cm2", "yield_allocation_factor", "source"],
+      "properties": {
+        "manufacturing_intensity_kgco2e_per_cm2": {"type": "number", "minimum": 0},
+        "yield_allocation_factor": {"type": "number", "exclusiveMinimum": 0},
+        "die_allocation_factor": {"type": "number", "minimum": 0},
+        "packaging_allocation_kgco2e": {"type": "number", "minimum": 0},
+        "amortized_systems": {"type": "integer", "minimum": 1},
+        "source": {"type": "string", "minLength": 1}
+      }
+    },
+    "preference_weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reliability": {"type": "number", "minimum": 0},
+        "carbon": {"type": "number", "minimum": 0},
+        "latency": {"type": "number", "minimum": 0}
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "samples": {"type": "integer", "minimum": 1},
+        "seed": {"type": "integer"},
+        "relative_intervals": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fit": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+            "energy": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+            "carbon": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+            "latency": {"type": "number", "minimum": 0, "exclusiveMaximum": 1}
+          }
+        }
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["config_id", "family", "n", "k"],
+        "properties": {
+          "config_id": {"type": "string", "minLength": 1},
+          "family": {"type": "string", "minLength": 1},
+          "n": {"type": "integer", "minimum": 1},
+          "k": {"type": "integer", "minimum": 1},
+          "supported_nodes_nm": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+          "vdd_range": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+          "temperature_range_c": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "scenario_id", "node_nm", "vdd", "temperature_c", "capacity_gib",
+          "logical_width_bits", "bitcell_area_um2", "carbon_intensity_kgco2e_per_kwh",
+          "fault_regime", "lifetime_hours", "workload"
+        ],
+        "properties": {
+          "scenario_id": {"type": "string", "minLength": 1},
+          "node_nm": {"type": "integer", "minimum": 1},
+          "vdd": {"type": "number", "exclusiveMinimum": 0},
+          "temperature_c": {"type": "number"},
+          "capacity_gib": {"type": "number", "exclusiveMinimum": 0},
+          "logical_width_bits": {"type": "integer", "minimum": 1},
+          "bitcell_area_um2": {"type": "number", "minimum": 0},
+          "carbon_intensity_kgco2e_per_kwh": {"type": "number", "minimum": 0},
+          "fault_regime": {"type": "string"},
+          "lifetime_hours": {"type": "number", "minimum": 0},
+          "bit_failure_probability": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "memory_read_latency_ns": {"type": ["number", "null"], "minimum": 0},
+          "memory_write_latency_ns": {"type": ["number", "null"], "minimum": 0},
+          "constraints": {"type": "object", "additionalProperties": {"type": "number"}},
+          "workload": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["read_fraction", "write_fraction", "total_accesses"],
+            "properties": {
+              "read_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+              "write_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+              "total_accesses": {"type": "integer", "minimum": 1},
+              "decision_epochs": {"type": "integer", "minimum": 1},
+              "migrated_words_per_transition": {"type": "integer", "minimum": 0}
+            }
+          }
+        }
+      }
+    }
+  }
+}

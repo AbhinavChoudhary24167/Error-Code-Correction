@@ -1,0 +1,312 @@
+{
+  "campaign": {
+    "beyond_universe_outcomes": {},
+    "data_words": 16,
+    "decoder_cases": 288,
+    "error_patterns": 18,
+    "kind": "exhaustive",
+    "linearity_reduction_applied": false,
+    "modeled_error_vectors_exhaustive": true,
+    "random_seed": null,
+    "randomized_beyond_universe_checks": 0,
+    "randomized_modeled_checks": 0
+  },
+  "code_id": "odd-column-secded-4-8",
+  "constraint_results": {
+    "max_residual_fit": {
+      "actual": 520.0,
+      "limit": null,
+      "satisfied": true
+    },
+    "max_sdc_probability": {
+      "actual": 0.0,
+      "limit": null,
+      "satisfied": true
+    }
+  },
+  "decoder_checks": {
+    "correction_entries": 8,
+    "no_error_identity": true,
+    "outcome_independent_of_data": true
+  },
+  "dimensions": {
+    "k": 4,
+    "n": 8,
+    "r": 4
+  },
+  "distribution_id": "small-hotspot-8bit-v1",
+  "fit": {
+    "model": "raw_fit multiplied by conditional modeled-error outcome mass",
+    "raw_fit": 1000.0,
+    "residual_fit": 520.0,
+    "sdc_fit": 0.0
+  },
+  "limitations": [
+    "The probability results are conditional on the supplied finite error universe.",
+    "Physical PPA is not inferred from structural verification."
+  ],
+  "matrix_checks": {
+    "full_rank": true,
+    "g_h_transpose_zero": true,
+    "rank_h": 4,
+    "rank_h_expected": 4,
+    "systematic_g": true,
+    "systematic_h": true
+  },
+  "per_pattern": [
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-0",
+      "positions": [
+        0
+      ],
+      "probability": 0.06,
+      "syndrome": "0111"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-1",
+      "positions": [
+        1
+      ],
+      "probability": 0.06,
+      "syndrome": "1011"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-2",
+      "positions": [
+        2
+      ],
+      "probability": 0.06,
+      "syndrome": "1101"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-3",
+      "positions": [
+        3
+      ],
+      "probability": 0.06,
+      "syndrome": "1110"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-4",
+      "positions": [
+        4
+      ],
+      "probability": 0.06,
+      "syndrome": "0001"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-5",
+      "positions": [
+        5
+      ],
+      "probability": 0.06,
+      "syndrome": "0010"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-6",
+      "positions": [
+        6
+      ],
+      "probability": 0.06,
+      "syndrome": "0100"
+    },
+    {
+      "data_outcomes": {
+        "corrected": 16
+      },
+      "family": "sbu",
+      "outcome": "corrected",
+      "pattern_id": "sbu-7",
+      "positions": [
+        7
+      ],
+      "probability": 0.06,
+      "syndrome": "1000"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-0-1",
+      "positions": [
+        0,
+        1
+      ],
+      "probability": 0.25,
+      "syndrome": "1100"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-1-2",
+      "positions": [
+        1,
+        2
+      ],
+      "probability": 0.08,
+      "syndrome": "0110"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-2-3",
+      "positions": [
+        2,
+        3
+      ],
+      "probability": 0.06,
+      "syndrome": "0011"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-3-4",
+      "positions": [
+        3,
+        4
+      ],
+      "probability": 0.04,
+      "syndrome": "1111"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-4-5",
+      "positions": [
+        4,
+        5
+      ],
+      "probability": 0.03,
+      "syndrome": "0011"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-5-6",
+      "positions": [
+        5,
+        6
+      ],
+      "probability": 0.02,
+      "syndrome": "0110"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-6-7",
+      "positions": [
+        6,
+        7
+      ],
+      "probability": 0.01,
+      "syndrome": "1100"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "non_adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "nonadj-dbu-0-3",
+      "positions": [
+        0,
+        3
+      ],
+      "probability": 0.01,
+      "syndrome": "1001"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "non_adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "nonadj-dbu-1-5",
+      "positions": [
+        1,
+        5
+      ],
+      "probability": 0.01,
+      "syndrome": "1001"
+    },
+    {
+      "data_outcomes": {
+        "detected_uncorrectable": 16
+      },
+      "family": "non_adjacent_dbu",
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "nonadj-dbu-2-7",
+      "positions": [
+        2,
+        7
+      ],
+      "probability": 0.01,
+      "syndrome": "0101"
+    }
+  ],
+  "probability_mass": {
+    "corrected": 0.48,
+    "decoder_failure": 0.0,
+    "due": 0.52,
+    "residual": 0.52,
+    "sdc": 0.0,
+    "sum": 1.0
+  },
+  "schema_version": 1,
+  "verification_status": "passed"
+}

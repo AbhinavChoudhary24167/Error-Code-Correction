@@ -713,7 +713,10 @@ private:
     }
 };
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc == 2 && std::string(argv[1]) == "--smoke") {
+        return 0;
+    }
     try {
         ComparisonSimulator simulator;
         simulator.runComparisonTests();

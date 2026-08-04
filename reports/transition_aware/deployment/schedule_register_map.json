@@ -1,0 +1,37 @@
+{
+  "ECC_ACTIVE_MODE": {
+    "access": "RO",
+    "description": "committed protected mode",
+    "offset": "0x08"
+  },
+  "ECC_BENEFIT_MARGIN": {
+    "access": "RO",
+    "description": "configured physical-unit threshold",
+    "offset": "0x14"
+  },
+  "ECC_CONFIDENCE_MIN": {
+    "access": "RO",
+    "description": "minimum switch confidence",
+    "offset": "0x18"
+  },
+  "ECC_EPOCH_INDEX": {
+    "access": "RW",
+    "description": "current policy epoch",
+    "offset": "0x00"
+  },
+  "ECC_REQUESTED_MODE": {
+    "access": "RO",
+    "description": "scheduled mode",
+    "offset": "0x04"
+  },
+  "ECC_TRANSITION_COMMAND": {
+    "access": "WO",
+    "description": "request/abort transition",
+    "offset": "0x0C"
+  },
+  "ECC_TRANSITION_STATE": {
+    "access": "RO",
+    "description": "sequencer state",
+    "offset": "0x10"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/code-synthesis-config.schema.json",
+  "title": "GREEN-ECC short-block code synthesis configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "code_id", "method", "k", "r", "fault_distribution", "decoder_policy", "constraints"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "code_id": {"type": "string", "minLength": 1},
+    "method": {"enum": ["exact_exhaustive", "deterministic_beam"]},
+    "k": {"type": "integer", "minimum": 1, "maximum": 64},
+    "r": {"type": "integer", "minimum": 1, "maximum": 12},
+    "fault_distribution": {"type": "string", "minLength": 1},
+    "decoder_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mandatory_correct_families", "detect_only_families"],
+      "properties": {
+        "mandatory_correct_families": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "detect_only_families": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
+    "matrix_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_row_weight": {"type": "integer", "minimum": 1},
+        "max_row_weight": {"type": "integer", "minimum": 1},
+        "min_data_column_weight": {"type": "integer", "minimum": 1},
+        "max_data_column_weight": {"type": "integer", "minimum": 1}
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_sdc_probability"],
+      "properties": {
+        "max_sdc_probability": {"type": "number", "minimum": 0, "maximum": 1},
+        "max_residual_fit": {"type": ["number", "null"], "minimum": 0},
+        "max_matrix_xor_gates": {"type": ["integer", "null"], "minimum": 0}
+      }
+    },
+    "hardware_model": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_xor_fanin": {"type": "integer", "minimum": 2},
+        "hardware_aware": {"type": "boolean"}
+      }
+    },
+    "search": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "seed": {"type": "integer"},
+        "beam_width": {"type": "integer", "minimum": 1},
+        "iterations": {"type": "integer", "minimum": 1},
+        "mutations_per_candidate": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

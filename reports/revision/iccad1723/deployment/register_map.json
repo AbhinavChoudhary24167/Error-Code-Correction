@@ -1,0 +1,19 @@
+{
+  "ECC_MODE": {
+    "access": "RW",
+    "offset": "0x00",
+    "reset": "sec-ded-64"
+  },
+  "ECC_MODE_STATUS": {
+    "access": "RO",
+    "offset": "0x04"
+  },
+  "ECC_TRANSITION_REQUEST": {
+    "access": "WO",
+    "offset": "0x08"
+  },
+  "ECC_TRANSITION_STATUS": {
+    "access": "RO",
+    "offset": "0x0C"
+  }
+}

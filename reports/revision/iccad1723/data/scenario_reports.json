@@ -1,0 +1,2597 @@
+[
+  {
+    "candidate_details": {
+      "bch-63-51-t2": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 126.60167703100538,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.004912043140565481,
+          "terms": {
+            "ecc": 0.004912043140565481,
+            "metadata": 0.0
+          }
+        }
+      },
+      "polar-64-48-sc": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 168.0322360413405,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.008173326701964911,
+          "terms": {
+            "ecc": 0.008173326701964911,
+            "metadata": 0.0
+          }
+        }
+      },
+      "sec-daec-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 94.66250777325405,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.007196065520064132,
+          "terms": {
+            "ecc": 0.007196065520064132,
+            "metadata": 0.0
+          }
+        }
+      },
+      "sec-ded-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 84.09311802067025,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.008173326701964911,
+          "terms": {
+            "ecc": 0.008173326701964911,
+            "metadata": 0.0
+          }
+        }
+      },
+      "taec-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 115.7242872784216,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.006951599807010322,
+          "terms": {
+            "ecc": 0.006951599807010322,
+            "metadata": 0.0
+          }
+        }
+      }
+    },
+    "candidates_evaluated": 5,
+    "feasible": 5,
+    "infeasible": 0,
+    "mux_characterization_path": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\configs\\mux_characterization.template.json",
+    "physical_metrics_complete": false,
+    "reconfiguration": {
+      "amortized_energy_j_per_access": null,
+      "control_energy_j": null,
+      "energy_j_total": null,
+      "latency_ns_total": null,
+      "migrated_words_per_transition": 1048576,
+      "migrated_words_total": 11534336,
+      "migration_energy_j": 976.4254352101972,
+      "model": "N_migrated * (legacy old per-access energy + legacy new per-access energy) + control; read/decode and encode/write are not separable in current legacy energy records.",
+      "new_encode_write_energy_j_per_word_proxy": 5.0792283242496e-05,
+      "old_read_decode_energy_j_per_word_proxy": 3.3861522161664e-05,
+      "temporary_capacity_bits": 134217728,
+      "transitions": 11
+    },
+    "robustness": {
+      "candidates": {
+        "bch-63-51-t2": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.9866666666666667,
+          "regret_p50": 0.0,
+          "regret_p95": 0.0,
+          "robust_pareto_membership_probability": 0.9866666666666667
+        },
+        "polar-64-48-sc": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.4209259088170517,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "sec-daec-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.29844608701742714,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "sec-ded-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.41140506301765434,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "taec-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.013333333333333334,
+          "regret_p50": 0.2568498642934142,
+          "regret_p95": 0.4185188597382195,
+          "robust_pareto_membership_probability": 0.013333333333333334
+        }
+      },
+      "distribution_assumption": "Uniform within each declared relative interval.",
+      "independence_assumption": true,
+      "method": "independent_uniform_multiplicative_monte_carlo",
+      "recommendation_confidence": 0.9866666666666667,
+      "recommended": "bch-63-51-t2",
+      "relative_intervals": {
+        "carbon": 0.2,
+        "energy": 0.15,
+        "fit": 0.2,
+        "latency": 0.1
+      },
+      "samples_requested": 300,
+      "samples_with_feasible_candidate": 300,
+      "second_best_fallback": "taec-64",
+      "seed": 1723
+    },
+    "safe_fallback": "sec-ded-64",
+    "scenario": {
+      "bit_failure_probability": 1e-12,
+      "bitcell_area_um2": 0.08,
+      "capacity_gib": 1.0,
+      "carbon_intensity_kgco2e_per_kwh": 0.08,
+      "constraints": {},
+      "fault_regime": "moderate",
+      "lifetime_hours": 43800.0,
+      "logical_width_bits": 64,
+      "memory_read_latency_ns": null,
+      "memory_write_latency_ns": null,
+      "node_nm": 16,
+      "scenario_id": "moderate-low-carbon",
+      "temperature_c": 75.0,
+      "vdd": 0.8,
+      "workload": {
+        "decision_epochs": 12,
+        "migrated_words_per_transition": 1048576,
+        "read_fraction": 0.7,
+        "total_accesses": 1000000000,
+        "write_fraction": 0.3
+      }
+    },
+    "scenario_id": "moderate-low-carbon",
+    "score_diagnostics": {
+      "all_scores_same_winner": true,
+      "argmax_by_score": {
+        "ESII": "bch-63-51-t2",
+        "GS": "bch-63-51-t2",
+        "NESII": "bch-63-51-t2"
+      },
+      "coincidence_condition": "Any strictly increasing utility of benefits and strictly decreasing utility of costs must select a candidate that strictly component-wise dominates all alternatives.",
+      "componentwise_dominant_candidate": null,
+      "interpretation": "Empirical winner agreement is not mathematical score equivalence. Correlation and component-wise ordering must be inspected separately.",
+      "rank_correlations": {
+        "ESII_vs_GS": 0.9,
+        "ESII_vs_NESII": 1.0,
+        "NESII_vs_GS": 0.9
+      }
+    },
+    "selected_configuration": "bch-63-51-t2",
+    "selection": {
+      "active_objectives": [
+        "FIT"
+      ],
+      "green_differs_from_lookup": true,
+      "limitations": [
+        "architecture_energy_j unavailable; corresponding baseline falls back to preference cost",
+        "architecture_carbon_kg unavailable; corresponding baseline falls back to preference cost"
+      ],
+      "pareto_configurations": [
+        "bch-63-51-t2"
+      ],
+      "preference_costs": {
+        "bch-63-51-t2": 0.0,
+        "polar-64-48-sc": 0.4444444444444444,
+        "sec-daec-64": 0.33322286678882096,
+        "sec-ded-64": 0.4444444444444444,
+        "taec-64": 0.3030446556088063
+      },
+      "regret": {
+        "exact_pareto_preference": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "fault_regime_lookup": {
+          "absolute_regret": 0.33322286678882096,
+          "preference_cost": 0.33322286678882096
+        },
+        "green_ecc_policy": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "minimum_carbon_feasible": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "minimum_energy_feasible": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "static_secded": {
+          "absolute_regret": 0.4444444444444444,
+          "preference_cost": 0.4444444444444444
+        },
+        "strongest_reliability": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        }
+      },
+      "selections": {
+        "exact_pareto_preference": "bch-63-51-t2",
+        "fault_regime_lookup": "sec-daec-64",
+        "green_ecc_policy": "bch-63-51-t2",
+        "minimum_carbon_feasible": "bch-63-51-t2",
+        "minimum_energy_feasible": "bch-63-51-t2",
+        "static_secded": "sec-ded-64",
+        "strongest_reliability": "bch-63-51-t2"
+      },
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "candidate_details": {
+      "bch-63-51-t2": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 126.61077731508632,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.004912043140565481,
+          "terms": {
+            "ecc": 0.004912043140565481,
+            "metadata": 0.0
+          }
+        }
+      },
+      "polar-64-48-sc": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 168.04436975344842,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.008173326701964911,
+          "terms": {
+            "ecc": 0.008173326701964911,
+            "metadata": 0.0
+          }
+        }
+      },
+      "sec-daec-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 94.66933298631476,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.007196065520064132,
+          "terms": {
+            "ecc": 0.007196065520064132,
+            "metadata": 0.0
+          }
+        }
+      },
+      "sec-ded-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 84.09918487672421,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.008173326701964911,
+          "terms": {
+            "ecc": 0.008173326701964911,
+            "metadata": 0.0
+          }
+        }
+      },
+      "taec-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 115.73262920549581,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.006951599807010322,
+          "terms": {
+            "ecc": 0.006951599807010322,
+            "metadata": 0.0
+          }
+        }
+      }
+    },
+    "candidates_evaluated": 5,
+    "feasible": 5,
+    "infeasible": 0,
+    "mux_characterization_path": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\configs\\mux_characterization.template.json",
+    "physical_metrics_complete": false,
+    "reconfiguration": {
+      "amortized_energy_j_per_access": null,
+      "control_energy_j": null,
+      "energy_j_total": null,
+      "latency_ns_total": null,
+      "migrated_words_per_transition": 1048576,
+      "migrated_words_total": 11534336,
+      "migration_energy_j": 976.4254352101972,
+      "model": "N_migrated * (legacy old per-access energy + legacy new per-access energy) + control; read/decode and encode/write are not separable in current legacy energy records.",
+      "new_encode_write_energy_j_per_word_proxy": 5.0792283242496e-05,
+      "old_read_decode_energy_j_per_word_proxy": 3.3861522161664e-05,
+      "temporary_capacity_bits": 134217728,
+      "transitions": 11
+    },
+    "robustness": {
+      "candidates": {
+        "bch-63-51-t2": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.9866666666666667,
+          "regret_p50": 0.0,
+          "regret_p95": 0.0,
+          "robust_pareto_membership_probability": 0.9866666666666667
+        },
+        "polar-64-48-sc": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.4209259088170517,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "sec-daec-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.29844608701742714,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "sec-ded-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.41140506301765434,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "taec-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.013333333333333334,
+          "regret_p50": 0.2568498642934142,
+          "regret_p95": 0.4185188597382195,
+          "robust_pareto_membership_probability": 0.013333333333333334
+        }
+      },
+      "distribution_assumption": "Uniform within each declared relative interval.",
+      "independence_assumption": true,
+      "method": "independent_uniform_multiplicative_monte_carlo",
+      "recommendation_confidence": 0.9866666666666667,
+      "recommended": "bch-63-51-t2",
+      "relative_intervals": {
+        "carbon": 0.2,
+        "energy": 0.15,
+        "fit": 0.2,
+        "latency": 0.1
+      },
+      "samples_requested": 300,
+      "samples_with_feasible_candidate": 300,
+      "second_best_fallback": "taec-64",
+      "seed": 1723
+    },
+    "safe_fallback": "sec-ded-64",
+    "scenario": {
+      "bit_failure_probability": 1e-12,
+      "bitcell_area_um2": 0.08,
+      "capacity_gib": 1.0,
+      "carbon_intensity_kgco2e_per_kwh": 0.725,
+      "constraints": {},
+      "fault_regime": "moderate",
+      "lifetime_hours": 43800.0,
+      "logical_width_bits": 64,
+      "memory_read_latency_ns": null,
+      "memory_write_latency_ns": null,
+      "node_nm": 16,
+      "scenario_id": "moderate-high-carbon",
+      "temperature_c": 75.0,
+      "vdd": 0.8,
+      "workload": {
+        "decision_epochs": 12,
+        "migrated_words_per_transition": 1048576,
+        "read_fraction": 0.7,
+        "total_accesses": 1000000000,
+        "write_fraction": 0.3
+      }
+    },
+    "scenario_id": "moderate-high-carbon",
+    "score_diagnostics": {
+      "all_scores_same_winner": true,
+      "argmax_by_score": {
+        "ESII": "bch-63-51-t2",
+        "GS": "bch-63-51-t2",
+        "NESII": "bch-63-51-t2"
+      },
+      "coincidence_condition": "Any strictly increasing utility of benefits and strictly decreasing utility of costs must select a candidate that strictly component-wise dominates all alternatives.",
+      "componentwise_dominant_candidate": null,
+      "interpretation": "Empirical winner agreement is not mathematical score equivalence. Correlation and component-wise ordering must be inspected separately.",
+      "rank_correlations": {
+        "ESII_vs_GS": 0.9,
+        "ESII_vs_NESII": 1.0,
+        "NESII_vs_GS": 0.9
+      }
+    },
+    "selected_configuration": "bch-63-51-t2",
+    "selection": {
+      "active_objectives": [
+        "FIT"
+      ],
+      "green_differs_from_lookup": true,
+      "limitations": [
+        "architecture_energy_j unavailable; corresponding baseline falls back to preference cost",
+        "architecture_carbon_kg unavailable; corresponding baseline falls back to preference cost"
+      ],
+      "pareto_configurations": [
+        "bch-63-51-t2"
+      ],
+      "preference_costs": {
+        "bch-63-51-t2": 0.0,
+        "polar-64-48-sc": 0.4444444444444444,
+        "sec-daec-64": 0.33322286678882096,
+        "sec-ded-64": 0.4444444444444444,
+        "taec-64": 0.3030446556088063
+      },
+      "regret": {
+        "exact_pareto_preference": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "fault_regime_lookup": {
+          "absolute_regret": 0.33322286678882096,
+          "preference_cost": 0.33322286678882096
+        },
+        "green_ecc_policy": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "minimum_carbon_feasible": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "minimum_energy_feasible": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "static_secded": {
+          "absolute_regret": 0.4444444444444444,
+          "preference_cost": 0.4444444444444444
+        },
+        "strongest_reliability": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        }
+      },
+      "selections": {
+        "exact_pareto_preference": "bch-63-51-t2",
+        "fault_regime_lookup": "sec-daec-64",
+        "green_ecc_policy": "bch-63-51-t2",
+        "minimum_carbon_feasible": "bch-63-51-t2",
+        "minimum_energy_feasible": "bch-63-51-t2",
+        "static_secded": "sec-ded-64",
+        "strongest_reliability": "bch-63-51-t2"
+      },
+      "status": "ok"
+    },
+    "status": "ok"
+  },
+  {
+    "candidate_details": {
+      "bch-63-51-t2": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 126.60590972127558,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.02432011630270914,
+          "terms": {
+            "ecc": 0.02432011630270914,
+            "metadata": 0.0
+          }
+        }
+      },
+      "polar-64-48-sc": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 168.03787962836745,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.040204038588599,
+          "terms": {
+            "ecc": 0.040204038588599,
+            "metadata": 0.0
+          }
+        }
+      },
+      "sec-daec-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 94.6656822909567,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.02751779219050965,
+          "terms": {
+            "ecc": 0.02751779219050965,
+            "metadata": 0.0
+          }
+        }
+      },
+      "sec-ded-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 84.09593981418372,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.040204038588599,
+          "terms": {
+            "ecc": 0.040204038588599,
+            "metadata": 0.0
+          }
+        }
+      },
+      "taec-64": {
+        "carbon": {
+          "absolute_system_carbon_kgco2e": null,
+          "amortized_incremental_carbon_kgco2e_per_access": null,
+          "base_system_carbon_kgco2e": 115.72816724450263,
+          "embodied_detail": null,
+          "incremental_embodied_carbon_kgco2e": null,
+          "incremental_operational_carbon_kgco2e": null,
+          "incremental_total_carbon_kgco2e": null,
+          "operational_equation": "CI[kgCO2e/kWh] * energy[J] / 3.6e6"
+        },
+        "fabric": {
+          "area_um2_total": null,
+          "dynamic_energy_j_per_operation_total": null,
+          "leakage_power_w_total": null,
+          "max_path_delay_ns": null,
+          "mux_2to1_count_total": 784,
+          "paths": [
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 512,
+              "name": "write_codeword_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 128
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 256,
+              "name": "read_data_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 64
+            },
+            {
+              "area_um2": null,
+              "delay_ns": null,
+              "depth": 3,
+              "dynamic_energy_j_per_operation": null,
+              "implementation": "pruned",
+              "leakage_power_w": null,
+              "modes": 5,
+              "mux_2to1_count": 16,
+              "name": "read_status_mux",
+              "physical_metrics_characterized": false,
+              "width_bits": 4
+            }
+          ],
+          "physical_metrics_characterized": false
+        },
+        "layout": {
+          "container_bits": 128,
+          "entries": [
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-ded-64",
+              "container_bits": 128,
+              "family": "SEC-DED",
+              "k": 64,
+              "n": 72,
+              "padding_bits": 56,
+              "physical_bits_used": 72
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "sec-daec-64",
+              "container_bits": 128,
+              "family": "SEC-DAEC",
+              "k": 64,
+              "n": 73,
+              "padding_bits": 55,
+              "physical_bits_used": 73
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 1,
+              "config_id": "taec-64",
+              "container_bits": 128,
+              "family": "TAEC",
+              "k": 64,
+              "n": 75,
+              "padding_bits": 53,
+              "physical_bits_used": 75
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "bch-63-51-t2",
+              "container_bits": 128,
+              "family": "BCH",
+              "k": 51,
+              "n": 63,
+              "padding_bits": 2,
+              "physical_bits_used": 126
+            },
+            {
+              "capacity_efficiency": 0.5,
+              "codewords_per_logical_word": 2,
+              "config_id": "polar-64-48-sc",
+              "container_bits": 128,
+              "family": "POLAR",
+              "k": 48,
+              "n": 64,
+              "padding_bits": 0,
+              "physical_bits_used": 128
+            }
+          ],
+          "layout": "fixed_nmax_physical_slot",
+          "logical_width_bits": 64
+        },
+        "metadata": {
+          "mode_bits": 3,
+          "protection": "triplicated",
+          "protection_factor": 3,
+          "stored_bits": 9
+        },
+        "reliability_fault_tree": {
+          "assumption": "Independent failure events; disabled terms are omitted, not assumed zero.",
+          "system_failure_probability": 0.02271733759223593,
+          "terms": {
+            "ecc": 0.02271733759223593,
+            "metadata": 0.0
+          }
+        }
+      }
+    },
+    "candidates_evaluated": 5,
+    "feasible": 5,
+    "infeasible": 0,
+    "mux_characterization_path": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\configs\\mux_characterization.template.json",
+    "physical_metrics_complete": false,
+    "reconfiguration": {
+      "amortized_energy_j_per_access": null,
+      "control_energy_j": null,
+      "energy_j_total": null,
+      "latency_ns_total": null,
+      "migrated_words_per_transition": 1048576,
+      "migrated_words_total": 24117248,
+      "migration_energy_j": 1939.5359781220734,
+      "model": "N_migrated * (legacy old per-access energy + legacy new per-access energy) + control; read/decode and encode/write are not separable in current legacy energy records.",
+      "new_encode_write_energy_j_per_word_proxy": 4.6559592972288e-05,
+      "old_read_decode_energy_j_per_word_proxy": 3.3861522161664e-05,
+      "temporary_capacity_bits": 134217728,
+      "transitions": 23
+    },
+    "robustness": {
+      "candidates": {
+        "bch-63-51-t2": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.32666666666666666,
+          "regret_p50": 0.06263207307426324,
+          "regret_p95": 0.21062538213512183,
+          "robust_pareto_membership_probability": 0.32666666666666666
+        },
+        "polar-64-48-sc": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.4444444444444444,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "sec-daec-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.056666666666666664,
+          "regret_p50": 0.1618671437419197,
+          "regret_p95": 0.3080973164439259,
+          "robust_pareto_membership_probability": 0.056666666666666664
+        },
+        "sec-ded-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.0,
+          "regret_p50": 0.4416412532721385,
+          "regret_p95": 0.4444444444444444,
+          "robust_pareto_membership_probability": 0.0
+        },
+        "taec-64": {
+          "constraint_satisfaction_probability": 1.0,
+          "optimal_probability": 0.6166666666666667,
+          "regret_p50": 0.0,
+          "regret_p95": 0.13310997985296696,
+          "robust_pareto_membership_probability": 0.6166666666666667
+        }
+      },
+      "distribution_assumption": "Uniform within each declared relative interval.",
+      "independence_assumption": true,
+      "method": "independent_uniform_multiplicative_monte_carlo",
+      "recommendation_confidence": 0.6166666666666667,
+      "recommended": "taec-64",
+      "relative_intervals": {
+        "carbon": 0.2,
+        "energy": 0.15,
+        "fit": 0.2,
+        "latency": 0.1
+      },
+      "samples_requested": 300,
+      "samples_with_feasible_candidate": 300,
+      "second_best_fallback": "bch-63-51-t2",
+      "seed": 1723
+    },
+    "safe_fallback": "sec-ded-64",
+    "scenario": {
+      "bit_failure_probability": 1e-12,
+      "bitcell_area_um2": 0.08,
+      "capacity_gib": 1.0,
+      "carbon_intensity_kgco2e_per_kwh": 0.38,
+      "constraints": {},
+      "fault_regime": "heavy",
+      "lifetime_hours": 43800.0,
+      "logical_width_bits": 64,
+      "memory_read_latency_ns": null,
+      "memory_write_latency_ns": null,
+      "node_nm": 16,
+      "scenario_id": "heavy-fault-regime",
+      "temperature_c": 75.0,
+      "vdd": 0.8,
+      "workload": {
+        "decision_epochs": 24,
+        "migrated_words_per_transition": 1048576,
+        "read_fraction": 0.9,
+        "total_accesses": 1000000000,
+        "write_fraction": 0.1
+      }
+    },
+    "scenario_id": "heavy-fault-regime",
+    "score_diagnostics": {
+      "all_scores_same_winner": true,
+      "argmax_by_score": {
+        "ESII": "taec-64",
+        "GS": "taec-64",
+        "NESII": "taec-64"
+      },
+      "coincidence_condition": "Any strictly increasing utility of benefits and strictly decreasing utility of costs must select a candidate that strictly component-wise dominates all alternatives.",
+      "componentwise_dominant_candidate": null,
+      "interpretation": "Empirical winner agreement is not mathematical score equivalence. Correlation and component-wise ordering must be inspected separately.",
+      "rank_correlations": {
+        "ESII_vs_GS": 1.0,
+        "ESII_vs_NESII": 1.0,
+        "NESII_vs_GS": 1.0
+      }
+    },
+    "selected_configuration": "taec-64",
+    "selection": {
+      "active_objectives": [
+        "FIT"
+      ],
+      "green_differs_from_lookup": true,
+      "limitations": [
+        "architecture_energy_j unavailable; corresponding baseline falls back to preference cost",
+        "architecture_carbon_kg unavailable; corresponding baseline falls back to preference cost"
+      ],
+      "pareto_configurations": [
+        "taec-64"
+      ],
+      "preference_costs": {
+        "bch-63-51-t2": 0.052884650437492964,
+        "polar-64-48-sc": 0.4444444444444444,
+        "sec-daec-64": 0.1488251283466125,
+        "sec-ded-64": 0.4444444444444444,
+        "taec-64": 0.0
+      },
+      "regret": {
+        "exact_pareto_preference": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "fault_regime_lookup": {
+          "absolute_regret": 0.052884650437492964,
+          "preference_cost": 0.052884650437492964
+        },
+        "green_ecc_policy": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "minimum_carbon_feasible": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "minimum_energy_feasible": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        },
+        "static_secded": {
+          "absolute_regret": 0.4444444444444444,
+          "preference_cost": 0.4444444444444444
+        },
+        "strongest_reliability": {
+          "absolute_regret": 0.0,
+          "preference_cost": 0.0
+        }
+      },
+      "selections": {
+        "exact_pareto_preference": "taec-64",
+        "fault_regime_lookup": "bch-63-51-t2",
+        "green_ecc_policy": "taec-64",
+        "minimum_carbon_feasible": "taec-64",
+        "minimum_energy_feasible": "taec-64",
+        "static_secded": "sec-ded-64",
+        "strongest_reliability": "taec-64"
+      },
+      "status": "ok"
+    },
+    "status": "ok"
+  }
+]

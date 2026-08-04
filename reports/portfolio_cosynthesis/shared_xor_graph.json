@@ -1,0 +1,2331 @@
+{
+  "code_ids": [
+    "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+    "forge-sram-portfolio-72-64-v1-geometry-filtered-joint"
+  ],
+  "encoder": {
+    "basis_token_count": 64,
+    "equivalence_verified": true,
+    "input_width": 64,
+    "max_estimated_depth": 8,
+    "naive_xor_gates": 402,
+    "nodes": [
+      {
+        "depth": 1,
+        "left": 56,
+        "mask": 216172782113783808,
+        "node_id": 64,
+        "reuse_count_at_creation": 8,
+        "right": 57
+      },
+      {
+        "depth": 1,
+        "left": 58,
+        "mask": 864691128455135232,
+        "node_id": 65,
+        "reuse_count_at_creation": 8,
+        "right": 59
+      },
+      {
+        "depth": 1,
+        "left": 60,
+        "mask": 3458764513820540928,
+        "node_id": 66,
+        "reuse_count_at_creation": 8,
+        "right": 61
+      },
+      {
+        "depth": 1,
+        "left": 62,
+        "mask": 13835058055282163712,
+        "node_id": 67,
+        "reuse_count_at_creation": 8,
+        "right": 63
+      },
+      {
+        "depth": 2,
+        "left": 0,
+        "mask": 216172782113783809,
+        "node_id": 68,
+        "reuse_count_at_creation": 6,
+        "right": 64
+      },
+      {
+        "depth": 2,
+        "left": 4,
+        "mask": 864691128455135248,
+        "node_id": 69,
+        "reuse_count_at_creation": 6,
+        "right": 65
+      },
+      {
+        "depth": 2,
+        "left": 9,
+        "mask": 3458764513820541440,
+        "node_id": 70,
+        "reuse_count_at_creation": 6,
+        "right": 66
+      },
+      {
+        "depth": 2,
+        "left": 20,
+        "mask": 13835058055283212288,
+        "node_id": 71,
+        "reuse_count_at_creation": 6,
+        "right": 67
+      },
+      {
+        "depth": 1,
+        "left": 13,
+        "mask": 8589942784,
+        "node_id": 72,
+        "reuse_count_at_creation": 5,
+        "right": 33
+      },
+      {
+        "depth": 1,
+        "left": 1,
+        "mask": 16777218,
+        "node_id": 73,
+        "reuse_count_at_creation": 4,
+        "right": 24
+      },
+      {
+        "depth": 1,
+        "left": 2,
+        "mask": 12,
+        "node_id": 74,
+        "reuse_count_at_creation": 4,
+        "right": 3
+      },
+      {
+        "depth": 1,
+        "left": 5,
+        "mask": 2080,
+        "node_id": 75,
+        "reuse_count_at_creation": 4,
+        "right": 11
+      },
+      {
+        "depth": 1,
+        "left": 6,
+        "mask": 4160,
+        "node_id": 76,
+        "reuse_count_at_creation": 4,
+        "right": 12
+      },
+      {
+        "depth": 1,
+        "left": 7,
+        "mask": 384,
+        "node_id": 77,
+        "reuse_count_at_creation": 4,
+        "right": 8
+      },
+      {
+        "depth": 1,
+        "left": 10,
+        "mask": 17408,
+        "node_id": 78,
+        "reuse_count_at_creation": 4,
+        "right": 14
+      },
+      {
+        "depth": 1,
+        "left": 15,
+        "mask": 294912,
+        "node_id": 79,
+        "reuse_count_at_creation": 4,
+        "right": 18
+      },
+      {
+        "depth": 1,
+        "left": 16,
+        "mask": 196608,
+        "node_id": 80,
+        "reuse_count_at_creation": 4,
+        "right": 17
+      },
+      {
+        "depth": 1,
+        "left": 19,
+        "mask": 17180393472,
+        "node_id": 81,
+        "reuse_count_at_creation": 4,
+        "right": 34
+      },
+      {
+        "depth": 1,
+        "left": 21,
+        "mask": 6291456,
+        "node_id": 82,
+        "reuse_count_at_creation": 4,
+        "right": 22
+      },
+      {
+        "depth": 1,
+        "left": 23,
+        "mask": 41943040,
+        "node_id": 83,
+        "reuse_count_at_creation": 4,
+        "right": 25
+      },
+      {
+        "depth": 1,
+        "left": 26,
+        "mask": 201326592,
+        "node_id": 84,
+        "reuse_count_at_creation": 4,
+        "right": 27
+      },
+      {
+        "depth": 1,
+        "left": 28,
+        "mask": 137707388928,
+        "node_id": 85,
+        "reuse_count_at_creation": 4,
+        "right": 37
+      },
+      {
+        "depth": 1,
+        "left": 29,
+        "mask": 69256347648,
+        "node_id": 86,
+        "reuse_count_at_creation": 4,
+        "right": 36
+      },
+      {
+        "depth": 1,
+        "left": 30,
+        "mask": 3221225472,
+        "node_id": 87,
+        "reuse_count_at_creation": 4,
+        "right": 31
+      },
+      {
+        "depth": 1,
+        "left": 35,
+        "mask": 584115552256,
+        "node_id": 88,
+        "reuse_count_at_creation": 4,
+        "right": 39
+      },
+      {
+        "depth": 1,
+        "left": 38,
+        "mask": 1374389534720,
+        "node_id": 89,
+        "reuse_count_at_creation": 4,
+        "right": 40
+      },
+      {
+        "depth": 1,
+        "left": 41,
+        "mask": 6597069766656,
+        "node_id": 90,
+        "reuse_count_at_creation": 4,
+        "right": 42
+      },
+      {
+        "depth": 1,
+        "left": 43,
+        "mask": 26388279066624,
+        "node_id": 91,
+        "reuse_count_at_creation": 4,
+        "right": 44
+      },
+      {
+        "depth": 1,
+        "left": 45,
+        "mask": 105553116266496,
+        "node_id": 92,
+        "reuse_count_at_creation": 4,
+        "right": 46
+      },
+      {
+        "depth": 1,
+        "left": 47,
+        "mask": 422212465065984,
+        "node_id": 93,
+        "reuse_count_at_creation": 4,
+        "right": 48
+      },
+      {
+        "depth": 1,
+        "left": 49,
+        "mask": 36591746972385280,
+        "node_id": 94,
+        "reuse_count_at_creation": 4,
+        "right": 55
+      },
+      {
+        "depth": 1,
+        "left": 50,
+        "mask": 3377699720527872,
+        "node_id": 95,
+        "reuse_count_at_creation": 4,
+        "right": 51
+      },
+      {
+        "depth": 2,
+        "left": 52,
+        "mask": 4503599633661952,
+        "node_id": 96,
+        "reuse_count_at_creation": 4,
+        "right": 82
+      },
+      {
+        "depth": 2,
+        "left": 80,
+        "mask": 17180590080,
+        "node_id": 97,
+        "reuse_count_at_creation": 4,
+        "right": 81
+      },
+      {
+        "depth": 2,
+        "left": 92,
+        "mask": 527765581332480,
+        "node_id": 98,
+        "reuse_count_at_creation": 4,
+        "right": 93
+      },
+      {
+        "depth": 3,
+        "left": 68,
+        "mask": 1080863910568919057,
+        "node_id": 99,
+        "reuse_count_at_creation": 4,
+        "right": 69
+      },
+      {
+        "depth": 3,
+        "left": 70,
+        "mask": 3458764513820541452,
+        "node_id": 100,
+        "reuse_count_at_creation": 4,
+        "right": 74
+      },
+      {
+        "depth": 3,
+        "left": 94,
+        "mask": 37119512553717760,
+        "node_id": 101,
+        "reuse_count_at_creation": 4,
+        "right": 98
+      },
+      {
+        "depth": 4,
+        "left": 71,
+        "mask": 14915921965852131345,
+        "node_id": 102,
+        "reuse_count_at_creation": 4,
+        "right": 99
+      },
+      {
+        "depth": 1,
+        "left": 32,
+        "mask": 9007203549708288,
+        "node_id": 103,
+        "reuse_count_at_creation": 3,
+        "right": 53
+      },
+      {
+        "depth": 2,
+        "left": 72,
+        "mask": 26396869009408,
+        "node_id": 104,
+        "reuse_count_at_creation": 3,
+        "right": 91
+      },
+      {
+        "depth": 2,
+        "left": 76,
+        "mask": 299072,
+        "node_id": 105,
+        "reuse_count_at_creation": 3,
+        "right": 79
+      },
+      {
+        "depth": 3,
+        "left": 83,
+        "mask": 4503599675604992,
+        "node_id": 106,
+        "reuse_count_at_creation": 3,
+        "right": 96
+      },
+      {
+        "depth": 1,
+        "left": 1,
+        "mask": 18014398509481986,
+        "node_id": 107,
+        "reuse_count_at_creation": 2,
+        "right": 54
+      },
+      {
+        "depth": 1,
+        "left": 2,
+        "mask": 132,
+        "node_id": 108,
+        "reuse_count_at_creation": 2,
+        "right": 7
+      },
+      {
+        "depth": 1,
+        "left": 3,
+        "mask": 264,
+        "node_id": 109,
+        "reuse_count_at_creation": 2,
+        "right": 8
+      },
+      {
+        "depth": 1,
+        "left": 10,
+        "mask": 66560,
+        "node_id": 110,
+        "reuse_count_at_creation": 2,
+        "right": 16
+      },
+      {
+        "depth": 1,
+        "left": 11,
+        "mask": 18014398509484032,
+        "node_id": 111,
+        "reuse_count_at_creation": 2,
+        "right": 54
+      },
+      {
+        "depth": 1,
+        "left": 14,
+        "mask": 49152,
+        "node_id": 112,
+        "reuse_count_at_creation": 2,
+        "right": 15
+      },
+      {
+        "depth": 1,
+        "left": 17,
+        "mask": 4325376,
+        "node_id": 113,
+        "reuse_count_at_creation": 2,
+        "right": 22
+      },
+      {
+        "depth": 1,
+        "left": 18,
+        "mask": 562949953683456,
+        "node_id": 114,
+        "reuse_count_at_creation": 2,
+        "right": 49
+      },
+      {
+        "depth": 1,
+        "left": 19,
+        "mask": 537395200,
+        "node_id": 115,
+        "reuse_count_at_creation": 2,
+        "right": 29
+      },
+      {
+        "depth": 1,
+        "left": 21,
+        "mask": 69206016,
+        "node_id": 116,
+        "reuse_count_at_creation": 2,
+        "right": 26
+      },
+      {
+        "depth": 1,
+        "left": 25,
+        "mask": 1099545182208,
+        "node_id": 117,
+        "reuse_count_at_creation": 2,
+        "right": 40
+      },
+      {
+        "depth": 1,
+        "left": 27,
+        "mask": 2281701376,
+        "node_id": 118,
+        "reuse_count_at_creation": 2,
+        "right": 31
+      },
+      {
+        "depth": 1,
+        "left": 30,
+        "mask": 35433480192,
+        "node_id": 119,
+        "reuse_count_at_creation": 2,
+        "right": 35
+      },
+      {
+        "depth": 1,
+        "left": 32,
+        "mask": 12884901888,
+        "node_id": 120,
+        "reuse_count_at_creation": 2,
+        "right": 33
+      },
+      {
+        "depth": 1,
+        "left": 34,
+        "mask": 36028814198833152,
+        "node_id": 121,
+        "reuse_count_at_creation": 2,
+        "right": 55
+      },
+      {
+        "depth": 1,
+        "left": 36,
+        "mask": 140806207832064,
+        "node_id": 122,
+        "reuse_count_at_creation": 2,
+        "right": 47
+      },
+      {
+        "depth": 1,
+        "left": 39,
+        "mask": 282024732524544,
+        "node_id": 123,
+        "reuse_count_at_creation": 2,
+        "right": 48
+      },
+      {
+        "depth": 1,
+        "left": 41,
+        "mask": 37383395344384,
+        "node_id": 124,
+        "reuse_count_at_creation": 2,
+        "right": 45
+      },
+      {
+        "depth": 1,
+        "left": 42,
+        "mask": 74766790688768,
+        "node_id": 125,
+        "reuse_count_at_creation": 2,
+        "right": 46
+      },
+      {
+        "depth": 1,
+        "left": 50,
+        "mask": 1154047404513689600,
+        "node_id": 126,
+        "reuse_count_at_creation": 2,
+        "right": 60
+      },
+      {
+        "depth": 1,
+        "left": 51,
+        "mask": 2308094809027379200,
+        "node_id": 127,
+        "reuse_count_at_creation": 2,
+        "right": 61
+      },
+      {
+        "depth": 1,
+        "left": 56,
+        "mask": 9295429630892703744,
+        "node_id": 128,
+        "reuse_count_at_creation": 2,
+        "right": 63
+      },
+      {
+        "depth": 1,
+        "left": 59,
+        "mask": 5188146770730811392,
+        "node_id": 129,
+        "reuse_count_at_creation": 2,
+        "right": 62
+      },
+      {
+        "depth": 2,
+        "left": 5,
+        "mask": 69256347680,
+        "node_id": 130,
+        "reuse_count_at_creation": 2,
+        "right": 86
+      },
+      {
+        "depth": 2,
+        "left": 12,
+        "mask": 21504,
+        "node_id": 131,
+        "reuse_count_at_creation": 2,
+        "right": 78
+      },
+      {
+        "depth": 2,
+        "left": 44,
+        "mask": 18966575579136,
+        "node_id": 132,
+        "reuse_count_at_creation": 2,
+        "right": 89
+      },
+      {
+        "depth": 2,
+        "left": 52,
+        "mask": 4504183742922752,
+        "node_id": 133,
+        "reuse_count_at_creation": 2,
+        "right": 88
+      },
+      {
+        "depth": 2,
+        "left": 54,
+        "mask": 18014398526259202,
+        "node_id": 134,
+        "reuse_count_at_creation": 2,
+        "right": 73
+      },
+      {
+        "depth": 2,
+        "left": 57,
+        "mask": 1008806316530991104,
+        "node_id": 135,
+        "reuse_count_at_creation": 2,
+        "right": 65
+      },
+      {
+        "depth": 2,
+        "left": 58,
+        "mask": 14123288431433875456,
+        "node_id": 136,
+        "reuse_count_at_creation": 2,
+        "right": 67
+      },
+      {
+        "depth": 2,
+        "left": 64,
+        "mask": 216172782113784192,
+        "node_id": 137,
+        "reuse_count_at_creation": 2,
+        "right": 77
+      },
+      {
+        "depth": 2,
+        "left": 66,
+        "mask": 3458764517041766400,
+        "node_id": 138,
+        "reuse_count_at_creation": 2,
+        "right": 87
+      },
+      {
+        "depth": 2,
+        "left": 75,
+        "mask": 137707391008,
+        "node_id": 139,
+        "reuse_count_at_creation": 2,
+        "right": 85
+      },
+      {
+        "depth": 2,
+        "left": 77,
+        "mask": 201326976,
+        "node_id": 140,
+        "reuse_count_at_creation": 2,
+        "right": 84
+      },
+      {
+        "depth": 2,
+        "left": 84,
+        "mask": 3422552064,
+        "node_id": 141,
+        "reuse_count_at_creation": 2,
+        "right": 87
+      },
+      {
+        "depth": 2,
+        "left": 85,
+        "mask": 6734777155584,
+        "node_id": 142,
+        "reuse_count_at_creation": 2,
+        "right": 90
+      },
+      {
+        "depth": 2,
+        "left": 86,
+        "mask": 9007272806055936,
+        "node_id": 143,
+        "reuse_count_at_creation": 2,
+        "right": 103
+      },
+      {
+        "depth": 2,
+        "left": 88,
+        "mask": 584115552520,
+        "node_id": 144,
+        "reuse_count_at_creation": 2,
+        "right": 109
+      },
+      {
+        "depth": 2,
+        "left": 95,
+        "mask": 39406513919361024,
+        "node_id": 145,
+        "reuse_count_at_creation": 2,
+        "right": 121
+      },
+      {
+        "depth": 2,
+        "left": 108,
+        "mask": 66692,
+        "node_id": 146,
+        "reuse_count_at_creation": 2,
+        "right": 110
+      },
+      {
+        "depth": 2,
+        "left": 112,
+        "mask": 537444352,
+        "node_id": 147,
+        "reuse_count_at_creation": 2,
+        "right": 115
+      },
+      {
+        "depth": 2,
+        "left": 113,
+        "mask": 2286026752,
+        "node_id": 148,
+        "reuse_count_at_creation": 2,
+        "right": 118
+      },
+      {
+        "depth": 2,
+        "left": 114,
+        "mask": 9295992580846387200,
+        "node_id": 149,
+        "reuse_count_at_creation": 2,
+        "right": 128
+      },
+      {
+        "depth": 2,
+        "left": 116,
+        "mask": 35502686208,
+        "node_id": 150,
+        "reuse_count_at_creation": 2,
+        "right": 119
+      },
+      {
+        "depth": 2,
+        "left": 123,
+        "mask": 5188428795463335936,
+        "node_id": 151,
+        "reuse_count_at_creation": 2,
+        "right": 129
+      },
+      {
+        "depth": 2,
+        "left": 124,
+        "mask": 1154084787909033984,
+        "node_id": 152,
+        "reuse_count_at_creation": 2,
+        "right": 126
+      },
+      {
+        "depth": 2,
+        "left": 125,
+        "mask": 2308169575818067968,
+        "node_id": 153,
+        "reuse_count_at_creation": 2,
+        "right": 127
+      },
+      {
+        "depth": 3,
+        "left": 68,
+        "mask": 216172782114082881,
+        "node_id": 154,
+        "reuse_count_at_creation": 2,
+        "right": 105
+      },
+      {
+        "depth": 3,
+        "left": 69,
+        "mask": 4323455642275676688,
+        "node_id": 155,
+        "reuse_count_at_creation": 2,
+        "right": 70
+      },
+      {
+        "depth": 3,
+        "left": 71,
+        "mask": 13835058058705764352,
+        "node_id": 156,
+        "reuse_count_at_creation": 2,
+        "right": 141
+      },
+      {
+        "depth": 3,
+        "left": 90,
+        "mask": 6666326114336,
+        "node_id": 157,
+        "reuse_count_at_creation": 2,
+        "right": 130
+      },
+      {
+        "depth": 3,
+        "left": 95,
+        "mask": 7881883463450624,
+        "node_id": 158,
+        "reuse_count_at_creation": 2,
+        "right": 133
+      },
+      {
+        "depth": 3,
+        "left": 97,
+        "mask": 18014415690074112,
+        "node_id": 159,
+        "reuse_count_at_creation": 2,
+        "right": 111
+      },
+      {
+        "depth": 3,
+        "left": 122,
+        "mask": 14123429237641707520,
+        "node_id": 160,
+        "reuse_count_at_creation": 2,
+        "right": 136
+      },
+      {
+        "depth": 3,
+        "left": 135,
+        "mask": 4467570833572757504,
+        "node_id": 161,
+        "reuse_count_at_creation": 2,
+        "right": 138
+      },
+      {
+        "depth": 3,
+        "left": 137,
+        "mask": 216172782651228544,
+        "node_id": 162,
+        "reuse_count_at_creation": 2,
+        "right": 147
+      },
+      {
+        "depth": 3,
+        "left": 140,
+        "mask": 9295992581047714176,
+        "node_id": 163,
+        "reuse_count_at_creation": 2,
+        "right": 149
+      },
+      {
+        "depth": 3,
+        "left": 144,
+        "mask": 586401579272,
+        "node_id": 164,
+        "reuse_count_at_creation": 2,
+        "right": 148
+      },
+      {
+        "depth": 3,
+        "left": 146,
+        "mask": 35502752900,
+        "node_id": 165,
+        "reuse_count_at_creation": 2,
+        "right": 150
+      },
+      {
+        "depth": 4,
+        "left": 100,
+        "mask": 3458765613365723660,
+        "node_id": 166,
+        "reuse_count_at_creation": 2,
+        "right": 117
+      },
+      {
+        "depth": 4,
+        "left": 101,
+        "mask": 45001396017168384,
+        "node_id": 167,
+        "reuse_count_at_creation": 2,
+        "right": 158
+      },
+      {
+        "depth": 4,
+        "left": 101,
+        "mask": 4504690346126475264,
+        "node_id": 168,
+        "reuse_count_at_creation": 2,
+        "right": 161
+      },
+      {
+        "depth": 4,
+        "left": 106,
+        "mask": 43910113594966016,
+        "node_id": 169,
+        "reuse_count_at_creation": 2,
+        "right": 145
+      },
+      {
+        "depth": 4,
+        "left": 139,
+        "mask": 216172919821473889,
+        "node_id": 170,
+        "reuse_count_at_creation": 2,
+        "right": 154
+      },
+      {
+        "depth": 4,
+        "left": 151,
+        "mask": 5404601578114564480,
+        "node_id": 171,
+        "reuse_count_at_creation": 2,
+        "right": 162
+      },
+      {
+        "depth": 4,
+        "left": 152,
+        "mask": 1154084823411786884,
+        "node_id": 172,
+        "reuse_count_at_creation": 2,
+        "right": 165
+      },
+      {
+        "depth": 4,
+        "left": 153,
+        "mask": 2308170162219647240,
+        "node_id": 173,
+        "reuse_count_at_creation": 2,
+        "right": 164
+      },
+      {
+        "depth": 4,
+        "left": 155,
+        "mask": 13619448223323390864,
+        "node_id": 174,
+        "reuse_count_at_creation": 2,
+        "right": 163
+      },
+      {
+        "depth": 5,
+        "left": 37,
+        "mask": 14915922103291084817,
+        "node_id": 175,
+        "reuse_count_at_creation": 2,
+        "right": 102
+      },
+      {
+        "depth": 5,
+        "left": 75,
+        "mask": 14915921965852133425,
+        "node_id": 176,
+        "reuse_count_at_creation": 2,
+        "right": 102
+      },
+      {
+        "depth": 5,
+        "left": 156,
+        "mask": 13878968172300730368,
+        "node_id": 177,
+        "reuse_count_at_creation": 2,
+        "right": 169
+      },
+      {
+        "depth": 5,
+        "left": 160,
+        "mask": 14339602157463181409,
+        "node_id": 178,
+        "reuse_count_at_creation": 2,
+        "right": 170
+      }
+    ],
+    "outputs": {
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:0": {
+        "estimated_balanced_depth": 8,
+        "mask": 16088021462928133303,
+        "residual_xor_gates": 5,
+        "tokens": [
+          23,
+          28,
+          38,
+          107,
+          172,
+          176
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:1": {
+        "estimated_balanced_depth": 8,
+        "mask": 17224092274117465435,
+        "residual_xor_gates": 5,
+        "tokens": [
+          33,
+          73,
+          76,
+          78,
+          173,
+          175
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:2": {
+        "estimated_balanced_depth": 8,
+        "mask": 17802880170850556525,
+        "residual_xor_gates": 4,
+        "tokens": [
+          32,
+          43,
+          96,
+          166,
+          178
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:3": {
+        "estimated_balanced_depth": 7,
+        "mask": 8890406656333628302,
+        "residual_xor_gates": 5,
+        "tokens": [
+          53,
+          83,
+          100,
+          132,
+          134,
+          171
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:4": {
+        "estimated_balanced_depth": 7,
+        "mask": 13619481303699104752,
+        "residual_xor_gates": 4,
+        "tokens": [
+          6,
+          97,
+          104,
+          157,
+          174
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:5": {
+        "estimated_balanced_depth": 7,
+        "mask": 4522704774701767680,
+        "residual_xor_gates": 4,
+        "tokens": [
+          79,
+          120,
+          131,
+          159,
+          168
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:6": {
+        "estimated_balanced_depth": 7,
+        "mask": 13887975453713506304,
+        "residual_xor_gates": 3,
+        "tokens": [
+          24,
+          72,
+          143,
+          177
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:parity:7": {
+        "estimated_balanced_depth": 7,
+        "mask": 54043101307609088,
+        "residual_xor_gates": 4,
+        "tokens": [
+          53,
+          89,
+          104,
+          142,
+          167
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:0": {
+        "estimated_balanced_depth": 8,
+        "mask": 16079014199508935893,
+        "residual_xor_gates": 4,
+        "tokens": [
+          6,
+          13,
+          143,
+          172,
+          175
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:1": {
+        "estimated_balanced_depth": 8,
+        "mask": 17233099327343320377,
+        "residual_xor_gates": 4,
+        "tokens": [
+          24,
+          53,
+          131,
+          173,
+          176
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:2": {
+        "estimated_balanced_depth": 7,
+        "mask": 17802871645348862573,
+        "residual_xor_gates": 3,
+        "tokens": [
+          89,
+          100,
+          106,
+          178
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:3": {
+        "estimated_balanced_depth": 7,
+        "mask": 8872400791915783054,
+        "residual_xor_gates": 4,
+        "tokens": [
+          73,
+          103,
+          104,
+          166,
+          171
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:4": {
+        "estimated_balanced_depth": 7,
+        "mask": 13637496036947594128,
+        "residual_xor_gates": 4,
+        "tokens": [
+          38,
+          91,
+          142,
+          159,
+          174
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:5": {
+        "estimated_balanced_depth": 7,
+        "mask": 4504690371905713216,
+        "residual_xor_gates": 5,
+        "tokens": [
+          23,
+          72,
+          78,
+          97,
+          105,
+          168
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:6": {
+        "estimated_balanced_depth": 8,
+        "mask": 13896991380073349122,
+        "residual_xor_gates": 4,
+        "tokens": [
+          28,
+          43,
+          120,
+          134,
+          177
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:parity:7": {
+        "estimated_balanced_depth": 6,
+        "mask": 63041427428343842,
+        "residual_xor_gates": 3,
+        "tokens": [
+          107,
+          132,
+          157,
+          167
+        ]
+      }
+    },
+    "residual_output_xor_gates": 65,
+    "shared_intermediate_xor_gates": 115,
+    "total_xor_gates": 180,
+    "xor_gate_reduction": 222,
+    "xor_gate_reduction_fraction": 0.5522388059701493
+  },
+  "equivalence_verified": true,
+  "graph_kind": "shared_binary_linear_transform",
+  "max_estimated_depth": 8,
+  "naive_total_xor_gates": 820,
+  "physical_ppa": null,
+  "schema_version": 1,
+  "syndrome": {
+    "basis_token_count": 72,
+    "equivalence_verified": true,
+    "input_width": 72,
+    "max_estimated_depth": 8,
+    "naive_xor_gates": 418,
+    "nodes": [
+      {
+        "depth": 1,
+        "left": 56,
+        "mask": 216172782113783808,
+        "node_id": 72,
+        "reuse_count_at_creation": 8,
+        "right": 57
+      },
+      {
+        "depth": 1,
+        "left": 58,
+        "mask": 864691128455135232,
+        "node_id": 73,
+        "reuse_count_at_creation": 8,
+        "right": 59
+      },
+      {
+        "depth": 1,
+        "left": 60,
+        "mask": 3458764513820540928,
+        "node_id": 74,
+        "reuse_count_at_creation": 8,
+        "right": 61
+      },
+      {
+        "depth": 1,
+        "left": 62,
+        "mask": 13835058055282163712,
+        "node_id": 75,
+        "reuse_count_at_creation": 8,
+        "right": 63
+      },
+      {
+        "depth": 2,
+        "left": 0,
+        "mask": 216172782113783809,
+        "node_id": 76,
+        "reuse_count_at_creation": 6,
+        "right": 72
+      },
+      {
+        "depth": 2,
+        "left": 4,
+        "mask": 864691128455135248,
+        "node_id": 77,
+        "reuse_count_at_creation": 6,
+        "right": 73
+      },
+      {
+        "depth": 2,
+        "left": 9,
+        "mask": 3458764513820541440,
+        "node_id": 78,
+        "reuse_count_at_creation": 6,
+        "right": 74
+      },
+      {
+        "depth": 2,
+        "left": 20,
+        "mask": 13835058055283212288,
+        "node_id": 79,
+        "reuse_count_at_creation": 6,
+        "right": 75
+      },
+      {
+        "depth": 1,
+        "left": 13,
+        "mask": 8589942784,
+        "node_id": 80,
+        "reuse_count_at_creation": 5,
+        "right": 33
+      },
+      {
+        "depth": 1,
+        "left": 1,
+        "mask": 16777218,
+        "node_id": 81,
+        "reuse_count_at_creation": 4,
+        "right": 24
+      },
+      {
+        "depth": 1,
+        "left": 2,
+        "mask": 12,
+        "node_id": 82,
+        "reuse_count_at_creation": 4,
+        "right": 3
+      },
+      {
+        "depth": 1,
+        "left": 5,
+        "mask": 2080,
+        "node_id": 83,
+        "reuse_count_at_creation": 4,
+        "right": 11
+      },
+      {
+        "depth": 1,
+        "left": 6,
+        "mask": 4160,
+        "node_id": 84,
+        "reuse_count_at_creation": 4,
+        "right": 12
+      },
+      {
+        "depth": 1,
+        "left": 7,
+        "mask": 384,
+        "node_id": 85,
+        "reuse_count_at_creation": 4,
+        "right": 8
+      },
+      {
+        "depth": 1,
+        "left": 10,
+        "mask": 17408,
+        "node_id": 86,
+        "reuse_count_at_creation": 4,
+        "right": 14
+      },
+      {
+        "depth": 1,
+        "left": 15,
+        "mask": 294912,
+        "node_id": 87,
+        "reuse_count_at_creation": 4,
+        "right": 18
+      },
+      {
+        "depth": 1,
+        "left": 16,
+        "mask": 196608,
+        "node_id": 88,
+        "reuse_count_at_creation": 4,
+        "right": 17
+      },
+      {
+        "depth": 1,
+        "left": 19,
+        "mask": 17180393472,
+        "node_id": 89,
+        "reuse_count_at_creation": 4,
+        "right": 34
+      },
+      {
+        "depth": 1,
+        "left": 21,
+        "mask": 6291456,
+        "node_id": 90,
+        "reuse_count_at_creation": 4,
+        "right": 22
+      },
+      {
+        "depth": 1,
+        "left": 23,
+        "mask": 41943040,
+        "node_id": 91,
+        "reuse_count_at_creation": 4,
+        "right": 25
+      },
+      {
+        "depth": 1,
+        "left": 26,
+        "mask": 201326592,
+        "node_id": 92,
+        "reuse_count_at_creation": 4,
+        "right": 27
+      },
+      {
+        "depth": 1,
+        "left": 28,
+        "mask": 137707388928,
+        "node_id": 93,
+        "reuse_count_at_creation": 4,
+        "right": 37
+      },
+      {
+        "depth": 1,
+        "left": 29,
+        "mask": 69256347648,
+        "node_id": 94,
+        "reuse_count_at_creation": 4,
+        "right": 36
+      },
+      {
+        "depth": 1,
+        "left": 30,
+        "mask": 3221225472,
+        "node_id": 95,
+        "reuse_count_at_creation": 4,
+        "right": 31
+      },
+      {
+        "depth": 1,
+        "left": 35,
+        "mask": 584115552256,
+        "node_id": 96,
+        "reuse_count_at_creation": 4,
+        "right": 39
+      },
+      {
+        "depth": 1,
+        "left": 38,
+        "mask": 1374389534720,
+        "node_id": 97,
+        "reuse_count_at_creation": 4,
+        "right": 40
+      },
+      {
+        "depth": 1,
+        "left": 41,
+        "mask": 6597069766656,
+        "node_id": 98,
+        "reuse_count_at_creation": 4,
+        "right": 42
+      },
+      {
+        "depth": 1,
+        "left": 43,
+        "mask": 26388279066624,
+        "node_id": 99,
+        "reuse_count_at_creation": 4,
+        "right": 44
+      },
+      {
+        "depth": 1,
+        "left": 45,
+        "mask": 105553116266496,
+        "node_id": 100,
+        "reuse_count_at_creation": 4,
+        "right": 46
+      },
+      {
+        "depth": 1,
+        "left": 47,
+        "mask": 422212465065984,
+        "node_id": 101,
+        "reuse_count_at_creation": 4,
+        "right": 48
+      },
+      {
+        "depth": 1,
+        "left": 49,
+        "mask": 36591746972385280,
+        "node_id": 102,
+        "reuse_count_at_creation": 4,
+        "right": 55
+      },
+      {
+        "depth": 1,
+        "left": 50,
+        "mask": 3377699720527872,
+        "node_id": 103,
+        "reuse_count_at_creation": 4,
+        "right": 51
+      },
+      {
+        "depth": 2,
+        "left": 52,
+        "mask": 4503599633661952,
+        "node_id": 104,
+        "reuse_count_at_creation": 4,
+        "right": 90
+      },
+      {
+        "depth": 2,
+        "left": 88,
+        "mask": 17180590080,
+        "node_id": 105,
+        "reuse_count_at_creation": 4,
+        "right": 89
+      },
+      {
+        "depth": 2,
+        "left": 100,
+        "mask": 527765581332480,
+        "node_id": 106,
+        "reuse_count_at_creation": 4,
+        "right": 101
+      },
+      {
+        "depth": 3,
+        "left": 76,
+        "mask": 1080863910568919057,
+        "node_id": 107,
+        "reuse_count_at_creation": 4,
+        "right": 77
+      },
+      {
+        "depth": 3,
+        "left": 78,
+        "mask": 3458764513820541452,
+        "node_id": 108,
+        "reuse_count_at_creation": 4,
+        "right": 82
+      },
+      {
+        "depth": 3,
+        "left": 102,
+        "mask": 37119512553717760,
+        "node_id": 109,
+        "reuse_count_at_creation": 4,
+        "right": 106
+      },
+      {
+        "depth": 4,
+        "left": 79,
+        "mask": 14915921965852131345,
+        "node_id": 110,
+        "reuse_count_at_creation": 4,
+        "right": 107
+      },
+      {
+        "depth": 1,
+        "left": 32,
+        "mask": 9007203549708288,
+        "node_id": 111,
+        "reuse_count_at_creation": 3,
+        "right": 53
+      },
+      {
+        "depth": 2,
+        "left": 80,
+        "mask": 26396869009408,
+        "node_id": 112,
+        "reuse_count_at_creation": 3,
+        "right": 99
+      },
+      {
+        "depth": 2,
+        "left": 84,
+        "mask": 299072,
+        "node_id": 113,
+        "reuse_count_at_creation": 3,
+        "right": 87
+      },
+      {
+        "depth": 3,
+        "left": 91,
+        "mask": 4503599675604992,
+        "node_id": 114,
+        "reuse_count_at_creation": 3,
+        "right": 104
+      },
+      {
+        "depth": 1,
+        "left": 1,
+        "mask": 18014398509481986,
+        "node_id": 115,
+        "reuse_count_at_creation": 2,
+        "right": 54
+      },
+      {
+        "depth": 1,
+        "left": 2,
+        "mask": 132,
+        "node_id": 116,
+        "reuse_count_at_creation": 2,
+        "right": 7
+      },
+      {
+        "depth": 1,
+        "left": 3,
+        "mask": 264,
+        "node_id": 117,
+        "reuse_count_at_creation": 2,
+        "right": 8
+      },
+      {
+        "depth": 1,
+        "left": 10,
+        "mask": 66560,
+        "node_id": 118,
+        "reuse_count_at_creation": 2,
+        "right": 16
+      },
+      {
+        "depth": 1,
+        "left": 11,
+        "mask": 18014398509484032,
+        "node_id": 119,
+        "reuse_count_at_creation": 2,
+        "right": 54
+      },
+      {
+        "depth": 1,
+        "left": 14,
+        "mask": 49152,
+        "node_id": 120,
+        "reuse_count_at_creation": 2,
+        "right": 15
+      },
+      {
+        "depth": 1,
+        "left": 17,
+        "mask": 4325376,
+        "node_id": 121,
+        "reuse_count_at_creation": 2,
+        "right": 22
+      },
+      {
+        "depth": 1,
+        "left": 18,
+        "mask": 562949953683456,
+        "node_id": 122,
+        "reuse_count_at_creation": 2,
+        "right": 49
+      },
+      {
+        "depth": 1,
+        "left": 19,
+        "mask": 537395200,
+        "node_id": 123,
+        "reuse_count_at_creation": 2,
+        "right": 29
+      },
+      {
+        "depth": 1,
+        "left": 21,
+        "mask": 69206016,
+        "node_id": 124,
+        "reuse_count_at_creation": 2,
+        "right": 26
+      },
+      {
+        "depth": 1,
+        "left": 25,
+        "mask": 1099545182208,
+        "node_id": 125,
+        "reuse_count_at_creation": 2,
+        "right": 40
+      },
+      {
+        "depth": 1,
+        "left": 27,
+        "mask": 2281701376,
+        "node_id": 126,
+        "reuse_count_at_creation": 2,
+        "right": 31
+      },
+      {
+        "depth": 1,
+        "left": 30,
+        "mask": 35433480192,
+        "node_id": 127,
+        "reuse_count_at_creation": 2,
+        "right": 35
+      },
+      {
+        "depth": 1,
+        "left": 32,
+        "mask": 12884901888,
+        "node_id": 128,
+        "reuse_count_at_creation": 2,
+        "right": 33
+      },
+      {
+        "depth": 1,
+        "left": 34,
+        "mask": 36028814198833152,
+        "node_id": 129,
+        "reuse_count_at_creation": 2,
+        "right": 55
+      },
+      {
+        "depth": 1,
+        "left": 36,
+        "mask": 140806207832064,
+        "node_id": 130,
+        "reuse_count_at_creation": 2,
+        "right": 47
+      },
+      {
+        "depth": 1,
+        "left": 39,
+        "mask": 282024732524544,
+        "node_id": 131,
+        "reuse_count_at_creation": 2,
+        "right": 48
+      },
+      {
+        "depth": 1,
+        "left": 41,
+        "mask": 37383395344384,
+        "node_id": 132,
+        "reuse_count_at_creation": 2,
+        "right": 45
+      },
+      {
+        "depth": 1,
+        "left": 42,
+        "mask": 74766790688768,
+        "node_id": 133,
+        "reuse_count_at_creation": 2,
+        "right": 46
+      },
+      {
+        "depth": 1,
+        "left": 50,
+        "mask": 1154047404513689600,
+        "node_id": 134,
+        "reuse_count_at_creation": 2,
+        "right": 60
+      },
+      {
+        "depth": 1,
+        "left": 51,
+        "mask": 2308094809027379200,
+        "node_id": 135,
+        "reuse_count_at_creation": 2,
+        "right": 61
+      },
+      {
+        "depth": 1,
+        "left": 52,
+        "mask": 2361187745034449977344,
+        "node_id": 136,
+        "reuse_count_at_creation": 2,
+        "right": 71
+      },
+      {
+        "depth": 1,
+        "left": 56,
+        "mask": 9295429630892703744,
+        "node_id": 137,
+        "reuse_count_at_creation": 2,
+        "right": 63
+      },
+      {
+        "depth": 1,
+        "left": 57,
+        "mask": 590439925546781507584,
+        "node_id": 138,
+        "reuse_count_at_creation": 2,
+        "right": 69
+      },
+      {
+        "depth": 1,
+        "left": 58,
+        "mask": 74075206670989918208,
+        "node_id": 139,
+        "reuse_count_at_creation": 2,
+        "right": 66
+      },
+      {
+        "depth": 1,
+        "left": 59,
+        "mask": 5188146770730811392,
+        "node_id": 140,
+        "reuse_count_at_creation": 2,
+        "right": 62
+      },
+      {
+        "depth": 2,
+        "left": 5,
+        "mask": 69256347680,
+        "node_id": 141,
+        "reuse_count_at_creation": 2,
+        "right": 94
+      },
+      {
+        "depth": 2,
+        "left": 12,
+        "mask": 21504,
+        "node_id": 142,
+        "reuse_count_at_creation": 2,
+        "right": 86
+      },
+      {
+        "depth": 2,
+        "left": 44,
+        "mask": 18966575579136,
+        "node_id": 143,
+        "reuse_count_at_creation": 2,
+        "right": 97
+      },
+      {
+        "depth": 2,
+        "left": 53,
+        "mask": 9007783370293248,
+        "node_id": 144,
+        "reuse_count_at_creation": 2,
+        "right": 96
+      },
+      {
+        "depth": 2,
+        "left": 54,
+        "mask": 18014398526259202,
+        "node_id": 145,
+        "reuse_count_at_creation": 2,
+        "right": 81
+      },
+      {
+        "depth": 2,
+        "left": 64,
+        "mask": 18446744073709551748,
+        "node_id": 146,
+        "reuse_count_at_creation": 2,
+        "right": 116
+      },
+      {
+        "depth": 2,
+        "left": 65,
+        "mask": 36893488147419103496,
+        "node_id": 147,
+        "reuse_count_at_creation": 2,
+        "right": 117
+      },
+      {
+        "depth": 2,
+        "left": 67,
+        "mask": 147790125371790196736,
+        "node_id": 148,
+        "reuse_count_at_creation": 2,
+        "right": 72
+      },
+      {
+        "depth": 2,
+        "left": 68,
+        "mask": 295147905179352826240,
+        "node_id": 149,
+        "reuse_count_at_creation": 2,
+        "right": 85
+      },
+      {
+        "depth": 2,
+        "left": 70,
+        "mask": 1180591620717612630016,
+        "node_id": 150,
+        "reuse_count_at_creation": 2,
+        "right": 92
+      },
+      {
+        "depth": 2,
+        "left": 73,
+        "mask": 4323455642275676160,
+        "node_id": 151,
+        "reuse_count_at_creation": 2,
+        "right": 74
+      },
+      {
+        "depth": 2,
+        "left": 75,
+        "mask": 13835058055282165792,
+        "node_id": 152,
+        "reuse_count_at_creation": 2,
+        "right": 83
+      },
+      {
+        "depth": 2,
+        "left": 80,
+        "mask": 11811168256,
+        "node_id": 153,
+        "reuse_count_at_creation": 2,
+        "right": 95
+      },
+      {
+        "depth": 2,
+        "left": 85,
+        "mask": 49536,
+        "node_id": 154,
+        "reuse_count_at_creation": 2,
+        "right": 120
+      },
+      {
+        "depth": 2,
+        "left": 92,
+        "mask": 6597271093248,
+        "node_id": 155,
+        "reuse_count_at_creation": 2,
+        "right": 98
+      },
+      {
+        "depth": 2,
+        "left": 93,
+        "mask": 1512096923648,
+        "node_id": 156,
+        "reuse_count_at_creation": 2,
+        "right": 97
+      },
+      {
+        "depth": 2,
+        "left": 94,
+        "mask": 9007272806055936,
+        "node_id": 157,
+        "reuse_count_at_creation": 2,
+        "right": 111
+      },
+      {
+        "depth": 2,
+        "left": 95,
+        "mask": 16106127360,
+        "node_id": 158,
+        "reuse_count_at_creation": 2,
+        "right": 128
+      },
+      {
+        "depth": 2,
+        "left": 98,
+        "mask": 3384296790294528,
+        "node_id": 159,
+        "reuse_count_at_creation": 2,
+        "right": 103
+      },
+      {
+        "depth": 2,
+        "left": 103,
+        "mask": 39406513919361024,
+        "node_id": 160,
+        "reuse_count_at_creation": 2,
+        "right": 129
+      },
+      {
+        "depth": 2,
+        "left": 118,
+        "mask": 69272576,
+        "node_id": 161,
+        "reuse_count_at_creation": 2,
+        "right": 124
+      },
+      {
+        "depth": 2,
+        "left": 121,
+        "mask": 2286026752,
+        "node_id": 162,
+        "reuse_count_at_creation": 2,
+        "right": 126
+      },
+      {
+        "depth": 2,
+        "left": 122,
+        "mask": 9295992580846387200,
+        "node_id": 163,
+        "reuse_count_at_creation": 2,
+        "right": 137
+      },
+      {
+        "depth": 2,
+        "left": 123,
+        "mask": 282025269919744,
+        "node_id": 164,
+        "reuse_count_at_creation": 2,
+        "right": 131
+      },
+      {
+        "depth": 2,
+        "left": 127,
+        "mask": 37418828824576,
+        "node_id": 165,
+        "reuse_count_at_creation": 2,
+        "right": 132
+      },
+      {
+        "depth": 2,
+        "left": 130,
+        "mask": 74075347477197750272,
+        "node_id": 166,
+        "reuse_count_at_creation": 2,
+        "right": 139
+      },
+      {
+        "depth": 2,
+        "left": 133,
+        "mask": 2308169575818067968,
+        "node_id": 167,
+        "reuse_count_at_creation": 2,
+        "right": 135
+      },
+      {
+        "depth": 3,
+        "left": 76,
+        "mask": 216172782114082881,
+        "node_id": 168,
+        "reuse_count_at_creation": 2,
+        "right": 113
+      },
+      {
+        "depth": 3,
+        "left": 77,
+        "mask": 4323455642275676688,
+        "node_id": 169,
+        "reuse_count_at_creation": 2,
+        "right": 78
+      },
+      {
+        "depth": 3,
+        "left": 79,
+        "mask": 1194426678772895842304,
+        "node_id": 170,
+        "reuse_count_at_creation": 2,
+        "right": 150
+      },
+      {
+        "depth": 3,
+        "left": 105,
+        "mask": 18014415690074112,
+        "node_id": 171,
+        "reuse_count_at_creation": 2,
+        "right": 119
+      },
+      {
+        "depth": 3,
+        "left": 134,
+        "mask": 19600791478223241348,
+        "node_id": 172,
+        "reuse_count_at_creation": 2,
+        "right": 146
+      },
+      {
+        "depth": 3,
+        "left": 136,
+        "mask": 2361191129331240271872,
+        "node_id": 173,
+        "reuse_count_at_creation": 2,
+        "right": 159
+      },
+      {
+        "depth": 3,
+        "left": 138,
+        "mask": 594763381189057183744,
+        "node_id": 174,
+        "reuse_count_at_creation": 2,
+        "right": 151
+      },
+      {
+        "depth": 3,
+        "left": 140,
+        "mask": 152978272142521008128,
+        "node_id": 175,
+        "reuse_count_at_creation": 2,
+        "right": 148
+      },
+      {
+        "depth": 3,
+        "left": 147,
+        "mask": 36893488149705130248,
+        "node_id": 176,
+        "reuse_count_at_creation": 2,
+        "right": 162
+      },
+      {
+        "depth": 3,
+        "left": 149,
+        "mask": 295147911776623919488,
+        "node_id": 177,
+        "reuse_count_at_creation": 2,
+        "right": 155
+      },
+      {
+        "depth": 3,
+        "left": 152,
+        "mask": 87910405532479916064,
+        "node_id": 178,
+        "reuse_count_at_creation": 2,
+        "right": 166
+      },
+      {
+        "depth": 3,
+        "left": 154,
+        "mask": 282025269969280,
+        "node_id": 179,
+        "reuse_count_at_creation": 2,
+        "right": 164
+      },
+      {
+        "depth": 3,
+        "left": 161,
+        "mask": 37418898097152,
+        "node_id": 180,
+        "reuse_count_at_creation": 2,
+        "right": 165
+      },
+      {
+        "depth": 4,
+        "left": 108,
+        "mask": 3458765613365723660,
+        "node_id": 181,
+        "reuse_count_at_creation": 2,
+        "right": 125
+      },
+      {
+        "depth": 4,
+        "left": 109,
+        "mask": 2361228248843793989632,
+        "node_id": 182,
+        "reuse_count_at_creation": 2,
+        "right": 173
+      },
+      {
+        "depth": 4,
+        "left": 109,
+        "mask": 594800500701610901504,
+        "node_id": 183,
+        "reuse_count_at_creation": 2,
+        "right": 174
+      },
+      {
+        "depth": 4,
+        "left": 114,
+        "mask": 43910113594966016,
+        "node_id": 184,
+        "reuse_count_at_creation": 2,
+        "right": 160
+      },
+      {
+        "depth": 4,
+        "left": 163,
+        "mask": 13619448223122063888,
+        "node_id": 185,
+        "reuse_count_at_creation": 2,
+        "right": 169
+      },
+      {
+        "depth": 4,
+        "left": 167,
+        "mask": 39201657725523198216,
+        "node_id": 186,
+        "reuse_count_at_creation": 2,
+        "right": 176
+      },
+      {
+        "depth": 4,
+        "left": 168,
+        "mask": 88126578314593998945,
+        "node_id": 187,
+        "reuse_count_at_creation": 2,
+        "right": 178
+      },
+      {
+        "depth": 4,
+        "left": 172,
+        "mask": 19600828897121338500,
+        "node_id": 188,
+        "reuse_count_at_creation": 2,
+        "right": 180
+      },
+      {
+        "depth": 4,
+        "left": 175,
+        "mask": 152978554167790977408,
+        "node_id": 189,
+        "reuse_count_at_creation": 2,
+        "right": 179
+      },
+      {
+        "depth": 5,
+        "left": 37,
+        "mask": 14915922103291084817,
+        "node_id": 190,
+        "reuse_count_at_creation": 2,
+        "right": 110
+      },
+      {
+        "depth": 5,
+        "left": 83,
+        "mask": 14915921965852133425,
+        "node_id": 191,
+        "reuse_count_at_creation": 2,
+        "right": 110
+      },
+      {
+        "depth": 5,
+        "left": 170,
+        "mask": 1194470588886490808320,
+        "node_id": 192,
+        "reuse_count_at_creation": 2,
+        "right": 184
+      },
+      {
+        "depth": 5,
+        "left": 177,
+        "mask": 308767359999745983376,
+        "node_id": 193,
+        "reuse_count_at_creation": 2,
+        "right": 185
+      }
+    ],
+    "outputs": {
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:0": {
+        "estimated_balanced_depth": 8,
+        "mask": 34534765536637684919,
+        "residual_xor_gates": 5,
+        "tokens": [
+          23,
+          28,
+          38,
+          115,
+          188,
+          191
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:1": {
+        "estimated_balanced_depth": 8,
+        "mask": 54117580421536568667,
+        "residual_xor_gates": 6,
+        "tokens": [
+          33,
+          81,
+          84,
+          86,
+          96,
+          186,
+          190
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:2": {
+        "estimated_balanced_depth": 7,
+        "mask": 91589856465688762989,
+        "residual_xor_gates": 5,
+        "tokens": [
+          32,
+          43,
+          93,
+          104,
+          181,
+          187
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:3": {
+        "estimated_balanced_depth": 7,
+        "mask": 156464359246010041230,
+        "residual_xor_gates": 5,
+        "tokens": [
+          53,
+          91,
+          108,
+          143,
+          145,
+          189
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:4": {
+        "estimated_balanced_depth": 8,
+        "mask": 308767386483051930608,
+        "residual_xor_gates": 4,
+        "tokens": [
+          6,
+          105,
+          112,
+          141,
+          193
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:5": {
+        "estimated_balanced_depth": 7,
+        "mask": 594818515133407419392,
+        "residual_xor_gates": 4,
+        "tokens": [
+          87,
+          142,
+          158,
+          171,
+          183
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:6": {
+        "estimated_balanced_depth": 7,
+        "mask": 1194479596171124809728,
+        "residual_xor_gates": 3,
+        "tokens": [
+          24,
+          153,
+          157,
+          192
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-geometry-filtered-joint:syndrome:7": {
+        "estimated_balanced_depth": 6,
+        "mask": 2361237284536130215936,
+        "residual_xor_gates": 3,
+        "tokens": [
+          112,
+          144,
+          156,
+          182
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:0": {
+        "estimated_balanced_depth": 8,
+        "mask": 34525758273218487509,
+        "residual_xor_gates": 4,
+        "tokens": [
+          6,
+          13,
+          157,
+          188,
+          190
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:1": {
+        "estimated_balanced_depth": 8,
+        "mask": 54126587474762423609,
+        "residual_xor_gates": 4,
+        "tokens": [
+          24,
+          142,
+          144,
+          186,
+          191
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:2": {
+        "estimated_balanced_depth": 6,
+        "mask": 91589847940187069037,
+        "residual_xor_gates": 3,
+        "tokens": [
+          108,
+          114,
+          156,
+          187
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:3": {
+        "estimated_balanced_depth": 7,
+        "mask": 156446353381592195982,
+        "residual_xor_gates": 4,
+        "tokens": [
+          81,
+          111,
+          112,
+          181,
+          189
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:4": {
+        "estimated_balanced_depth": 8,
+        "mask": 308785401216300419984,
+        "residual_xor_gates": 4,
+        "tokens": [
+          38,
+          93,
+          99,
+          171,
+          193
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:5": {
+        "estimated_balanced_depth": 7,
+        "mask": 594800500730611364928,
+        "residual_xor_gates": 5,
+        "tokens": [
+          23,
+          86,
+          105,
+          113,
+          153,
+          183
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:6": {
+        "estimated_balanced_depth": 8,
+        "mask": 1194488612097484652546,
+        "residual_xor_gates": 4,
+        "tokens": [
+          28,
+          43,
+          145,
+          158,
+          192
+        ]
+      },
+      "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint:syndrome:7": {
+        "estimated_balanced_depth": 7,
+        "mask": 2361246282862250950690,
+        "residual_xor_gates": 4,
+        "tokens": [
+          96,
+          115,
+          141,
+          143,
+          182
+        ]
+      }
+    },
+    "residual_output_xor_gates": 67,
+    "shared_intermediate_xor_gates": 122,
+    "total_xor_gates": 189,
+    "xor_gate_reduction": 229,
+    "xor_gate_reduction_fraction": 0.5478468899521531
+  },
+  "total_xor_gates": 369,
+  "xor_gate_reduction": 451,
+  "xor_gate_reduction_fraction": 0.55
+}

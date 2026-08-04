@@ -1,0 +1,33 @@
+{
+  "benchmark": "deterministic_synthetic_exact_pareto",
+  "measurements": [
+    {
+      "candidate_count": 5,
+      "frontier_size": 5,
+      "peak_memory_bytes_max": 2008,
+      "runtime_seconds_median": 0.00033140000596176833
+    },
+    {
+      "candidate_count": 25,
+      "frontier_size": 25,
+      "peak_memory_bytes_max": 6152,
+      "runtime_seconds_median": 0.004521700000623241
+    },
+    {
+      "candidate_count": 50,
+      "frontier_size": 50,
+      "peak_memory_bytes_max": 11328,
+      "runtime_seconds_median": 0.022678200002701487
+    },
+    {
+      "candidate_count": 100,
+      "frontier_size": 100,
+      "peak_memory_bytes_max": 21824,
+      "runtime_seconds_median": 0.08079150000412483
+    }
+  ],
+  "repeats": 3,
+  "theoretical_memory_complexity": "O(C)",
+  "theoretical_time_complexity": "O(C^2)",
+  "warning": "Wall-clock and allocator measurements depend on the host and are not signoff PPA data."
+}

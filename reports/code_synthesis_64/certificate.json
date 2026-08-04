@@ -1,0 +1,214 @@
+{
+  "campaign": {
+    "beyond_universe_outcomes": {
+      "corrected": 509,
+      "detected_uncorrectable": 822,
+      "silent_corruption": 719
+    },
+    "data_words": 2050,
+    "decoder_cases": 4243,
+    "error_patterns": 143,
+    "kind": "seeded_random_plus_edges",
+    "linearity_reduction_applied": true,
+    "modeled_error_vectors_exhaustive": true,
+    "random_seed": 0,
+    "randomized_beyond_universe_checks": 2050,
+    "randomized_modeled_checks": 2050
+  },
+  "certificate_scope": "all data words crossed with every supplied finite error vector",
+  "code_id": "forge-spatial-hotspot-72-64-v1",
+  "constraint_results": {
+    "max_residual_fit": {
+      "actual": 16.084921904981066,
+      "limit": 650.0,
+      "satisfied": true
+    },
+    "max_sdc_probability": {
+      "actual": 0.0,
+      "limit": 0.0,
+      "satisfied": true
+    }
+  },
+  "decoder_checks": {
+    "correction_entries": 123,
+    "no_error_identity": true,
+    "outcome_independent_of_data": true
+  },
+  "matrix_checks": {
+    "full_rank": true,
+    "g_h_transpose_zero": true,
+    "rank_h": 8,
+    "rank_h_expected": 8,
+    "systematic_g": true,
+    "systematic_h": true
+  },
+  "probability_mass": {
+    "corrected": 0.983915078095019,
+    "decoder_failure": 0.0,
+    "due": 0.016084921904981064,
+    "residual": 0.016084921904981064,
+    "sdc": 0.0,
+    "sum": 1.0
+  },
+  "schema_version": 1,
+  "search": {
+    "beam_width": 4,
+    "candidate_matrices_evaluated": 771,
+    "certification": "candidate must pass the independent exhaustive-error verifier",
+    "hardware_aware_tie_break": true,
+    "iteration_budget": 20,
+    "iterations_completed": 20,
+    "method": "deterministic_beam_search_with_greedy_decoder_assignment",
+    "mutations_per_candidate": 10,
+    "optimality_proven": false,
+    "runtime_seconds": 2.2375197000073968,
+    "search_complete": false,
+    "seed": 6201,
+    "solver_dependency": null,
+    "status": "feasible_heuristic",
+    "timeout_seconds": 60.0,
+    "trajectory": [
+      {
+        "corrected_probability": 0.46923477385061574,
+        "decoder_entries": 82,
+        "iteration": 0,
+        "matrix_xor_gates": 408,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.5414453482545802,
+        "decoder_entries": 87,
+        "iteration": 1,
+        "matrix_xor_gates": 408,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.5948227175294686,
+        "decoder_entries": 90,
+        "iteration": 2,
+        "matrix_xor_gates": 412,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.7191670097555044,
+        "decoder_entries": 94,
+        "iteration": 3,
+        "matrix_xor_gates": 412,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.7653020420661973,
+        "decoder_entries": 95,
+        "iteration": 4,
+        "matrix_xor_gates": 416,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.7811659883687088,
+        "decoder_entries": 97,
+        "iteration": 5,
+        "matrix_xor_gates": 416,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.8466843445542539,
+        "decoder_entries": 98,
+        "iteration": 6,
+        "matrix_xor_gates": 416,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.8642195969115775,
+        "decoder_entries": 100,
+        "iteration": 7,
+        "matrix_xor_gates": 416,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.8980736421959408,
+        "decoder_entries": 105,
+        "iteration": 8,
+        "matrix_xor_gates": 416,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9169003247356825,
+        "decoder_entries": 104,
+        "iteration": 9,
+        "matrix_xor_gates": 418,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9290613872196578,
+        "decoder_entries": 105,
+        "iteration": 10,
+        "matrix_xor_gates": 420,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9418583842396421,
+        "decoder_entries": 107,
+        "iteration": 11,
+        "matrix_xor_gates": 420,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9624708838812411,
+        "decoder_entries": 109,
+        "iteration": 12,
+        "matrix_xor_gates": 422,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.968466103625674,
+        "decoder_entries": 112,
+        "iteration": 13,
+        "matrix_xor_gates": 422,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9699849255630252,
+        "decoder_entries": 116,
+        "iteration": 14,
+        "matrix_xor_gates": 422,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9738517657753722,
+        "decoder_entries": 114,
+        "iteration": 15,
+        "matrix_xor_gates": 426,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.976320193404747,
+        "decoder_entries": 118,
+        "iteration": 16,
+        "matrix_xor_gates": 422,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9790778629122074,
+        "decoder_entries": 117,
+        "iteration": 17,
+        "matrix_xor_gates": 430,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9839150780950188,
+        "decoder_entries": 123,
+        "iteration": 18,
+        "matrix_xor_gates": 420,
+        "sdc_probability": 0.0
+      },
+      {
+        "corrected_probability": 0.9839150780950188,
+        "decoder_entries": 123,
+        "iteration": 19,
+        "matrix_xor_gates": 420,
+        "sdc_probability": 0.0
+      }
+    ]
+  },
+  "verification_status": "passed"
+}

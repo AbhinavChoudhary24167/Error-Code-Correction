@@ -8,6 +8,9 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from visualization_runtime import configure_matplotlib_cache
+
+configure_matplotlib_cache()
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd

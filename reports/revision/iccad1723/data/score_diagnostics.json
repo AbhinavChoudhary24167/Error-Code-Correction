@@ -1,0 +1,50 @@
+{
+  "heavy-fault-regime": {
+    "all_scores_same_winner": true,
+    "argmax_by_score": {
+      "ESII": "taec-64",
+      "GS": "taec-64",
+      "NESII": "taec-64"
+    },
+    "coincidence_condition": "Any strictly increasing utility of benefits and strictly decreasing utility of costs must select a candidate that strictly component-wise dominates all alternatives.",
+    "componentwise_dominant_candidate": null,
+    "interpretation": "Empirical winner agreement is not mathematical score equivalence. Correlation and component-wise ordering must be inspected separately.",
+    "rank_correlations": {
+      "ESII_vs_GS": 1.0,
+      "ESII_vs_NESII": 1.0,
+      "NESII_vs_GS": 1.0
+    }
+  },
+  "moderate-high-carbon": {
+    "all_scores_same_winner": true,
+    "argmax_by_score": {
+      "ESII": "bch-63-51-t2",
+      "GS": "bch-63-51-t2",
+      "NESII": "bch-63-51-t2"
+    },
+    "coincidence_condition": "Any strictly increasing utility of benefits and strictly decreasing utility of costs must select a candidate that strictly component-wise dominates all alternatives.",
+    "componentwise_dominant_candidate": null,
+    "interpretation": "Empirical winner agreement is not mathematical score equivalence. Correlation and component-wise ordering must be inspected separately.",
+    "rank_correlations": {
+      "ESII_vs_GS": 0.9,
+      "ESII_vs_NESII": 1.0,
+      "NESII_vs_GS": 0.9
+    }
+  },
+  "moderate-low-carbon": {
+    "all_scores_same_winner": true,
+    "argmax_by_score": {
+      "ESII": "bch-63-51-t2",
+      "GS": "bch-63-51-t2",
+      "NESII": "bch-63-51-t2"
+    },
+    "coincidence_condition": "Any strictly increasing utility of benefits and strictly decreasing utility of costs must select a candidate that strictly component-wise dominates all alternatives.",
+    "componentwise_dominant_candidate": null,
+    "interpretation": "Empirical winner agreement is not mathematical score equivalence. Correlation and component-wise ordering must be inspected separately.",
+    "rank_correlations": {
+      "ESII_vs_GS": 0.9,
+      "ESII_vs_NESII": 1.0,
+      "NESII_vs_GS": 0.9
+    }
+  }
+}

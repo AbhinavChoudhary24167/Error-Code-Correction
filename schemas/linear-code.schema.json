@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/linear-code.schema.json",
+  "title": "GREEN-ECC systematic binary linear code",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "code_id", "code_class", "k", "r", "n", "systematic", "H", "G", "decoder"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "code_id": {"type": "string", "minLength": 1},
+    "code_class": {"const": "binary_systematic_linear_block"},
+    "k": {"type": "integer", "minimum": 1},
+    "r": {"type": "integer", "minimum": 1},
+    "n": {"type": "integer", "minimum": 2},
+    "systematic": {"const": true},
+    "H": {"$ref": "#/$defs/binaryMatrix"},
+    "G": {"$ref": "#/$defs/binaryMatrix"},
+    "decoder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "correction_entries"],
+      "properties": {
+        "type": {"const": "hard_decision_syndrome_table"},
+        "correction_entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["syndrome", "positions"],
+            "properties": {
+              "syndrome": {"type": "string", "pattern": "^[01]+$"},
+              "positions": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {"type": "integer", "minimum": 0}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "binaryMatrix": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"type": "integer", "enum": [0, 1]}
+      }
+    }
+  }
+}

@@ -693,7 +693,10 @@ void testHammingConjecture() {
     }
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    if (argc == 2 && std::string(argv[1]) == "--smoke") {
+        return 0;
+    }
     std::cout << "Enhanced SAT Solver for Hamming Code Conjectures\n";
     std::cout << "Features: VSIDS heuristics, Matrix visualization, Statistics\n";
     std::cout << std::string(70, '=') << "\n\n";

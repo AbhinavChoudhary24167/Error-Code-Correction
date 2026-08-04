@@ -1,0 +1,23 @@
+{
+  "candidate_matrices_considered": 7920,
+  "decoder_assignments_evaluated": 33,
+  "feasible_candidates": 33,
+  "hardware_aware_tie_break": true,
+  "method": "exact_exhaustive_systematic_column_enumeration",
+  "objective_order": [
+    "maximize corrected probability mass",
+    "minimize SDC probability mass",
+    "minimize structural matrix XOR count",
+    "minimize syndrome-table entries",
+    "minimize correction-mask ones",
+    "minimize balanced XOR depth",
+    "lexicographic matrix tie-break"
+  ],
+  "optimality_proven": true,
+  "runtime_seconds": 0.5782107999984873,
+  "search_complete": true,
+  "solver_dependency": null,
+  "status": "optimal",
+  "theoretical_candidate_matrices": 7920,
+  "timeout_seconds": 60.0
+}

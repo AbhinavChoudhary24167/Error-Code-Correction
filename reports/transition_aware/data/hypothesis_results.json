@@ -1,0 +1,74 @@
+{
+  "H1_adaptation_paradox": {
+    "cases": [
+      {
+        "avoided_transitions": 7,
+        "best_fixed_total": 0.16383999999999999,
+        "design_id": "adaptive-shared-whole",
+        "snapshot_total": 0.22499747200000003,
+        "snapshot_transitions": 7,
+        "trace_id": "periodic_fault_transitions",
+        "transition_aware_total": 0.17120000000000002,
+        "transition_aware_transitions": 0
+      },
+      {
+        "avoided_transitions": 10,
+        "best_fixed_total": 0.06438,
+        "design_id": "adaptive-shared-whole",
+        "snapshot_total": 0.16645759999999998,
+        "snapshot_transitions": 10,
+        "trace_id": "short_noisy_fluctuations",
+        "transition_aware_total": 0.0679,
+        "transition_aware_transitions": 0
+      }
+    ],
+    "status": "supported_in_synthetic_sensitivity"
+  },
+  "H2_break_even": {
+    "adaptive_cells": 22,
+    "fixed_cells": 14,
+    "status": "supported_in_synthetic_sensitivity"
+  },
+  "H3_topology_changes": {
+    "status": "supported_in_synthetic_sensitivity",
+    "winning_topologies": [
+      "fixed",
+      "shared_reconfigurable"
+    ]
+  },
+  "H4_granularity_region": {
+    "best_adaptive_granularity_by_trace": {
+      "changing_read_write_intensity": "whole_memory",
+      "combined_changes": "whole_memory",
+      "grid_carbon_transition": "whole_memory",
+      "one_time_sbu_to_mbu": "whole_memory",
+      "periodic_fault_transitions": "whole_memory",
+      "short_noisy_fluctuations": "whole_memory",
+      "stationary_mbu": "whole_memory",
+      "stationary_sbu": "whole_memory",
+      "temperature_vdd_phases": "whole_memory",
+      "uncertain_transitions": "bank"
+    },
+    "status": "supported_in_synthetic_sensitivity",
+    "winning_granularities": [
+      "bank",
+      "whole_memory"
+    ],
+    "word_level_status": "excluded_without_credible_physical_metadata_and_routing_characterization"
+  },
+  "H5_robust_hysteresis": {
+    "status": "conditionally_supported_in_synthetic_sensitivity",
+    "transition_reduction_vs_snapshot_by_trace": {
+      "changing_read_write_intensity": -1,
+      "combined_changes": -1,
+      "grid_carbon_transition": -1,
+      "one_time_sbu_to_mbu": -1,
+      "periodic_fault_transitions": 7,
+      "short_noisy_fluctuations": 10,
+      "stationary_mbu": 0,
+      "stationary_sbu": -1,
+      "temperature_vdd_phases": -1,
+      "uncertain_transitions": 5
+    }
+  }
+}

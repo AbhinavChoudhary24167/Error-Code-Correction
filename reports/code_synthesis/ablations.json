@@ -1,0 +1,201 @@
+{
+  "reliability_only_vs_hardware_aware": {
+    "hardware_aware_probability_mass": {
+      "corrected": 0.9099999999999999,
+      "decoder_failure": 0.0,
+      "due": 0.08999999999999998,
+      "residual": 0.08999999999999998,
+      "sdc": 0.0,
+      "sum": 0.9999999999999999
+    },
+    "hardware_aware_structural": {
+      "decoder": {
+        "correction_mask_ones": 18,
+        "correction_output_or_proxy": 10,
+        "syndrome_compare_literals": 52,
+        "syndrome_table_entries": 13
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 8,
+        "parity_equation_inputs": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "matrix_xor_gates": 20,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "3": 4
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 12
+      }
+    },
+    "reliability_only_probability_mass": {
+      "corrected": 0.9099999999999999,
+      "decoder_failure": 0.0,
+      "due": 0.08999999999999998,
+      "residual": 0.08999999999999998,
+      "sdc": 0.0,
+      "sum": 0.9999999999999999
+    },
+    "reliability_only_structural": {
+      "decoder": {
+        "correction_mask_ones": 18,
+        "correction_output_or_proxy": 10,
+        "syndrome_compare_literals": 52,
+        "syndrome_table_entries": 13
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 8,
+        "parity_equation_inputs": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "matrix_xor_gates": 20,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "3": 4
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 12
+      }
+    },
+    "same_matrix": true,
+    "status": "completed"
+  },
+  "sdc_constraint": {
+    "hard_zero_sdc": {
+      "corrected": 0.9099999999999999,
+      "decoder_failure": 0.0,
+      "due": 0.08999999999999998,
+      "residual": 0.08999999999999998,
+      "sdc": 0.0,
+      "sum": 0.9999999999999999
+    },
+    "relaxed_matrix": [
+      [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "relaxed_sdc": {
+      "corrected": 0.97,
+      "decoder_failure": 0.0,
+      "due": 0.0,
+      "residual": 0.03,
+      "sdc": 0.03,
+      "sum": 1.0
+    },
+    "status": "completed"
+  },
+  "uniform_vs_probability_weighted": {
+    "same_matrix": false,
+    "status": "completed",
+    "uniform_synthesis_evaluated_on_target": {
+      "corrected": 0.6699999999999999,
+      "decoder_failure": 0.0,
+      "due": 0.33,
+      "residual": 0.33,
+      "sdc": 0.0,
+      "sum": 1.0
+    },
+    "weighted_synthesis": {
+      "corrected": 0.9099999999999999,
+      "decoder_failure": 0.0,
+      "due": 0.08999999999999998,
+      "residual": 0.08999999999999998,
+      "sdc": 0.0,
+      "sum": 0.9999999999999999
+    }
+  }
+}

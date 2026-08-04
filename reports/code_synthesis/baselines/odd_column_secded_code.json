@@ -1,0 +1,207 @@
+{
+  "G": [
+    [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  ],
+  "H": [
+    [
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "baseline_kind": "equal-redundancy odd-column SEC-DED",
+  "code_class": "binary_systematic_linear_block",
+  "code_id": "odd-column-secded-4-8",
+  "column_syndromes": [
+    "0111",
+    "1011",
+    "1101",
+    "1110",
+    "0001",
+    "0010",
+    "0100",
+    "1000"
+  ],
+  "constraints": {},
+  "decoder": {
+    "correction_entries": [
+      {
+        "positions": [
+          0
+        ],
+        "syndrome": "0111"
+      },
+      {
+        "positions": [
+          1
+        ],
+        "syndrome": "1011"
+      },
+      {
+        "positions": [
+          2
+        ],
+        "syndrome": "1101"
+      },
+      {
+        "positions": [
+          3
+        ],
+        "syndrome": "1110"
+      },
+      {
+        "positions": [
+          4
+        ],
+        "syndrome": "0001"
+      },
+      {
+        "positions": [
+          5
+        ],
+        "syndrome": "0010"
+      },
+      {
+        "positions": [
+          6
+        ],
+        "syndrome": "0100"
+      },
+      {
+        "positions": [
+          7
+        ],
+        "syndrome": "1000"
+      }
+    ],
+    "type": "hard_decision_syndrome_table"
+  },
+  "k": 4,
+  "n": 8,
+  "r": 4,
+  "schema_version": 1,
+  "structural_hardware": {
+    "decoder": {
+      "correction_mask_ones": 8,
+      "correction_output_or_proxy": 0,
+      "syndrome_compare_literals": 32,
+      "syndrome_table_entries": 8
+    },
+    "encoder": {
+      "max_balanced_depth": 2,
+      "naive_xor_gates": 8,
+      "parity_equation_inputs": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "matrix_xor_gates": 20,
+    "max_xor_fanin": 2,
+    "model": "technology-independent structural proxy",
+    "physical_ppa": null,
+    "routing": {
+      "codeword_bit_fanout": [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "column_weight_histogram": {
+        "1": 4,
+        "3": 4
+      },
+      "max_codeword_bit_fanout": 3
+    },
+    "syndrome": {
+      "equation_inputs": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "max_balanced_depth": 2,
+      "naive_xor_gates": 12
+    }
+  },
+  "systematic": true
+}

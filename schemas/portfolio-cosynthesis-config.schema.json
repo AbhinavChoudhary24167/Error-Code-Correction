@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/portfolio-cosynthesis-config.schema.json",
+  "title": "GREEN-ECC portfolio co-synthesis configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "portfolio_id", "k", "r", "regimes", "code_template", "cosynthesis", "safety"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "portfolio_id": {"type": "string", "minLength": 1},
+    "k": {"type": "integer", "minimum": 1, "maximum": 64},
+    "r": {"type": "integer", "minimum": 1, "maximum": 12},
+    "regimes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["regime_id", "probability", "fault_distribution"],
+        "properties": {
+          "regime_id": {"type": "string", "minLength": 1},
+          "probability": {"type": "number", "minimum": 0, "maximum": 1},
+          "fault_distribution": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "validation_distributions": {"type": "array", "items": {"type": "string"}},
+    "shifted_distributions": {"type": "array", "items": {"type": "string"}},
+    "code_template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decoder_policy", "matrix_constraints", "constraints", "hardware_model", "search"],
+      "properties": {
+        "decoder_policy": {"type": "object"},
+        "matrix_constraints": {"type": "object"},
+        "constraints": {"type": "object"},
+        "hardware_model": {"type": "object"},
+        "search": {"type": "object"}
+      }
+    },
+    "cosynthesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seed", "iterations", "candidates_per_mode", "timeout_seconds"],
+      "properties": {
+        "seed": {"type": "integer"},
+        "iterations": {"type": "integer", "minimum": 1},
+        "candidates_per_mode": {"type": "integer", "minimum": 1},
+        "timeout_seconds": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_sdc_probability", "max_residual_fit"],
+      "properties": {
+        "max_sdc_probability": {"type": "number", "minimum": 0, "maximum": 1},
+        "max_residual_fit": {"type": ["number", "null"], "minimum": 0}
+      }
+    }
+  }
+}
