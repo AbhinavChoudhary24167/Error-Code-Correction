@@ -1,0 +1,1174 @@
+{
+  "candidate_matrices_evaluated": 7920,
+  "code": {
+    "G": [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    ],
+    "H": [
+      [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "baseline_kind": "SafeForge matrix-policy candidate",
+    "code_class": "binary_systematic_linear_block",
+    "code_id": "safeforge-robust-8-4-v1",
+    "column_syndromes": [
+      "1010",
+      "0101",
+      "1100",
+      "0111",
+      "0001",
+      "0010",
+      "0100",
+      "1000"
+    ],
+    "constraints": {},
+    "decoder": {
+      "correction_entries": [
+        {
+          "positions": [
+            4
+          ],
+          "syndrome": "0001"
+        },
+        {
+          "positions": [
+            5
+          ],
+          "syndrome": "0010"
+        },
+        {
+          "positions": [
+            1
+          ],
+          "syndrome": "0101"
+        },
+        {
+          "positions": [
+            7
+          ],
+          "syndrome": "1000"
+        },
+        {
+          "positions": [
+            1,
+            2
+          ],
+          "syndrome": "1001"
+        },
+        {
+          "positions": [
+            2,
+            3
+          ],
+          "syndrome": "1011"
+        },
+        {
+          "positions": [
+            0,
+            3
+          ],
+          "syndrome": "1101"
+        },
+        {
+          "positions": [
+            0,
+            1
+          ],
+          "syndrome": "1111"
+        }
+      ],
+      "type": "hard_decision_syndrome_table"
+    },
+    "k": 4,
+    "n": 8,
+    "r": 4,
+    "schema_version": 1,
+    "structural_hardware": {
+      "decoder": {
+        "correction_mask_ones": 12,
+        "correction_output_or_proxy": 5,
+        "syndrome_compare_literals": 32,
+        "syndrome_table_entries": 8
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 5,
+        "parity_equation_inputs": [
+          2,
+          2,
+          3,
+          2
+        ]
+      },
+      "matrix_xor_gates": 14,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "2": 3,
+          "3": 1
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          3,
+          3,
+          4,
+          3
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 9
+      }
+    },
+    "systematic": true
+  },
+  "feasible_candidate_matrices": 3877,
+  "method": "exact_ordered_systematic_matrix_enumeration_with_maximal_support_safe_policy",
+  "optimality_proven": true,
+  "optimality_scope": "all ordered selections of k distinct nonzero non-basis r-bit data columns; all selected corrections are SDC-free for every distribution on the declared support",
+  "runtime_seconds": 6.013825599991833,
+  "schema_version": 1,
+  "sdc_limit": 0.0,
+  "status": "optimal",
+  "theoretical_candidate_matrices": 7920,
+  "verification": {
+    "certificates": {
+      "due": {
+        "adversarial_pmf": [
+          0.16,
+          0.06,
+          0.15,
+          0.06,
+          0.08,
+          0.0,
+          0.06,
+          0.01,
+          0.06,
+          0.0,
+          0.06,
+          0.0,
+          0.04,
+          0.0,
+          0.06,
+          0.01,
+          0.03,
+          0.0,
+          0.06,
+          0.0,
+          0.02,
+          0.0,
+          0.06,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0
+        ],
+        "ambiguity_type": "total_variation",
+        "certificate_sha256": "4d66ae9aee55bd56b21c2d6683ea083533dbb7a58b0ef2881ddec8bc76828479",
+        "distance_used": 0.1,
+        "dual_bound": 0.45999999999999996,
+        "loss_vector": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "nominal_pmf": [
+          0.06,
+          0.06,
+          0.25,
+          0.06,
+          0.08,
+          0.0,
+          0.06,
+          0.01,
+          0.06,
+          0.0,
+          0.06,
+          0.0,
+          0.04,
+          0.0,
+          0.06,
+          0.01,
+          0.03,
+          0.0,
+          0.06,
+          0.0,
+          0.02,
+          0.0,
+          0.06,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0
+        ],
+        "nominal_risk": 0.36,
+        "optimality_gap": 5.551115123125783e-17,
+        "optimality_proven": true,
+        "patterns_receiving_probability": [
+          {
+            "adversarial_probability": 0.16,
+            "nominal_probability": 0.06,
+            "pattern_id": "sbu-0",
+            "positions": [
+              0
+            ],
+            "probability_change": 0.1,
+            "support_index": 0
+          },
+          {
+            "adversarial_probability": 0.15,
+            "nominal_probability": 0.25,
+            "pattern_id": "adj-dbu-0-1",
+            "positions": [
+              0,
+              1
+            ],
+            "probability_change": -0.1,
+            "support_index": 2
+          }
+        ],
+        "radius": 0.1,
+        "schema_version": 1,
+        "solver": "exact_binary_loss_closed_form",
+        "solver_status": "optimal",
+        "transfers": [
+          {
+            "cost": 0.1,
+            "mass": 0.1,
+            "source": 2,
+            "target": 0
+          }
+        ],
+        "worst_case_risk": 0.46
+      },
+      "residual": {
+        "adversarial_pmf": [
+          0.16,
+          0.06,
+          0.15,
+          0.06,
+          0.08,
+          0.0,
+          0.06,
+          0.01,
+          0.06,
+          0.0,
+          0.06,
+          0.0,
+          0.04,
+          0.0,
+          0.06,
+          0.01,
+          0.03,
+          0.0,
+          0.06,
+          0.0,
+          0.02,
+          0.0,
+          0.06,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0
+        ],
+        "ambiguity_type": "total_variation",
+        "certificate_sha256": "4d66ae9aee55bd56b21c2d6683ea083533dbb7a58b0ef2881ddec8bc76828479",
+        "distance_used": 0.1,
+        "dual_bound": 0.45999999999999996,
+        "loss_vector": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "nominal_pmf": [
+          0.06,
+          0.06,
+          0.25,
+          0.06,
+          0.08,
+          0.0,
+          0.06,
+          0.01,
+          0.06,
+          0.0,
+          0.06,
+          0.0,
+          0.04,
+          0.0,
+          0.06,
+          0.01,
+          0.03,
+          0.0,
+          0.06,
+          0.0,
+          0.02,
+          0.0,
+          0.06,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0
+        ],
+        "nominal_risk": 0.36,
+        "optimality_gap": 5.551115123125783e-17,
+        "optimality_proven": true,
+        "patterns_receiving_probability": [
+          {
+            "adversarial_probability": 0.16,
+            "nominal_probability": 0.06,
+            "pattern_id": "sbu-0",
+            "positions": [
+              0
+            ],
+            "probability_change": 0.1,
+            "support_index": 0
+          },
+          {
+            "adversarial_probability": 0.15,
+            "nominal_probability": 0.25,
+            "pattern_id": "adj-dbu-0-1",
+            "positions": [
+              0,
+              1
+            ],
+            "probability_change": -0.1,
+            "support_index": 2
+          }
+        ],
+        "radius": 0.1,
+        "schema_version": 1,
+        "solver": "exact_binary_loss_closed_form",
+        "solver_status": "optimal",
+        "transfers": [
+          {
+            "cost": 0.1,
+            "mass": 0.1,
+            "source": 2,
+            "target": 0
+          }
+        ],
+        "worst_case_risk": 0.46
+      },
+      "sdc": {
+        "adversarial_pmf": [
+          0.06,
+          0.06,
+          0.25,
+          0.06,
+          0.08,
+          0.0,
+          0.06,
+          0.01,
+          0.06,
+          0.0,
+          0.06,
+          0.0,
+          0.04,
+          0.0,
+          0.06,
+          0.01,
+          0.03,
+          0.0,
+          0.06,
+          0.0,
+          0.02,
+          0.0,
+          0.06,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0
+        ],
+        "ambiguity_type": "total_variation",
+        "certificate_sha256": "f2c9ebe599226b822d6059b50d537fd2dc9f796344a1fb1e7f2a95dd75a7b1c3",
+        "distance_used": 0.0,
+        "dual_bound": 0.0,
+        "loss_vector": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nominal_pmf": [
+          0.06,
+          0.06,
+          0.25,
+          0.06,
+          0.08,
+          0.0,
+          0.06,
+          0.01,
+          0.06,
+          0.0,
+          0.06,
+          0.0,
+          0.04,
+          0.0,
+          0.06,
+          0.01,
+          0.03,
+          0.0,
+          0.06,
+          0.0,
+          0.02,
+          0.0,
+          0.06,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0
+        ],
+        "nominal_risk": 0.0,
+        "optimality_gap": 0.0,
+        "optimality_proven": true,
+        "patterns_receiving_probability": [],
+        "radius": 0.1,
+        "schema_version": 1,
+        "solver": "exact_binary_loss_closed_form",
+        "solver_status": "optimal",
+        "transfers": [],
+        "worst_case_risk": 0.0
+      }
+    },
+    "hardware": {
+      "decoder": {
+        "correction_mask_ones": 12,
+        "correction_output_or_proxy": 5,
+        "syndrome_compare_literals": 32,
+        "syndrome_table_entries": 8
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 5,
+        "parity_equation_inputs": [
+          2,
+          2,
+          3,
+          2
+        ]
+      },
+      "matrix_xor_gates": 14,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "2": 3,
+          "3": 1
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          3,
+          3,
+          4,
+          3
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 9
+      }
+    },
+    "loss_vectors": {
+      "correct": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "due": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sdc": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "nominal": {
+      "corrected": 0.64,
+      "due": 0.36,
+      "residual": 0.36,
+      "sdc": 0.0
+    },
+    "outcomes": [
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "sbu-0",
+        "positions": [
+          0
+        ],
+        "support_index": 0,
+        "syndrome": "1010"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            1
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "sbu-1",
+        "positions": [
+          1
+        ],
+        "support_index": 1,
+        "syndrome": "0101"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            0,
+            1
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "adj-dbu-0-1",
+        "positions": [
+          0,
+          1
+        ],
+        "support_index": 2,
+        "syndrome": "1111"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "sbu-2",
+        "positions": [
+          2
+        ],
+        "support_index": 3,
+        "syndrome": "1100"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            1,
+            2
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "adj-dbu-1-2",
+        "positions": [
+          1,
+          2
+        ],
+        "support_index": 4,
+        "syndrome": "1001"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-triple-0-2",
+        "positions": [
+          0,
+          1,
+          2
+        ],
+        "support_index": 5,
+        "syndrome": "0011"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "sbu-3",
+        "positions": [
+          3
+        ],
+        "support_index": 6,
+        "syndrome": "0111"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            0,
+            3
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "nonadj-dbu-0-3",
+        "positions": [
+          0,
+          3
+        ],
+        "support_index": 7,
+        "syndrome": "1101"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            2,
+            3
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "adj-dbu-2-3",
+        "positions": [
+          2,
+          3
+        ],
+        "support_index": 8,
+        "syndrome": "1011"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-triple-1-3",
+        "positions": [
+          1,
+          2,
+          3
+        ],
+        "support_index": 9,
+        "syndrome": "1110"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            4
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "sbu-4",
+        "positions": [
+          4
+        ],
+        "support_index": 10,
+        "syndrome": "0001"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-mbu-0-2-4",
+        "positions": [
+          0,
+          2,
+          4
+        ],
+        "support_index": 11,
+        "syndrome": "0111"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "adj-dbu-3-4",
+        "positions": [
+          3,
+          4
+        ],
+        "support_index": 12,
+        "syndrome": "0110"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-triple-2-4",
+        "positions": [
+          2,
+          3,
+          4
+        ],
+        "support_index": 13,
+        "syndrome": "1010"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            5
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "sbu-5",
+        "positions": [
+          5
+        ],
+        "support_index": 14,
+        "syndrome": "0010"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "nonadj-dbu-1-5",
+        "positions": [
+          1,
+          5
+        ],
+        "support_index": 15,
+        "syndrome": "0111"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "adj-dbu-4-5",
+        "positions": [
+          4,
+          5
+        ],
+        "support_index": 16,
+        "syndrome": "0011"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-triple-3-5",
+        "positions": [
+          3,
+          4,
+          5
+        ],
+        "support_index": 17,
+        "syndrome": "0100"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "sbu-6",
+        "positions": [
+          6
+        ],
+        "support_index": 18,
+        "syndrome": "0100"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-mbu-1-3-6",
+        "positions": [
+          1,
+          3,
+          6
+        ],
+        "support_index": 19,
+        "syndrome": "0110"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "adj-dbu-5-6",
+        "positions": [
+          5,
+          6
+        ],
+        "support_index": 20,
+        "syndrome": "0110"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-triple-4-6",
+        "positions": [
+          4,
+          5,
+          6
+        ],
+        "support_index": 21,
+        "syndrome": "0111"
+      },
+      {
+        "action": {
+          "correction_positions": [
+            7
+          ],
+          "kind": "correct"
+        },
+        "outcome": "corrected",
+        "pattern_id": "sbu-7",
+        "positions": [
+          7
+        ],
+        "support_index": 22,
+        "syndrome": "1000"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "nonadj-dbu-2-7",
+        "positions": [
+          2,
+          7
+        ],
+        "support_index": 23,
+        "syndrome": "0100"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-mbu-0-4-7",
+        "positions": [
+          0,
+          4,
+          7
+        ],
+        "support_index": 24,
+        "syndrome": "0011"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-mbu-1-4-7",
+        "positions": [
+          1,
+          4,
+          7
+        ],
+        "support_index": 25,
+        "syndrome": "1100"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "adj-dbu-6-7",
+        "positions": [
+          6,
+          7
+        ],
+        "support_index": 26,
+        "syndrome": "1100"
+      },
+      {
+        "action": {
+          "correction_positions": [],
+          "kind": "DUE"
+        },
+        "outcome": "detected_uncorrectable",
+        "pattern_id": "shift-triple-5-7",
+        "positions": [
+          5,
+          6,
+          7
+        ],
+        "support_index": 27,
+        "syndrome": "1110"
+      }
+    ],
+    "worst_case": {
+      "due": 0.46,
+      "residual": 0.46,
+      "sdc": 0.0
+    },
+    "worst_case_residual_fit": 460.0
+  }
+}

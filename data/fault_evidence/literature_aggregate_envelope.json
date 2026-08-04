@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "literature_derived_aggregate_constraints",
+  "not_a_fault_distribution": true,
+  "not_statistically_calibrated_for_green_ecc": true,
+  "source_ids": ["perez-celis-wirthlin-2020", "tsiligiannis-et-al-2014"],
+  "observations": [
+    {
+      "device": "XC7A200T",
+      "quantity": "fraction of classified radiation events that are MCUs",
+      "value": 0.277,
+      "units": "event fraction",
+      "extraction": "reported aggregate in the primary paper"
+    },
+    {
+      "device": "XCKU040",
+      "quantity": "fraction of classified radiation events that are MCUs",
+      "value": 0.1459,
+      "units": "event fraction",
+      "extraction": "reported aggregate in the primary paper"
+    },
+    {
+      "device": "XCZU9EG",
+      "quantity": "fraction of classified radiation events that are MCUs",
+      "value": 0.0559,
+      "units": "event fraction",
+      "extraction": "reported aggregate in the primary paper"
+    }
+  ],
+  "safe_use": "motivate sensitivity sweeps that permit nonzero MBU mass",
+  "unsafe_use": "mapping these FPGA-family event fractions directly onto an SRAM word's bit-vector PMF"
+}

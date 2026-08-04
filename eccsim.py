@@ -234,6 +234,34 @@ def main() -> None:
         help="Optional path for the JSON report; stdout is always emitted",
     )
 
+    audit_equivalence_parser = sub.add_parser(
+        "audit-equivalence",
+        help="Classify a generated or external parity-check matrix without novelty overclaim",
+    )
+    audit_equivalence_parser.add_argument("--code", type=Path, required=True)
+    audit_equivalence_parser.add_argument("--reference", type=Path, default=None)
+    audit_equivalence_parser.add_argument("--geometry-rows", type=int, default=None)
+    audit_equivalence_parser.add_argument("--geometry-columns", type=int, default=None)
+    audit_equivalence_parser.add_argument("--out", type=Path, default=None)
+
+    compile_safe_parser = sub.add_parser(
+        "compile-safe-decoder",
+        help="Compile an abstaining syndrome policy and exact distributional safety certificate",
+    )
+    compile_safe_parser.add_argument("--code", type=Path, required=True)
+    compile_safe_parser.add_argument("--fault-model", type=Path, required=True)
+    compile_safe_parser.add_argument("--ambiguity", type=Path, required=True)
+    compile_safe_parser.add_argument("--sdc-limit", type=float, required=True)
+    compile_safe_parser.add_argument("--residual-fit-limit", type=float, default=None)
+    compile_safe_parser.add_argument("--outdir", type=Path, required=True)
+
+    verify_safety_parser = sub.add_parser(
+        "verify-safety-certificate",
+        help="Solver-free verification of an external SafeForge matrix, policy, and risk certificate",
+    )
+    verify_safety_parser.add_argument("--certificate", type=Path, required=True)
+    verify_safety_parser.add_argument("--out", type=Path, default=None)
+
     energy_parser = sub.add_parser("energy", help="Estimate energy use")
     energy_parser.add_argument(
         "--code", type=str, required=True, choices=["sec-ded", "sec-daec", "taec", "polar"]
@@ -758,6 +786,65 @@ def main() -> None:
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_text(rendered, encoding="utf-8")
         print(rendered, end="")
+        return
+
+    if args.command == "audit-equivalence":
+        from jsonschema import ValidationError
+        from codeforge.safe_pipeline import run_equivalence_audit
+
+        try:
+            result = run_equivalence_audit(
+                args.code,
+                repo_root=repo_path,
+                reference_path=args.reference,
+                geometry_rows=args.geometry_rows,
+                geometry_columns=args.geometry_columns,
+            )
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            audit_equivalence_parser.error(str(exc))
+        rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
+        if args.out is not None:
+            destination = args.out if args.out.is_absolute() else repo_path / args.out
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(rendered, encoding="utf-8")
+        print(rendered, end="")
+        return
+
+    if args.command == "compile-safe-decoder":
+        from jsonschema import ValidationError
+        from codeforge.safe_pipeline import compile_safe_decoder_pipeline
+
+        try:
+            result = compile_safe_decoder_pipeline(
+                args.code,
+                args.fault_model,
+                args.ambiguity,
+                args.outdir,
+                repo_root=repo_path,
+                sdc_limit=args.sdc_limit,
+                residual_fit_limit=args.residual_fit_limit,
+            )
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            compile_safe_parser.error(str(exc))
+        print(json.dumps(result, indent=2, sort_keys=True))
+        return
+
+    if args.command == "verify-safety-certificate":
+        from jsonschema import ValidationError
+        from codeforge.safe_pipeline import verify_safety_certificate_file
+
+        try:
+            result = verify_safety_certificate_file(args.certificate, repo_root=repo_path)
+        except (ValidationError, KeyError, TypeError, ValueError) as exc:
+            verify_safety_parser.error(str(exc))
+        rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
+        if args.out is not None:
+            destination = args.out if args.out.is_absolute() else repo_path / args.out
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(rendered, encoding="utf-8")
+        print(rendered, end="")
+        if result["verification_status"] != "passed":
+            raise SystemExit(1)
         return
 
     if args.command == "evaluate":

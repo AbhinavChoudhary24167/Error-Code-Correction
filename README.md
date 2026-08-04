@@ -426,6 +426,26 @@ Without a characterized synthesis/STA flow and measured transition costs, physic
 PPA and scheduler net-benefit claims remain unsupported. See
 `docs/PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md` for the evidence-gated conclusions.
 
+### SafeForge certifying decoder compiler
+
+SafeForge adds explicit distributional ambiguity, correction/DUE policy compilation,
+exact worst-case SDC/DUE certificates, a solver-free verifier, equivalence auditing,
+deployment envelopes, and synthesizable abstention RTL.
+
+```bash
+python3 eccsim.py audit-equivalence --code reports/code_synthesis/code.json --reference reports/code_synthesis/baselines/odd_column_secded_code.json --geometry-rows 2 --geometry-columns 4
+python3 eccsim.py compile-safe-decoder --code reports/code_synthesis/code.json --fault-model configs/fault_distributions/small_hotspot_8bit.json --ambiguity configs/ambiguity/tv_small_example.json --sdc-limit 0 --outdir reports/safe_decoder
+python3 eccsim.py verify-safety-certificate --certificate reports/safe_decoder/certificate.json
+python3 scripts/run_safeforge_study.py
+python3 scripts/run_safeforge_64_study.py
+```
+
+The authoritative five-strategy comparison and nine SVG figures are under
+`reports/safeforge_study/`. See `docs/CODE_EQUIVALENCE_AUDIT.md`,
+`docs/SAFEFORGE_METHOD.md`, and `docs/SAFEFORGE_FINAL_REPORT.md`. All included
+fault PMFs and radii are synthetic or engineering sensitivity unless an artifact
+explicitly says `statistically_calibrated`.
+
 ---
 
 ## Additional documentation

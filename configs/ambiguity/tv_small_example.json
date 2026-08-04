@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "ambiguity_id": "tv-small-support-expanded-v1",
+  "type": "total_variation",
+  "radius": 0.1,
+  "maximum_radius": 1.0,
+  "support_expansions": ["configs/fault_distributions/small_shifted_8bit.json"],
+  "physical_bit_order": [0, 1, 2, 3, 4, 5, 6, 7],
+  "fallback_mode": "detect-only-safe-fallback",
+  "calibration": {
+    "kind": "engineering_sensitivity",
+    "description": "Engineering TV-radius sweep over a synthetic expanded support; no statistical coverage claim."
+  }
+}

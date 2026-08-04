@@ -1,0 +1,249 @@
+{
+  "conventional_min_weight_fixed": {
+    "adversarial_pmf": [
+      0.06,
+      0.06,
+      0.15,
+      0.06,
+      0.08,
+      0.1,
+      0.06,
+      0.01,
+      0.06,
+      0.0,
+      0.06,
+      0.0,
+      0.04,
+      0.0,
+      0.06,
+      0.01,
+      0.03,
+      0.0,
+      0.06,
+      0.0,
+      0.02,
+      0.0,
+      0.06,
+      0.01,
+      0.0,
+      0.0,
+      0.01,
+      0.0
+    ],
+    "certificate_sha256": "c8659bc929b6b34d892d00b92f1f5e78388c6b601532dae26dc4f9ee9100fb35",
+    "patterns_receiving_probability": [
+      {
+        "adversarial_probability": 0.15,
+        "nominal_probability": 0.25,
+        "pattern_id": "adj-dbu-0-1",
+        "positions": [
+          0,
+          1
+        ],
+        "probability_change": -0.1,
+        "support_index": 2
+      },
+      {
+        "adversarial_probability": 0.1,
+        "nominal_probability": 0.0,
+        "pattern_id": "shift-triple-0-2",
+        "positions": [
+          0,
+          1,
+          2
+        ],
+        "probability_change": 0.1,
+        "support_index": 5
+      }
+    ],
+    "worst_case_sdc": 0.1
+  },
+  "nominal_ml_fixed": {
+    "adversarial_pmf": [
+      0.06,
+      0.06,
+      0.15,
+      0.06,
+      0.08,
+      0.1,
+      0.06,
+      0.01,
+      0.06,
+      0.0,
+      0.06,
+      0.0,
+      0.04,
+      0.0,
+      0.06,
+      0.01,
+      0.03,
+      0.0,
+      0.06,
+      0.0,
+      0.02,
+      0.0,
+      0.06,
+      0.01,
+      0.0,
+      0.0,
+      0.01,
+      0.0
+    ],
+    "certificate_sha256": "f21997dd8291d95f6bb7842d8a558c6d251a89c1e8e22160065017b273d32c22",
+    "patterns_receiving_probability": [
+      {
+        "adversarial_probability": 0.15,
+        "nominal_probability": 0.25,
+        "pattern_id": "adj-dbu-0-1",
+        "positions": [
+          0,
+          1
+        ],
+        "probability_change": -0.1,
+        "support_index": 2
+      },
+      {
+        "adversarial_probability": 0.1,
+        "nominal_probability": 0.0,
+        "pattern_id": "shift-triple-0-2",
+        "positions": [
+          0,
+          1,
+          2
+        ],
+        "probability_change": 0.1,
+        "support_index": 5
+      }
+    ],
+    "worst_case_sdc": 0.17
+  },
+  "nominal_synthesized": {
+    "adversarial_pmf": [
+      0.06,
+      0.06,
+      0.15,
+      0.06,
+      0.08,
+      0.1,
+      0.06,
+      0.01,
+      0.06,
+      0.0,
+      0.06,
+      0.0,
+      0.04,
+      0.0,
+      0.06,
+      0.01,
+      0.03,
+      0.0,
+      0.06,
+      0.0,
+      0.02,
+      0.0,
+      0.06,
+      0.01,
+      0.0,
+      0.0,
+      0.01,
+      0.0
+    ],
+    "certificate_sha256": "cfefd4b9947d3dd1919e9755980edcaa8473b28f3723b9e47374159e98ecb946",
+    "patterns_receiving_probability": [
+      {
+        "adversarial_probability": 0.15,
+        "nominal_probability": 0.25,
+        "pattern_id": "adj-dbu-0-1",
+        "positions": [
+          0,
+          1
+        ],
+        "probability_change": -0.1,
+        "support_index": 2
+      },
+      {
+        "adversarial_probability": 0.1,
+        "nominal_probability": 0.0,
+        "pattern_id": "shift-triple-0-2",
+        "positions": [
+          0,
+          1,
+          2
+        ],
+        "probability_change": 0.1,
+        "support_index": 5
+      }
+    ],
+    "worst_case_sdc": 0.13
+  },
+  "robust_abstain_fixed": {
+    "adversarial_pmf": [
+      0.06,
+      0.06,
+      0.25,
+      0.06,
+      0.08,
+      0.0,
+      0.06,
+      0.01,
+      0.06,
+      0.0,
+      0.06,
+      0.0,
+      0.04,
+      0.0,
+      0.06,
+      0.01,
+      0.03,
+      0.0,
+      0.06,
+      0.0,
+      0.02,
+      0.0,
+      0.06,
+      0.01,
+      0.0,
+      0.0,
+      0.01,
+      0.0
+    ],
+    "certificate_sha256": "f2c9ebe599226b822d6059b50d537fd2dc9f796344a1fb1e7f2a95dd75a7b1c3",
+    "patterns_receiving_probability": [],
+    "worst_case_sdc": 0.0
+  },
+  "robust_cosynthesized": {
+    "adversarial_pmf": [
+      0.06,
+      0.06,
+      0.25,
+      0.06,
+      0.08,
+      0.0,
+      0.06,
+      0.01,
+      0.06,
+      0.0,
+      0.06,
+      0.0,
+      0.04,
+      0.0,
+      0.06,
+      0.01,
+      0.03,
+      0.0,
+      0.06,
+      0.0,
+      0.02,
+      0.0,
+      0.06,
+      0.01,
+      0.0,
+      0.0,
+      0.01,
+      0.0
+    ],
+    "certificate_sha256": "f2c9ebe599226b822d6059b50d537fd2dc9f796344a1fb1e7f2a95dd75a7b1c3",
+    "patterns_receiving_probability": [],
+    "worst_case_sdc": 0.0
+  }
+}

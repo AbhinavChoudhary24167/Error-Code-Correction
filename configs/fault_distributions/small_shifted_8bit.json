@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "distribution_id": "small-shifted-8bit-synthetic-v1",
+  "bit_width": 8,
+  "raw_fit": 1000.0,
+  "provenance": {
+    "kind": "synthetic",
+    "description": "Out-of-nominal stress PMF adding adjacent triples and general MBUs; not measured data.",
+    "source": null,
+    "derivation": "Hand-specified support-expansion and held-out stress distribution.",
+    "seed": 4102
+  },
+  "patterns": [
+    {"pattern_id": "shift-sbu-0", "positions": [0], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-1", "positions": [1], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-2", "positions": [2], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-3", "positions": [3], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-4", "positions": [4], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-5", "positions": [5], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-6", "positions": [6], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-sbu-7", "positions": [7], "probability": 0.025, "family": "sbu"},
+    {"pattern_id": "shift-adj-0-1", "positions": [0, 1], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-adj-1-2", "positions": [1, 2], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-adj-2-3", "positions": [2, 3], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-adj-3-4", "positions": [3, 4], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-adj-4-5", "positions": [4, 5], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-adj-5-6", "positions": [5, 6], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-adj-6-7", "positions": [6, 7], "probability": 0.04, "family": "adjacent_dbu"},
+    {"pattern_id": "shift-triple-0-2", "positions": [0, 1, 2], "probability": 0.06, "family": "triple_adjacent"},
+    {"pattern_id": "shift-triple-1-3", "positions": [1, 2, 3], "probability": 0.06, "family": "triple_adjacent"},
+    {"pattern_id": "shift-triple-2-4", "positions": [2, 3, 4], "probability": 0.06, "family": "triple_adjacent"},
+    {"pattern_id": "shift-triple-3-5", "positions": [3, 4, 5], "probability": 0.06, "family": "triple_adjacent"},
+    {"pattern_id": "shift-triple-4-6", "positions": [4, 5, 6], "probability": 0.06, "family": "triple_adjacent"},
+    {"pattern_id": "shift-triple-5-7", "positions": [5, 6, 7], "probability": 0.06, "family": "triple_adjacent"},
+    {"pattern_id": "shift-nonadj-0-3", "positions": [0, 3], "probability": 0.04, "family": "non_adjacent_dbu"},
+    {"pattern_id": "shift-nonadj-1-5", "positions": [1, 5], "probability": 0.04, "family": "non_adjacent_dbu"},
+    {"pattern_id": "shift-nonadj-2-7", "positions": [2, 7], "probability": 0.04, "family": "non_adjacent_dbu"},
+    {"pattern_id": "shift-mbu-0-2-4", "positions": [0, 2, 4], "probability": 0.01, "family": "general_mbu"},
+    {"pattern_id": "shift-mbu-1-3-6", "positions": [1, 3, 6], "probability": 0.01, "family": "general_mbu"},
+    {"pattern_id": "shift-mbu-0-4-7", "positions": [0, 4, 7], "probability": 0.01, "family": "general_mbu"},
+    {"pattern_id": "shift-mbu-1-4-7", "positions": [1, 4, 7], "probability": 0.01, "family": "general_mbu"}
+  ]
+}

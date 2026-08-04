@@ -77,14 +77,34 @@ jobs:
           python -m pytest -q
 
   rtl:
-    name: RTL regression / Icarus Verilog
+    name: RTL regression / Icarus + Verilator + Yosys
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Icarus Verilog
-        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Install open-source RTL tools
+        run: sudo apt-get update && sudo apt-get install -y iverilog verilator yosys
 
       - name: Run RTL regression
         run: bash asic/scripts/regress.sh
+
+      - name: Run exhaustive SafeForge policy/reference testbench
+        run: |
+          iverilog -g2012 -o /tmp/safeforge_tb reports/safe_decoder/rtl/*.sv
+          vvp /tmp/safeforge_tb
+          iverilog -g2012 -o /tmp/safeforge64_tb reports/safeforge_64_decoder/rtl/*.sv
+          vvp /tmp/safeforge64_tb
+
+      - name: Lint SafeForge RTL with Verilator
+        run: |
+          verilator --lint-only --timing -Wall -Wno-fatal reports/safe_decoder/rtl/*.sv
+          verilator --lint-only --timing -Wall -Wno-fatal reports/safeforge_64_decoder/rtl/*.sv
+
+      - name: Synthesize and check SafeForge decoder with Yosys
+        run: >-
+          yosys -p 'read_verilog -sv
+          reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_syndrome.sv
+          reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_safe_decoder.sv;
+          hierarchy -check -top forge_hotspot_8_4_v1_safe_safe_decoder;
+          proc; opt; check -assert; stat'

@@ -1,0 +1,39 @@
+{
+  "decisions": [
+    {
+      "observed_radius": 0.0,
+      "reason": "certificate_contains_confidence_region",
+      "selected_mode": "specialized-safe",
+      "support_contained": true
+    },
+    {
+      "observed_radius": 0.1,
+      "reason": "certificate_contains_confidence_region",
+      "selected_mode": "specialized-safe",
+      "support_contained": true
+    },
+    {
+      "observed_radius": 0.5499999999999999,
+      "reason": "certificate_contains_confidence_region",
+      "selected_mode": "specialized-safe",
+      "support_contained": true
+    },
+    {
+      "observed_radius": 1.0,
+      "reason": "certificate_contains_confidence_region",
+      "selected_mode": "specialized-safe",
+      "support_contained": true
+    },
+    {
+      "observed_radius": 0.5499999999999999,
+      "reason": "undeclared_error_support",
+      "selected_mode": "detect-only-safe-fallback",
+      "support_contained": false
+    }
+  ],
+  "gate": "current confidence region must be contained in the selected mode certificate",
+  "heldout_inside_envelope": true,
+  "heldout_shift_tv_distance": 0.5499999999999999,
+  "no_uncertified_selection": true,
+  "specialized_certificate_radius": 1.0
+}

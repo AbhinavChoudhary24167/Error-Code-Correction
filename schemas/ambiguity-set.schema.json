@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/ambiguity-set.schema.json",
+  "title": "SafeForge finite-support fault-distribution ambiguity set",
+  "type": "object",
+  "required": ["schema_version", "ambiguity_id", "type", "radius", "calibration"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "ambiguity_id": {"type": "string", "minLength": 1},
+    "type": {"enum": ["total_variation", "structured_interval", "geometry_wasserstein"]},
+    "radius": {"type": "number", "minimum": 0},
+    "maximum_radius": {"type": "number", "minimum": 0},
+    "support_expansions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "physical_bit_order": {"type": "array", "items": {"type": "integer", "minimum": 0}, "uniqueItems": true},
+    "fallback_mode": {"type": "string"},
+    "calibration": {
+      "type": "object",
+      "required": ["kind", "description"],
+      "properties": {
+        "kind": {"enum": ["statistically_calibrated", "engineering_sensitivity", "synthetic_stress"]},
+        "description": {"type": "string", "minLength": 1},
+        "sample_count": {"type": "integer", "minimum": 1},
+        "declared_coverage": {"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1}
+      },
+      "additionalProperties": true
+    },
+    "pattern_intervals": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/interval"}
+    },
+    "category_intervals": {
+      "type": "object",
+      "propertyNames": {"enum": ["family", "multiplicity", "adjacency_class", "burst_length", "vdd", "temperature", "spatial_region"]},
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {"$ref": "#/$defs/interval"}
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "multiplicity_weight": {"type": "number", "minimum": 0},
+        "hamming_weight": {"type": "number", "minimum": 0},
+        "displacement_weight": {"type": "number", "minimum": 0},
+        "burst_length_weight": {"type": "number", "minimum": 0},
+        "adjacency_class_weight": {"type": "number", "minimum": 0},
+        "row_column_weight": {"type": "number", "minimum": 0},
+        "sram_columns": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"type": {"const": "total_variation"}}}, "then": {"properties": {"radius": {"maximum": 1}}}},
+    {"if": {"properties": {"type": {"const": "structured_interval"}}}, "then": {"properties": {"radius": {"maximum": 1}}}},
+    {"if": {"properties": {"type": {"const": "geometry_wasserstein"}}}, "then": {"required": ["geometry"]}}
+  ],
+  "$defs": {
+    "interval": {
+      "type": "object",
+      "required": ["lower", "upper"],
+      "properties": {
+        "lower": {"type": "number", "minimum": 0, "maximum": 1},
+        "upper": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

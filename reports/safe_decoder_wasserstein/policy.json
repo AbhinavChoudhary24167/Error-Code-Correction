@@ -1,0 +1,2197 @@
+{
+  "abstention_count": 8,
+  "ambiguity_id": "wasserstein-small-geometry-v1",
+  "ambiguity_type": "geometry_wasserstein",
+  "candidate_action_evaluations": {
+    "0001": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 16,
+        "correction_positions": [
+          4
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "0001",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ],
+    "0010": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 32,
+        "correction_positions": [
+          5
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "0010",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.08888888888888889
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 7,
+        "correction_positions": [
+          0,
+          1,
+          2
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "0010",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 145,
+        "correction_positions": [
+          0,
+          4,
+          7
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "0010",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      }
+    ],
+    "0011": [
+      {
+        "candidate_nominal_mass": 0.03,
+        "correction_mask": 48,
+        "correction_positions": [
+          4,
+          5
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "0011",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.10574257425742574,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ],
+    "0100": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 64,
+        "correction_positions": [
+          6
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "0100",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.0888888888888889
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 14,
+        "correction_positions": [
+          1,
+          2,
+          3
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "0100",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      }
+    ],
+    "0101": [
+      {
+        "candidate_nominal_mass": 0.25,
+        "correction_mask": 3,
+        "correction_positions": [
+          0,
+          1
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "0101",
+        "worst_case_confidence_lower_bound": 0.4233576642335767,
+        "worst_case_due_contribution_if_abstaining": 0.3425,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ],
+    "0110": [
+      {
+        "candidate_nominal_mass": 0.02,
+        "correction_mask": 96,
+        "correction_positions": [
+          5,
+          6
+        ],
+        "nominal_confidence": 0.6666666666666667,
+        "syndrome": "0110",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.10398692810457517,
+        "worst_case_sdc_contribution": 0.05683783783783784
+      },
+      {
+        "candidate_nominal_mass": 0.01,
+        "correction_mask": 9,
+        "correction_positions": [
+          0,
+          3
+        ],
+        "nominal_confidence": 0.33333333333333337,
+        "syndrome": "0110",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.10398692810457517,
+        "worst_case_sdc_contribution": 0.09398692810457518
+      }
+    ],
+    "0111": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 4,
+        "correction_positions": [
+          2
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "0111",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.07232177263969172
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 74,
+        "correction_positions": [
+          1,
+          3,
+          6
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "0111",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 112,
+        "correction_positions": [
+          4,
+          5,
+          6
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "0111",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 146,
+        "correction_positions": [
+          1,
+          4,
+          7
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "0111",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      }
+    ],
+    "1000": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 128,
+        "correction_positions": [
+          7
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1000",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ],
+    "1001": [
+      {
+        "candidate_nominal_mass": 0.08,
+        "correction_mask": 6,
+        "correction_positions": [
+          1,
+          2
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1001",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.185,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ],
+    "1010": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 12,
+        "correction_positions": [
+          2,
+          3
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1010",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.15980198019801983,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ],
+    "1011": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 1,
+        "correction_positions": [
+          0
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1011",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.15717728055077454,
+        "worst_case_sdc_contribution": 0.08000000000000002
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 28,
+        "correction_positions": [
+          2,
+          3,
+          4
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "1011",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.15717728055077454,
+        "worst_case_sdc_contribution": 0.1505084745762712
+      }
+    ],
+    "1100": [
+      {
+        "candidate_nominal_mass": 0.04,
+        "correction_mask": 24,
+        "correction_positions": [
+          3,
+          4
+        ],
+        "nominal_confidence": 0.6666666666666667,
+        "syndrome": "1100",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.14732673267326735,
+        "worst_case_sdc_contribution": 0.083125
+      },
+      {
+        "candidate_nominal_mass": 0.01,
+        "correction_mask": 192,
+        "correction_positions": [
+          6,
+          7
+        ],
+        "nominal_confidence": 0.16666666666666669,
+        "syndrome": "1100",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.14732673267326735,
+        "worst_case_sdc_contribution": 0.1331683168316832
+      },
+      {
+        "candidate_nominal_mass": 0.01,
+        "correction_mask": 34,
+        "correction_positions": [
+          1,
+          5
+        ],
+        "nominal_confidence": 0.16666666666666669,
+        "syndrome": "1100",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.14732673267326735,
+        "worst_case_sdc_contribution": 0.13732673267326734
+      }
+    ],
+    "1101": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 8,
+        "correction_positions": [
+          3
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1101",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+        "worst_case_sdc_contribution": 0.04057704502219404
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 21,
+        "correction_positions": [
+          0,
+          2,
+          4
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "1101",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+        "worst_case_sdc_contribution": 0.1505084745762712
+      }
+    ],
+    "1110": [
+      {
+        "candidate_nominal_mass": 0.06,
+        "correction_mask": 2,
+        "correction_positions": [
+          1
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1110",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.08494845360824743
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 56,
+        "correction_positions": [
+          3,
+          4,
+          5
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "1110",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      },
+      {
+        "candidate_nominal_mass": 0.0,
+        "correction_mask": 224,
+        "correction_positions": [
+          5,
+          6,
+          7
+        ],
+        "nominal_confidence": 0.0,
+        "syndrome": "1110",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.165,
+        "worst_case_sdc_contribution": 0.165
+      }
+    ],
+    "1111": [
+      {
+        "candidate_nominal_mass": 0.01,
+        "correction_mask": 132,
+        "correction_positions": [
+          2,
+          7
+        ],
+        "nominal_confidence": 1.0,
+        "syndrome": "1111",
+        "worst_case_confidence_lower_bound": 0.0,
+        "worst_case_due_contribution_if_abstaining": 0.05010548523206751,
+        "worst_case_sdc_contribution": 0.0
+      }
+    ]
+  },
+  "certificates": {
+    "due": {
+      "adversarial_pmf": [
+        0.06,
+        0.06,
+        0.25,
+        0.06,
+        0.08,
+        0.0,
+        0.06,
+        0.01,
+        0.06,
+        0.0,
+        0.0,
+        0.0,
+        0.04,
+        0.0,
+        0.12,
+        0.01,
+        0.0,
+        0.0,
+        0.07500000000000001,
+        0.0,
+        0.05,
+        0.0,
+        0.04499999999999998,
+        0.01,
+        0.0,
+        0.0,
+        0.01,
+        0.0
+      ],
+      "ambiguity_type": "geometry_wasserstein",
+      "bit_width": 8,
+      "certificate_sha256": "139dd857a951dc04a92b6799c8c410ba38b10a77516db8e88b8e152992a2185d",
+      "distance_used": 0.05,
+      "dual_bound": 0.555,
+      "dual_multiplier": 2.1,
+      "geometry": {
+        "adjacency_class_weight": 0.5,
+        "burst_length_weight": 0.5,
+        "displacement_weight": 1.0,
+        "hamming_weight": 1.0,
+        "multiplicity_weight": 1.0,
+        "row_column_weight": 0.5,
+        "sram_columns": 4
+      },
+      "loss_vector": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "nominal_pmf": [
+        0.06,
+        0.06,
+        0.25,
+        0.06,
+        0.08,
+        0.0,
+        0.06,
+        0.01,
+        0.06,
+        0.0,
+        0.06,
+        0.0,
+        0.04,
+        0.0,
+        0.06,
+        0.01,
+        0.03,
+        0.0,
+        0.06,
+        0.0,
+        0.02,
+        0.0,
+        0.06,
+        0.01,
+        0.0,
+        0.0,
+        0.01,
+        0.0
+      ],
+      "nominal_risk": 0.45,
+      "optimality_gap": 0.0,
+      "optimality_proven": true,
+      "patterns_receiving_probability": [
+        {
+          "adversarial_probability": 0.0,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-4",
+          "positions": [
+            4
+          ],
+          "probability_change": -0.06,
+          "support_index": 10
+        },
+        {
+          "adversarial_probability": 0.12,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-5",
+          "positions": [
+            5
+          ],
+          "probability_change": 0.06,
+          "support_index": 14
+        },
+        {
+          "adversarial_probability": 0.0,
+          "nominal_probability": 0.03,
+          "pattern_id": "adj-dbu-4-5",
+          "positions": [
+            4,
+            5
+          ],
+          "probability_change": -0.03,
+          "support_index": 16
+        },
+        {
+          "adversarial_probability": 0.07500000000000001,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-6",
+          "positions": [
+            6
+          ],
+          "probability_change": 0.015000000000000013,
+          "support_index": 18
+        },
+        {
+          "adversarial_probability": 0.05,
+          "nominal_probability": 0.02,
+          "pattern_id": "adj-dbu-5-6",
+          "positions": [
+            5,
+            6
+          ],
+          "probability_change": 0.030000000000000002,
+          "support_index": 20
+        },
+        {
+          "adversarial_probability": 0.04499999999999998,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-7",
+          "positions": [
+            7
+          ],
+          "probability_change": -0.01500000000000002,
+          "support_index": 22
+        }
+      ],
+      "radius": 0.05,
+      "schema_version": 1,
+      "solver": "exact_binary_loss_fractional_transport_and_finite_dual_breakpoints",
+      "solver_status": "optimal",
+      "transport_plan": [
+        {
+          "cost": 0.028571428571428567,
+          "mass": 0.06,
+          "source": 10,
+          "target": 14,
+          "unit_cost": 0.47619047619047616
+        },
+        {
+          "cost": 0.014285714285714284,
+          "mass": 0.03,
+          "source": 16,
+          "target": 20,
+          "unit_cost": 0.47619047619047616
+        },
+        {
+          "cost": 0.007142857142857152,
+          "mass": 0.01500000000000002,
+          "source": 22,
+          "target": 18,
+          "unit_cost": 0.47619047619047616
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 0,
+          "target": 0,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 1,
+          "target": 1,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.25,
+          "source": 2,
+          "target": 2,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 3,
+          "target": 3,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.08,
+          "source": 4,
+          "target": 4,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 6,
+          "target": 6,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 7,
+          "target": 7,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 8,
+          "target": 8,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.04,
+          "source": 12,
+          "target": 12,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 14,
+          "target": 14,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 15,
+          "target": 15,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 18,
+          "target": 18,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.02,
+          "source": 20,
+          "target": 20,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.04499999999999998,
+          "source": 22,
+          "target": 22,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 23,
+          "target": 23,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 26,
+          "target": 26,
+          "unit_cost": 0.0
+        }
+      ],
+      "worst_case_risk": 0.555
+    },
+    "residual": {
+      "adversarial_pmf": [
+        0.06,
+        0.06,
+        0.25,
+        0.06,
+        0.08,
+        0.0,
+        0.06,
+        0.01,
+        0.06,
+        0.0,
+        0.0,
+        0.0,
+        0.04,
+        0.0,
+        0.12,
+        0.01,
+        0.0,
+        0.0,
+        0.07500000000000001,
+        0.0,
+        0.05,
+        0.0,
+        0.04499999999999998,
+        0.01,
+        0.0,
+        0.0,
+        0.01,
+        0.0
+      ],
+      "ambiguity_type": "geometry_wasserstein",
+      "bit_width": 8,
+      "certificate_sha256": "139dd857a951dc04a92b6799c8c410ba38b10a77516db8e88b8e152992a2185d",
+      "distance_used": 0.05,
+      "dual_bound": 0.555,
+      "dual_multiplier": 2.1,
+      "geometry": {
+        "adjacency_class_weight": 0.5,
+        "burst_length_weight": 0.5,
+        "displacement_weight": 1.0,
+        "hamming_weight": 1.0,
+        "multiplicity_weight": 1.0,
+        "row_column_weight": 0.5,
+        "sram_columns": 4
+      },
+      "loss_vector": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "nominal_pmf": [
+        0.06,
+        0.06,
+        0.25,
+        0.06,
+        0.08,
+        0.0,
+        0.06,
+        0.01,
+        0.06,
+        0.0,
+        0.06,
+        0.0,
+        0.04,
+        0.0,
+        0.06,
+        0.01,
+        0.03,
+        0.0,
+        0.06,
+        0.0,
+        0.02,
+        0.0,
+        0.06,
+        0.01,
+        0.0,
+        0.0,
+        0.01,
+        0.0
+      ],
+      "nominal_risk": 0.45,
+      "optimality_gap": 0.0,
+      "optimality_proven": true,
+      "patterns_receiving_probability": [
+        {
+          "adversarial_probability": 0.0,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-4",
+          "positions": [
+            4
+          ],
+          "probability_change": -0.06,
+          "support_index": 10
+        },
+        {
+          "adversarial_probability": 0.12,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-5",
+          "positions": [
+            5
+          ],
+          "probability_change": 0.06,
+          "support_index": 14
+        },
+        {
+          "adversarial_probability": 0.0,
+          "nominal_probability": 0.03,
+          "pattern_id": "adj-dbu-4-5",
+          "positions": [
+            4,
+            5
+          ],
+          "probability_change": -0.03,
+          "support_index": 16
+        },
+        {
+          "adversarial_probability": 0.07500000000000001,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-6",
+          "positions": [
+            6
+          ],
+          "probability_change": 0.015000000000000013,
+          "support_index": 18
+        },
+        {
+          "adversarial_probability": 0.05,
+          "nominal_probability": 0.02,
+          "pattern_id": "adj-dbu-5-6",
+          "positions": [
+            5,
+            6
+          ],
+          "probability_change": 0.030000000000000002,
+          "support_index": 20
+        },
+        {
+          "adversarial_probability": 0.04499999999999998,
+          "nominal_probability": 0.06,
+          "pattern_id": "sbu-7",
+          "positions": [
+            7
+          ],
+          "probability_change": -0.01500000000000002,
+          "support_index": 22
+        }
+      ],
+      "radius": 0.05,
+      "schema_version": 1,
+      "solver": "exact_binary_loss_fractional_transport_and_finite_dual_breakpoints",
+      "solver_status": "optimal",
+      "transport_plan": [
+        {
+          "cost": 0.028571428571428567,
+          "mass": 0.06,
+          "source": 10,
+          "target": 14,
+          "unit_cost": 0.47619047619047616
+        },
+        {
+          "cost": 0.014285714285714284,
+          "mass": 0.03,
+          "source": 16,
+          "target": 20,
+          "unit_cost": 0.47619047619047616
+        },
+        {
+          "cost": 0.007142857142857152,
+          "mass": 0.01500000000000002,
+          "source": 22,
+          "target": 18,
+          "unit_cost": 0.47619047619047616
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 0,
+          "target": 0,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 1,
+          "target": 1,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.25,
+          "source": 2,
+          "target": 2,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 3,
+          "target": 3,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.08,
+          "source": 4,
+          "target": 4,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 6,
+          "target": 6,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 7,
+          "target": 7,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 8,
+          "target": 8,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.04,
+          "source": 12,
+          "target": 12,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 14,
+          "target": 14,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 15,
+          "target": 15,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 18,
+          "target": 18,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.02,
+          "source": 20,
+          "target": 20,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.04499999999999998,
+          "source": 22,
+          "target": 22,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 23,
+          "target": 23,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 26,
+          "target": 26,
+          "unit_cost": 0.0
+        }
+      ],
+      "worst_case_risk": 0.555
+    },
+    "sdc": {
+      "adversarial_pmf": [
+        0.06,
+        0.06,
+        0.25,
+        0.06,
+        0.08,
+        0.0,
+        0.06,
+        0.01,
+        0.06,
+        0.0,
+        0.06,
+        0.0,
+        0.04,
+        0.0,
+        0.06,
+        0.01,
+        0.03,
+        0.0,
+        0.06,
+        0.0,
+        0.02,
+        0.0,
+        0.06,
+        0.01,
+        0.0,
+        0.0,
+        0.01,
+        0.0
+      ],
+      "ambiguity_type": "geometry_wasserstein",
+      "bit_width": 8,
+      "certificate_sha256": "6dfc32d33665bae2c521471e19e42ae74cd103f1e013b643a3a583405bf93c6e",
+      "distance_used": 0,
+      "dual_bound": 0.0,
+      "dual_multiplier": 0.0,
+      "geometry": {
+        "adjacency_class_weight": 0.5,
+        "burst_length_weight": 0.5,
+        "displacement_weight": 1.0,
+        "hamming_weight": 1.0,
+        "multiplicity_weight": 1.0,
+        "row_column_weight": 0.5,
+        "sram_columns": 4
+      },
+      "loss_vector": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nominal_pmf": [
+        0.06,
+        0.06,
+        0.25,
+        0.06,
+        0.08,
+        0.0,
+        0.06,
+        0.01,
+        0.06,
+        0.0,
+        0.06,
+        0.0,
+        0.04,
+        0.0,
+        0.06,
+        0.01,
+        0.03,
+        0.0,
+        0.06,
+        0.0,
+        0.02,
+        0.0,
+        0.06,
+        0.01,
+        0.0,
+        0.0,
+        0.01,
+        0.0
+      ],
+      "nominal_risk": 0.0,
+      "optimality_gap": 0.0,
+      "optimality_proven": true,
+      "patterns_receiving_probability": [],
+      "radius": 0.05,
+      "schema_version": 1,
+      "solver": "exact_binary_loss_fractional_transport_and_finite_dual_breakpoints",
+      "solver_status": "optimal",
+      "transport_plan": [
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 0,
+          "target": 0,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 1,
+          "target": 1,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.25,
+          "source": 2,
+          "target": 2,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 3,
+          "target": 3,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.08,
+          "source": 4,
+          "target": 4,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 6,
+          "target": 6,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 7,
+          "target": 7,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 8,
+          "target": 8,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 10,
+          "target": 10,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.04,
+          "source": 12,
+          "target": 12,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 14,
+          "target": 14,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 15,
+          "target": 15,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.03,
+          "source": 16,
+          "target": 16,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 18,
+          "target": 18,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.02,
+          "source": 20,
+          "target": 20,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.06,
+          "source": 22,
+          "target": 22,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 23,
+          "target": 23,
+          "unit_cost": 0.0
+        },
+        {
+          "cost": 0.0,
+          "mass": 0.01,
+          "source": 26,
+          "target": 26,
+          "unit_cost": 0.0
+        }
+      ],
+      "worst_case_risk": 0.0
+    }
+  },
+  "certified_safety_radius": {
+    "ambiguity_type": "geometry_wasserstein",
+    "certified_radius": 0.5,
+    "lower_bound": 0.5,
+    "risk_at_radius": 0.0,
+    "status": "safe_through_configured_maximum_radius",
+    "upper_bound": null
+  },
+  "code_id": "forge-hotspot-8-4-v1",
+  "compiled_code": {
+    "G": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    ],
+    "H": [
+      [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "code_class": "binary_systematic_linear_block",
+    "code_id": "forge-hotspot-8-4-v1-safe",
+    "column_syndromes": [
+      "1011",
+      "1110",
+      "0111",
+      "1101",
+      "0001",
+      "0010",
+      "0100",
+      "1000"
+    ],
+    "constraints": {
+      "max_matrix_xor_gates": 24,
+      "max_residual_fit": 100.0,
+      "max_sdc_probability": 0.0
+    },
+    "decoder": {
+      "correction_entries": [
+        {
+          "positions": [
+            4
+          ],
+          "syndrome": "0001"
+        },
+        {
+          "positions": [
+            4,
+            5
+          ],
+          "syndrome": "0011"
+        },
+        {
+          "positions": [
+            0,
+            1
+          ],
+          "syndrome": "0101"
+        },
+        {
+          "positions": [
+            7
+          ],
+          "syndrome": "1000"
+        },
+        {
+          "positions": [
+            1,
+            2
+          ],
+          "syndrome": "1001"
+        },
+        {
+          "positions": [
+            2,
+            3
+          ],
+          "syndrome": "1010"
+        },
+        {
+          "positions": [
+            2,
+            7
+          ],
+          "syndrome": "1111"
+        }
+      ],
+      "type": "hard_decision_syndrome_table"
+    },
+    "k": 4,
+    "n": 8,
+    "r": 4,
+    "schema_version": 1,
+    "structural_hardware": {
+      "decoder": {
+        "correction_mask_ones": 18,
+        "correction_output_or_proxy": 10,
+        "syndrome_compare_literals": 52,
+        "syndrome_table_entries": 13
+      },
+      "encoder": {
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 8,
+        "parity_equation_inputs": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "matrix_xor_gates": 20,
+      "max_xor_fanin": 2,
+      "model": "technology-independent structural proxy",
+      "physical_ppa": null,
+      "routing": {
+        "codeword_bit_fanout": [
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "column_weight_histogram": {
+          "1": 4,
+          "3": 4
+        },
+        "max_codeword_bit_fanout": 3
+      },
+      "syndrome": {
+        "equation_inputs": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "max_balanced_depth": 2,
+        "naive_xor_gates": 12
+      }
+    },
+    "synthesis": {
+      "candidate_matrices_considered": 7920,
+      "decoder_assignments_evaluated": 33,
+      "feasible_candidates": 33,
+      "hardware_aware_tie_break": true,
+      "method": "exact_exhaustive_systematic_column_enumeration",
+      "objective_order": [
+        "maximize corrected probability mass",
+        "minimize SDC probability mass",
+        "minimize structural matrix XOR count",
+        "minimize syndrome-table entries",
+        "minimize correction-mask ones",
+        "minimize balanced XOR depth",
+        "lexicographic matrix tie-break"
+      ],
+      "optimality_proven": true,
+      "runtime_seconds": 0.5782107999984873,
+      "search_complete": true,
+      "solver_dependency": null,
+      "status": "optimal",
+      "theoretical_candidate_matrices": 7920,
+      "timeout_seconds": 60.0
+    },
+    "synthesis_distribution_id": "small-hotspot-8bit-v1",
+    "synthesis_probability_mass": {
+      "corrected": 0.9099999999999999,
+      "due": 0.09000000000000008,
+      "sdc": 0.0
+    },
+    "systematic": true
+  },
+  "compiled_code_id": "forge-hotspot-8-4-v1-safe",
+  "configured_radius": 0.05,
+  "entries": [
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.06,
+      "correct": true,
+      "correction_mask": 16,
+      "correction_positions": [
+        4
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "0001",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 1.0,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "0010",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.165,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.03,
+      "correct": true,
+      "correction_mask": 48,
+      "correction_positions": [
+        4,
+        5
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "0011",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.10574257425742574,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 1.0,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "0100",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.165,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.25,
+      "correct": true,
+      "correction_mask": 3,
+      "correction_positions": [
+        0,
+        1
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "0101",
+      "worst_case_confidence_lower_bound": 0.4233576642335767,
+      "worst_case_due_contribution_if_abstaining": 0.3425,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 0.6666666666666667,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "0110",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.10398692810457517,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 1.0,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "0111",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.165,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.06,
+      "correct": true,
+      "correction_mask": 128,
+      "correction_positions": [
+        7
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "1000",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.08,
+      "correct": true,
+      "correction_mask": 6,
+      "correction_positions": [
+        1,
+        2
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "1001",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.185,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.06,
+      "correct": true,
+      "correction_mask": 12,
+      "correction_positions": [
+        2,
+        3
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "1010",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.15980198019801983,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 1.0,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "1011",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.15717728055077454,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 0.6666666666666667,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "1100",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.14732673267326735,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 1.0,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "1101",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.1505084745762712,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": true,
+      "action": "DUE",
+      "correct": false,
+      "correction_mask": 0,
+      "correction_positions": [],
+      "nominal_confidence": 1.0,
+      "reason": "abstention_required_or_preferred_by_robust_constraints",
+      "syndrome": "1110",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.165,
+      "worst_case_sdc_contribution": 0.0
+    },
+    {
+      "abstain": false,
+      "action": "correct",
+      "candidate_nominal_mass": 0.01,
+      "correct": true,
+      "correction_mask": 132,
+      "correction_positions": [
+        2,
+        7
+      ],
+      "nominal_confidence": 1.0,
+      "reason": "selected_by_global_safety_first_optimization",
+      "syndrome": "1111",
+      "worst_case_confidence_lower_bound": 0.0,
+      "worst_case_due_contribution_if_abstaining": 0.05010548523206751,
+      "worst_case_sdc_contribution": 0.0
+    }
+  ],
+  "metrics": {
+    "nominal": {
+      "corrected": 0.55,
+      "due": 0.45,
+      "residual": 0.45,
+      "sdc": 0.0
+    },
+    "worst_case": {
+      "due": 0.555,
+      "residual": 0.555,
+      "sdc": 0.0
+    },
+    "worst_case_residual_fit": 555.0
+  },
+  "outcomes": [
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "sbu-0",
+      "positions": [
+        0
+      ],
+      "support_index": 0,
+      "syndrome": "1011"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "sbu-1",
+      "positions": [
+        1
+      ],
+      "support_index": 1,
+      "syndrome": "1110"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          0,
+          1
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "adj-dbu-0-1",
+      "positions": [
+        0,
+        1
+      ],
+      "support_index": 2,
+      "syndrome": "0101"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "sbu-2",
+      "positions": [
+        2
+      ],
+      "support_index": 3,
+      "syndrome": "0111"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          1,
+          2
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "adj-dbu-1-2",
+      "positions": [
+        1,
+        2
+      ],
+      "support_index": 4,
+      "syndrome": "1001"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-triple-0-2",
+      "positions": [
+        0,
+        1,
+        2
+      ],
+      "support_index": 5,
+      "syndrome": "0010"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "sbu-3",
+      "positions": [
+        3
+      ],
+      "support_index": 6,
+      "syndrome": "1101"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "nonadj-dbu-0-3",
+      "positions": [
+        0,
+        3
+      ],
+      "support_index": 7,
+      "syndrome": "0110"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          2,
+          3
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "adj-dbu-2-3",
+      "positions": [
+        2,
+        3
+      ],
+      "support_index": 8,
+      "syndrome": "1010"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-triple-1-3",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "support_index": 9,
+      "syndrome": "0100"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          4
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "sbu-4",
+      "positions": [
+        4
+      ],
+      "support_index": 10,
+      "syndrome": "0001"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-mbu-0-2-4",
+      "positions": [
+        0,
+        2,
+        4
+      ],
+      "support_index": 11,
+      "syndrome": "1101"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-3-4",
+      "positions": [
+        3,
+        4
+      ],
+      "support_index": 12,
+      "syndrome": "1100"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-triple-2-4",
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "support_index": 13,
+      "syndrome": "1011"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "sbu-5",
+      "positions": [
+        5
+      ],
+      "support_index": 14,
+      "syndrome": "0010"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "nonadj-dbu-1-5",
+      "positions": [
+        1,
+        5
+      ],
+      "support_index": 15,
+      "syndrome": "1100"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          4,
+          5
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "adj-dbu-4-5",
+      "positions": [
+        4,
+        5
+      ],
+      "support_index": 16,
+      "syndrome": "0011"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-triple-3-5",
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "support_index": 17,
+      "syndrome": "1110"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "sbu-6",
+      "positions": [
+        6
+      ],
+      "support_index": 18,
+      "syndrome": "0100"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-mbu-1-3-6",
+      "positions": [
+        1,
+        3,
+        6
+      ],
+      "support_index": 19,
+      "syndrome": "0111"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-5-6",
+      "positions": [
+        5,
+        6
+      ],
+      "support_index": 20,
+      "syndrome": "0110"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-triple-4-6",
+      "positions": [
+        4,
+        5,
+        6
+      ],
+      "support_index": 21,
+      "syndrome": "0111"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          7
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "sbu-7",
+      "positions": [
+        7
+      ],
+      "support_index": 22,
+      "syndrome": "1000"
+    },
+    {
+      "action": {
+        "correction_positions": [
+          2,
+          7
+        ],
+        "kind": "correct"
+      },
+      "outcome": "corrected",
+      "pattern_id": "nonadj-dbu-2-7",
+      "positions": [
+        2,
+        7
+      ],
+      "support_index": 23,
+      "syndrome": "1111"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-mbu-0-4-7",
+      "positions": [
+        0,
+        4,
+        7
+      ],
+      "support_index": 24,
+      "syndrome": "0010"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-mbu-1-4-7",
+      "positions": [
+        1,
+        4,
+        7
+      ],
+      "support_index": 25,
+      "syndrome": "0111"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "adj-dbu-6-7",
+      "positions": [
+        6,
+        7
+      ],
+      "support_index": 26,
+      "syndrome": "1100"
+    },
+    {
+      "action": {
+        "correction_positions": [],
+        "kind": "DUE"
+      },
+      "outcome": "detected_uncorrectable",
+      "pattern_id": "shift-triple-5-7",
+      "positions": [
+        5,
+        6,
+        7
+      ],
+      "support_index": 27,
+      "syndrome": "1110"
+    }
+  ],
+  "policy_id": "safe-91bb4e8396f023bfc026",
+  "policy_sha256": "91bb4e8396f023bfc026e17fb57c6872717b9fefac0e11ae62d20a7449f6b0f8",
+  "raw_fit": 1000.0,
+  "residual_fit_limit": null,
+  "schema_version": 1,
+  "sdc_limit": 0.0,
+  "search": {
+    "candidate_policies_evaluated": 1,
+    "hierarchy": [
+      "worst_case_sdc_constraint",
+      "worst_case_residual_fit_constraint",
+      "minimize_worst_case_due",
+      "minimize_nominal_due",
+      "minimize_correction_entries"
+    ],
+    "optimality_proven": true,
+    "status": "optimal_support_universal_zero_sdc_actions"
+  },
+  "selected_correction_count": 7
+}

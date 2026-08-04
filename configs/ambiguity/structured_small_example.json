@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "ambiguity_id": "structured-small-support-expanded-v1",
+  "type": "structured_interval",
+  "radius": 1.0,
+  "maximum_radius": 1.0,
+  "support_expansions": ["configs/fault_distributions/small_shifted_8bit.json"],
+  "fallback_mode": "detect-only-safe-fallback",
+  "calibration": {
+    "kind": "engineering_sensitivity",
+    "description": "Expert-chosen family-mass intervals for sensitivity analysis; not statistically calibrated."
+  },
+  "category_intervals": {
+    "family": {
+      "sbu": {"lower": 0.35, "upper": 0.60},
+      "adjacent_dbu": {"lower": 0.25, "upper": 0.55},
+      "non_adjacent_dbu": {"lower": 0.01, "upper": 0.12},
+      "triple_adjacent": {"lower": 0.00, "upper": 0.15},
+      "general_mbu": {"lower": 0.00, "upper": 0.08}
+    }
+  }
+}

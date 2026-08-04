@@ -21,6 +21,37 @@
     "trace_generators": {"type": "array", "minItems": 1, "items": {"type": "object"}},
     "uncertainty_samples": {"type": "integer", "minimum": 1},
     "uncertainty_seed": {"type": "integer"},
+    "certificate_gate": {
+      "type": "object",
+      "required": ["enabled", "ambiguity_type", "maximum_sdc", "support_id_by_fault_regime"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "ambiguity_type": {"enum": ["total_variation", "structured_interval", "geometry_wasserstein"]},
+        "maximum_sdc": {"type": "number", "minimum": 0, "maximum": 1},
+        "epoch_radius_uncertainty_key": {"type": "string", "minLength": 1},
+        "support_id_by_fault_regime": {"type": "object", "additionalProperties": {"type": "string", "minLength": 1}}
+      },
+      "additionalProperties": false
+    },
+    "certificate_envelopes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["mode_id", "ambiguity_type", "support_identifier", "certified_radius", "maximum_certified_sdc", "maximum_certified_due", "fallback_mode", "certificate_identifier", "supported_fault_regimes"],
+        "properties": {
+          "mode_id": {"type": "string", "minLength": 1},
+          "ambiguity_type": {"enum": ["total_variation", "structured_interval", "geometry_wasserstein"]},
+          "support_identifier": {"type": "string", "minLength": 1},
+          "certified_radius": {"type": "number", "minimum": 0},
+          "maximum_certified_sdc": {"type": "number", "minimum": 0, "maximum": 1},
+          "maximum_certified_due": {"type": "number", "minimum": 0, "maximum": 1},
+          "fallback_mode": {"type": "string", "minLength": 1},
+          "certificate_identifier": {"type": "string", "minLength": 1},
+          "supported_fault_regimes": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}
+        },
+        "additionalProperties": false
+      }
+    },
     "sweeps": {"type": "object"}
   }
 }

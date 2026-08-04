@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/safe-decoder-policy.schema.json",
+  "title": "SafeForge abstaining syndrome policy",
+  "type": "object",
+  "required": ["schema_version", "policy_id", "code_id", "ambiguity_type", "sdc_limit", "entries", "metrics", "certificates", "compiled_code", "policy_sha256"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "policy_id": {"type": "string"},
+    "code_id": {"type": "string"},
+    "ambiguity_type": {"enum": ["total_variation", "structured_interval", "geometry_wasserstein"]},
+    "sdc_limit": {"type": "number", "minimum": 0, "maximum": 1},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["syndrome", "action", "correct", "abstain", "correction_positions", "nominal_confidence", "worst_case_confidence_lower_bound", "worst_case_sdc_contribution", "worst_case_due_contribution_if_abstaining", "reason"]
+      }
+    },
+    "metrics": {"type": "object"},
+    "certificates": {"type": "object"},
+    "compiled_code": {"type": "object"},
+    "policy_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}

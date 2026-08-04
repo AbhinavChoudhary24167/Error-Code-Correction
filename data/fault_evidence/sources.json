@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-08-04",
+  "policy": "Only primary experiments or institutional data catalogues with verifiable provenance are listed. No aggregate is converted into a bit-exact word PMF without a documented mapping.",
+  "sources": [
+    {
+      "source_id": "perez-celis-wirthlin-2020",
+      "title": "Statistical Method to Extract Radiation-Induced Multiple-Cell Upsets in SRAM-Based FPGAs",
+      "doi": "10.1109/TNS.2019.2955006",
+      "primary_experiment": true,
+      "device_scope": "Xilinx 7-Series, UltraScale, and UltraScale+ SRAM FPGA CRAM; 7-Series BRAM",
+      "radiation_source": "LANSCE neutron campaign",
+      "verified_aggregate_observations": {
+        "XC7A200T_event_fraction_classified_as_MCU": 0.277,
+        "XCKU040_event_fraction_classified_as_MCU": 0.1459,
+        "XCZU9EG_event_fraction_classified_as_MCU": 0.0559
+      },
+      "usable_for": ["support motivation", "multiplicity sensitivity ranges", "external qualitative validation"],
+      "not_usable_for": ["bit-exact 8-bit or 72-bit word PMF", "raw spatial address replay", "statistical calibration of this repository's TV radius"],
+      "raw_trace_status": "the paper describes upset-cell lists from the campaign, but no reusable raw word-level trace archive was verified",
+      "url": "https://par.nsf.gov/servlets/purl/10184000"
+    },
+    {
+      "source_id": "tsiligiannis-et-al-2014",
+      "title": "Multiple Cell Upset Classification in Commercial SRAMs",
+      "doi": "10.1109/TNS.2014.2313742",
+      "primary_experiment": true,
+      "device_scope": "commercial 90 nm SRAM",
+      "radiation_source": "ISIS atmospheric-like neutron beam",
+      "verified_aggregate_observations": {
+        "classification_count": 4,
+        "dynamic_mode_large_cluster_scale": "hundreds to thousands of cells"
+      },
+      "usable_for": ["general-MBU support expansion", "dynamic-mode stress motivation"],
+      "not_usable_for": ["bit-exact conditional word PMF", "direct comparison to the synthetic benchmark"],
+      "raw_trace_status": "no public raw address-level archive was verified",
+      "url": "https://doi.org/10.1109/TNS.2014.2313742"
+    },
+    {
+      "source_id": "nasa-nepp-radiation-database",
+      "title": "NASA NEPP Radiation Effects Database",
+      "primary_experiment": false,
+      "catalogue": true,
+      "usable_for": ["locating device radiation reports with explicit units and provenance"],
+      "not_usable_for": ["automatic PMF ingestion without report-level extraction audit"],
+      "url": "https://nepp.nasa.gov/radhome/raddatabase/raddatabase.html"
+    },
+    {
+      "source_id": "esa-radiation-database",
+      "title": "ESA Radiation Test Database",
+      "primary_experiment": false,
+      "catalogue": true,
+      "usable_for": ["locating radiation test reports"],
+      "not_usable_for": ["automatic word-level PMF ingestion"],
+      "url": "https://esarad.esa.int/"
+    }
+  ],
+  "ingested_bit_exact_datasets": [],
+  "conclusion": "Credible aggregate evidence exists for MCU multiplicity and clustering, but no public raw trace with a verified logical-to-physical mapping was found that can defensibly instantiate SafeForge's finite word-level PMF. Synthetic bit-exact benchmarks therefore remain the executable evidence, explicitly supplemented—not replaced—by literature aggregate constraints."
+}

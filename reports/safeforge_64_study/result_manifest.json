@@ -1,0 +1,23 @@
+{
+  "files": {
+    "code.json": "279005e299fa1f701430f235d5e833f156af30cf7920f0d803179a23c26a3f7a",
+    "heuristic_search.json": "fcc173ac35a2ce075fd756c8a3a1eb19e77863b2ea7d6033fc63a7eb63b9eb7f",
+    "mapping_comparison.json": "5e4dd3efb4f4cf1db90e05ab5eada788f2070ec1203ce240f0156cfaeea9bfba",
+    "support.json": "e9b111017fc7d04c092c85b6c45eadfa3ef44a37a6176a79a33569583de15f57"
+  },
+  "manifest_version": 1,
+  "reproduction_command": "python scripts/run_safeforge_64_study.py",
+  "source_files": {
+    "codeforge/ambiguity.py": "240cfded0c8a1ecc7b2fb0d80ba7a5013ef2681f4eff117a9a467168b751fe79",
+    "codeforge/robust.py": "a34e18a908512b6966aeeaf0f2d49915095c23d233c32eb49994b79deffdc757",
+    "codeforge/robust_synthesis.py": "8adbc07462fddfa99af0451358ce12fadad094447767628e16a5d43445d0f27a",
+    "configs/ambiguity/tv_72bit_example.json": "e0c059f5551668df1e706cdd4b94e25659a25bb02ad669335b6f3a70918c5f9e",
+    "configs/fault_distributions/benchmarks/distribution_shift.json": "59614754a9953d6b0186172a0ab32497b4385a7c817755a22142c725e7222f2f",
+    "configs/fault_distributions/benchmarks/mixed_sbu_dbu_mbu.json": "d4ab816e0495c91a08fbd8e2bd86e3fddcbce94d69bb00ef3a1e8a52425d69a3",
+    "configs/fault_distributions/benchmarks/spatial_hot_spots.json": "b4dcb100acf6598f7bdb560a2fe2f2deeba5fb4a93218fcbd9adc3d1f0f18f7e",
+    "configs/fault_distributions/benchmarks/voltage_sensitive.json": "edfc834d5c8bbed2f2375df35aee67e0a43fcdcf97d880e49362e115d355d3d6",
+    "reports/code_synthesis_64/baselines/odd_column_secded_code.json": "5b5b5332ed1aca726f0824dd074301e2d1a13a78f40d17563eae229ba18b4061",
+    "scripts/run_safeforge_64_study.py": "db0f5954db6c806d0451bee49dbb962840874635b1f88e811bb76e6ee092be35"
+  },
+  "source_tree_sha256": "b964dcfaddefbf4026d96d34f21bce4eb3f1aa5e89736512524bd0fd9437de9d"
+}

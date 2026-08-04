@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "ambiguity_id": "wasserstein-small-geometry-v1",
+  "type": "geometry_wasserstein",
+  "radius": 0.05,
+  "maximum_radius": 0.5,
+  "support_expansions": ["configs/fault_distributions/small_shifted_8bit.json"],
+  "fallback_mode": "detect-only-safe-fallback",
+  "calibration": {
+    "kind": "engineering_sensitivity",
+    "description": "Geometry transport sensitivity sweep; weights and radius are engineering assumptions, not calibrated confidence."
+  },
+  "geometry": {
+    "multiplicity_weight": 1.0,
+    "hamming_weight": 1.0,
+    "displacement_weight": 1.0,
+    "burst_length_weight": 0.5,
+    "adjacency_class_weight": 0.5,
+    "row_column_weight": 0.5,
+    "sram_columns": 4
+  }
+}

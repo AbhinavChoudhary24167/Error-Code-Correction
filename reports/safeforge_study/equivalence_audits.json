@@ -1,0 +1,492 @@
+{
+  "existing_exact_vs_known_baseline": {
+    "all_columns_odd_weight": true,
+    "bch_derived_status": "not_equivalent_to_repository_BCH63_by_block_length",
+    "code_id": "forge-hotspot-8-4-v1",
+    "column_multiset": [
+      1,
+      2,
+      4,
+      7,
+      8,
+      11,
+      13,
+      14
+    ],
+    "column_weight_distribution": {
+      "1": 4,
+      "3": 4
+    },
+    "decoder_policy": {
+      "corrected_coset_leaders": [
+        {
+          "positions": [
+            4
+          ],
+          "syndrome": "0001",
+          "weight": 1
+        },
+        {
+          "positions": [
+            5
+          ],
+          "syndrome": "0010",
+          "weight": 1
+        },
+        {
+          "positions": [
+            4,
+            5
+          ],
+          "syndrome": "0011",
+          "weight": 2
+        },
+        {
+          "positions": [
+            6
+          ],
+          "syndrome": "0100",
+          "weight": 1
+        },
+        {
+          "positions": [
+            0,
+            1
+          ],
+          "syndrome": "0101",
+          "weight": 2
+        },
+        {
+          "positions": [
+            2
+          ],
+          "syndrome": "0111",
+          "weight": 1
+        },
+        {
+          "positions": [
+            7
+          ],
+          "syndrome": "1000",
+          "weight": 1
+        },
+        {
+          "positions": [
+            1,
+            2
+          ],
+          "syndrome": "1001",
+          "weight": 2
+        },
+        {
+          "positions": [
+            2,
+            3
+          ],
+          "syndrome": "1010",
+          "weight": 2
+        },
+        {
+          "positions": [
+            0
+          ],
+          "syndrome": "1011",
+          "weight": 1
+        },
+        {
+          "positions": [
+            3
+          ],
+          "syndrome": "1101",
+          "weight": 1
+        },
+        {
+          "positions": [
+            1
+          ],
+          "syndrome": "1110",
+          "weight": 1
+        },
+        {
+          "positions": [
+            2,
+            7
+          ],
+          "syndrome": "1111",
+          "weight": 2
+        }
+      ],
+      "corrected_weight_histogram": {
+        "1": 8,
+        "2": 5
+      },
+      "correction_entry_count": 13,
+      "single_bit_syndrome_collisions": {},
+      "unmapped_nonzero_syndromes_are_detect_only": true
+    },
+    "dimensions": {
+      "k": 4,
+      "n": 8,
+      "r": 4
+    },
+    "distinct_nonzero_columns": true,
+    "known_family_classification": [
+      {
+        "family": "shortened_hamming_sec",
+        "reason": "all parity-check columns are distinct and nonzero",
+        "status": "classified"
+      },
+      {
+        "family": "odd_weight_column_SECDED_class",
+        "status": "classified"
+      },
+      {
+        "family": "Hsiao_minimum_total_ones_SECDED_construction",
+        "reason": "the column-weight multiset is the minimum possible odd-column multiset",
+        "status": "classified"
+      },
+      {
+        "family": "extended_hamming_parameter_and_spectrum_class",
+        "status": "classified"
+      },
+      {
+        "decoder_policy_contains_all_adjacent_pairs": false,
+        "family": "SEC_DAEC_under_current_linear_adjacency",
+        "status": "not_capable"
+      },
+      {
+        "family": "TAEC_under_current_linear_adjacency",
+        "status": "not_capable"
+      }
+    ],
+    "limitations": [
+      "For r>4, arbitrary-column equivalence is not exhaustively decided.",
+      "Matching weight enumerators are necessary but not sufficient for code equivalence.",
+      "SEC-DAEC and TAEC labels depend on the declared physical adjacency ordering."
+    ],
+    "minimum_distance": 4,
+    "novel_code_status": "not_a_new_linear_code_family",
+    "physical_bit_to_column_assignment": [
+      {
+        "column": 11,
+        "column_weight": 3,
+        "physical_position": 0
+      },
+      {
+        "column": 14,
+        "column_weight": 3,
+        "physical_position": 1
+      },
+      {
+        "column": 7,
+        "column_weight": 3,
+        "physical_position": 2
+      },
+      {
+        "column": 13,
+        "column_weight": 3,
+        "physical_position": 3
+      },
+      {
+        "column": 1,
+        "column_weight": 1,
+        "physical_position": 4
+      },
+      {
+        "column": 2,
+        "column_weight": 1,
+        "physical_position": 5
+      },
+      {
+        "column": 4,
+        "column_weight": 1,
+        "physical_position": 6
+      },
+      {
+        "column": 8,
+        "column_weight": 1,
+        "physical_position": 7
+      }
+    ],
+    "rank": 4,
+    "reference_equivalence": {
+      "geometry_preserving_automorphisms": {
+        "equivalent": false,
+        "exact": true
+      },
+      "physical_path_automorphisms": {
+        "equivalent": false,
+        "exact": true
+      },
+      "row_operations_plus_arbitrary_columns": {
+        "equivalent": true,
+        "exact": true,
+        "gl_elements_examined": 1,
+        "row_transform_basis": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "row_operations_plus_data_and_parity_permutations": {
+        "equivalent": true,
+        "exact": true,
+        "gl_elements_examined": 1,
+        "row_transform_basis": [
+          1,
+          2,
+          4,
+          8
+        ]
+      }
+    },
+    "schema_version": 1,
+    "weight_enumerators": {
+      "dual": [
+        1,
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        1
+      ],
+      "dual_word_count": 16,
+      "exact": true,
+      "method": "dual enumeration plus exact binary MacWilliams transform",
+      "minimum_distance": 4,
+      "n": 8,
+      "primal": [
+        1,
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        1
+      ],
+      "primal_word_count": 16,
+      "r": 4
+    }
+  },
+  "robust_cosynthesized_vs_known_baseline": {
+    "all_columns_odd_weight": false,
+    "bch_derived_status": "not_equivalent_to_repository_BCH63_by_block_length",
+    "code_id": "safeforge-robust-8-4-v1",
+    "column_multiset": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      10,
+      12
+    ],
+    "column_weight_distribution": {
+      "1": 4,
+      "2": 3,
+      "3": 1
+    },
+    "decoder_policy": {
+      "corrected_coset_leaders": [
+        {
+          "positions": [
+            4
+          ],
+          "syndrome": "0001",
+          "weight": 1
+        },
+        {
+          "positions": [
+            5
+          ],
+          "syndrome": "0010",
+          "weight": 1
+        },
+        {
+          "positions": [
+            1
+          ],
+          "syndrome": "0101",
+          "weight": 1
+        },
+        {
+          "positions": [
+            7
+          ],
+          "syndrome": "1000",
+          "weight": 1
+        },
+        {
+          "positions": [
+            1,
+            2
+          ],
+          "syndrome": "1001",
+          "weight": 2
+        },
+        {
+          "positions": [
+            2,
+            3
+          ],
+          "syndrome": "1011",
+          "weight": 2
+        },
+        {
+          "positions": [
+            0,
+            3
+          ],
+          "syndrome": "1101",
+          "weight": 2
+        },
+        {
+          "positions": [
+            0,
+            1
+          ],
+          "syndrome": "1111",
+          "weight": 2
+        }
+      ],
+      "corrected_weight_histogram": {
+        "1": 4,
+        "2": 4
+      },
+      "correction_entry_count": 8,
+      "single_bit_syndrome_collisions": {},
+      "unmapped_nonzero_syndromes_are_detect_only": true
+    },
+    "dimensions": {
+      "k": 4,
+      "n": 8,
+      "r": 4
+    },
+    "distinct_nonzero_columns": true,
+    "known_family_classification": [
+      {
+        "family": "shortened_hamming_sec",
+        "reason": "all parity-check columns are distinct and nonzero",
+        "status": "classified"
+      },
+      {
+        "decoder_policy_contains_all_adjacent_pairs": false,
+        "family": "SEC_DAEC_under_current_linear_adjacency",
+        "status": "not_capable"
+      },
+      {
+        "family": "TAEC_under_current_linear_adjacency",
+        "status": "not_capable"
+      }
+    ],
+    "limitations": [
+      "For r>4, arbitrary-column equivalence is not exhaustively decided.",
+      "Matching weight enumerators are necessary but not sufficient for code equivalence.",
+      "SEC-DAEC and TAEC labels depend on the declared physical adjacency ordering."
+    ],
+    "minimum_distance": 3,
+    "novel_code_status": "not_a_new_linear_code_family",
+    "physical_bit_to_column_assignment": [
+      {
+        "column": 10,
+        "column_weight": 2,
+        "physical_position": 0
+      },
+      {
+        "column": 5,
+        "column_weight": 2,
+        "physical_position": 1
+      },
+      {
+        "column": 12,
+        "column_weight": 2,
+        "physical_position": 2
+      },
+      {
+        "column": 7,
+        "column_weight": 3,
+        "physical_position": 3
+      },
+      {
+        "column": 1,
+        "column_weight": 1,
+        "physical_position": 4
+      },
+      {
+        "column": 2,
+        "column_weight": 1,
+        "physical_position": 5
+      },
+      {
+        "column": 4,
+        "column_weight": 1,
+        "physical_position": 6
+      },
+      {
+        "column": 8,
+        "column_weight": 1,
+        "physical_position": 7
+      }
+    ],
+    "rank": 4,
+    "reference_equivalence": {
+      "geometry_preserving_automorphisms": {
+        "equivalent": false,
+        "exact": true
+      },
+      "physical_path_automorphisms": {
+        "equivalent": false,
+        "exact": true
+      },
+      "row_operations_plus_arbitrary_columns": {
+        "equivalent": false,
+        "exact": true,
+        "gl_elements_examined": 20160
+      },
+      "row_operations_plus_data_and_parity_permutations": {
+        "equivalent": false,
+        "exact": true,
+        "gl_elements_examined": 20160
+      }
+    },
+    "schema_version": 1,
+    "weight_enumerators": {
+      "dual": [
+        1,
+        0,
+        0,
+        4,
+        5,
+        4,
+        2,
+        0,
+        0
+      ],
+      "dual_word_count": 16,
+      "exact": true,
+      "method": "dual enumeration plus exact binary MacWilliams transform",
+      "minimum_distance": 3,
+      "n": 8,
+      "primal": [
+        1,
+        0,
+        0,
+        4,
+        5,
+        4,
+        2,
+        0,
+        0
+      ],
+      "primal_word_count": 16,
+      "r": 4
+    }
+  }
+}

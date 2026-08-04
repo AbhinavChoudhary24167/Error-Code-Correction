@@ -1,0 +1,569 @@
+{
+  "candidate_count": 5,
+  "comparability_assertion": "passed",
+  "experiment_id": "4a60649076810a34d09d",
+  "records": [
+    {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_abstain_entries": 7,
+      "decoder_correction_entries": 8,
+      "experiment_id": "4a60649076810a34d09d",
+      "experiment_identity": {
+        "ambiguity": {
+          "ambiguity_id": "tv-small-support-expanded-v1",
+          "configuration_sha256": "e317b04357ed823d4423dbf288ca13a3967fc5b285c7539e0b9b0f16ec8b841f",
+          "radius": 0.1,
+          "type": "total_variation"
+        },
+        "decoder_semantics": "execute_syndrome_action_then_compare_systematic_data_or_declare_due",
+        "dimensions": {
+          "k": 4,
+          "n": 8,
+          "r": 4
+        },
+        "experiment_id": "4a60649076810a34d09d",
+        "fault_distribution": {
+          "bit_width": 8,
+          "distribution_id": "small-hotspot-8bit-v1",
+          "error_universe_sha256": "be036680a8690ba50da51c5f63a542f7b22a1d4eff1a6dc0297627e7e2ab7f54",
+          "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+          "pattern_count": 18,
+          "pmf_sha256": "f4ffff5bced96bd8b1ac9c6b11f337d475198fadf2f376784cad6a1c736de88b",
+          "raw_fit": 1000.0
+        },
+        "identity_version": 1,
+        "modeled_error_universe": {
+          "bit_width": 8,
+          "pattern_count": 28,
+          "support_sha256": "734ee7af298dda251afd0be82c0fab50a987f5a2db9dce3299e55fb25751c603"
+        },
+        "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+        "outcome_definitions_version": 1,
+        "physical_bit_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reliability_units": "conditional_probability_and_raw_fit_times_conditional_residual_mass"
+      },
+      "label": "Conventional SECDED",
+      "nominal": {
+        "corrected": 0.48,
+        "due": 0.52,
+        "residual": 0.52,
+        "sdc": 0.0
+      },
+      "physical_ppa": null,
+      "strategy_id": "conventional_min_weight_fixed",
+      "structural_hardware": {
+        "decoder": {
+          "correction_mask_ones": 8,
+          "correction_output_or_proxy": 0,
+          "syndrome_compare_literals": 32,
+          "syndrome_table_entries": 8
+        },
+        "encoder": {
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 8,
+          "parity_equation_inputs": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "matrix_xor_gates": 20,
+        "max_xor_fanin": 2,
+        "model": "technology-independent structural proxy",
+        "physical_ppa": null,
+        "routing": {
+          "codeword_bit_fanout": [
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "column_weight_histogram": {
+            "1": 4,
+            "3": 4
+          },
+          "max_codeword_bit_fanout": 3
+        },
+        "syndrome": {
+          "equation_inputs": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 12
+        }
+      },
+      "worst_case": {
+        "due": 0.62,
+        "residual": 0.62,
+        "sdc": 0.1
+      }
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_abstain_entries": 1,
+      "decoder_correction_entries": 14,
+      "experiment_id": "4a60649076810a34d09d",
+      "experiment_identity": {
+        "ambiguity": {
+          "ambiguity_id": "tv-small-support-expanded-v1",
+          "configuration_sha256": "e317b04357ed823d4423dbf288ca13a3967fc5b285c7539e0b9b0f16ec8b841f",
+          "radius": 0.1,
+          "type": "total_variation"
+        },
+        "decoder_semantics": "execute_syndrome_action_then_compare_systematic_data_or_declare_due",
+        "dimensions": {
+          "k": 4,
+          "n": 8,
+          "r": 4
+        },
+        "experiment_id": "4a60649076810a34d09d",
+        "fault_distribution": {
+          "bit_width": 8,
+          "distribution_id": "small-hotspot-8bit-v1",
+          "error_universe_sha256": "be036680a8690ba50da51c5f63a542f7b22a1d4eff1a6dc0297627e7e2ab7f54",
+          "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+          "pattern_count": 18,
+          "pmf_sha256": "f4ffff5bced96bd8b1ac9c6b11f337d475198fadf2f376784cad6a1c736de88b",
+          "raw_fit": 1000.0
+        },
+        "identity_version": 1,
+        "modeled_error_universe": {
+          "bit_width": 8,
+          "pattern_count": 28,
+          "support_sha256": "734ee7af298dda251afd0be82c0fab50a987f5a2db9dce3299e55fb25751c603"
+        },
+        "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+        "outcome_definitions_version": 1,
+        "physical_bit_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reliability_units": "conditional_probability_and_raw_fit_times_conditional_residual_mass"
+      },
+      "label": "Nominal ML / fixed Hsiao",
+      "nominal": {
+        "corrected": 0.9299999999999999,
+        "due": 0.0,
+        "residual": 0.07,
+        "sdc": 0.07
+      },
+      "physical_ppa": null,
+      "strategy_id": "nominal_ml_fixed",
+      "structural_hardware": {
+        "decoder": {
+          "correction_mask_ones": 20,
+          "correction_output_or_proxy": 12,
+          "syndrome_compare_literals": 56,
+          "syndrome_table_entries": 14
+        },
+        "encoder": {
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 8,
+          "parity_equation_inputs": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "matrix_xor_gates": 20,
+        "max_xor_fanin": 2,
+        "model": "technology-independent structural proxy",
+        "physical_ppa": null,
+        "routing": {
+          "codeword_bit_fanout": [
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "column_weight_histogram": {
+            "1": 4,
+            "3": 4
+          },
+          "max_codeword_bit_fanout": 3
+        },
+        "syndrome": {
+          "equation_inputs": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 12
+        }
+      },
+      "worst_case": {
+        "due": 0.0,
+        "residual": 0.17,
+        "sdc": 0.17
+      }
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_abstain_entries": 12,
+      "decoder_correction_entries": 3,
+      "experiment_id": "4a60649076810a34d09d",
+      "experiment_identity": {
+        "ambiguity": {
+          "ambiguity_id": "tv-small-support-expanded-v1",
+          "configuration_sha256": "e317b04357ed823d4423dbf288ca13a3967fc5b285c7539e0b9b0f16ec8b841f",
+          "radius": 0.1,
+          "type": "total_variation"
+        },
+        "decoder_semantics": "execute_syndrome_action_then_compare_systematic_data_or_declare_due",
+        "dimensions": {
+          "k": 4,
+          "n": 8,
+          "r": 4
+        },
+        "experiment_id": "4a60649076810a34d09d",
+        "fault_distribution": {
+          "bit_width": 8,
+          "distribution_id": "small-hotspot-8bit-v1",
+          "error_universe_sha256": "be036680a8690ba50da51c5f63a542f7b22a1d4eff1a6dc0297627e7e2ab7f54",
+          "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+          "pattern_count": 18,
+          "pmf_sha256": "f4ffff5bced96bd8b1ac9c6b11f337d475198fadf2f376784cad6a1c736de88b",
+          "raw_fit": 1000.0
+        },
+        "identity_version": 1,
+        "modeled_error_universe": {
+          "bit_width": 8,
+          "pattern_count": 28,
+          "support_sha256": "734ee7af298dda251afd0be82c0fab50a987f5a2db9dce3299e55fb25751c603"
+        },
+        "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+        "outcome_definitions_version": 1,
+        "physical_bit_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reliability_units": "conditional_probability_and_raw_fit_times_conditional_residual_mass"
+      },
+      "label": "Robust abstain / fixed Hsiao",
+      "nominal": {
+        "corrected": 0.10999999999999999,
+        "due": 0.89,
+        "residual": 0.89,
+        "sdc": 0.0
+      },
+      "physical_ppa": null,
+      "strategy_id": "robust_abstain_fixed",
+      "structural_hardware": {
+        "decoder": {
+          "correction_mask_ones": 5,
+          "correction_output_or_proxy": 0,
+          "syndrome_compare_literals": 12,
+          "syndrome_table_entries": 3
+        },
+        "encoder": {
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 8,
+          "parity_equation_inputs": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "matrix_xor_gates": 20,
+        "max_xor_fanin": 2,
+        "model": "technology-independent structural proxy",
+        "physical_ppa": null,
+        "routing": {
+          "codeword_bit_fanout": [
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "column_weight_histogram": {
+            "1": 4,
+            "3": 4
+          },
+          "max_codeword_bit_fanout": 3
+        },
+        "syndrome": {
+          "equation_inputs": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 12
+        }
+      },
+      "worst_case": {
+        "due": 0.99,
+        "residual": 0.99,
+        "sdc": 0.0
+      }
+    },
+    {
+      "code_id": "forge-hotspot-8-4-v1",
+      "decoder_abstain_entries": 0,
+      "decoder_correction_entries": 15,
+      "experiment_id": "4a60649076810a34d09d",
+      "experiment_identity": {
+        "ambiguity": {
+          "ambiguity_id": "tv-small-support-expanded-v1",
+          "configuration_sha256": "e317b04357ed823d4423dbf288ca13a3967fc5b285c7539e0b9b0f16ec8b841f",
+          "radius": 0.1,
+          "type": "total_variation"
+        },
+        "decoder_semantics": "execute_syndrome_action_then_compare_systematic_data_or_declare_due",
+        "dimensions": {
+          "k": 4,
+          "n": 8,
+          "r": 4
+        },
+        "experiment_id": "4a60649076810a34d09d",
+        "fault_distribution": {
+          "bit_width": 8,
+          "distribution_id": "small-hotspot-8bit-v1",
+          "error_universe_sha256": "be036680a8690ba50da51c5f63a542f7b22a1d4eff1a6dc0297627e7e2ab7f54",
+          "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+          "pattern_count": 18,
+          "pmf_sha256": "f4ffff5bced96bd8b1ac9c6b11f337d475198fadf2f376784cad6a1c736de88b",
+          "raw_fit": 1000.0
+        },
+        "identity_version": 1,
+        "modeled_error_universe": {
+          "bit_width": 8,
+          "pattern_count": 28,
+          "support_sha256": "734ee7af298dda251afd0be82c0fab50a987f5a2db9dce3299e55fb25751c603"
+        },
+        "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+        "outcome_definitions_version": 1,
+        "physical_bit_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reliability_units": "conditional_probability_and_raw_fit_times_conditional_residual_mass"
+      },
+      "label": "Nominal synthesized H + ML",
+      "nominal": {
+        "corrected": 0.97,
+        "due": 0.0,
+        "residual": 0.03,
+        "sdc": 0.03
+      },
+      "physical_ppa": null,
+      "strategy_id": "nominal_synthesized",
+      "structural_hardware": {
+        "decoder": {
+          "correction_mask_ones": 22,
+          "correction_output_or_proxy": 14,
+          "syndrome_compare_literals": 60,
+          "syndrome_table_entries": 15
+        },
+        "encoder": {
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 8,
+          "parity_equation_inputs": [
+            3,
+            3,
+            3,
+            3
+          ]
+        },
+        "matrix_xor_gates": 20,
+        "max_xor_fanin": 2,
+        "model": "technology-independent structural proxy",
+        "physical_ppa": null,
+        "routing": {
+          "codeword_bit_fanout": [
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "column_weight_histogram": {
+            "1": 4,
+            "3": 4
+          },
+          "max_codeword_bit_fanout": 3
+        },
+        "syndrome": {
+          "equation_inputs": [
+            4,
+            4,
+            4,
+            4
+          ],
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 12
+        }
+      },
+      "worst_case": {
+        "due": 0.0,
+        "residual": 0.13,
+        "sdc": 0.13
+      }
+    },
+    {
+      "code_id": "safeforge-robust-8-4-v1",
+      "decoder_abstain_entries": 7,
+      "decoder_correction_entries": 8,
+      "experiment_id": "4a60649076810a34d09d",
+      "experiment_identity": {
+        "ambiguity": {
+          "ambiguity_id": "tv-small-support-expanded-v1",
+          "configuration_sha256": "e317b04357ed823d4423dbf288ca13a3967fc5b285c7539e0b9b0f16ec8b841f",
+          "radius": 0.1,
+          "type": "total_variation"
+        },
+        "decoder_semantics": "execute_syndrome_action_then_compare_systematic_data_or_declare_due",
+        "dimensions": {
+          "k": 4,
+          "n": 8,
+          "r": 4
+        },
+        "experiment_id": "4a60649076810a34d09d",
+        "fault_distribution": {
+          "bit_width": 8,
+          "distribution_id": "small-hotspot-8bit-v1",
+          "error_universe_sha256": "be036680a8690ba50da51c5f63a542f7b22a1d4eff1a6dc0297627e7e2ab7f54",
+          "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+          "pattern_count": 18,
+          "pmf_sha256": "f4ffff5bced96bd8b1ac9c6b11f337d475198fadf2f376784cad6a1c736de88b",
+          "raw_fit": 1000.0
+        },
+        "identity_version": 1,
+        "modeled_error_universe": {
+          "bit_width": 8,
+          "pattern_count": 28,
+          "support_sha256": "734ee7af298dda251afd0be82c0fab50a987f5a2db9dce3299e55fb25751c603"
+        },
+        "normalization": "conditional_finite_error_universe_probability_mass_equals_one",
+        "outcome_definitions_version": 1,
+        "physical_bit_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reliability_units": "conditional_probability_and_raw_fit_times_conditional_residual_mass"
+      },
+      "label": "Robust H + abstain",
+      "nominal": {
+        "corrected": 0.64,
+        "due": 0.36,
+        "residual": 0.36,
+        "sdc": 0.0
+      },
+      "physical_ppa": null,
+      "strategy_id": "robust_cosynthesized",
+      "structural_hardware": {
+        "decoder": {
+          "correction_mask_ones": 12,
+          "correction_output_or_proxy": 5,
+          "syndrome_compare_literals": 32,
+          "syndrome_table_entries": 8
+        },
+        "encoder": {
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 5,
+          "parity_equation_inputs": [
+            2,
+            2,
+            3,
+            2
+          ]
+        },
+        "matrix_xor_gates": 14,
+        "max_xor_fanin": 2,
+        "model": "technology-independent structural proxy",
+        "physical_ppa": null,
+        "routing": {
+          "codeword_bit_fanout": [
+            2,
+            2,
+            2,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "column_weight_histogram": {
+            "1": 4,
+            "2": 3,
+            "3": 1
+          },
+          "max_codeword_bit_fanout": 3
+        },
+        "syndrome": {
+          "equation_inputs": [
+            3,
+            3,
+            4,
+            3
+          ],
+          "max_balanced_depth": 2,
+          "naive_xor_gates": 9
+        }
+      },
+      "worst_case": {
+        "due": 0.46,
+        "residual": 0.46,
+        "sdc": 0.0
+      }
+    }
+  ],
+  "schema_version": 1
+}

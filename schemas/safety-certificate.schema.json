@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.local/schemas/safety-certificate.schema.json",
+  "title": "Machine-checkable SafeForge distributional safety certificate",
+  "type": "object",
+  "required": ["schema_version", "certificate_type", "policy_id", "compiled_code", "support", "ambiguity", "sdc_limit", "loss_vectors", "risk_certificates", "certified_safety_radius", "safety_certificate_sha256"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "certificate_type": {"type": "string"},
+    "policy_id": {"type": "string"},
+    "compiled_code": {"type": "object"},
+    "support": {
+      "type": "object",
+      "required": ["bit_width", "pattern_count", "patterns", "support_sha256", "nominal_pmf_sha256"],
+      "properties": {
+        "bit_width": {"type": "integer", "minimum": 1},
+        "pattern_count": {"type": "integer", "minimum": 1},
+        "patterns": {"type": "array", "minItems": 1},
+        "support_sha256": {"type": "string"},
+        "nominal_pmf_sha256": {"type": "string"}
+      }
+    },
+    "ambiguity": {"type": "object"},
+    "sdc_limit": {"type": "number", "minimum": 0, "maximum": 1},
+    "loss_vectors": {
+      "type": "object",
+      "required": ["sdc", "due", "correct"],
+      "properties": {
+        "sdc": {"$ref": "#/$defs/binaryVector"},
+        "due": {"$ref": "#/$defs/binaryVector"},
+        "correct": {"$ref": "#/$defs/binaryVector"}
+      }
+    },
+    "risk_certificates": {
+      "type": "object",
+      "required": ["sdc", "due", "residual"]
+    },
+    "certified_safety_radius": {"type": "object"},
+    "safety_certificate_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "binaryVector": {"type": "array", "items": {"enum": [0, 1]}}
+  },
+  "additionalProperties": true
+}

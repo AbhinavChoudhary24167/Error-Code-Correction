@@ -178,6 +178,65 @@ def _policy_max_transitions(policy: Mapping[str, object], epoch_count: int) -> i
     return min(limits) if limits else None
 
 
+def _apply_certificate_gate(
+    *,
+    trace: ScenarioTrace,
+    costs: Sequence[Mapping[str, EpochModeCost]],
+    gate: Mapping[str, object] | None,
+    envelopes: Sequence[Mapping[str, object]],
+) -> tuple[dict[str, EpochModeCost], ...]:
+    """Make out-of-envelope modes infeasible before any scheduling policy runs."""
+
+    if not gate or not bool(gate.get("enabled", False)):
+        return tuple(dict(row) for row in costs)
+    by_mode = {str(item["mode_id"]): item for item in envelopes}
+    radius_key = str(gate.get("epoch_radius_uncertainty_key", "ambiguity_radius"))
+    required_type = str(gate["ambiguity_type"])
+    maximum_sdc = float(gate["maximum_sdc"])
+    support_by_regime = {
+        str(key): str(value)
+        for key, value in dict(gate.get("support_id_by_fault_regime", {})).items()
+    }
+    output = []
+    for epoch, row in zip(trace.epochs, costs):
+        observed_radius = epoch.uncertainty.get(radius_key)
+        gated_row = {}
+        for mode, item in row.items():
+            envelope = by_mode.get(mode)
+            reasons = []
+            if envelope is None:
+                reasons.append("certificate_gate:mode_not_registered")
+            else:
+                current_support = support_by_regime.get(epoch.fault_regime)
+                if current_support is None:
+                    reasons.append("certificate_gate:current_support_identifier_missing")
+                elif current_support != str(envelope.get("support_identifier", "")):
+                    reasons.append("certificate_gate:error_support_not_contained")
+                if str(envelope["ambiguity_type"]) != required_type:
+                    reasons.append("certificate_gate:ambiguity_type_mismatch")
+                if observed_radius is None:
+                    reasons.append("certificate_gate:epoch_confidence_radius_missing")
+                elif float(observed_radius) > float(envelope["certified_radius"]) + 1e-15:
+                    reasons.append("certificate_gate:confidence_region_outside_envelope")
+                if float(envelope["maximum_certified_sdc"]) > maximum_sdc + 1e-15:
+                    reasons.append("certificate_gate:sdc_limit_exceeded")
+                if epoch.fault_regime not in set(envelope.get("supported_fault_regimes", [])):
+                    reasons.append("certificate_gate:fault_regime_not_supported")
+                if not str(envelope.get("certificate_identifier", "")):
+                    reasons.append("certificate_gate:certificate_identifier_missing")
+            if reasons:
+                gated_row[mode] = replace(
+                    item,
+                    feasible=False,
+                    feasibility_probability=0.0,
+                    violations=tuple(item.violations) + tuple(reasons),
+                )
+            else:
+                gated_row[mode] = item
+        output.append(gated_row)
+    return tuple(output)
+
+
 def _run_design(
     *,
     trace: ScenarioTrace,
@@ -185,6 +244,8 @@ def _run_design(
     design: ArchitectureDesign,
     transition_model: TransitionModel,
     policy: Mapping[str, object],
+    certificate_gate: Mapping[str, object] | None = None,
+    certificate_envelopes: Sequence[Mapping[str, object]] = (),
 ) -> tuple[dict[str, ScheduleResult], tuple[dict[str, EpochModeCost], ...]]:
     objective = str(policy["objective"])
     maximum_transitions = _policy_max_transitions(policy, len(trace.epochs))
@@ -198,6 +259,12 @@ def _run_design(
             if policy.get("area_limit_mm2") is not None
             else None
         ),
+    )
+    costs = _apply_certificate_gate(
+        trace=trace,
+        costs=costs,
+        gate=certificate_gate,
+        envelopes=certificate_envelopes,
     )
     lookup = _transition_lookup(transition_model, design, trace)
     static = best_static_schedule(
@@ -811,6 +878,8 @@ def run_transition_schedule(config_path: Path, outdir: Path, *, repo_root: Path)
     traces = load_traces(trace_payload)
     transition_model = TransitionModel(payload["transition_costs"])
     policy = dict(payload["policy"])
+    certificate_gate = dict(payload.get("certificate_gate", {})) or None
+    certificate_envelopes = tuple(dict(item) for item in payload.get("certificate_envelopes", []))
     objective = str(policy["objective"])
     data_dir = outdir / "data"
     trace_dir = outdir / "traces"
@@ -842,6 +911,8 @@ def run_transition_schedule(config_path: Path, outdir: Path, *, repo_root: Path)
                 design=design,
                 transition_model=transition_model,
                 policy=policy,
+                certificate_gate=certificate_gate,
+                certificate_envelopes=certificate_envelopes,
             )
             design_objects[design.design_id] = (results, costs)
             if design.architecture_mode == "adaptive":
@@ -1053,6 +1124,12 @@ def run_transition_schedule(config_path: Path, outdir: Path, *, repo_root: Path)
             "write_new_format", "verify", "commit_protected_mode", "resume",
         ],
         "recovery": "force safe fallback after failed verification; complete migration datapath is not implemented",
+        "certificate_gate": {
+            "enabled": bool(certificate_gate and certificate_gate.get("enabled", False)),
+            "configuration": certificate_gate,
+            "registered_envelopes": list(certificate_envelopes),
+            "rule": "a mode is infeasible unless ambiguity type, support identifier, radius, regime, and SDC limit are contained in its registered certificate",
+        },
     }
     register_map = {
         "ECC_EPOCH_INDEX": {"offset": "0x00", "access": "RW", "description": "current policy epoch"},
@@ -1062,6 +1139,9 @@ def run_transition_schedule(config_path: Path, outdir: Path, *, repo_root: Path)
         "ECC_TRANSITION_STATE": {"offset": "0x10", "access": "RO", "description": "sequencer state"},
         "ECC_BENEFIT_MARGIN": {"offset": "0x14", "access": "RO", "description": "configured physical-unit threshold"},
         "ECC_CONFIDENCE_MIN": {"offset": "0x18", "access": "RO", "description": "minimum switch confidence"},
+        "ECC_SAFETY_ENVELOPE_ID": {"offset": "0x1C", "access": "RO", "description": "active SafeForge certificate identifier digest"},
+        "ECC_ENVELOPE_VALID": {"offset": "0x20", "access": "RO", "description": "current confidence region is inside active certificate"},
+        "ECC_CERTIFIED_FALLBACK": {"offset": "0x24", "access": "RO", "description": "fallback selected after certificate gate rejection"},
     }
     repository_commit, repository_dirty = _repository_state(repo_root)
     source_paths = [

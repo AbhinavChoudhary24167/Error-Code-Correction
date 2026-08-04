@@ -1,0 +1,253 @@
+{
+  "adversarial_pmf": [
+    0.35,
+    0.0,
+    0.30000000000000004,
+    0.0,
+    0.0,
+    0.15,
+    0.0,
+    0.12,
+    0.0,
+    0.0,
+    0.0,
+    0.08,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "ambiguity_type": "structured_interval",
+  "certificate_sha256": "babc6bfbc0c525bae4268eca6a1353bc2a264b6ed57d021d0a54c3ffdf06db67",
+  "objective": "worst_case_sdc",
+  "patterns_receiving_probability": [
+    {
+      "adversarial_probability": 0.35,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-0",
+      "positions": [
+        0
+      ],
+      "probability_change": 0.29,
+      "support_index": 0
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-1",
+      "positions": [
+        1
+      ],
+      "probability_change": -0.06,
+      "support_index": 1
+    },
+    {
+      "adversarial_probability": 0.30000000000000004,
+      "nominal_probability": 0.25,
+      "pattern_id": "adj-dbu-0-1",
+      "positions": [
+        0,
+        1
+      ],
+      "probability_change": 0.050000000000000044,
+      "support_index": 2
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-2",
+      "positions": [
+        2
+      ],
+      "probability_change": -0.06,
+      "support_index": 3
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.08,
+      "pattern_id": "adj-dbu-1-2",
+      "positions": [
+        1,
+        2
+      ],
+      "probability_change": -0.08,
+      "support_index": 4
+    },
+    {
+      "adversarial_probability": 0.15,
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-0-2",
+      "positions": [
+        0,
+        1,
+        2
+      ],
+      "probability_change": 0.15,
+      "support_index": 5
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-3",
+      "positions": [
+        3
+      ],
+      "probability_change": -0.06,
+      "support_index": 6
+    },
+    {
+      "adversarial_probability": 0.12,
+      "nominal_probability": 0.01,
+      "pattern_id": "nonadj-dbu-0-3",
+      "positions": [
+        0,
+        3
+      ],
+      "probability_change": 0.11,
+      "support_index": 7
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "adj-dbu-2-3",
+      "positions": [
+        2,
+        3
+      ],
+      "probability_change": -0.06,
+      "support_index": 8
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-4",
+      "positions": [
+        4
+      ],
+      "probability_change": -0.06,
+      "support_index": 10
+    },
+    {
+      "adversarial_probability": 0.08,
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-mbu-0-2-4",
+      "positions": [
+        0,
+        2,
+        4
+      ],
+      "probability_change": 0.08,
+      "support_index": 11
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.04,
+      "pattern_id": "adj-dbu-3-4",
+      "positions": [
+        3,
+        4
+      ],
+      "probability_change": -0.04,
+      "support_index": 12
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-5",
+      "positions": [
+        5
+      ],
+      "probability_change": -0.06,
+      "support_index": 14
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.01,
+      "pattern_id": "nonadj-dbu-1-5",
+      "positions": [
+        1,
+        5
+      ],
+      "probability_change": -0.01,
+      "support_index": 15
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.03,
+      "pattern_id": "adj-dbu-4-5",
+      "positions": [
+        4,
+        5
+      ],
+      "probability_change": -0.03,
+      "support_index": 16
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-6",
+      "positions": [
+        6
+      ],
+      "probability_change": -0.06,
+      "support_index": 18
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.02,
+      "pattern_id": "adj-dbu-5-6",
+      "positions": [
+        5,
+        6
+      ],
+      "probability_change": -0.02,
+      "support_index": 20
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-7",
+      "positions": [
+        7
+      ],
+      "probability_change": -0.06,
+      "support_index": 22
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.01,
+      "pattern_id": "nonadj-dbu-2-7",
+      "positions": [
+        2,
+        7
+      ],
+      "probability_change": -0.01,
+      "support_index": 23
+    },
+    {
+      "adversarial_probability": 0.0,
+      "nominal_probability": 0.01,
+      "pattern_id": "adj-dbu-6-7",
+      "positions": [
+        6,
+        7
+      ],
+      "probability_change": -0.01,
+      "support_index": 26
+    }
+  ],
+  "policy_id": "safe-769d7c6fa6dd008718e1",
+  "worst_case_risk": -0.0
+}

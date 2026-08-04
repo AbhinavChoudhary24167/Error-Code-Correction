@@ -1,0 +1,21 @@
+{
+  "general_portfolio_baseline": {
+    "experiment_scope": "portfolio experiment baseline, not the single-regime 0.016 code",
+    "meaning": "same two-regime weights applied to one general generated code",
+    "value": 0.5105282172559964
+  },
+  "portfolio_weighted": {
+    "config": "configs/portfolio_cosynthesis.example.json",
+    "experiment_scope": "two PMFs, two specialized modes, 3 co-synthesis iterations, beam width 2",
+    "meaning": "0.55*spatial residual 0.3114362399 + 0.45*geometry residual 0.5099471831",
+    "value": 0.40076616432862155
+  },
+  "reason": "The 0.016 run and portfolio runs have different PMF universes/objectives/search budgets; only records with one experiment_id enter the authoritative table.",
+  "scalable_single_regime": {
+    "config": "configs/code_synthesis_64.example.json",
+    "experiment_scope": "one code, one PMF, 20 beam iterations, beam width 4",
+    "meaning": "residual conditional probability for one spatial-hotspot PMF",
+    "value": 0.016084921904981064
+  },
+  "status": "not_comparable_rejected"
+}

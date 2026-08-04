@@ -1,0 +1,37 @@
+{
+  "certificate_id": "ec821f9eb1b1225b343e7cb3e457d14a56de48fcd5136b8505a75b005cedd572",
+  "executed_pattern_count": 28,
+  "failures": [],
+  "policy_id": "safe-91bb4e8396f023bfc026",
+  "risk_certificates": {
+    "due": {
+      "ambiguity_type": "geometry_wasserstein",
+      "certificate_sha256": "139dd857a951dc04a92b6799c8c410ba38b10a77516db8e88b8e152992a2185d",
+      "dual_bound": 0.555,
+      "failures": [],
+      "optimality_gap": 0.0,
+      "primal_objective": 0.555,
+      "verification_status": "passed"
+    },
+    "residual": {
+      "ambiguity_type": "geometry_wasserstein",
+      "certificate_sha256": "139dd857a951dc04a92b6799c8c410ba38b10a77516db8e88b8e152992a2185d",
+      "dual_bound": 0.555,
+      "failures": [],
+      "optimality_gap": 0.0,
+      "primal_objective": 0.555,
+      "verification_status": "passed"
+    },
+    "sdc": {
+      "ambiguity_type": "geometry_wasserstein",
+      "certificate_sha256": "6dfc32d33665bae2c521471e19e42ae74cd103f1e013b643a3a583405bf93c6e",
+      "dual_bound": 0.0,
+      "failures": [],
+      "optimality_gap": 0.0,
+      "primal_objective": 0.0,
+      "verification_status": "passed"
+    }
+  },
+  "schema_version": 1,
+  "verification_status": "passed"
+}

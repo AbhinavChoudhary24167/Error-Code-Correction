@@ -1,0 +1,450 @@
+{
+  "bit_width": 8,
+  "nominal_pmf_sha256": "e2b934b973fd7dd428a171da78bd019e235cfb3e9c65d4fd986c51aaec497a82",
+  "pattern_count": 28,
+  "patterns": [
+    {
+      "family": "sbu",
+      "mask": 1,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-0",
+      "positions": [
+        0
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 0
+    },
+    {
+      "family": "sbu",
+      "mask": 2,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-1",
+      "positions": [
+        1
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 1
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 3,
+      "metadata": {
+        "hotspot": true
+      },
+      "nominal_probability": 0.25,
+      "pattern_id": "adj-dbu-0-1",
+      "positions": [
+        0,
+        1
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 2
+    },
+    {
+      "family": "sbu",
+      "mask": 4,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-2",
+      "positions": [
+        2
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 3
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 6,
+      "metadata": {},
+      "nominal_probability": 0.08,
+      "pattern_id": "adj-dbu-1-2",
+      "positions": [
+        1,
+        2
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 4
+    },
+    {
+      "family": "triple_adjacent",
+      "mask": 7,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-0-2",
+      "positions": [
+        0,
+        1,
+        2
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 5
+    },
+    {
+      "family": "sbu",
+      "mask": 8,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-3",
+      "positions": [
+        3
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 6
+    },
+    {
+      "family": "non_adjacent_dbu",
+      "mask": 9,
+      "metadata": {},
+      "nominal_probability": 0.01,
+      "pattern_id": "nonadj-dbu-0-3",
+      "positions": [
+        0,
+        3
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 7
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 12,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "adj-dbu-2-3",
+      "positions": [
+        2,
+        3
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 8
+    },
+    {
+      "family": "triple_adjacent",
+      "mask": 14,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-1-3",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 9
+    },
+    {
+      "family": "sbu",
+      "mask": 16,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-4",
+      "positions": [
+        4
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 10
+    },
+    {
+      "family": "general_mbu",
+      "mask": 21,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-mbu-0-2-4",
+      "positions": [
+        0,
+        2,
+        4
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 11
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 24,
+      "metadata": {},
+      "nominal_probability": 0.04,
+      "pattern_id": "adj-dbu-3-4",
+      "positions": [
+        3,
+        4
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 12
+    },
+    {
+      "family": "triple_adjacent",
+      "mask": 28,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-2-4",
+      "positions": [
+        2,
+        3,
+        4
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 13
+    },
+    {
+      "family": "sbu",
+      "mask": 32,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-5",
+      "positions": [
+        5
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 14
+    },
+    {
+      "family": "non_adjacent_dbu",
+      "mask": 34,
+      "metadata": {},
+      "nominal_probability": 0.01,
+      "pattern_id": "nonadj-dbu-1-5",
+      "positions": [
+        1,
+        5
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 15
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 48,
+      "metadata": {},
+      "nominal_probability": 0.03,
+      "pattern_id": "adj-dbu-4-5",
+      "positions": [
+        4,
+        5
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 16
+    },
+    {
+      "family": "triple_adjacent",
+      "mask": 56,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-3-5",
+      "positions": [
+        3,
+        4,
+        5
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 17
+    },
+    {
+      "family": "sbu",
+      "mask": 64,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-6",
+      "positions": [
+        6
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 18
+    },
+    {
+      "family": "general_mbu",
+      "mask": 74,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-mbu-1-3-6",
+      "positions": [
+        1,
+        3,
+        6
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 19
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 96,
+      "metadata": {},
+      "nominal_probability": 0.02,
+      "pattern_id": "adj-dbu-5-6",
+      "positions": [
+        5,
+        6
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 20
+    },
+    {
+      "family": "triple_adjacent",
+      "mask": 112,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-4-6",
+      "positions": [
+        4,
+        5,
+        6
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 21
+    },
+    {
+      "family": "sbu",
+      "mask": 128,
+      "metadata": {},
+      "nominal_probability": 0.06,
+      "pattern_id": "sbu-7",
+      "positions": [
+        7
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 22
+    },
+    {
+      "family": "non_adjacent_dbu",
+      "mask": 132,
+      "metadata": {},
+      "nominal_probability": 0.01,
+      "pattern_id": "nonadj-dbu-2-7",
+      "positions": [
+        2,
+        7
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 23
+    },
+    {
+      "family": "general_mbu",
+      "mask": 145,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-mbu-0-4-7",
+      "positions": [
+        0,
+        4,
+        7
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 24
+    },
+    {
+      "family": "general_mbu",
+      "mask": 146,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-mbu-1-4-7",
+      "positions": [
+        1,
+        4,
+        7
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 25
+    },
+    {
+      "family": "adjacent_dbu",
+      "mask": 192,
+      "metadata": {},
+      "nominal_probability": 0.01,
+      "pattern_id": "adj-dbu-6-7",
+      "positions": [
+        6,
+        7
+      ],
+      "source_distribution_ids": [
+        "small-hotspot-8bit-v1",
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 26
+    },
+    {
+      "family": "triple_adjacent",
+      "mask": 224,
+      "metadata": {},
+      "nominal_probability": 0.0,
+      "pattern_id": "shift-triple-5-7",
+      "positions": [
+        5,
+        6,
+        7
+      ],
+      "source_distribution_ids": [
+        "small-shifted-8bit-synthetic-v1"
+      ],
+      "support_index": 27
+    }
+  ],
+  "support_sha256": "734ee7af298dda251afd0be82c0fab50a987f5a2db9dce3299e55fb25751c603"
+}
