@@ -1,0 +1,70 @@
+{
+  "characterized_library": null,
+  "comparison_control": "same parity-check matrix and physical mapping; decoder policy and robust envelope controls differ",
+  "nominal_policy": {
+    "abstain_bits": 0,
+    "configuration_storage": {
+      "dense_logical_table_bits_if_stored": 18688,
+      "reason": "policy is compiled into fixed combinational case logic",
+      "runtime_configuration_bits": 0,
+      "sparse_payload_bits_if_stored_without_overhead": 13680
+    },
+    "correction_table": {
+      "correction_entries": 171,
+      "correction_mask_ones": 282,
+      "syndrome_compare_literals": 1368
+    },
+    "due_logic": "nonzero unknown syndrome drives detected_uncorrectable",
+    "envelope_control_bits": 0,
+    "generic_synthesis": {
+      "abc_generic_gate_counts": {
+        "and": 2,
+        "not": 1,
+        "or": 7,
+        "xor": 299
+      },
+      "generic_cell_count": 311,
+      "longest_topological_path_cells": 38
+    },
+    "xor_logic": {
+      "matrix_xor_gates": 472,
+      "syndrome_max_balanced_depth": 6,
+      "syndrome_naive_xor_gates": 240
+    }
+  },
+  "physical_area_delay_energy_leakage_claim": null,
+  "robust_policy": {
+    "abstain_bits": 1,
+    "certificate_metadata_output_bits": 128,
+    "configuration_storage": {
+      "dense_logical_table_bits_if_stored": 18688,
+      "reason": "policy is compiled into fixed combinational case logic",
+      "runtime_configuration_bits": 0,
+      "sparse_payload_bits_if_stored_without_overhead": 4480
+    },
+    "correction_table": {
+      "correction_entries": 56,
+      "correction_mask_ones": 117,
+      "syndrome_compare_literals": 448
+    },
+    "due_logic": "nonzero unapproved syndrome or invalid envelope drives abstain/DUE",
+    "envelope_control_bits": 2,
+    "generic_synthesis": {
+      "abc_generic_gate_counts": {
+        "and": 68,
+        "not": 3,
+        "or": 8,
+        "xor": 299
+      },
+      "generic_cell_count": 380,
+      "longest_topological_path_cells": 40
+    },
+    "xor_logic": {
+      "matrix_xor_gates": 472,
+      "syndrome_max_balanced_depth": 6,
+      "syndrome_naive_xor_gates": 240
+    }
+  },
+  "schema_version": 1,
+  "technology_scope": "generic structural synthesis only"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-08-04T05:15:00Z",
+  "repository": "AbhinavChoudhary24167/Error-Code-Correction",
+  "commit": "8b9f29c06d7ddf1bc9d2e5b4c057c64bc6f5c0d1",
+  "run_id": 30879489830,
+  "run_url": "https://github.com/AbhinavChoudhary24167/Error-Code-Correction/actions/runs/30879489830",
+  "run_conclusion": "failure",
+  "jobs": {
+    "linux_python_3.10": "success",
+    "linux_python_3.11": "success",
+    "linux_python_3.12": "success",
+    "windows_python_3.11_ucrt64": "success",
+    "rtl_regression_icarus_verilator_yosys": {
+      "conclusion": "failure",
+      "job_id": 91897572433,
+      "job_url": "https://github.com/AbhinavChoudhary24167/Error-Code-Correction/actions/runs/30879489830/job/91897572433",
+      "failed_step": "Run RTL regression",
+      "safeforge_specific_steps_executed": false
+    }
+  },
+  "raw_log_access": "not_available_to_the_public_unauthenticated_session",
+  "interpretation": "This is an archived observation of the pre-hardening Linux CI run, not a pass. Local reproduction exposed duplicate-package portability and misleading TAEC/BCH positive tests; the changed tree fixes the portability issues and preserves both collision cases as explicit negative tests. The updated workflow uploads complete logs on every run, including failures."
+}

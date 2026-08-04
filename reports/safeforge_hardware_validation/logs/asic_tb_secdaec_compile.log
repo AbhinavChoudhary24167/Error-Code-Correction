@@ -1,0 +1,86 @@
+started_utc: 2026-08-04T06:11:49.238419+00:00
+command: 'C:\Users\Abhinav\AppData\Local\Temp\safeforge-hw-h681svf6\iverilog\bin\iverilog.exe' -g2012 -Iasic/include -o 'C:\Users\Abhinav\AppData\Local\Temp\safeforge-hw-h681svf6\build\asic_tb_secdaec.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_secdaec.sv
+exit_code: 0
+duration_seconds: 0.154380
+
+asic/rtl/bch/bch_codec.sv:22: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secdaec/secdaec_codec.sv:76: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secdaec/secdaec_codec.sv:76: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:22: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:22: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:22: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/bch/bch_codec.sv:73: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/taec/taec_codec.sv:68: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secdaec/secdaec_codec.sv:76: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secdaec/secdaec_codec.sv:76: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/polar/polar_codec.sv:122: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:38: warning: A for statement must have a constant step value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:39: warning: A for statement must compare against a constant value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:122: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:38: warning: A for statement must have a constant step value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:39: warning: A for statement must compare against a constant value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:122: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:38: warning: A for statement must have a constant step value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:39: warning: A for statement must compare against a constant value to be synthesized in an always_comb process.
+asic/rtl/bch/bch_codec.sv:99: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/bch/bch_codec.sv:99: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/bch/bch_codec.sv:99: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:122: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:38: warning: A for statement must have a constant step value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:39: warning: A for statement must compare against a constant value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:122: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:38: warning: A for statement must have a constant step value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:39: warning: A for statement must compare against a constant value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:122: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:38: warning: A for statement must have a constant step value to be synthesized in an always_comb process.
+asic/rtl/polar/polar_codec.sv:39: warning: A for statement must compare against a constant value to be synthesized in an always_comb process.
+asic/rtl/bch/bch_codec.sv:99: warning: A for statement must have a constant initial value to be synthesized in an always_comb process.
+asic/rtl/common/green_ecc_transition_controller.sv:60: vvp.tgt sorry: Case unique/unique0 qualities are ignored.

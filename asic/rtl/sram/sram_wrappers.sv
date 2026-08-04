@@ -44,11 +44,11 @@ module sram_taec_wrapper #(
 );
   logic [DATA_W+ecc_pkg::hamming_parity_bits(DATA_W):0] cw_corr;
   logic [ecc_pkg::hamming_parity_bits(DATA_W)-1:0] syn;
-  logic tri;
+  logic triple_corrected;
   taec_encoder #(.DATA_W(DATA_W)) u_we(.data_i(wr_data_i), .codeword_o(mem_word_o));
   taec_decoder #(.DATA_W(DATA_W)) u_re(.codeword_i(rd_word_i), .data_o(rd_data_o), .corrected_codeword_o(cw_corr),
     .syndrome_o(syn), .err_detected_o(err_detected_o), .err_corrected_o(err_corrected_o),
-    .err_uncorrectable_o(err_uncorrectable_o), .triple_adjacent_corrected_o(tri));
+    .err_uncorrectable_o(err_uncorrectable_o), .triple_adjacent_corrected_o(triple_corrected));
 endmodule
 
 module sram_bch_wrapper #(

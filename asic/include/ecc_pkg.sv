@@ -1,3 +1,6 @@
+`ifndef GREEN_ECC_ECC_PKG_SV
+`define GREEN_ECC_ECC_PKG_SV
+
 //------------------------------------------------------------------------------
 // File: ecc_pkg.sv
 // Purpose: Common ECC package with status types and compile-time helper
@@ -49,3 +52,5 @@ package ecc_pkg;
   endfunction
 
 endpackage
+
+`endif  // GREEN_ECC_ECC_PKG_SV

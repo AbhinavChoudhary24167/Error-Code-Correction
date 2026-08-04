@@ -100,6 +100,130 @@ def attach_experiment_identity(record: Mapping[str, Any], identity: Mapping[str,
     return {**dict(record), "experiment_identity": dict(identity), "experiment_id": identity["experiment_id"]}
 
 
+def matrix_identifier(code: Mapping[str, Any]) -> str:
+    """Content identifier for the algebraic matrix, independent of its label."""
+
+    basis = {
+        "k": int(code["k"]),
+        "r": int(code["r"]),
+        "n": int(code["n"]),
+        "H": code["H"],
+        "G": code["G"],
+    }
+    return "matrix-" + _canonical_hash(basis)[:20]
+
+
+def decoder_policy_identifier(actions: Mapping[int, int], *, syndrome_bits: int) -> str:
+    basis = {
+        "syndrome_bits": int(syndrome_bits),
+        "actions": [
+            {"syndrome": int(syndrome), "correction_mask": int(mask)}
+            for syndrome, mask in sorted(actions.items())
+        ],
+        "missing_nonzero_syndrome_semantics": "abstain_due",
+    }
+    return "policy-" + _canonical_hash(basis)[:20]
+
+
+def metric_context(
+    *,
+    experiment_identity: Mapping[str, Any],
+    code: Mapping[str, Any],
+    actions: Mapping[int, int],
+    pmf_id: str,
+    ambiguity: Mapping[str, Any],
+    error_universe_id: str,
+    metric_scope: str,
+    physical_mapping: Sequence[int] | None = None,
+) -> dict[str, Any]:
+    """Construct the mandatory context attached to every hardened-study metric."""
+
+    if metric_scope not in {"nominal", "held_out", "worst_case"}:
+        raise ValueError("metric_scope must be nominal, held_out, or worst_case")
+    n = int(code["n"])
+    mapping = list(range(n)) if physical_mapping is None else [int(value) for value in physical_mapping]
+    if sorted(mapping) != list(range(n)):
+        raise ValueError("physical_mapping must be a permutation of [0,n)")
+    return {
+        "experiment_id": str(experiment_identity["experiment_id"]),
+        "matrix_id": matrix_identifier(code),
+        "decoder_policy_id": decoder_policy_identifier(actions, syndrome_bits=int(code["r"])),
+        "pmf_id": str(pmf_id),
+        "ambiguity_set_type": str(ambiguity["type"]),
+        "ambiguity_radius": float(ambiguity.get("radius", 0.0)),
+        "error_pattern_universe": str(error_universe_id),
+        "parity_budget": int(code["r"]),
+        "physical_mapping": mapping,
+        "metric_scope": metric_scope,
+    }
+
+
+def validate_metric_rows(rows: Sequence[Mapping[str, Any]]) -> str:
+    """Reject incomplete, mixed-identity, or mixed-scope metric rows."""
+
+    if not rows:
+        raise ValueError("at least one metric row is required")
+    required = {
+        "experiment_id",
+        "matrix_id",
+        "decoder_policy_id",
+        "pmf_id",
+        "ambiguity_set_type",
+        "ambiguity_radius",
+        "error_pattern_universe",
+        "parity_budget",
+        "physical_mapping",
+        "metric_scope",
+        "metrics",
+    }
+    for index, row in enumerate(rows):
+        missing = sorted(required - set(row))
+        if missing:
+            raise ValueError(f"metric row {index} missing context fields: {missing}")
+        scope = str(row["metric_scope"])
+        metrics = dict(row["metrics"])
+        if scope in {"nominal", "held_out"}:
+            expected = {"corrected", "due", "sdc"}
+            if not expected <= set(metrics):
+                raise ValueError(f"{scope} metric row {index} lacks a probability partition")
+            total = sum(float(metrics[key]) for key in expected)
+            if not abs(total - 1.0) <= 1e-10:
+                raise ValueError(f"{scope} metric row {index} does not sum to one")
+        elif scope == "worst_case":
+            if "corrected" in metrics:
+                raise ValueError(
+                    "worst_case rows must not mix nominal/held-out correction with separate risk maxima"
+                )
+            if not {"due", "sdc"} <= set(metrics):
+                raise ValueError("worst_case rows require due and sdc bounds")
+            adversarial_ids = dict(row.get("adversarial_pmf_ids", {}))
+            if not {"due", "sdc"} <= set(adversarial_ids):
+                raise ValueError(
+                    "worst_case rows require separate adversarial PMF IDs for due and sdc"
+                )
+        else:
+            raise ValueError(f"unknown metric scope {scope!r}")
+    identifiers = {str(row["experiment_id"]) for row in rows}
+    if len(identifiers) != 1:
+        raise ValueError(f"mismatched experiment identities in metric rows: {sorted(identifiers)}")
+    return next(iter(identifiers))
+
+
+def metric_rows_table(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
+    experiment_id = validate_metric_rows(rows)
+    return {
+        "schema_version": 1,
+        "experiment_id": experiment_id,
+        "validation": "passed",
+        "row_semantics": (
+            "nominal and held-out rows are probability partitions; worst-case SDC and DUE "
+            "are separately maximized bounds with separate adversarial PMF IDs and are not "
+            "presented as a partition"
+        ),
+        "rows": [dict(row) for row in rows],
+    }
+
+
 def assert_comparable(records: Sequence[Mapping[str, Any]]) -> str:
     if not records:
         raise ValueError("at least one comparison record is required")

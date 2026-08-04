@@ -1,0 +1,367 @@
+started_utc: 2026-08-04T06:14:15.629070+00:00
+command: 'D:\Compiler Cpp\ucrt64\bin\yosys.exe' -p 'read_verilog -sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_encoder.sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.sv; hierarchy -check -top safeforge_robust_72_64_mapping_v1_nominal_policy_decoder; proc; flatten; opt; techmap; opt; abc -g simple; clean; check -assert; stat; ltp'
+exit_code: 0
+duration_seconds: 0.660120
+
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+
+
+-- Running command `read_verilog -sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_encoder.sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.sv; hierarchy -check -top safeforge_robust_72_64_mapping_v1_nominal_policy_decoder; proc; flatten; opt; techmap; opt; abc -g simple; clean; check -assert; stat; ltp' --
+
+1. Executing Verilog-2005 frontend: C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv
+Parsing SystemVerilog input from `C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_encoder.sv
+Parsing SystemVerilog input from `C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_encoder.sv' to AST representation.
+Generating RTLIL representation for module `\safeforge_robust_72_64_mapping_v1_nominal_policy_encoder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.sv
+Parsing SystemVerilog input from `C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.sv' to AST representation.
+Generating RTLIL representation for module `\safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder
+Used module:     \safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome
+
+4.2. Analyzing design hierarchy..
+Top module:  \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder
+Used module:     \safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome
+Removing unused module `\safeforge_robust_72_64_mapping_v1_nominal_policy_encoder'.
+Removed 1 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.$proc$C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv:0$1'.
+     1/1: { $1\correction_mask[71:0] $1\correction_known[0:0] }
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.\correction_mask' from process `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.$proc$C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv:0$1'.
+No latch inferred for signal `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.\correction_known' from process `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.$proc$C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv:0$1'.
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.$proc$C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv:0$1'.
+Removing empty process `safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.$proc$C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv:0$1'.
+Cleaned up 1 empty switch.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+<suppressed ~2 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.
+<suppressed ~1 debug messages>
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+Removed 0 unused cells and 18 unused wires.
+<suppressed ~1 debug messages>
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+
+7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+Performed a total of 0 changes.
+
+7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+Removed a total of 0 cells.
+
+7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+
+7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+
+7.16. Finished OPT passes. (There is nothing left to do.)
+
+8. Executing TECHMAP pass (map to technology primitives).
+
+8.1. Executing Verilog-2005 frontend: D:\Compiler Cpp\ucrt64\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\Compiler Cpp\ucrt64\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+8.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $xor.
+No more expansions possible.
+<suppressed ~317 debug messages>
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+Removed a total of 0 cells.
+
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+Removed 8 unused cells and 1 unused wires.
+<suppressed ~9 debug messages>
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+Performed a total of 0 changes.
+
+9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder'.
+Removed a total of 0 cells.
+
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \safeforge_robust_72_64_mapping_v1_nominal_policy_decoder..
+
+9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.
+
+9.16. Finished OPT passes. (There is nothing left to do.)
+
+10. Executing ABC pass (technology mapping using ABC).
+
+10.1. Extracting gate netlist of module `\safeforge_robust_72_64_mapping_v1_nominal_policy_decoder' to `<abc-temp-dir>/input.blif'..
+Extracted 313 gates and 450 wires to a netlist network with 137 inputs and 74 outputs.
+
+10.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 8 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.1.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        7
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:               XOR cells:      299
+ABC RESULTS:        internal signals:      239
+ABC RESULTS:           input signals:      137
+ABC RESULTS:          output signals:       74
+Removing temp directory.
+Removed 0 unused cells and 446 unused wires.
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module safeforge_robust_72_64_mapping_v1_nominal_policy_decoder...
+Found and reported 0 problems.
+
+12. Printing statistics.
+
+=== safeforge_robust_72_64_mapping_v1_nominal_policy_decoder ===
+
+   Number of wires:                245
+   Number of wire bits:            606
+   Number of public wires:          10
+   Number of public wire bits:     371
+   Number of memories:               1
+   Number of memory bits:        18688
+   Number of processes:              0
+   Number of cells:                311
+     $_AND_                          2
+     $_NOT_                          1
+     $_OR_                           7
+     $_XOR_                        299
+     $meminit                        1
+     $memrd_v2                       1
+
+13. Executing LTP pass (find longest path).
+
+Longest topological path in safeforge_robust_72_64_mapping_v1_nominal_policy_decoder (length=38):
+    0: \word [2]
+    1: $abc$886$new_n248_ (via $abc$886$auto$blifparse.cc:386:parse_blif$923)
+    2: $abc$886$new_n249_ (via $abc$886$auto$blifparse.cc:386:parse_blif$924)
+    3: $abc$886$new_n250_ (via $abc$886$auto$blifparse.cc:386:parse_blif$925)
+    4: $abc$886$new_n251_ (via $abc$886$auto$blifparse.cc:386:parse_blif$926)
+    5: $abc$886$new_n252_ (via $abc$886$auto$blifparse.cc:386:parse_blif$927)
+    6: $abc$886$new_n253_ (via $abc$886$auto$blifparse.cc:386:parse_blif$928)
+    7: $abc$886$new_n254_ (via $abc$886$auto$blifparse.cc:386:parse_blif$929)
+    8: $abc$886$new_n255_ (via $abc$886$auto$blifparse.cc:386:parse_blif$930)
+    9: $abc$886$new_n256_ (via $abc$886$auto$blifparse.cc:386:parse_blif$931)
+   10: $abc$886$new_n257_ (via $abc$886$auto$blifparse.cc:386:parse_blif$932)
+   11: $abc$886$new_n258_ (via $abc$886$auto$blifparse.cc:386:parse_blif$933)
+   12: $abc$886$new_n259_ (via $abc$886$auto$blifparse.cc:386:parse_blif$934)
+   13: $abc$886$new_n260_ (via $abc$886$auto$blifparse.cc:386:parse_blif$935)
+   14: $abc$886$new_n261_ (via $abc$886$auto$blifparse.cc:386:parse_blif$936)
+   15: $abc$886$new_n262_ (via $abc$886$auto$blifparse.cc:386:parse_blif$937)
+   16: $abc$886$new_n263_ (via $abc$886$auto$blifparse.cc:386:parse_blif$938)
+   17: $abc$886$new_n264_ (via $abc$886$auto$blifparse.cc:386:parse_blif$939)
+   18: $abc$886$new_n265_ (via $abc$886$auto$blifparse.cc:386:parse_blif$940)
+   19: $abc$886$new_n266_ (via $abc$886$auto$blifparse.cc:386:parse_blif$941)
+   20: $abc$886$new_n267_ (via $abc$886$auto$blifparse.cc:386:parse_blif$942)
+   21: $abc$886$new_n268_ (via $abc$886$auto$blifparse.cc:386:parse_blif$943)
+   22: $abc$886$new_n269_ (via $abc$886$auto$blifparse.cc:386:parse_blif$944)
+   23: $abc$886$new_n270_ (via $abc$886$auto$blifparse.cc:386:parse_blif$945)
+   24: $abc$886$new_n271_ (via $abc$886$auto$blifparse.cc:386:parse_blif$946)
+   25: $abc$886$new_n272_ (via $abc$886$auto$blifparse.cc:386:parse_blif$947)
+   26: $abc$886$new_n273_ (via $abc$886$auto$blifparse.cc:386:parse_blif$948)
+   27: $abc$886$new_n274_ (via $abc$886$auto$blifparse.cc:386:parse_blif$949)
+   28: $abc$886$new_n275_ (via $abc$886$auto$blifparse.cc:386:parse_blif$950)
+   29: $abc$886$new_n276_ (via $abc$886$auto$blifparse.cc:386:parse_blif$951)
+   30: $abc$886$new_n277_ (via $abc$886$auto$blifparse.cc:386:parse_blif$952)
+   31: $abc$886$new_n278_ (via $abc$886$auto$blifparse.cc:386:parse_blif$953)
+   32: $abc$886$new_n279_ (via $abc$886$auto$blifparse.cc:386:parse_blif$954)
+   33: $abc$886$new_n280_ (via $abc$886$auto$blifparse.cc:386:parse_blif$955)
+   34: $abc$886$new_n281_ (via $abc$886$auto$blifparse.cc:386:parse_blif$956)
+   35: \syndrome [1] (via $abc$886$auto$blifparse.cc:386:parse_blif$957)
+   36: \correction_known (via $auto$mem.cc:273:emit$482)
+   37: $abc$886$new_n212_ (via $abc$886$auto$blifparse.cc:386:parse_blif$887)
+   38: \detected_uncorrectable (via $abc$886$auto$blifparse.cc:386:parse_blif$1131)
+
+End of script. Logfile hash: c2a3698963
+Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+Time spent: 3% 7x opt_expr (0 sec), 3% 6x opt_merge (0 sec), ...

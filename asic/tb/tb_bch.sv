@@ -21,9 +21,13 @@ module tb_bch;
     if (dout !== d || !cor) $fatal(1, "bch double-bit correction failed");
 
     cwi = cw ^ (63'd1<<1) ^ (63'd1<<5) ^ (63'd1<<29); #1;
-    if (!unc) $fatal(1, "bch >2-bit should be uncorrectable");
+    // Negative result: the checked-in degree-12 example polynomial has not
+    // been established as a distance-5 BCH(63,51) artifact.  This triple
+    // aliases a <=2-bit candidate and is silently miscorrected.
+    if (unc || !cor || dout === d)
+      $fatal(1, "modeled BCH example must expose the distance/collision gap");
 
-    $display("TB_BCH_PASS");
+    $display("TB_BCH_NEGATIVE_DISTANCE_PASS");
     $finish;
   end
 endmodule

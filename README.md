@@ -121,6 +121,29 @@ demonstrates break-even regions but is not a synthesis, PVT, or silicon result.
 See `docs/RESEARCH_NOVELTY.md` and `docs/transition_aware_formulation.md` for
 the research question, equations, literature boundary, and unsupported claims.
 
+### SafeForge certifying compiler
+
+SafeForge compiles syndrome correction/abstention policies under an explicit
+fault-distribution ambiguity set, emits synthesizable RTL, and produces
+solver-independently checkable worst-case SDC certificates. Its safety claims
+are conditional on a named finite error support; open-support probability and
+bounded-weight tails remain explicit.
+
+Regenerate the frozen scientific study and actual RTL logs with:
+
+```bash
+python3 scripts/run_safeforge_hardening.py
+python3 scripts/run_safeforge_hardware_validation.py
+```
+
+The first command enumerates all 255 nonzero 8-bit errors and all 1,091,058
+72-bit errors through weight four, validates metric contexts, runs controlled
+gain-source ablations, and produces fixed-code SDC-DUE frontiers plus
+literature-aggregate sensitivity certificates. The second runs Icarus,
+Verilator, and Yosys/ABC and archives exact logs and tool versions. See
+`docs/SAFEFORGE_MANUSCRIPT.md` and `docs/SAFEFORGE_SUPPORT_AUDIT.md` for the
+paper narrative and strict claim boundary.
+
 ---
 
 ## Requirements

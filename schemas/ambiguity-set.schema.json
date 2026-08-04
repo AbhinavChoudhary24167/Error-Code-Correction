@@ -36,6 +36,32 @@
         "additionalProperties": {"$ref": "#/$defs/interval"}
       }
     },
+    "aggregate_intervals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "members", "lower", "upper"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "members": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["dimension", "category"],
+              "properties": {
+                "dimension": {"enum": ["family", "multiplicity", "adjacency_class", "burst_length", "vdd", "temperature", "spatial_region"]},
+                "category": {"type": "string", "minLength": 1}
+              },
+              "additionalProperties": false
+            }
+          },
+          "lower": {"type": "number", "minimum": 0, "maximum": 1},
+          "upper": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
     "geometry": {
       "type": "object",
       "properties": {

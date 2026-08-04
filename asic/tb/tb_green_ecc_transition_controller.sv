@@ -22,9 +22,7 @@ module tb_green_ecc_transition_controller;
     .recovery_o(recovery)
   );
 
-  task pulse(ref logic signal);
-    signal = 1'b1; @(posedge clk); #1; signal = 1'b0;
-  endtask
+`define PULSE(signal) begin signal = 1'b1; @(posedge clk); #1; signal = 1'b0; end
 
   initial begin
     request = 0; requested_mode = 0; quiesce_done = 0; read_done = 0;
@@ -33,23 +31,25 @@ module tb_green_ecc_transition_controller;
     repeat (2) @(posedge clk); rst_n = 1; @(posedge clk); #1;
     if (active_mode !== 2 || busy) $fatal(1, "safe reset failed");
 
-    requested_mode = 1; pulse(request);
-    pulse(quiesce_done); pulse(read_done); pulse(decode_done);
-    pulse(encode_done); pulse(write_done);
-    verify_ok = 1; pulse(verify_done); @(posedge clk); #1;
+    requested_mode = 1; `PULSE(request)
+    `PULSE(quiesce_done) `PULSE(read_done) `PULSE(decode_done)
+    `PULSE(encode_done) `PULSE(write_done)
+    verify_ok = 1; `PULSE(verify_done) @(posedge clk); #1;
     if (!commit || active_mode !== 1) $fatal(1, "verified commit failed");
-    pulse(resume_done); #1;
+    `PULSE(resume_done) #1;
     if (busy) $fatal(1, "controller did not return stable");
 
-    requested_mode = 3; pulse(request); @(posedge clk); #1;
+    requested_mode = 3; `PULSE(request) @(posedge clk); #1;
     if (!recovery || active_mode !== 2) $fatal(1, "illegal mode did not recover");
-    pulse(resume_done);
+    `PULSE(resume_done)
 
-    requested_mode = 0; pulse(request); pulse(quiesce_done); pulse(read_done);
-    pulse(decode_done); pulse(encode_done); pulse(write_done);
-    verify_ok = 0; pulse(verify_done); @(posedge clk); #1;
+    requested_mode = 0; `PULSE(request) `PULSE(quiesce_done) `PULSE(read_done)
+    `PULSE(decode_done) `PULSE(encode_done) `PULSE(write_done)
+    verify_ok = 0; `PULSE(verify_done) @(posedge clk); #1;
     if (!recovery || active_mode !== 2) $fatal(1, "verification failure did not recover");
     $display("PASS tb_green_ecc_transition_controller");
     $finish;
   end
 endmodule
+
+`undef PULSE

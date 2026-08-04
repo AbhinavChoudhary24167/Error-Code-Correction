@@ -413,6 +413,29 @@ def _structured_problem(
                     "upper": _interpolate(nominal_mass, float(bounds["upper"]), radius),
                 }
             )
+    for aggregate in ambiguity.get("aggregate_intervals", []):
+        members = [dict(member) for member in aggregate["members"]]
+        indexes = [
+            index
+            for index, pattern in enumerate(support)
+            if any(
+                _category(pattern, str(member["dimension"]), ambiguity)
+                == str(member["category"])
+                for member in members
+            )
+        ]
+        if not indexes:
+            raise ValueError(f"structured aggregate {aggregate['name']!r} matches no patterns")
+        nominal_mass = sum(nominal[index] for index in indexes)
+        constraints.append(
+            {
+                "name": f"aggregate:{aggregate['name']}",
+                "indexes": indexes,
+                "lower": _interpolate(nominal_mass, float(aggregate["lower"]), radius),
+                "upper": _interpolate(nominal_mass, float(aggregate["upper"]), radius),
+                "members": members,
+            }
+        )
     return {"nominal": nominal, "lower": lower, "upper": upper, "constraints": constraints}
 
 

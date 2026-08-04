@@ -1,0 +1,293 @@
+{
+  "campaigns": {
+    "72bit_modeled_errors": {
+      "cross_product_checks": 1708,
+      "data_representatives": 4,
+      "modeled_error_vectors_per_representative": 427
+    },
+    "small_exhaustive": {
+      "cross_product_checks": 448,
+      "data_words": 16,
+      "modeled_error_vectors": 28
+    }
+  },
+  "failed_checks": [],
+  "generated_utc": "2026-08-04T06:14:17.008826+00:00",
+  "generic_asic_regression_semantics": {
+    "tb_bch": "negative distance/collision is expected and archived, not a verified BCH correction claim",
+    "tb_taec": "negative collision is expected and archived, not a TAEC correction claim"
+  },
+  "host": {
+    "machine": "AMD64",
+    "python": "3.12.5",
+    "release": "11",
+    "system": "Windows"
+  },
+  "interpretation": "Actual host execution; technology-independent RTL and generic synthesis only.",
+  "overall_status": "passed",
+  "results": [
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -V",
+      "duration_seconds": 1.0020512000046438,
+      "exit_code": 0,
+      "label": "version_iverilog",
+      "log": "logs/version_iverilog.log",
+      "log_sha256": "316529b262b2ad587d303154086fa0cf9106f04f77dae89767e8c3936fd7ed58",
+      "status": "passed",
+      "version_text": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' -V",
+      "duration_seconds": 0.12402570000267588,
+      "exit_code": 0,
+      "label": "version_vvp",
+      "log": "logs/version_vvp.log",
+      "log_sha256": "0bbf2cdd27c1938af73c99de0847f391faea6cba0c3ff1d2030859a35e4c4319",
+      "status": "passed",
+      "version_text": "Icarus Verilog runtime version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\verilator\\bin\\verilator_bin.exe' --version",
+      "duration_seconds": 0.6790230000042357,
+      "exit_code": 0,
+      "label": "version_verilator",
+      "log": "logs/version_verilator.log",
+      "log_sha256": "5f78dbb50f17d1be614908bf13997130312dfcc5981e5851e3d7f85ff618af87",
+      "status": "passed",
+      "version_text": "Verilator 5.020 2024-01-01 rev UNKNOWN.REV"
+    },
+    {
+      "command": "'D:\\Compiler Cpp\\ucrt64\\bin\\yosys.exe' -V",
+      "duration_seconds": 0.028753099992172793,
+      "exit_code": 0,
+      "label": "version_yosys",
+      "log": "logs/version_yosys.log",
+      "log_sha256": "1e4ed0b159d5b4e371916775ec0f021aa3b449624f8b579bf0398f2299c0d8fd",
+      "status": "passed",
+      "version_text": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_secded.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_secded.sv",
+      "duration_seconds": 0.23195149999810383,
+      "exit_code": 0,
+      "label": "asic_tb_secded_compile",
+      "log": "logs/asic_tb_secded_compile.log",
+      "log_sha256": "6072b23022a736d65ee1071b994cdc3ee1c2adedc1fb300a139047e363d2c865",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_secded.vvp'",
+      "duration_seconds": 19.41668330000539,
+      "exit_code": 0,
+      "label": "asic_tb_secded_run",
+      "log": "logs/asic_tb_secded_run.log",
+      "log_sha256": "07aed0b17b04c52bebd063063ab991f9a49b0f1cba2d06656f5d2a018d18a6a0",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_secdaec.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_secdaec.sv",
+      "duration_seconds": 0.1543796000041766,
+      "exit_code": 0,
+      "label": "asic_tb_secdaec_compile",
+      "log": "logs/asic_tb_secdaec_compile.log",
+      "log_sha256": "b6a21fdf1b5f71271baac128f9af4eafc8f5766861e607659f9e1d1bf02c4dfc",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_secdaec.vvp'",
+      "duration_seconds": 19.217897800001083,
+      "exit_code": 0,
+      "label": "asic_tb_secdaec_run",
+      "log": "logs/asic_tb_secdaec_run.log",
+      "log_sha256": "153d46ba490af29cee454cb6323829928fbde1cf9fc4154d0c4c2c9feb893aac",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_taec.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_taec.sv",
+      "duration_seconds": 0.1514057999884244,
+      "exit_code": 0,
+      "label": "asic_tb_taec_compile",
+      "log": "logs/asic_tb_taec_compile.log",
+      "log_sha256": "ec55dc7a70fff2f5610fce55d05c40230a44f34e1dc3163ea3f5d7e3582dfdf8",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_taec.vvp'",
+      "duration_seconds": 18.766768999994383,
+      "exit_code": 0,
+      "label": "asic_tb_taec_run",
+      "log": "logs/asic_tb_taec_run.log",
+      "log_sha256": "161f816bd7c326ee62f4c3a57751c6df9298ab8845f1c064c4d55033f7ab1c3c",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_bch.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_bch.sv",
+      "duration_seconds": 0.15246070000284817,
+      "exit_code": 0,
+      "label": "asic_tb_bch_compile",
+      "log": "logs/asic_tb_bch_compile.log",
+      "log_sha256": "29298c2bf099958e020bb646e90f214c6c3d3e23d3609cfd006bd06e40f80ba7",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_bch.vvp'",
+      "duration_seconds": 20.20311020000372,
+      "exit_code": 0,
+      "label": "asic_tb_bch_run",
+      "log": "logs/asic_tb_bch_run.log",
+      "log_sha256": "3b231b6c4af02058ffb6b7567805666f43fdfeb2984cd21343f8514c4d2cc104",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_polar.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_polar.sv",
+      "duration_seconds": 0.1614144000050146,
+      "exit_code": 0,
+      "label": "asic_tb_polar_compile",
+      "log": "logs/asic_tb_polar_compile.log",
+      "log_sha256": "ec313955a3abe7de73325b9215f7865398c658176dad90adeaba13ccd063c4ae",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_polar.vvp'",
+      "duration_seconds": 28.019950999994762,
+      "exit_code": 0,
+      "label": "asic_tb_polar_run",
+      "log": "logs/asic_tb_polar_run.log",
+      "log_sha256": "2c66d01d404baa16048c53e0ade8c5a6bed96f01bfd0768d70d2f64199491e5f",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_sram_wrappers.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_sram_wrappers.sv",
+      "duration_seconds": 0.14869040000485256,
+      "exit_code": 0,
+      "label": "asic_tb_sram_wrappers_compile",
+      "log": "logs/asic_tb_sram_wrappers_compile.log",
+      "log_sha256": "57caaff68757090c1a53141b35cbcd86f46f438827208d1c767886259ade1d8f",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_sram_wrappers.vvp'",
+      "duration_seconds": 19.131844100003946,
+      "exit_code": 0,
+      "label": "asic_tb_sram_wrappers_run",
+      "log": "logs/asic_tb_sram_wrappers_run.log",
+      "log_sha256": "8a26048e5282b97cf70374fe6a7f98c0be1bae860125b6fa70cd04d90cc5f0a0",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_green_ecc_selection.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_green_ecc_selection.sv",
+      "duration_seconds": 0.1471328000043286,
+      "exit_code": 0,
+      "label": "asic_tb_green_ecc_selection_compile",
+      "log": "logs/asic_tb_green_ecc_selection_compile.log",
+      "log_sha256": "1836cae8fc665399c082aa27757878737c3532ef3227a97ca07faa69f3bca9ab",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_green_ecc_selection.vvp'",
+      "duration_seconds": 18.966287100003683,
+      "exit_code": 0,
+      "label": "asic_tb_green_ecc_selection_run",
+      "log": "logs/asic_tb_green_ecc_selection_run.log",
+      "log_sha256": "b4f0a8bb9015afef080af4b27be501cac062f5594e47d1a00b4bce53ff4febbb",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_green_ecc_transition_controller.vvp' asic/include/ecc_pkg.sv asic/rtl/common/ecc_bitflip_corrector.sv asic/rtl/common/green_ecc_select_mux.sv asic/rtl/common/green_ecc_mode_controller.sv asic/rtl/common/green_ecc_transition_controller.sv asic/rtl/secded/secded_codec.sv asic/rtl/secdaec/secdaec_codec.sv asic/rtl/taec/taec_codec.sv asic/rtl/bch/bch_codec.sv asic/rtl/polar/polar_pkg.sv asic/rtl/polar/polar_codec.sv asic/rtl/sram/sram_wrappers.sv asic/rtl/common/ecc_entries.sv asic/tb/tb_green_ecc_transition_controller.sv",
+      "duration_seconds": 0.14581869999528863,
+      "exit_code": 0,
+      "label": "asic_tb_green_ecc_transition_controller_compile",
+      "log": "logs/asic_tb_green_ecc_transition_controller_compile.log",
+      "log_sha256": "05d5584de3ae7aa7911ffa7d663af5855fd8416c857a9eb81cb5f499f65d97a9",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\asic_tb_green_ecc_transition_controller.vvp'",
+      "duration_seconds": 19.18732490000548,
+      "exit_code": 0,
+      "label": "asic_tb_green_ecc_transition_controller_run",
+      "log": "logs/asic_tb_green_ecc_transition_controller_run.log",
+      "log_sha256": "9496173c90a94f9c06e9ccb7b0ed9696cabdc4dd6bc0904908002186b566adbc",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\safeforge_small_exhaustive.vvp' reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_encoder.sv reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_safe_decoder.sv reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_syndrome.sv reports/safe_decoder/rtl/tb_forge_hotspot_8_4_v1_safe_safe.sv",
+      "duration_seconds": 0.09570150000217836,
+      "exit_code": 0,
+      "label": "safeforge_small_exhaustive_compile",
+      "log": "logs/safeforge_small_exhaustive_compile.log",
+      "log_sha256": "45000c81b44bdc7f0e442acc69ed537361b028652c0698bfae57b67f6e70a6ff",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\safeforge_small_exhaustive.vvp'",
+      "duration_seconds": 0.050365300005069,
+      "exit_code": 0,
+      "label": "safeforge_small_exhaustive_run",
+      "log": "logs/safeforge_small_exhaustive_run.log",
+      "log_sha256": "8aff1c55e9a180947f4cb53a8567702390de8e7f665ddedc35b2896c3001c8af",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\verilator\\bin\\verilator_bin.exe' --lint-only --timing -Wall -Wno-fatal reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_encoder.sv reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_safe_decoder.sv reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_syndrome.sv reports/safe_decoder/rtl/tb_forge_hotspot_8_4_v1_safe_safe.sv",
+      "duration_seconds": 0.07103999999526422,
+      "exit_code": 0,
+      "label": "verilator_safeforge_small_exhaustive",
+      "log": "logs/verilator_safeforge_small_exhaustive.log",
+      "log_sha256": "1fe10dfec5e91ce8a779866784c894f6f3329dc4c77b98fa97c2418db8405ede",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\iverilog.exe' -g2012 -Iasic/include -o 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\safeforge_72_modeled_campaign.vvp' reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_encoder.sv reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_safe_decoder.sv reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_syndrome.sv reports/safeforge_64_decoder/rtl/tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv",
+      "duration_seconds": 0.25409130001207814,
+      "exit_code": 0,
+      "label": "safeforge_72_modeled_campaign_compile",
+      "log": "logs/safeforge_72_modeled_campaign_compile.log",
+      "log_sha256": "09aff101aa26bfeecc2102e6d2a72d920bb60d99caa48b6613fb49e2589be573",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\iverilog\\bin\\vvp.exe' 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\build\\safeforge_72_modeled_campaign.vvp'",
+      "duration_seconds": 0.3649276999931317,
+      "exit_code": 0,
+      "label": "safeforge_72_modeled_campaign_run",
+      "log": "logs/safeforge_72_modeled_campaign_run.log",
+      "log_sha256": "26c5335715315437c66c779e5fbe985d2e00fa11a6bdb05d0f52072ebce0a075",
+      "status": "passed"
+    },
+    {
+      "command": "'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\safeforge-hw-h681svf6\\verilator\\bin\\verilator_bin.exe' --lint-only --timing -Wall -Wno-fatal reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_encoder.sv reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_safe_decoder.sv reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_syndrome.sv reports/safeforge_64_decoder/rtl/tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv",
+      "duration_seconds": 0.48716889999923296,
+      "exit_code": 0,
+      "label": "verilator_safeforge_72_modeled_campaign",
+      "log": "logs/verilator_safeforge_72_modeled_campaign.log",
+      "log_sha256": "42dffb82848b0892ce17353004c8d7c14ec37cfaf33266ecb351964481767bc2",
+      "status": "passed"
+    },
+    {
+      "command": "'D:\\Compiler Cpp\\ucrt64\\bin\\yosys.exe' -p 'read_verilog -sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_decoder.sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_encoder.sv C:/Users/Abhinav/AppData/Local/Temp/safeforge-hw-h681svf6/nominal/safeforge_robust_72_64_mapping_v1_nominal_policy_syndrome.sv; hierarchy -check -top safeforge_robust_72_64_mapping_v1_nominal_policy_decoder; proc; flatten; opt; techmap; opt; abc -g simple; clean; check -assert; stat; ltp'",
+      "duration_seconds": 0.6601198999996996,
+      "exit_code": 0,
+      "label": "yosys_nominal_same_matrix",
+      "log": "logs/yosys_nominal_same_matrix.log",
+      "log_sha256": "3d84e9947da8ea3ebd3ae5a6c5997bb8da3aa555da1aa43024488909124b739c",
+      "status": "passed"
+    },
+    {
+      "command": "'D:\\Compiler Cpp\\ucrt64\\bin\\yosys.exe' -p 'read_verilog -sv C:/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_syndrome.sv C:/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_safe_decoder.sv; hierarchy -check -top safeforge_robust_72_64_mapping_v1_safe_safe_decoder; proc; flatten; opt; techmap; opt; abc -g simple; clean; check -assert; stat; ltp'",
+      "duration_seconds": 0.5963518000062322,
+      "exit_code": 0,
+      "label": "yosys_robust_same_matrix",
+      "log": "logs/yosys_robust_same_matrix.log",
+      "log_sha256": "d3fff0ab4cb77ac84c3fca7720af3e218003fdc1cd081d9fef40561ca2922713",
+      "status": "passed"
+    }
+  ],
+  "schema_version": 1,
+  "tools": {
+    "iverilog": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)",
+    "verilator": "Verilator 5.020 2024-01-01 rev UNKNOWN.REV",
+    "vvp": "Icarus Verilog runtime version 12.0 (devel) (s20150603-1391-gd480c4d7d)",
+    "yosys": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+  }
+}

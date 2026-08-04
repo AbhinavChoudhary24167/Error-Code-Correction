@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "ambiguity_id": "literature-fpga-neutron-mcu-range-v1",
+  "type": "structured_interval",
+  "radius": 1.0,
+  "maximum_radius": 1.0,
+  "aggregate_intervals": [
+    {
+      "name": "multiplicity_ge_2",
+      "members": [
+        {"dimension": "multiplicity", "category": "2"},
+        {"dimension": "multiplicity", "category": "3"}
+      ],
+      "lower": 0.0559,
+      "upper": 0.277
+    }
+  ],
+  "calibration": {
+    "kind": "engineering_sensitivity",
+    "description": "Cross-device range of reported classified MCU fractions; not a sampling confidence interval or direct SRAM-word PMF.",
+    "source_id": "perez-celis-wirthlin-2020"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "artifact_status": "scientific_hardening_with_frozen_novelty_scope",
+  "files": {
+    "figure_manifest.json": "0a3b7997edb72e5df723f36e3cc1df2e16921820e0373954a1e530c575cc3e2a",
+    "figures/sdc_due_risk_frontier.svg": "169ea34340d39ada29b568427a319084444eb3ced0da8716d3d4eaab4d773dbb",
+    "fixed_72bit_risk_frontiers.json": "70d553d84b89a0783c87084b5393bdf56ee11127c90ade1b3580f772d84179c0",
+    "gain_source_ablations.json": "eef2cc83601e32569f14bdd29efd6708e0fafb5f259f6b1e7cc846276632f094",
+    "metric_context_table.json": "f028b35ffae0c1347fc4820aeec7a9e433d905a6913886e238414b485b218f6c",
+    "support_audit_8bit.json": "a171eae6fc82e16e6a1fd719c84a7d607a289fc8aade6e3f7de7495c28bbcfed",
+    "weight_le4_72bit_audit.json": "7ecc2363aa3bff572abafcaca9ae2c435d014d89bd58391095ce3bef5fd9b9fa"
+  },
+  "manifest_version": 1,
+  "reproduction_command": "python scripts/run_safeforge_hardening.py",
+  "source_files": {
+    "codeforge/ambiguity.py": "e0481a49209d55d39953ef98bddf7585cac0e4f43dce4f331ade97e566f6b312",
+    "codeforge/experiments.py": "44e8c4aec05803a616e90c2af89a2ca3bdff5438d92c6e9dfa99f4dfa6f9d1aa",
+    "codeforge/hardening.py": "eee3816bb03745b12924301d1f9b684143861bd04d578fb0ea3ad64245ae4719",
+    "codeforge/robust.py": "a34e18a908512b6966aeeaf0f2d49915095c23d233c32eb49994b79deffdc757",
+    "codeforge/support_audit.py": "810149c780512b1fc8895f073a197928c4b8cd12e5e709ec910b206f7a0745b9"
+  },
+  "source_tree_sha256": "b70efe9c258dbcd927867dfa3f2a419fe97abc7d8da647ddad2b15bfc012b5f9"
+}

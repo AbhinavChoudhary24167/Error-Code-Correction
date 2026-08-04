@@ -1,60 +1,89 @@
 {
   "schema_version": 1,
   "audit_date": "2026-08-04",
-  "policy": "Only primary experiments or institutional data catalogues with verifiable provenance are listed. No aggregate is converted into a bit-exact word PMF without a documented mapping.",
+  "policy": "Only primary experiments or institutional test reports are used. Published aggregates are retained with their device, operating condition, extraction method, uncertainty status, and word-model mapping assumptions.",
   "sources": [
+    {
+      "source_id": "pieper-et-al-2023-5nm-sram",
+      "title": "Study of Multicell Upsets in SRAM at a 5-nm Bulk FinFET Node",
+      "authors": ["Nicholas J. Pieper", "Yoni Xiong", "Alexandra Feeley", "John Pasternak", "Nathaniel A. Dodds", "Dennis R. Ball", "Bharat L. Bhuva"],
+      "doi": "10.1109/TNS.2023.3240318",
+      "primary_experiment": true,
+      "device_technology": "custom single-port and two-port SRAM arrays, 5-nm bulk FinFET",
+      "experiment_types": ["241Am alpha", "LANSCE neutron", "14-MeV neutron", "thermal neutron", "heavy ion", "voltage sweep"],
+      "extracted_statistics": [
+        {
+          "quantity": "MCU event fraction under alpha exposure below 550 mV",
+          "interval": {"lower": 0.15, "upper": 1.0},
+          "extraction_method": "conservative lower bound from the paper statement that MBUs contribute more than 15% for both SRAM designs",
+          "confidence_interval": "not reported for this extracted statement",
+          "mapping_assumptions": ["MCU is mapped to multiplicity >=2", "the interval is scenario-specific and not pooled with neutron or FPGA data"]
+        },
+        {
+          "quantity": "spatial MCU clustering rule",
+          "value": "an upset within three cells of an existing cluster member is assigned to the same MCU",
+          "extraction_method": "method section",
+          "confidence_interval": "not applicable",
+          "mapping_assumptions": ["physical cell distance cannot be converted to logical word adjacency without a layout/interleaving map"]
+        }
+      ],
+      "url": "https://www.osti.gov/servlets/purl/2004056"
+    },
     {
       "source_id": "perez-celis-wirthlin-2020",
       "title": "Statistical Method to Extract Radiation-Induced Multiple-Cell Upsets in SRAM-Based FPGAs",
       "doi": "10.1109/TNS.2019.2955006",
       "primary_experiment": true,
-      "device_scope": "Xilinx 7-Series, UltraScale, and UltraScale+ SRAM FPGA CRAM; 7-Series BRAM",
-      "radiation_source": "LANSCE neutron campaign",
-      "verified_aggregate_observations": {
-        "XC7A200T_event_fraction_classified_as_MCU": 0.277,
-        "XCKU040_event_fraction_classified_as_MCU": 0.1459,
-        "XCZU9EG_event_fraction_classified_as_MCU": 0.0559
-      },
-      "usable_for": ["support motivation", "multiplicity sensitivity ranges", "external qualitative validation"],
-      "not_usable_for": ["bit-exact 8-bit or 72-bit word PMF", "raw spatial address replay", "statistical calibration of this repository's TV radius"],
-      "raw_trace_status": "the paper describes upset-cell lists from the campaign, but no reusable raw word-level trace archive was verified",
+      "device_technology": "Xilinx 7-Series, UltraScale, and UltraScale+ SRAM FPGA CRAM; 7-Series BRAM",
+      "experiment_types": ["LANSCE neutron"],
+      "extracted_statistics": [
+        {"quantity": "classified MCU event fraction", "device": "XC7A200T", "value": 0.277, "extraction_method": "reported aggregate", "confidence_interval": "not published in reusable numeric form"},
+        {"quantity": "classified MCU event fraction", "device": "XCKU040", "value": 0.1459, "extraction_method": "reported aggregate", "confidence_interval": "not published in reusable numeric form"},
+        {"quantity": "classified MCU event fraction", "device": "XCZU9EG", "value": 0.0559, "extraction_method": "reported aggregate", "confidence_interval": "not published in reusable numeric form"}
+      ],
+      "mapping_assumptions": ["device-family values define a sensitivity range, not a pooled population confidence interval", "CRAM/BRAM physical addresses are not mapped directly to a 72-bit SRAM word"],
       "url": "https://par.nsf.gov/servlets/purl/10184000"
     },
     {
-      "source_id": "tsiligiannis-et-al-2014",
-      "title": "Multiple Cell Upset Classification in Commercial SRAMs",
-      "doi": "10.1109/TNS.2014.2313742",
+      "source_id": "salami-unsal-kestelman-2019",
+      "title": "Evaluating Built-in ECC of FPGA On-chip Memories for the Mitigation of Undervolting Faults",
       "primary_experiment": true,
-      "device_scope": "commercial 90 nm SRAM",
-      "radiation_source": "ISIS atmospheric-like neutron beam",
-      "verified_aggregate_observations": {
-        "classification_count": 4,
-        "dynamic_mode_large_cluster_scale": "hundreds to thousands of cells"
-      },
-      "usable_for": ["general-MBU support expansion", "dynamic-mode stress motivation"],
-      "not_usable_for": ["bit-exact conditional word PMF", "direct comparison to the synthetic benchmark"],
-      "raw_trace_status": "no public raw address-level archive was verified",
-      "url": "https://doi.org/10.1109/TNS.2014.2313742"
+      "device_technology": "commercial FPGA block RAM under voltage underscaling",
+      "experiment_types": ["voltage scaling", "BRAM read campaign"],
+      "extracted_statistics": [
+        {"quantity": "faults correctable by built-in SECDED", "interval": {"lower": 0.90, "upper": 1.0}, "extraction_method": "paper reports more than 90%", "confidence_interval": "not reported"},
+        {"quantity": "additional faults detectable but not correctable", "value": 0.07, "extraction_method": "reported rounded aggregate", "confidence_interval": "not reported"}
+      ],
+      "mapping_assumptions": ["correctable is treated as an SBU aggregate only because the authors attribute the result to single-bit faults", "the 7% detected category is not converted to a bit-exact DBU PMF"],
+      "url": "https://arxiv.org/abs/1903.12514"
     },
     {
-      "source_id": "nasa-nepp-radiation-database",
-      "title": "NASA NEPP Radiation Effects Database",
-      "primary_experiment": false,
-      "catalogue": true,
-      "usable_for": ["locating device radiation reports with explicit units and provenance"],
-      "not_usable_for": ["automatic PMF ingestion without report-level extraction audit"],
-      "url": "https://nepp.nasa.gov/radhome/raddatabase/raddatabase.html"
+      "source_id": "soyturk-et-al-2019",
+      "title": "Hardware Versus Software Fault Injection of Modern Undervolted SRAMs",
+      "primary_experiment": true,
+      "device_technology": "28-nm 16-Kbit SRAM fault maps from commercial FPGA BRAM experiments",
+      "experiment_types": ["voltage scaling", "hardware-derived persistent fault maps"],
+      "extracted_statistics": [
+        {"quantity": "faulty SRAM maps with 2, 4, 6, and 8 faulty bits", "values": {"2": 0.37, "4": 0.15, "6": 0.09, "8": 0.05}, "extraction_method": "reported histogram percentages among faulty maps", "confidence_interval": "not reported"},
+        {"quantity": "fault-map sample inventory", "values": {"total_maps": 14420, "faulty_maps": 2174}, "extraction_method": "reported counts", "confidence_interval": "not applicable"},
+        {"quantity": "spatial distribution", "value": "faults cluster by column and exhibit voltage inclusion", "extraction_method": "reported hardware-map observation", "confidence_interval": "not reported"}
+      ],
+      "mapping_assumptions": ["persistent faulty-bit count per SRAM macro is not event multiplicity within one ECC word", "spatial locality is used as a structured uncertainty constraint, not as a direct transient PMF"],
+      "url": "https://arxiv.org/abs/1912.00154"
     },
     {
-      "source_id": "esa-radiation-database",
-      "title": "ESA Radiation Test Database",
-      "primary_experiment": false,
-      "catalogue": true,
-      "usable_for": ["locating radiation test reports"],
-      "not_usable_for": ["automatic word-level PMF ingestion"],
-      "url": "https://esarad.esa.int/"
+      "source_id": "nasa-kintex-ultrascale-see-report-2020",
+      "title": "Xilinx Kintex-UltraScale Field Programmable Gate Array Single Event Effects Heavy-Ion Test Report",
+      "primary_experiment": true,
+      "device_technology": "Kintex UltraScale FPGA BRAM, 256 RAMB36 blocks, 8-bit data width",
+      "experiment_types": ["heavy-ion BRAM campaign"],
+      "extracted_statistics": [
+        {"quantity": "BRAM multiplicity collection method", "value": "post-processing classifies 1-bit, 2-bit, 3-bit, and higher errors with stated >=95% event-association confidence", "extraction_method": "test-report methodology", "confidence_interval": "histogram values were not recoverable from the public report text used here"}
+      ],
+      "mapping_assumptions": ["methodological evidence only; no numeric PMF constraint is instantiated without the histogram"],
+      "url": "https://ntrs.nasa.gov/api/citations/20205007765/downloads/20205007765.pdf"
     }
   ],
   "ingested_bit_exact_datasets": [],
-  "conclusion": "Credible aggregate evidence exists for MCU multiplicity and clustering, but no public raw trace with a verified logical-to-physical mapping was found that can defensibly instantiate SafeForge's finite word-level PMF. Synthetic bit-exact benchmarks therefore remain the executable evidence, explicitly supplemented—not replaced—by literature aggregate constraints."
+  "conclusion": "The available evidence supports source-specific aggregate ambiguity sets, not one pooled measured word-level PMF. Literature-derived and synthetic artifacts remain separate."
 }

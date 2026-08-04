@@ -1,0 +1,41 @@
+started_utc: 2026-08-04T06:14:14.968215+00:00
+command: 'C:\Users\Abhinav\AppData\Local\Temp\safeforge-hw-h681svf6\verilator\bin\verilator_bin.exe' --lint-only --timing -Wall -Wno-fatal reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_encoder.sv reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_safe_decoder.sv reports/safeforge_64_decoder/rtl/safeforge_robust_72_64_mapping_v1_safe_syndrome.sv reports/safeforge_64_decoder/rtl/tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv
+exit_code: 0
+duration_seconds: 0.487169
+
+%Warning-TIMESCALEMOD: reports/safeforge_64_decoder/rtl\safeforge_robust_72_64_mapping_v1_safe_encoder.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    2 | module safeforge_robust_72_64_mapping_v1_safe_encoder(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       reports/safeforge_64_decoder/rtl\tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv:2:8: ... Location of module with timescale
+    2 | module tb_safeforge_robust_72_64_mapping_v1_safe_safe;
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.020
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: reports/safeforge_64_decoder/rtl\safeforge_robust_72_64_mapping_v1_safe_safe_decoder.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    2 | module safeforge_robust_72_64_mapping_v1_safe_safe_decoder(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       reports/safeforge_64_decoder/rtl\tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv:2:8: ... Location of module with timescale
+    2 | module tb_safeforge_robust_72_64_mapping_v1_safe_safe;
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: reports/safeforge_64_decoder/rtl\safeforge_robust_72_64_mapping_v1_safe_syndrome.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    2 | module safeforge_robust_72_64_mapping_v1_safe_syndrome(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       reports/safeforge_64_decoder/rtl\tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv:2:8: ... Location of module with timescale
+    2 | module tb_safeforge_robust_72_64_mapping_v1_safe_safe;
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safeforge_64_decoder/rtl\tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv:7:29: Signal is not used: 'abstain'
+                                                                                                              : ... note: In instance 'tb_safeforge_robust_72_64_mapping_v1_safe_safe'
+    7 |   logic correction_applied, abstain, due, fallback_selected, no_certified_mode, envelope_valid;
+      |                             ^~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safeforge_64_decoder/rtl\tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv:7:62: Signal is not used: 'no_certified_mode'
+                                                                                                              : ... note: In instance 'tb_safeforge_robust_72_64_mapping_v1_safe_safe'
+    7 |   logic correction_applied, abstain, due, fallback_selected, no_certified_mode, envelope_valid;
+      |                                                              ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safeforge_64_decoder/rtl\tb_safeforge_robust_72_64_mapping_v1_safe_safe.sv:8:17: Signal is not used: 'safety_envelope_id'
+                                                                                                              : ... note: In instance 'tb_safeforge_robust_72_64_mapping_v1_safe_safe'
+    8 |   logic [127:0] safety_envelope_id;
+      |                 ^~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safeforge_64_decoder/rtl\safeforge_robust_72_64_mapping_v1_safe_safe_decoder.sv:16:16: Bits of signal are not used: 'corrected_word'[71:64]
+                                                                                                                    : ... note: In instance 'tb_safeforge_robust_72_64_mapping_v1_safe_safe.u_decoder'
+   16 |   logic [71:0] corrected_word;
+      |                ^~~~~~~~~~~~~~

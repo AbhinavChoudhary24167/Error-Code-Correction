@@ -1,0 +1,453 @@
+{
+  "experiment_id": "4a60649076810a34d09d",
+  "row_semantics": "nominal and held-out rows are probability partitions; worst-case SDC and DUE are separately maximized bounds with separate adversarial PMF IDs and are not presented as a partition",
+  "rows": [
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-77b5132e666f6fd8fb7d",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "nominal",
+      "metrics": {
+        "corrected": 0.48,
+        "due": 0.52,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-hotspot-8bit-v1",
+      "strategy_id": "conventional_min_weight_fixed"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-77b5132e666f6fd8fb7d",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "held_out",
+      "metrics": {
+        "corrected": 0.20000000000000007,
+        "due": 0.4,
+        "sdc": 0.39999999999999997
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-shifted-8bit-synthetic-v1",
+      "strategy_id": "conventional_min_weight_fixed"
+    },
+    {
+      "adversarial_pmf_ids": {
+        "due": "adversarial-774bf737859504dbb2c0",
+        "residual": "adversarial-f97abef8918b8284fa06",
+        "sdc": "adversarial-c8659bc929b6b34d892d"
+      },
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-77b5132e666f6fd8fb7d",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "worst_case",
+      "metrics": {
+        "due": 0.62,
+        "residual": 0.62,
+        "sdc": 0.1
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "separate-adversarial-pmfs-by-risk",
+      "strategy_id": "conventional_min_weight_fixed"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-99fc810034bb2bc7ede0",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "nominal",
+      "metrics": {
+        "corrected": 0.9299999999999999,
+        "due": 0.0,
+        "sdc": 0.07
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-hotspot-8bit-v1",
+      "strategy_id": "nominal_ml_fixed"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-99fc810034bb2bc7ede0",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "held_out",
+      "metrics": {
+        "corrected": 0.44000000000000006,
+        "due": 0.0,
+        "sdc": 0.5599999999999999
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-shifted-8bit-synthetic-v1",
+      "strategy_id": "nominal_ml_fixed"
+    },
+    {
+      "adversarial_pmf_ids": {
+        "due": "adversarial-f2c9ebe599226b822d60",
+        "residual": "adversarial-f21997dd8291d95f6bb7",
+        "sdc": "adversarial-f21997dd8291d95f6bb7"
+      },
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-99fc810034bb2bc7ede0",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "worst_case",
+      "metrics": {
+        "due": 0.0,
+        "residual": 0.17,
+        "sdc": 0.17
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "separate-adversarial-pmfs-by-risk",
+      "strategy_id": "nominal_ml_fixed"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-65d9e26f3471fd3b7a3b",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "nominal",
+      "metrics": {
+        "corrected": 0.10999999999999999,
+        "due": 0.89,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-hotspot-8bit-v1",
+      "strategy_id": "robust_abstain_fixed"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-65d9e26f3471fd3b7a3b",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "held_out",
+      "metrics": {
+        "corrected": 0.10499999999999998,
+        "due": 0.895,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-shifted-8bit-synthetic-v1",
+      "strategy_id": "robust_abstain_fixed"
+    },
+    {
+      "adversarial_pmf_ids": {
+        "due": "adversarial-e1af8a856243ac30ee8f",
+        "residual": "adversarial-e1af8a856243ac30ee8f",
+        "sdc": "adversarial-f2c9ebe599226b822d60"
+      },
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-65d9e26f3471fd3b7a3b",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "metric_scope": "worst_case",
+      "metrics": {
+        "due": 0.99,
+        "residual": 0.99,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "separate-adversarial-pmfs-by-risk",
+      "strategy_id": "robust_abstain_fixed"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "forge-hotspot-8-4-v1",
+      "decoder_policy_id": "policy-dd054a6cab0a2e0d68c0",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-a282c0481635217eb269",
+      "metric_scope": "nominal",
+      "metrics": {
+        "corrected": 0.97,
+        "due": 0.0,
+        "sdc": 0.03
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-hotspot-8bit-v1",
+      "strategy_id": "nominal_synthesized"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "forge-hotspot-8-4-v1",
+      "decoder_policy_id": "policy-dd054a6cab0a2e0d68c0",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-a282c0481635217eb269",
+      "metric_scope": "held_out",
+      "metrics": {
+        "corrected": 0.48,
+        "due": 0.0,
+        "sdc": 0.52
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-shifted-8bit-synthetic-v1",
+      "strategy_id": "nominal_synthesized"
+    },
+    {
+      "adversarial_pmf_ids": {
+        "due": "adversarial-f2c9ebe599226b822d60",
+        "residual": "adversarial-cfefd4b9947d3dd1919e",
+        "sdc": "adversarial-cfefd4b9947d3dd1919e"
+      },
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "forge-hotspot-8-4-v1",
+      "decoder_policy_id": "policy-dd054a6cab0a2e0d68c0",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-a282c0481635217eb269",
+      "metric_scope": "worst_case",
+      "metrics": {
+        "due": 0.0,
+        "residual": 0.13,
+        "sdc": 0.13
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "separate-adversarial-pmfs-by-risk",
+      "strategy_id": "nominal_synthesized"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "safeforge-robust-8-4-v1",
+      "decoder_policy_id": "policy-d8b0240a7984bdc86eb5",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-352471d08873dfa7082e",
+      "metric_scope": "nominal",
+      "metrics": {
+        "corrected": 0.64,
+        "due": 0.36,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-hotspot-8bit-v1",
+      "strategy_id": "robust_cosynthesized"
+    },
+    {
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "safeforge-robust-8-4-v1",
+      "decoder_policy_id": "policy-d8b0240a7984bdc86eb5",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-352471d08873dfa7082e",
+      "metric_scope": "held_out",
+      "metrics": {
+        "corrected": 0.26,
+        "due": 0.74,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "small-shifted-8bit-synthetic-v1",
+      "strategy_id": "robust_cosynthesized"
+    },
+    {
+      "adversarial_pmf_ids": {
+        "due": "adversarial-4d66ae9aee55bd56b21c",
+        "residual": "adversarial-4d66ae9aee55bd56b21c",
+        "sdc": "adversarial-f2c9ebe599226b822d60"
+      },
+      "ambiguity_radius": 0.1,
+      "ambiguity_set_type": "total_variation",
+      "code_id": "safeforge-robust-8-4-v1",
+      "decoder_policy_id": "policy-d8b0240a7984bdc86eb5",
+      "error_pattern_universe": "declared_union_28",
+      "experiment_id": "4a60649076810a34d09d",
+      "matrix_id": "matrix-352471d08873dfa7082e",
+      "metric_scope": "worst_case",
+      "metrics": {
+        "due": 0.46,
+        "residual": 0.46,
+        "sdc": 0.0
+      },
+      "parity_budget": 4,
+      "physical_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "pmf_id": "separate-adversarial-pmfs-by-risk",
+      "strategy_id": "robust_cosynthesized"
+    }
+  ],
+  "schema_version": 1,
+  "validation": "passed"
+}

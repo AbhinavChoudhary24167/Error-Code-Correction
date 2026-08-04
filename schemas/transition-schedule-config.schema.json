@@ -28,6 +28,9 @@
         "enabled": {"type": "boolean"},
         "ambiguity_type": {"enum": ["total_variation", "structured_interval", "geometry_wasserstein"]},
         "maximum_sdc": {"type": "number", "minimum": 0, "maximum": 1},
+        "strict_deployment_validation": {"type": "boolean"},
+        "epoch_out_of_support_probability_key": {"type": "string", "minLength": 1},
+        "minimum_certificate_version": {"type": "integer", "minimum": 1},
         "epoch_radius_uncertainty_key": {"type": "string", "minLength": 1},
         "support_id_by_fault_regime": {"type": "object", "additionalProperties": {"type": "string", "minLength": 1}}
       },
@@ -47,6 +50,12 @@
           "maximum_certified_due": {"type": "number", "minimum": 0, "maximum": 1},
           "fallback_mode": {"type": "string", "minLength": 1},
           "certificate_identifier": {"type": "string", "minLength": 1},
+          "maximum_out_of_support_probability": {"type": "number", "minimum": 0, "maximum": 1},
+          "certificate_verification_status": {"enum": ["passed", "failed", "not_run"]},
+          "certificate_integrity_valid": {"type": "boolean"},
+          "certificate_sha256": {"type": "string", "minLength": 1},
+          "certificate_version": {"type": "integer", "minimum": 1},
+          "is_certified_fallback": {"type": "boolean"},
           "supported_fault_regimes": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}
         },
         "additionalProperties": false

@@ -1,78 +1,70 @@
-# GREEN-ECC SafeForge final phase report
+# GREEN-ECC SafeForge hardening report
 
-All probabilities below are conditional on the explicitly declared finite error universe. All small-study comparisons carry experiment ID `4a60649076810a34d09d`. The nominal PMF, expanded support, ambiguity configuration, physical ordering, dimensions, outcome semantics, normalization, and units are identical across the five strategies.
+The artifact is frozen around one contribution:
 
-The motivating retained failure is the earlier spatial-hotspot portfolio mode evaluated on the synthetic voltage-sensitive PMF: SDC `0.3342857143` (`334.2857` SDC FIT at raw FIT 1000). SafeForge does not compare that number directly with the small study; it treats it as evidence that nominal specialization needs an explicit envelope.
+> SafeForge is an SRAM-oriented certifying compiler that generates syndrome correction/abstention policies, synthesizable RTL, and independently verifiable worst-case SDC bounds under explicit fault-distribution uncertainty.
 
-## 1. Are the existing matrices genuinely new?
+The full paper draft is `docs/SAFEFORGE_MANUSCRIPT.md`; this report records the acceptance evidence and claim boundary.
 
-No existing Forge matrix is claimed as a new ECC family. The exact `(8,4)` matrix is provably extended-Hamming/Hsiao-equivalent to the baseline under a data-column permutation. The distance-four 72-bit portfolio matrices are odd-column SECDED/Hsiao constructions. The distance-three 72-bit scalable matrix and SafeForge `(8,4,3)` matrix are shortened-Hamming SEC matrices. Large-`r` arbitrary-column equivalence remains undecided, so the claim is deliberately narrower than construction novelty.
+## Acceptance evidence
 
-## 2. Where does the observed gain come from?
+| Requirement | Result | Artifact |
+|---|---|---|
+| Full 8-bit universe | all 255 nonzero vectors, five decoders, four disjoint outcomes | `reports/safeforge_hardening/support_audit_8bit.json` |
+| Support and tail risk | per-universe radii plus complete `(1-eta)R + eta B_out` bounds | `docs/SAFEFORGE_SUPPORT_AUDIT.md` |
+| 72-bit bounded universe | exactly 1,091,058 vectors through weight four; weight>4 tail remains explicit and unbounded without `eta_gt4` | `reports/safeforge_hardening/weight_le4_72bit_audit.json` |
+| Metric context | experiment/matrix/policy/PMF/ambiguity/universe/parity/mapping/scope on each row; mixed identities rejected | `reports/safeforge_hardening/metric_context_table.json` |
+| Gain source | controlled matrix, placement, syndrome-policy, abstention, and PMF pairs | `reports/safeforge_hardening/gain_source_ablations.json` |
+| Practical fixed code | conventional SECDED and Hsiao `(72,64)`, existing generated matrices, and robust mapping | `reports/safeforge_hardening/fixed_72bit_risk_frontiers.json` |
+| Risk frontier | TV radii `0` through `0.1`, SDC budgets `0` through `0.2`, 324 contextualized achieved points | same artifact and `figures/sdc_due_risk_frontier.svg` |
+| External evidence | three separate source-specific aggregate ambiguity sets; nine policy/certificate evaluations | same artifact plus `data/fault_evidence/sources.json` |
+| Solver-independent verification | all literature structured-risk certificates independently replayed and verified | same artifact |
+| RTL/synthesis | Icarus campaigns, Verilator lint, Yosys/ABC structure, full logs and versions | `reports/safeforge_hardware_validation/` |
+| Scheduler | strict support/radius/tail/hash/version/verification/SDC gate and certified fallback rule | `architecture/schedule_pipeline.py`, `tests/python/test_safeforge.py` |
 
-The original small gain comes from physical/data-column mapping and probability-aware syndrome actions within a known `(8,4,4)` code. Exhaustive mapping recovers the generated ordering `[11,14,7,13]`. The SafeForge gain additionally comes from choosing syndrome partitions that support zero-SDC abstaining actions over the expanded error support. It is not attributed to a new algebraic family.
+## Reconciled small-study metrics
 
-## 3. Reconciled apples-to-apples results
+All rows below share experiment ID `4a60649076810a34d09d` and the declared 28-pattern universe. Nominal rows are partitions. Worst-case SDC and DUE are separate TV-radius-0.1 maxima and do not form a partition.
 
-| Strategy | Nominal correct | Nominal DUE | Nominal SDC | Worst DUE at TV 0.1 | Worst SDC at TV 0.1 |
+| Strategy | Nominal correct | Nominal DUE | Nominal SDC | Worst SDC | Worst DUE |
 |---|---:|---:|---:|---:|---:|
-| Conventional SECDED / fixed Hsiao | 0.48 | 0.52 | 0 | 0.62 | 0.10 |
-| Nominal ML / fixed Hsiao | 0.93 | 0 | 0.07 | 0 | 0.17 |
-| Robust abstain / fixed Hsiao | 0.11 | 0.89 | 0 | 0.99 | 0 |
-| Nominal synthesized H + ML | 0.97 | 0 | 0.03 | 0 | 0.13 |
-| Robust co-synthesized H + abstain | 0.64 | 0.36 | 0 | 0.46 | 0 |
+| Conventional single-bit decoder | 0.48 | 0.52 | 0 | 0.10 | 0.62 |
+| Nominal ML, fixed Hsiao | 0.93 | 0 | 0.07 | 0.17 | 0 |
+| Robust abstain, fixed Hsiao | 0.11 | 0.89 | 0 | 0 | 0.99 |
+| Nominal synthesized matrix | 0.97 | 0 | 0.03 | 0.13 | 0 |
+| Robust co-synthesized matrix/policy | 0.64 | 0.36 | 0 | 0 | 0.46 |
 
-The older values `0.0160849`, `0.400766`, and `0.510528` are not directly comparable. The first is one spatial-hotspot PMF and a deeper single-code beam search. The second is a 0.55/0.45 weighted two-regime portfolio result with separate residuals 0.311436 and 0.509947 and a smaller co-search budget. The third applies the same portfolio weights to a different one-general-code baseline. The authoritative pipeline rejects mixed experiment identifiers.
+The `0.97` correction result is not a new-code gain: the matrix is extended-Hamming/Hsiao-equivalent. In controlled pairs, changing only the equivalent matrix under a single-bit decoder changes correction by `0`; the syndrome/coset-leader policy contributes `+0.45`; the tested PMF specialization contributes `0`; and robust physical placement changes zero-SDC policy correction by `+0.44`. Abstention reduces worst-case SDC by `0.17` relative to nominal ML but adds `0.89` nominal DUE.
 
-## 4. Nominal and worst-case SDC/DUE
+## Support audit result
 
-The table reports both failure modes. The nominally synthesized ML strategy has the highest nominal correction, but its SDC grows from 0.03 to 0.13 at TV radius 0.1. Robust co-synthesis retains 0.64 nominal correction and has zero SDC for every distribution on the declared expanded support; its worst DUE is 0.46 at the configured radius. This is a declared availability cost, not hidden inside a combined score.
+The fixed and co-synthesized robust policies have `delta*=1` only on the 28-pattern support. Their zero-SDC radius is zero on weight-at-most-two, weight-at-most-three, and complete universes. Across all 255 errors, fixed robust records 60 SDC outcomes and co-synthesized robust records 135. No universal safety claim survives the audit.
 
-For the 72-bit synthetic expanded-support study, the deterministic 79-mapping heuristic achieves only 0.0661 nominal correction, 0.9339 nominal DUE, and 0.9839 worst-case DUE at TV radius 0.05, while maintaining zero SDC. This is a negative scaling result: the current strict-support policy is too abstaining to be practically attractive.
+## Fixed-code frontier result
 
-## 5. Certified ambiguity radius
+At TV radius `0.05`, fixed Hsiao moves from `(worst SDC, worst DUE) = (0,1)` at zero SDC budget to `(0.05,0.6672)` at `epsilon=0.05` and `(0.0861,0.5364)` at `epsilon=0.1`. Nominal correction rises from `0.0394` to `0.3828` and `0.4774`. This materially improves on the `0.9606` nominal DUE zero-SDC point, but no epsilon is preferred without a system reliability target. Points are certified feasible under the frozen deterministic syndrome-class rule; global frontier optimality is not claimed.
 
-At zero allowed SDC, both robust small-code strategies have `delta* = 1.0` for total variation over the declared expanded support—the maximum possible TV radius. Conventional and nominal policies have `delta* = 0` because an arbitrarily small mass shift can reach a modeled SDC vector (or nominal SDC is already nonzero). Structured-interval and geometry-Wasserstein artifacts are independently verified in `reports/safe_decoder_structured` and `reports/safe_decoder_wasserstein`.
+The 64-bit arbitrary-matrix search remains negative. No verified dimension-matched SEC-DAEC artifact exists. The TAEC wrapper has a triple/single collision, and the `(63,51)` BCH example has an unverified-distance triple collision; both are retained as negative tests.
 
-The radius does not certify errors outside the support hash. None of these engineering/synthetic radii has a statistical-coverage claim.
+## Literature and hardware evidence
 
-## 6. Tight adversarial PMF
+Literature aggregates are represented as structured ambiguity constraints, not bit-exact PMFs. The alpha, neutron, and undervolting sets remain source-specific and synthetic performance results remain separately labeled. Under the broad alpha constraint, nonzero-risk policies can reach worst-case SDC one; the support-universal zero-SDC policy instead reaches worst-case DUE one.
 
-For the nominal synthesized strategy at TV radius 0.1, the exact adversary removes 0.1 probability from error `[0,1]` and assigns it to the previously zero-nominal adjacent triple `[0,1,2]`, raising SDC from 0.03 to 0.13. The primal and dual objectives agree with zero gap. The robust strategies have an all-zero SDC loss vector on the declared support, so every feasible PMF—including the nominal PMF emitted by the solver—is worst-case with SDC zero.
+Actual local logs record passing Icarus ASIC and SafeForge campaigns, passing generic Yosys/ABC synthesis, and tool versions. The same-matrix nominal/robust comparison reports 311 versus 380 generic cells and longest paths 38 versus 40 cells. These are generic structural results only. The observed Linux CI run at the pre-hardening commit failed in the generic RTL regression before SafeForge steps; the updated workflow always archives the complete runner output. A Linux pass must not be claimed until that workflow runs successfully on the changed tree.
 
-## 7. Cost of abstention
+## Frozen limitations
 
-Relative to nominal synthesized ML, robust co-synthesis gives up 0.33 nominal corrected probability and introduces 0.36 nominal DUE. On the held-out shifted PMF (TV distance 0.55 but contained in the declared expanded support), it reports 0.74 DUE and zero SDC; nominal synthesized ML reports 0.52 SDC and no DUE. Fixed-Hsiao abstention is safer but much more conservative: 0.895 held-out DUE and zero SDC.
+- no fundamentally new `(8,4)` code;
+- no safety beyond the named support without an explicit tail bound;
+- no practical or globally optimal 64-bit matrix co-synthesis;
+- no measured SafeForge silicon behavior or bit-exact radiation PMF;
+- no physical area, delay, energy, leakage, or PPA without a characterized library;
+- no preferred SDC budget without a system-level reliability requirement;
+- no superior shared-hardware claim.
 
-## 8. Hardware overhead
+Regenerate the scientific and hardware artifacts with:
 
-The robust co-synthesized small artifact uses a technology-independent proxy of 14 matrix XOR gates and eight correction entries, versus 20 XOR gates and 15 entries for nominal synthesized ML. Certification adds three control bits and a 128-bit envelope identifier in the emitted interface; abstention primarily removes unsafe correction entries. These are structural counts, not area, power, timing, Yosys/ABC advantage, or physical PPA. Linux CI runs Icarus, Verilator, and Yosys functional/structural checks; no characterized library is present.
-
-## 9. Held-out and literature-derived evidence
-
-The held-out synthetic PMF is fully executed as described above. Primary radiation literature verifies that MCU mass and spatial clustering are real concerns, but no public raw address-level trace with sufficient logical-to-physical mapping was verified. Therefore no bit-exact literature-derived performance number is reported. Aggregate MCU fractions are retained as literature-derived constraints in `data/fault_evidence`, explicitly blocked from being loaded as a fault PMF.
-
-## 10. Scheduler behavior outside the envelope
-
-The scheduler's additive certificate gate marks a mode infeasible before optimization unless ambiguity type, fault regime, support, radius, SDC bound, and certificate ID are valid. The held-out shifted PMF is inside the declared support and TV radius-one envelope, so the specialized robust mode remains eligible and produces zero SDC. A confidence region containing an undeclared error vector fails support containment and selects the detect-only certified fallback. Nominal attractiveness cannot override the gate.
-
-## 11. Exact novelty claim and closest prior work
-
-The claim is a compiler/integration result:
-
-> SafeForge configures or searches a short-block SRAM parity matrix and abstaining syndrome policy under explicit physical distribution uncertainty, emits synthesizable RTL, and attaches a solver-free checkable worst-case SDC envelope used for deployment gating.
-
-This is distinct from, but built on, Hsiao SECDED, MAP/ML and coset-leader decoding, minimax/robust and universal decoding, Wasserstein DRO, and correction masking/miscorrection suppression. It does not claim invention of those foundations or a new code family.
-
-## 12. Unsupported claims and remaining limitations
-
-- No physical PPA, Yosys/ABC optimization advantage, characterized energy, timing, or carbon improvement is claimed.
-- No global `k=64` matrix optimum is claimed; the 79-candidate mapping search is a verified heuristic and its DUE result is poor.
-- No statistical calibration is claimed for synthetic/engineering ambiguity radii; sample bounds require actual counts and their sampling assumptions.
-- No literature-derived bit-exact word PMF or raw radiation trace is available.
-- Large-`r` binary-matroid equivalence is not completely decided.
-- Certificates cover only the declared finite support and physical ordering.
-- The deployment controller/migration datapath is not physically implemented or characterized.
-- The previous joint shared-XOR hypothesis remains negative: 369 structural XOR gates versus 350 for independent generation plus shared CSE, with no physical validation.
-
-The scientific outcome is mixed but useful: SafeForge's small exact co-synthesis beats fixed-code abstention on correction/DUE while preserving zero SDC, whereas the current 64-bit heuristic is too conservative. The certificate infrastructure survives either result.
+```bash
+python scripts/run_safeforge_hardening.py
+python scripts/run_safeforge_hardware_validation.py
+```

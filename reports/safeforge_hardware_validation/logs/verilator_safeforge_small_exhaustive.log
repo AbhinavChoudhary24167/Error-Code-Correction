@@ -1,0 +1,41 @@
+started_utc: 2026-08-04T06:14:14.229084+00:00
+command: 'C:\Users\Abhinav\AppData\Local\Temp\safeforge-hw-h681svf6\verilator\bin\verilator_bin.exe' --lint-only --timing -Wall -Wno-fatal reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_encoder.sv reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_safe_decoder.sv reports/safe_decoder/rtl/forge_hotspot_8_4_v1_safe_syndrome.sv reports/safe_decoder/rtl/tb_forge_hotspot_8_4_v1_safe_safe.sv
+exit_code: 0
+duration_seconds: 0.071040
+
+%Warning-TIMESCALEMOD: reports/safe_decoder/rtl\forge_hotspot_8_4_v1_safe_encoder.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    2 | module forge_hotspot_8_4_v1_safe_encoder(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       reports/safe_decoder/rtl\tb_forge_hotspot_8_4_v1_safe_safe.sv:2:8: ... Location of module with timescale
+    2 | module tb_forge_hotspot_8_4_v1_safe_safe;
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.020
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: reports/safe_decoder/rtl\forge_hotspot_8_4_v1_safe_safe_decoder.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    2 | module forge_hotspot_8_4_v1_safe_safe_decoder(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       reports/safe_decoder/rtl\tb_forge_hotspot_8_4_v1_safe_safe.sv:2:8: ... Location of module with timescale
+    2 | module tb_forge_hotspot_8_4_v1_safe_safe;
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: reports/safe_decoder/rtl\forge_hotspot_8_4_v1_safe_syndrome.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    2 | module forge_hotspot_8_4_v1_safe_syndrome(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       reports/safe_decoder/rtl\tb_forge_hotspot_8_4_v1_safe_safe.sv:2:8: ... Location of module with timescale
+    2 | module tb_forge_hotspot_8_4_v1_safe_safe;
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safe_decoder/rtl\tb_forge_hotspot_8_4_v1_safe_safe.sv:7:29: Signal is not used: 'abstain'
+                                                                                         : ... note: In instance 'tb_forge_hotspot_8_4_v1_safe_safe'
+    7 |   logic correction_applied, abstain, due, fallback_selected, no_certified_mode, envelope_valid;
+      |                             ^~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safe_decoder/rtl\tb_forge_hotspot_8_4_v1_safe_safe.sv:7:62: Signal is not used: 'no_certified_mode'
+                                                                                         : ... note: In instance 'tb_forge_hotspot_8_4_v1_safe_safe'
+    7 |   logic correction_applied, abstain, due, fallback_selected, no_certified_mode, envelope_valid;
+      |                                                              ^~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safe_decoder/rtl\tb_forge_hotspot_8_4_v1_safe_safe.sv:8:17: Signal is not used: 'safety_envelope_id'
+                                                                                         : ... note: In instance 'tb_forge_hotspot_8_4_v1_safe_safe'
+    8 |   logic [127:0] safety_envelope_id;
+      |                 ^~~~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: reports/safe_decoder/rtl\forge_hotspot_8_4_v1_safe_safe_decoder.sv:16:15: Bits of signal are not used: 'corrected_word'[7:4]
+                                                                                               : ... note: In instance 'tb_forge_hotspot_8_4_v1_safe_safe.u_decoder'
+   16 |   logic [7:0] corrected_word;
+      |               ^~~~~~~~~~~~~~

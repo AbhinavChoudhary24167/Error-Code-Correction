@@ -34,9 +34,9 @@ module taec_64 (
   input logic [63:0] data_i, output logic [71:0] codeword_o, input logic [71:0] codeword_in_i, output logic [63:0] data_o,
   output logic err_detected_o, err_corrected_o, err_uncorrectable_o
 );
-  logic [71:0] ccw; logic [6:0] syn; logic tri;
+  logic [71:0] ccw; logic [6:0] syn; logic triple_corrected;
   taec_encoder #(.DATA_W(64)) u_e(.data_i(data_i), .codeword_o(codeword_o));
-  taec_decoder #(.DATA_W(64)) u_d(.codeword_i(codeword_in_i), .data_o(data_o), .corrected_codeword_o(ccw), .syndrome_o(syn), .err_detected_o(err_detected_o), .err_corrected_o(err_corrected_o), .err_uncorrectable_o(err_uncorrectable_o), .triple_adjacent_corrected_o(tri));
+  taec_decoder #(.DATA_W(64)) u_d(.codeword_i(codeword_in_i), .data_o(data_o), .corrected_codeword_o(ccw), .syndrome_o(syn), .err_detected_o(err_detected_o), .err_corrected_o(err_corrected_o), .err_uncorrectable_o(err_uncorrectable_o), .triple_adjacent_corrected_o(triple_corrected));
 endmodule
 
 module bch_63 (

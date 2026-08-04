@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "ambiguity_id": "literature-fpga-bram-undervolt-v1",
+  "type": "structured_interval",
+  "radius": 1.0,
+  "maximum_radius": 1.0,
+  "category_intervals": {
+    "multiplicity": {
+      "1": {"lower": 0.90, "upper": 1.0}
+    }
+  },
+  "calibration": {
+    "kind": "engineering_sensitivity",
+    "description": "BRAM undervolting aggregate attributed by the source to single-bit faults; no bit-exact transient word PMF or numeric sampling CI.",
+    "source_id": "salami-unsal-kestelman-2019"
+  }
+}

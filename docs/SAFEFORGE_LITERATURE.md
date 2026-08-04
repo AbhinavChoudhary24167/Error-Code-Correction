@@ -1,24 +1,29 @@
 # SafeForge literature position
 
-SafeForge does not claim to invent maximum-likelihood decoding, coset leaders, minimax decoding, abstention, or distributionally robust optimization.
+SafeForge does not claim to invent Hsiao SECDED, MAP/coset-leader decoding, abstention, minimax decoding, distributionally robust optimization, Wasserstein ambiguity, or correction masking. Its contribution is an SRAM-oriented certifying compiler that joins an explicit physical fault uncertainty set, correction-or-abstention syndrome policy, synthesizable RTL, solver-independent risk certificate, and fail-closed deployment gate.
 
-Hsiao's 1970 construction establishes optimal minimum odd-weight-column SECDED matrices. The existing exact `(8,4)` Forge result is in that known class. Classical MAP/ML or coset-leader decoding selects the most probable error in each syndrome under one assumed model; it does not by itself certify SDC under a neighborhood of PMFs.
+The exact `(8,4)` Forge matrix is extended-Hamming/Hsiao-equivalent. Its `0.97` nominal correction result is therefore attributed to representation/mapping and syndrome policy, not a new algebraic code. Large arbitrary-matrix `(72,64)` search is retained as a negative result; practical experiments use fixed established or already-generated matrices.
 
-Robust and universal decoding are established subjects. The closest conceptual antecedents include minimax robust decoding for uncertain channels, competitive minimax/universal decoding, mismatched decoding, and compound-channel coding. Wasserstein distributionally robust optimization supplies tractable worst-case expectations and dual certificates. Existing ECC work also suppresses miscorrection or masks correction under selected fault mechanisms, and SRAM ECC work constructs SEC-DAEC/TAEC matrices for physical adjacency.
+## Closest foundations
 
-The narrow contribution tested here is:
+- M. Y. Hsiao, “A Class of Optimal Minimum Odd-weight-column SEC-DED Codes,” *IBM Journal of Research and Development* 14(4), 1970, DOI `10.1147/rd.144.0395`.
+- L. Wei, Z. Li, M. R. James, and I. R. Petersen, “A Minimax Robust Decoding Algorithm,” *IEEE Transactions on Information Theory*, 2000, DOI `10.1109/18.841200`.
+- P. M. Esfahani and D. Kuhn, “Data-driven distributionally robust optimization using the Wasserstein metric,” *Mathematical Programming*, 2018, DOI `10.1007/s10107-017-1172-1`.
+- A. Perez-Celis and M. J. Wirthlin, “Statistical Method to Extract Radiation-Induced Multiple-Cell Upsets in SRAM-Based FPGAs,” *IEEE Transactions on Nuclear Science* 67(1), DOI `10.1109/TNS.2019.2955006`.
+- “Correction Masking: A Technique to Implement Efficient SET Tolerant Error Correction Decoders,” *IEEE Transactions on Device and Materials Reliability*, DOI `10.1109/TDMR.2021.3132045`.
 
-> A certifying compiler for short-block SRAM ECC that configures or searches a parity matrix and an abstaining syndrome policy under an explicit physical fault-distribution ambiguity set, emits synthesizable RTL, and produces a solver-free checkable worst-case SDC envelope used as a deployment gate.
+## Primary external evidence used in this phase
 
-This phase demonstrates exact finite-support certification and exact scoped `(8,4)` co-synthesis. It does not establish a new code family, a new minimax theorem, global optimality at `k=64`, measured fault coverage, or physical PPA.
+- N. J. Pieper et al., “Study of Multicell Upsets in SRAM at a 5-nm Bulk FinFET Node,” *IEEE Transactions on Nuclear Science*, 2023, DOI `10.1109/TNS.2023.3240318`.
+- A. Perez-Celis and M. J. Wirthlin, neutron MCU classification above.
+- B. Salami, O. S. Unsal, and A. C. Kestelman, “Evaluating Built-in ECC of FPGA On-chip Memories for the Mitigation of Undervolting Faults,” 2019, arXiv `1903.12514`.
+- E. Soyturk et al., “Hardware Versus Software Fault Injection of Modern Undervolted SRAMs,” 2019, arXiv `1912.00154`.
+- NASA, “Xilinx Kintex-UltraScale Field Programmable Gate Array Single Event Effects Heavy-Ion Test Report,” NTRS `20205007765`.
 
-## Closest references
+These works establish that multiplicity, locality, device family, voltage, and operating mode matter. They do not provide the bit-exact 72-bit logical traces and layout maps needed to call the executable SafeForge PMF measured. Source-specific aggregates are therefore encoded as structured interval constraints; they are never pooled into a fabricated distribution.
 
-- M. Y. Hsiao, “A Class of Optimal Minimum Odd-weight-column SEC-DED Codes,” IBM Journal of Research and Development 14(4), 1970, DOI `10.1147/rd.144.0395`.
-- L. Wei, Z. Li, M. R. James, and I. R. Petersen, “A Minimax Robust Decoding Algorithm,” IEEE Transactions on Information Theory, 2000, DOI `10.1109/18.841200`.
-- P. M. Esfahani and D. Kuhn, “Data-driven distributionally robust optimization using the Wasserstein metric,” Mathematical Programming, 2018, DOI `10.1007/s10107-017-1172-1`.
-- A. Pérez-Celis and M. J. Wirthlin, “Statistical Method to Extract Radiation-Induced Multiple-Cell Upsets in SRAM-Based FPGAs,” IEEE Transactions on Nuclear Science 67(1), DOI `10.1109/TNS.2019.2955006`.
-- G. Tsiligiannis et al., “Multiple Cell Upset Classification in Commercial SRAMs,” IEEE Transactions on Nuclear Science 61(4), DOI `10.1109/TNS.2014.2313742`.
-- “Correction Masking: A Technique to Implement Efficient SET Tolerant Error Correction Decoders,” IEEE Transactions on Device and Materials Reliability, DOI `10.1109/TDMR.2021.3132045`.
+## Frozen claim boundary
 
-The paper framing is **GREEN-ECC SafeForge: Certifying SRAM Error Correction Under Fault-Model Uncertainty**. The negative shared-XOR result—369 gates for joint co-synthesis versus 350 for independent generation plus shared CSE, without Yosys/ABC or physical PPA—is retained as an ablation and is not the central contribution.
+The paper title is **“SafeForge: Certifying SRAM Error Correction Under Fault-Model Uncertainty.”** It claims finite-support risk certification and explicit tail accounting, not universal safety; achieved SDC-DUE operating points, not a globally optimal risk frontier; generic RTL/synthesis evidence, not characterized PPA; and literature-derived uncertainty sensitivity, not silicon validation.
+
+The earlier shared-XOR result remains a negative ablation and is outside the central contribution.

@@ -1,32 +1,37 @@
 {
   "schema_version": 1,
-  "artifact_kind": "literature_derived_aggregate_constraints",
+  "artifact_kind": "source_specific_literature_derived_aggregate_ambiguity_sets",
   "not_a_fault_distribution": true,
-  "not_statistically_calibrated_for_green_ecc": true,
-  "source_ids": ["perez-celis-wirthlin-2020", "tsiligiannis-et-al-2014"],
-  "observations": [
+  "not_a_pooled_population_model": true,
+  "sets": [
     {
-      "device": "XC7A200T",
-      "quantity": "fraction of classified radiation events that are MCUs",
-      "value": 0.277,
-      "units": "event fraction",
-      "extraction": "reported aggregate in the primary paper"
+      "ambiguity_id": "literature-pieper-alpha-low-v-5nm-v1",
+      "source_id": "pieper-et-al-2023-5nm-sram",
+      "device_technology": "5-nm bulk-FinFET SRAM",
+      "experiment_type": "241Am alpha under VDD < 550 mV",
+      "constraint": "0.15 <= P(multiplicity>=2) <= 1",
+      "confidence_status": "published conservative lower statement; no numeric sampling CI",
+      "executable_config": "configs/ambiguity/literature_pieper_5nm_alpha_72bit.json"
     },
     {
-      "device": "XCKU040",
-      "quantity": "fraction of classified radiation events that are MCUs",
-      "value": 0.1459,
-      "units": "event fraction",
-      "extraction": "reported aggregate in the primary paper"
+      "ambiguity_id": "literature-fpga-neutron-mcu-range-v1",
+      "source_id": "perez-celis-wirthlin-2020",
+      "device_technology": "three Xilinx FPGA families",
+      "experiment_type": "LANSCE neutron",
+      "constraint": "0.0559 <= P(MCU) <= 0.277",
+      "confidence_status": "cross-device sensitivity range, not a confidence interval",
+      "executable_config": "configs/ambiguity/literature_fpga_neutron_mcu_72bit.json"
     },
     {
-      "device": "XCZU9EG",
-      "quantity": "fraction of classified radiation events that are MCUs",
-      "value": 0.0559,
-      "units": "event fraction",
-      "extraction": "reported aggregate in the primary paper"
+      "ambiguity_id": "literature-fpga-bram-undervolt-v1",
+      "source_id": "salami-unsal-kestelman-2019",
+      "device_technology": "commercial FPGA BRAM",
+      "experiment_type": "voltage underscaling",
+      "constraint": "P(SBU-like SEC-correctable event) >= 0.90",
+      "confidence_status": "reported rounded aggregate; no numeric sampling CI",
+      "executable_config": "configs/ambiguity/literature_fpga_bram_undervolt_72bit.json"
     }
   ],
-  "safe_use": "motivate sensitivity sweeps that permit nonzero MBU mass",
-  "unsafe_use": "mapping these FPGA-family event fractions directly onto an SRAM word's bit-vector PMF"
+  "tail_policy": "No literature set constrains unobserved bit-exact patterns to zero. A separate eta outside-support bound is required for deployment.",
+  "separation_policy": "No source-specific set is intersected with another technology or experiment unless compatibility is justified independently."
 }

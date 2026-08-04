@@ -1,0 +1,239 @@
+{
+  "bit_width": 72,
+  "expected_pattern_count_formula": "C(72,1)+C(72,2)+C(72,3)+C(72,4)",
+  "maximum_enumerated_weight": 4,
+  "pattern_count": 1091058,
+  "policies": {
+    "fixed_hsiao_epsilon_0.1": {
+      "distribution_free_sdc_upper_within_enumerated_universe": 1.0,
+      "outcome_counts": {
+        "correct": 168,
+        "due": 286792,
+        "sdc_miscorrection": 792772,
+        "sdc_total": 804098,
+        "undetected": 11326
+      },
+      "outcome_counts_by_weight": {
+        "1": {
+          "correct": 72,
+          "due": 0,
+          "sdc_miscorrection": 0,
+          "sdc_total": 0,
+          "undetected": 0
+        },
+        "2": {
+          "correct": 82,
+          "due": 536,
+          "sdc_miscorrection": 1938,
+          "sdc_total": 1938,
+          "undetected": 0
+        },
+        "3": {
+          "correct": 14,
+          "due": 10752,
+          "sdc_miscorrection": 48874,
+          "sdc_total": 48874,
+          "undetected": 0
+        },
+        "4": {
+          "correct": 0,
+          "due": 275504,
+          "sdc_miscorrection": 741960,
+          "sdc_total": 753286,
+          "undetected": 11326
+        }
+      },
+      "tail_bound": {
+        "eta_gt4_upper": null,
+        "status": "unbounded_without_eta_upper",
+        "symbolic_bound": "P_SDC,total <= (1-eta_gt4)*R_SDC,weight<=4 + eta_gt4",
+        "total_sdc_upper": 1.0
+      }
+    },
+    "fixed_hsiao_zero_sdc": {
+      "distribution_free_sdc_upper_within_enumerated_universe": 1.0,
+      "outcome_counts": {
+        "correct": 49,
+        "due": 833476,
+        "sdc_miscorrection": 246207,
+        "sdc_total": 257533,
+        "undetected": 11326
+      },
+      "outcome_counts_by_weight": {
+        "1": {
+          "correct": 3,
+          "due": 69,
+          "sdc_miscorrection": 0,
+          "sdc_total": 0,
+          "undetected": 0
+        },
+        "2": {
+          "correct": 33,
+          "due": 2004,
+          "sdc_miscorrection": 519,
+          "sdc_total": 519,
+          "undetected": 0
+        },
+        "3": {
+          "correct": 13,
+          "due": 54275,
+          "sdc_miscorrection": 5352,
+          "sdc_total": 5352,
+          "undetected": 0
+        },
+        "4": {
+          "correct": 0,
+          "due": 777128,
+          "sdc_miscorrection": 240336,
+          "sdc_total": 251662,
+          "undetected": 11326
+        }
+      },
+      "tail_bound": {
+        "eta_gt4_upper": null,
+        "status": "unbounded_without_eta_upper",
+        "symbolic_bound": "P_SDC,total <= (1-eta_gt4)*R_SDC,weight<=4 + eta_gt4",
+        "total_sdc_upper": 1.0
+      }
+    },
+    "minimum_weight_conventional": {
+      "distribution_free_sdc_upper_within_enumerated_universe": 1.0,
+      "outcome_counts": {
+        "correct": 72,
+        "due": 1034356,
+        "sdc_miscorrection": 45304,
+        "sdc_total": 56630,
+        "undetected": 11326
+      },
+      "outcome_counts_by_weight": {
+        "1": {
+          "correct": 72,
+          "due": 0,
+          "sdc_miscorrection": 0,
+          "sdc_total": 0,
+          "undetected": 0
+        },
+        "2": {
+          "correct": 0,
+          "due": 2556,
+          "sdc_miscorrection": 0,
+          "sdc_total": 0,
+          "undetected": 0
+        },
+        "3": {
+          "correct": 0,
+          "due": 14336,
+          "sdc_miscorrection": 45304,
+          "sdc_total": 45304,
+          "undetected": 0
+        },
+        "4": {
+          "correct": 0,
+          "due": 1017464,
+          "sdc_miscorrection": 0,
+          "sdc_total": 11326,
+          "undetected": 11326
+        }
+      },
+      "tail_bound": {
+        "eta_gt4_upper": null,
+        "status": "unbounded_without_eta_upper",
+        "symbolic_bound": "P_SDC,total <= (1-eta_gt4)*R_SDC,weight<=4 + eta_gt4",
+        "total_sdc_upper": 1.0
+      }
+    },
+    "nominal_ml_hsiao": {
+      "distribution_free_sdc_upper_within_enumerated_universe": 1.0,
+      "outcome_counts": {
+        "correct": 170,
+        "due": 265328,
+        "sdc_miscorrection": 814234,
+        "sdc_total": 825560,
+        "undetected": 11326
+      },
+      "outcome_counts_by_weight": {
+        "1": {
+          "correct": 72,
+          "due": 0,
+          "sdc_miscorrection": 0,
+          "sdc_total": 0,
+          "undetected": 0
+        },
+        "2": {
+          "correct": 84,
+          "due": 464,
+          "sdc_miscorrection": 2008,
+          "sdc_total": 2008,
+          "undetected": 0
+        },
+        "3": {
+          "correct": 14,
+          "due": 10752,
+          "sdc_miscorrection": 48874,
+          "sdc_total": 48874,
+          "undetected": 0
+        },
+        "4": {
+          "correct": 0,
+          "due": 254112,
+          "sdc_miscorrection": 763352,
+          "sdc_total": 774678,
+          "undetected": 11326
+        }
+      },
+      "tail_bound": {
+        "eta_gt4_upper": null,
+        "status": "unbounded_without_eta_upper",
+        "symbolic_bound": "P_SDC,total <= (1-eta_gt4)*R_SDC,weight<=4 + eta_gt4",
+        "total_sdc_upper": 1.0
+      }
+    },
+    "robust_physical_mapping_zero_sdc": {
+      "distribution_free_sdc_upper_within_enumerated_universe": 1.0,
+      "outcome_counts": {
+        "correct": 56,
+        "due": 773000,
+        "sdc_miscorrection": 306676,
+        "sdc_total": 318002,
+        "undetected": 11326
+      },
+      "outcome_counts_by_weight": {
+        "1": {
+          "correct": 6,
+          "due": 66,
+          "sdc_miscorrection": 0,
+          "sdc_total": 0,
+          "undetected": 0
+        },
+        "2": {
+          "correct": 39,
+          "due": 1832,
+          "sdc_miscorrection": 685,
+          "sdc_total": 685,
+          "undetected": 0
+        },
+        "3": {
+          "correct": 11,
+          "due": 53198,
+          "sdc_miscorrection": 6431,
+          "sdc_total": 6431,
+          "undetected": 0
+        },
+        "4": {
+          "correct": 0,
+          "due": 717904,
+          "sdc_miscorrection": 299560,
+          "sdc_total": 310886,
+          "undetected": 11326
+        }
+      },
+      "tail_bound": {
+        "eta_gt4_upper": null,
+        "status": "unbounded_without_eta_upper",
+        "symbolic_bound": "P_SDC,total <= (1-eta_gt4)*R_SDC,weight<=4 + eta_gt4",
+        "total_sdc_upper": 1.0
+      }
+    }
+  },
+  "tail_scope": "all error vectors with weight>4"
+}

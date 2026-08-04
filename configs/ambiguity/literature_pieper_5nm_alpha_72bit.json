@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "ambiguity_id": "literature-pieper-alpha-low-v-5nm-v1",
+  "type": "structured_interval",
+  "radius": 1.0,
+  "maximum_radius": 1.0,
+  "support_expansions": [
+    "configs/fault_distributions/benchmarks/distribution_shift.json",
+    "configs/fault_distributions/benchmarks/voltage_sensitive.json",
+    "configs/fault_distributions/benchmarks/mixed_sbu_dbu_mbu.json"
+  ],
+  "aggregate_intervals": [
+    {
+      "name": "multiplicity_ge_2",
+      "members": [
+        {"dimension": "multiplicity", "category": "2"},
+        {"dimension": "multiplicity", "category": "3"}
+      ],
+      "lower": 0.15,
+      "upper": 1.0
+    }
+  ],
+  "fallback_mode": "conventional-secded-detect-only",
+  "calibration": {
+    "kind": "engineering_sensitivity",
+    "description": "Source-specific conservative aggregate constraint from Pieper et al.; not statistically calibrated to GREEN-ECC and not a bit-exact measured PMF.",
+    "source_id": "pieper-et-al-2023-5nm-sram",
+    "extraction_method": "published statement that MBUs exceed 15% below 550 mV",
+    "confidence_interval": null,
+    "mapping_assumptions": ["MCU maps to multiplicity >=2", "the executable support covers weights 1 through 3 only; eta outside that support remains explicit"]
+  }
+}

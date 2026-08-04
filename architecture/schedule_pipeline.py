@@ -193,6 +193,14 @@ def _apply_certificate_gate(
     radius_key = str(gate.get("epoch_radius_uncertainty_key", "ambiguity_radius"))
     required_type = str(gate["ambiguity_type"])
     maximum_sdc = float(gate["maximum_sdc"])
+    strict = bool(gate.get("strict_deployment_validation", False))
+    out_of_support_key = str(
+        gate.get(
+            "epoch_out_of_support_probability_key",
+            "out_of_support_probability_upper",
+        )
+    )
+    minimum_certificate_version = int(gate.get("minimum_certificate_version", 1))
     support_by_regime = {
         str(key): str(value)
         for key, value in dict(gate.get("support_id_by_fault_regime", {})).items()
@@ -224,6 +232,29 @@ def _apply_certificate_gate(
                     reasons.append("certificate_gate:fault_regime_not_supported")
                 if not str(envelope.get("certificate_identifier", "")):
                     reasons.append("certificate_gate:certificate_identifier_missing")
+                if strict:
+                    observed_outside = epoch.uncertainty.get(out_of_support_key)
+                    if observed_outside is None:
+                        reasons.append("certificate_gate:out_of_support_probability_missing")
+                    elif float(observed_outside) > float(
+                        envelope.get("maximum_out_of_support_probability", -1.0)
+                    ) + 1e-15:
+                        reasons.append("certificate_gate:out_of_support_tail_exceeded")
+                    if str(envelope.get("certificate_verification_status", "")) != "passed":
+                        reasons.append("certificate_gate:certificate_not_independently_verified")
+                    if not bool(envelope.get("certificate_integrity_valid", False)):
+                        reasons.append("certificate_gate:certificate_integrity_failure")
+                    certificate_sha256 = str(envelope.get("certificate_sha256", ""))
+                    if not certificate_sha256 or certificate_sha256 != str(
+                        envelope.get("certificate_identifier", "")
+                    ):
+                        reasons.append("certificate_gate:certificate_identifier_hash_mismatch")
+                    if int(envelope.get("certificate_version", 0)) < minimum_certificate_version:
+                        reasons.append("certificate_gate:stale_certificate")
+                    if mode == str(envelope.get("fallback_mode", "")) and not bool(
+                        envelope.get("is_certified_fallback", False)
+                    ):
+                        reasons.append("certificate_gate:fallback_not_certified")
             if reasons:
                 gated_row[mode] = replace(
                     item,

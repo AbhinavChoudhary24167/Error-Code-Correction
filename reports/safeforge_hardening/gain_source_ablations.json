@@ -1,0 +1,156 @@
+{
+  "cases": {
+    "baseline_nominal_ml": {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-99fc810034bb2bc7ede0",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "nominal": {
+        "corrected": 0.9299999999999999,
+        "due": 0.0,
+        "residual": 0.07,
+        "sdc": 0.07
+      },
+      "worst_case": {
+        "due": 0.0,
+        "residual": 0.17,
+        "sdc": 0.17
+      }
+    },
+    "baseline_robust_abstain": {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-65d9e26f3471fd3b7a3b",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "nominal": {
+        "corrected": 0.10999999999999999,
+        "due": 0.89,
+        "residual": 0.89,
+        "sdc": 0.0
+      },
+      "worst_case": {
+        "due": 0.99,
+        "residual": 0.99,
+        "sdc": 0.0
+      }
+    },
+    "baseline_single_bit_decoder": {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-77b5132e666f6fd8fb7d",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "nominal": {
+        "corrected": 0.48,
+        "due": 0.52,
+        "residual": 0.52,
+        "sdc": 0.0
+      },
+      "worst_case": {
+        "due": 0.62,
+        "residual": 0.62,
+        "sdc": 0.1
+      }
+    },
+    "baseline_uniform_trained_ml": {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-99fc810034bb2bc7ede0",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "nominal": {
+        "corrected": 0.9299999999999999,
+        "due": 0.0,
+        "residual": 0.07,
+        "sdc": 0.07
+      },
+      "worst_case": {
+        "due": 0.0,
+        "residual": 0.17,
+        "sdc": 0.17
+      }
+    },
+    "baseline_unweighted_minimum_weight_coset": {
+      "code_id": "odd-column-secded-4-8",
+      "decoder_policy_id": "policy-99fc810034bb2bc7ede0",
+      "matrix_id": "matrix-98b14fe34096d969f786",
+      "nominal": {
+        "corrected": 0.9299999999999999,
+        "due": 0.0,
+        "residual": 0.07,
+        "sdc": 0.07
+      },
+      "worst_case": {
+        "due": 0.0,
+        "residual": 0.17,
+        "sdc": 0.17
+      }
+    },
+    "mapped_baseline_robust_abstain": {
+      "code_id": "known-hsiao-optimized-physical-mapping",
+      "decoder_policy_id": "policy-3032455034cdf5f07b6f",
+      "matrix_id": "matrix-a282c0481635217eb269",
+      "nominal": {
+        "corrected": 0.55,
+        "due": 0.45,
+        "residual": 0.45,
+        "sdc": 0.0
+      },
+      "worst_case": {
+        "due": 0.55,
+        "residual": 0.55,
+        "sdc": 0.0
+      }
+    },
+    "synthesized_matrix_single_bit_decoder": {
+      "code_id": "forge-hotspot-8-4-v1",
+      "decoder_policy_id": "policy-7b865ebf37c590a6865e",
+      "matrix_id": "matrix-a282c0481635217eb269",
+      "nominal": {
+        "corrected": 0.48,
+        "due": 0.52,
+        "residual": 0.52,
+        "sdc": 0.0
+      },
+      "worst_case": {
+        "due": 0.62,
+        "residual": 0.62,
+        "sdc": 0.1
+      }
+    }
+  },
+  "code_equivalence_constraint": "the synthesized (8,4) matrix is extended-Hamming/Hsiao-equivalent; no new-code gain is claimed",
+  "control_rule": "each named pair changes only the stated component or compilation rule",
+  "paired_effects": {
+    "abstention_policy": {
+      "from": "baseline_nominal_ml",
+      "nominal_corrected_delta": -0.82,
+      "nominal_due_delta": 0.89,
+      "to": "baseline_robust_abstain",
+      "worst_case_sdc_delta": -0.17
+    },
+    "fault_pmf_specialization": {
+      "from": "baseline_unweighted_minimum_weight_coset",
+      "nominal_corrected_delta": 0.0,
+      "nominal_due_delta": 0.0,
+      "to": "baseline_nominal_ml",
+      "worst_case_sdc_delta": 0.0
+    },
+    "parity_check_matrix": {
+      "from": "baseline_single_bit_decoder",
+      "nominal_corrected_delta": 0.0,
+      "nominal_due_delta": 0.0,
+      "to": "synthesized_matrix_single_bit_decoder",
+      "worst_case_sdc_delta": 0.0
+    },
+    "physical_column_placement": {
+      "from": "baseline_robust_abstain",
+      "nominal_corrected_delta": 0.44000000000000006,
+      "nominal_due_delta": -0.44,
+      "to": "mapped_baseline_robust_abstain",
+      "worst_case_sdc_delta": 0.0
+    },
+    "syndrome_coset_leader_policy": {
+      "from": "baseline_single_bit_decoder",
+      "nominal_corrected_delta": 0.44999999999999996,
+      "nominal_due_delta": -0.52,
+      "to": "baseline_unweighted_minimum_weight_coset",
+      "worst_case_sdc_delta": 0.07
+    }
+  },
+  "schema_version": 1
+}
