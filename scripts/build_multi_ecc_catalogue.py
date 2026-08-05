@@ -17,7 +17,7 @@ from codeforge.artifacts import render_systemverilog
 from codeforge.equivalence import weight_enumerators
 from codeforge.gf2 import matrix_columns_as_ints
 from green_ecc_phy.bch import primitive_bch_generator, primitive_bch_systematic
-from green_ecc_phy.hashing import canonical_hash, file_sha256, manifest_sha256
+from green_ecc_phy.hashing import canonical_hash, manifest_sha256, scientific_file_sha256
 from green_ecc_phy.matrices import conventional_extended_hamming, cyclic_systematic, hsiao_odd_column
 
 
@@ -27,7 +27,7 @@ def _write(path: Path, payload: Mapping[str, Any]) -> None:
 
 
 def _hash_sources(root: Path, paths: list[str]) -> dict[str, str]:
-    return {path: file_sha256(root / path) for path in paths}
+    return {path: scientific_file_sha256(root / path) for path in paths}
 
 
 def _finalize_code(root: Path, payload: dict[str, Any], matrix: Mapping[str, Any], sources: list[str]) -> dict[str, Any]:
@@ -787,6 +787,7 @@ def build(root: Path) -> None:
     config = {
         "schema_version": 1,
         "registry_id": "green-ecc-phy-builtin-v1",
+        "scientific_source_hash_scheme": "scientific-content-sha256-v1",
         "codes": [f"codes/{name}.json" for name in ["hsiao-secded-72-64-v1", "extended-hamming-secded-72-64-v1", "repository-cyclic-63-51-v1"] + [spec["code_id"] for spec in reference_bch_specs] + [item["code_id"] for item in archived_entries]],
         "implementations": [f"implementations/{item['implementation_id']}.json" for item in implementations],
         "architectures": [f"architectures/{item['architecture_id']}.json" for item in architectures],

@@ -44,6 +44,9 @@ def test_registry_rejects_duplicate_ids(tmp_path: Path) -> None:
     payload["implementations"] = []
     payload["architectures"] = []
     payload["backends"] = []
+    payload["scientific_hash_migration"] = str(
+        (source / payload["scientific_hash_migration"]).resolve()
+    )
     path = tmp_path / "duplicate.json"
     path.write_text(json.dumps(payload), encoding="utf-8")
     with pytest.raises(ValueError, match="duplicate code_id"):
@@ -57,9 +60,17 @@ def test_registry_rejects_broken_hash_and_unknown_code_reference(tmp_path: Path)
     broken["content_hashes"]["manifest_sha256"] = "0" * 64
     broken_path = tmp_path / "broken-code.json"
     broken_path.write_text(json.dumps(broken), encoding="utf-8")
+    builtin_config = json.loads((source / "registry.json").read_text(encoding="utf-8"))
     config = {
         "schema_version": 1, "codes": [str(broken_path)],
         "implementations": [], "architectures": [], "backends": [],
+        "scientific_source_hash_scheme": builtin_config["scientific_source_hash_scheme"],
+        "scientific_hash_migration": str(
+            (source / builtin_config["scientific_hash_migration"]).resolve()
+        ),
+        "scientific_hash_migration_sha256": builtin_config[
+            "scientific_hash_migration_sha256"
+        ],
     }
     config_path = tmp_path / "broken-registry.json"
     config_path.write_text(json.dumps(config), encoding="utf-8")

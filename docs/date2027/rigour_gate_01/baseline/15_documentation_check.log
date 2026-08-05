@@ -1,0 +1,39 @@
+﻿COMMAND=python scripts/build_documentation.py --check
+START_UTC=
+2026-08-04T18:06:57.7812019Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+python : Documentation figures are stale:
+At line:2 char:409
++ ... oding utf8; & { python scripts/build_documentation.py --check } 2>&1  ...
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Documentation figures are stale::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+stale: docs/figure_data/registered_portfolio_overview.csv
+stale: docs/figure_data/code_rate_redundancy.csv
+stale: docs/figure_data/error_outcome_distributions.csv
+stale: docs/figure_data/structural_complexity_structural_only.csv
+stale: docs/figure_data/multi_scenario_pareto_summary.csv
+stale: docs/figure_data/fixed_baseline_regret.csv
+stale: docs/figure_data/sensitivity_ranked.csv
+Traceback (most recent call last):
+  File "C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\scripts\build_documentation.py", line 
+392, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\scripts\build_documentation.py", line 
+368, in main
+    run(root, ["scripts/generate_documentation_figures.py", "--check"])
+  File "C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\scripts\build_documentation.py", line 
+70, in run
+    subprocess.run([sys.executable, *arguments], cwd=root, check=True)
+  File "D:\Python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['D:\\Python\\python.exe', 'scripts/generate_documentation_figures.py', 
+'--check']' returned non-zero exit status 1.
+--- END OUTPUT ---
+END_UTC=
+2026-08-04T18:07:56.2809147Z
+EXIT_CODE=
+1

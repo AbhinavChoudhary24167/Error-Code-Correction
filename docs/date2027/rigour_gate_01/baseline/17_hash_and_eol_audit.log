@@ -1,0 +1,41 @@
+﻿ROOT=C:\Users\Abhinav\OneDrive\Desktop\ECC\Error-Code-Correction
+Algorithm : SHA256
+Hash      : 35960E175985EF375FF77683E1B3566E64814C1768E995A8555220DB9775F256
+Path      : C:\Users\Abhinav\OneDrive\Desktop\ECC\Error-Code-Correction\codeforge\artifacts.py
+i/lf    w/lf    attr/                 	codeforge/artifacts.py
+?? docs/date2027/
+ROOT=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+Algorithm : SHA256
+Hash      : 83863DD4FA95CFFCD63B803D83BBFC94823392723C0D2D4BF1F9973FE8C008D5
+Path      : C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\codeforge\artifacts.py
+git.exe : fatal: detected dubious ownership in repository at 
+'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466'
+At line:2 char:454
++ ...  $items += (& git -C $root ls-files --eol codeforge/artifacts.py 2>&1 ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: detected...te-01-f2908466':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/.git' is owned by:
+	BILLIONDOLLARS/Abhinav (S-1-5-21-3379123358-2882373295-1220285414-1001)
+but the current user is:
+	BILLIONDOLLARS/CodexSandboxOffline (S-1-5-21-3379123358-2882373295-1220285414-1006)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466
+git.exe : fatal: detected dubious ownership in repository at 
+'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466'
+At line:2 char:545
++ ... String).Trim(); $items += (& git -C $root status --short 2>&1 | Out-S ...
++                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (fatal: detected...te-01-f2908466':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/.git' is owned by:
+	BILLIONDOLLARS/Abhinav (S-1-5-21-3379123358-2882373295-1220285414-1001)
+but the current user is:
+	BILLIONDOLLARS/CodexSandboxOffline (S-1-5-21-3379123358-2882373295-1220285414-1006)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466
+HSIAO_PROVENANCE=

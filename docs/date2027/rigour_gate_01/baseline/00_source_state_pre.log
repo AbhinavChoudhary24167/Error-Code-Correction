@@ -1,0 +1,28 @@
+﻿COMMAND=git rev-parse --show-toplevel; git branch --show-current; git rev-parse HEAD; git status --short --branch; git ls-files --others --exclude-standard; git submodule status
+START_UTC=2026-08-04T17:51:43.3802062Z
+CWD=C:\Users\Abhinav\OneDrive\Desktop\ECC\Error-Code-Correction
+--- OUTPUT ---
+C:/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction
+main
+f2908466bfa1a8eee8ad5c13b15e0d02a4730351
+## main...origin/main
+?? docs/date2027/
+docs/date2027/rigour_gate_01/baseline/00_source_state_pre.log
+docs/date2027/rigour_gate_01/baseline/01_isolated_state.log
+docs/date2027/rigour_gate_01/baseline/02_inventory.log
+docs/date2027/rigour_gate_01/baseline/03_tool_versions.log
+docs/date2027/rigour_gate_01/baseline/04_doctor.log
+docs/date2027/rigour_gate_01/baseline/05_ecc_list.log
+docs/date2027/rigour_gate_01/baseline/06_dependencies.log
+git : D:/Git/mingw64/libexec/git-core\git-submodule: line 7: basename: command not found
+At line:2 char:668
++ ... it ls-files --others --exclude-standard; git submodule status } *>> $ ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:/Git/mingw64/...mmand not found:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+D:/Git/mingw64/libexec/git-core\git-submodule: line 7: sed: command not found
+D:/Git/mingw64/libexec/git-core\git-submodule: line 22: .: git-sh-setup: file not found
+--- END OUTPUT ---
+END_UTC=2026-08-04T17:51:44.6309435Z
+EXIT_CODE=1

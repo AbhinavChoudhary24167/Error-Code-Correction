@@ -24,7 +24,7 @@
     "backends/openroad-sky130-unavailable-v1.json",
     "backends/not-characterized-v1.json"
   ],
-  "catalogue_sha256": "5df7ff34107bb2d77096b51451e75315bef124a17235ba89eff40af82e4de11d",
+  "catalogue_sha256": "713ae2875daf0442ddad4ec9ae42f52b3a09b1ec33a9efeb81ec794ae0663857",
   "codes": [
     "codes/hsiao-secded-72-64-v1.json",
     "codes/extended-hamming-secded-72-64-v1.json",
@@ -62,5 +62,8 @@
     "implementations/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder.json"
   ],
   "registry_id": "green-ecc-phy-builtin-v1",
-  "schema_version": 1
+  "schema_version": 1,
+  "scientific_hash_migration": "scientific_hash_migrations.json",
+  "scientific_hash_migration_sha256": "ca48521c307f9c851e7f65521f3c4c3015dc791ba99ab6c19f4d447d52df6855",
+  "scientific_source_hash_scheme": "scientific-content-sha256-v1"
 }

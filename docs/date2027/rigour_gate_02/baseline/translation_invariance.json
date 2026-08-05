@@ -1,0 +1,321 @@
+{
+  "audit_accelerators": [
+    {
+      "cases": 2017,
+      "failures": [],
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "method": "exhaustive native-vs-cached differential through configured search weight",
+      "passed": true,
+      "transcript_sha256": "6fb592673678e2921d9913cbfead78d7c74c81785545a01ddd002cbd9aded72c"
+    }
+  ],
+  "records": [
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "ordered_transcript_sha256": "dbadaefc83a341fd6e18c7e454fd3669f24c9752727e771166c20244963c1318",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 51,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 69,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "ordered_transcript_sha256": "274f45352aa15c71b5aeae30d1d05fdc1596d678f8c251f7f5a24b7fc2e69292",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 4,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 14,
+        "zero": true
+      },
+      "probe_mask_count": 11,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "ordered_transcript_sha256": "5a58caeb77b47503d43fad0cfd46f3d9a082e091f089fc1f3ffed8e5c8715fd2",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "ordered_transcript_sha256": "b36380c32eeef0f941728532cca6fe52cee8747ad89fc532708afbea2f2e7ca3",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "ordered_transcript_sha256": "f4946047569ee3f8f0f78b03b141badf1617be522b9246821b9ed1d7986cce80",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "ordered_transcript_sha256": "b8fb98cca95e1635e67f840166b8925a4bbf49bc035896e34faa6d32dbb8e5b3",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "ordered_transcript_sha256": "14744ed009e32fa9adb045a0451f8db8804c00ad73eea0f819b5f8092df55317",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 4,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 11,
+        "zero": true
+      },
+      "probe_mask_count": 11,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "ordered_transcript_sha256": "d38f34c3a9e184515fd8a5d145af1c838090a59cc50e1fb80c3c933464e8edce",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "ordered_transcript_sha256": "55964e91be3d56ef072964fbd42465b5b17be1ed80ca17c28f1b1f5426d01529",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 51,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 69,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "ordered_transcript_sha256": "d2579f15e7c657eb48a6bf1edc29507fc9ad515fd5a6ce487e6b109aa1098ead",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "ordered_transcript_sha256": "f4406430aacab84e4ab621fcbd4682993fdc4d6c687bf2c9826185b9c68b6476",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 4,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 14,
+        "zero": true
+      },
+      "probe_mask_count": 11,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "ordered_transcript_sha256": "3e12f19eae6affd37fdfc1e3753094b5510479a68966b120c05747873c62e049",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "ordered_transcript_sha256": "4adceb17518556bc8886ac82d58854f895c8deff49297c6a2b636b732a551a92",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "ordered_transcript_sha256": "e2e282e60ee8e35285954e4253ef699569abd1da600e500ca2106c0bd561b122",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "ordered_transcript_sha256": "cb9b3b1488c322b376a8e4edd1f6336e02c833d403a39047ed3ab921c4c499fc",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "ordered_transcript_sha256": "ea4f7f9f3250ce00598cb44ffa1fbd74daa5f1e73c1070275988d977de1c3b79",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    },
+    {
+      "decoder_policy_basis": "syndrome-only lookup/action followed by XOR correction",
+      "empirical_equivariance_passed": true,
+      "encoder_linearity_basis": "G-row XOR encoder",
+      "failures": [],
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "ordered_transcript_sha256": "b4966cab3eb69b16a920c576be2626e91ec146c782cf126e0ed6dd2821282ecc",
+      "payload_basis": {
+        "all_one": true,
+        "basis_payload_count": 64,
+        "sha256_derived_payload_count": 16,
+        "unique_payloads_checked": 82,
+        "zero": true
+      },
+      "probe_mask_count": 20,
+      "structural_policy_recognized": true,
+      "zero_codeword_reduction_proven": true
+    }
+  ],
+  "schema_version": 1
+}

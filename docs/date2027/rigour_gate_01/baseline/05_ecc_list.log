@@ -1,0 +1,16 @@
+﻿COMMAND=python eccsim.py ecc list
+START_UTC=2026-08-04T17:51:43.4928092Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+python : usage: eccsim.py ecc list [-h] [--registry REGISTRY]
+At line:2 char:377
++ ... iteralPath $log -Encoding utf8; & { python eccsim.py ecc list } *>> $ ...
++                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (usage: eccsim.p...istry REGISTRY]:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+eccsim.py ecc list: error: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_sim
+ulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+--- END OUTPUT ---
+END_UTC=2026-08-04T17:51:51.2009239Z
+EXIT_CODE=2

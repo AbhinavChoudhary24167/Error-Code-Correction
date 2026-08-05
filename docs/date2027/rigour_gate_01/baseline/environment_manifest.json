@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "audit_id": "green-ecc-date2027-rigour-gate-01",
+  "captured_utc": "2026-08-04T18:12:01.0882298Z",
+  "source_repository": {
+    "root": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction",
+    "branch": "main",
+    "commit": "f2908466bfa1a8eee8ad5c13b15e0d02a4730351",
+    "remote_tracking": "origin/main",
+    "initial_status": "clean before audit; git submodule status not assessable because Git helper could not resolve basename/sed/git-sh-setup",
+    "final_allowed_change": "untracked docs/date2027/ containing only rigour_gate_01",
+    "submodules": "NOT ASSESSABLE",
+    "governing_files": {
+      "AGENTS.md": "a17eeb55abafc143891d295180d63b45d056b972ad02a3319cc3b8952612bc85",
+      "Makefile": "940aef1d6bf7ab92d499ce557699c86caa92b452f877ffcfa6af2db56a2f5dd",
+      "requirements.txt": "ac59dbef5f33498bcd5525afcbdb41faa5f75f8a898075a5645f805ed0234471"
+    }
+  },
+  "isolated_execution": {
+    "kind": "detached disposable git worktree",
+    "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-rigour-gate-01-f2908466",
+    "source_commit": "f2908466bfa1a8eee8ad5c13b15e0d02a4730351",
+    "creation_command": "git worktree add --detach C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-rigour-gate-01-f2908466 f2908466bfa1a8eee8ad5c13b15e0d02a4730351",
+    "cleanup_performed": false,
+    "source_restore_commands_used": false,
+    "notes": [
+      "Potentially mutating builds and tests ran only here.",
+      "Only logs and manifests were copied to the source audit directory.",
+      "Post-build isolated status contains untracked PracticalSRAMSimulator.exe, drift.json, and tests/fixtures/runtime_ml_feature_pack/; they remain confined to the disposable worktree.",
+      "The worktree converted codeforge/artifacts.py from LF to CRLF; raw SHA-256 changed from the manifest value 35960e175985ef375ff77683e1b3566e64814c1768e995a8555220db9775f256 to 83863dd4fa95cffcd63b803d83bbfc94823392723c0d2d4bf1f9973fe8c008d5. CRLF-to-LF normalization restores the manifest hash.",
+      "The disposable worktree was deliberately not reset, checked out, cleaned, broadly deleted, or otherwise restored."
+    ]
+  },
+  "host": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "architecture": "not assessable: host CIM query denied",
+    "timezone": "Asia/Calcutta",
+    "powershell": "5.1.26100.8875",
+    "locale": "not frozen",
+    "line_endings": "source checkout LF for codeforge/artifacts.py; disposable worktree CRLF due Git checkout behavior"
+  },
+  "interpreters_and_tools": {
+    "python": {
+      "path": "D:\\Python\\python.exe",
+      "version": "3.12.5",
+      "pip": "25.0.1"
+    },
+    "python3": {
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\python3.exe",
+      "version": "3.11.7",
+      "pip": "23.2.1"
+    },
+    "pytest": "8.4.1 under python 3.12.5",
+    "git": "2.53.0.windows.1",
+    "make": "GNU Make 4.4.1 Windows32",
+    "gxx": "MSYS2 g++ 13.2.0",
+    "iverilog": "12.0 devel s20150603-1391-gd480c4d7d",
+    "vvp": "12.0 devel s20150603-1391-gd480c4d7d",
+    "yosys": "0.30+48 b5b0b7e83",
+    "pdflatex": "MiKTeX executable present; version probe returned a nonzero wrapper status",
+    "cmake": "NOT AVAILABLE",
+    "verilator": "NOT ASSESSABLE: launcher unreadable/not a valid Win32 application",
+    "bash": "NOT AVAILABLE in the PowerShell execution environment"
+  },
+  "doctor": {
+    "process_exit_code": 0,
+    "application_status": "error",
+    "findings": [
+      "python and python3 resolve to different interpreters/toolchains",
+      "libstdc++-6.dll resolves from D:\\GNUPlot\\gnuplot\\bin instead of the compiler runtime",
+      "required Python packages were present for python",
+      "make, g++, git and iverilog were discoverable"
+    ],
+    "log": "baseline/04_doctor.log"
+  },
+  "python_dependencies": {
+    "capture": "python -m pip freeze; python3 -m pip freeze",
+    "status": "captured",
+    "log": "baseline/06_dependencies.log",
+    "lockfile_observation": "requirements.txt exists, but two active interpreters have distinct environments; no publication container digest is frozen"
+  },
+  "repository_inventory": {
+    "languages": [
+      "Python",
+      "C++17",
+      "SystemVerilog/Verilog",
+      "Make",
+      "PowerShell/shell scripts",
+      "LaTeX/Markdown",
+      "JSON/CSV"
+    ],
+    "build_and_test_entry_points": [
+      "make",
+      "make test",
+      "python3 -m pytest -q",
+      "python eccsim.py doctor --json",
+      "python eccsim.py ecc list",
+      "python eccsim.py ecc verify --implementation ID",
+      "python scripts/build_documentation.py --check",
+      "bash asic/scripts/regress.sh",
+      "scripts/build_multi_ecc_catalogue.py",
+      "scripts/run_multi_ecc_framework_evaluation.py"
+    ],
+    "scientific_inputs": [
+      "green_ecc_physical_simulation/registry/**/*.json",
+      "green_ecc_physical_simulation/evidence/*.json",
+      "data/qcrit_sram6t.json",
+      "carbon_defaults.json",
+      "carbon_calib.json"
+    ],
+    "committed_generated_outputs": [
+      "green_ecc_physical_simulation/multi_ecc_evaluation/**",
+      "docs/figure_data/**",
+      "docs/figures/**",
+      "reports/**"
+    ],
+    "physical_collateral": {
+      "liberty_lef_def_sdc_spef_vcd_saif_gds_found": false,
+      "identified_pdk_or_characterized_sram_macro": false,
+      "available_evidence_ceiling": "generic structural Yosys plus analytical sensitivity; no physical characterization or hardware measurement"
+    },
+    "hard_coded_path_finding": "scripts/run_safeforge_hardware_validation.py contains D:\\Compiler Cpp\\ucrt64\\bin; committed verification records contain host-specific absolute tool paths",
+    "inventory_logs": [
+      "baseline/02_inventory.log",
+      "baseline/19_registry_derivation.log",
+      "baseline/22_static_inventory.log",
+      "baseline/23_verification_and_scope.log"
+    ]
+  },
+  "independently_derived_counts": {
+    "mathematical_code_manifests": 15,
+    "implementation_manifests": 17,
+    "architecture_manifests": 17,
+    "backend_manifests": 4,
+    "existing_verification_process_passes": 15,
+    "existing_verification_failures": 2,
+    "capability_level_partial_within_passes": 1,
+    "selectable_by_existing_policy": 15,
+    "scenario_axis_product": 192,
+    "expected_values_match": true,
+    "reconciliation_note": "Match is an audit observation, not an assumption; loader reproducibility remains failed in the isolated checkout."
+  },
+  "evidence_enums": [
+    "MEASURED",
+    "SYNTHESIZED",
+    "SIMULATED",
+    "DERIVED",
+    "ASSUMED",
+    "PROXY",
+    "UNRESOLVED"
+  ],
+  "gate_enums": [
+    "PASS",
+    "CONDITIONAL PASS",
+    "FAIL",
+    "NOT IMPLEMENTED",
+    "NOT ASSESSABLE"
+  ],
+  "security": {
+    "credentials_captured": false,
+    "unrelated_environment_variables_captured": false
+  }
+}

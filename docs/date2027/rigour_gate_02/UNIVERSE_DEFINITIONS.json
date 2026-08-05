@@ -1,0 +1,2592 @@
+{
+  "adjacency_boundary": "logical noncircular storage-coordinate adjacency across data and parity; data-only and circular universes are separate; no physical adjacency claim",
+  "schema_version": 1,
+  "universes": [
+    {
+      "code_id": "repository-cyclic-63-51-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "cyclic-rtl-bounded-search-63-51-v1:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "repository-cyclic-63-51-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "kind": "all_combinations",
+      "total_masks": 63,
+      "universe_id": "cyclic-rtl-bounded-search-63-51-v1:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "repository-cyclic-63-51-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "kind": "all_combinations",
+      "total_masks": 1953,
+      "universe_id": "cyclic-rtl-bounded-search-63-51-v1:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "repository-cyclic-63-51-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+      "kind": "all_combinations",
+      "total_masks": 39711,
+      "universe_id": "cyclic-rtl-bounded-search-63-51-v1:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "forge-hotspot-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "forge-hotspot-8-4-v1-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "forge-hotspot-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 8,
+      "universe_id": "forge-hotspot-8-4-v1-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "forge-hotspot-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 28,
+      "universe_id": "forge-hotspot-8-4-v1-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "forge-hotspot-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 56,
+      "universe_id": "forge-hotspot-8-4-v1-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "forge-hotspot-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "kind": "all_masks",
+      "total_masks": 256,
+      "universe_id": "forge-hotspot-8-4-v1-archived-table-decoder:all-masks",
+      "weight": null
+    },
+    {
+      "actual_position_weights": {
+        "1": 8,
+        "2": 5
+      },
+      "code_id": "forge-hotspot-8-4-v1",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-hotspot-8-4-v1-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0
+        ],
+        [
+          3
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "total_masks": 13,
+      "universe_id": "forge-hotspot-8-4-v1-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "forge-spatial-hotspot-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "forge-spatial-hotspot-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "forge-spatial-hotspot-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "forge-spatial-hotspot-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "actual_position_weights": {
+        "1": 72,
+        "2": 51
+      },
+      "code_id": "forge-spatial-hotspot-72-64-v1",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          66
+        ],
+        [
+          45,
+          46
+        ],
+        [
+          0
+        ],
+        [
+          67
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          68
+        ],
+        [
+          57
+        ],
+        [
+          38,
+          39
+        ],
+        [
+          5
+        ],
+        [
+          47
+        ],
+        [
+          22,
+          23
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          23,
+          24
+        ],
+        [
+          9
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          56
+        ],
+        [
+          69
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          10
+        ],
+        [
+          57,
+          58
+        ],
+        [
+          11
+        ],
+        [
+          32
+        ],
+        [
+          13
+        ],
+        [
+          48
+        ],
+        [
+          15
+        ],
+        [
+          4
+        ],
+        [
+          16
+        ],
+        [
+          18
+        ],
+        [
+          58
+        ],
+        [
+          40
+        ],
+        [
+          44,
+          45
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          59
+        ],
+        [
+          47,
+          48
+        ],
+        [
+          60
+        ],
+        [
+          61
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          70
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          53,
+          54
+        ],
+        [
+          20
+        ],
+        [
+          31,
+          32
+        ],
+        [
+          50
+        ],
+        [
+          22
+        ],
+        [
+          17
+        ],
+        [
+          52
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          32,
+          33
+        ],
+        [
+          62
+        ],
+        [
+          23
+        ],
+        [
+          27
+        ],
+        [
+          63,
+          64
+        ],
+        [
+          63
+        ],
+        [
+          41,
+          42
+        ],
+        [
+          69,
+          70
+        ],
+        [
+          35
+        ],
+        [
+          31
+        ],
+        [
+          36,
+          37
+        ],
+        [
+          12
+        ],
+        [
+          43
+        ],
+        [
+          33
+        ],
+        [
+          29
+        ],
+        [
+          37,
+          38
+        ],
+        [
+          61,
+          62
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          71
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          30
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          36
+        ],
+        [
+          25,
+          26
+        ],
+        [
+          38
+        ],
+        [
+          34
+        ],
+        [
+          51,
+          52
+        ],
+        [
+          19
+        ],
+        [
+          41
+        ],
+        [
+          53
+        ],
+        [
+          26,
+          27
+        ],
+        [
+          44
+        ],
+        [
+          48,
+          49
+        ],
+        [
+          39
+        ],
+        [
+          45
+        ],
+        [
+          6
+        ],
+        [
+          46
+        ],
+        [
+          39,
+          40
+        ],
+        [
+          14
+        ],
+        [
+          40,
+          41
+        ],
+        [
+          28
+        ],
+        [
+          42,
+          43
+        ],
+        [
+          49
+        ],
+        [
+          46,
+          47
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          70,
+          71
+        ],
+        [
+          21
+        ],
+        [
+          51
+        ],
+        [
+          26
+        ],
+        [
+          28,
+          29
+        ],
+        [
+          42
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          54
+        ],
+        [
+          52,
+          53
+        ],
+        [
+          55
+        ],
+        [
+          30,
+          31
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35,
+          36
+        ],
+        [
+          37
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          49,
+          50
+        ],
+        [
+          27,
+          28
+        ],
+        [
+          43,
+          44
+        ],
+        [
+          55,
+          56
+        ]
+      ],
+      "total_masks": 123,
+      "universe_id": "forge-spatial-hotspot-72-64-v1-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "actual_position_weights": {
+        "1": 72,
+        "2": 32
+      },
+      "code_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          66
+        ],
+        [
+          0
+        ],
+        [
+          67
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          68
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          56
+        ],
+        [
+          69
+        ],
+        [
+          10
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          54
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          57
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          58
+        ],
+        [
+          19
+        ],
+        [
+          59
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          60
+        ],
+        [
+          61
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          70
+        ],
+        [
+          20
+        ],
+        [
+          47,
+          55
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          62
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          42,
+          50
+        ],
+        [
+          36
+        ],
+        [
+          63
+        ],
+        [
+          29
+        ],
+        [
+          44,
+          52
+        ],
+        [
+          69,
+          70
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          33,
+          41
+        ],
+        [
+          32
+        ],
+        [
+          54,
+          62
+        ],
+        [
+          45,
+          53
+        ],
+        [
+          19,
+          27
+        ],
+        [
+          14,
+          22
+        ],
+        [
+          34
+        ],
+        [
+          17,
+          25
+        ],
+        [
+          71
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35
+        ],
+        [
+          28
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          46,
+          54
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          13,
+          21
+        ],
+        [
+          32,
+          33
+        ],
+        [
+          44
+        ],
+        [
+          49,
+          57
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          25,
+          33
+        ],
+        [
+          70,
+          71
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          53
+        ],
+        [
+          54,
+          55
+        ],
+        [
+          36,
+          44
+        ],
+        [
+          13
+        ],
+        [
+          36,
+          37
+        ],
+        [
+          28,
+          29
+        ],
+        [
+          29,
+          37
+        ],
+        [
+          55
+        ],
+        [
+          53,
+          54
+        ],
+        [
+          34,
+          42
+        ],
+        [
+          33
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          55,
+          56
+        ]
+      ],
+      "total_masks": 104,
+      "universe_id": "forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "actual_position_weights": {
+        "1": 72,
+        "2": 24
+      },
+      "code_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          66
+        ],
+        [
+          0
+        ],
+        [
+          67
+        ],
+        [
+          53
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          68
+        ],
+        [
+          4
+        ],
+        [
+          37
+        ],
+        [
+          11
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          38,
+          39
+        ],
+        [
+          56
+        ],
+        [
+          69
+        ],
+        [
+          32,
+          33
+        ],
+        [
+          22,
+          23
+        ],
+        [
+          10
+        ],
+        [
+          6
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          31,
+          32
+        ],
+        [
+          15
+        ],
+        [
+          23,
+          24
+        ],
+        [
+          57
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          58
+        ],
+        [
+          19
+        ],
+        [
+          44,
+          45
+        ],
+        [
+          59
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          60
+        ],
+        [
+          61
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          70
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          32
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          62
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          63,
+          64
+        ],
+        [
+          63
+        ],
+        [
+          43
+        ],
+        [
+          69,
+          70
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          23
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          71
+        ],
+        [
+          37,
+          38
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          5
+        ],
+        [
+          29
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          36,
+          37
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          38
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1
+        ],
+        [
+          42,
+          43
+        ],
+        [
+          54
+        ],
+        [
+          53,
+          54
+        ],
+        [
+          28,
+          29
+        ],
+        [
+          55
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          55,
+          56
+        ]
+      ],
+      "total_masks": 96,
+      "universe_id": "forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "hsiao-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "hsiao-generated-combinational-72-64-v1:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "hsiao-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "hsiao-generated-combinational-72-64-v1:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "hsiao-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "detection",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "hsiao-generated-combinational-72-64-v1:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "hsiao-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "hsiao-generated-combinational-72-64-v1:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "odd-column-secded-4-8-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 8,
+      "universe_id": "odd-column-secded-4-8-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "detection",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 28,
+      "universe_id": "odd-column-secded-4-8-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 56,
+      "universe_id": "odd-column-secded-4-8-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "odd-column-secded-4-8",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "kind": "all_masks",
+      "total_masks": 256,
+      "universe_id": "odd-column-secded-4-8-archived-table-decoder:all-masks",
+      "weight": null
+    },
+    {
+      "actual_position_weights": {
+        "1": 8
+      },
+      "code_id": "odd-column-secded-4-8",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-4-8-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "total_masks": 8,
+      "universe_id": "odd-column-secded-4-8-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "odd-column-secded-64-72",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "odd-column-secded-64-72-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "odd-column-secded-64-72",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "odd-column-secded-64-72-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "odd-column-secded-64-72",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "detection",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "odd-column-secded-64-72-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "odd-column-secded-64-72",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "odd-column-secded-64-72-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "actual_position_weights": {
+        "1": 72
+      },
+      "code_id": "odd-column-secded-64-72",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "odd-column-secded-64-72-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ],
+        [
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ],
+        [
+          17
+        ],
+        [
+          18
+        ],
+        [
+          19
+        ],
+        [
+          20
+        ],
+        [
+          21
+        ],
+        [
+          22
+        ],
+        [
+          23
+        ],
+        [
+          24
+        ],
+        [
+          25
+        ],
+        [
+          26
+        ],
+        [
+          27
+        ],
+        [
+          28
+        ],
+        [
+          29
+        ],
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ],
+        [
+          50
+        ],
+        [
+          51
+        ],
+        [
+          52
+        ],
+        [
+          53
+        ],
+        [
+          54
+        ],
+        [
+          55
+        ],
+        [
+          56
+        ],
+        [
+          57
+        ],
+        [
+          58
+        ],
+        [
+          59
+        ],
+        [
+          60
+        ],
+        [
+          61
+        ],
+        [
+          62
+        ],
+        [
+          63
+        ],
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          66
+        ],
+        [
+          67
+        ],
+        [
+          68
+        ],
+        [
+          69
+        ],
+        [
+          70
+        ],
+        [
+          71
+        ]
+      ],
+      "total_masks": 72,
+      "universe_id": "odd-column-secded-64-72-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "primitive-bch-63-51-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "primitive-bch-63-51-t2-v1-reference-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "primitive-bch-63-51-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 63,
+      "universe_id": "primitive-bch-63-51-t2-v1-reference-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "primitive-bch-63-51-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1953,
+      "universe_id": "primitive-bch-63-51-t2-v1-reference-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "primitive-bch-63-51-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "primitive-bch-63-51-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 39711,
+      "universe_id": "primitive-bch-63-51-t2-v1-reference-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "safeforge-robust-72-64-mapping-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "safeforge-robust-72-64-mapping-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "safeforge-robust-72-64-mapping-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "safeforge-robust-72-64-mapping-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "actual_position_weights": {
+        "1": 6,
+        "2": 39,
+        "3": 11
+      },
+      "code_id": "safeforge-robust-72-64-mapping-v1",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          64
+        ],
+        [
+          65
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          63
+        ],
+        [
+          4
+        ],
+        [
+          35,
+          52
+        ],
+        [
+          36,
+          48
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          6,
+          18
+        ],
+        [
+          33,
+          42
+        ],
+        [
+          0,
+          18
+        ],
+        [
+          0,
+          19
+        ],
+        [
+          38,
+          39
+        ],
+        [
+          21,
+          52
+        ],
+        [
+          8,
+          33
+        ],
+        [
+          18,
+          51
+        ],
+        [
+          21,
+          44
+        ],
+        [
+          6,
+          27
+        ],
+        [
+          14,
+          51
+        ],
+        [
+          18,
+          45
+        ],
+        [
+          69,
+          70
+        ],
+        [
+          53
+        ],
+        [
+          58,
+          67
+        ],
+        [
+          55,
+          62
+        ],
+        [
+          60
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          58,
+          62
+        ],
+        [
+          5,
+          59
+        ],
+        [
+          4,
+          71
+        ],
+        [
+          6,
+          71
+        ],
+        [
+          36,
+          57,
+          70
+        ],
+        [
+          61,
+          68
+        ],
+        [
+          11,
+          56
+        ],
+        [
+          11,
+          60,
+          65
+        ],
+        [
+          31,
+          54,
+          56
+        ],
+        [
+          20,
+          59
+        ],
+        [
+          25,
+          50,
+          71
+        ],
+        [
+          23,
+          59
+        ],
+        [
+          26,
+          54,
+          61
+        ],
+        [
+          17,
+          56
+        ],
+        [
+          35,
+          45,
+          61
+        ],
+        [
+          22,
+          57
+        ],
+        [
+          25,
+          57
+        ],
+        [
+          8,
+          36,
+          55
+        ],
+        [
+          24,
+          61
+        ],
+        [
+          7,
+          28,
+          57
+        ],
+        [
+          31,
+          56
+        ],
+        [
+          31,
+          57
+        ],
+        [
+          69,
+          70,
+          71
+        ],
+        [
+          40,
+          55
+        ],
+        [
+          50,
+          55,
+          68
+        ],
+        [
+          44,
+          55
+        ],
+        [
+          11,
+          28,
+          56
+        ],
+        [
+          52,
+          59
+        ],
+        [
+          52,
+          55
+        ],
+        [
+          48,
+          60
+        ]
+      ],
+      "total_masks": 56,
+      "universe_id": "safeforge-robust-72-64-mapping-v1-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "safeforge-robust-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "safeforge-robust-8-4-v1-archived-table-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "safeforge-robust-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 8,
+      "universe_id": "safeforge-robust-8-4-v1-archived-table-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "safeforge-robust-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 28,
+      "universe_id": "safeforge-robust-8-4-v1-archived-table-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "safeforge-robust-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "kind": "all_combinations",
+      "total_masks": 56,
+      "universe_id": "safeforge-robust-8-4-v1-archived-table-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "safeforge-robust-8-4-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "kind": "all_masks",
+      "total_masks": 256,
+      "universe_id": "safeforge-robust-8-4-v1-archived-table-decoder:all-masks",
+      "weight": null
+    },
+    {
+      "actual_position_weights": {
+        "1": 4,
+        "2": 4
+      },
+      "code_id": "safeforge-robust-8-4-v1",
+      "coordinate_space": "canonical storage coordinates from archived table",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "safeforge-robust-8-4-v1-archived-table-decoder",
+      "kind": "explicit",
+      "positions": [
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          1
+        ],
+        [
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "total_masks": 8,
+      "universe_id": "safeforge-robust-8-4-v1-archived-table-decoder:all-archived-correction-table-entries"
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "secdaec-rtl-bounded-72-64-v1:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "secdaec-rtl-bounded-72-64-v1:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "detection",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "secdaec-rtl-bounded-72-64-v1:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "secdaec-rtl-bounded-72-64-v1:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "logical storage-coordinate adjacency; not physical adjacency",
+      "coordinate_type_coverage": {
+        "data-data": 63,
+        "data-parity": 1,
+        "parity-parity": 7
+      },
+      "declared_capability": "logical_storage_adjacency_correction_audit",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "kind": "adjacent_windows",
+      "total_masks": 71,
+      "universe_id": "secdaec-rtl-bounded-72-64-v1:logical-storage-noncircular-adjacent-2",
+      "weight": 2
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "historical adjacent payload indices; reported separately",
+      "coordinate_type_coverage": {
+        "data-data": 63
+      },
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+      "kind": "data_adjacent_windows",
+      "total_masks": 63,
+      "universe_id": "secdaec-rtl-bounded-72-64-v1:historical-data-only-noncircular-adjacent-2",
+      "weight": 2
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "secded-rtl-combinational-72-64-v1:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "secded-rtl-combinational-72-64-v1:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "detection",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "secded-rtl-combinational-72-64-v1:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "secded-rtl-combinational-72-64-v1:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "shortened-bch-71-64-t1-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "shortened-bch-71-64-t1-v1-reference-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "shortened-bch-71-64-t1-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 71,
+      "universe_id": "shortened-bch-71-64-t1-v1-reference-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "shortened-bch-71-64-t1-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 2485,
+      "universe_id": "shortened-bch-71-64-t1-v1-reference-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "shortened-bch-71-64-t1-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-71-64-t1-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 57155,
+      "universe_id": "shortened-bch-71-64-t1-v1-reference-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "shortened-bch-78-64-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "shortened-bch-78-64-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 78,
+      "universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "shortened-bch-78-64-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 3003,
+      "universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "shortened-bch-78-64-t2-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 76076,
+      "universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "shortened-bch-85-64-t3-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "shortened-bch-85-64-t3-v1-reference-decoder:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "shortened-bch-85-64-t3-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 85,
+      "universe_id": "shortened-bch-85-64-t3-v1-reference-decoder:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "shortened-bch-85-64-t3-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 3570,
+      "universe_id": "shortened-bch-85-64-t3-v1-reference-decoder:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "shortened-bch-85-64-t3-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "shortened-bch-85-64-t3-v1-reference-decoder",
+      "kind": "all_combinations",
+      "total_masks": 98770,
+      "universe_id": "shortened-bch-85-64-t3-v1-reference-decoder:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "clean",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 1,
+      "universe_id": "taec-rtl-bounded-72-64-v1:weight-0",
+      "weight": 0
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 72,
+      "universe_id": "taec-rtl-bounded-72-64-v1:weight-1",
+      "weight": 1
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "detection",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 2556,
+      "universe_id": "taec-rtl-bounded-72-64-v1:weight-2",
+      "weight": 2
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "canonical storage coordinates",
+      "declared_capability": "observation",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "kind": "all_combinations",
+      "total_masks": 59640,
+      "universe_id": "taec-rtl-bounded-72-64-v1:weight-3",
+      "weight": 3
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "logical storage-coordinate adjacency; not physical adjacency",
+      "coordinate_type_coverage": {
+        "data-data-data": 62,
+        "data-data-parity": 1,
+        "data-parity-parity": 1,
+        "parity-parity-parity": 6
+      },
+      "declared_capability": "logical_storage_adjacency_correction_audit",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "kind": "adjacent_windows",
+      "total_masks": 70,
+      "universe_id": "taec-rtl-bounded-72-64-v1:logical-storage-noncircular-adjacent-3",
+      "weight": 3
+    },
+    {
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "coordinate_space": "historical adjacent payload indices; reported separately",
+      "coordinate_type_coverage": {
+        "data-data-data": 62
+      },
+      "declared_capability": "correction",
+      "frozen_before_outcome_evaluation": true,
+      "implementation_id": "taec-rtl-bounded-72-64-v1",
+      "kind": "data_adjacent_windows",
+      "total_masks": 62,
+      "universe_id": "taec-rtl-bounded-72-64-v1:historical-data-only-noncircular-adjacent-3",
+      "weight": 3
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+﻿COMMAND=python eccsim.py ecc verify --implementation hsiao-generated-combinational-72-64-v1
+START_UTC=
+2026-08-04T17:53:44.4836840Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+python : usage: eccsim.py ecc verify [-h] --implementation IMPLEMENTATION [--out OUT]
+At line:2 char:440
++ ... g utf8; & { python eccsim.py ecc verify --implementation hsiao-genera ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (usage: eccsim.p...ION [--out OUT]:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+                            [--registry REGISTRY]
+eccsim.py ecc verify: error: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_s
+imulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+--- END OUTPUT ---
+END_UTC=
+2026-08-04T17:53:49.6086384Z
+EXIT_CODE=
+2

@@ -43,7 +43,7 @@ clean:
 
 -include $(DEP)
 
-.PHONY: test clean gtest safeforge-decisive
+.PHONY: test clean gtest safeforge-decisive verify-ecc-math validate-ecc-math
 
 # Build and run C++ unit tests without relying on CMake or external gtest
 gtest: tests/unit/SecDaec64_test
@@ -71,3 +71,9 @@ epc-report:
 
 safeforge-decisive:
 	python scripts/run_safeforge_decisive_study.py --config configs/safeforge_decisive_72.json --outdir reports/safeforge_decisive_72
+
+verify-ecc-math:
+	python scripts/verify_ecc_mathematics.py --all --output docs/date2027/rigour_gate_02
+
+validate-ecc-math:
+	python scripts/verify_ecc_mathematics.py --validate-only --output docs/date2027/rigour_gate_02

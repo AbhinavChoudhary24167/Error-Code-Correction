@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 from .contracts import DecodeStatus
-from .hashing import canonical_hash, file_sha256, manifest_sha256
+from .hashing import canonical_hash, manifest_sha256
 from .registry import EccRegistry
 
 
@@ -215,7 +215,9 @@ def verify_implementation(
         if not path.is_absolute():
             path = registry.repo_root / path
         present = path.is_file()
-        hash_bound = present and implementation["source_hashes"].get(raw) == file_sha256(path)
+        hash_bound = present and registry.source_hash_matches(
+            str(raw), path, str(implementation["source_hashes"].get(raw, ""))
+        )
         passed = present and hash_bound and evidence.get("status") == "passed"
         evidence_checks.append(
             {

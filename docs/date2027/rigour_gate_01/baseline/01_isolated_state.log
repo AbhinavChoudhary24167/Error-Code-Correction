@@ -1,0 +1,19 @@
+﻿COMMAND=git rev-parse --show-toplevel; git branch --show-current; git rev-parse HEAD; git status --short --branch; git ls-files --others --exclude-standard; git submodule status
+START_UTC=2026-08-04T17:51:43.6781436Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466
+f2908466bfa1a8eee8ad5c13b15e0d02a4730351
+## HEAD (no branch)
+git : D:/Git/mingw64/libexec/git-core\git-submodule: line 7: basename: command not found
+At line:2 char:676
++ ... it ls-files --others --exclude-standard; git submodule status } *>> $ ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:/Git/mingw64/...mmand not found:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+D:/Git/mingw64/libexec/git-core\git-submodule: line 7: sed: command not found
+D:/Git/mingw64/libexec/git-core\git-submodule: line 22: .: git-sh-setup: file not found
+--- END OUTPUT ---
+END_UTC=2026-08-04T17:51:48.2394729Z
+EXIT_CODE=1

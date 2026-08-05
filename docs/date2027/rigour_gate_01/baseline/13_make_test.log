@@ -1,0 +1,678 @@
+﻿COMMAND=make test
+START_UTC=
+2026-08-04T17:54:55.8119111Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+g++ -std=c++17 -O2 -MMD -MP -I. BCHvsHamming.o src/bch63.o -o BCHvsHamming
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming32bit1Gb.o -o Hamming32bit1Gb
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming64bit128Gb.o src/energy_loader.o -o Hamming64bit128Gb
+g++ -std=c++17 -O2 -MMD -MP -I. SAT.o -o SATDemo
+g++ -std=c++17 -O2 -MMD -MP -I. PracticalSRAMSimulator.o -o PracticalSRAMSimulator
+g++ -std=c++17 -O0 -I. tests/unit/SecDaec64_test.cpp -o tests/unit/SecDaec64_test
+./tests/unit/SecDaec64_test
+if not exist BCHvsHamming.exe exit /b 1
+if not exist Hamming32bit1Gb.exe exit /b 1
+if not exist Hamming64bit128Gb.exe exit /b 1
+if not exist SATDemo.exe exit /b 1
+python ecc_selector.py 1e-6 2 0.6 1e-15 1 --sustainability >NUL
+set PYTHONPATH=.&& pytest -q tests/python
+........................................................................ [ 21%]
+........................................................................ [ 42%]
+...............................................................FFFFFFFFF [ 63%]
+FF...F.................................................................. [ 84%]
+....................................................                     [100%]
+================================== FAILURES ===================================
+___ test_builtin_registry_separates_codes_implementations_and_architectures ___
+
+    def test_builtin_registry_separates_codes_implementations_and_architectures() -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_framework.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_framework.py:21: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x00000295068AB560>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+_____________________ test_registry_rejects_duplicate_ids _____________________
+
+tmp_path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/local_tmp/session_5835d6146f724989bf129478e5529bea/test_registry_rejects_duplicate_ids_29')
+
+    def test_registry_rejects_duplicate_ids(tmp_path: Path) -> None:
+        source = ROOT / "green_ecc_physical_simulation" / "registry"
+        payload = json.loads((source / "registry.json").read_text(encoding="utf-8"))
+        payload["codes"] = [str((source / payload["codes"][0]).resolve())] * 2
+        payload["implementations"] = []
+        payload["architectures"] = []
+        payload["backends"] = []
+        path = tmp_path / "duplicate.json"
+        path.write_text(json.dumps(payload), encoding="utf-8")
+        with pytest.raises(ValueError, match="duplicate code_id"):
+>           EccRegistry.load(path, repo_root=ROOT)
+
+tests\python\test_multi_ecc_framework.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x000002950665C770>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/local_tmp/session_5835d6146f724989bf129478e5529bea/test_registry_rejects_duplicate_ids_29')
+
+    def test_registry_rejects_duplicate_ids(tmp_path: Path) -> None:
+        source = ROOT / "green_ecc_physical_simulation" / "registry"
+        payload = json.loads((source / "registry.json").read_text(encoding="utf-8"))
+        payload["codes"] = [str((source / payload["codes"][0]).resolve())] * 2
+        payload["implementations"] = []
+        payload["architectures"] = []
+        payload["backends"] = []
+        path = tmp_path / "duplicate.json"
+        path.write_text(json.dumps(payload), encoding="utf-8")
+>       with pytest.raises(ValueError, match="duplicate code_id"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'duplicate code_id'
+E        Input: 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-rigour-gate-01-f2908466\\green_ecc_physical_simulation\\registry\\codes\\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py'
+
+tests\python\test_multi_ecc_framework.py:49: AssertionError
+________ test_registry_rejects_broken_hash_and_unknown_code_reference _________
+
+tmp_path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/local_tmp/session_5835d6146f724989bf129478e5529bea/test_registry_rejects_broken_hash_and_unknown_code_reference_30')
+
+    def test_registry_rejects_broken_hash_and_unknown_code_reference(tmp_path: Path) -> None:
+        source = ROOT / "green_ecc_physical_simulation" / "registry"
+        code_path = source / "codes" / "hsiao-secded-72-64-v1.json"
+        broken = json.loads(code_path.read_text(encoding="utf-8"))
+        broken["content_hashes"]["manifest_sha256"] = "0" * 64
+        broken_path = tmp_path / "broken-code.json"
+        broken_path.write_text(json.dumps(broken), encoding="utf-8")
+        config = {
+            "schema_version": 1, "codes": [str(broken_path)],
+            "implementations": [], "architectures": [], "backends": [],
+        }
+        config_path = tmp_path / "broken-registry.json"
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+        with pytest.raises(ValueError, match="broken manifest_sha256"):
+            EccRegistry.load(config_path, repo_root=ROOT)
+    
+        implementation_path = source / "implementations" / "hsiao-generated-combinational-72-64-v1.json"
+        implementation = json.loads(implementation_path.read_text(encoding="utf-8"))
+        implementation["code_id"] = "unknown-code"
+        implementation["manifest_sha256"] = manifest_sha256(implementation)
+        copied_implementation = tmp_path / "unknown-code-implementation.json"
+        copied_implementation.write_text(json.dumps(implementation), encoding="utf-8")
+        config.update(
+            {
+                "codes": [str(code_path)],
+                "implementations": [str(copied_implementation)],
+            }
+        )
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+        with pytest.raises(ValueError, match="unknown code_id"):
+>           EccRegistry.load(config_path, repo_root=ROOT)
+
+tests\python\test_multi_ecc_framework.py:83: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x000002950667D7C0>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/local_tmp/session_5835d6146f724989bf129478e5529bea/test_registry_rejects_broken_hash_and_unknown_code_reference_30')
+
+    def test_registry_rejects_broken_hash_and_unknown_code_reference(tmp_path: Path) -> None:
+        source = ROOT / "green_ecc_physical_simulation" / "registry"
+        code_path = source / "codes" / "hsiao-secded-72-64-v1.json"
+        broken = json.loads(code_path.read_text(encoding="utf-8"))
+        broken["content_hashes"]["manifest_sha256"] = "0" * 64
+        broken_path = tmp_path / "broken-code.json"
+        broken_path.write_text(json.dumps(broken), encoding="utf-8")
+        config = {
+            "schema_version": 1, "codes": [str(broken_path)],
+            "implementations": [], "architectures": [], "backends": [],
+        }
+        config_path = tmp_path / "broken-registry.json"
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+        with pytest.raises(ValueError, match="broken manifest_sha256"):
+            EccRegistry.load(config_path, repo_root=ROOT)
+    
+        implementation_path = source / "implementations" / "hsiao-generated-combinational-72-64-v1.json"
+        implementation = json.loads(implementation_path.read_text(encoding="utf-8"))
+        implementation["code_id"] = "unknown-code"
+        implementation["manifest_sha256"] = manifest_sha256(implementation)
+        copied_implementation = tmp_path / "unknown-code-implementation.json"
+        copied_implementation.write_text(json.dumps(implementation), encoding="utf-8")
+        config.update(
+            {
+                "codes": [str(code_path)],
+                "implementations": [str(copied_implementation)],
+            }
+        )
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+>       with pytest.raises(ValueError, match="unknown code_id"):
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'unknown code_id'
+E        Input: 'C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-rigour-gate-01-f2908466\\green_ecc_physical_simulation\\registry\\codes\\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py'
+
+tests\python\test_multi_ecc_framework.py:82: AssertionError
+_____________ test_functional_gate_reports_passes_and_rejections ______________
+
+    def test_functional_gate_reports_passes_and_rejections() -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_framework.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_framework.py:21: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x0000029506A92A50>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+_____________ test_external_ecc_uses_only_public_plugin_interface _____________
+
+    def test_external_ecc_uses_only_public_plugin_interface() -> None:
+>       registry = EccRegistry.load(
+            ROOT / "tests" / "fixtures" / "multi_ecc_external" / "registry.json",
+            repo_root=ROOT,
+        )
+
+tests\python\test_multi_ecc_framework.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x0000029506704B90>
+payload = {'_resolved_matrix': {'G': [[1, 1, 1]], 'H': [[1, 1, 0], [1, 0, 1]], 'data_positions': [0]}, 'canonical_equivalence_cl...id': 'test-only-repetition-3-1-v1', 'code_id': 'test-repetition-3-1-v1', 'code_spec_id': 'test-repetition-3-1-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/multi_ecc_external/codes/repetition.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\tests\fixtures\multi_ecc_external\codes\repetition.json: broken source hash for tests/fixtures/multi_ecc_external/plugin.py
+
+green_ecc_phy\registry.py:188: ValueError
+___ test_structural_backend_keeps_physical_values_null_and_selection_empty ____
+
+tmp_path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/local_tmp/session_5835d6146f724989bf129478e5529bea/test_structural_backend_keeps_physical_values_null_and_selection_empty_31')
+
+    def test_structural_backend_keeps_physical_values_null_and_selection_empty(tmp_path: Path) -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_framework.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_framework.py:21: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x000002950667E750>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+_________ test_characterization_store_rejects_unknown_implementation __________
+
+tmp_path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/tests/fixtures/local_tmp/session_5835d6146f724989bf129478e5529bea/test_characterization_store_rejects_unknown_implementation_32')
+
+    def test_characterization_store_rejects_unknown_implementation(tmp_path: Path) -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_framework.py:149: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_framework.py:21: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x0000029506707CE0>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+_____________________ test_additive_cli_list_and_inspect ______________________
+
+    def test_additive_cli_list_and_inspect() -> None:
+>       listed = subprocess.run(
+            [sys.executable, "eccsim.py", "ecc", "list"], cwd=ROOT,
+            check=True, capture_output=True, text=True,
+        )
+
+tests\python\test_multi_ecc_framework.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['D:\\Python\\python.exe', 'eccsim.py', 'ecc', 'list'],)
+kwargs = {'cwd': WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466'), 'stderr': -1, 'stdout': -1, 'text': True}
+process = <Popen: returncode: 2 args: ['D:\\Python\\python.exe', 'eccsim.py', 'ecc', '...>
+stdout = ''
+stderr = 'usage: eccsim.py ecc list [-h] [--registry REGISTRY]\neccsim.py ecc list: error: C:\\Users\\Abhinav\\AppData\\Local\\..._ecc_physical_simulation\\registry\\codes\\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py\n'
+retcode = 2
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['D:\\Python\\python.exe', 'eccsim.py', 'ecc', 'list']' returned non-zero exit status 2.
+
+D:\Python\Lib\subprocess.py:571: CalledProcessError
+____ test_decoder_policy_can_attach_without_new_code_or_core_family_branch ____
+
+    def test_decoder_policy_can_attach_without_new_code_or_core_family_branch() -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_software_study.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_software_study.py:17: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x000002950665F200>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+____ test_distinct_encoder_codeword_sets_have_distinct_code_specifications ____
+
+    def test_distinct_encoder_codeword_sets_have_distinct_code_specifications() -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_software_study.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_software_study.py:17: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x0000029506A911F0>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+_______________ test_partial_taec_is_not_promoted_to_full_taec ________________
+
+    def test_partial_taec_is_not_promoted_to_full_taec() -> None:
+>       report = verify_implementation(_registry(), "taec-rtl-bounded-72-64-v1")
+                                       ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_software_study.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_software_study.py:17: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x00000295068B4950>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+_____________ test_summary_counts_and_substantive_hash_contracts ______________
+
+    def test_summary_counts_and_substantive_hash_contracts() -> None:
+>       registry = _registry()
+                   ^^^^^^^^^^^
+
+tests\python\test_multi_ecc_software_study.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\python\test_multi_ecc_software_study.py:17: in _registry
+    return EccRegistry.builtin(ROOT)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+green_ecc_phy\registry.py:53: in builtin
+    return cls.load(
+green_ecc_phy\registry.py:48: in load
+    registry._load()
+green_ecc_phy\registry.py:62: in _load
+    self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
+green_ecc_phy\registry.py:103: in _load_group
+    self._validate_sources(payload, path, kind)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <green_ecc_phy.registry.EccRegistry object at 0x0000029506A925D0>
+payload = {'_resolved_matrix': {'G': [[1, 0, 0, 0, 0, 0, ...], [0, 1, 0, 0, 0, 0, ...], [0, 0, 1, 0, 0, 0, ...], [0, 0, 0, 1, 0,...y-72-64-hsiao-minimum-odd-column-v1', 'code_id': 'hsiao-secded-72-64-v1', 'code_spec_id': 'hsiao-secded-72-64-v1', ...}
+path = WindowsPath('C:/Users/Abhinav/AppData/Local/Temp/green-ecc-rigour-gate-01-f2908466/green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json')
+kind = 'code'
+
+    def _validate_sources(self, payload: Mapping[str, Any], path: Path, kind: str) -> None:
+        hashes = payload["content_hashes"]["source_files"] if kind == "code" else payload.get("source_hashes", {})
+        for raw, expected in hashes.items():
+            source = Path(raw)
+            if not source.is_absolute():
+                source = self.repo_root / source
+            source = source.resolve()
+            if not source.is_file():
+                raise ValueError(f"{path}: missing source reference {raw}")
+            if file_sha256(source) != expected:
+>               raise ValueError(f"{path}: broken source hash for {raw}")
+E               ValueError: C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466\green_ecc_physical_simulation\registry\codes\hsiao-secded-72-64-v1.json: broken source hash for codeforge/artifacts.py
+
+green_ecc_phy\registry.py:188: ValueError
+============================== warnings summary ===============================
+tests/python/test_ml_integration.py::test_ml_evaluate_smoke
+tests/python/test_ml_integration.py::test_ml_feature_pack_train_predict_evaluate_smoke
+tests/python/test_ml_integration.py::test_ml_report_card_cli_smoke_and_output_resolution
+  D:\Python\Lib\site-packages\sklearn\metrics\_classification.py:534: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/python/test_multi_ecc_framework.py::test_builtin_registry_separates_codes_implementations_and_architectures
+FAILED tests/python/test_multi_ecc_framework.py::test_registry_rejects_duplicate_ids
+FAILED tests/python/test_multi_ecc_framework.py::test_registry_rejects_broken_hash_and_unknown_code_reference
+FAILED tests/python/test_multi_ecc_framework.py::test_functional_gate_reports_passes_and_rejections
+FAILED tests/python/test_multi_ecc_framework.py::test_external_ecc_uses_only_public_plugin_interface
+FAILED tests/python/test_multi_ecc_framework.py::test_structural_backend_keeps_physical_values_null_and_selection_empty
+FAILED tests/python/test_multi_ecc_framework.py::test_characterization_store_rejects_unknown_implementation
+FAILED tests/python/test_multi_ecc_framework.py::test_additive_cli_list_and_inspect
+FAILED tests/python/test_multi_ecc_software_study.py::test_decoder_policy_can_attach_without_new_code_or_core_family_branch
+FAILED tests/python/test_multi_ecc_software_study.py::test_distinct_encoder_codeword_sets_have_distinct_code_specifications
+FAILED tests/python/test_multi_ecc_software_study.py::test_partial_taec_is_not_promoted_to_full_taec
+FAILED tests/python/test_multi_ecc_software_study.py::test_summary_counts_and_substantive_hash_contracts
+12 failed, 328 passed, 3 warnings in 394.50s (0:06:34)
+make : make: *** [Makefile:63: test] Error 1
+At line:2 char:363
++ ... | Set-Content -LiteralPath $log -Encoding utf8; & { make test } 2>&1  ...
++                                                         ~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (make: *** [Makefile:63: test] Error 1:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+--- END OUTPUT ---
+END_UTC=
+2026-08-04T18:01:36.9766467Z
+EXIT_CODE=
+2

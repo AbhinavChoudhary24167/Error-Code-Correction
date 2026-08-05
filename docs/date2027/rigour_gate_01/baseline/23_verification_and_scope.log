@@ -1,0 +1,1108 @@
+﻿VERIFICATION REPORTS
+cyclic-rtl-bounded-search-63-51-v1.json  |  implementation_id=cyclic-rtl-bounded-search-63-51-v1; verification_status=failed
+{
+  "capability_failures": [],
+  "capability_verification_status": "rejected",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "30/63",
+      "failed_patterns": [
+        [
+          30
+        ],
+        [
+          31
+        ],
+        [
+          32
+        ],
+        [
+          33
+        ],
+        [
+          34
+        ],
+        [
+          35
+        ],
+        [
+          36
+        ],
+        [
+          37
+        ],
+        [
+          38
+        ],
+        [
+          39
+        ],
+        [
+          40
+        ],
+        [
+          41
+        ],
+        [
+          42
+        ],
+        [
+          43
+        ],
+        [
+          44
+        ],
+        [
+          45
+        ],
+        [
+          46
+        ],
+        [
+          47
+        ],
+        [
+          48
+        ],
+        [
+          49
+        ]
+      ],
+      "failure_count": 33,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 30,
+        "MISCORRECTED": 33
+      },
+      "passed": false,
+      "passed_count": 30,
+      "patterns": 63
+    }
+  ],
+  "code_id": "repository-cyclic-63-51-v1",
+  "exhaustive_small_code": null,
+  "failures": [
+    "guaranteed_correction class failed: all-single-bit-errors"
+  ],
+  "implementation_hash": "7cdd673caaed8ff82b0f0dd0231e13485ebdd529b3a0881f47ed1ddddb5ab4d5",
+  "implementation_id": "cyclic-rtl-bounded-search-63-51-v1",
+  "matrix_hash": "da68eda6f3ec09f4d759a3860903eca9021ad23f8a0a4a519c3edbb3988ab5f0",
+  "miscorrection_probes": [
+    {
+      "domain": "some triple-bit errors",
+      "expected": "known <=2-search alias",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "tb_bch"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    750599937895082,
+    1501199875790165,
+    2251799813685247
+  ],
+  "tested_universe_hash": "08dacf93f6e526247a6a2322488737f692be42e5dff057a4693d0accc8882395",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "4ff319ada6e28ad1071bbbdd3f8e4c5e374874cf8ad4a758cad607f9c060a06b",
+  "verification_status": "failed"
+}
+forge-hotspot-8-4-v1-archived-table-decoder.json  |  implementation_id=forge-hotspot-8-4-v1-archived-table-decoder; verification_status=passed
+forge-spatial-hotspot-72-64-v1-archived-table-decoder.json  |  implementation_id=forge-spatial-hotspot-72-64-v1-archived-table-decoder; verification_status=passed
+forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder.json  |  implementation_id=forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder; verification_status=passed
+forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder.json  |  implementation_id=forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder; verification_status=passed
+hsiao-generated-combinational-72-64-v1.json  |  implementation_id=hsiao-generated-combinational-72-64-v1; verification_status=passed
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED",
+        "DETECTED_UNCORRECTABLE"
+      ],
+      "class_id": "all-double-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "2556/2556",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_detection",
+      "outcome_counts": {
+        "DETECTED_UNCORRECTABLE": 2556
+      },
+      "passed": true,
+      "passed_count": 2556,
+      "patterns": 2556
+    }
+  ],
+  "code_id": "hsiao-secded-72-64-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "c8cea4fddc7761f2ab28f0ba0f5dd99afcaec08068d12143faa28da203a2dabf",
+  "implementation_id": "hsiao-generated-combinational-72-64-v1",
+  "matrix_hash": "1cc658a0e86f0911d0d26def91d61c2b4dc146daaea531a5a923aabf0ca387a7",
+  "miscorrection_probes": [
+    {
+      "domain": "weight>=3 outside guaranteed SECDED universe",
+      "expected": "may miscorrect",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "safeforge_72_modeled_campaign"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "121e20194dfd5b1e0577e4d86e24b6aaa53f6bb90cb2d3d43cd483ec916f88ca",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "0134b1960d60e16e5396367a1be00e819d0609d1dc9f697ca1e1d3f958b40b07",
+  "verification_status": "passed"
+}
+odd-column-secded-4-8-archived-table-decoder.json  |  implementation_id=odd-column-secded-4-8-archived-table-decoder; verification_status=passed
+odd-column-secded-64-72-archived-table-decoder.json  |  implementation_id=odd-column-secded-64-72-archived-table-decoder; verification_status=passed
+primitive-bch-63-51-t2-v1-reference-decoder.json  |  implementation_id=primitive-bch-63-51-t2-v1-reference-decoder; verification_status=passed
+safeforge-robust-72-64-mapping-v1-archived-table-decoder.json  |  implementation_id=safeforge-robust-72-64-mapping-v1-archived-table-decoder; verification_status=passed
+safeforge-robust-8-4-v1-archived-table-decoder.json  |  implementation_id=safeforge-robust-8-4-v1-archived-table-decoder; verification_status=passed
+secdaec-rtl-bounded-72-64-v1.json  |  implementation_id=secdaec-rtl-bounded-72-64-v1; verification_status=failed
+{
+  "capability_failures": [
+    "implementation_claim_correction class failed: all-adjacent-double-data-errors"
+  ],
+  "capability_verification_status": "rejected",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED",
+        "DETECTED_UNCORRECTABLE"
+      ],
+      "class_id": "all-double-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "2254/2556",
+      "failed_patterns": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          22
+        ],
+        [
+          0,
+          23
+        ],
+        [
+          0,
+          54
+        ],
+        [
+          0,
+          65
+        ],
+        [
+          0,
+          66
+        ],
+        [
+          0,
+          71
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          52
+        ],
+        [
+          1,
+          65
+        ],
+        [
+          1,
+          66
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          2,
+          19
+        ],
+        [
+          2,
+          49
+        ],
+        [
+          2,
+          64
+        ]
+      ],
+      "failure_count": 302,
+      "kind": "guaranteed_detection",
+      "outcome_counts": {
+        "CORRECTED": 10,
+        "DETECTED_UNCORRECTABLE": 2244,
+        "MISCORRECTED": 302
+      },
+      "passed": false,
+      "passed_count": 2254,
+      "patterns": 2556
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-adjacent-double-data-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "10/63",
+      "failed_patterns": [
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          21,
+          22
+        ],
+        [
+          22,
+          23
+        ],
+        [
+          23,
+          24
+        ],
+        [
+          24,
+          25
+        ],
+        [
+          26,
+          27
+        ],
+        [
+          27,
+          28
+        ]
+      ],
+      "failure_count": 53,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "CORRECTED": 10,
+        "MISCORRECTED": 53
+      },
+      "passed": false,
+      "passed_count": 10,
+      "patterns": 63
+    }
+  ],
+  "code_id": "extended-hamming-secded-72-64-v1",
+  "exhaustive_small_code": null,
+  "failures": [
+    "guaranteed_detection class failed: all-double-bit-errors"
+  ],
+  "implementation_hash": "f5f39a417c6dc2d364a951c3ab2453d7b7ce49ae4a479130640ea7e139db8e1b",
+  "implementation_id": "secdaec-rtl-bounded-72-64-v1",
+  "matrix_hash": "40bc866e1a85aa0d8597f49fa6e97bc29a5e64d75631e13ba90ec2befcd3f749",
+  "miscorrection_probes": [
+    {
+      "domain": "odd weight >=3",
+      "expected": "may alias a single-error syndrome",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "tb_secdaec"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "eb75b36e35ea7657aae4055d927d9feb762d1e2037d23b45bc2405fbd222adb9",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "dfea04da1da03565ac0ec7925a200984167a5dbd255abb2bad87b580bb97845f",
+  "verification_status": "failed"
+}
+secded-rtl-combinational-72-64-v1.json  |  implementation_id=secded-rtl-combinational-72-64-v1; verification_status=passed
+{
+  "capability_failures": [],
+  "capability_verification_status": "fully_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED",
+        "DETECTED_UNCORRECTABLE"
+      ],
+      "class_id": "all-double-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "2556/2556",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_detection",
+      "outcome_counts": {
+        "DETECTED_UNCORRECTABLE": 2556
+      },
+      "passed": true,
+      "passed_count": 2556,
+      "patterns": 2556
+    }
+  ],
+  "code_id": "extended-hamming-secded-72-64-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "85f6f0ee3c8884b68bd618c1312f9cf40184a5303570cfb5c99596f99a8fcbde",
+  "implementation_id": "secded-rtl-combinational-72-64-v1",
+  "matrix_hash": "40bc866e1a85aa0d8597f49fa6e97bc29a5e64d75631e13ba90ec2befcd3f749",
+  "miscorrection_probes": [
+    {
+      "domain": "odd weight >=3",
+      "expected": "may alias a single-error syndrome",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "tb_secded"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "121e20194dfd5b1e0577e4d86e24b6aaa53f6bb90cb2d3d43cd483ec916f88ca",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "ead94c50f0c6342f0a272d3403382249e699872032a920dcd5a79b47f20e5a2d",
+  "verification_status": "passed"
+}
+shortened-bch-71-64-t1-v1-reference-decoder.json  |  implementation_id=shortened-bch-71-64-t1-v1-reference-decoder; verification_status=passed
+shortened-bch-78-64-t2-v1-reference-decoder.json  |  implementation_id=shortened-bch-78-64-t2-v1-reference-decoder; verification_status=passed
+shortened-bch-85-64-t3-v1-reference-decoder.json  |  implementation_id=shortened-bch-85-64-t3-v1-reference-decoder; verification_status=passed
+taec-rtl-bounded-72-64-v1.json  |  implementation_id=taec-rtl-bounded-72-64-v1; verification_status=passed
+{
+  "capability_failures": [
+    "implementation_claim_correction class failed: all-adjacent-triple-data-errors"
+  ],
+  "capability_verification_status": "partially_verified",
+  "checks": {
+    "configuration_transition_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "deterministic_encoding": true,
+    "malformed_encode_rejected": true,
+    "no_error_decoding": true,
+    "pipeline_latency": true,
+    "protocol_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "reset_testing": {
+      "reason": "stateless combinational contract",
+      "status": "not_applicable"
+    },
+    "rtl_reference_differential": true,
+    "wrong_length_decode_rejected": true
+  },
+  "class_results": [
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-single-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "72/72",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_correction",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "passed": true,
+      "passed_count": 72,
+      "patterns": 72
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED",
+        "DETECTED_UNCORRECTABLE"
+      ],
+      "class_id": "all-double-bit-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "2556/2556",
+      "failed_patterns": [],
+      "failure_count": 0,
+      "kind": "guaranteed_detection",
+      "outcome_counts": {
+        "DETECTED_UNCORRECTABLE": 2556
+      },
+      "passed": true,
+      "passed_count": 2556,
+      "patterns": 2556
+    },
+    {
+      "acceptable_statuses": [
+        "CORRECTED"
+      ],
+      "class_id": "all-adjacent-triple-data-errors",
+      "data_independence": {
+        "established": true,
+        "method": "linear encoder and translation-invariant syndrome decoder; outcomes depend only on the error mask",
+        "payloads_per_mask": 1
+      },
+      "exact_fraction": "0/62",
+      "failed_patterns": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          9,
+          10
+        ],
+        [
+          9,
+          10,
+          11
+        ],
+        [
+          10,
+          11,
+          12
+        ],
+        [
+          11,
+          12,
+          13
+        ],
+        [
+          12,
+          13,
+          14
+        ],
+        [
+          13,
+          14,
+          15
+        ],
+        [
+          14,
+          15,
+          16
+        ],
+        [
+          15,
+          16,
+          17
+        ],
+        [
+          16,
+          17,
+          18
+        ],
+        [
+          17,
+          18,
+          19
+        ],
+        [
+          18,
+          19,
+          20
+        ],
+        [
+          19,
+          20,
+          21
+        ]
+      ],
+      "failure_count": 62,
+      "kind": "implementation_claim_correction",
+      "outcome_counts": {
+        "MISCORRECTED": 62
+      },
+      "passed": false,
+      "passed_count": 0,
+      "patterns": 62
+    }
+  ],
+  "code_id": "extended-hamming-secded-72-64-v1",
+  "exhaustive_small_code": null,
+  "failures": [],
+  "implementation_hash": "9574608fdc35dded0366ccfe7c526be31806978fdf0acffb4130ba0890c18c51",
+  "implementation_id": "taec-rtl-bounded-72-64-v1",
+  "matrix_hash": "40bc866e1a85aa0d8597f49fa6e97bc29a5e64d75631e13ba90ec2befcd3f749",
+  "miscorrection_probes": [
+    {
+      "domain": "odd weight >=3",
+      "expected": "may alias a single-error syndrome",
+      "outcome": "DECLARED_DOMAIN_ONLY",
+      "passed": true,
+      "probe_id": null
+    }
+  ],
+  "rtl_evidence": [
+    {
+      "declared_status": "passed",
+      "hash_bound": true,
+      "kind": "rtl_reference_differential",
+      "passed": true,
+      "path": "reports/safeforge_hardware_validation/validation_summary.json",
+      "present": true,
+      "test_id": "tb_taec"
+    }
+  ],
+  "schema_version": 1,
+  "tested_data_words": [
+    0,
+    1,
+    6148914691236517205,
+    12297829382473034410,
+    18446744073709551615
+  ],
+  "tested_universe_hash": "f070b6f886ded81aba2d0b3e0b76fa82eaea08b583dd61eff929cc65a2ec806a",
+  "tool_versions": {
+    "iverilog": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "verilator": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "version": "unreadable: [WinError 193] %1 is not a valid Win32 application"
+    },
+    "yosys": {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    }
+  },
+  "verification_sha256": "1faf1df3d6ba854c87736403dce49abf789a80c71e5cd7368d1b791e7f0c3a64",
+  "verification_status": "passed"
+}
+STATUS COUNTS Counter({'passed': 15, 'failed': 2})
+
+FILE INVENTORY
+[ asic ]
+asic/bch/bch_decoder.sv
+asic/bch/bch_encoder.sv
+asic/bch/sram_bch_top.sv
+asic/common/ecc_types_pkg.sv
+asic/common/sram_core.sv
+asic/include/ecc_pkg.sv
+asic/polar/polar_decoder_128_96.sv
+asic/polar/polar_decoder_64_32.sv
+asic/polar/polar_decoder_64_48.sv
+asic/polar/polar_encoder_128_96.sv
+asic/polar/polar_encoder_64_32.sv
+asic/polar/polar_encoder_64_48.sv
+asic/polar/sram_polar_128_96_top.sv
+asic/polar/sram_polar_64_32_top.sv
+asic/polar/sram_polar_64_48_top.sv
+asic/rtl/bch/bch_codec.sv
+asic/rtl/common/ecc_bitflip_corrector.sv
+asic/rtl/common/ecc_entries.sv
+asic/rtl/common/green_ecc_mode_controller.sv
+asic/rtl/common/green_ecc_select_mux.sv
+asic/rtl/common/green_ecc_transition_controller.sv
+asic/rtl/polar/polar_codec.sv
+asic/rtl/polar/polar_pkg.sv
+asic/rtl/secdaec/secdaec_codec.sv
+asic/rtl/secded/secded_codec.sv
+asic/rtl/sram/sram_wrappers.sv
+asic/rtl/taec/taec_codec.sv
+asic/secdaec/secdaec_decoder.sv
+asic/secdaec/secdaec_encoder.sv
+asic/secdaec/sram_secdaec_top.sv
+asic/secded/secded_decoder.sv
+asic/secded/secded_encoder.sv
+asic/secded/sram_secded_top.sv
+asic/taec/sram_taec_top.sv
+asic/taec/taec_decoder.sv
+asic/taec/taec_encoder.sv
+asic/tb/tb_bch.sv
+asic/tb/tb_green_ecc_selection.sv
+asic/tb/tb_green_ecc_transition_controller.sv
+asic/tb/tb_polar.sv
+asic/tb/tb_secdaec.sv
+asic/tb/tb_secded.sv
+asic/tb/tb_sram_wrappers.sv
+asic/tb/tb_taec.sv
+[ rtl ]
+rtl/ecc_generated/bch_16b.v
+rtl/ecc_generated/bch_32b.v
+rtl/ecc_generated/bch_51b.v
+rtl/ecc_generated/bch_8b.v
+rtl/ecc_generated/polar_16b.v
+rtl/ecc_generated/polar_32b.v
+rtl/ecc_generated/polar_48b.v
+rtl/ecc_generated/polar_8b.v
+rtl/ecc_generated/polar_96b.v
+rtl/ecc_generated/secdaec_64b.v
+rtl/ecc_generated/secded_16b.v
+rtl/ecc_generated/secded_32b.v
+rtl/ecc_generated/secded_64b.v
+rtl/ecc_generated/secded_8b.v
+rtl/ecc_generated/taec_16b.v
+rtl/ecc_generated/taec_32b.v
+rtl/ecc_generated/taec_64b.v
+rtl/ecc_generated/taec_8b.v
+rtl/ecc_generated/tb/tb_bch_32b.v
+rtl/ecc_generated/tb/tb_polar_32b.v
+rtl/ecc_generated/tb/tb_secdaec_64b.v
+rtl/ecc_generated/tb/tb_secded_32b.v
+rtl/ecc_generated/tb/tb_taec_32b.v
+[ green_ecc_physical_simulation/rtl ]
+green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv
+green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv
+green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv
+[ src ]
+src/bch63.cpp
+src/bch63.hpp
+src/energy_loader.cpp
+src/energy_loader.hpp
+[ ml ]
+ml/__init__.py
+ml/dataset.py
+ml/drift.py
+ml/evaluate.py
+ml/explain.py
+ml/features.py
+ml/lifecycle.py
+ml/model_registry.py
+ml/predict.py
+ml/report_card.py
+ml/splits.py
+ml/sram_advisory.py
+ml/train.py
+[ analysis ]
+analysis/__init__.py
+analysis/archetype.py
+analysis/generate_figures.py
+analysis/hv.py
+analysis/knee.py
+analysis/pareto.py
+analysis/plot_metadata.py
+analysis/plot_pipeline.py
+analysis/scenario_resolver.py
+analysis/sensitivity.py
+analysis/surface.py
+analysis/tradeoff.py
+analysis/workload_scenarios.py

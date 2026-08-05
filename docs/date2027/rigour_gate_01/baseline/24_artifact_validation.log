@@ -1,0 +1,10 @@
+﻿python :   File "<stdin>", line 43
+At line:56 char:11
++ '@; $py | python - 2>&1 | Out-File -LiteralPath $out -Encoding utf8;  ...
++           ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<stdin>", line 43:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    if counts!={"codes":15,"implementations":17,"architectures":17}: errors.append(f"registry counts mismatch {counts}
+                                                                                   ^
+SyntaxError: unterminated f-string literal (detected at line 43)

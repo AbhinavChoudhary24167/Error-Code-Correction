@@ -1,0 +1,206 @@
+﻿DERIVED COUNTS 15 17 17
+CODE FILES 15
+IMPLEMENTATION FILES 17
+ARCHITECTURE FILES 17
+
+CODES
+extended-hamming-secded-72-64-v1|Extended Hamming SECDED|72|64|8|4|4|repository-policy-family-v1|green_ecc_phy.matrices:conventional_extended_hamming|1.0.0
+forge-hotspot-8-4-v1|SafeForge/CodeForge synthesized binary linear code|8|4|4|4|4|forge-hotspot-8-4-v1-archived-syndrome-table|None|1.0.0
+forge-spatial-hotspot-72-64-v1|SafeForge/CodeForge synthesized binary linear code|72|64|8|3|3|forge-spatial-hotspot-72-64-v1-archived-syndrome-table|None|1.0.0
+forge-sram-portfolio-72-64-v1-geometry-filtered-joint|SafeForge/CodeForge synthesized binary linear code|72|64|8|4|4|forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-syndrome-table|None|1.0.0
+forge-sram-portfolio-72-64-v1-spatial-hotspot-joint|SafeForge/CodeForge synthesized binary linear code|72|64|8|4|4|forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-syndrome-table|None|1.0.0
+hsiao-secded-72-64-v1|Hsiao SECDED|72|64|8|4|4|minimum-weight-single-syndrome-v1|green_ecc_phy.matrices:hsiao_odd_column|1.0.0
+odd-column-secded-4-8|SafeForge/CodeForge synthesized binary linear code|8|4|4|4|4|odd-column-secded-4-8-archived-syndrome-table|None|1.0.0
+odd-column-secded-64-72|SafeForge/CodeForge synthesized binary linear code|72|64|8|4|4|odd-column-secded-64-72-archived-syndrome-table|None|1.0.0
+primitive-bch-63-51-t2-v1|Primitive binary BCH|63|51|12|5|5|primitive-bch-bounded-syndrome-t2-v1|green_ecc_phy.bch:primitive_bch_systematic|1.0.0
+repository-cyclic-63-51-v1|BCH candidate / cyclic code|63|51|12|2|None|bounded-valid-codeword-search-weight2-v1|green_ecc_phy.matrices:cyclic_systematic|1.0.0
+safeforge-robust-72-64-mapping-v1|SafeForge/CodeForge synthesized binary linear code|72|64|8|4|4|safeforge-robust-72-64-mapping-v1-archived-syndrome-table|None|1.0.0
+safeforge-robust-8-4-v1|SafeForge/CodeForge synthesized binary linear code|8|4|4|3|3|safeforge-robust-8-4-v1-archived-syndrome-table|None|1.0.0
+shortened-bch-71-64-t1-v1|Primitive binary BCH|71|64|7|3|3|primitive-bch-bounded-syndrome-t1-v1|green_ecc_phy.bch:primitive_bch_systematic|1.0.0
+shortened-bch-78-64-t2-v1|Primitive binary BCH|78|64|14|5|5|primitive-bch-bounded-syndrome-t2-v1|green_ecc_phy.bch:primitive_bch_systematic|1.0.0
+shortened-bch-85-64-t3-v1|Primitive binary BCH|85|64|21|None|7|primitive-bch-bounded-syndrome-t3-v1|green_ecc_phy.bch:primitive_bch_systematic|1.0.0
+
+IMPLEMENTATIONS
+cyclic-rtl-bounded-search-63-51-v1|repository-cyclic-63-51-v1|None|None|None|['asic/rtl/bch/bch_codec.sv', 'asic/tb/tb_bch.sv', 'reports/safeforge_hardware_validation/validation_summary.json']|1.0.0
+forge-hotspot-8-4-v1-archived-table-decoder|forge-hotspot-8-4-v1|None|None|None|['reports/code_synthesis/code.json', 'reports/code_synthesis/verification_report.json']|1.0.0
+forge-spatial-hotspot-72-64-v1-archived-table-decoder|forge-spatial-hotspot-72-64-v1|None|None|None|['reports/code_synthesis_64/code.json', 'reports/code_synthesis_64/verification_report.json']|1.0.0
+forge-sram-portfolio-72-64-v1-geometry-filtered-joint-archived-table-decoder|forge-sram-portfolio-72-64-v1-geometry-filtered-joint|None|None|None|['reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-geometry-filtered-joint.json', 'reports/portfolio_cosynthesis/result_manifest.json']|1.0.0
+forge-sram-portfolio-72-64-v1-spatial-hotspot-joint-archived-table-decoder|forge-sram-portfolio-72-64-v1-spatial-hotspot-joint|None|None|None|['reports/portfolio_cosynthesis/codes/forge-sram-portfolio-72-64-v1-spatial-hotspot-joint.json', 'reports/portfolio_cosynthesis/result_manifest.json']|1.0.0
+hsiao-generated-combinational-72-64-v1|hsiao-secded-72-64-v1|None|None|None|['green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv', 'green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv', 'green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv', 'reports/safeforge_hardware_validation/validation_summary.json']|1.0.0
+odd-column-secded-4-8-archived-table-decoder|odd-column-secded-4-8|None|None|None|['reports/code_synthesis/baselines/odd_column_secded_code.json', 'reports/code_synthesis/verification_report.json']|1.0.0
+odd-column-secded-64-72-archived-table-decoder|odd-column-secded-64-72|None|None|None|['reports/code_synthesis_64/baselines/odd_column_secded_code.json', 'reports/code_synthesis_64/verification_report.json']|1.0.0
+primitive-bch-63-51-t2-v1-reference-decoder|primitive-bch-63-51-t2-v1|None|None|None|['green_ecc_phy/bch.py', 'green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json', 'tests/python/test_bch_reference.py', 'src/bch63.cpp', 'src/bch63.hpp', 'tests/unit/BCH63_test.cpp']|1.0.0
+safeforge-robust-72-64-mapping-v1-archived-table-decoder|safeforge-robust-72-64-mapping-v1|None|None|None|['reports/safeforge_64_study/code.json', 'reports/safeforge_64_study/result_manifest.json']|1.0.0
+safeforge-robust-8-4-v1-archived-table-decoder|safeforge-robust-8-4-v1|None|None|None|['reports/safeforge_study/robust_cosynthesized_code.json', 'reports/safeforge_study/result_manifest.json']|1.0.0
+secdaec-rtl-bounded-72-64-v1|extended-hamming-secded-72-64-v1|None|None|None|['asic/include/ecc_pkg.sv', 'asic/rtl/secded/secded_codec.sv', 'asic/rtl/secdaec/secdaec_codec.sv', 'asic/tb/tb_secdaec.sv', 'reports/safeforge_hardware_validation/validation_summary.json']|1.0.0
+secded-rtl-combinational-72-64-v1|extended-hamming-secded-72-64-v1|None|None|None|['asic/include/ecc_pkg.sv', 'asic/rtl/secded/secded_codec.sv', 'asic/tb/tb_secded.sv', 'reports/safeforge_hardware_validation/validation_summary.json']|1.0.0
+shortened-bch-71-64-t1-v1-reference-decoder|shortened-bch-71-64-t1-v1|None|None|None|['green_ecc_phy/bch.py', 'green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json', 'tests/python/test_bch_reference.py']|1.0.0
+shortened-bch-78-64-t2-v1-reference-decoder|shortened-bch-78-64-t2-v1|None|None|None|['green_ecc_phy/bch.py', 'green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json', 'tests/python/test_bch_reference.py']|1.0.0
+shortened-bch-85-64-t3-v1-reference-decoder|shortened-bch-85-64-t3-v1|None|None|None|['green_ecc_phy/bch.py', 'green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json', 'tests/python/test_bch_reference.py']|1.0.0
+taec-rtl-bounded-72-64-v1|extended-hamming-secded-72-64-v1|None|None|None|['asic/include/ecc_pkg.sv', 'asic/rtl/secded/secded_codec.sv', 'asic/rtl/taec/taec_codec.sv', 'asic/tb/tb_taec.sv', 'reports/safeforge_hardware_validation/validation_summary.json']|1.0.0
+
+ARCHITECTURES
+adaptive-shared-page-v1|None|None|None|None
+configurable-gated-parallel-bank-v1|None|None|None|None
+fixed-cyclic-whole-memory-v1|None|None|None|None
+fixed-forge-hotspot-8-4-v1|None|None|None|None
+fixed-forge-spatial-hotspot-72-64-v1|None|None|None|None
+fixed-forge-sram-portfolio-72-64-v1-geometry-filtered-joint|None|None|None|None
+fixed-forge-sram-portfolio-72-64-v1-spatial-hotspot-joint|None|None|None|None
+fixed-hsiao-whole-memory-v1|None|None|None|None
+fixed-odd-column-secded-4-8|None|None|None|None
+fixed-odd-column-secded-64-72|None|None|None|None
+fixed-primitive-bch-63-51-t2-v1|None|None|None|None
+fixed-safeforge-robust-72-64-mapping-v1|None|None|None|None
+fixed-safeforge-robust-8-4-v1|None|None|None|None
+fixed-secded-whole-memory-v1|None|None|None|None
+fixed-shortened-bch-71-64-t1-v1|None|None|None|None
+fixed-shortened-bch-78-64-t2-v1|None|None|None|None
+fixed-shortened-bch-85-64-t3-v1|None|None|None|None
+
+SCENARIO_KEYS ['adjacency_definition', 'analytical_model', 'comparison_payloads_bits', 'equal_information_capacity_bits', 'fault_profiles', 'grid', 'physical_metrics', 'preregistration_sha256', 'preregistration_status', 'reliability_requirements', 'schema_version', 'selector', 'study_id', 'uncertainty_models', 'workloads']
+{
+  "adjacency_definition": "linear consecutive coordinates within each encoded codeword; adjacency never crosses a codeword, word, bank, or page boundary",
+  "analytical_model": {
+    "evidence_level": "analytical_sensitivity",
+    "model_id": "green-ecc-explicit-sensitivity-energy-v1",
+    "parameters": {
+      "bit_access_energy_j_at_1v": 1e-15,
+      "leakage_power_w_per_stored_bit_at_25c": 1e-15,
+      "scrub_read_write_energy_multiplier": 2.0,
+      "temperature_leakage_multiplier_at_85c": 2.0,
+      "xor_activity_energy_j_at_1v": 2e-16
+    },
+    "provenance": "explicit sensitivity parameters selected before winners; no measured technology library, SRAM macro, activity trace, or PDK"
+  },
+  "comparison_payloads_bits": [
+    1,
+    64,
+    512
+  ],
+  "equal_information_capacity_bits": 8388608,
+  "fault_profiles": {
+    "adjacent_mbu": {
+      "class_probability_per_codeword_access": {
+        "adjacent_double": 4e-08,
+        "adjacent_triple": 5e-09,
+        "nonadjacent_double": 5e-09,
+        "nonadjacent_triple": 0.0,
+        "single": 5e-08
+      },
+      "provenance": "explicit uncalibrated sensitivity profile; not a measured SER/FIT distribution"
+    },
+    "sbu_dominant": {
+      "class_probability_per_codeword_access": {
+        "adjacent_double": 1e-09,
+        "adjacent_triple": 0.0,
+        "nonadjacent_double": 1e-09,
+        "nonadjacent_triple": 0.0,
+        "single": 9.8e-08
+      },
+      "provenance": "explicit uncalibrated sensitivity profile; not a measured SER/FIT distribution"
+    },
+    "triple_stress": {
+      "class_probability_per_codeword_access": {
+        "adjacent_double": 2e-08,
+        "adjacent_triple": 3e-08,
+        "nonadjacent_double": 1e-08,
+        "nonadjacent_triple": 1e-08,
+        "single": 3e-08
+      },
+      "provenance": "explicit uncalibrated sensitivity stress profile; not a measured radiation result"
+    }
+  },
+  "grid": {
+    "carbon_intensity_kgco2_per_kwh": [
+      0.1,
+      0.7
+    ],
+    "fault_profile_ids": [
+      "sbu_dominant",
+      "adjacent_mbu",
+      "triple_stress"
+    ],
+    "reliability_requirement_ids": [
+      "service",
+      "stringent"
+    ],
+    "scrub_interval_s": [
+      1.0,
+      3600.0
+    ],
+    "supply_voltage_v": [
+      0.8,
+      1.0
+    ],
+    "temperature_c": [
+      25.0,
+      85.0
+    ],
+    "workload_ids": [
+      "low_activity",
+      "high_activity"
+    ]
+  },
+  "physical_metrics": null,
+  "preregistration_sha256": "eef89577ec920ba33d59c564c969e3b4cd550deb756c5db6ccc94568ed080654",
+  "preregistration_status": "parameters materialized by catalogue build before scenario winners are computed",
+  "reliability_requirements": {
+    "service": {
+      "max_due_probability_per_64b_access": 1e-06,
+      "max_sdc_probability_per_64b_access": 1e-08
+    },
+    "stringent": {
+      "max_due_probability_per_64b_access": 1e-07,
+      "max_sdc_probability_per_64b_access": 1e-12
+    }
+  },
+  "schema_version": 1,
+  "selector": {
+    "hard_constraints": [
+      "verification_status",
+      "sdc_limit",
+      "due_limit"
+    ],
+    "objective_order": [
+      "modelled_total_energy_j",
+      "decoder_complexity_proxy",
+      "encoded_bits_per_64b",
+      "implementation_id"
+    ],
+    "selector_id": "verified-feasible-lexicographic-v1",
+    "weights": null
+  },
+  "study_id": "green-ecc-phy-software-simulation-v1",
+  "uncertainty_models": {
+    "base": {
+      "bit_energy_scale": 1.0,
+      "leakage_scale": 1.0,
+      "xor_energy_scale": 1.0
+    },
+    "logic_dominated": {
+      "bit_energy_scale": 0.5,
+      "leakage_scale": 0.5,
+      "xor_energy_scale": 2.0
+    },
+    "storage_dominated": {
+      "bit_energy_scale": 1.5,
+      "leakage_scale": 1.5,
+      "xor_energy_scale": 0.5
+    }
+  },
+  "workloads": {
+    "high_activity": {
+      "lifetime_s": 3600.0,
+      "payload_accesses": 1000000000,
+      "write_fraction": 0.5
+    },
+    "low_activity": {
+      "lifetime_s": 3600.0,
+      "payload_accesses": 1000000,
+      "write_fraction": 0.1
+    }
+  }
+}
+
+VERIFICATION missing

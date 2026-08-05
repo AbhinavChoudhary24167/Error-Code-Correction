@@ -1,0 +1,938 @@
+﻿.\CONTRIBUTING.md:14:`BCHvsHamming`, `Hamming32bit1Gb`, `Hamming64bit128Gb`, and `SATDemo`.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:5:GREEN-ECC-PHY is an evidence-gated research framework for error-correcting code (ECC) integration and comparison. Its central research question is: **when ECCs differ in mathematical code, decoder policy and deployment architecture, which choices satisfy a scenario's verified reliability constraints, and what trade-offs appear under explicit energy/carbon models—without misrepresenting proxies as physical measurements?**
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:14:The regenerated registry contains **15 code specifications**, **17 implementations**, **17 architectures**, and **15 selectable implementations**. The current analytical grid evaluates **192 scenarios**, of which **192** have a feasible winner.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:16:The defensible evidence ceiling is exact functional execution plus an explicitly parameterized analytical sensitivity model. Generic structural evidence exists, but every physical area, timing, energy, routing, MUX/controller, transition, and re-encoding objective remains null. Consequently, the physical-capability gate fails and no physical winner is claimed.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:26:| `physical_characterization` | PDK/library/corner/workload-bound area, timing, power, energy or routing | Unavailable |
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:27:| `hardware_measurement` | Instrumented board/silicon result | Unavailable |
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:30:The strongest supported result is functional and methodological: multiple distinct verified implementations win different preregistered analytical scenario regions, fixed baselines have non-zero analytical regret, and recommendations are stable under two of three named sensitivity cases. The strongest negative result is that the physical capability gate fails: no physical winner, implementation PPA comparison, measured MUX/controller overhead, or actual adaptive break-even can be claimed.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:36:It must not be used as measured physical PPA, silicon reliability, radiation qualification, technology independence, qualified-device reliability data, measured adaptive overhead, or proof that a family label guarantees correction. Generic Yosys cells and logic-depth counts are not physical area or delay.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:55:| `implementation_id` | Concrete adapter/reference/RTL, protocol, latency and evidence |
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:58:| `architecture_id` | Fixed/configurable/adaptive placement and architecture-owned overhead |
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:62:Conventional SECDED, bounded SEC-DAEC and bounded TAEC share `extended-hamming-secded-72-64-v1`; changing a syndrome policy does not change the codeword set. They are nevertheless separate implementations, and their evidence differs. A distinct `(75,64)` TAEC matrix would be a separate code specification. Hsiao `(72,64)` and positional extended-Hamming `(72,64)` remain distinct because no coordinate-equivalence proof is present. Equal dimensions are insufficient.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:64:The rejected cyclic/BCH-labelled `(63,51)` implementation remains catalogued: it corrects 30/63 single masks and silently miscorrects 33/63, with exact minimum distance two. It cannot inherit the guarantee of the valid primitive BCH `(63,51,t=2)` reference, which passes its declared weight-two universe. A test-only `(3,1)` repetition plugin demonstrates the extension contract but is absent from scientific counts.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:80:`green_ecc_phy/contracts.py` defines `DecodeResult`, `DecodeStatus` and the adapter protocol. `registry.py` validates Draft 2020-12 schemas, hashes, matrix shape/rank/orthogonality and cross-references; `loading.py` resolves external callables. `adapters.py` and `bch.py` normalize code families. `verification.py` executes evidence gates. `backends.py` writes null-safe characterization records. `comparison.py` constructs fairness views and physical-only selection. `study.py` builds exact profiles, structural proxies, scenario metrics, Pareto sets, winners, regret and uncertainty cases. Documentation Pareto validation is independently implemented in `pareto_validation.py`.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:92:    H --> I["Pareto audit + deterministic winner"]
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:96:Fixed architectures deploy one implementation without runtime transition. Configurable gated-parallel designs own multiple datapaths plus MUX/controller. Adaptive shared-datapath designs additionally own policy, state transition and possible re-encoding. Placement may be whole-memory, bank or page. Current manifests describe these obligations but do not measure their physical costs.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:102:Windows PowerShell:
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:104:```powershell
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:143:The gate also checks deterministic/no-error behavior, malformed inputs, latency, required protocol/reset/transition evidence, hash-bound RTL/reference evidence, implementation/matrix hashes, tested-data words and a tested-universe hash. Failed masks are counterexamples. Partial verification means passing capabilities survive while failed implementation claims do not; bounded TAEC is the current example.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:152:Outputs under `green_ecc_physical_simulation/multi_ecc_evaluation/` include per-implementation verification and characterization, scope/capability/architecture matrices, normalized exact metrics, exact error profiles, scenario candidate decisions, Pareto/regret, uncertainty/sensitivity, physical selection and framework summaries. Each artifact is deterministic JSON with canonical hashes where defined.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:160:Verification must pass and the architecture must permit the implementation. The local backend produces generic structural evidence only. `cell_area`, `critical_path`, physical energies, routing, MUX/controller, transition and uncertainty stay null. A candidate becomes physically comparable only when a backend binds real tools, PDK/library/corner, constraints, workload/activity and metric extraction provenance.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:164:The current normalized analytical path is the complete evaluation script. It filters verification, uses exact error profiles, applies scenario SDC/DUE limits, computes a five-objective frontier and selects the lexicographic minimum `(analytical total energy, structural complexity, encoded bits, implementation_id)`.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:224:with relative flux, µm² sensitive area and femtocoulomb charge terms. It is fitted/analytical, not a radiation result. The multi-bit upset (MBU) module provides tunable adjacent/non-adjacent two-/three-bit PMFs. Legacy scrubbed residual FIT adds uncovered instantaneous MBU rates to accumulated independent doubles proportional to `choose(w,2) λ1² τ`. Family-level coverage in the legacy model must not override exact rejected implementations.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:226:### 7.4 Energy and carbon
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:235:Energy is J/scenario; carbon intensity is kgCO₂e/kWh; output is kgCO₂e/scenario. Embodied carbon would be `Alogic αlogic + Amacro αmacro`, but physical areas are unavailable, so current figures show operational carbon only.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:237:ESII (Environmental Sustainability Improvement Index) is a bounded `[0,1]` product of reliability improvement and energy/carbon utilities. GS (Green Score) is a `[0,100]` weighted geometric mean of active bounded reliability, carbon, latency and overhead utilities. NESII is ESII normalized to a reference cohort using 5th/95th percentile anchors. These legacy metrics are analytical and are not the multi-ECC winner rule.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:246:| FIT | failures/10⁹ h | analytical unless measurement bound |
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:254:The preregistered grid combines 0.8/1.0 V, 25/85 °C, 1/3,600 s scrub intervals, 0.1/0.7 kgCO₂e/kWh, three fault profiles, two workloads and two reliability requirements: 192 scenarios. Fault PMFs are explicit uncalibrated sensitivity profiles; workloads are access-count/write-fraction abstractions; neither is hardware measurement.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:256:Fair comparison views hold equal data width, codeword width, redundancy, information capacity, verified reliability domain, workload, timing target or area budget—or hold code/implementation fixed while varying policy, architecture or corner. Selection uses equal 64-bit payload and equal useful storage capacity.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:258:Hard filters precede dominance: verification → fairness/context → SDC/DUE limits → finite/non-null objectives. The frontier minimizes SDC, DUE, analytical total energy, encoded bits and structural decoder complexity. For minimization, `a` dominates `b` if it is no worse in all objectives and strictly better in at least one. Current epsilon is zero; distinct duplicate points coexist.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:260:Crowding distance is normalized neighbor spacing within a front. The plotted two-objective knee is the maximum normalized distance from the extreme-point chord. Hypervolume uses an explicitly stored reference point 5% worse than the plotted maxima. None of these overrides the lexicographic winner rule.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:262:The documentation's independent Pareto implementation checks all 192 recorded frontiers exactly and tests dominated/equal points, mixed directions, nulls, rejected/infeasible/empty/singleton sets, epsilon boundaries, crowding, knee and hypervolume.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:264:![Analytical reliability-cost Pareto frontier](docs/figures/reliability_cost_pareto_analytical.svg)
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:266:*Orange is analytical and frontier membership is independently recomputed; grey candidates are dominated and crosses infeasible. Source data and objective audit: [`docs/figure_data/reliability_cost_pareto_analytical.json`](docs/figure_data/reliability_cost_pareto_analytical.json).*
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:268:A physical Pareto frontier is not computable while all physical objectives are null.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:272:Fresh evaluation records 192 feasible scenarios and no no-winner analytical cases. Winner counts are: Hsiao `(72,64)` 64; SafeForge robust `(72,64)` 32; shortened BCH `(71,64,t=1)` 32; shortened BCH `(78,64,t=2)` 32; and shortened BCH `(85,64,t=3)` 32. Exact values are in [`software_study_summary.json`](green_ecc_physical_simulation/multi_ecc_evaluation/software_study_summary.json).
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:274:The conventional SECDED fixed baseline is feasible in 96 scenarios and has mean analytical fractional regret about 2.499% there; Hsiao is feasible in 96 with about 0.459%; the strongest verified shortened BCH `(85,64,t=3)` is feasible in all 192 with about 21.937% mean fractional energy regret. Infeasible baseline scenarios are reported separately.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:276:Base and storage-dominated sensitivity cases agree with all 192 base winners; logic-dominated agrees in 190/192. These are deterministic scale cases, not statistical confidence. The gross analytical oracle advantage over the best single fixed candidate is about 0.0111846515 J across comparable scenarios. That is the maximum total hypothetical adaptation overhead, not a measured break-even.
+.\GREEN_ECC_PHY_TECHNICAL_GUIDE.md:282:Negative results define the limits: SEC-DAEC is rejected; bounded TAEC's adjacent-triple claim fails; the historical cyclic/BCH-labelled candidate is rejected; all physical fields are null; proxy-to-physical reversal, PPA comparison and adaptive feasibility are not computable. No historical “27% energy” or “19% carbon” claim is supported by this regenerated study.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:7:The reproducible 192-scenario grid produces five winners. Under the preregistered sensitivity model, different verified implementations win different fault/reliability regions and fixed baselines incur non-zero regret. The supported conclusion is therefore conditional: **scenario-aware ECC choice is supported inside this exact-functional plus analytical-sensitivity software model.** It is not a physical-PPA, silicon, measured-energy, or technology-independence conclusion.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:18:The 15 registered specifications comprise Hsiao and conventional extended-Hamming codes, the preserved invalid cyclic candidate, a valid primitive BCH (63,51,t=2), three valid shortened 64-information-bit BCH codes, and eight distinct archived SafeForge/CodeForge matrices. The human and machine scope matrices also classify grouped generated RTL, Polar models, C/C++ simulators, TAEC/SEC-DAEC variants, the repetition fixture, literature-only LDPC/Reed–Solomon mentions, and legacy family aliases.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:22:## Valid and rejected BCH identities
+.\MULTI_ECC_FRAMEWORK_REPORT.md:26:The new `primitive-bch-63-51-t2-v1` is separate. It uses GF(2^6) with primitive polynomial `x^6+x+1` (`0x43`), constructs roots alpha^1 through alpha^4 and generator polynomial `1010100111001`, and obtains the exact minimum distance five by dual enumeration plus the binary MacWilliams transform. Its deterministic GF-syndrome locator corrects all 63 single and all 1,953 double masks: 2,016/2,016.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:32:| shortened BCH t=1 | (127,120) | (71,64) | exact d=3 | 71/71 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:33:| shortened BCH t=2 | (127,113) | (78,64) | exact d=5 | 3,081/3,081 through weight 2 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:34:| shortened BCH t=3 | (127,106) | (85,64) | designed d>=7 | 102,425/102,425 through weight 3 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:36:The construction certificate is [primitive_bch_construction_certificate.json](green_ecc_physical_simulation/evidence/primitive_bch_construction_certificate.json).
+.\MULTI_ECC_FRAMEWORK_REPORT.md:38:## TAEC and SEC-DAEC negative results
+.\MULTI_ECC_FRAMEWORK_REPORT.md:40:The bounded TAEC decoder shares the conventional extended-Hamming encoder/codeword set. It passes 72/72 single corrections and 2,556/2,556 double detections, but silently miscorrects 62/62 adjacent triples over canonical data coordinates. It is `integrated_partially_verified`, and only its shared SECDED behavior is eligible—never a full TAEC guarantee.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:42:The bounded SEC-DAEC decoder fails its base detection universe: 2,254/2,556 double patterns are acceptable and 302/2,556 silently miscorrect. Its narrower adjacent-pair claim also corrects only 10/63 and silently miscorrects 53/63. It remains `integrated_rejected`.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:44:No (75,64)-I6, I7, or other distinct TAEC matrix/generator/table was found. Coverage-level TAEC models are excluded because they do not supply a mathematical encoder and deployed decoder.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:48:Payload comparison is normalized per information bit, protected 64-bit word, protected 512-bit cache line, workload, reliability requirement, and equal information capacity. For example, the (63,51) BCH needs two codewords and 126 encoded bits for one 64-bit word, including 38 padded information positions; it is never compared as if k=64.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:50:Exact fields include dimensions, code rate, exhaustive outcome fractions, silent-miscorrection counts, encoded payload bits, XOR/table counts, logic-depth proxies, and metadata bits. Analytical fields include expected corrected/DUE/SDC rates, decoder activity, dynamic/leakage/scrub energy, total energy, and operational carbon. Every analytical value embeds model ID, unit, parameter provenance, evidence level, and sensitivity interval. Every physical field is null.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:52:The preregistered Cartesian grid contains 192 scenarios: 2 voltages x 2 temperatures x 2 scrub intervals x 2 carbon intensities x 3 fault profiles x 2 workloads x 2 reliability requirements. All 192 have at least one feasible candidate.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:56:| SBU-dominant | service | shortened BCH (71,64,t=1) | 32/32 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:59:| adjacent-MBU | stringent | shortened BCH (78,64,t=2) | 32/32 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:60:| triple-stress | service | SafeForge robust (72,64) abstaining table | 32/32 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:61:| triple-stress | stringent | shortened BCH (85,64,t=3) | 32/32 |
+.\MULTI_ECC_FRAMEWORK_REPORT.md:63:Overall wins are Hsiao 64, robust SafeForge (72,64) 32, and each shortened BCH strength 32. The large valid BCH candidates are frequent Pareto members: primitive (63,51,t=2) 160/192, shortened t=2 160/192, and shortened t=3 128/192.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:67:## Regret, uncertainty, and adaptive threshold
+.\MULTI_ECC_FRAMEWORK_REPORT.md:69:On scenarios where each baseline is feasible, mean modelled-energy regret is 2.499% for conventional SECDED (96 comparable scenarios), 0.459% for Hsiao (96), and 21.937% for always using the strongest shortened BCH t=3 (192). The latter is reliability-feasible everywhere but analytically expensive where weaker protection suffices.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:71:The storage-dominated and base sensitivity models preserve 192/192 winners. The logic-dominated model preserves 190/192 (98.96%); two SBU/service cases switch between the shortened t=1 BCH and a small SafeForge abstaining policy. This supports the result in the swept model while exposing a narrow uncertainty-dependent region.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:73:Because adaptive MUX, controller, transition, and re-encoding costs are uncharacterized, no actual break-even is claimed. The machine result reports only the symbolic condition
+.\MULTI_ECC_FRAMEWORK_REPORT.md:77:  + N_reencoded_bits*E_reencode_per_bit < E_best_fixed - E_oracle
+.\MULTI_ECC_FRAMEWORK_REPORT.md:80:and a parameterized analytical aggregate tolerance of 0.0111846515 J over comparable grid records. That number is a sensitivity-model threshold, not a measured or physical overhead budget.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:88:Local Yosys evidence is structural only. Physical area, delay, power, energy, routing, MUX/controller overhead, transition cost, re-encoding cost, and physical uncertainty remain null. The physical selector still returns no winner.
+.\MULTI_ECC_FRAMEWORK_REPORT.md:100:Primary machine outputs are under `green_ecc_physical_simulation/multi_ecc_evaluation`, especially `framework_summary.json`, `software_study_summary.json`, `scenario_selection_results.json`, `pareto_and_regret.json`, and `uncertainty_and_sensitivity.json`.
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:8:No committed or uncommitted work was reset, restored, cleaned, stashed, committed, or pushed. The original Hsiao, conventional SECDED, bounded TAEC, bounded SEC-DAEC, and cyclic/BCH-labelled identities remain present. The historical cyclic implementation and SEC-DAEC implementation remain rejected with their earlier counterexamples. Hsiao/positional equivalence remains unestablished. The external repetition fixture remains excluded from scientific conclusions.
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:16:Newly registered complete artifacts include four mathematically valid BCH specifications and eight archived SafeForge/CodeForge G/H plus syndrome-table policies. Grouped generated SECDED, TAEC, SEC-DAEC, BCH-labelled, and Polar RTL remains explicit in the inventory, with experimental/rejected/duplicate status and reasons. No (75,64)-I6/I7 construction was found. LDPC and Reed–Solomon appear only in documentation/literature references.
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:20:`green_ecc_phy/bch.py` adds primitive-field validation, generator construction from consecutive roots, systematic encoding, correct parent-coordinate shortening, GF syndromes, and a deterministic bounded locator. The valid BCH generator differs from the preserved invalid RTL polynomial.
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:24:- valid BCH (63,51,t=2): 2,016/2,016 masks corrected through weight two, exact d=5;
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:25:- shortened BCH t=1: 71/71;
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:26:- shortened BCH t=2: 3,081/3,081;
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:27:- shortened BCH t=3: 102,425/102,425, designed d>=7;
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:28:- TAEC: shared SECDED universe passes, adjacent triples 0/62 corrected and 62/62 silently miscorrected;
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:29:- SEC-DAEC: 302/2,556 double silent miscorrections and 53/63 adjacent-pair silent miscorrections;
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:34:The preregistered 192-scenario grid is deterministic and fully feasible. Five implementations win scenario regions, fixed baselines have non-zero analytical regret, and the worst swept energy-parameter model preserves 190/192 winner identities. The conclusion rule therefore returns `scenario_aware_selection_supported_within_analytical_model`.
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:36:The adaptive result is only a parameterized symbolic threshold because MUX, controller, metadata, transition, and re-encoding costs are absent. No actual or physical break-even is reported.
+.\green_ecc_physical_simulation\CONTINUATION_AUDIT.md:44:The catalogue builder deterministically emits schemas/manifests, BCH certificates, and the preregistration. The evaluation emits exact profiles, normalized metrics, capability and architecture matrices, 192 scenario records, Pareto/regret analysis, uncertainty/sensitivity results, plots, and three independent gate decisions under `green_ecc_physical_simulation/multi_ecc_evaluation`.
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:4:**Evidence label:** physically grounded simulation, not measured silicon  
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:17:   power, and place-and-route.
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:67:| VCD/SAIF power flow | Incomplete | RTL simulators can generate VCD when instrumented, but current ASIC testbenches contain no VCD/SAIF dump setup and no SAIF-aware power tool is available | Functional activity could be produced; characterized power cannot |
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:117:`area`, timing arcs, leakage power, or internal/switching power tables. Its SHA-256 is
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:119:It is not a characterized standard-cell library and cannot support area, timing,
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:120:leakage, dynamic-power, PVT, or routed claims.
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:133:- a validated 6T SRAM bitcell schematic;
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:143:Accordingly, hold/read SNM, write margin, access delay, operation energy, leakage,
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:160:physical area, timing, power, or PPA. This audit preserves that conclusion. It does
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:186:    activity-based characterized power.
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:192:SRAM failures synthetic and ECC energy as operation-count or generic-cell proxies.
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:193:Missing metrics must not be imputed, and `14 nm`, measured silicon, experimental SRAM,
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:198:activity-power campaigns, physical-characterization records, rerun recommendations,
+.\green_ecc_physical_simulation\SIMULATION_CAPABILITY_AUDIT.md:214:  with its open-PDK, SRAM, extraction, statistical-model, and power limitations
+.\README.md:3:GREEN-ECC-PHY is a research framework for registering error-correcting code (ECC) identities, verifying concrete encoder/decoder policies, normalizing workloads, attaching evidence-gated implementation records, and studying reliability–energy–carbon selection. It keeps mathematical codes, decoder behavior, deployment architecture, backend provenance, scenario assumptions, and result evidence separate so that a family label cannot be mistaken for a verified guarantee or a structural proxy for physical power, performance, and area (PPA).
+.\README.md:10:The exact-functional and analytical study has 192 scenarios; 192 have a feasible winner and 0 have none. The evidence gate records 15 passing and 2 rejected implementations. Physical objectives remain null, so no physical winner, physical PPA comparison, or measured adaptive break-even is computable.
+.\README.md:15:The framework uses six evidence classes: `exact_functional`, `analytical_model`, `structural_tool`, `physical_characterization`, `hardware_measurement`, and `unsupported`. Current selection results reach the first three classes only. The repository does **not** support measured physical PPA, silicon reliability, radiation validation, technology independence, measured adaptive overhead, or a physical winner.
+.\README.md:30:This separation is central: conventional SECDED, bounded SEC-DAEC, and bounded TAEC share one `(72,64)` extended-Hamming codeword set, but their decoder policies and verified capabilities differ.
+.\README.md:48:```powershell
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:15:| `primitive-bch-63-51-t2-v1` | `integrated_verified` | `primitive-bch-63-51-t2-v1` | eligible subject to scenario constraints |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:17:| `safeforge-robust-72-64-mapping-v1` | `integrated_verified` | `safeforge-robust-72-64-mapping-v1` | eligible subject to scenario constraints |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:18:| `safeforge-robust-8-4-v1` | `integrated_verified` | `safeforge-robust-8-4-v1` | eligible subject to scenario constraints |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:19:| `shortened-bch-71-64-t1-v1` | `integrated_verified` | `shortened-bch-71-64-t1-v1` | eligible subject to scenario constraints |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:20:| `shortened-bch-78-64-t2-v1` | `integrated_verified` | `shortened-bch-78-64-t2-v1` | eligible subject to scenario constraints |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:21:| `shortened-bch-85-64-t3-v1` | `integrated_verified` | `shortened-bch-85-64-t3-v1` | eligible subject to scenario constraints |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:22:| `cpp-bch63-reference` | `duplicate_decoder_policy` | `primitive-bch-63-51-t2-v1` | same primitive polynomial and systematic BCH construction; retained as independent source/test evidence for the registered reference |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:25:| `generated-taec-width-family` | `integrated_experimental` | `—` | complete generated RTL but no distinct TAEC matrix certificate; 64b policy is the same collision-prone positional construction |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:27:| `generated-bch-labelled-width-family` | `integrated_rejected` | `—` | labelled BCH but uses ad-hoc parity equations, not primitive-field BCH generator construction; decoder equations are not certified against encoder |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:31:| `taec-coverage-monte-carlo` | `excluded_missing_mathematical_definition` | `—` | coverage assumptions contain no G/H matrix or executable TAEC encoder/decoder |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:32:| `thesis-taec-75-64-i6-i7` | `excluded_missing_mathematical_definition` | `—` | no (75,64)-I6/I7 matrix, generator, lookup table, RTL, or simulator was found in the repository |
+.\green_ecc_physical_simulation\multi_ecc_evaluation\ECC_SCOPE_MATRIX.md:36:| `legacy-family-energy-aliases` | `excluded_insufficient_evidence` | `—` | family-level analytical constants and synthetic winners are not bit-exact code/decoder implementations |
+.\SECURITY.md:9:- ECC algorithm implementations (Hamming, SEC-DED, BCH, TAEC)
+.\SECURITY.md:11:- Energy and sustainability modeling
+.\SECURITY.md:43:- Accuracy of energy and sustainability metrics
+.\SECURITY.md:74:All external inputs are validated, including:
+.\SECURITY.md:77:- Bit positions validated against codeword size
+.\SECURITY.md:79:- Energy model inputs validated for physical plausibility
+.\SECURITY.md:91:- False energy or BER estimates
+.\SECURITY.md:93:The policy is intentionally strict: rejecting malformed input is preferable to “best-effort” guessing in scientific code.
+.\SECURITY.md:164:## 8. Energy and Sustainability Model Integrity
+.\SECURITY.md:168:Energy models enforce:
+.\SECURITY.md:171:- No negative or zero-energy operations
+.\SECURITY.md:180:- Tweaking energy tables to favor certain ECCs
+.\SECURITY.md:203:Reducing supply-chain surface area is deliberate: scientific reproducibility is incompatible with opaque runtime dependencies.
+.\SECURITY.md:241:- Energy model inconsistencies
+.\SECURITY.md:284:- Energy model accuracy depends on calibration quality
+.\SECURITY.md:288:Appropriate and robust for research-grade ECC and sustainability analysis, with low risk of silent failure and high transparency of assumptions.
+.\reports\code_synthesis_64\findings.md:6:- Optimality proven over configured systematic search space: `false`
+.\reports\code_synthesis_64\findings.md:16:This result is a feasibility certificate for one small modeled distribution. It does not establish k=64 scaling, physical hardware improvement, synthesis-tool advantage, or distribution-shift robustness.
+.\reports\code_synthesis\findings.md:5:- Search status: `optimal`
+.\reports\code_synthesis\findings.md:6:- Optimality proven over configured systematic search space: `true`
+.\reports\code_synthesis\findings.md:16:This result is a feasibility certificate for one small modeled distribution. It does not establish k=64 scaling, physical hardware improvement, synthesis-tool advantage, or distribution-shift robustness.
+.\reports\calibration\METHOD.md:1:# Calibration Measurement and Simulation Methodology
+.\reports\calibration\METHOD.md:4:This project stores gate-level energy calibration points in `tech_calib.json`. Each point is tied to a provenance token in `source`, and each token must resolve to a record in `reports/calibration/provenance_manifest.json`.
+.\reports\calibration\METHOD.md:6:## Measurement/Simulation Flow
+.\reports\calibration\METHOD.md:8:2. Run the characterization flow used by the project baseline (reference simulation or sign-off measurement).
+.\reports\calibration\METHOD.md:9:3. Record gate-level dynamic energy for:
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:5:This study asks which functionally verified ECC implementation is preferred under differing SRAM upset, workload, and reliability scenarios when exact software metrics are separated from analytical energy and carbon metrics. It further asks whether winner identity changes across scenarios and which reliability, redundancy, and decoder-complexity trade-offs explain the changes.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:13:The analytical study spans 192 deterministic scenarios formed from two supply voltages, two temperatures, two scrub intervals, two carbon intensities, three error profiles, two workloads, and two reliability requirements. Statistical significance tests are neither needed nor used. Exact counts, deterministic sensitivity sweeps, Pareto membership, and regret are reported instead.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:17:Fifteen distinct mathematical code specifications and 17 encoder/decoder implementations are registered. The portfolio contains Hsiao and conventional extended-Hamming SECDED; three decoder policies over the conventional codeword set; a preserved invalid cyclic candidate; a valid primitive BCH (63,51,t=2); shortened BCH (71,64,t=1), (78,64,t=2), and (85,64,t=3); and eight archived SafeForge/CodeForge matrix/table constructions. Fifteen implementations pass their guaranteed functional gate, while bounded SEC-DAEC and the historical cyclic candidate are rejected.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:19:The repository also contains grouped generated-width SECDED, TAEC, SEC-DAEC, BCH-labelled, and Polar RTL, a Polar channel-bound model, TAEC coverage aliases, and C/C++ simulators. These artifacts are retained in the scope matrix with experimental, duplicate, rejected, or excluded status. No bit-exact (75,64)-I6/I7 TAEC definition was found, and no executable repository LDPC or Reed–Solomon code exists.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:23:Hsiao and conventional SECDED correct every single mask (72/72) and detect every double mask (2,556/2,556). The bounded TAEC policy passes that same SECDED universe but silently miscorrects all 62 adjacent triples over canonical data coordinates. It is therefore only partially verified and is never treated as a TAEC-capable construction.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:25:The bounded SEC-DAEC policy fails: 302 of 2,556 double masks are silently miscorrected, and only 10 of 63 adjacent data pairs are corrected while 53 silently miscorrect. The historical cyclic/BCH-labelled code has exact minimum distance two and silently miscorrects 33 of 63 singles. Both remain visible but cannot enter selection.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:27:The separate valid primitive BCH reference uses GF(2^6), primitive polynomial x^6+x+1, roots alpha^1 through alpha^4, and generator `1010100111001`. Its exact distance is five, and it corrects 2,016/2,016 masks through weight two. Valid parent-coordinate shortening yields (71,64,t=1), (78,64,t=2), and (85,64,t=3); their exhaustive totals are 71/71, 3,081/3,081, and 102,425/102,425 respectively. The t=3 code has a certified designed-distance lower bound of seven; an exact distance is not claimed because the exact dual-enumeration method is deliberately bounded to smaller redundancy.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:31:Comparisons are normalized per information bit, 64-bit word, 512-bit cache line, workload, reliability requirement, and equal information capacity. Fragmentation and padding are charged explicitly. For example, a k=51 BCH requires two 63-bit codewords to protect one 64-bit word; the final 38 information coordinates are fixed padding.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:33:The scenario model uses explicit sensitivity values rather than invented measurements. Expected corrected, DUE, and SDC probabilities are obtained by combining exact outcome fractions with each declared fault-class probability. Analytical dynamic, leakage, scrub energy, and operational carbon use the preregistered coefficient set. Each analytical field records units, model ID, provenance, evidence level, and sensitivity interval. All physical fields are null.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:35:Candidates must pass verification and satisfy the scenario's SDC and DUE limits. Pareto filtering precedes a preregistered lexicographic selector over analytical total energy, decoder-complexity proxy, encoded payload bits, and stable identity.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:39:All 192 scenarios have a feasible winner. Five implementations win:
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:41:- shortened BCH (71,64,t=1): 32 SBU-dominant/service scenarios;
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:43:- shortened BCH (78,64,t=2): 32 adjacent-MBU/stringent scenarios;
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:44:- SafeForge robust (72,64) abstaining decoder: 32 triple-stress/service scenarios; and
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:45:- shortened BCH (85,64,t=3): 32 triple-stress/stringent scenarios.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:47:The winner transitions are explained by hard reliability constraints. A low-redundancy t=1 code is adequate under a permissive SBU profile. Hsiao's sparse SECDED structure is preferred when double errors primarily need safe detection. Under stringent adjacent-MBU reliability, exact double correction becomes necessary, selecting t=2 BCH. Under stringent triple stress, only the t=3 reference removes all modelled through-weight-three residuals. Under the service triple-stress budget, an abstaining SafeForge table is preferable in the analytical model because its higher DUE rate remains allowed while silent correction is avoided.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:49:Primitive (63,51,t=2) and shortened (78,64,t=2) each appear on 160 of 192 Pareto fronts; t=3 appears on 128. The k=51 candidate's frequent Pareto membership does not imply frequent selection because its two-codeword payload framing substantially increases encoded bits.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:53:The base and storage-dominated energy models preserve every winner. A logic-dominated model preserves 190/192 winners (98.96%). The two changes are confined to SBU/service cases where two low-cost candidates are close. Thus, the scenario-region conclusion is stable under the tested coefficient ranges, but the precise low-severity winner is partly uncertainty-limited.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:55:Fixed conventional SECDED is feasible in 96 scenarios and has 2.499% mean analytical energy regret over those cases. Hsiao is feasible in 96 and has 0.459% mean regret. Always using the strongest t=3 BCH is feasible in all 192 but incurs 21.937% mean analytical regret. These values are outputs of the sensitivity model, not energy measurements.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:59:The SEC-DAEC and historical cyclic implementations fail their guaranteed universes. The bounded TAEC label does not produce a TAEC capability. No complete (75,64)-I6/I7 construction exists in the repository. Polar artifacts lack a deployed deterministic decoder with an SRAM correction guarantee. Legacy family-level energy and transition reports cannot be mapped one-to-one to verified code/decoder identities and are excluded from selector-agreement claims.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:61:The physical study remains negative. Structural Yosys output cannot establish cell area, routed area, critical path, dynamic or leakage energy, routing, MUX/controller overhead, transition/re-encoding cost, or physical uncertainty.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:65:The fault profiles and energy coefficients are uncalibrated sensitivity parameters. Error classes are uniform within each class and adjacency is linear within one canonical codeword; real SRAM physical placement, interleaving, banking, and cross-boundary bursts may differ. Workload activity is synthetic rather than traced. Reference BCH decoder tables are software structures and are not synthesized physical implementations. The archived SafeForge policies are exact for their tables, but their source distributions may not generalize. Only three coarse energy-parameter uncertainty models are swept.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:75:Sensitivity analysis preserves 190/192 or more winners, so the broad region structure is supported by the tested parameter ranges. The narrow low-severity boundary remains partially uncertainty-limited.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:79:The evidence does not support a physical winner, measured energy or carbon saving, physical adaptive break-even, physical MUX/controller overhead, timing closure, routing feasibility, technology independence, radiation validation, temperature-chamber validation, or silicon validation. The parameterized adaptive condition is analytical only; its physical quantities remain null.
+.\THESIS_RESULTS_DISCUSSION_CONCLUSION.md:91:The machine record chain is `framework_summary.json` -> `software_study_summary.json` -> `scenario_selection_results.json`, with separate `exact_functional_profiles.json`, `normalized_exact_metrics.json`, `pareto_and_regret.json`, `uncertainty_and_sensitivity.json`, `architecture_compatibility_matrix.json`, and `plot_manifest.json` under `green_ecc_physical_simulation/multi_ecc_evaluation`.
+.\reports\revision\iccad1723\findings.md:8:- Polar Pareto memberships: 0
+.\reports\revision\iccad1723\findings.md:26:- `moderate-low-carbon`: lookup `sec-daec-64` -> GREEN-ECC `bch-63-51-t2`. Exact modeled reliability changes the choice; adaptive physical PPA is uncharacterized, so this is not evidence of a lifecycle-carbon advantage.
+.\reports\revision\iccad1723\findings.md:27:- `moderate-high-carbon`: lookup `sec-daec-64` -> GREEN-ECC `bch-63-51-t2`. Exact modeled reliability changes the choice; adaptive physical PPA is uncharacterized, so this is not evidence of a lifecycle-carbon advantage.
+.\reports\revision\iccad1723\findings.md:28:- `heavy-fault-regime`: lookup `bch-63-51-t2` -> GREEN-ECC `taec-64`. Exact modeled reliability changes the choice; adaptive physical PPA is uncharacterized, so this is not evidence of a lifecycle-carbon advantage.
+.\reports\revision\iccad1723\findings.md:32:- `heavy-fault-regime`: winners={'ESII': 'taec-64', 'GS': 'taec-64', 'NESII': 'taec-64'}; all-same=True; component-wise winner=None; rank correlations={'ESII_vs_GS': 1.0, 'ESII_vs_NESII': 1.0, 'NESII_vs_GS': 1.0}.
+.\reports\revision\iccad1723\findings.md:33:- `moderate-high-carbon`: winners={'ESII': 'bch-63-51-t2', 'GS': 'bch-63-51-t2', 'NESII': 'bch-63-51-t2'}; all-same=True; component-wise winner=None; rank correlations={'ESII_vs_GS': 0.9, 'ESII_vs_NESII': 1.0, 'NESII_vs_GS': 0.9}.
+.\reports\revision\iccad1723\findings.md:34:- `moderate-low-carbon`: winners={'ESII': 'bch-63-51-t2', 'GS': 'bch-63-51-t2', 'NESII': 'bch-63-51-t2'}; all-same=True; component-wise winner=None; rank correlations={'ESII_vs_GS': 0.9, 'ESII_vs_NESII': 1.0, 'NESII_vs_GS': 0.9}.
+.\reports\revision\iccad1723\findings.md:38:- `moderate-low-carbon` / `polar-64-48-sc`: Pareto=False; FIT=187.372; projected carbon=168.032 kg; projected latency=2 ns; dominated by=['sec-ded-64', 'sec-daec-64', 'taec-64'].
+.\reports\revision\iccad1723\findings.md:39:- `moderate-high-carbon` / `polar-64-48-sc`: Pareto=False; FIT=187.372; projected carbon=168.044 kg; projected latency=2 ns; dominated by=['sec-ded-64', 'sec-daec-64', 'taec-64'].
+.\reports\revision\iccad1723\findings.md:40:- `heavy-fault-regime` / `polar-64-48-sc`: Pareto=False; FIT=936.862; projected carbon=168.038 kg; projected latency=2 ns; dominated by=['sec-ded-64', 'sec-daec-64', 'taec-64'].
+.\reports\revision\iccad1723\findings.md:44:The repository contains no Liberty file, synthesis report, STA report, SPICE deck, or measured MUX data. Accordingly, physical adaptive PPA and lifecycle-carbon advantages are not claimed.
+.\docs\CLAIM_LEDGER.md:11:| The bounded TAEC implementation guarantees adjacent-triple correction. | **disproved by current evidence** | `exact_functional` | [`verification/taec-rtl-bounded-72-64-v1.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/verification/taec-rtl-bounded-72-64-v1.json) | `python eccsim.py ecc verify --implementation taec-rtl-bounded-72-64-v1` | 62/62 adjacent triples silently miscorrect in the claimed universe. |
+.\docs\CLAIM_LEDGER.md:12:| The bounded SEC-DAEC implementation guarantees adjacent-double correction and DED. | **disproved by current evidence** | `exact_functional` | [`verification/secdaec-rtl-bounded-72-64-v1.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/verification/secdaec-rtl-bounded-72-64-v1.json) | `python eccsim.py ecc verify --implementation secdaec-rtl-bounded-72-64-v1` | 53/63 adjacent pairs and 302/2,556 doubles miscorrect. |
+.\docs\CLAIM_LEDGER.md:13:| The valid primitive and shortened BCH references meet their declared t-bit correction universes. | **supported** | `exact_functional` | [`implementation_capability_matrix.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json) | `python scripts/run_multi_ecc_framework_evaluation.py` | Applies to the registered references, not every BCH-labelled artifact. |
+.\docs\CLAIM_LEDGER.md:17:| Measured MUX/controller overhead is known. | **unsupported** | `unsupported` | [`framework_summary.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/framework_summary.json) | `python scripts/run_multi_ecc_framework_evaluation.py` | MUX/controller fields are null. |
+.\docs\CLAIM_LEDGER.md:18:| An adaptive architecture has a measured break-even point. | **not computable** | `unsupported` | [`uncertainty_and_sensitivity.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json) | `python scripts/run_multi_ecc_framework_evaluation.py` | Only a parameterized analytical threshold exists. |
+.\docs\CLAIM_LEDGER.md:20:| The study includes hardware measurements. | **unsupported** | `unsupported` | [`framework_summary.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/framework_summary.json) | `python scripts/run_multi_ecc_framework_evaluation.py` | No hardware-measurement artifact enters selection. |
+.\docs\CLAIM_LEDGER.md:21:| The ECCs are silicon/radiation validated. | **unsupported** | `unsupported` | [`framework_summary.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/framework_summary.json) | `python scripts/run_multi_ecc_framework_evaluation.py` | No silicon or radiation campaign is present. |
+.\asic\README_ecc_wrappers.md:6:- `sec-daec-64` -> `sram_secdaec_top`
+.\asic\README_ecc_wrappers.md:7:- `taec-64`     -> `sram_taec_top`
+.\asic\README_ecc_wrappers.md:8:- `bch-63`      -> `sram_bch_top`
+.\asic\README_ecc_wrappers.md:46:- `taec/`
+.\asic\README_ecc_wrappers.md:47:  - `taec_encoder.sv`, `taec_decoder.sv`, `sram_taec_top.sv`
+.\asic\README_ecc_wrappers.md:48:- `bch/`
+.\asic\README_ecc_wrappers.md:49:  - `bch_encoder.sv`, `bch_decoder.sv`, `sram_bch_top.sv`
+.\asic\README_ecc_wrappers.md:70:- **SEC-DAEC**: adjacent double-error correction follows the existing bounded adjacent search model.
+.\asic\README_ecc_wrappers.md:71:- **TAEC**: triple-adjacent correction follows the existing syndrome-pattern model.
+.\asic\README_ecc_wrappers.md:72:- **BCH(63,51)**: decoder uses existing bounded <=2-bit correction search (area-heavy but synthesizable).
+.\docs\CHARACTERIZATION_AND_EVIDENCE.md:25:| Metrics | Units and extraction provenance for area, timing, power/energy and routing |
+.\docs\CHARACTERIZATION_AND_EVIDENCE.md:28:Generic Yosys cells do not have a portable square-micrometre area, characterized delay, switching power, leakage or routed wire cost. Operation counts and the study's logic-depth proxy are useful structural diagnostics only.
+.\docs\CHARACTERIZATION_AND_EVIDENCE.md:36:*Purple structural proxies are technology-independent counts derived from matrices and decoder tables. They are not physical PPA or measured delay. Data: [`figure_data/structural_complexity_structural_only.json`](figure_data/structural_complexity_structural_only.json).*
+.\docs\CHARACTERIZATION_AND_EVIDENCE.md:55:The result has `candidate_count: 0`, `winner: null`, and reasons such as `not physical characterization` and `objective encoder_energy is unsupported`. This is the correct scientific result.
+.\docs\CHARACTERIZATION_AND_EVIDENCE.md:59:*The available purple cell is structural-only. No fake physical Pareto points are generated. Data: [`figure_data/physical_evidence_gap.json`](figure_data/physical_evidence_gap.json).*
+.\docs\carbon_calibration.md:1:# Carbon Calibration Model
+.\docs\carbon_calibration.md:3:This repository includes a calibrated carbon subsystem in `carbon_model.py` with calibration data in `carbon_calib.json`.
+.\docs\carbon_calibration.md:7:- **Operational carbon** is calibrated from measured/estimated energy and a grid emission factor.
+.\docs\carbon_calibration.md:8:- **Embodied carbon** is a **proxy-calibrated** estimate from effective area, node intensity defaults, and yield assumptions.
+.\docs\carbon_calibration.md:13:- **Static carbon (embodied/manufacturing proxy):**
+.\docs\carbon_calibration.md:14:  - `static_carbon_kgco2e = area_cm2 * fab_intensity_kgco2e_per_cm2 * yield_loss_factor`
+.\docs\carbon_calibration.md:15:- **Dynamic carbon (operational/use-phase):**
+.\docs\carbon_calibration.md:16:  - `energy_kwh = energy_joules / 3.6e6`
+.\docs\carbon_calibration.md:17:  - `dynamic_carbon_kgco2e = energy_kwh * grid_factor_kgco2e_per_kwh`
+.\docs\carbon_calibration.md:19:  - `total_carbon_kgco2e = static_carbon_kgco2e + dynamic_carbon_kgco2e_lifetime`
+.\docs\carbon_calibration.md:23:`carbon_calib.json` provides:
+.\docs\carbon_calibration.md:29:  - `design_area_multiplier` (currently 1.0 across nodes; placeholder to keep area scaling explicit)
+.\docs\carbon_calibration.md:33:  - scenario-only best/worst factors used for stress envelopes (not region averages)
+.\docs\carbon_calibration.md:38:## Node and area assumptions transparency
+.\docs\carbon_calibration.md:40:When a node is not directly calibrated (for example 14nm), the model maps to the nearest calibrated node and reports:
+.\docs\carbon_calibration.md:46:Area assumptions report whether area was direct input or derived from a memory-bit proxy (`area_source`, `area_proxy_used`).
+.\docs\carbon_calibration.md:50:`estimate_carbon_bounds(...)` returns separate concepts:
+.\docs\carbon_calibration.md:54:- `best_case`: scenario minimums using greener grid and lower node/yield intensity assumptions
+.\docs\carbon_calibration.md:57:Uncertainty bounds are not equivalent to scenario best/worst envelopes.
+.\docs\carbon_calibration.md:61:`ecc_selector.select(...)` supports optional carbon policies (default behavior unchanged when omitted or `None`):
+.\docs\carbon_calibration.md:63:- `minimum_total_carbon`
+.\docs\carbon_calibration.md:64:- `minimum_dynamic_carbon`
+.\docs\carbon_calibration.md:65:- `minimum_static_carbon`
+.\docs\carbon_calibration.md:66:- `balanced_carbon_energy`
+.\docs\carbon_calibration.md:68:With a carbon policy, candidate records include:
+.\docs\carbon_calibration.md:70:- `static_carbon_kgco2e`
+.\docs\carbon_calibration.md:71:- `dynamic_carbon_kgco2e`
+.\docs\carbon_calibration.md:72:- `carbon_bounds`
+.\docs\carbon_calibration.md:76:`eccsim.py carbon` preserves legacy formatting by default.
+.\docs\carbon_calibration.md:78:Use `--calibrated` to emit a JSON payload containing nominal/best/worst calibrated results and score breakdown, while still including legacy values.
+.\docs\calibration_signoff_envelope.md:9:- 16nm
+.\docs\calibration_signoff_envelope.md:32:- Gate energy entries are provided for `xor`, `and`, and `adder_stage` at every
+.\reports\portfolio_cosynthesis\findings.md:3:> All fault distributions are modeled synthetic PMFs. XOR counts are structural proxies, not physical area, energy, leakage, or delay.
+.\reports\portfolio_cosynthesis\findings.md:15:- Scheduler integration: `blocked_pending_physical_energy_latency_and_transition_characterization`.
+.\reports\portfolio_cosynthesis\findings.md:17:The shared graph is algebraically reconstructed and checked against every matrix row. The joint search is a reliability/hardware Pareto trade-off and did not reduce the XOR proxy relative to independent hardware-aware generation in this run. This is not evidence of PPA improvement: the mandatory ordinary-synthesis baseline and characterized library are absent. Unsafe distribution IDs activate SEC-DED only when that fallback is itself certified; otherwise deployment is rejected.
+.\REVISION_RESPONSE.md:11:| A1 | A: insufficient background/prior work | Position adaptive ECC, memory reliability, DSE, utility, and carbon against primary work | Added verified related-work narrative and references | `docs/ICCAD_1723_revision_draft.md` Sec. 2 | DOI/arXiv metadata manually verified | completed |
+.\REVISION_RESPONSE.md:12:| A2 | A: undefined acronyms | Define SBU/SBE, DBU/DBE, MBU, SECDED, SEC-DAEC, TAEC, BCH, SC, ESII, NESII, GS | Added first-use definitions | revision draft Secs. 2 and 5 | Editorial inspection | completed |
+.\REVISION_RESPONSE.md:13:| A3 | A: ambiguous latency | Separate codec, memory, MUX, control, metadata, read/write, end-to-end scopes | Added explicit fields and equations; unknown memory latency is labeled | `architecture/pipeline.py`, architecture documentation | Pipeline integration test | completed |
+.\REVISION_RESPONSE.md:14:| A4 | A: ambiguous energy | Separate selected dynamic, inactive/glitch, leakage, scrub, selection, metadata, and migration | Architecture energy breakdown with null propagation | `architecture/pipeline.py`, `architecture/deployment.py` | Unit/integration tests | partially completed — supply characterized engine/controller energy |
+.\REVISION_RESPONSE.md:15:| A5 | A: ambiguous carbon overhead | Separate absolute, base, incremental operational/embodied, per-access | Unit-explicit carbon API and output | `architecture/carbon.py` | Joule/kWh and g/kg tests | completed |
+.\REVISION_RESPONSE.md:24:| B3 | B: GREEN Score basis unclear | Treat as declared reliability/carbon/latency utility | Report rank correlations, winners, and synthetic disagreement | `architecture/selection.py` | Counterexample test | completed |
+.\REVISION_RESPONSE.md:26:| B5 | B: derivation of energy/area/delay/carbon | Make formula, units, sources, and missing terms explicit | First-class MUX/carbon/architecture equations | `architecture/mux.py`, `architecture/carbon.py`, architecture docs | Formula unit tests | completed for logical/carbon equations; physical calibration remains unavailable |
+.\REVISION_RESPONSE.md:27:| B6 | B: search space too small for optimizer | Use exact enumeration for tractable discrete sets | Exact Pareto default; retained sort checked only for agreement | `architecture/selection.py`, pipeline summary | Agreement test | completed |
+.\REVISION_RESPONSE.md:28:| B7 | B: unclear contributions/novelty | Do not claim generic Pareto/NSGA-II novelty | Reframed around selectable-hardware cost, lifecycle provenance, robustness, deployable output | revision draft Sec. 1 | Editorial inspection | completed |
+.\REVISION_RESPONSE.md:30:| C2 | C: opaque embodied carbon | Expose manufacturing, yield, die, package, and amortization assumptions | Structured embodied assumptions and separate outputs | `architecture/carbon.py`, config schema | Unit tests | completed |
+.\REVISION_RESPONSE.md:32:| C4 | C: area/carbon repeatability | Regenerate from one schema-validated config and hash outputs | Revision script, schemas, CSV/JSON/SVG, manifest | `scripts/run_revision_study.py`, schemas | End-to-end test | completed for projected/logical results; foundry repeatability blocked by absent data |
+.\REVISION_RESPONSE.md:35:| D3 | D: Polar never Pareto | Diagnose short block/rate/SC/coverage assumptions and domination | Polar-specific per-scenario ablation with dominators and zero membership count | `data/polar_ablation.json`, revision draft Sec. 7 | Reproducible study | completed as an ablation; hardware credibility remains limited |
+.\REVISION_RESPONSE.md:37:| D5 | D: no improvement over lookup | Add lookup and strong counterfactual baselines; never manufacture carbon claim | Three reproducible selection differences with explicit FIT-only explanation | `data/baseline_counterfactuals.json`, findings | Pipeline test asserts wording | completed; no lifecycle advantage claimed |
+.\REVISION_RESPONSE.md:38:| X1 | Architecture claim: design-time vs configurable vs adaptive | Do not charge runtime hardware to fixed selection | Three-mode comparison with separate MUX/metadata/migration charging | `data/deployment_mode_comparison.json`, architecture docs | Integration test | completed |
+.\REVISION_RESPONSE.md:40:| X3 | First-class MUX model | Compute pruned/padded count, depth, path sum, area/delay/energy/leakage | Implemented parameterized equations and exact-PVT record | `architecture/mux.py`, MUX schema | M=1..5, widths, characterized-formula tests | completed |
+.\REVISION_RESPONSE.md:43:| X6 | Reconfiguration overhead | Model energy, latency, capacity, amortization and safe transition | Runtime overhead API and deployment policy | `architecture/deployment.py`, generated JSON/SV | Amortization test | partially completed — energy split is a labeled legacy proxy |
+.\REVISION_RESPONSE.md:46:| X9 | Hardware-provider abstraction | Use analytical/synthesis/SPICE/measurement through common interface | ABC provider plus exact-PVT MUX provider/source priority | `architecture/providers.py` | Provider priority test | completed |
+.\REVISION_RESPONSE.md:47:| X10 | Plugin-style extension | Avoid central-selector edits for candidates/fault/workload/technology/carbon/policy | Typed registries and protocols | `architecture/types.py`, `architecture/plugins.py` | Unit test to be maintained with plugins | completed |
+.\REVISION_RESPONSE.md:49:| X12 | NSGA-II validation/scaling | Compare exact subset and report complexity/runtime/memory | Agreement test and generated scaling benchmark | selection tests, `data/scalability_benchmark.json` | Test + revision run | completed |
+.\REVISION_RESPONSE.md:50:| X13 | Strong baselines/regret | Static SECDED, reliability, energy, carbon, lookup, Pareto, policy | Baseline selection and normalized regret | `architecture/selection.py`, scenario reports | Baseline test | completed with explicit unavailable-objective fallbacks |
+.\REVISION_RESPONSE.md:51:| X14 | Uncertainty/robustness | Fixed-seed propagation, constraint/optimal/Pareto probability, regret, fallback | Independent-uniform Monte Carlo | `architecture/robustness.py`, scenario reports | Determinism test | completed as stress test; input distributions are not fitted |
+.\REVISION_RESPONSE.md:52:| X15 | Deployable output | Complete parameters, mode policy, PPA/reliability/carbon, uncertainty, margins, runner-up, fallback, registers/SV | Enriched deployment JSON, schema, register map, SV package | deployment outputs and schema | JSON Schema validation | completed; unavailable physical fields remain null |
+.\REVISION_RESPONSE.md:54:| X17 | Reproducible methodology | One command, counts, tools, PVT, seed, workload, fault/PPA/carbon derivations, limitations | Script, config, manifest, methodology draft, findings | `scripts/run_revision_study.py`, revision report | End-to-end pipeline test | completed for revised 3-scenario study |
+.\REVISION_RESPONSE.md:55:| X18 | Original 189-scenario construction | Reproduce factor grid without conflation | Searched repository; generator/factorization absent | model audit | Repository-wide search | blocked — provide original scenario generator/data |
+.\REVISION_RESPONSE.md:62:PPA, foundry-specific embodied carbon, the original 189-scenario claim, and the
+.\docs\CONCEPTS_AND_IDENTITIES.md:24:| `implementation_id` | Concrete adapter/RTL/reference, protocol, latency, metadata and architecture compatibility | A guarantee not passed by verification |
+.\docs\CONCEPTS_AND_IDENTITIES.md:27:| `architecture_id` | Fixed/configurable/adaptive placement, active/fallback implementations, MUX/controller/transition ownership | Measured architecture overhead |
+.\docs\CONCEPTS_AND_IDENTITIES.md:30:| `scenario_id` | Voltage, temperature, scrub, carbon, fault, workload and requirement tuple | Measurements at those conditions |
+.\docs\CONCEPTS_AND_IDENTITIES.md:35:Conventional SECDED, bounded SEC-DAEC, and bounded TAEC point to `extended-hamming-secded-72-64-v1`. Their systematic encoder and codeword set are shared; their decoder policies differ. Therefore three implementation records are necessary. Current evidence fully verifies conventional SECDED, rejects SEC-DAEC's claimed DED/adjacent-pair guarantees, and partially verifies TAEC only for its inherited SECDED behavior.
+.\docs\CONCEPTS_AND_IDENTITIES.md:37:A genuinely distinct `(75,64)` TAEC parity-check matrix would define a different codeword set and therefore requires a new `code_spec_id`, even if its decoder marketing name is also “TAEC.” Conversely, merely changing a syndrome-action table while retaining the matrix creates a new implementation/policy, not a new mathematical code.
+.\docs\CONCEPTS_AND_IDENTITIES.md:41:`repository-cyclic-63-51-v1` remains catalogued because negative evidence is scientifically valuable. Its implementation corrects only 30/63 single-bit masks and miscorrects 33/63; its exact minimum distance is two. It is rejected and never silently promoted to the valid primitive BCH `(63,51,t=2)` identity.
+.\asic\docs\README_asic.md:7:- `asic/rtl/secdaec/`: SEC-DAEC adjacent-double aware decoder.
+.\asic\docs\README_asic.md:8:- `asic/rtl/taec/`: TAEC-style triple-adjacent-aware decoder.
+.\asic\docs\README_asic.md:9:- `asic/rtl/bch/`: BCH encoder and bounded t<=2 decoder.
+.\asic\docs\README_asic.md:17:- **SEC-DAEC**: starts from SEC-DED decode, then performs explicit adjacent data-bit pair syndrome matching to recover DAEC patterns.
+.\asic\docs\README_asic.md:18:- **TAEC**: starts from SEC behavior; if unresolved and odd-parity mismatch exists, searches adjacent 3-bit windows in data domain for syndrome match.
+.\asic\docs\README_asic.md:19:- **BCH**: systematic polynomial-division encoder. Decoder computes remainder syndrome and then performs bounded candidate search (0/1/2 bit flips) against valid remainder=0 check.
+.\asic\docs\README_asic.md:23:- TAEC and Polar decoders are **bounded practical models**, not full optimum decoders.
+.\asic\docs\README_asic.md:24:- BCH decoder is mathematically valid for bounded correction, but area-heavy because it performs exhaustive candidate checks.
+.\asic\docs\README_asic.md:42:- SEC-DAEC/TAEC: `adjacent_double_corrected_o`, `triple_adjacent_corrected_o`.
+.\asic\docs\README_asic.md:43:- BCH: `syndrome_o`, `corrected_codeword_o`, internal candidate search results.
+.\docs\CODE_EQUIVALENCE_AUDIT.md:32:| `safeforge-robust-8-4-v1` | (8,4) | 3 | shortened-Hamming SEC matrix with abstaining policy; not SECDED | exactly inequivalent to the (8,4,4) reference, including arbitrary columns | different shortened code, but no code-family novelty claim |
+.\docs\CODE_EQUIVALENCE_AUDIT.md:34:| `safeforge-robust-72-64-mapping-v1` | (72,64) | 4 | physical permutation of the odd-column SECDED reference with an abstaining table | large-`r` algebraic equivalence undecided by the bounded checker; construction records the permutation origin | known construction/mapping heuristic |
+.\docs\CODE_EQUIVALENCE_AUDIT.md:41:All ten have block length different from the repository's BCH(63)-derived implementation, so they are not equivalent to that code by block length. None satisfies SEC-DAEC or TAEC correction separation under the current linear physical adjacency. The exact capability checks and decoder-coverage flags are in the machine report.
+.\docs\CODE_EQUIVALENCE_AUDIT.md:59:It is not attributable to a new linear code. Exhaustively optimizing the known Hsiao code's four data-column placements recovers the generated ordering `[11,14,7,13]`; under the robust abstaining policy this changes nominal correction from `0.11` to `0.55` and worst-case DUE from `0.99` to `0.55` at TV radius 0.1. This is a physical mapping/policy result.
+.\docs\CODE_EQUIVALENCE_AUDIT.md:61:### Robust co-synthesis finding
+.\docs\CODE_EQUIVALENCE_AUDIT.md:84:- No BCH derivation is inferred from a matching spectrum alone.
+.\docs\CLI_REFERENCE.md:37:| `energy ...` | Estimate family-level dynamic/leakage energy; optional uncertainty/sanity flags |
+.\docs\CLI_REFERENCE.md:38:| `carbon ...` | Estimate static/dynamic carbon; calibrated mode is explicit |
+.\docs\CLI_REFERENCE.md:39:| `esii ...` | Compute Energy–Sustainability–Integrity Index inputs/output |
+.\docs\CLI_REFERENCE.md:41:| `target ...` | Minimum-carbon legacy family meeting bit/UWER target |
+.\docs\CLI_REFERENCE.md:46:| `plot pareto --from FILE --out FILE ...` | Strict scenario-filtered two-objective plot with explicit directions |
+.\docs\CLI_REFERENCE.md:47:| `reliability hazucha --qcrit ... --qs ... --area ...` | Hazucha–Svensson-style SER calculation |
+.\docs\CLI_REFERENCE.md:73:| `pareto --input FILE --outdir DIR` | Generate integrated CSV Pareto plots |
+.\docs\CLI_REFERENCE.md:81:| `python scripts/build_multi_ecc_catalogue.py` | Regenerate validated registry catalogue | Verified locally |
+.\SOFTWARE_SIMULATION_STUDY.md:5:Across functionally verified ECC implementations, which implementation is preferred under different SRAM error, workload, and reliability scenarios when exact functional metrics are separated from explicitly analytical metrics? Does the preferred implementation change, and which reliability, redundancy, latency-complexity, energy, and carbon trade-offs cause the changes?
+.\SOFTWARE_SIMULATION_STUDY.md:11:The scenario matrix is preregistered in `green_ecc_physical_simulation/registry/scenarios/software-simulation-study-v1.json`. Its 192 cases are the Cartesian product of two voltages, two temperatures, two scrub intervals, two grid-carbon intensities, three fault profiles, two workloads, and two residual reliability requirements. Fault probabilities and energy coefficients are deliberately labelled uncalibrated sensitivity parameters.
+.\SOFTWARE_SIMULATION_STUDY.md:13:Candidates are filtered by functional verification and analytical SDC/DUE limits. The Pareto set minimizes SDC, DUE, modelled total energy, encoded bits per 64-bit payload, and decoder-complexity proxy. The preregistered selector is lexicographic: total analytical energy, decoder complexity, encoded bits, then stable implementation ID. No post-hoc weights are used.
+.\SOFTWARE_SIMULATION_STUDY.md:17:The study normalizes per information bit, per protected 64-bit word, per 512-bit cache line, equal workload, equal reliability requirement, and equal information capacity. It charges `ceil(payload/k)` codewords. Thus BCH (63,51) uses two codewords (126 encoded bits) and 38 padding information positions for a 64-bit payload, whereas each k=64 candidate uses one codeword.
+.\SOFTWARE_SIMULATION_STUDY.md:29:| Bounded TAEC policy | shared SECDED universe passes; 0/62 adjacent triples corrected and 62/62 silently miscorrected | partially verified/selectable only by exact behavior |
+.\SOFTWARE_SIMULATION_STUDY.md:30:| Bounded SEC-DAEC policy | 302/2,556 double silent miscorrections; only 10/63 adjacent pairs corrected | rejected |
+.\SOFTWARE_SIMULATION_STUDY.md:31:| Historical cyclic/BCH-labelled (63,51) | exact d=2; 33/63 single silent miscorrections | rejected |
+.\SOFTWARE_SIMULATION_STUDY.md:32:| Valid primitive BCH (63,51,t=2) | exact d=5; all 2,016 masks through weight two corrected | selectable |
+.\SOFTWARE_SIMULATION_STUDY.md:33:| Shortened BCH (71,64,t=1) | exact d=3; 71/71 singles corrected | selectable |
+.\SOFTWARE_SIMULATION_STUDY.md:34:| Shortened BCH (78,64,t=2) | exact d=5; 3,081/3,081 masks through weight two corrected | selectable |
+.\SOFTWARE_SIMULATION_STUDY.md:35:| Shortened BCH (85,64,t=3) | designed d>=7; 102,425/102,425 masks through weight three corrected | selectable |
+.\SOFTWARE_SIMULATION_STUDY.md:42:All 192 scenarios have a feasible winner. The preferred implementation changes by fault profile and reliability requirement:
+.\SOFTWARE_SIMULATION_STUDY.md:46:| SBU-dominant/service | shortened BCH (71,64,t=1) | 32 |
+.\SOFTWARE_SIMULATION_STUDY.md:49:| adjacent-MBU/stringent | shortened BCH (78,64,t=2) | 32 |
+.\SOFTWARE_SIMULATION_STUDY.md:50:| triple-stress/service | SafeForge robust (72,64) abstaining policy | 32 |
+.\SOFTWARE_SIMULATION_STUDY.md:51:| triple-stress/stringent | shortened BCH (85,64,t=3) | 32 |
+.\SOFTWARE_SIMULATION_STUDY.md:53:The service-level triple-stress winner is an instructive trade-off: its deployed table abstains/detects on many patterns rather than silently correcting them, and the service DUE budget permits that behavior. Under stringent DUE/SDC requirements, the t=3 BCH replaces it.
+.\SOFTWARE_SIMULATION_STUDY.md:57:## Pareto and regret
+.\SOFTWARE_SIMULATION_STUDY.md:59:Primitive BCH (63,51,t=2) and shortened BCH (78,64,t=2) are each Pareto members in 160/192 scenarios; shortened t=3 appears in 128/192; Hsiao and the robust SafeForge policy each appear in 96/192. Pareto membership is not a physical dominance result because the cost axes are exact structural and analytical-sensitivity metrics.
+.\SOFTWARE_SIMULATION_STUDY.md:63:| Fixed baseline | Comparable scenarios | Mean energy regret | Constraint failures/missing |
+.\SOFTWARE_SIMULATION_STUDY.md:67:| Strongest BCH t=3 | 192 | 21.937% | 0 |
+.\SOFTWARE_SIMULATION_STUDY.md:73:The base and storage-dominated sensitivity models preserve 192/192 winners. The logic-dominated model preserves 190/192, or 98.96%. The two changes occur in SBU/service scenarios, where the analytical ranking of a shortened t=1 BCH and a small abstaining SafeForge policy is close. The main fault/reliability region changes are therefore robust to the tested coefficient scales, while one narrow region remains parameter-sensitive.
+.\SOFTWARE_SIMULATION_STUDY.md:77:## Adaptive threshold
+.\SOFTWARE_SIMULATION_STUDY.md:83:  + N_reencoded_bits*E_reencode_per_bit < E_best_fixed - E_oracle.
+.\SOFTWARE_SIMULATION_STUDY.md:86:Across comparable grid records, the modelled aggregate oracle advantage over the best single fixed coverage strategy is 0.0111846515 J. Adaptation remains analytically beneficial only while total hypothetical overhead is below that modelled advantage. This is not a measured break-even and must not be used as a hardware budget.
+.\SOFTWARE_SIMULATION_STUDY.md:92:> Scenario-aware ECC selection is supported within the declared exact-functional and analytical-sensitivity model. Reliability constraints drive transitions from lower-redundancy or abstaining policies to Hsiao, t=2 BCH, and t=3 BCH as MBU strength and required residual reliability increase.
+.\SOFTWARE_SIMULATION_STUDY.md:94:The physical-scientific-result gate remains failed. No claim is made about physical energy saving, physical architecture break-even, layout/timing, technology independence, silicon validation, or a measured winner.
+.\SOFTWARE_SIMULATION_STUDY.md:106:Traceable records are in `scenario_selection_results.json`, `pareto_and_regret.json`, `uncertainty_and_sensitivity.json`, `scenario_regions.json`, and `plot_manifest.json` under `green_ecc_physical_simulation/multi_ecc_evaluation`.
+.\reports\transition_aware\findings.md:3:> All numerical architecture points in this example are synthetic physical-unit sensitivity inputs, not synthesized or measured SRAM results.
+.\reports\transition_aware\findings.md:5:- Objective: `lifecycle_energy_j`
+.\reports\transition_aware\findings.md:15:| Trace | Architecture | Design | Policy | Total | Best fixed | Net saving |
+.\reports\transition_aware\findings.md:17:| stationary_sbu | fixed | fixed-secded | best_static | 0.0978 | 0.0978 | 0 |
+.\reports\transition_aware\findings.md:18:| stationary_mbu | fixed | fixed-taec | best_static | 0.11436 | 0.11436 | 0 |
+.\reports\transition_aware\findings.md:19:| one_time_sbu_to_mbu | adaptive | adaptive-shared-whole | transition_aware_dynamic_programming | 1.09628 | 1.20288 | 0.106597 |
+.\reports\transition_aware\findings.md:20:| periodic_fault_transitions | fixed | fixed-secdaec | best_static | 0.16384 | 0.16384 | 0 |
+.\reports\transition_aware\findings.md:21:| short_noisy_fluctuations | fixed | fixed-secded | best_static | 0.06438 | 0.06438 | 0 |
+.\reports\transition_aware\findings.md:22:| temperature_vdd_phases | fixed | fixed-secded | best_static | 0.173762 | 0.173762 | 0 |
+.\reports\transition_aware\findings.md:23:| changing_read_write_intensity | fixed | fixed-secded | best_static | 0.1986 | 0.1986 | 0 |
+.\reports\transition_aware\findings.md:24:| grid_carbon_transition | fixed | fixed-secded | best_static | 0.9564 | 0.9564 | 0 |
+.\reports\transition_aware\findings.md:25:| combined_changes | adaptive | adaptive-shared-whole | transition_aware_dynamic_programming | 0.698921 | 0.732911 | 0.0339899 |
+.\reports\transition_aware\findings.md:26:| uncertain_transitions | fixed | fixed-secdaec | best_static | 0.32084 | 0.32084 | 0 |
+.\reports\transition_aware\findings.md:30:- `architecture_mode_comparison.svg`: For the selected long transition trace, adaptive-shared-whole minimizes the configured lifecycle objective.
+.\reports\transition_aware\findings.md:31:- `scheduling_formulation.svg`: Hard feasibility is applied before lifecycle scheduling; no default scalar reliability/latency trade-off is used.
+.\reports\transition_aware\findings.md:33:- `break_even_regime_map.svg`: Longer epochs amortize migration; increasing transition cost contracts the adaptive region.
+.\reports\transition_aware\findings.md:36:- `robustness_regret.svg`: High nominal savings do not imply stable decisions; uncertainty is reported separately from nominal optimality.
+.\reports\transition_aware\findings.md:37:- `scheduler_scalability.svg`: Measured growth follows the expected dependence on both epochs and squared mode count.
+.\reports\transition_aware\findings.md:41:The scheduler, equations, schemas, and comparisons are executable. The default experiment is a transparent synthetic sensitivity study because no Liberty, synthesis, STA, SPICE, measured transition energy, or controller characterization is present. Threshold regions are supported; technology-specific superiority is not.
+.\docs\ECC_CATALOGUE.md:18:| `primitive-bch-63-51-t2-v1` | Primitive binary BCH | (63,51) | 12 | 0.809524 | 1 |
+.\docs\ECC_CATALOGUE.md:19:| `repository-cyclic-63-51-v1` | BCH candidate / cyclic code | (63,51) | 12 | 0.809524 | 1 |
+.\docs\ECC_CATALOGUE.md:20:| `safeforge-robust-72-64-mapping-v1` | SafeForge/CodeForge synthesized binary linear code | (72,64) | 8 | 0.888889 | 1 |
+.\docs\ECC_CATALOGUE.md:21:| `safeforge-robust-8-4-v1` | SafeForge/CodeForge synthesized binary linear code | (8,4) | 4 | 0.500000 | 1 |
+.\docs\ECC_CATALOGUE.md:22:| `shortened-bch-71-64-t1-v1` | Primitive binary BCH | (71,64) | 7 | 0.901408 | 1 |
+.\docs\ECC_CATALOGUE.md:23:| `shortened-bch-78-64-t2-v1` | Primitive binary BCH | (78,64) | 14 | 0.820513 | 1 |
+.\docs\ECC_CATALOGUE.md:24:| `shortened-bch-85-64-t3-v1` | Primitive binary BCH | (85,64) | 21 | 0.752941 | 1 |
+.\docs\ECC_CATALOGUE.md:38:| `primitive-bch-63-51-t2-v1-reference-decoder` | `primitive-bch-63-51-t2-v1` | `primitive-bch-bounded-syndrome-t2-v1` | `fully_verified` | 1 |
+.\docs\ECC_CATALOGUE.md:39:| `safeforge-robust-72-64-mapping-v1-archived-table-decoder` | `safeforge-robust-72-64-mapping-v1` | `safeforge-robust-72-64-mapping-v1-archived-syndrome-table` | `fully_verified` | 1 |
+.\docs\ECC_CATALOGUE.md:40:| `safeforge-robust-8-4-v1-archived-table-decoder` | `safeforge-robust-8-4-v1` | `safeforge-robust-8-4-v1-archived-syndrome-table` | `fully_verified` | 1 |
+.\docs\ECC_CATALOGUE.md:43:| `shortened-bch-71-64-t1-v1-reference-decoder` | `shortened-bch-71-64-t1-v1` | `primitive-bch-bounded-syndrome-t1-v1` | `fully_verified` | 1 |
+.\docs\ECC_CATALOGUE.md:44:| `shortened-bch-78-64-t2-v1-reference-decoder` | `shortened-bch-78-64-t2-v1` | `primitive-bch-bounded-syndrome-t2-v1` | `fully_verified` | 1 |
+.\docs\ECC_CATALOGUE.md:45:| `shortened-bch-85-64-t3-v1-reference-decoder` | `shortened-bch-85-64-t3-v1` | `primitive-bch-bounded-syndrome-t3-v1` | `fully_verified` | 1 |
+.\docs\ECC_CATALOGUE.md:46:| `taec-rtl-bounded-72-64-v1` | `extended-hamming-secded-72-64-v1` | `repository-bounded-adjacent-triple-v1` | `partially_verified` | 2 |
+.\docs\ECC_CATALOGUE.md:66:The valid `primitive-bch-63-51-t2-v1` and the rejected `repository-cyclic-63-51-v1` have the same dimensions but different generator constructions, distances, and functional results. The latter is not silently relabelled or replaced. Hsiao `(72,64)` and positional extended-Hamming `(72,64)` are likewise distinct unless a coordinate-equivalence proof is supplied.
+.\docs\ml_design.md:21:1. Build dataset from ECC artifacts (`pareto.csv`, candidate CSVs, telemetry-compatible CSVs).
+.\docs\ml_design.md:37:2. Enforce hard constraints first (`fit_max`, `latency_ns_max`, `carbon_kg_max`).
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:7:The current multi-ECC study supports exact functional verification, explicit analytical sensitivity calculations, and limited generic structural evidence. It contains no physical characterization and no hardware measurement.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:15:| Physical area/timing/power/energy | Not computable | Fields and technology context are null |
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:17:| Actual adaptive break-even | Not computable | MUX/controller/transition/re-encoding costs are null |
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:18:| Hardware/silicon/radiation behavior | Unsupported | No measurement campaign enters evidence |
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:26:- Partially verified TAEC is a SECDED-capable implementation with a disproved adjacent-triple claim, not a verified TAEC code.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:27:- The SEC-DAEC and cyclic-labelled candidates remain rejected even if a legacy family model assumes stronger coverage.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:31:- Fault profiles are uncalibrated sensitivity distributions, not measured SER or radiation spectra.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:33:- Energy per bit/XOR, leakage and scrub parameters are explicit analytical inputs.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:34:- Operational carbon uses scenario grid intensity; implementation-specific embodied carbon is absent.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:37:- Winner identity is conditional on the hard limits, grid and lexicographic energy rule.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:41:Generic cells, XOR counts, table literals and depth proxies are not physical cell area, timing, power, routing or energy. Technology independence applies only to exact algebraic/structural counts, not to physical conclusions. A defensible physical comparison would need the same PDK/library/corner, timing constraints, activity/workload, memory macro context and complete MUX/controller/transition accounting.
+.\docs\LIMITATIONS_AND_VALID_CLAIMS.md:49:Do not state that GREEN-ECC-PHY currently demonstrates a measured percentage energy/carbon saving, a physical PPA winner, an adaptive hardware break-even, technology-independent implementation superiority, silicon reliability, or radiation qualification. Do not cite historical 27% energy or 19% carbon reductions unless a future current pipeline reproduces them with traceable inputs.
+.\docs\INSTALLATION.md:21:## Windows PowerShell
+.\docs\INSTALLATION.md:25:```powershell
+.\docs\index.md:29:| [Energy and Carbon Models](ENERGY_AND_CARBON_MODELS.md) | Dynamic/leakage/scrub energy, carbon, ESII, GS, NESII |
+.\docs\index.md:32:| [Pareto and Selection](PARETO_AND_SELECTION.md) | Constraints, objective direction, dominance, knee, and no-winner semantics |
+.\docs\plotting.md:9:5. Pareto/frontier computation
+.\docs\plotting.md:16:python3 eccsim.py plot pareto \
+.\docs\plotting.md:20:  --codes sec-ded-64,sec-daec-64,taec-64 \
+.\docs\plotting.md:21:  --x carbon_kg --y FIT \
+.\docs\plotting.md:28:  --out reports/plots/pareto_node7_vdd0p8.png
+.\docs\plotting.md:41:- The Pareto frontier is always computed from the full filtered dataset.
+.\docs\AdoptionPlaybook.md:3:This playbook distils the repository into a quarter-scale deployment plan for chip teams that must balance reliability, performance, power, area (PPA), and carbon budgets.
+.\docs\AdoptionPlaybook.md:8:- **Memory configuration**: array capacity (GiB), word width, bitcell area.
+.\docs\AdoptionPlaybook.md:10:- **Sustainability context**: grid carbon intensity trajectory, embodied carbon factors (override defaults if available).
+.\docs\AdoptionPlaybook.md:14:- **Recommended ECC** per scenario, including dynamic duty-cycle and adaptive scrub studies (`reports/analysis/workload_scenarios.json`).
+.\docs\AdoptionPlaybook.md:15:- **Frontier visualisations** covering carbon vs. FIT, GS robustness, and metric correlations (`reports/figures/*.png`).
+.\docs\AdoptionPlaybook.md:21:- Record the carbon delta between the winning code and the next-best feasible alternative to quantify sustainability opportunity cost.
+.\docs\AdoptionPlaybook.md:25:2. **Static selector run** – Execute `eccsim select` with the frozen scenario to obtain baseline recommendations and Pareto frontier.
+.\docs\AdoptionPlaybook.md:26:3. **Dynamic stress sweep** – Run `python analysis/workload_scenarios.py` to confirm duty-cycle and adaptive scrub behaviour; update fit budgets if excursions exceed SLA.
+.\docs\AdoptionPlaybook.md:27:4. **Score reconciliation** – Regenerate figures via `python analysis/generate_figures.py`; embed GS ablation, carbon heatmap, and correlation plots in the review packet.
+.\docs\AdoptionPlaybook.md:29:6. **Cross-functional review** – Present the checklist, FIT deltas, carbon summaries, and (if applicable) drift review outcomes to reliability, architecture, and sustainability stakeholders; capture sign-off in the project tracker.
+.\docs\analysis.md:5:set and Pareto frontier, then explores surfaces, trade-offs, sensitivity,
+.\docs\analysis.md:10:set and an initial Pareto snapshot:
+.\docs\analysis.md:14:  --codes sec-ded,sec-daec \
+.\docs\analysis.md:19:  --report pareto.csv
+.\docs\analysis.md:23:`reports/examples/sku-64b-128Gb/mbu-light_ci-0.55_scrub-5/` and
+.\docs\analysis.md:28:Use the strict factual plotting pipeline to build Pareto plots from complete
+.\docs\analysis.md:32:python3 eccsim.py plot pareto \
+.\docs\analysis.md:36:  --codes sec-ded-64,sec-daec-64,taec-64 \
+.\docs\analysis.md:37:  --x carbon_kg --y FIT \
+.\docs\analysis.md:42:  --out reports/plots/pareto_node7_vdd0p8.png
+.\docs\analysis.md:47:- `reports/plots/pareto_node7_vdd0p8.png`
+.\docs\analysis.md:48:- `reports/plots/pareto_node7_vdd0p8.json`
+.\docs\analysis.md:53:If only reduced artifacts (for example `pareto.csv`) are found, the pipeline
+.\docs\analysis.md:62:  --out-csv pareto.csv \
+.\docs\analysis.md:66:The resulting `pareto.csv` carries a `frontier` column and provenance tags.
+.\docs\analysis.md:73:  --from pareto.csv \
+.\docs\analysis.md:76:  --filter "carbon_kg < 2"
+.\docs\analysis.md:96:To visualise robustness of the GS winsorisation and saturation constants, generate Figure `fig_ablation_sensitivity.png` (ignored by git, so build steps must run the script locally):
+.\docs\analysis.md:102:The script sweeps $(w_{R}, w_{C}, w_{L})$ and $(\kappa_{R}, \kappa_{C}, \kappa_{L})$ by $\pm25\%$ and reports the induced GS span across the carbon--FIT frontier alongside Kendall-$\tau$ rank correlations.  The resulting figure lives in `reports/figures/fig_ablation_sensitivity.png` once generated locally.
+.\docs\analysis.md:111:emits `reports/analysis/workload_scenarios.json` (also ignored by git), which compares the static selector decision with (i) a hot/cold duty cycle and (ii) an adaptive scrub schedule.  Both dynamic cases enforce a 10\,kFIT SLA, forcing the recommendation from SEC-DED to SEC-DAEC when environmental peaks are modelled explicitly.
+.\docs\analysis.md:114:When a reliability target is known, select the lowest-carbon design that meets
+.\docs\analysis.md:119:  --codes sec-ded,sec-daec \
+.\docs\analysis.md:128:records the minimum-carbon pick.
+.\docs\analysis.md:135:  --from pareto.csv \
+.\docs\architecture_aware_dse.md:8:accounting, but its legacy ECC area/latency values are projected and its
+.\docs\architecture_aware_dse.md:9:adaptive physical PPA is uncharacterized. No 14 nm synthesis, silicon
+.\docs\architecture_aware_dse.md:10:measurement, or PVT characterization is claimed.
+.\docs\architecture_aware_dse.md:20:| Runtime adaptive | Configurable datapath and controller | Protected bank/page/epoch metadata | Charged and safely sequenced |
+.\docs\architecture_aware_dse.md:24:not imply that physical area is characterized.
+.\docs\architecture_aware_dse.md:59:The energy convention is `alpha*C*V^2`; no extra one-half factor is applied.
+.\docs\architecture_aware_dse.md:64:For parallel engines, characterized area is the sum of encoder/decoder engines
+.\docs\architecture_aware_dse.md:65:plus MUX, controller, and metadata area. Gated engines separately charge a
+.\docs\architecture_aware_dse.md:66:configurable fraction of inactive leakage and glitch energy. The read critical
+.\docs\architecture_aware_dse.md:87:metadata. The model reports migrated words, temporary capacity, total latency,
+.\docs\architecture_aware_dse.md:94:The legacy energy record cannot separate read/decode from encode/write, so its
+.\docs\architecture_aware_dse.md:97:## Carbon accounting
+.\docs\architecture_aware_dse.md:99:Operational carbon uses explicit units:
+.\docs\architecture_aware_dse.md:105:Input in grams per kWh is explicitly converted to kilograms. Embodied-carbon
+.\docs\architecture_aware_dse.md:106:inputs expose effective area, manufacturing intensity per square centimetre,
+.\docs\architecture_aware_dse.md:108:systems, and source. Results separate base system carbon, incremental
+.\docs\architecture_aware_dse.md:109:operational carbon, incremental embodied carbon, absolute system carbon, and
+.\docs\architecture_aware_dse.md:110:amortized incremental carbon per access. With no sourced manufacturing input,
+.\docs\architecture_aware_dse.md:111:incremental embodied carbon remains `null`.
+.\docs\architecture_aware_dse.md:117:1. Filter hard reliability, latency, energy, area, capacity, carbon, and policy constraints.
+.\docs\architecture_aware_dse.md:118:2. Enumerate the exact Pareto set over every fully available objective.
+.\docs\architecture_aware_dse.md:129:energy/carbon burden utility. NESII is a winsorized monotone normalization of
+.\docs\architecture_aware_dse.md:131:not independent validation. GREEN Score adds a latency utility and can differ.
+.\docs\architecture_aware_dse.md:133:The architecture flow therefore uses constraints, Pareto filtering, and a
+.\docs\architecture_aware_dse.md:141:fault distributions, workloads, technology/PVT, carbon traces, and selection
+.\docs\architecture_aware_dse.md:144:simulation, synthesis, or measurement records.
+.\docs\architecture_aware_dse.md:152:Inputs are validated against `schemas/architecture-dse-config.schema.json`.
+.\docs\EnergyModel.md:1:# Energy Model
+.\docs\EnergyModel.md:3:This module provides a tiny energy estimation for each read operation in the
+.\docs\EnergyModel.md:5:technology-aware energy costs loaded from `tech_calib.json`. Gate counts scale
+.\docs\EnergyModel.md:7:dynamic energy.
+.\docs\EnergyModel.md:11:`tech_calib.json` maps process node and voltage to per-gate energy figures for
+.\docs\EnergyModel.md:18:a more realistic view of static power across operating conditions.
+.\docs\EnergyModel.md:26:   python3 energy_model.py <parity_bits> [detected_errors]
+.\docs\EnergyModel.md:32:   python3 energy_model.py 8 1
+.\docs\EnergyModel.md:35:   The command above estimates the energy to process eight parity bits when one
+.\docs\EnergyModel.md:41:   Estimated energy per read: <value> J
+.\docs\EnergyModel.md:44:   `<value>` is the estimated energy in joules, formatted in scientific notation.
+.\docs\EnergyModel.md:46:This simple calculation helps gauge the energy impact of different error control
+.\docs\EnergyModel.md:51:The calibration data includes energy measurements published for 28&nbsp;nm CMOS
+.\docs\ENERGY_AND_CARBON_MODELS.md:1:# Energy and carbon models
+.\docs\ENERGY_AND_CARBON_MODELS.md:3:Energy and carbon outputs must carry their model identity and units. The current multi-ECC selection uses an explicit sensitivity model; it does not use physical power analysis.
+.\docs\ENERGY_AND_CARBON_MODELS.md:5:## Multi-ECC dynamic energy
+.\docs\ENERGY_AND_CARBON_MODELS.md:18:The legacy `energy_model.py` instead uses a calibrated primitive table:
+.\docs\ENERGY_AND_CARBON_MODELS.md:27:## Leakage energy
+.\docs\ENERGY_AND_CARBON_MODELS.md:29:The multi-ECC study computes stored encoded bits at equal information capacity, applies a configured temperature multiplier to power/bit, then
+.\docs\ENERGY_AND_CARBON_MODELS.md:35:Units are W/bit, seconds, and J/scenario. The legacy model uses `E_leak=V I_density(node,T,corner) A_overhead t`; its family area constants are analytical surrogates, not current physical characterization.
+.\docs\ENERGY_AND_CARBON_MODELS.md:37:## Scrub energy
+.\docs\ENERGY_AND_CARBON_MODELS.md:45:`τscrub` is seconds/pass and `Mrw` a dimensionless read/write multiplier. Output is J/scenario. The legacy `scrub_energy_kwh` similarly multiplies per-read energy by memory words and scrub passes, then divides by 3.6×10⁶ J/kWh.
+.\docs\ENERGY_AND_CARBON_MODELS.md:47:## Operational and embodied carbon
+.\docs\ENERGY_AND_CARBON_MODELS.md:55:where `Etotal` is J/scenario, `CI` is kgCO₂e/kWh, and output is kgCO₂e/scenario. Source: `green_ecc_phy/study.py::_candidate_metrics`; evidence: analytical. Example: the representative figure data records each candidate's exact source scenario and computed operational carbon in [`figure_data/reliability_carbon_pareto_analytical.json`](figure_data/reliability_carbon_pareto_analytical.json).
+.\docs\ENERGY_AND_CARBON_MODELS.md:57:Embodied carbon, when physical areas and conversion factors exist, is implemented by `carbon.py`:
+.\docs\ENERGY_AND_CARBON_MODELS.md:63:Areas are mm², factors kgCO₂e/mm², and output kgCO₂e. No implementation-specific physical area is available in the current multi-ECC study; embodied carbon is therefore unavailable and omitted from its Pareto plot.
+.\docs\ENERGY_AND_CARBON_MODELS.md:65:![Reliability versus operational carbon](figures/reliability_carbon_pareto_analytical.svg)
+.\docs\ENERGY_AND_CARBON_MODELS.md:67:*Orange indicates analytical/modelled data. Embodied carbon is explicitly null. Data: [`figure_data/reliability_carbon_pareto_analytical.json`](figure_data/reliability_carbon_pareto_analytical.json).*
+.\docs\ENERGY_AND_CARBON_MODELS.md:77:where reliability utility is a saturating function of non-negative FIT-decade reduction, and energy/carbon utilities are `1/(1+cost/halfsat)`. All utilities and ESII are dimensionless in `[0,1]`. Assumptions include fixed half-saturation constants and comparable reliability basis (`per_gib` or `system`).
+.\docs\ENERGY_AND_CARBON_MODELS.md:79:The Green Score (GS) in `gs.py` is 100 times a weighted geometric mean of active bounded utilities for reliability, carbon, latency and overhead. Missing carbon is neutral and its weight is removed. GS is `[0,100]`; a proxy latency input remains a proxy.
+.\docs\ENERGY_AND_CARBON_MODELS.md:83:## Adaptive overhead threshold
+.\docs\ENERGY_AND_CARBON_MODELS.md:85:For scenario-wise oracle energy `Eoracle` and the best fixed feasible candidate `Efixed`, adaptation is analytically beneficial only if
+.\docs\ENERGY_AND_CARBON_MODELS.md:94:![Parameterized analytical adaptive-overhead threshold](figures/adaptive_overhead_threshold.svg)
+.\docs\ENERGY_AND_CARBON_MODELS.md:96:*The zero crossing is a hypothetical sweep. Data: [`figure_data/adaptive_overhead_threshold.json`](figure_data/adaptive_overhead_threshold.json).*
+.\docs\ENERGY_AND_CARBON_MODELS.md:102:| `Ebit`, `Exor` | Per-bit/per-operation energy parameter | J/access or J/op | analytical input |
+.\docs\ENERGY_AND_CARBON_MODELS.md:103:| `Edyn`, `Eleak`, `Escrub` | Dynamic, leakage and scrub energy | J/scenario | analytical |
+.\docs\ENERGY_AND_CARBON_MODELS.md:104:| `CI` | Grid carbon intensity | kgCO₂e/kWh | scenario input |
+.\docs\ENERGY_AND_CARBON_MODELS.md:105:| `Cop`, `Cemb` | Operational and embodied carbon | kgCO₂e | analytical; embodied unavailable in current study |
+.\docs\ESII.md:4:its carbon cost.  It is defined as the difference in FIT rates between the base
+.\docs\ESII.md:9:from esii import ESIIInputs, compute_esii, embodied_from_wire_area
+.\docs\ESII.md:12:## Embodied carbon from wiring
+.\docs\ESII.md:15:`embodied_from_wire_area(area_mm2, factor_kg_per_mm2)` converts the additional
+.\docs\ESII.md:16:wire area into an embodied-carbon term in kilograms of CO₂e.  Multiply the
+.\docs\ESII.md:21:embodied = embodied_from_wire_area(5.0, 0.8)  # -> 4.0 kgCO2e
+.\docs\ESII.md:31:energy and area reports.  Provide the JSON files produced by the respective
+.\docs\ESII.md:32:modules along with the grid carbon intensity and output location:
+.\docs\ESII.md:37:  --energy reports/energy.json \
+.\docs\ESII.md:38:  --area reports/area.json \
+.\docs\ESII.md:44:carbon breakdown and the resulting ESII.  Direct numeric inputs are also
+.\docs\ESII.md:56:embodied = embodied_from_wire_area(5.0, 2.0)
+.\docs\FAULT_EVIDENCE.md:3:SafeForge consumes bit-exact error vectors in a declared physical word ordering. Published radiation and undervolting studies usually provide multiplicity or spatial aggregates instead. This phase uses those aggregates directly as uncertainty constraints and never labels a synthetic allocation as a measured PMF.
+.\docs\FAULT_EVIDENCE.md:27:No public raw address-level archive with a verified physical/logical map was ingested. Consequently no SafeForge result is described as measured silicon behavior, no aggregate interval is called a statistical confidence interval unless the source provides one, and no literature set removes the explicit probability tail outside the executable weight-one-through-three support.
+.\docs\FAIR_COMPARISON.md:17:| Equal workload | Identical workload hash | Are energy/activity totals commensurate? |
+.\docs\FAIR_COMPARISON.md:18:| Equal timing target/area budget | Identical constraints or explicit budget | Are physical objectives comparable? |
+.\docs\FAIR_COMPARISON.md:43:6. compute Pareto dominance;
+.\docs\FAIR_COMPARISON.md:50:For feasible baseline `b` and selected scenario winner `w_s`, analytical energy regret is
+.\asic\docs\MODULE_MAP.md:6:| sec-daec-64 | SEC-DAEC | secdaec_encoder(DATA_W=64) | secdaec_decoder(DATA_W=64) | sec_daec_64 | tb_secdaec |
+.\asic\docs\MODULE_MAP.md:7:| taec-64 | TAEC | taec_encoder(DATA_W=64) | taec_decoder(DATA_W=64) | taec_64 | tb_taec |
+.\asic\docs\MODULE_MAP.md:8:| bch-63 | BCH | bch_encoder(N=63,K=51) | bch_decoder(N=63,K=51) | bch_63 | tb_bch |
+.\asic\docs\MODULE_MAP.md:15:| sram-taec-8 | TAEC | taec_encoder(DATA_W=8) | taec_decoder(DATA_W=8) | sram_taec_8 | tb_sram_wrappers |
+.\asic\docs\MODULE_MAP.md:16:| sram-taec-16 | TAEC | taec_encoder(DATA_W=16) | taec_decoder(DATA_W=16) | sram_taec_16 | tb_sram_wrappers |
+.\asic\docs\MODULE_MAP.md:17:| sram-taec-32 | TAEC | taec_encoder(DATA_W=32) | taec_decoder(DATA_W=32) | sram_taec_32 | tb_sram_wrappers |
+.\asic\docs\MODULE_MAP.md:18:| sram-bch-8 | BCH | bch_encoder(N=14,K=8) | bch_decoder(N=14,K=8) | sram_bch_8 | tb_sram_wrappers |
+.\asic\docs\MODULE_MAP.md:19:| sram-bch-16 | BCH | bch_encoder(N=24,K=16) | bch_decoder(N=24,K=16) | sram_bch_16 | tb_sram_wrappers |
+.\asic\docs\MODULE_MAP.md:20:| sram-bch-32 | BCH | bch_encoder(N=45,K=32) | bch_decoder(N=45,K=32) | sram_bch_32 | tb_sram_wrappers |
+.\asic\docs\MODULE_MAP.md:30:- `asic/rtl/taec/taec_codec.sv`
+.\asic\docs\MODULE_MAP.md:31:- `asic/rtl/bch/bch_codec.sv`
+.\docs\ICCAD_1723_revision_draft.md:16:constraints, and uncertainty bounds; it does not claim universal optimality.
+.\docs\ICCAD_1723_revision_draft.md:21:   boot-time/bank-configurable, and runtime-adaptive ECC.
+.\docs\ICCAD_1723_revision_draft.md:24:3. Explicit operational and embodied-carbon interfaces with unit-checked
+.\docs\ICCAD_1723_revision_draft.md:26:4. Transparent hard-constraint filtering, exact Pareto enumeration for small
+.\docs\ICCAD_1723_revision_draft.md:28:   and fixed-seed robustness analysis.
+.\docs\ICCAD_1723_revision_draft.md:32:Pareto analysis and NSGA-II are established methods, not novelty claims.
+.\docs\ICCAD_1723_revision_draft.md:40:Single-error correction, double-adjacent-error correction (SEC-DAEC) adds a
+.\docs\ICCAD_1723_revision_draft.md:41:declared adjacent-pair capability; triple-adjacent-error correction (TAEC)
+.\docs\ICCAD_1723_revision_draft.md:42:targets adjacent triples. Bose-Chaudhuri-Hocquenghem (BCH) codes are
+.\docs\ICCAD_1723_revision_draft.md:54:Adaptive protection already has architectural precedent. CREAM varies DRAM
+.\docs\ICCAD_1723_revision_draft.md:60:NSGA-II is a standard elitist multi-objective evolutionary algorithm [6]. For
+.\docs\ICCAD_1723_revision_draft.md:67:Lifecycle-carbon research distinguishes operational emissions from hardware
+.\docs\ICCAD_1723_revision_draft.md:68:manufacturing and infrastructure. Chasing Carbon and ACT show why architects
+.\docs\ICCAD_1723_revision_draft.md:69:must expose embodied assumptions and why a carbon-optimal architecture can
+.\docs\ICCAD_1723_revision_draft.md:86:Runtime adaptation additionally changes mode by page/bank/epoch and therefore
+.\docs\ICCAD_1723_revision_draft.md:105:## 4. Reliability, PPA, and lifecycle carbon
+.\docs\ICCAD_1723_revision_draft.md:107:Latency is never a single ambiguous number. We distinguish codec latency,
+.\docs\ICCAD_1723_revision_draft.md:108:memory-path latency, MUX/routing latency, controller/metadata latency, and
+.\docs\ICCAD_1723_revision_draft.md:109:end-to-end read/write latency. Energy is separated into selected-engine
+.\docs\ICCAD_1723_revision_draft.md:110:dynamic energy, inactive/glitch energy, leakage, scrub, selector/metadata, and
+.\docs\ICCAD_1723_revision_draft.md:111:migration. Carbon overhead means incremental operational plus embodied CO2e
+.\docs\ICCAD_1723_revision_draft.md:113:carbon.
+.\docs\ICCAD_1723_revision_draft.md:126:migration energy is
+.\docs\ICCAD_1723_revision_draft.md:130:Operational carbon is
+.\docs\ICCAD_1723_revision_draft.md:131:`CI[kgCO2e/kWh] E_lifetime[J]/3.6e6`. Embodied inputs expose area,
+.\docs\ICCAD_1723_revision_draft.md:134:data is present, so new adaptive physical PPA and incremental lifecycle carbon
+.\docs\ICCAD_1723_revision_draft.md:139:The primary process first rejects violations of maximum FIT, latency, energy,
+.\docs\ICCAD_1723_revision_draft.md:140:area, carbon, minimum capacity efficiency, and policy constraints. It then
+.\docs\ICCAD_1723_revision_draft.md:146:log-risk-reduction utility and a weighted energy/carbon burden utility. Its
+.\docs\ICCAD_1723_revision_draft.md:150:GREEN Score (GS) is a separate bounded reliability/carbon/latency utility.
+.\docs\ICCAD_1723_revision_draft.md:159:original 189 scenarios, so that number is not reconstructed. The reproducible
+.\docs\ICCAD_1723_revision_draft.md:164:The example evaluates node 16 nm, 0.8 V, 75 degrees C as requested scenario
+.\docs\ICCAD_1723_revision_draft.md:166:legacy analytical/calibrated path. Candidate codec area and latency are legacy
+.\docs\ICCAD_1723_revision_draft.md:167:projections. Adaptive MUX/controller physical metrics and incremental embodied
+.\docs\ICCAD_1723_revision_draft.md:168:carbon are unavailable. Monte Carlo uses 300 samples, seed 1723, and independent
+.\docs\ICCAD_1723_revision_draft.md:169:uniform multiplicative intervals of 20% FIT, 15% energy, 20% carbon, and 10%
+.\docs\ICCAD_1723_revision_draft.md:170:latency. This is a stress test, not a fitted probability model.
+.\docs\ICCAD_1723_revision_draft.md:179:classes, output hashes, and reproduction command. Exact Pareto complexity is
+.\docs\ICCAD_1723_revision_draft.md:183:## 7. Results, baselines, scalability, robustness, and ablations
+.\docs\ICCAD_1723_revision_draft.md:186:feasible energy, minimum feasible carbon, fault-regime lookup, exact Pareto plus
+.\docs\ICCAD_1723_revision_draft.md:188:unavailable, energy/carbon baselines explicitly fall back and the Pareto set is
+.\docs\ICCAD_1723_revision_draft.md:192:three scenarios: moderate cases select BCH instead of SEC-DAEC and the heavy
+.\docs\ICCAD_1723_revision_draft.md:193:case selects TAEC instead of BCH. Because FIT is the only complete architecture
+.\docs\ICCAD_1723_revision_draft.md:194:objective, these are reliability-driven differences, not evidence of a carbon,
+.\docs\ICCAD_1723_revision_draft.md:197:The Polar `(64,48)` SC projection has zero Pareto memberships. The generated
+.\docs\ICCAD_1723_revision_draft.md:198:ablation records its rate, projected FIT/carbon/latency, and every candidate
+.\docs\ICCAD_1723_revision_draft.md:200:SC latency assumptions, and an analytical coverage mapping that is not tied to
+.\docs\ICCAD_1723_revision_draft.md:201:a measured SRAM channel. Polar remains an educational ablation and should not
+.\docs\ICCAD_1723_revision_draft.md:207:128-bit input-routing path. This matters because “adaptive ECC” is not a free
+.\docs\ICCAD_1723_revision_draft.md:217:STA, SPICE, or measured MUX/controller artifact is available. Candidate PPA and
+.\docs\ICCAD_1723_revision_draft.md:238:4. Y. Luo et al., “Using ECC DRAM to Adaptively Increase Memory Capacity,” arXiv:1706.08870, 2017. https://arxiv.org/abs/1706.08870
+.\docs\ICCAD_1723_revision_draft.md:240:6. K. Deb, A. Pratap, S. Agarwal, and T. Meyarivan, “A Fast and Elitist Multiobjective Genetic Algorithm: NSGA-II,” *IEEE TEC* 6(2), 182-197, 2002. DOI: https://doi.org/10.1109/4235.996017
+.\docs\ICCAD_1723_revision_draft.md:242:8. U. Gupta et al., “Chasing Carbon: The Elusive Environmental Footprint of Computing,” HPCA 2021. DOI: https://doi.org/10.1109/HPCA51647.2021.00076
+.\docs\ICCAD_1723_revision_draft.md:243:9. U. Gupta et al., “ACT: Designing Sustainable Computer Systems With An Architectural Carbon Modeling Tool,” ISCA 2022, 784-799. DOI: https://doi.org/10.1145/3470496.3527408
+.\docs\PARETO_AND_SELECTION.md:1:# Pareto and selection
+.\docs\PARETO_AND_SELECTION.md:3:The current multi-ECC study uses Pareto analysis for audit and a deterministic lexicographic winner rule for selection. They answer different questions: Pareto membership asks whether any feasible candidate is no worse in every objective; the winner rule chooses one minimum-energy feasible record.
+.\docs\PARETO_AND_SELECTION.md:28:    E -->|yes| F["Compute Pareto set"]
+.\docs\PARETO_AND_SELECTION.md:31:    G -->|yes| J["Lexicographic minimum energy, complexity, encoded bits, ID"]
+.\docs\PARETO_AND_SELECTION.md:40:3. modelled total energy in J/scenario;
+.\docs\PARETO_AND_SELECTION.md:44:Every direction is `min`; epsilon is `0.0`. The winner rule then minimizes `(modelled_total_energy, decoder_complexity_proxy, encoded_bits, implementation_id)` among feasible candidates. It is not a weighted score and does not select the plotted knee.
+.\docs\PARETO_AND_SELECTION.md:72:## Hypervolume
+.\docs\PARETO_AND_SELECTION.md:74:The 2D documentation audit computes exact dominated area against a data-derived reference point 5% worse than the maximum plotted Pareto objective in each dimension. Units are the product of the plotted units and the reference is stored in figure data. Duplicates are de-duplicated geometrically. Hypervolume is not used to choose a winner.
+.\docs\PARETO_AND_SELECTION.md:78:`green_ecc_phy/pareto_validation.py` does not import the study selector's private `_pareto` or `_dominates`. `scripts/generate_documentation_figures.py` independently recomputes all 192 five-objective frontiers after constraints and requires exact identifier agreement with `scenario_selection_results.json`; any mismatch stops figure generation.
+.\docs\PARETO_AND_SELECTION.md:80:Targeted tests cover dominated/equal points, mixed directions, nulls, rejected/infeasible candidates, one/zero-candidate fronts, epsilon boundaries, crowding, knee and hypervolume:
+.\docs\PARETO_AND_SELECTION.md:83:python -m pytest -q tests/python/test_documentation_pareto.py
+.\docs\PARETO_AND_SELECTION.md:86:![Analytical reliability-cost Pareto frontier](figures/reliability_cost_pareto_analytical.svg)
+.\docs\PARETO_AND_SELECTION.md:88:*Orange marks the independently reproduced five-objective frontier; grey mutes dominated candidates, crosses are infeasible, and rings distinguish winner and projected knee. Data includes objectives, epsilon, constraint order, hypervolume reference and scenario hash: [`figure_data/reliability_cost_pareto_analytical.json`](figure_data/reliability_cost_pareto_analytical.json).*
+.\docs\PARETO_AND_SELECTION.md:90:![Analytical energy versus structural complexity](figures/energy_complexity_pareto_analytical.svg)
+.\docs\PARETO_AND_SELECTION.md:92:*Logic depth is a structural proxy—not measured latency. Data: [`figure_data/energy_complexity_pareto_analytical.json`](figure_data/energy_complexity_pareto_analytical.json).*
+.\docs\PARETO_AND_SELECTION.md:104:A physical Pareto frontier is **not computable** because all required physical objectives are null and every generated characterization is structural-only or unavailable. `select-physical` correctly returns `winner: null`. No empty axes or proxy-to-physical substitution is presented as a frontier.
+.\docs\fault_distribution_benchmarks.md:6:and `synthetic` provenance. None is a silicon measurement.
+.\docs\fault_distribution_benchmarks.md:20:with measured or fitted distributions requires changing `provenance.kind`,
+.\docs\VERIFICATION_METHODOLOGY.md:29:5. verify latency/protocol/reset/transition obligations or mark them not applicable;
+.\docs\VERIFICATION_METHODOLOGY.md:62:## Rejected example: bounded SEC-DAEC
+.\docs\VERIFICATION_METHODOLOGY.md:72:The bounded TAEC implementation demonstrates partial verification: its shared SECDED universes pass, but its adjacent-triple correction claim fails 62/62. It remains selectable only for capabilities that actually passed.
+.\docs\VERIFICATION_METHODOLOGY.md:80:*Exact declared-universe outcome proportions include the negative cyclic/BCH-labelled and SEC-DAEC results. Pattern totals, not Monte Carlo samples, appear at right. Data: [`figure_data/error_outcome_distributions.json`](figure_data/error_outcome_distributions.json).*
+.\docs\VERIFICATION_METHODOLOGY.md:84:The scenario study initially selects implementations whose `verification_status` is `passed`. It then evaluates only the capability represented by exact outcome profiles and applies scenario SDC/DUE limits. A rejected record can never re-enter because its analytical objective looks attractive. See [Pareto and Selection](PARETO_AND_SELECTION.md).
+.\docs\FIGURE_INDEX.md:5:Evidence colors are colorblind-safe and reinforced with marker shape, hatching and text: blue exact functional, orange analytical/modelled, purple structural-only, green physical characterization, dark green hardware measurement, and grey unavailable/unsupported.
+.\docs\FIGURE_INDEX.md:10:| [Registered portfolio overview](figures/registered_portfolio_overview.svg) | Portfolio identities and verification states, including rejected and experimental inventory entries. | [`ecc_scope_matrix.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/ecc_scope_matrix.json)<br>[`implementation_capability_matrix.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json)<br>[`adaptive-shared-page-v1.json`](../green_ecc_physical_simulation/registry/architectures/adaptive-shared-page-v1.json)<br>+49 hashed sources<br>[plot data](figure_data/registered_portfolio_overview.json) | `exact_functional`, `unsupported` | `python scripts/generate_documentation_figures.py` | [`ECC_CATALOGUE.md`](../docs/ECC_CATALOGUE.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:13:| [Exact error-outcome distributions](figures/error_outcome_distributions.svg) | Exact outcome proportions over declared verification universes, including SEC-DAEC and cyclic-labelled failures. | [`implementation_capability_matrix.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json)<br>[`cyclic-rtl-bounded-search-63-51-v1.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/verification/cyclic-rtl-bounded-search-63-51-v1.json)<br>[`forge-hotspot-8-4-v1-archived-table-decoder.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/verification/forge-hotspot-8-4-v1-archived-table-decoder.json)<br>+15 hashed sources<br>[plot data](figure_data/error_outcome_distributions.json) | `exact_functional` | `python scripts/generate_documentation_figures.py` | [`VERIFICATION_METHODOLOGY.md`](../docs/VERIFICATION_METHODOLOGY.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:16:| [Reliability-versus-cost Pareto frontier](figures/reliability_cost_pareto_analytical.svg) | Feasible, infeasible, dominated, Pareto, selected, and knee candidates in one traceable scenario. | [`scenario_selection_results.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json)<br>[plot data](figure_data/reliability_cost_pareto_analytical.json) | `exact_functional`, `analytical_model` | `python scripts/generate_documentation_figures.py` | [`PARETO_AND_SELECTION.md`](../docs/PARETO_AND_SELECTION.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:17:| [Reliability-versus-carbon Pareto frontier](figures/reliability_carbon_pareto_analytical.svg) | Analytical SDC versus operational carbon for one traceable scenario; embodied carbon is absent. | [`scenario_selection_results.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json)<br>[plot data](figure_data/reliability_carbon_pareto_analytical.json) | `exact_functional`, `analytical_model` | `python scripts/generate_documentation_figures.py` | [`ENERGY_AND_CARBON_MODELS.md`](../docs/ENERGY_AND_CARBON_MODELS.md)<br>[`PARETO_AND_SELECTION.md`](../docs/PARETO_AND_SELECTION.md) |
+.\docs\FIGURE_INDEX.md:18:| [Energy-versus-complexity Pareto frontier](figures/energy_complexity_pareto_analytical.svg) | Analytical energy versus technology-independent logic-depth proxy. | [`scenario_selection_results.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json)<br>[plot data](figure_data/energy_complexity_pareto_analytical.json) | `analytical_model`, `structural_tool` | `python scripts/generate_documentation_figures.py` | [`PARETO_AND_SELECTION.md`](../docs/PARETO_AND_SELECTION.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:19:| [Multi-scenario Pareto summary](figures/multi_scenario_pareto_summary.svg) | Scenario shares in which each implementation is Pareto-optimal or selected. | [`pareto_and_regret.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json)<br>[`software_study_summary.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/software_study_summary.json)<br>[plot data](figure_data/multi_scenario_pareto_summary.json) | `exact_functional`, `analytical_model` | `python scripts/generate_documentation_figures.py` | [`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:22:| [Fixed-baseline regret](figures/fixed_baseline_regret.svg) | Analytical energy regret and hard-constraint failures for preregistered fixed baselines. | [`pareto_and_regret.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json)<br>[plot data](figure_data/fixed_baseline_regret.json) | `analytical_model` | `python scripts/generate_documentation_figures.py` | [`FAIR_COMPARISON.md`](../docs/FAIR_COMPARISON.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:23:| [Recommendation stability](figures/recommendation_stability.svg) | Base-winner agreement under three deterministic sensitivity parameter sets. | [`uncertainty_and_sensitivity.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json)<br>[plot data](figure_data/recommendation_stability.json) | `analytical_model` | `python scripts/generate_documentation_figures.py` | [`PARETO_AND_SELECTION.md`](../docs/PARETO_AND_SELECTION.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:24:| [Ranked sensitivity](figures/sensitivity_ranked.svg) | Descriptive grouped-range sensitivity of reliability, energy, carbon, and selection outcome to scenario factors. | [`scenario_selection_results.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/scenario_selection_results.json)<br>[plot data](figure_data/sensitivity_ranked.json) | `analytical_model` | `python scripts/generate_documentation_figures.py` | [`SCENARIOS_AND_WORKLOADS.md`](../docs/SCENARIOS_AND_WORKLOADS.md)<br>[`RESULTS_AND_INTERPRETATION.md`](../docs/RESULTS_AND_INTERPRETATION.md) |
+.\docs\FIGURE_INDEX.md:25:| [Adaptive-overhead threshold](figures/adaptive_overhead_threshold.svg) | Net analytical gain as hypothetical adaptation overhead consumes the gross oracle advantage. | [`uncertainty_and_sensitivity.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json)<br>[plot data](figure_data/adaptive_overhead_threshold.json) | `analytical_model`, `unsupported` | `python scripts/generate_documentation_figures.py` | [`ENERGY_AND_CARBON_MODELS.md`](../docs/ENERGY_AND_CARBON_MODELS.md)<br>[`LIMITATIONS_AND_VALID_CLAIMS.md`](../docs/LIMITATIONS_AND_VALID_CLAIMS.md) |
+.\docs\FIGURE_INDEX.md:30:- `physical_pareto_frontier` — all physical objectives are null; a physical Pareto frontier is not computable
+.\docs\FIGURE_INDEX.md:31:- `embodied_carbon_pareto` — the scenario study contains operational carbon only; implementation-specific embodied carbon provenance is unavailable
+.\docs\FIGURE_INDEX.md:32:- `measured_latency_pareto` — no characterized timing or measured delay is available; the generated energy-complexity plot uses an explicit structural depth proxy
+.\docs\FIGURE_INDEX.md:38:- Rejected candidates remain visible in audit plots but are removed before Pareto selection.
+.\docs\FIGURE_INDEX.md:41:- Structural depth is never labelled measured latency; operational carbon is never labelled total carbon when embodied data is absent.
+.\docs\GETTING_STARTED.md:24:The first command emits JSON with `code_count`, `implementation_count`, and one record per mathematical code. `inspect` exposes `(n,k)`, matrix/distance evidence, encoder identity, guaranteed correction/detection sets, source hashes, and associated implementations. `implementations` shows that the extended-Hamming codeword set has three decoder policies: SECDED, bounded SEC-DAEC, and bounded TAEC.
+.\docs\GETTING_STARTED.md:42:The Hsiao record passes 72/72 single-bit corrections and 2,556/2,556 double-bit detections in its declared universe. The bounded SEC-DAEC record is rejected because 302/2,556 double errors silently miscorrect and its adjacent-pair claim fails 53/63 patterns. The command itself exits successfully after producing a scientifically negative report; use `verification_status` and `capability_verification_status`, not process exit alone, to interpret the evidence.
+.\docs\GETTING_STARTED.md:59:- `scenario_selection_results.json`: candidate records, constraints, Pareto sets, and winners;
+.\docs\GETTING_STARTED.md:60:- `pareto_and_regret.json`: frequency and fixed-baseline regret;
+.\docs\GETTING_STARTED.md:61:- `uncertainty_and_sensitivity.json`: deterministic sensitivity cases and adaptive threshold;
+.\docs\GLOSSARY.md:9:| Implementation | Concrete encoder/decoder adapter, reference or RTL plus protocol/latency/evidence metadata. |
+.\docs\GLOSSARY.md:12:| SEC-DAEC | Repository label for a bounded single-error/double-adjacent-error correction policy; its current full claim is rejected. |
+.\docs\GLOSSARY.md:13:| TAEC | Triple-adjacent-error correction claim/policy. The repository bounded policy fails its adjacent-triple claim. |
+.\docs\GLOSSARY.md:14:| BCH | Bose–Chaudhuri–Hocquenghem code. The label alone is not a valid polynomial/distance/capability proof. |
+.\docs\GLOSSARY.md:22:| PPA | Power, performance and area; physical claims require a characterized backend context. |
+.\docs\GLOSSARY.md:25:| Workload | Access/activity/lifetime assumptions bound to energy/characterization. |
+.\docs\GLOSSARY.md:28:| Pareto frontier | Feasible points not dominated across declared objective directions. |
+.\docs\GLOSSARY.md:30:| Crowding distance | Normalized neighbor-spacing measure within a Pareto front. |
+.\docs\GLOSSARY.md:32:| Hypervolume | Objective space dominated by a frontier relative to an explicit reference point. |
+.\docs\GLOSSARY.md:35:| ESII | Environmental Sustainability Improvement Index, a bounded reliability/energy/carbon utility. |
+.\docs\GLOSSARY.md:39:| `analytical_model` | Equation/model output from explicit inputs; not measurement. |
+.\docs\GLOSSARY.md:42:| `hardware_measurement` | Instrumented hardware/silicon observation with provenance. |
+.\docs\model_audit.md:8:to obtain FIT, adds scrub energy and projected candidate area/latency, derives
+.\docs\model_audit.md:9:legacy embodied/operational carbon, computes ESII/NESII/GREEN Score, performs
+.\docs\model_audit.md:13:The architecture-aware path parses a schema-validated scenario and concrete
+.\docs\model_audit.md:16:applies hard constraints and exact Pareto enumeration, evaluates baselines and
+.\docs\model_audit.md:23:| `ecc_selector.py`, candidate metric construction | Candidate logic area and latency constants are explicitly approximate | Preserved for compatibility and labeled `projected` |
+.\docs\model_audit.md:24:| `ecc_selector.py`, metric calculation | Missing Qcrit falls back to `0.3`; charge scale `Qs=0.05`; MBU severity maps light/moderate/heavy to fixed values | Documented as legacy analytical assumptions; not recast as measurement |
+.\docs\model_audit.md:25:| `ecc_selector.py` | Dynamic and leakage energy are zero in this path; scrub is the only populated energy term | Architecture physical-energy result remains `null` unless characterized |
+.\docs\model_audit.md:26:| `integrated_toolkit.py` | Defaults include `0.08 um2` bitcell area, 10 s scrub, and 8760 h lifetime | New scenario schema requires explicit inputs |
+.\docs\model_audit.md:27:| `carbon_defaults.json` | Source is labeled `placeholder` | Not accepted as evidence for characterized adaptive embodied carbon |
+.\docs\model_audit.md:28:| `carbon_calib.json` | Node manufacturing intensities are projected defaults without foundry artifacts in this checkout | Exposed, labeled projected, and excluded from new incremental carbon unless supplied |
+.\docs\model_audit.md:29:| `data/qcrit_sram6t.json` | Contains `example.org`, “Your Lab / University,” and an internal-run description | Treated as unverified example data; no 14 nm/PVT validation claim |
+.\docs\model_audit.md:30:| `ecc_selector._nsga2_sort` | Deterministic non-dominated sorting with population/generation metadata, not an evolutionary loop | Exact enumeration is the new default; tractable agreement is tested |
+.\docs\model_audit.md:31:| `esii.py` / `scores.py` | NESII is a monotone winsorized normalization of ESII; GS is a distinct utility including latency | Scores retained as diagnostic ablations, not independent validation |
+.\docs\model_audit.md:39:measured MUX PVT dataset was found. Existing SystemVerilog codec sources and
+.\docs\model_audit.md:45:- “14 nm hardware result,” “measured,” and “synthesized” are unsupported here.
+.\docs\model_audit.md:49:  composition, Pareto membership, baseline selection, and deterministic Monte
+.\docs\model_audit.md:51:- Physical adaptive area, delay, energy, leakage, and incremental embodied
+.\docs\model_audit.md:52:  carbon remain unavailable until a characterized provider is supplied.
+.\docs\model_audit.md:53:- The original “189 scenarios” construction could not be located. The revision
+.\docs\ml_scope_implementation_plan.md:24:- `--label-policy {carbon_min,fit_min,energy_min,utility_balanced}` (default: `carbon_min`)
+.\docs\ml_scope_implementation_plan.md:26:- `--utility-beta-carbon <float>` (default: `1.0`)
+.\docs\ml_scope_implementation_plan.md:27:- `--utility-gamma-energy <float>` (default: `1.0`)
+.\docs\ml_scope_implementation_plan.md:45:- `utility_weights: {alpha_fit: float, beta_carbon: float, gamma_energy: float}`
+.\docs\ml_scope_implementation_plan.md:51:- `regression: {fit: {...}, carbon: {...}, energy: {...}}` (existing keys retained)
+.\docs\ml_scope_implementation_plan.md:57:- `regression: {fit_mae: float, carbon_mae: float, energy_mae: float}`
+.\docs\ml_scope_implementation_plan.md:74:- `--ml-policy {carbon_min,fit_min,energy_min,utility_balanced}` (default: model policy)
+.\docs\output_format_approvals.md:11:- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/energy_default.stdout.txt
+.\docs\output_format_approvals.md:12:- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/carbon_default.stdout.txt
+.\docs\output_format_approvals.md:22:- APPROVED-OUTPUT-FORMAT-CHANGE: tests/fixtures/golden/select_pareto.csv
+.\docs\EXTENDING_WITH_A_NEW_ECC.md:90:- architecture style, protocol, latency/initiation interval and clock/reset;
+.\docs\EXTENDING_WITH_A_NEW_ECC.md:108:Create a manifest conforming to `schemas/deployment-architecture.schema.json`. A fixed example has one allowed/active implementation, static configuration, no fallback, no MUX/controller and no transition. Configurable/adaptive forms must own and eventually characterize MUX/controller, transition, metadata and re-encoding costs.
+.\docs\EXTENDING_WITH_A_NEW_ECC.md:153:- protocol, latency, reset and transition behavior as applicable;
+.\docs\MULTI_ECC_FRAMEWORK.md:27:The verifier checks deterministic encoding, no-error identity, malformed and wrong-length inputs, latency contract, every preregistered correction/detection mask, implementation-specific claims, and hash-bound evidence. Reports include exact fractions and outcome counts for corrected data, detected/abstained outcomes, and silent miscorrections. Linear translation invariance justifies canonical-codeword mask enumeration; where not established, multiple deterministic payloads are used.
+.\docs\MULTI_ECC_FRAMEWORK.md:32:- partial TAEC status because all 62 adjacent triples silently miscorrect;
+.\docs\MULTI_ECC_FRAMEWORK.md:33:- rejected SEC-DAEC status because 302/2,556 doubles silently miscorrect;
+.\docs\MULTI_ECC_FRAMEWORK.md:35:- a separate valid primitive BCH (63,51,t=2), plus valid shortened (71,64,t=1), (78,64,t=2), and (85,64,t=3) references;
+.\docs\MULTI_ECC_FRAMEWORK.md:38:## Valid primitive BCH plugin
+.\docs\MULTI_ECC_FRAMEWORK.md:40:`green_ecc_phy/bch.py` verifies primitive polynomials, builds binary cyclotomic cosets and the conjugate-root generator, emits systematic G/H matrices, computes GF syndromes, and creates a deterministic bounded syndrome locator. Shortening fixes and removes parent information coordinates while preserving their parent polynomial exponents. The historical invalid RTL polynomial is never modified or reused.
+.\docs\MULTI_ECC_FRAMEWORK.md:46:The scenario model is preregistered in `green_ecc_physical_simulation/registry/scenarios/software-simulation-study-v1.json`. Its fault probabilities and energy coefficients are explicitly labelled uncalibrated sensitivity parameters—not measurements.
+.\docs\MULTI_ECC_FRAMEWORK.md:54:The full implementation x architecture matrix classifies combinations as compatible/evaluated, compatible/not evaluated, or incompatible, with a separate physical status of `blocked_by_missing_physical_evidence`. Fixed, configurable, and adaptive identities do not transfer MUX/controller/metadata/transition costs into code metrics.
+.\docs\MULTI_ECC_FRAMEWORK.md:56:Structural Yosys evidence stays in `structural_metrics`. Physical cell/routed area, delay, power, energy, routing, MUX/controller cost, transition/re-encoding cost, and physical uncertainty stay null. The physical selector continues to return no winner.
+.\docs\MULTI_ECC_FRAMEWORK.md:64:python eccsim.py ecc inspect --code primitive-bch-63-51-t2-v1
+.\docs\MULTI_ECC_FRAMEWORK.md:65:python eccsim.py ecc verify --implementation primitive-bch-63-51-t2-v1-reference-decoder
+.\docs\SAFEFORGE_FINAL_REPORT.md:18:| Practical fixed code | conventional SECDED and Hsiao `(72,64)`, existing generated matrices, and robust mapping | `reports/safeforge_hardening/fixed_72bit_risk_frontiers.json` |
+.\docs\SAFEFORGE_FINAL_REPORT.md:33:| Robust abstain, fixed Hsiao | 0.11 | 0.89 | 0 | 0 | 0.99 |
+.\docs\SAFEFORGE_FINAL_REPORT.md:35:| Robust co-synthesized matrix/policy | 0.64 | 0.36 | 0 | 0 | 0.46 |
+.\docs\SAFEFORGE_FINAL_REPORT.md:37:The `0.97` correction result is not a new-code gain: the matrix is extended-Hamming/Hsiao-equivalent. In controlled pairs, changing only the equivalent matrix under a single-bit decoder changes correction by `0`; the syndrome/coset-leader policy contributes `+0.45`; the tested PMF specialization contributes `0`; and robust physical placement changes zero-SDC policy correction by `+0.44`. Abstention reduces worst-case SDC by `0.17` relative to nominal ML but adds `0.89` nominal DUE.
+.\docs\SAFEFORGE_FINAL_REPORT.md:41:The fixed and co-synthesized robust policies have `delta*=1` only on the 28-pattern support. Their zero-SDC radius is zero on weight-at-most-two, weight-at-most-three, and complete universes. Across all 255 errors, fixed robust records 60 SDC outcomes and co-synthesized robust records 135. No universal safety claim survives the audit.
+.\docs\SAFEFORGE_FINAL_REPORT.md:45:At TV radius `0.05`, fixed Hsiao moves from `(worst SDC, worst DUE) = (0,1)` at zero SDC budget to `(0.05,0.6672)` at `epsilon=0.05` and `(0.0861,0.5364)` at `epsilon=0.1`. Nominal correction rises from `0.0394` to `0.3828` and `0.4774`. This materially improves on the `0.9606` nominal DUE zero-SDC point, but no epsilon is preferred without a system reliability target. Points are certified feasible under the frozen deterministic syndrome-class rule; global frontier optimality is not claimed.
+.\docs\SAFEFORGE_FINAL_REPORT.md:47:The 64-bit arbitrary-matrix search remains negative. No verified dimension-matched SEC-DAEC artifact exists. The TAEC wrapper has a triple/single collision, and the `(63,51)` BCH example has an unverified-distance triple collision; both are retained as negative tests.
+.\docs\SAFEFORGE_FINAL_REPORT.md:53:Actual local logs record passing Icarus ASIC and SafeForge campaigns, passing generic Yosys/ABC synthesis, and tool versions. The same-matrix nominal/robust comparison reports 311 versus 380 generic cells and longest paths 38 versus 40 cells. These are generic structural results only. The observed Linux CI run at the pre-hardening commit failed in the generic RTL regression before SafeForge steps; the updated workflow always archives the complete runner output. A Linux pass must not be claimed until that workflow runs successfully on the changed tree.
+.\docs\SAFEFORGE_FINAL_REPORT.md:59:- no practical or globally optimal 64-bit matrix co-synthesis;
+.\docs\SAFEFORGE_FINAL_REPORT.md:60:- no measured SafeForge silicon behavior or bit-exact radiation PMF;
+.\docs\SAFEFORGE_FINAL_REPORT.md:61:- no physical area, delay, energy, leakage, or PPA without a characterized library;
+.\docs\USE_CASES.md:12:| Architecture researcher | Does the preferred candidate vary by scenario? | Preregistered scenario grid and analytical parameter set | Pareto membership, winner regions, frequency | conditional `analytical_model` |
+.\docs\USE_CASES.md:13:| System designer | Can a fixed policy be compared with an adaptive oracle? | Complete comparable scenario grid and hypothetical overhead | Fixed-baseline regret and parameterized threshold | conditional `analytical_model` |
+.\docs\USE_CASES.md:14:| Robustness reviewer | Is the recommendation stable to named parameter scales? | Explicit uncertainty cases | Base-winner agreement and changed scenarios | conditional `analytical_model` |
+.\docs\USE_CASES.md:21:- measured physical PPA claims without a real backend, process design kit (PDK), characterized libraries, constraints, and workload activity;
+.\docs\USE_CASES.md:24:- technology-independence claims for energy, timing, area, or winner identity;
+.\docs\USE_CASES.md:25:- measured MUX/controller, transition, or re-encoding overhead;
+.\docs\USE_CASES.md:26:- an actual adaptive break-even claim while those costs are null;
+.\docs\USE_CASES.md:28:- treating `BCH`, `TAEC`, `SEC-DAEC`, or any other family label as a verified correction guarantee;
+.\docs\USE_CASES.md:29:- converting generic Yosys structure, operation counts, or logic-depth proxies into physical cells, delay, power, or energy.
+.\docs\REPRODUCIBILITY.md:44:Targeted documentation/Pareto validation is:
+.\docs\REPRODUCIBILITY.md:47:python -m pytest -q tests/python/test_documentation_pareto.py
+.\docs\REPRODUCIBILITY.md:63:- an independent Pareto implementation checked against all scenario records.
+.\docs\REPRODUCIBILITY.md:87:| `.../scenario_selection_results.json` | Full candidate/scenario decisions and Pareto sets |
+.\docs\schema\telemetry.md:9:| `workload_id`  | string  | –     | Identifier for the workload being measured. |
+.\docs\SAFEFORGE_DECISIVE_REPORT.md:3:1. **Exact scientific claim supported.** For the fixed conventional `(72,64)` Hsiao matrix, a 427-vector synthetic universe, TV radius 0.05, and 87 declared placements, exact joint and sequential optimization both attain zero modeled-support SDC and worst-case DUE `0.9810098870744284`; the library optimality gap is zero. No claim extends beyond that domain.
+.\docs\SAFEFORGE_DECISIVE_REPORT.md:6:4. **DUE reduction.** Joint improves worst-case DUE by `0.018990112925571623` absolute versus fixed-placement policy-only (`1.0` to `0.9810098870744284`) and by exactly `0.0` versus the strong sequential baseline.
+.\docs\SAFEFORGE_DECISIVE_REPORT.md:9:7. **Area/delay/energy overhead.** Unknown for the decisive policy. Earlier different-policy generic synthesis reported 311 versus 380 cells and depths 38 versus 40, but no characterized area, timing, power, leakage, routing, or energy may be inferred.
+.\docs\SAFEFORGE_DECISIVE_REPORT.md:12:10. **Remaining evidence for an archival submission.** Raw bit-exact multi-device/voltage/source traces with layout mapping and licenses; confidence-bounded event FIT and tail; preregistered heldouts; characterized Liberty/STA and placed routing for the exact policy; activity-based power/energy; and memory-macro/interface overhead.
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:40:## Fixed-matrix robust action problem
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:44:For action `a`, binary losses `L_SDC(e,a)` and `L_DUE(e,a)` are obtained by executing the correction and inspecting the residual data bits. With binary selector `x_sa`, the robust problem is
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:59:For a fixed binary matrix, finite error universe, finite action set per syndrome, and ambiguity set admitting exact linear-risk separation, adversarial constraint generation returns a feasible policy with robust DUE upper bound `U` and master lower bound `L`. `U-L` is a valid a-posteriori absolute optimality gap over the declared action domain. If the master and separation solves are exact, constraint generation terminates after finitely many distinct policies and a zero gap proves optimality in that domain.
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:61:Proof sketch: every robust-feasible policy satisfies every scenario cut, so the restricted master is a relaxation and its dual bound is a lower bound. Exact separation either certifies the selected policy or returns a distribution that excludes its underestimated SDC/DUE value. A violating selected policy cannot recur once its cut is enforced. The number of deterministic syndrome policies is finite. At termination the selected policy supplies `U`, the master supplies `L`, and weak duality gives `L <= OPT <= U`.
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:73:For each allowed placement, SafeForge evaluates the conventional decoder and compiles the exact robust policy. Joint selection minimizes certified DUE, then nominal DUE, then displacement. Exact selection over 87 rows has zero library gap.
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:80:- The `1e-5` tail bound and 1000-event-FIT exposure are declared sensitivities without measurement confidence.
+.\docs\SAFEFORGE_DECISIVE_FORMULATION.md:81:- Global placement optimality, movable parity placement, routed displacement, memory-macro layout, and metadata-routing costs are unsolved.
+.\docs\RESULTS_AND_INTERPRETATION.md:3:This page leads with the current regenerated artifacts. Historical energy/carbon percentages are not repeated unless the present pipeline reproduces them.
+.\docs\RESULTS_AND_INTERPRETATION.md:16:| Scenarios | 192 | preregistered analytical grid |
+.\docs\RESULTS_AND_INTERPRETATION.md:17:| Feasible/no-winner scenarios | 192 / 0 | exact constraint evaluation over analytical metrics |
+.\docs\RESULTS_AND_INTERPRETATION.md:24:| `cyclic-rtl-bounded-search-63-51-v1` | all-single-bit correction: 33/63 failures; BCH designed-distance-five identity |
+.\docs\RESULTS_AND_INTERPRETATION.md:27:The bounded TAEC policy remains selectable only for its verified SECDED capabilities: its adjacent-triple claim fails **62/62** tested adjacent triples. The valid primitive BCH `(63,51,t=2)` reference passes all **2,016/2,016** weight-two patterns. See [`implementation_capability_matrix.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/implementation_capability_matrix.json) and the per-implementation verification reports.
+.\docs\RESULTS_AND_INTERPRETATION.md:34:| `safeforge-robust-72-64-mapping-v1-archived-table-decoder` | 32 | 16.667% |
+.\docs\RESULTS_AND_INTERPRETATION.md:35:| `shortened-bch-71-64-t1-v1-reference-decoder` | 32 | 16.667% |
+.\docs\RESULTS_AND_INTERPRETATION.md:36:| `shortened-bch-78-64-t2-v1-reference-decoder` | 32 | 16.667% |
+.\docs\RESULTS_AND_INTERPRETATION.md:37:| `shortened-bch-85-64-t3-v1-reference-decoder` | 32 | 16.667% |
+.\docs\RESULTS_AND_INTERPRETATION.md:45:| `shortened-bch-85-64-t3-v1-reference-decoder` | 192 | 0 | 21.937057% | 0.0111846515004 J |
+.\docs\RESULTS_AND_INTERPRETATION.md:51:| `base` | 192/192 | 100.000000% |
+.\docs\RESULTS_AND_INTERPRETATION.md:52:| `logic_dominated` | 190/192 | 98.958333% |
+.\docs\RESULTS_AND_INTERPRETATION.md:53:| `storage_dominated` | 192/192 | 100.000000% |
+.\docs\RESULTS_AND_INTERPRETATION.md:55:### Parameterized adaptive threshold
+.\docs\RESULTS_AND_INTERPRETATION.md:57:The gross oracle advantage relative to `shortened-bch-85-64-t3-v1-reference-decoder` is **0.0111846515004 J** across comparable scenarios. That value is the maximum tolerable *total hypothetical* adaptation overhead under the analytical model; physical MUX, controller, transition, and re-encoding costs are null, so this is not a measured break-even.
+.\docs\RESULTS_AND_INTERPRETATION.md:61:**Strongest negative:** No physical selection, implementation PPA comparison, MUX/controller overhead, or measured break-even result is possible; the repository SEC-DAEC and historical cyclic/BCH-labelled implementations remain rejected.
+.\docs\RESULTS_AND_INTERPRETATION.md:63:Machine-readable sources: [`software_study_summary.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/software_study_summary.json), [`pareto_and_regret.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/pareto_and_regret.json), and [`uncertainty_and_sensitivity.json`](../green_ecc_physical_simulation/multi_ecc_evaluation/uncertainty_and_sensitivity.json).
+.\docs\RESULTS_AND_INTERPRETATION.md:72:Five implementations win at least one scenario region. This demonstrates that the combination of verified functional profiles, reliability requirements and analytical cost parameters is sufficiently non-degenerate to change the recommendation. It does **not** prove that the same winners would emerge after technology mapping, layout, workload tracing or silicon measurement.
+.\docs\RESULTS_AND_INTERPRETATION.md:74:## Pareto participation across scenarios
+.\docs\RESULTS_AND_INTERPRETATION.md:76:![Multi-scenario Pareto and selection summary](figures/multi_scenario_pareto_summary.svg)
+.\docs\RESULTS_AND_INTERPRETATION.md:78:*A candidate can be non-dominated without winning the lexicographic energy rule. Counts are exact across the 192-point preregistered grid. Data: [`figure_data/multi_scenario_pareto_summary.json`](figure_data/multi_scenario_pareto_summary.json).*
+.\docs\RESULTS_AND_INTERPRETATION.md:80:The broad Pareto participation of BCH and synthesized candidates indicates trade-offs across SDC, DUE, energy, encoded bits and structural complexity. It is not a count of physical superiority.
+.\docs\RESULTS_AND_INTERPRETATION.md:88:The current structural model is useful for explaining why analytical logic activity changes among policies. Because generic cell count is null for most normalized records and no Liberty/PDK context exists, neither the normalized complexity nor depth proxy establishes area, frequency or energy.
+.\docs\RESULTS_AND_INTERPRETATION.md:96:The current research contribution is therefore a software/evidence result: extensible identity handling, exact functional verification with negative-result retention, automatic fair normalization, and scenario-aware analytical selection. The strongest missing result is equally important: there is no physical winner, no same-code physical PPA comparison, no MUX/controller or transition measurement, and no reproducible physical adaptive break-even.
+.\docs\SAFEFORGE_EXPERIMENTAL_PROTOCOL.md:3:No hardware measurement is fabricated in this repository. The exact human experiment still required is:
+.\docs\SAFEFORGE_EXPERIMENTAL_PROTOCOL.md:18:For controlled replay, load each emitted `positions` vector into the declared word through the board-specific injector, decode with the frozen generated policy, and record corrected/DUE/SDC plus latency. Keep injected replay (evidence level B) separate from naturally observed raw events (level A). Train/compile on all but one device/voltage/source group; evaluate the held-out group once without target, radius, placement, or policy retuning.
+.\docs\SAFEFORGE_METHOD.md:3:SafeForge is a finite-support, distributionally robust compiler for SRAM ECC policies. Given a systematic binary matrix, a nominal conditional fault PMF, an expanded bit-exact error support, and an explicit ambiguity set, it executes the actual decoder for every error vector and compiles each nonzero syndrome to either `correct(error_vector)` or deliberate `DUE`.
+.\docs\SAFEFORGE_METHOD.md:25:For `r <= 4` and zero SDC, exact co-synthesis enumerates every ordered selection of distinct nonzero, non-basis systematic data columns. For each matrix it constructs the maximal action set that is SDC-free for every PMF on the declared support, then applies the safety-first hierarchy. The search visits all 7,920 `(8,4)` ordered candidates and proves optimality within that explicit scope.
+.\docs\SAFEFORGE_METHOD.md:27:For 64 data bits, arbitrary-matrix co-synthesis is retained as a negative scalability result. Practical evaluation fixes conventional extended-Hamming SECDED, Hsiao SECDED, or an existing generated `(72,64)` matrix and compiles decisions over its 255 nonzero syndrome classes. The frozen deterministic class rule generates certified feasible SDC-DUE operating points. It is not presented as a globally optimal constrained frontier. The physical-column mapping search remains a verified heuristic, not a global optimum.
+.\docs\SAFEFORGE_METHOD.md:35:Generated SystemVerilog contains the encoder/syndrome network, correction-mask/action table, abstain/DUE signal, 128-bit safety-envelope identifier, envelope-valid input, fallback selection, and no-certified-mode signal. The validation runner archives Icarus execution, Verilator lint, and Yosys/ABC generic cell/depth reports with exact versions and commands. Structural XOR/table and generic-cell counts are not physical area, timing, power, or PPA. Physical claims require a characterized library and synthesis/place-and-route flow.
+.\docs\SAFEFORGE_DECISIVE_AUDIT.md:9:| Genuinely new here | Unit-explicit system-FIT/tail conversion; exact finite syndrome-action robust compiler with constraint generation and TV decomposition; independent optimality replay; finite constrained placement library and strong sequential baseline |
+.\docs\SAFEFORGE_DECISIVE_AUDIT.md:14:| Characterized/P&R/measured hardware | None for the decisive policy |
+.\docs\SAFEFORGE_DECISIVE_AUDIT.md:16:The main matrix is conventional Hsiao/SECDED. The prior “robust” 72-bit artifact and this phase’s placements preserve the column multiset, so they are not counted as new codes. Policy-only, placement-only, sequential, and joint effects are reported separately. The 427-vector universe is hashed; mass outside it is explicit. Every exact policy certificate binds the matrix, policy, placement, support, ambiguity, and source distribution identities, and says that the tail is not covered. The system budget separately binds the tail statement.
+.\docs\SAFEFORGE_DECISIVE_AUDIT.md:42:The previous real tool runs demonstrate RTL executability on their own mappings. They do not establish mapped cell area, delay/slack, power, leakage, routing displacement, or controller overhead for the decisive interleaved policy. Generic cell counts are correctly retained as structural evidence. The requested characterized open flow remains unexecuted.
+.\docs\SAFEFORGE_DECISIVE_AUDIT.md:50:Reject the positive “substantial certified availability recovery” hypothesis for the evaluated domain. Preserve the exact compiler as infrastructure, freeze further decoder mechanisms, and prioritize the specified measurement campaign. Do not claim first, universal, globally optimal, production-ready, or top-tier.
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:13:- Hamming/Hsiao matrix selection for hardware power, area, and delay;
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:14:- fault-pattern-specific memory codes such as SEC-DAEC and TAEC;
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:15:- adaptive or reconfigurable memory protection;
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:44:5. deployment is rejected outside a validated distribution envelope or when
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:61:| [Ghosh, Basu, and Touba, *Reducing Power Consumption in Memory ECC Checkers*, ITC 2004](https://doi.org/10.1109/TEST.2004.1387407) | Selects/optimizes SEC-DED H | No; workload switching traces | No | Yes: power, area, delay | No | No | Optimizes one Hamming/Hsiao checker rather than PMF protection or a shared portfolio. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:62:| [Basak et al., *Reconfigurable ECC for Adaptive Protection of Memory*, MWSCAS 2013](https://doi.org/10.1109/MWSCAS.2013.6674841) | No | Reliability state, not enumerated PMF synthesis | No | Architecture evaluated after choosing codes | No | Reconfigurable protection architecture | Selects protection strength spatially/temporally; does not synthesize portfolio matrices and shared logic together. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:63:| [Shin et al., *Adaptive ECC for Tailored Protection of Nanoscale Memory*, IEEE Design & Test 2017](https://doi.org/10.1109/MDAT.2016.2615844) | No | Runtime failure/reliability state | No | Reconfigurable hardware is evaluated | No | Yes, adaptive hardware | Tailors existing protection at runtime; does not generate PMF-specialized matrices with SDC certificates. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:64:| [Luo et al., CREAM, *Using ECC DRAM to Adaptively Increase Memory Capacity*](https://arxiv.org/abs/1706.08870) | No | No enumerated fault PMF | No | Yes, capacity/performance layouts | No | Uses existing ECC/parity modes | Trades DRAM reliability for capacity using catalogue modes rather than co-synthesized codes. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:65:| [Zhang et al., *Chameleon: An Adaptive Thermal-Aware ECC Scheme*, IEEE TVLSI 2019](https://doi.org/10.1109/TVLSI.2019.2913207) | No | Temperature-dependent reliability, not error-vector PMF synthesis | No | Adaptive cache hardware evaluated | No | Adaptive strength | Temperature selects existing strengths; no matrix/shared-graph synthesis or exhaustive SDC classification. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:68:| [Reviriego et al., *Low Delay SEC-DAEC Codes*, Microelectronics Reliability 2019](https://doi.org/10.1016/j.microrel.2019.03.012) | Constructs H | Pattern class, not PMF mass | Partial | Yes: decoder delay guides construction | No | No | Hardware-aware single-family construction without PMF/SDC portfolio optimization. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:69:| TAEC and burst/MBU-oriented memory-code literature, including the adjacent-error decoder line summarized by [Maity et al.](https://doi.org/10.1049/iet-cdt.2019.0268) | Often | Usually pattern classes | Varies | Often after or during construction | No evidence found | No evidence found | Establishes fault-pattern-specific matrices; pattern specialization alone is not the contribution. |
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:116:Kill criterion: the best generated matrix should remain fixed, or migration and
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:127:No claim is made about soft-decision codes, arbitrary BCH/LDPC construction,
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:128:continuous analog faults, all SRAM technologies, or optimal physical PPA.
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:139:6. solver status, search coverage, runtime, timeout, and optimality statement;
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:140:7. a machine-readable certificate validated independently of the generator.
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:149:- “first adaptive/reconfigurable memory ECC”;
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:151:- physical area, delay, power, energy, leakage, or carbon improvement without
+.\docs\PORTFOLIO_COSYNTHESIS_NOVELTY_GATE.md:153:- robustness to measured SRAM faults when the benchmark PMFs are synthetic;
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:5:We test whether physical column placement and syndrome-level abstention can recover useful availability for a fixed conventional `(72,64)` Hsiao SEC-DED code under a system-derived silent-data-corruption constraint. We formulate exact finite-support robust policy compilation, independently verify its risk and optimality certificates, and enumerate 87 implementation-compatible data-column placements without changing the algebraic code. At a declared 1-system-SDC-FIT engineering point with 1000 relevant system event FIT, a `1e-5` outside-support bound, and TV radius 0.05, the modeled-support SDC budget is `0.0009900099`. The exact fixed-placement policy has worst-case DUE 1.0. Even/odd interleaving reduces it to `0.9810098871`, but the same placement is selected by an independent collision-isolation objective followed by policy compilation; joint co-design adds exactly zero over this strong sequential baseline. Synthetic held-out distributions also produce conditional SDC from 0.01875 to 0.234375 because they contain vectors outside the certificate universe. No raw bit-exact experimental archive and no characterized-library result for the decisive policy are available. The central positive hypothesis is therefore rejected in the evaluated domain. The result identifies support completeness, not optimizer quality, as the limiting resource for certified availability.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:17:The finite universe contains 427 unique 72-bit vectors from four synthetic benchmark families. We group vectors by syndrome and allow abstention, modeled same-syndrome correction representatives, and a verified conventional fallback. A robust multiple-choice MILP minimizes worst-case DUE subject to worst-case SDC. Exact adversarial separation covers total variation, structured intervals, and declared geometry transport. At the primary TV radius, the SDC budget is below the radius; therefore only actions with zero SDC across all 427 vectors are feasible, giving a closed-form exact decomposition. The independent verifier reconstructs all loss vectors and checks the risk primal/dual witnesses and zero optimality gap.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:25:Even/odd interleaving plus the exact policy has zero modeled-support SDC, nominal DUE `0.9310098871`, and certified worst-case DUE `0.9810098871`. This is an absolute 0.0189901129 DUE reduction relative to policy-only fixed placement. It is not a useful availability recovery: only about 1.9% worst-case event probability remains protected.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:27:Most importantly, a placement-only objective that maximizes mass in syndrome-isolated groups selects the same even/odd map. Compiling its policy produces exactly the joint result. The joint-versus-sequential DUE reduction is 0.0, with zero optimality gap over the declared library. The intended co-design claim does not survive the strongest baseline.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:31:No evidence level A raw bit-exact dataset or level B measurement-derived replay was located and licensed for ingestion. Five primary studies support only level C aggregate constraints in this repository. They do not provide a public physical/logical map and event vectors sufficient for a 72-bit replay.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:35:The tail is decisive. With the declared `eta=1e-5`, the zero-support-SDC policy projects to 0.01 system FIT. With no tail bound, fail-closed projection is 1000 FIT. Thus the result cannot be deployed until event exposure and support completeness receive confidence-bounded measurement.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:39:Prior SafeForge RTL replay executed 1,708 modeled 72-bit checks and generic Yosys/ABC synthesis. It reported 311 generic cells for a nominal table and 380 for a different robust mapping, with topological depths 38 and 40. Those values are structural—not physical PPA—and do not characterize the decisive even/odd policy. No open Liberty mapping, OpenSTA timing, OpenROAD placement/routing, switching power, leakage, memory-macro routing, or energy result was completed for this gate. Hardware practicality is therefore unproven, not estimated.
+.\docs\SAFEFORGE_DECISIVE_MANUSCRIPT.md:49:A top-grade archival submission needs a raw campaign with physical/logical mapping, device/voltage/source holdouts, a confidence-bound event rate and outside-support probability, and characterized synthesis/STA or placed routing for the exact generated policy. If those measurements shrink the ambiguity/tail while preserving the spatial placement advantage, the positive availability claim can be retested. Until then, GREEN-ECC scheduling remains downstream and should not mask the decoder-validity failure.
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:24:| Robust abstaining, fixed Hsiao | **1** | 0 | 0 | 0 |
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:26:| Robust co-synthesized matrix/policy | **1** | 0 | 0 | 0 |
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:34:| Robust abstaining, fixed Hsiao | 3 | 192 | 45 | 15 | 60 |
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:36:| Robust co-synthesized matrix/policy | 8 | 112 | 120 | 15 | 135 |
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:38:Thus both `delta* = 1` results are strictly 28-pattern statements. The fixed robust policy encounters six SDC vectors already in the weight-at-most-two universe, while the co-synthesized policy encounters twelve. Neither is universally safe.
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:66:| Robust-mapping, zero-SDC declared-support policy | 56 | 773,000 | 306,676 | 11,326 | 318,002 |
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:76:## Four distinct robustness claims
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:78:- **Within-support robustness**: a verified risk bound for every PMF in an ambiguity set on one explicit finite support.
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:79:- **Bounded-weight robustness**: exhaustive execution over all errors through a stated weight; it says nothing about the tail without `eta`.
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:80:- **Open-support robustness**: a complete bound combining a support-conditional certificate with an explicit tail-probability bound.
+.\docs\SAFEFORGE_SUPPORT_AUDIT.md:81:- **Statistically calibrated robustness**: an ambiguity/tail bound derived from samples with stated sampling assumptions and coverage. None of the synthetic or literature-sensitivity radii in this study is statistically calibrated.
+.\docs\TROUBLESHOOTING.md:42:This is expected with `structural-yosys-local-v1`, `not-characterized-v1`, or unavailable physical backends. Read `evidence_level`, `backend_reason`, and `unsupported_fields`. Installing Yosys alone does not provide Liberty timing, PDK area, power, routing or memory macro energy.
+.\docs\TROUBLESHOOTING.md:46:The current expected output is `candidate_count: 0`, `winner: null`. Each record is rejected for non-physical evidence or a null objective. Do not substitute analytical energy or structural depth into the physical selector.
+.\docs\SCENARIOS_AND_WORKLOADS.md:9:| Supply voltage | 0.8, 1.0 V | Analytical dynamic-energy scaling |
+.\docs\SCENARIOS_AND_WORKLOADS.md:12:| Grid carbon intensity | 0.1, 0.7 kgCO₂e/kWh | Operational-carbon scenario input |
+.\docs\SCENARIOS_AND_WORKLOADS.md:17:The product is `2×2×2×2×3×2×2 = 192` scenarios. A `scenario_id` is the canonical hash of the study ID and factor tuple; categorical heatmaps display only evaluated cells and never interpolate.
+.\docs\SCENARIOS_AND_WORKLOADS.md:28:An implementation that fails either limit is infeasible before Pareto dominance. Verification rejection is applied even earlier.
+.\docs\SCENARIOS_AND_WORKLOADS.md:32:Each profile assigns per-codeword-access probability to exact functional classes: single, adjacent double, non-adjacent double, adjacent triple and non-adjacent triple. The probabilities are explicit sensitivity inputs with provenance saying they are uncalibrated and not radiation measurements. Adjacency means consecutive encoded-codeword coordinates and never crosses a codeword, word, bank or page boundary.
+.\docs\SCENARIOS_AND_WORKLOADS.md:36:Three deterministic scale tuples are reevaluated for all 192 scenarios:
+.\docs\SCENARIOS_AND_WORKLOADS.md:38:| Model | Bit energy scale | XOR energy scale | Leakage scale |
+.\docs\SCENARIOS_AND_WORKLOADS.md:44:There is one deterministic evaluation per scenario/model and no random sampling, so a seed is not applicable. The study also records value intervals (for example 0.5×–2× analytical energy) as sensitivity metadata; they are not confidence intervals.
+.\docs\SAFEFORGE_LITERATURE.md:3:SafeForge does not claim to invent Hsiao SECDED, MAP/coset-leader decoding, abstention, minimax decoding, distributionally robust optimization, Wasserstein ambiguity, or correction masking. Its contribution is an SRAM-oriented certifying compiler that joins an explicit physical fault uncertainty set, correction-or-abstention syndrome policy, synthesizable RTL, solver-independent risk certificate, and fail-closed deployment gate.
+.\docs\SAFEFORGE_LITERATURE.md:9:- M. Y. Hsiao, “A Class of Optimal Minimum Odd-weight-column SEC-DED Codes,” *IBM Journal of Research and Development* 14(4), 1970, DOI `10.1147/rd.144.0395`.
+.\docs\SAFEFORGE_LITERATURE.md:10:- L. Wei, Z. Li, M. R. James, and I. R. Petersen, “A Minimax Robust Decoding Algorithm,” *IEEE Transactions on Information Theory*, 2000, DOI `10.1109/18.841200`.
+.\docs\SAFEFORGE_LITERATURE.md:11:- P. M. Esfahani and D. Kuhn, “Data-driven distributionally robust optimization using the Wasserstein metric,” *Mathematical Programming*, 2018, DOI `10.1007/s10107-017-1172-1`.
+.\docs\SAFEFORGE_LITERATURE.md:23:These works establish that multiplicity, locality, device family, voltage, and operating mode matter. They do not provide the bit-exact 72-bit logical traces and layout maps needed to call the executable SafeForge PMF measured. Source-specific aggregates are therefore encoded as structured interval constraints; they are never pooled into a fabricated distribution.
+.\docs\SAFEFORGE_LITERATURE.md:27:The paper title is **“SafeForge: Certifying SRAM Error Correction Under Fault-Model Uncertainty.”** It claims finite-support risk certification and explicit tail accounting, not universal safety; achieved SDC-DUE operating points, not a globally optimal risk frontier; generic RTL/synthesis evidence, not characterized PPA; and literature-derived uncertainty sensitivity, not silicon validation.
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:25:For class \(c\) with exact error-mask set \(\mathcal E_c\), the measured correction fraction is
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:33:Example: bounded SEC-DAEC has `f_corr=10/63` for its adjacent-double data universe and `f_SDC=53/63`; a family-level correction guarantee is disproved.
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:59:`C` is a fitted technology constant, `Φ_rel` relative neutron flux (dimensionless), `A_sens` sensitive area in µm², and `Qcrit`/`Qs` are femtocoulombs; output is failures per \(10^9\) node-hours (FIT/node). Source: `ser_model.py::ser_hazucha`. This is an analytical fitted model, not radiation measurement. Altitude/latitude scaling is an empirical approximation or user override.
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:64:python eccsim.py reliability hazucha --qcrit 1.0 --qs 0.5 --area 1.0 --flux-rel 1.0
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:82:`w` is bits/word; `λ1=FIT_bit/10^9` is upsets/hour/bit; `τ` is scrub interval in hours; `C_ECC` is dimensionless coverage. Output is FIT/word. Longer `τ` increases accumulated-double exposure. This legacy coverage factory contains nominal family assumptions, including TAEC/SEC-DAEC aliases; those assumptions must not override the multi-ECC exact negative verification.
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:86:In the multi-ECC scenario study, voltage scales dynamic bit/XOR energy with \(V^2\). Temperature linearly interpolates a configured leakage multiplier between 25 °C and 85 °C. Neither changes exact decoder behavior. In the legacy leakage model, current density approximately doubles every 15 °C. These are model assumptions with bounded configured ranges, not measurements.
+.\docs\RELIABILITY_AND_ERROR_MODELS.md:96:| FIT | Failures in time | failures/10⁹ hours, analytical unless measured source supplied |
+.\docs\SAFEFORGE_MANUSCRIPT.md:5:Fault-aware syndrome decoding can improve correction on an assumed SRAM fault distribution, but the same specialization can silently corrupt data after distribution shift. SafeForge is an SRAM-oriented certifying compiler that generates syndrome correction/abstention policies, synthesizable RTL, and independently verifiable worst-case SDC bounds under explicit fault-distribution uncertainty. The compiler treats silent data corruption (SDC) and detected uncorrectable error (DUE) as separate risks, emits an adversarial PMF and dual certificate, and gates deployment on support, ambiguity radius, tail probability, certificate integrity, and system SDC policy. Exhaustive `(8,4)` evaluation shows both the benefit and the boundary: nominal policies reach high conditional correction, but the zero-SDC `delta*=1` result holds only on a declared 28-vector support and disappears on broader error universes. At `(72,64)`, fixed established matrices support practical syndrome-level policy compilation and expose an SDC-DUE frontier, while arbitrary matrix co-synthesis remains a negative scalability result. Aggregate radiation and undervolting measurements are represented as structured ambiguity constraints rather than fabricated bit-exact PMFs. The artifact includes solver-independent verification, full bounded-universe audits, synthesizable RTL, generic Yosys/ABC structure, and fail-closed scheduler tests.
+.\docs\SAFEFORGE_MANUSCRIPT.md:15:The work does not claim a fundamentally new `(8,4)` code, universal safety, practical 64-bit arbitrary-matrix co-synthesis, superior shared hardware, measured silicon behavior, or physical PPA.
+.\docs\SAFEFORGE_MANUSCRIPT.md:21:The `(8,4)` generated matrix is extended-Hamming/Hsiao-equivalent. Controlled ablations therefore attribute gains to matrix representation only when the decoder and physical placement are held fixed. In this experiment changing the equivalent parity-check representation with a single-bit decoder changes nominal correction by `0`; changing to an unweighted syndrome/coset-leader policy adds `0.45`; the tested PMF specialization adds `0`; and robust physical placement recovers `0.44` correction for the zero-SDC abstaining policy. The headline nominal `0.97` correction is not evidence of a new algebraic code.
+.\docs\SAFEFORGE_MANUSCRIPT.md:31:On the declared 28-vector support, the fixed-code and co-synthesized robust policies have zero SDC for every PMF and hence TV `delta*=1`. On all 255 nonzero errors, their SDC totals are respectively `60/255` and `135/255`, so the corresponding zero-SDC radius is zero. The complete enumeration is the decisive negative result: certification is support-conditional, not universal. Tail risk is lifted with
+.\docs\SAFEFORGE_MANUSCRIPT.md:41:SafeForge retains 64-bit matrix co-synthesis as a failed scalability result and compiles policies over the 255 nonzero syndrome classes of fixed matrices. Dimension-matched conventional extended-Hamming SECDED, Hsiao SECDED, three existing generated matrices, and the existing robust physical mapping are evaluated. No verified dimension-matched SEC-DAEC matrix is present. The modeled TAEC wrapper reuses SECDED and has an adjacent-triple/single-error collision. The checked-in BCH example is `(63,51)` and its demonstrated triple collision means it is not used as verified BCH evidence.
+.\docs\SAFEFORGE_MANUSCRIPT.md:43:At TV radius `0.05`, fixed Hsiao with zero allowed SDC corrects `0.0394` nominal mass and has `0.9606` nominal DUE and worst-case DUE `1.0`. Allowing worst-case SDC `0.05` raises correction to `0.3828` and lowers worst-case DUE to `0.6672`; an `epsilon=0.1` configuration achieves `0.4774` correction, nominal DUE `0.4864`, worst-case SDC `0.0861`, and worst-case DUE `0.5364`. The robust physical mapping follows a similar frontier. The existing generated spatial matrix reaches `0.9839` nominal correction and `0.0661` worst-case DUE at `epsilon=0.05`, but its zero-SDC point is infeasible at this radius.
+.\docs\SAFEFORGE_MANUSCRIPT.md:45:These are certified feasible, achieved operating points produced by the frozen deterministic syndrome-class compiler rule; no global frontier-optimality claim is made. No preferred epsilon is selected because the repository has no system reliability requirement from which to derive one.
+.\docs\SAFEFORGE_MANUSCRIPT.md:49:Primary alpha/neutron/voltage studies report device-specific aggregate facts but not reusable 72-bit logical error traces. SafeForge retains each source separately. Examples include a lower bound above `0.15` on multicell-upset fraction below 550 mV in a 5-nm SRAM alpha experiment, a `0.0559` to `0.277` cross-device FPGA neutron MCU sensitivity range, and a greater-than-`0.90` correctable/single-bit aggregate in an undervolted FPGA BRAM study. These become linear constraints over multiplicity categories. They are not pooled, are not sampling confidence intervals, and are not called measured bit-exact PMFs.
+.\docs\SAFEFORGE_MANUSCRIPT.md:55:The RTL runner records exact Icarus, Verilator, and Yosys/ABC commands, logs, versions, and exit codes. The small campaign crosses all 16 data words with 28 modeled errors (448 checks); the 72-bit campaign crosses 427 modeled errors with four linearity representatives (1,708 checks). TAEC and BCH regressions explicitly preserve their collision cases as negative tests.
+.\docs\SAFEFORGE_MANUSCRIPT.md:57:On the same 72-bit matrix and physical mapping, generic ABC mapping reports 311 cells and a longest topological path of 38 cells for the nominal policy, versus 380 cells and 40 cells for the robust policy with envelope controls. Both have the same 240-gate syndrome XOR proxy; the nominal policy has 171 correction entries and the robust policy 56. These are generic structural results. There is no characterized library, so the paper makes no area, delay, energy, leakage, or physical-PPA claim.
+.\docs\SAFEFORGE_MANUSCRIPT.md:67:Negative findings are equally central. The strongest small-code radius is support-conditional. Bounded-weight execution reveals many SDC vectors outside the declared model. Zero-SDC fixed-code decoding can impose impractical DUE. The 64-bit arbitrary-matrix search is not a practical or globally optimal co-synthesis result. Published aggregates do not establish a bit-exact PMF. The TAEC/BCH examples do not validate their advertised correction strengths. Generic synthesis is not physical characterization.
+.\docs\SAFEFORGE_MANUSCRIPT.md:77:The novelty scope is frozen. Remaining work requires new measured traces, a characterized library, or an explicit system risk requirement; those inputs would extend evidence, not change the contribution.
+.\docs\RESEARCH_NOVELTY.md:22:- **H5 — robust hysteresis:** uncertainty-aware benefit margins suppress unsafe
+.\docs\RESEARCH_NOVELTY.md:33:| Shin et al., *Adaptive ECC for Tailored Protection of Nanoscale Memory*, IEEE Design & Test 34(6), 2017, DOI [10.1109/MDAT.2016.2615844](https://doi.org/10.1109/MDAT.2016.2615844) | Reconfigurable ECC for run-time protection in nanoscale memory | Variable protection strength | The verified abstract establishes reconfiguration, but is insufficient to verify complete trace scheduling with migration and dwell cost | Optimizes an ordered ECC schedule and exposes all missing transition terms |
+.\docs\RESEARCH_NOVELTY.md:34:| Luo et al., *Using ECC DRAM to Adaptively Increase Memory Capacity (CREAM)*, HPCA 2018, [arXiv:1706.08870](https://arxiv.org/abs/1706.08870) | Multiple reliability/capacity layouts and region-aware hardware support | Capacity and reliability adaptation | Layout and controller overhead are evaluated; the paper is not used here as evidence of a migration-cost-aware ECC sequence optimizer | Separates snapshot benefit from sequence-level transition cost and remaining horizon |
+.\docs\RESEARCH_NOVELTY.md:35:| Wu et al., *An Adaptive Thermal-Aware ECC Scheme for Reliable STT-MRAM LLC Design*, IEEE TVLSI 27(8), 2019, DOI [10.1109/TVLSI.2019.2913207](https://doi.org/10.1109/TVLSI.2019.2913207) | Temperature-dependent ECC-strength adaptation (Chameleon) | Thermal reliability, performance, and energy | Hardware overhead is studied; available metadata does not verify offline trace DP with migration break-even | Adds explicit transition matrices, dwell history, safe abstention, and architecture selection |
+.\docs\RESEARCH_NOVELTY.md:36:| Stefani et al., *DEMC: A Dynamic Multi-ECC Memory Controller with Per-Block Adaptation*, Integration 109, 2026, DOI [10.1016/j.vlsi.2026.102728](https://doi.org/10.1016/j.vlsi.2026.102728) | Per-block ECC response to monitored error rate with controller synthesis | Online error-rate-based code selection | The published abstract/method preview reports dynamic operation and synthesis; a full-trace transition-cost scheduler is not established by the accessible evidence | Evaluates static, lookup, oracle, greedy, hysteretic, exact, and robust schedules on the same trace |
+.\docs\RESEARCH_NOVELTY.md:37:| Benini, Bogliolo, and De Micheli, *A Survey of Design Techniques for System-Level Dynamic Power Management*, IEEE TVLSI 8(3), 2000, DOI [10.1109/92.845896](https://doi.org/10.1109/92.845896) | State transitions, workload dependence, and break-even reasoning are established system-level power-management ideas | Dynamic power-state policy | Not ECC-specific | Applies transition-aware reasoning to ECC re-encoding, protected format metadata, and reliability constraints |
+.\docs\RESEARCH_NOVELTY.md:38:| Gupta et al., *ACT: Designing Sustainable Computer Systems with an Architectural Carbon Modeling Tool*, ISCA 2022, DOI [10.1145/3470496.3527408](https://doi.org/10.1145/3470496.3527408) | Architectural lifecycle-carbon modeling | Operational and embodied carbon | Not an ECC switching scheduler | Keeps lifecycle-carbon terms explicit and applies the same break-even discipline to adaptability |
+.\docs\RESEARCH_NOVELTY.md:40:The closest literature verifies that adaptive ECC, reconfigurable protection,
+.\docs\RESEARCH_NOVELTY.md:41:per-region reliability, dynamic power management, and lifecycle carbon are all
+.\docs\RESEARCH_NOVELTY.md:50:   exact dynamic program minimizes lifecycle energy or carbon across an ordered
+.\docs\RESEARCH_NOVELTY.md:51:   trace after reliability, latency, area, safety, dwell, and switch-count
+.\docs\RESEARCH_NOVELTY.md:78:  switches repeatedly and becomes worse than the best fixed design after its
+.\docs\RESEARCH_NOVELTY.md:84:- Universal optimality across unmodeled ECCs, technologies, workloads, or fault
+.\docs\RESEARCH_NOVELTY.md:86:- Measured, synthesized, silicon-validated, 14/16 nm, or PVT-characterized
+.\docs\RESEARCH_NOVELTY.md:87:  adaptive overhead.
+.\docs\RESEARCH_NOVELTY.md:88:- Technology-specific energy/carbon savings from the example configuration.
+.\docs\RESEARCH_NOVELTY.md:91:- Forecast accuracy, online optimality, or real-workload benefit from the
+.\docs\transition_aware_experiments.md:16:The study deliberately does not reconstruct the unavailable 189 scenarios. It
+.\docs\transition_aware_experiments.md:26:8. a grid-carbon phase change;
+.\docs\transition_aware_experiments.md:35:- best static ECC across the full trace;
+.\docs\transition_aware_experiments.md:40:- chance-constrained robust dynamic programming; and
+.\docs\transition_aware_experiments.md:49:not be cited as measured or synthesized SRAM results.
+.\docs\transition_aware_experiments.md:51:- On the long one-time phase change, the shared whole-memory adaptive schedule
+.\docs\transition_aware_experiments.md:52:  uses SECDED for six epochs and TAEC for six. It costs `1.096282912 J` versus
+.\docs\transition_aware_experiments.md:53:  `1.20288 J` for the best fixed design: `0.106597088 J` (8.86%) net saving
+.\docs\transition_aware_experiments.md:63:  `0.224997472 J`, worse than the `0.16384 J` best fixed design. Exact
+.\docs\transition_aware_experiments.md:65:  the adaptive design), so joint co-design selects fixed SEC-DAEC.
+.\docs\transition_aware_experiments.md:68:  suppresses all ten (`0.0679 J` within the adaptive design).
+.\docs\transition_aware_experiments.md:69:- The 6-by-6 duration/transition sweep contains 22 adaptive and 14 fixed cells,
+.\docs\transition_aware_experiments.md:71:  adaptive winner.
+.\docs\transition_aware_experiments.md:72:- The best adaptive granularity changes between whole-memory and bank designs.
+.\docs\transition_aware_experiments.md:79:- On the uncertain trace, the best adaptive design is bank-granular, but its
+.\docs\transition_aware_experiments.md:81:  SEC-DAEC. Perturbation tests yield mean epoch-mode agreement 0.6544 and mean
+.\docs\transition_aware_experiments.md:82:  regret `0.01098 J` for the nominal robust schedule.
+.\docs\transition_aware_experiments.md:86:The main break-even sweep varies accesses per epoch and transition-energy
+.\docs\transition_aware_experiments.md:94:wall-clock measurements remain host-dependent.
+.\docs\transition_aware_experiments.md:101:routing cost, measured or defensible workload traces, and calibrated migration
+.\docs\transition_aware_experiments.md:102:energy/latency. Until those inputs exist, absolute energy and carbon savings are
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:9:linear-code separation, distributionally robust expectation, and exact rare-event
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:34:belong to the same decision class; their latency, energy, or recovery cost may differ,
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:109:These equations give the entire nominal frontier by a linear program, and a robust
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:401:  parameters, not measured confidence radii.
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:404:then integrates the energy/LET-dependent cross-section against the mission spectrum.
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:410:([AMD UG116, rev. 10.20](https://docs.amd.com/r/en-US/ug116/SEU-and-Soft-Error-Measurements)).
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:419:| TV/interval/Wasserstein/tail DUE bounds | Robust expectation and Wasserstein duality; minimax decoding with erasure | SafeForge uses finite binary losses and a memory-specific tail. The TV event formula and Wasserstein dual are standard. | `epsilon<delta` explains the repository's all-or-reject point, but follows immediately from the standard TV support function. | Direct corollary |
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:441:- **SEC-DAEC, placement, and erasures.** Dutta and Touba construct selective-cycle-
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:456:- **Minimax and compound decoding.** Robust decoding under uncertain noise, minimax
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:461:- **Reject option and distribution shift.** Optimal rejection is classical and the
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:465:- **DRO.** Wasserstein ambiguity, performance guarantees, and tractable robust
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:468:  on-die ECC, HARP error profiling, and current fault-aware adaptive on-die ECC all use
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:475:  tradeoff and optimal decision structure; Witsenhausen gives the zero-error graph
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:481:results are a corrected Bayes/reject identity, standard robust-expectation formulas,
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:485:## 6. Acquisition plan (no fabricated measurements)
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:515:can be automated. Physical undervolting requires FPGA boards and a programmable power
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:520:required, and no measurements may be synthesized or back-filled.
+.\docs\SAFEFORGE_OBSERVABILITY_NOVELTY_GATE.md:539:   from standard robust expectation; tail behavior follows from observation fibers.
+.\docs\SimulatorOverview.md:7:- [Hamming64bit128Gb](#hamming64bit128gb)
+.\docs\SimulatorOverview.md:8:- [BCHvsHamming](#bchvshamming)
+.\docs\SimulatorOverview.md:21:## Hamming64bit128Gb
+.\docs\SimulatorOverview.md:22:`Hamming64bit128Gb.cpp` scales the SEC‑DED approach to 64‑bit words and a theoretical 128&nbsp;GB address space. The code structure mirrors the 32‑bit version but uses a standard map to hold only addresses that are actually written. It includes additional tests such as a large address space demonstration and a "Million Word Dataset" stress test.
+.\docs\SimulatorOverview.md:24:## BCHvsHamming
+.\docs\SimulatorOverview.md:25:`BCHvsHamming.cpp` provides a side‑by‑side comparison of a BCH(63,51,2) decoder with the custom SEC‑DED Hamming implementation. It runs a number of scenarios (no errors, single, double and triple bit flips, random patterns) and reports which code successfully corrected the data. A CSV/JSON summary is produced in `comparison_results.*`.
+.\docs\SimulatorOverview.md:27:The BCH path is powered by the reusable codec in [`src/bch63.hpp`](../src/bch63.hpp), which constructs GF(2^6) with the primitive polynomial x^6 + x + 1, derives the generator polynomial as the least common multiple of the minimal polynomials of α and α^3, and performs systematic encoding via polynomial division. Decoding implements Berlekamp–Massey to synthesise the error locator followed by a Chien search to find error positions, matching the double-error-correcting design described in Lin and Costello’s *Error Control Coding* (2nd ed., §6.3). Exhaustive unit tests in `tests/unit/BCH63_test.cpp` confirm that every single- and double-bit error is corrected and every weight-3 error pattern is detected.
+.\docs\SimulatorOverview.md:47:  [`Hamming64bit128Gb.cpp`](../Hamming64bit128Gb.cpp) contain the relevant
+.\docs\SimulatorOverview.md:49:- `BCHvsHamming.cpp` saves the outcome of its test scenarios to
+.\docs\SimulatorOverview.md:54:- Analysis utilities such as `plot_pareto.py` export their results to CSV (for
+.\docs\SimulatorOverview.md:55:  example, `pareto.csv`) for downstream processing.
+.\docs\SimulatorOverview.md:57:The `energy_model.py` script estimates the energy cost of a read operation based on the number of evaluated parity bits and detected errors. `ecc_selector.py` recommends an ECC scheme given runtime conditions such as bit error rate and energy budget.
+.\docs\SimulatorOverview.md:68:The wizard does not replace existing CLI paths. It collects validated inputs, prints theory/interpretation notes, constructs the exact underlying `python eccsim.py ...` command, and lets users run it, print only, or save it for reproducible execution.
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:30:Automatic FEC synthesis, adaptive ECC, Hamming/Hsiao optimization, fault-class
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:42:dependency-free exhaustive Boolean search proves optimality for small spaces. A
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:43:seeded beam search scales the experiment to 64 data bits but makes no optimality
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:46:constraints and records every accepted Pareto move.
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:58:equal-area/delay evaluation, equal-reliability physical comparison, and scheduler
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:68:STA, SPICE, and measured transition costs were unavailable. Consequently physical
+.\docs\PORTFOLIO_COSYNTHESIS_MANUSCRIPT.md:69:PPA, equal-area/equal-delay, carbon, and deployment-net-benefit claims are null.
+.\docs\SYSTEM_ARCHITECTURE.md:16:    I --> J["Pareto membership and deterministic selection"]
+.\docs\SYSTEM_ARCHITECTURE.md:27:| Adapters | Normalize linear, BCH and external encoders/decoders | `green_ecc_phy/adapters.py`, `green_ecc_phy/bch.py` |
+.\docs\SYSTEM_ARCHITECTURE.md:32:| Documentation figures | Independent Pareto audit, data export, SVG/PNG/PDF | `green_ecc_phy/pareto_validation.py`, `scripts/generate_documentation_figures.py` |
+.\docs\SYSTEM_ARCHITECTURE.md:70:    A["Adaptive shared-datapath"] --> A1["Runtime policy\ntransition + re-encoding obligations"]
+.\docs\SYSTEM_ARCHITECTURE.md:76:Fixed manifests establish a deployment identity without adaptation cost. Configurable and adaptive forms explicitly own selection logic, MUX/controller cost, state transition, metadata, and possible data re-encoding. Those costs are not measured in the current artifacts; architecture feasibility is therefore unresolved rather than free.
+.\docs\SYSTEM_ARCHITECTURE.md:88:    P --> H["hardware measurement"]
+.\docs\transition_aware_formulation.md:12:multiplier, VDD, temperature, read/write mix, reliability and latency limits,
+.\docs\transition_aware_formulation.md:13:grid carbon intensity, and uncertainty intervals. A physical design `a` fixes
+.\docs\transition_aware_formulation.md:25:For lifecycle carbon,
+.\docs\transition_aware_formulation.md:33:Energy replaces each carbon term with joules. Operational conversion uses
+.\docs\transition_aware_formulation.md:40:Reliability, latency, capacity, area, transition safety, minimum dwell, and
+.\docs\transition_aware_formulation.md:59:The primary objective is lifecycle energy or lifecycle carbon. Pareto methods
+.\docs\transition_aware_formulation.md:68:\Delta e=e_i-e_j-e_{\mathrm{adaptive}}.
+.\docs\transition_aware_formulation.md:84:For carbon,
+.\docs\transition_aware_formulation.md:89:{c_i-c_j-c_{\mathrm{adaptive}}}\right\rceil.
+.\docs\transition_aware_formulation.md:92:Within an already-instantiated adaptive design, common MUX/controller overhead
+.\docs\transition_aware_formulation.md:93:cancels between two ECC states. When comparing adaptive against fixed hardware,
+.\docs\transition_aware_formulation.md:101:\rho_{adaptive}=C_{all\ adaptability}/B_{gross,trace}.
+.\docs\transition_aware_formulation.md:110:robust scheduler requires
+.\docs\transition_aware_formulation.md:138:Replacing it with a technology result requires characterized mode energy,
+.\docs\transition_aware_formulation.md:139:leakage, area, transition latency/energy, metadata lookup, controller, and
+.\docs\transition_aware_formulation.md:140:embodied-carbon providers at the exact PVT point.
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:17:is best in the current snapshot. It selects a fixed/configurable/adaptive
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:23:Hard FIT, latency, capacity, area, dwell, and safety constraints are applied
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:25:minimizes lifecycle energy or carbon including asymmetric transitions. Fixed
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:26:and boot-configurable designs retain one ECC across the trace; adaptive designs
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:30:Comparison policies are the best static ECC, fault-regime lookup, snapshot
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:31:oracle that ignores transition costs, greedy switching, robust hysteresis,
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:32:exact transition-aware scheduling, and chance-constrained robust scheduling.
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:41:than the best fixed ECC once migration is charged. The exact scheduler retains
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:43:amortize migration, causing an adaptive shared design to win under the supplied
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:61:4. **Break-even map:** the adaptive region grows with epoch accesses and shrinks
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:62:   with migration energy.
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:67:7. **Robustness/regret:** nominal optimality and decision stability are distinct.
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:72:No Liberty, synthesis, STA, SPICE, or measured controller/MUX/migration data is
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:75:migration datapath. Traces are generated, not measured workloads. Consequently,
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:78:silicon, node-specific, universal-optimality, or “first” claim is made.
+.\docs\TRANSITION_AWARE_MANUSCRIPT.md:82:**When Is Adaptive ECC Worth It? Transition-Aware Reliability Scheduling for SRAMs**
+.\docs\portfolio_cosynthesis_formulation.md:9:silicon measurements.
+.\docs\portfolio_cosynthesis_formulation.md:36:lexicographic/Pareto-based; there is no implicit weighted sustainability score.
+.\docs\portfolio_cosynthesis_formulation.md:48:optimality. It is an equivalent finite Boolean formulation and has no solver
+.\docs\portfolio_cosynthesis_formulation.md:62:technology-independent and are not physical area, delay, energy, or leakage.
+.\docs\portfolio_cosynthesis_formulation.md:81:## Robust deployment boundary
+.\docs\portfolio_cosynthesis_formulation.md:84:allowed only inside its validated envelope and while its executed-decoder SDC and
+.\docs\portfolio_cosynthesis_formulation.md:89:physical per-access energy, leakage, latency, configuration, migration, and
+.\docs\PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md:23:code, without an optimality claim. It corrected `0.983915078095` of the modeled
+.\docs\PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md:49:mandatory ordinary-synthesis baseline and all physical area/energy/leakage/delay
+.\docs\PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md:50:claims remain unsupported. SEC-DAEC, TAEC, and BCH are recorded as incompatible
+.\docs\PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md:57:## Stage 4 - shift safety: negative robustness result
+.\docs\PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md:65:Decision: specialization is not robust without an envelope monitor and certified
+.\docs\PORTFOLIO_COSYNTHESIS_STAGE_REVIEWS.md:72:no characterized per-access energy, leakage, critical path, configuration,
+.\docs\ProjectOverview.md:15:- Which ECC variant (SEC-DED, SEC-DAEC, BCH, TAEC) provides sufficient
+.\docs\ProjectOverview.md:16:  protection without overspending energy or area?
+.\docs\ProjectOverview.md:26:- **`Hamming32bit1Gb.cpp`, `Hamming64bit128Gb.cpp`** – C++ simulators that inject
+.\docs\ProjectOverview.md:29:- **`BCHvsHamming.cpp`** – Side-by-side evaluator that compares BCH(63,51,2) with
+.\docs\ProjectOverview.md:33:- **`src/`, `telemetry.hpp`, `gate_energy.hpp`** – Shared code for loading energy
+.\docs\ProjectOverview.md:36:  technology operating points, workload assumptions and calibrated energy
+.\docs\ProjectOverview.md:38:- **`eccsim.py`, `analysis/`, `plot_pareto.py`** – Python utilities that turn raw
+.\docs\ProjectOverview.md:39:  simulator logs into Pareto frontiers, trade-off reports and visualisations.
+.\docs\ProjectOverview.md:52:   reliability-report` or `analysis/pareto.py` aggregate the raw counts into
+.\docs\ProjectOverview.md:53:   reliability metrics (FIT/MTTF), energy consumption and carbon footprint.
+.\docs\ProjectOverview.md:54:4. **Compare alternatives** by generating Pareto frontiers (`pareto.csv`),
+.\docs\ProjectOverview.md:64:sustainability impacts.  Calibration files include per-technology energy
+.\docs\ProjectOverview.md:65:consumption, while tools such as `carbon.py` and `energy_model.py` estimate how
+.\docs\ProjectOverview.md:66:extra scrubbing and decoding affect operational carbon.  Generated reports use
+.\docs\ProjectOverview.md:67:fields like `E_scrub_kWh` and `carbon_kg` to quantify those impacts explicitly.
+.\docs\ProjectOverview.md:75:   fault statistics and energy numbers.
+.\docs\ProjectOverview.md:79:   participate in Pareto and trade-off reports.

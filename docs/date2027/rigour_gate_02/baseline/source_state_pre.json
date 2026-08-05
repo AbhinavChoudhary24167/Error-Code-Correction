@@ -1,0 +1,21 @@
+{
+  "branch": {
+    "command": "git branch --show-current",
+    "exit_code": 128,
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+    "stdout": ""
+  },
+  "captured_utc": "2026-08-05T03:15:53.419783+00:00",
+  "head": {
+    "command": "git rev-parse HEAD",
+    "exit_code": 128,
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+    "stdout": ""
+  },
+  "status": {
+    "command": "git status --short --branch",
+    "exit_code": 128,
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n",
+    "stdout": ""
+  }
+}

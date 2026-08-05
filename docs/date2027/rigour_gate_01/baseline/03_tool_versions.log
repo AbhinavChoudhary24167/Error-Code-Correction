@@ -1,0 +1,63 @@
+﻿COMMAND=python --version; python3 --version; python -m pip --version; python3 -m pip --version; pytest --version; git --version; make --version | Select-Object -First 2; g++ --version | Select-Object -First 1; cmake --version | Select-Object -First 1; iverilog -V | Select-Object -First 2; vvp -V | Select-Object -First 2; yosys -V; verilator --version; pdflatex --version | Select-Object -First 1
+START_UTC=2026-08-04T17:51:43.8661921Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+Python 3.12.5
+Python 3.11.7
+pip 25.0.1 from D:\Python\Lib\site-packages\pip (python 3.12)
+
+pip 23.2.1 from C:\Users\Abhinav\.local\lib\python3.11-mingw_x86_64_ucrt\site-packages\pip (python 3.11)
+
+pytest 8.4.1
+git version 2.53.0.windows.1
+GNU Make 4.4.1
+Built for Windows32
+g++.exe (Rev3, Built by MSYS2 project) 13.2.0
+cmake : The term 'cmake' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:2 char:948
++ ... bject -First 2; g++ --version | Select-Object -First 1; cmake --versi ...
++                                                             ~~~~~
+    + CategoryInfo          : ObjectNotFound: (cmake:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)
+
+vvp : Icarus Verilog runtime version 12.0 (devel) (s20150603-1391-gd480c4d7d)
+At line:2 char:1028
++ ... Object -First 1; iverilog -V | Select-Object -First 2; vvp -V | Selec ...
++                                                            ~~~~~~
+    + CategoryInfo          : NotSpecified: (Icarus Verilog ...391-gd480c4d7d):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Copyright (c) 2001-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+Program 'verilator' failed to run: Access is deniedAt line:2 char:1071
++ ... vp -V | Select-Object -First 2; yosys -V; verilator --version; pdflat ...
++                                               ~~~~~~~~~~~~~~~~~~~.
+At line:2 char:1071
++ ... vp -V | Select-Object -First 2; yosys -V; verilator --version; pdflat ...
++                                               ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [], ApplicationFailedException
+    + FullyQualifiedErrorId : NativeCommandFailed
+ 
+34 [0x00005854] INFO pdflatex null - this process (22576) started by powershell in directory C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466 with command line: "D:\Tex (LaTex)\miktex\bin\x64\pdflatex.exe" --version
+--- END OUTPUT ---
+END_UTC=2026-08-04T17:51:59.2387057Z
+EXIT_CODE=-1

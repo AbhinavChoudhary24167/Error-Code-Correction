@@ -1,0 +1,161 @@
+﻿COMMAND=python eccsim.py doctor --json
+START_UTC=2026-08-04T17:51:43.7391538Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+{
+  "checks": [
+    {
+      "details": {
+        "executable": "D:\\Python\\python.exe",
+        "version": "3.12.5"
+      },
+      "id": "python",
+      "status": "pass",
+      "summary": "Python 3.12.5 satisfies the Python 3.10+ requirement"
+    },
+    {
+      "details": {
+        "active": "D:\\Python\\python.exe",
+        "python": "D:\\Python\\python.exe",
+        "python3": "D:\\Compiler Cpp\\ucrt64\\bin\\python3.exe"
+      },
+      "id": "python_commands",
+      "remediation": "Activate one virtual environment and use its `python -m ...` commands consistently.",
+      "status": "warning",
+      "summary": "Common Python command names resolve to different interpreters"
+    },
+    {
+      "details": {
+        "installed": "2.1.3"
+      },
+      "id": "dependency:numpy",
+      "status": "pass",
+      "summary": "numpy 2.1.3 is installed"
+    },
+    {
+      "details": {
+        "installed": "2.2.3"
+      },
+      "id": "dependency:pandas",
+      "status": "pass",
+      "summary": "pandas 2.2.3 is installed"
+    },
+    {
+      "details": {
+        "installed": "8.4.1"
+      },
+      "id": "dependency:pytest",
+      "status": "pass",
+      "summary": "pytest 8.4.1 is installed"
+    },
+    {
+      "details": {
+        "installed": "4.25.1"
+      },
+      "id": "dependency:jsonschema",
+      "status": "pass",
+      "summary": "jsonschema 4.25.1 is installed"
+    },
+    {
+      "details": {
+        "installed": "3.9.2"
+      },
+      "id": "dependency:matplotlib",
+      "status": "pass",
+      "summary": "matplotlib 3.9.2 is installed"
+    },
+    {
+      "details": {
+        "installed": "6.0.2"
+      },
+      "id": "dependency:PyYAML",
+      "status": "pass",
+      "summary": "PyYAML 6.0.2 is installed"
+    },
+    {
+      "details": {
+        "installed": "1.7.2"
+      },
+      "id": "dependency:scikit-learn",
+      "status": "pass",
+      "summary": "scikit-learn 1.7.2 is installed"
+    },
+    {
+      "details": {
+        "path": "C:\\ProgramData\\chocolatey\\bin\\make.EXE",
+        "version": "GNU Make 4.4.1"
+      },
+      "id": "tool:make",
+      "status": "pass",
+      "summary": "make is available"
+    },
+    {
+      "details": {
+        "path": "D:\\Git\\cmd\\git.EXE",
+        "version": "git version 2.53.0.windows.1"
+      },
+      "id": "tool:git",
+      "status": "pass",
+      "summary": "git is available"
+    },
+    {
+      "details": {
+        "path": "D:\\Compiler Cpp\\ucrt64\\bin\\g++.EXE",
+        "version": "g++.EXE (Rev3, Built by MSYS2 project) 13.2.0"
+      },
+      "id": "tool:g++",
+      "status": "pass",
+      "summary": "g++ is available"
+    },
+    {
+      "details": {
+        "compiler": "D:\\Compiler Cpp\\ucrt64\\bin\\g++.EXE",
+        "resolved_runtime": "D:\\GNUPlot\\gnuplot\\bin\\libstdc++-6.dll",
+        "toolchain_runtime": "D:\\Compiler Cpp\\ucrt64\\bin\\libstdc++-6.dll"
+      },
+      "id": "cpp_runtime",
+      "remediation": "Prepend D:\\Compiler Cpp\\ucrt64\\bin to PATH before running native binaries or link the GNU runtimes statically.",
+      "status": "error",
+      "summary": "Windows resolves a libstdc++ runtime that does not match g++"
+    },
+    {
+      "details": {
+        "count": "4"
+      },
+      "id": "project_files",
+      "status": "pass",
+      "summary": "Required project data files are present"
+    },
+    {
+      "details": {
+        "repository": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-rigour-gate-01-f2908466"
+      },
+      "id": "workspace",
+      "status": "pass",
+      "summary": "Repository output directory is writable"
+    },
+    {
+      "details": {
+        "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+        "version": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE: unknown option -- -"
+      },
+      "id": "tool:iverilog",
+      "status": "pass",
+      "summary": "iverilog is available"
+    }
+  ],
+  "environment": {
+    "platform": "Windows",
+    "python_executable": "D:\\Python\\python.exe",
+    "repository": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-rigour-gate-01-f2908466"
+  },
+  "overall_status": "error",
+  "remediation": [
+    "Activate one virtual environment and use its `python -m ...` commands consistently.",
+    "Prepend D:\\Compiler Cpp\\ucrt64\\bin to PATH before running native binaries or link the GNU runtimes statically."
+  ],
+  "schema_version": 1
+}
+--- END OUTPUT ---
+END_UTC=2026-08-04T17:51:44.9912600Z
+EXIT_CODE=0

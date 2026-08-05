@@ -1,0 +1,17 @@
+﻿COMMAND=bash asic/scripts/regress.sh
+START_UTC=
+2026-08-04T18:08:06.4453877Z
+CWD=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-rigour-gate-01-f2908466
+--- OUTPUT ---
+bash : The term 'bash' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:2 char:387
++ ... --') | Set-Content -LiteralPath $log -Encoding utf8; & { bash asic/sc ...
++                                                              ~~~~
+    + CategoryInfo          : ObjectNotFound: (bash:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+--- END OUTPUT ---
+END_UTC=
+2026-08-04T18:08:09.4747007Z
+EXIT_CODE=

@@ -11,7 +11,12 @@ from jsonschema import Draft202012Validator
 
 from codeforge.gf2 import is_zero_matrix, matmul, rank, transpose, validate_matrix
 
-from .hashing import canonical_hash, file_sha256, manifest_sha256
+from .hashing import (
+    RAW_BYTES_SHA256_V1,
+    canonical_hash,
+    manifest_sha256,
+    scientific_hash_matches,
+)
 from .loading import load_callable
 
 
@@ -39,6 +44,8 @@ class EccRegistry:
         self.architectures: dict[str, dict[str, Any]] = {}
         self.backends: dict[str, dict[str, Any]] = {}
         self._paths: dict[tuple[str, str], Path] = {}
+        self.source_hash_scheme = RAW_BYTES_SHA256_V1
+        self.source_hash_migrations: dict[str, dict[str, str]] = {}
 
     @classmethod
     def load(cls, registry_path: Path, *, repo_root: Path | None = None) -> "EccRegistry":
@@ -59,6 +66,11 @@ class EccRegistry:
         config = _read_json(self.registry_path)
         if config.get("schema_version") != SUPPORTED_SCHEMA_VERSION:
             raise ValueError(f"incompatible registry schema_version: {config.get('schema_version')!r}")
+        self.source_hash_scheme = str(config.get("scientific_source_hash_scheme", RAW_BYTES_SHA256_V1))
+        self._load_source_hash_migrations(
+            config.get("scientific_hash_migration"),
+            config.get("scientific_hash_migration_sha256"),
+        )
         self._load_group(config.get("codes", []), "code", "code_id", "ecc-code-manifest.schema.json", self.codes)
         self._load_group(
             config.get("implementations", []), "implementation", "implementation_id",
@@ -70,6 +82,49 @@ class EccRegistry:
         )
         self._load_backends(config.get("backends", []))
         self._validate_cross_references()
+
+    def _load_source_hash_migrations(self, raw: object, expected_hash: object) -> None:
+        if raw is None:
+            return
+        path = self._resolve_registry_path(str(raw))
+        payload = _read_json(path)
+        if not isinstance(expected_hash, str) or canonical_hash(payload) != expected_hash:
+            raise ValueError(f"{path}: broken scientific hash migration identity")
+        if payload.get("schema_version") != 1 or payload.get("scheme") != self.source_hash_scheme:
+            raise ValueError(f"{path}: incompatible scientific hash migration")
+        bindings = payload.get("bindings")
+        if not isinstance(bindings, dict):
+            raise ValueError(f"{path}: scientific hash migration bindings must be an object")
+        for raw_path, value in bindings.items():
+            if not isinstance(value, dict):
+                raise ValueError(f"{path}: invalid scientific hash migration for {raw_path}")
+            legacy = str(value.get("legacy_sha256", ""))
+            canonical = str(value.get("canonical_sha256", ""))
+            if len(legacy) != 64 or len(canonical) != 64:
+                raise ValueError(f"{path}: invalid scientific hash migration digest for {raw_path}")
+            source = (self.repo_root / str(raw_path)).resolve()
+            if not source.is_relative_to(self.repo_root):
+                raise ValueError(f"{path}: scientific hash migration escapes repository: {raw_path}")
+            if not source.is_file() or not scientific_hash_matches(
+                source, canonical, scheme=self.source_hash_scheme
+            ):
+                raise ValueError(f"{path}: canonical scientific hash migration mismatch for {raw_path}")
+            self.source_hash_migrations[str(raw_path)] = {
+                "legacy_sha256": legacy,
+                "canonical_sha256": canonical,
+            }
+
+    def source_hash_matches(self, raw: str, path: Path, expected: str) -> bool:
+        migration = self.source_hash_migrations.get(raw)
+        migrated = None
+        if migration is not None and migration["legacy_sha256"] == expected:
+            migrated = migration["canonical_sha256"]
+        return scientific_hash_matches(
+            path,
+            expected,
+            scheme=self.source_hash_scheme,
+            legacy_canonical_sha256=migrated,
+        )
 
     def _load_group(
         self,
@@ -184,7 +239,7 @@ class EccRegistry:
             source = source.resolve()
             if not source.is_file():
                 raise ValueError(f"{path}: missing source reference {raw}")
-            if file_sha256(source) != expected:
+            if not self.source_hash_matches(str(raw), source, str(expected)):
                 raise ValueError(f"{path}: broken source hash for {raw}")
         if kind == "implementation":
             declared = set(map(str, payload["source_files"]))
@@ -252,4 +307,3 @@ def _find_repo_root(path: Path) -> Path:
         if (candidate / "schemas" / "ecc-code-manifest.schema.json").is_file():
             return candidate
     raise ValueError(f"cannot locate repository root from {path}")
-
