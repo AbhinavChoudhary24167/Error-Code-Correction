@@ -1,0 +1,16 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db -hier /gate03e-run-02/results/sky130hd/gcd/base/2_1_floorplan.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /gate03e-run-02/results/sky130hd/gcd/base/2_1_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+No macros found: Skipping macro_placement
+Design area 2750 um^2 47% utilization.
+write_db /gate03e-run-02/results/sky130hd/gcd/base/2_2_floorplan_macro.odb
+Elapsed time: 0:00.74[h:]min:sec. CPU time: user 0.61 sys 0.12 (99%). Peak memory: 126048KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+2_2_floorplan_macro       .odb            0            123 16ecd6fbbbefade3797d

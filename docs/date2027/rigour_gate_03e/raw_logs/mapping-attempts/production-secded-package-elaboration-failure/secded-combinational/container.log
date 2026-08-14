@@ -1,0 +1,14 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+mkdir -p /mapping-work/results/sky130hd/gate03e_secded_combinational_boundary/base/
+echo 10.0 > /mapping-work/results/sky130hd/gate03e_secded_combinational_boundary/base/clock_period.txt
+/OpenROAD-flow-scripts/flow/scripts/synth.sh /OpenROAD-flow-scripts/flow/scripts/synth_canonicalize.tcl /mapping-work/logs/sky130hd/gate03e_secded_combinational_boundary/base/1_1_yosys_canonicalize.log
+Using ABC speed script.
+Extracting clock period from SDC file: /mapping-work/results/sky130hd/gate03e_secded_combinational_boundary/base/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /gate03e-repo/asic/include/ecc_pkg.sv
+/gate03e-repo/asic/include/ecc_pkg.sv:23: ERROR: syntax error, unexpected TOK_CONSTVAL
+Elapsed time: 0:00.33[h:]min:sec. CPU time: user 0.21 sys 0.11 (94%). Peak memory: 57360KB.
+make[1]: *** [Makefile:301: do-yosys-canonicalize] Error 1
+make: *** [Makefile:304: /mapping-work/results/sky130hd/gate03e_secded_combinational_boundary/base/1_1_yosys_canonicalize.rtlil] Error 2

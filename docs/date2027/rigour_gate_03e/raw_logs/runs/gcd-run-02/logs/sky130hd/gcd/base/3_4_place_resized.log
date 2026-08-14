@@ -1,0 +1,110 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db -hier /gate03e-run-02/results/sky130hd/gcd/base/3_3_place_gp.odb
+[WARNING ORD-0012] Hierarchical flow (-hier) is currently in development and may cause multiple issues. Do not use in production environments.
+read_sdc /gate03e-run-02/results/sky130hd/gcd/base/2_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+estimate_parasitics -placement
+replace_arith_modules -path_count 1000 -target setup -slack_threshold 0.0
+[INFO RSZ-0151] Starting arithmetic module replacement to optimize 'setup' target
+[INFO RSZ-0152] Analyzing 1000 critical paths with slack < 0.00
+[INFO RSZ-0153] Identified 69 violating endpoints
+[INFO RSZ-0154] Identified 1 critical arithmetic instances
+[INFO RSZ-0160] 0 arithmetic instances have swapped to improve 'setup' target
+[INFO GPL-0083] Execute incremental mode global placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: (  1.380  2.720 ) ( 78.660 78.880 ) um
+[INFO GPL-0016] Core area:                    5885.645 um^2
+[INFO GPL-0036] Movable instances area:       3976.314 um^2
+[INFO GPL-0037] Total instances area:         4070.154 um^2
+[INFO GPL-0035] Pin density area adjust:       280.034 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:               480
+[INFO GPL-0007] Movable instances:                 405
+[INFO GPL-0008] Fixed instances:                    75
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                    441
+[INFO GPL-0011] Number of pins:                   1301
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 80.025 80.025 ) um
+[INFO GPL-0013] Placement BBox: (  1.380  2.720 ) ( 78.660 78.880 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                  5885.645 um^2
+[INFO GPL-0017] Fixed instances area:           93.840 um^2
+[INFO GPL-0018] Movable instances area:       4256.347 um^2
+[INFO GPL-0019] Utilization:                    73.489 %
+[INFO GPL-0020] Standard cells area:          4256.347 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0154] Identified 405 placed instances
+[INFO GPL-0155] Identified 0 not placed instances
+[INFO GPL-0156] Identified all instances as placed. Skipping incremental mode
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       443
+       10 |     +0.0% |       0 |       0 |             0 |       433
+       20 |     +0.0% |       0 |       0 |             0 |       423
+       30 |     +0.0% |       0 |       0 |             0 |       413
+       40 |     +0.0% |       0 |       0 |             0 |       403
+       50 |     +0.0% |       0 |       0 |             0 |       393
+       60 |     +0.0% |       0 |       0 |             0 |       383
+       70 |     +0.0% |       0 |       0 |             0 |       373
+       80 |     +0.0% |       0 |       0 |             0 |       363
+       90 |     +0.0% |       0 |       0 |             0 |       353
+      100 |     +0.0% |       0 |       0 |             0 |       343
+      110 |     +0.0% |       0 |       0 |             0 |       333
+      120 |     +0.0% |       0 |       0 |             0 |       323
+      130 |     +0.0% |       0 |       0 |             0 |       313
+      140 |     +0.0% |       0 |       0 |             0 |       303
+      150 |     +0.0% |       0 |       0 |             0 |       293
+      160 |     +0.0% |       0 |       0 |             0 |       283
+      170 |     +0.0% |       0 |       0 |             0 |       273
+      180 |     +0.0% |       0 |       0 |             0 |       263
+      190 |     +0.0% |       0 |       0 |             0 |       253
+      200 |     +0.0% |       0 |       0 |             0 |       243
+      210 |     +0.0% |       0 |       0 |             0 |       233
+      220 |     +0.0% |       0 |       0 |             0 |       223
+      230 |     +0.0% |       0 |       0 |             0 |       213
+      240 |     +0.0% |       0 |       0 |             0 |       203
+      250 |     +0.0% |       0 |       0 |             0 |       193
+      260 |     +0.0% |       0 |       0 |             0 |       183
+      270 |     +0.0% |       0 |       0 |             0 |       173
+      280 |     +0.0% |       0 |       0 |             0 |       163
+      290 |     +0.0% |       0 |       0 |             0 |       153
+      300 |     +0.0% |       0 |       0 |             0 |       143
+      310 |     +0.0% |       0 |       0 |             0 |       133
+      320 |     +0.0% |       0 |       0 |             0 |       123
+      330 |     +0.0% |       0 |       0 |             0 |       113
+      340 |     +0.0% |       0 |       0 |             0 |       103
+      350 |     +0.0% |       0 |       0 |             0 |        93
+      360 |     +0.0% |       0 |       0 |             0 |        83
+      370 |     +0.0% |       0 |       0 |             0 |        73
+      380 |     +0.0% |       0 |       0 |             0 |        63
+      390 |     +0.0% |       0 |       0 |             0 |        53
+      400 |     +0.0% |       0 |       0 |             0 |        43
+      410 |     +0.0% |       0 |       0 |             0 |        33
+      420 |     +0.0% |       0 |       0 |             0 |        23
+      430 |     +0.0% |       0 |       0 |             0 |        13
+      440 |     +0.0% |       0 |       0 |             0 |         3
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0504] Runtime: 0.05s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 4070 um^2 69% utilization.
+Instance count before 480, after 480
+Pin count before 1249, after 1249
+write_db /gate03e-run-02/results/sky130hd/gcd/base/3_4_place_resized.odb
+Elapsed time: 0:01.19[h:]min:sec. CPU time: user 0.97 sys 0.36 (112%). Peak memory: 147072KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            1            143 4af246a707437045817d

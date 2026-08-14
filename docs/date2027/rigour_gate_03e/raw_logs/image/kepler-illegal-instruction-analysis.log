@@ -1,0 +1,256 @@
+8e7a00003ae529e442bd1fddf8df159d4bbb74ac9f40c03c44425f7815d29941  /OpenROAD-flow-scripts/tools/install/kepler-formal/bin/kepler-formal
+26e98177b74e48b37f2529ebda967e884606ec250d48401dc661d3f318e9a9eb  /OpenROAD-flow-scripts/tools/install/kepler-formal/lib/libnaja_python.so
+/OpenROAD-flow-scripts/tools/install/kepler-formal/bin/kepler-formal:     ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=73ff3719d19294c83e0ef485877514ca632a6c3c, for GNU/Linux 3.2.0, with debug_info, not stripped
+/OpenROAD-flow-scripts/tools/install/kepler-formal/lib/libnaja_python.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=aa7e11ef7d0f5925ae229dbf0357b076060c23ab, with debug_info, not stripped
+
+Displaying notes found in: .note.gnu.property
+  Owner                Data size 	Description
+  GNU                  0x00000020	NT_GNU_PROPERTY_TYPE_0
+      Properties: x86 feature: IBT, SHSTK
+	x86 ISA needed: x86-64-baseline
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 73ff3719d19294c83e0ef485877514ca632a6c3c
+
+Displaying notes found in: .note.ABI-tag
+  Owner                Data size 	Description
+  GNU                  0x00000010	NT_GNU_ABI_TAG (ABI version tag)
+    OS: Linux, ABI: 3.2.0
+
+Displaying notes found in: .note.gnu.property
+  Owner                Data size 	Description
+  GNU                  0x00000010	NT_GNU_PROPERTY_TYPE_0
+      Properties: x86 feature: IBT, SHSTK
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: aa7e11ef7d0f5925ae229dbf0357b076060c23ab
+
+/OpenROAD-flow-scripts/tools/install/kepler-formal/lib/libnaja_python.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000000945f0 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x1a6>:
+   945f0:	24 30                	and    $0x30,%al
+   945f2:	01 00                	add    %eax,(%rax)
+   945f4:	00 48 8d             	add    %cl,-0x73(%rax)
+   945f7:	70 01                	jo     945fa <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x1b0>
+   945f9:	e8 b2 f0 fc ff       	call   636b0 <_ZdlPvm@plt>
+   945fe:	4d 85 e4             	test   %r12,%r12
+   94601:	74 0a                	je     9460d <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x1c3>
+   94603:	49 8b 04 24          	mov    (%r12),%rax
+   94607:	4c 89 e7             	mov    %r12,%rdi
+   9460a:	ff 50 08             	call   *0x8(%rax)
+   9460d:	48 85 ed             	test   %rbp,%rbp
+   94610:	74 0a                	je     9461c <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x1d2>
+   94612:	48 8b 45 00          	mov    0x0(%rbp),%rax
+   94616:	48 89 ef             	mov    %rbp,%rdi
+   94619:	ff 50 08             	call   *0x8(%rax)
+   9461c:	48 8b bc 24 90 00 00 	mov    0x90(%rsp),%rdi
+   94623:	00 
+   94624:	48 85 ff             	test   %rdi,%rdi
+   94627:	0f 84 25 ff ff ff    	je     94552 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x108>
+   9462d:	48 8b 07             	mov    (%rdi),%rax
+   94630:	ff 50 08             	call   *0x8(%rax)
+   94633:	e9 1a ff ff ff       	jmp    94552 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x108>
+   94638:	c5 f8 77             	vzeroupper 
+   9463b:	eb a3                	jmp    945e0 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x196>
+   9463d:	c5 f8 77             	vzeroupper 
+   94640:	e9 68 fe ff ff       	jmp    944ad <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x63>
+   94645:	4c 89 6c 24 28       	mov    %r13,0x28(%rsp)
+   9464a:	c5 f8 77             	vzeroupper 
+   9464d:	e9 79 fe ff ff       	jmp    944cb <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x81>
+   94652:	48 8b bc 24 e0 00 00 	mov    0xe0(%rsp),%rdi
+   94659:	00 
+   9465a:	4c 39 ef             	cmp    %r13,%rdi
+   9465d:	74 65                	je     946c4 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x27a>
+   9465f:	48 8b 84 24 f0 00 00 	mov    0xf0(%rsp),%rax
+   94666:	00 
+   94667:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   9466b:	c5 f8 77             	vzeroupper 
+   9466e:	e8 3d f0 fc ff       	call   636b0 <_ZdlPvm@plt>
+   94673:	eb 8e                	jmp    94603 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x1b9>
+   94675:	48 8b bc 24 b0 00 00 	mov    0xb0(%rsp),%rdi
+   9467c:	00 
+   9467d:	48 3b 7c 24 08       	cmp    0x8(%rsp),%rdi
+   94682:	74 3b                	je     946bf <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x275>
+   94684:	48 8b 84 24 c0 00 00 	mov    0xc0(%rsp),%rax
+   9468b:	00 
+   9468c:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   94690:	c5 f8 77             	vzeroupper 
+   94693:	e8 18 f0 fc ff       	call   636b0 <_ZdlPvm@plt>
+   94698:	48 8b bc 24 e8 00 00 	mov    0xe8(%rsp),%rdi
+   9469f:	00 
+   946a0:	4c 39 ef             	cmp    %r13,%rdi
+   946a3:	0f 84 37 ff ff ff    	je     945e0 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x196>
+   946a9:	48 8b 84 24 f8 00 00 	mov    0xf8(%rsp),%rax
+   946b0:	00 
+   946b1:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   946b5:	e8 f6 ef fc ff       	call   636b0 <_ZdlPvm@plt>
+   946ba:	e9 21 ff ff ff       	jmp    945e0 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x196>
+   946bf:	c5 f8 77             	vzeroupper 
+   946c2:	eb d4                	jmp    94698 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x24e>
+   946c4:	c5 f8 77             	vzeroupper 
+   946c7:	e9 37 ff ff ff       	jmp    94603 <_ZN4naja2NL12SNLVRLDumper14dumpAttributesEPKNS0_8NLObjectERSoNS1_17AttributeDumpSiteE.cold+0x1b9>
+
+00000000000946cc <_ZN4naja2NL12SNLVRLDumper7dumpNetEPKNS0_6SNLNetERSoRNS1_27DesignInsideAnonymousNamingE.cold>:
+   946cc:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+   946d1:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
+   946d6:	48 39 c7             	cmp    %rax,%rdi
+   946d9:	74 54                	je     9472f <_ZN4naja2NL12SNLVRLDumper7dumpNetEPKNS0_6SNLNetERSoRNS1_27DesignInsideAnonymousNamingE.cold+0x63>
+   946db:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+   946e0:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   946e4:	c5 f8 77             	vzeroupper 
+   946e7:	e8 c4 ef fc ff       	call   636b0 <_ZdlPvm@plt>
+   946ec:	48 8b 7c 24 40       	mov    0x40(%rsp),%rdi
+   946f1:	48 39 df             	cmp    %rbx,%rdi
+   946f4:	74 0e                	je     94704 <_ZN4naja2NL12SNLVRLDumper7dumpNetEPKNS0_6SNLNetERSoRNS1_27DesignInsideAnonymousNamingE.cold+0x38>
+   946f6:	48 8b 44 24 50       	mov    0x50(%rsp),%rax
+   946fb:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   946ff:	e8 ac ef fc ff       	call   636b0 <_ZdlPvm@plt>
+   94704:	48 89 ef             	mov    %rbp,%rdi
+   94707:	e8 94 0b fd ff       	call   652a0 <_Unwind_Resume@plt>
+   9470c:	48 8b 7c 24 40       	mov    0x40(%rsp),%rdi
+   94711:	48 39 df             	cmp    %rbx,%rdi
+   94714:	74 1e                	je     94734 <_ZN4naja2NL12SNLVRLDumper7dumpNetEPKNS0_6SNLNetERSoRNS1_27DesignInsideAnonymousNamingE.cold+0x68>
+   94716:	48 8b 44 24 50       	mov    0x50(%rsp),%rax
+   9471b:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   9471f:	c5 f8 77             	vzeroupper 
+   94722:	e8 89 ef fc ff       	call   636b0 <_ZdlPvm@plt>
+   94727:	48 89 ef             	mov    %rbp,%rdi
+   9472a:	e8 71 0b fd ff       	call   652a0 <_Unwind_Resume@plt>
+   9472f:	c5 f8 77             	vzeroupper 
+   94732:	eb b8                	jmp    946ec <_ZN4naja2NL12SNLVRLDumper7dumpNetEPKNS0_6SNLNetERSoRNS1_27DesignInsideAnonymousNamingE.cold+0x20>
+   94734:	c5 f8 77             	vzeroupper 
+   94737:	eb ee                	jmp    94727 <_ZN4naja2NL12SNLVRLDumper7dumpNetEPKNS0_6SNLNetERSoRNS1_27DesignInsideAnonymousNamingE.cold+0x5b>
+   94739:	90                   	nop
+
+000000000009473a <_ZN4naja2NL12SNLVRLDumper18dumpAssignInstanceEPKNS0_11SNLInstanceERSoRNS1_27DesignInsideAnonymousNamingE.cold>:
+   9473a:	48                   	rex.W
+   9473b:	8b                   	.byte 0x8b
+   9473c:	bc                   	.byte 0xbc
+   9473d:	24 90                	and    $0x90,%al
+	...
+
+/OpenROAD-flow-scripts/tools/install/kepler-formal/lib/libnaja_python.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000000f35f0 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2b50>:
+   f35f0:	48 ff c1             	inc    %rcx
+   f35f3:	48 c1 e2 04          	shl    $0x4,%rdx
+   f35f7:	4c 01 ca             	add    %r9,%rdx
+   f35fa:	c5 f1 74 02          	vpcmpeqb (%rdx),%xmm1,%xmm0
+   f35fe:	c5 f9 d7 c0          	vpmovmskb %xmm0,%eax
+   f3602:	25 ff 7f 00 00       	and    $0x7fff,%eax
+   f3607:	0f 84 85 01 00 00    	je     f3792 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2cf2>
+   f360d:	c4 c1 7a 6f 55 00    	vmovdqu 0x0(%r13),%xmm2
+   f3613:	48 69 db 68 01 00 00 	imul   $0x168,%rbx,%rbx
+   f361a:	f3 0f bc c0          	tzcnt  %eax,%eax
+   f361e:	48 ff c6             	inc    %rsi
+   f3621:	48 8d 0c 40          	lea    (%rax,%rax,2),%rcx
+   f3625:	48 8d 0c cb          	lea    (%rbx,%rcx,8),%rcx
+   f3629:	48 03 0d c8 2b 79 00 	add    0x792bc8(%rip),%rcx        # 8861f8 <_ZN5slang7parsingL8ksnTableE.lto_priv.0+0x18>
+   f3630:	c5 fa 7f 11          	vmovdqu %xmm2,(%rcx)
+   f3634:	49 8b 7d 10          	mov    0x10(%r13),%rdi
+   f3638:	48 89 79 10          	mov    %rdi,0x10(%rcx)
+   f363c:	44 88 14 02          	mov    %r10b,(%rdx,%rax,1)
+   f3640:	48 89 35 c1 2b 79 00 	mov    %rsi,0x792bc1(%rip)        # 886208 <_ZN5slang7parsingL8ksnTableE.lto_priv.0+0x28>
+   f3647:	49 83 c5 18          	add    $0x18,%r13
+   f364b:	48 8d 84 24 40 1b 00 	lea    0x1b40(%rsp),%rax
+   f3652:	00 
+   f3653:	49 39 c5             	cmp    %rax,%r13
+   f3656:	0f 84 7f 01 00 00    	je     f37db <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2d3b>
+   f365c:	48 8b 05 8d 2b 79 00 	mov    0x792b8d(%rip),%rax        # 8861f0 <_ZN5slang7parsingL8ksnTableE.lto_priv.0+0x10>
+   f3663:	48 8b 1d 76 2b 79 00 	mov    0x792b76(%rip),%rbx        # 8861e0 <_ZN5slang7parsingL8ksnTableE.lto_priv.0>
+   f366a:	48 89 44 24 10       	mov    %rax,0x10(%rsp)
+   f366f:	4d 8b 45 00          	mov    0x0(%r13),%r8
+   f3673:	4d 8b 7d 08          	mov    0x8(%r13),%r15
+   f3677:	4c 89 c6             	mov    %r8,%rsi
+   f367a:	4c 89 04 24          	mov    %r8,(%rsp)
+   f367e:	4c 89 ff             	mov    %r15,%rdi
+   f3681:	e8 fa a7 1e 00       	call   2dde80 <_ZN5slang6detail7hashingL4hashEPKvm.lto_priv.0>
+   f3686:	48 8d 3d 93 8c 62 00 	lea    0x628c93(%rip),%rdi        # 71c320 <_ZZN5boost9unordered6detail3foa7group15INS2_14plain_integralEE10match_wordEmE4word>
+   f368d:	4c 8b 04 24          	mov    (%rsp),%r8
+   f3691:	48 c7 44 24 18 00 00 	movq   $0x0,0x18(%rsp)
+   f3698:	00 00 
+   f369a:	48 89 c5             	mov    %rax,%rbp
+   f369d:	c4 e2 e3 f7 d8       	shrx   %rbx,%rax,%rbx
+   f36a2:	0f b6 c0             	movzbl %al,%eax
+   f36a5:	44 8b 14 87          	mov    (%rdi,%rax,4),%r10d
+   f36a9:	49 89 eb             	mov    %rbp,%r11
+   f36ac:	49 89 d9             	mov    %rbx,%r9
+   f36af:	41 83 e3 07          	and    $0x7,%r11d
+   f36b3:	62 d2 7d 08 7c ca    	vpbroadcastd %r10d,%xmm1
+   f36b9:	4d 89 ce             	mov    %r9,%r14
+   f36bc:	49 c1 e6 04          	shl    $0x4,%r14
+   f36c0:	4c 03 74 24 10       	add    0x10(%rsp),%r14
+   f36c5:	c4 c1 71 74 06       	vpcmpeqb (%r14),%xmm1,%xmm0
+   f36ca:	c5 79 d7 e0          	vpmovmskb %xmm0,%r12d
+   f36ce:	41 81 e4 ff 7f 00 00 	and    $0x7fff,%r12d
+   f36d5:	0f 84 c5 fe ff ff    	je     f35a0 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2b00>
+   f36db:	48 8b 0d 16 2b 79 00 	mov    0x792b16(%rip),%rcx        # 8861f8 <_ZN5slang7parsingL8ksnTableE.lto_priv.0+0x18>
+   f36e2:	48 85 c9             	test   %rcx,%rcx
+   f36e5:	0f 84 2e 01 00 00    	je     f3819 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2d79>
+   f36eb:	49 69 c1 68 01 00 00 	imul   $0x168,%r9,%rax
+   f36f2:	48 01 c1             	add    %rax,%rcx
+   f36f5:	4c 89 e8             	mov    %r13,%rax
+   f36f8:	4d 89 cd             	mov    %r9,%r13
+   f36fb:	49 89 c1             	mov    %rax,%r9
+   f36fe:	0f 18 09             	prefetcht0 (%rcx)
+   f3701:	f3 41 0f bc c4       	tzcnt  %r12d,%eax
+   f3706:	4c 89 44 24 50       	mov    %r8,0x50(%rsp)
+   f370b:	4c 89 7c 24 58       	mov    %r15,0x58(%rsp)
+   f3710:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+   f3714:	48 8d 04 c1          	lea    (%rcx,%rax,8),%rax
+   f3718:	48 8b 30             	mov    (%rax),%rsi
+   f371b:	48 8b 50 08          	mov    0x8(%rax),%rdx
+   f371f:	49 39 f0             	cmp    %rsi,%r8
+   f3722:	74 1c                	je     f3740 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2ca0>
+   f3724:	c4 c2 18 f3 cc       	blsr   %r12d,%r12d
+   f3729:	75 d6                	jne    f3701 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2c61>
+   f372b:	4d 87 e9             	xchg   %r13,%r9
+   f372e:	e9 6d fe ff ff       	jmp    f35a0 <_Z41__static_initialization_and_destruction_0ii.constprop.1+0x2b00>
+   f3733:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   f373a:	00 00 00 00 
+   f373e:	66 90                	xchg   %ax,%ax
+   f3740:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+   f3745:	4c 89 5c 24 48       	mov    %r11,0x48(%rsp)
+   f374a:	4c 89 4c 24 40       	mov    %r9,0x40(%rsp)
+   f374f:	48 89 4c 24 38       	mov    %rcx,0x38(%rsp)
+   f3754:	44 89 54 24 34       	mov    %r10d,0x34(%rsp)
+   f3759:	4c 89 44 24 28       	mov    %r8,0x28(%rsp)
+   f375e:	c5 f9 7f 0c 24       	vmovdqa %xmm1,(%rsp)
+   f3763:	e8 48 da 10 00       	call   2011b0 <_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_>
+   f3768:	c5 f9 6f 0c 24       	vmovdqa (%rsp),%xmm1
+   f376d:	85 c0                	test   %eax,%eax
+   f376f:	4c 8b 44 24 28       	mov    0x28(%rsp),%r8
+   f3774:	44 8b 54 24 34       	mov    0x34(%rsp),%r10d
+   f3779:	48 8b 4c 24 38       	mov    0x38(%rsp),%rcx
+   f377e:	4c                   	rex.WR
+   f377f:	8b                   	.byte 0x8b
+_ZN4naja18NajaPythonProperty5name_B5cxx11E
+_ZNK4naja10NajaObject11getPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+_ZN4naja10NajaObject6removeEPNS_12NajaPropertyE
+_ZN4naja10NajaObject7destroyEv
+_ZN4naja18NajaPythonProperty7offset_E
+_ZN4naja10NajaObject3putEPNS_12NajaPropertyE
+_ZTSN4naja13NajaExceptionE
+_ZTIN4naja13NajaExceptionE
+_ZN6PYNAJA17PyNLDB_dumpNajaIFEPNS_6PyNLDBEP7_object
+_ZTIN4naja17NajaSTLCollectionISt6vectorIPNS_2NL11SNLInstanceESaIS4_EEE25NajaSTLCollectionIteratorE
+_ZTIN4naja16NajaBaseIteratorIPNS_2NL11SNLInstanceEEE
+_ZTSN4naja17NajaSTLCollectionISt6vectorIPNS_2NL11SNLInstanceESaIS4_EEE25NajaSTLCollectionIteratorE
+_ZTSN4naja16NajaBaseIteratorIPNS_2NL11SNLInstanceEEE
+_ZN4naja18NajaPythonProperty12onCapturedByEPNS_10NajaObjectE
+_ZN4naja18NajaPythonProperty10preDestroyEv
+_ZN4naja10NajaObject11onDestroyedEPNS_12NajaPropertyE
+_ZNK4naja18NajaPythonProperty9getStringB5cxx11Ev
+_ZN4naja18NajaPythonPropertyC2EPv
+_ZTVN4naja18NajaPythonPropertyE
+_ZN4naja18NajaPythonPropertyC1EPv

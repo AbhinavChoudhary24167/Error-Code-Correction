@@ -1,0 +1,97 @@
+{
+  "jobs": [
+    {
+      "command": [
+        "D:\\Compiler Cpp\\ucrt64\\bin\\python3.EXE",
+        "scripts/gate03r/validate_artifacts.py"
+      ],
+      "end_utc": "2026-08-14T11:16:10.434279Z",
+      "exit_status": 0,
+      "job_id": "gate03r-validator",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/gate03r-validator.log",
+      "start_utc": "2026-08-14T11:16:08.309849Z",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\ucrt64\\bin\\python3.EXE",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/python/test_gate03e_artifacts.py",
+        "tests/python/test_gate03e_mapping_validator.py",
+        "tests/python/test_gate03e_reproducibility.py"
+      ],
+      "end_utc": "2026-08-14T11:16:11.908950Z",
+      "exit_status": 0,
+      "job_id": "gate03e-focused-tests",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/gate03e-focused-tests.log",
+      "start_utc": "2026-08-14T11:16:10.435293Z",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\ProgramData\\chocolatey\\bin\\make.EXE"
+      ],
+      "end_utc": "2026-08-14T11:16:13.866567Z",
+      "exit_status": 0,
+      "job_id": "make",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/make.log",
+      "start_utc": "2026-08-14T11:16:11.908950Z",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "C:\\ProgramData\\chocolatey\\bin\\make.EXE",
+        "test"
+      ],
+      "end_utc": "2026-08-14T11:23:51.147434Z",
+      "exit_status": 0,
+      "job_id": "make-test",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/make-test.log",
+      "start_utc": "2026-08-14T11:16:13.867844Z",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\ucrt64\\bin\\python3.EXE",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "end_utc": "2026-08-14T11:30:57.664851Z",
+      "exit_status": 0,
+      "job_id": "python3-pytest-q",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/python3-pytest-q.log",
+      "start_utc": "2026-08-14T11:23:51.147434Z",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "D:\\Git\\cmd\\git.EXE",
+        "diff",
+        "--check"
+      ],
+      "end_utc": "2026-08-14T11:30:57.772966Z",
+      "exit_status": 0,
+      "job_id": "git-diff-check",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/git-diff-check.log",
+      "start_utc": "2026-08-14T11:30:57.664851Z",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\ucrt64\\bin\\python3.EXE",
+        "scripts/gate03e/validate_artifacts.py"
+      ],
+      "end_utc": "2026-08-14T11:30:58.294293Z",
+      "exit_status": 0,
+      "job_id": "gate03e-artifact-scope-validator",
+      "log": "docs/date2027/rigour_gate_03e/raw_logs/repository-validation/gate03e-artifact-scope-validator.log",
+      "start_utc": "2026-08-14T11:30:57.772966Z",
+      "timed_out": false
+    }
+  ],
+  "schema_version": 1,
+  "status": "PASS"
+}

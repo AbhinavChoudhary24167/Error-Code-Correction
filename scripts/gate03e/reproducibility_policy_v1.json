@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "policy_id": "gate03e-reproducibility-v1",
+  "freeze_rule": "This file and the hashed comparator implementation cannot change after gcd run 1 begins.",
+  "run_roots": [
+    "/gate03e-run-01",
+    "/gate03e-run-02"
+  ],
+  "run_root_token": "<GATE03E_RUN_ROOT>",
+  "raw_evidence": {
+    "hash_algorithm": "sha256",
+    "retain_every_artifact_report_metric_and_log": true,
+    "explain_every_raw_hash_difference": true
+  },
+  "canonicalization": {
+    "line_endings": "LF",
+    "remove_trailing_horizontal_whitespace": true,
+    "json_object_key_order": "lexicographic",
+    "json_metadata_key_patterns": [
+      "(?i)(timestamp|(?:^|[._-])date$|generate_date|generated_at|generated_on|start_time|end_time|run_date|hostname|host_name|run[_-]?id|elapsed_time|wall_time|cpu_time|peak_memory)"
+    ],
+    "unordered_row_sets": [],
+    "gds": {
+      "zero_record_payloads": [
+        "BGNLIB",
+        "BGNSTR"
+      ],
+      "sort_structures_by": "normalized_binary_encoding",
+      "sort_complete_elements_by": "normalized_binary_encoding",
+      "preserve_record_order_within_each_element": true,
+      "fail_on_unrecognized_inter_element_records": true
+    },
+    "recognized_metadata_substitutions": [
+      {
+        "name": "spef_date_field",
+        "pattern": "(?im)^(\\*DATE\\s+).*$",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "keyed_timestamp_or_date",
+        "pattern": "(?im)(\\b(?:timestamp|generated_at|generated_on|start_time|end_time|run_date|date)\\b\\s*[:=]\\s*)(?:\\\"[^\\\"\\r\\n]*\\\"|[^,;\\r\\n]+)",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "hostname_field",
+        "pattern": "(?im)(\\b(?:hostname|host_name)\\b\\s*[:=]\\s*)(?:\\\"[^\\\"\\r\\n]*\\\"|[^,;\\s]+)",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "run_id_field",
+        "pattern": "(?im)(\\b(?:run_id|run-id)\\b\\s*[:=]\\s*)(?:\\\"[^\\\"\\r\\n]*\\\"|[^,;\\s]+)",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "elapsed_time_field",
+        "pattern": "(?im)(\\b(?:elapsed_time|elapsed time|wall_time|wall time)\\b\\s*[:=]\\s*)[^,;\\s]+(?:\\[h:\\]min:sec)?",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "cpu_time_field",
+        "pattern": "(?im)(\\b(?:cpu_time|cpu time)\\b\\s*[:=]\\s*).*?(?=(?:\\bpeak memory\\b|\\bpeak_memory\\b|$))",
+        "replacement": "\\1<METADATA> "
+      },
+      {
+        "name": "peak_memory_field",
+        "pattern": "(?im)(\\b(?:peak_memory|peak memory)\\b\\s*[:=]\\s*)[^,;\\s]+",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "yosys_cpu_metadata",
+        "pattern": "(?im)(\\bCPU:\\s*).*?(?=\\s+MEM:|$)",
+        "replacement": "\\1<METADATA>"
+      },
+      {
+        "name": "yosys_peak_memory_metadata",
+        "pattern": "(?im)(\\bMEM:\\s*)[^,;\\s]+",
+        "replacement": "\\1<METADATA>"
+      }
+    ],
+    "forbidden_removals": [
+      "design values",
+      "tool warnings",
+      "violations",
+      "geometry",
+      "connectivity",
+      "cell identities",
+      "unrecognized fields"
+    ]
+  },
+  "metric_rules": {
+    "exact_path_patterns": [
+      "(?i)(cell|instance).*(count|total)",
+      "(?i)(count|total).*(cell|instance)",
+      "(?i)sequential",
+      "(?i)area",
+      "(?i)utilization.*instance",
+      "(?i)(routing.*overflow|overflow.*routing|overflow)",
+      "(?i)(drc|check|antenna|violation).*(count|total|status)?",
+      "(?i)(pass|fail|status)"
+    ],
+    "tolerance_path_patterns": [
+      {
+        "classification": "timing_delay_slack_ns",
+        "pattern": "(?i)(timing|delay|slack|wns|tns)",
+        "absolute_tolerance": 1e-6,
+        "unit": "ns"
+      },
+      {
+        "classification": "wirelength_or_physical_dimension_um",
+        "pattern": "(?i)(wirelength|width|height|dimension|perimeter|length)",
+        "absolute_tolerance": 1e-3,
+        "unit": "um"
+      },
+      {
+        "classification": "capacitance_or_resistance",
+        "pattern": "(?i)(capacitance|resistance|(^|[._])cap($|[._])|(^|[._])res($|[._]))",
+        "absolute_tolerance": 1e-6,
+        "unit": "reported unit"
+      },
+      {
+        "classification": "power_w",
+        "pattern": "(?i)power",
+        "absolute_tolerance": 1e-9,
+        "unit": "W"
+      },
+      {
+        "classification": "density_or_utilization_ratio",
+        "pattern": "(?i)(density|utilization)",
+        "absolute_tolerance": 1e-6,
+        "unit": "ratio"
+      }
+    ],
+    "unclassified_numeric_metric": "exact equality",
+    "required_exact_invariants": [
+      "total and per-master cell counts",
+      "sequential-cell counts",
+      "all reported areas",
+      "utilization instance counts",
+      "routing overflow counts",
+      "DRC/check/antenna/violation counts",
+      "pass/fail statuses"
+    ]
+  },
+  "semantic_artifacts": {
+    "required_exact_canonical_globs": [
+      "**/6_final.gds",
+      "**/6_final.def",
+      "**/6_final.v",
+      "**/1_2_yosys.v",
+      "**/*.sdc",
+      "**/*.spef"
+    ],
+    "report_log_rule": "Canonical differences are allowed only when every differing record is preclassified metadata, declared ordering, or a metric within its frozen tolerance."
+  },
+  "failure_conditions": [
+    "unexplained raw-hash difference",
+    "post-run exclusion",
+    "exact-invariant mismatch",
+    "semantic canonical-hash mismatch",
+    "metric tolerance breach"
+  ]
+}

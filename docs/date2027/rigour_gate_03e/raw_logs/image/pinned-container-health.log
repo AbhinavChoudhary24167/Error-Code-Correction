@@ -1,0 +1,39 @@
+x86_64
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+/OpenROAD-flow-scripts
+GNU Make 4.3
+26Q3-1080-gab6fd26351 
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+2fc67d3a82df36014b615e710ce2e68600b592b27b051e4533c30248a2e2eb91  tools/install/OpenROAD/bin/openroad
+5cd52bc790d39b1e59a88112e9132ef8de338c2a26e4b0df8222d937e65bab92  tools/install/yosys/bin/yosys
+136:.DEFAULT_GOAL := all
+802:all: check-yosys check-openroad synth floorplan place cts route finish
+802:all: check-yosys check-openroad synth floorplan place cts route finish
+803-
+804-.PHONY: clean
+/OpenROAD-flow-scripts
+/OpenROAD-flow-scripts/bazel
+/OpenROAD-flow-scripts/bazel/slang-compat
+/OpenROAD-flow-scripts/docker
+/OpenROAD-flow-scripts/docs
+/OpenROAD-flow-scripts/docs/contrib
+/OpenROAD-flow-scripts/docs/images
+/OpenROAD-flow-scripts/docs/tutorials
+/OpenROAD-flow-scripts/docs/user
+/OpenROAD-flow-scripts/etc
+/OpenROAD-flow-scripts/flow
+/OpenROAD-flow-scripts/flow/designs
+/OpenROAD-flow-scripts/flow/docs
+/OpenROAD-flow-scripts/flow/platforms
+/OpenROAD-flow-scripts/flow/scripts
+/OpenROAD-flow-scripts/flow/test
+/OpenROAD-flow-scripts/flow/tutorials
+/OpenROAD-flow-scripts/flow/util
+/OpenROAD-flow-scripts/jenkins
+/OpenROAD-flow-scripts/patches
+/OpenROAD-flow-scripts/patches/bison
+/OpenROAD-flow-scripts/patches/fakeram
+/OpenROAD-flow-scripts/patches/tcl_lang
+/OpenROAD-flow-scripts/tools
+/OpenROAD-flow-scripts/tools/AutoTuner
+/OpenROAD-flow-scripts/tools/install

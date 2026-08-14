@@ -1,0 +1,201 @@
+{
+  "additive_execution_amendment": {
+    "amends": {
+      "path": "command-manifest.json",
+      "sha256": "1de1eee9e3c38b9f8d20efa637ac45e0cb12bc9e04c63153bd76e2f4e0a1eac3"
+    },
+    "compatibility_setting": {
+      "name": "LEC_CHECK",
+      "pinned_documented_default": 0,
+      "scope": "Disable only the optional post-repair CTS formal equivalence check opportunistically enabled by flow/settings.mk when Kepler is present.",
+      "source": "flow/scripts/variables.yaml",
+      "value": "0"
+    },
+    "effective_environment_before_make": [
+      "source /OpenROAD-flow-scripts/env.sh",
+      "export LEC_CHECK=0",
+      "export WORK_HOME=<one of the two predeclared run roots>",
+      "cd /OpenROAD-flow-scripts/flow"
+    ],
+    "effective_runner_sha256": "86c2cd814b20af9bbc5625a81cbad849a66aeccc51a8a9120ff1775616ca1834",
+    "evidence_sha256": {
+      "attempts/gcd-native-lec-avx512-failure-01-inventory.json": "050d4133cbbdccd1510db559300c42c059669d6cf86ceec4623b98f7c0681ee8",
+      "image/kepler-direct-smoke.exit-status": "586900065999e00dfd03caec2bd5eb43dd939f082db4718edecd72fabfdcdbec",
+      "image/kepler-direct-smoke.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "image/kepler-illegal-instruction-analysis.log": "f0473a846d25af9697352b9873b6a9669bbf4a3652e3adf7d269b8f2e2f42889"
+    },
+    "failed_attempt_preserved_at": "/var/lib/green-ecc-gate03e/attempts/gcd-native-lec-avx512-failure-01",
+    "reason": "The pinned Kepler libnaja_python.so executes unconditional AVX-512VL while this AMD Ryzen 7 7735HS WSL2 host exposes AVX2 and no AVX-512; direct startup exits 132 (SIGILL).",
+    "schema_version": 1,
+    "unchanged_controls": {
+      "acceptance_outputs": true,
+      "default_goal_and_stage_chain": true,
+      "design_config_rtl_and_platform_bytes": true,
+      "frozen_reproducibility_policy": true,
+      "official_make_invocation": "make DESIGN_CONFIG=./designs/sky130hd/gcd/config.mk",
+      "orfs_image_digest": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e"
+    }
+  },
+  "evidence_root": "/var/lib/green-ecc-gate03e",
+  "failed_attempts_retained": [
+    {
+      "classification": "native_optional_lec_avx512_incompatibility",
+      "inventory": {
+        "path": "$GATE03E_EVIDENCE/attempts/gcd-native-lec-avx512-failure-01-inventory.json",
+        "sha256": "050d4133cbbdccd1510db559300c42c059669d6cf86ceec4623b98f7c0681ee8",
+        "size_bytes": 24265
+      },
+      "path": "$GATE03E_EVIDENCE/attempts/gcd-native-lec-avx512-failure-01"
+    },
+    {
+      "classification": "production_secded_package_elaboration_incompatibility",
+      "path": "$GATE03E_EVIDENCE/mapping-attempts/production-secded-package-elaboration-failure",
+      "production_rtl_modified": false
+    },
+    {
+      "classification": "mapping_validator_false_positive_preserved",
+      "evidence": {
+        "path": "$GATE03E_EVIDENCE/mapping-attempts/mapping-validator-false-positive-01.json",
+        "sha256": "69251c2824219dad712bb669dc5be576a45595cf75224598b330d681322bcf09",
+        "size_bytes": 31566
+      }
+    }
+  ],
+  "frozen_reproducibility": {
+    "comparator": {
+      "path": "$GATE03E_EVIDENCE/policy/reproducibility.py",
+      "sha256": "9038cd174ccfd5c62d64908c6df9416f2ff542d58daa44faf3f9d6e5527d3a92",
+      "size_bytes": 22201
+    },
+    "comparison": {
+      "path": "$GATE03E_EVIDENCE/runs/gcd-run-comparison.json",
+      "sha256": "655a0b7f6aadde7fcf0c45266e9f80fbf77f2635badd7bcee11a0d737c447628",
+      "size_bytes": 551701
+    },
+    "numeric_metric_failure_count": 29,
+    "policy": {
+      "path": "$GATE03E_EVIDENCE/policy/reproducibility_policy_v1.json",
+      "sha256": "258694f328084c3fb92dec24e07b3b40d261037d5b1bd8d32b119684211d0b9a",
+      "size_bytes": 5420
+    },
+    "policy_sha256": "258694f328084c3fb92dec24e07b3b40d261037d5b1bd8d32b119684211d0b9a",
+    "raw_hash_difference_count": 27,
+    "reproducibility_pass": false,
+    "semantic_artifact_failure_count": 0,
+    "unexplained_raw_hash_difference_count": 16
+  },
+  "generated_utc": "2026-08-14T11:32:33.553581Z",
+  "initial_frozen_command_manifest": {
+    "checkpoint_tag": "gate03e-pre-reboot-db32a47",
+    "collateral_manifest_sha256": "dc1485fbbea46fcef76039aa34756b8db13ca2895764b87b3d5961590e0de5e9",
+    "deadline": "2026-08-16 AoE",
+    "environment_setup": "source /OpenROAD-flow-scripts/env.sh; export WORK_HOME=<run-root>; cd /OpenROAD-flow-scripts/flow",
+    "execution_subset_sha256": "33a788bf3dfe19105601fc181dcbf490ebc1d8898c110d169c995779dbf75ae7",
+    "frozen_reproducibility_bundle": {
+      "reproducibility.py": "9038cd174ccfd5c62d64908c6df9416f2ff542d58daa44faf3f9d6e5527d3a92",
+      "reproducibility_policy_v1.json": "258694f328084c3fb92dec24e07b3b40d261037d5b1bd8d32b119684211d0b9a"
+    },
+    "gate": "03E",
+    "gate03r_starting_commit": "db32a47d103495787a17b59388dfad3cc4cb77e8",
+    "official_make_invocation": "make DESIGN_CONFIG=./designs/sky130hd/gcd/config.mk",
+    "orfs": {
+      "default_dependency_chain": [
+        "check-yosys",
+        "check-openroad",
+        "synth",
+        "floorplan",
+        "place",
+        "cts",
+        "route",
+        "finish"
+      ],
+      "default_goal": "all",
+      "image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+      "oci_digest": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+      "source_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+      "source_tree": "2b736d484fa7a26b38b1439f177aeb6c1f3e9d5a",
+      "tag_evidence": "26Q3-275-g56496f398"
+    },
+    "push_authorized": false,
+    "reconciliation_evidence_sha256": "e273421e9a259d28a7b10bb91996d37f6433c50cd133b6c0d8a8446b0a81dae2",
+    "runner_sha256": "82cd4400813915beef65a11195f02dc1111bbc8b56c06c0b6dea33ff6dbd851e",
+    "runs": [
+      {
+        "container_root": "/gate03e-run-01",
+        "host_root": "/var/lib/green-ecc-gate03e/runs/gcd-run-01",
+        "id": 1
+      },
+      {
+        "container_root": "/gate03e-run-02",
+        "host_root": "/var/lib/green-ecc-gate03e/runs/gcd-run-02",
+        "id": 2
+      }
+    ],
+    "schema_version": 1
+  },
+  "large_run_artifact_inventories": [
+    {
+      "path": "$GATE03E_EVIDENCE/runs/gcd-run-01-inventory.json",
+      "sha256": "f3f63fec2c4a94e1c91d3b3356a77a18a654d1e89687a21553bee29ea1fb0e93",
+      "size_bytes": 40953
+    },
+    {
+      "path": "$GATE03E_EVIDENCE/runs/gcd-run-02-inventory.json",
+      "sha256": "c9c55426e9a51a3937b75d104f178f52ea4794c00f3b23b864e34300b0927994",
+      "size_bytes": 40953
+    }
+  ],
+  "mapping_jobs": [
+    {
+      "command": "source /OpenROAD-flow-scripts/env.sh\nexport LEC_CHECK=0\nexport WORK_HOME=/mapping-work\ncd /OpenROAD-flow-scripts/flow\nmake synth DESIGN_CONFIG=/gate03e-repo/scripts/gate03e/mapping/secded_combinational.mk",
+      "command_record": {
+        "path": "$GATE03E_EVIDENCE/mapping/secded-combinational/run-command.txt",
+        "sha256": "70eee3fe3f7dab57d3cc8d32dfb84c020e6aed5729519d2aabf370e502e292a7",
+        "size_bytes": 205
+      },
+      "job": "secded-combinational",
+      "status": "PASS"
+    },
+    {
+      "command": "source /OpenROAD-flow-scripts/env.sh\nexport LEC_CHECK=0\nexport WORK_HOME=/mapping-work\ncd /OpenROAD-flow-scripts/flow\nmake synth DESIGN_CONFIG=/gate03e-repo/scripts/gate03e/mapping/secded_pipelined.mk",
+      "command_record": {
+        "path": "$GATE03E_EVIDENCE/mapping/secded-pipelined/run-command.txt",
+        "sha256": "0a1a2f254de417b0e39223d8229631a3b1f001f11749e2109f2b7ce0fb137c30",
+        "size_bytes": 201
+      },
+      "job": "secded-pipelined",
+      "status": "PASS"
+    },
+    {
+      "command": "source /OpenROAD-flow-scripts/env.sh\nexport LEC_CHECK=0\nexport WORK_HOME=/mapping-work\ncd /OpenROAD-flow-scripts/flow\nmake synth DESIGN_CONFIG=/gate03e-repo/scripts/gate03e/mapping/bch_encoder.mk",
+      "command_record": {
+        "path": "$GATE03E_EVIDENCE/mapping/bch-encoder/run-command.txt",
+        "sha256": "bde408d61f461c13b36a0c71c43ee1188cb8e5638b66771bb6773ad49a92058a",
+        "size_bytes": 196
+      },
+      "job": "bch-encoder",
+      "status": "PASS"
+    },
+    {
+      "command": "source /OpenROAD-flow-scripts/env.sh\nexport LEC_CHECK=0\nexport WORK_HOME=/mapping-work\ncd /OpenROAD-flow-scripts/flow\nmake synth DESIGN_CONFIG=/gate03e-repo/scripts/gate03e/mapping/bch_decoder.mk",
+      "command_record": {
+        "path": "$GATE03E_EVIDENCE/mapping/bch-decoder/run-command.txt",
+        "sha256": "9d0b471450cdc93ab29afa36a9e65df9da84b73e75b710e60769cdc9e3aa466e",
+        "size_bytes": 196
+      },
+      "job": "bch-decoder",
+      "status": "PASS"
+    }
+  ],
+  "mapping_validation": {
+    "path": "$GATE03E_EVIDENCE/mapping/mapping-validation.json",
+    "sha256": "5732b57c1edecbf3ab5c34d8f5a433f280cb9f4d1fe2a173857e9b741d94e710",
+    "size_bytes": 31797
+  },
+  "official_smoke_invocation": "make DESIGN_CONFIG=./designs/sky130hd/gcd/config.mk",
+  "raw_log_count": 108,
+  "raw_log_index": "RAW_LOG_INDEX.csv",
+  "repository_validation_status": "PASS",
+  "schema_version": 1,
+  "stable_evidence_root_token": "$GATE03E_EVIDENCE"
+}

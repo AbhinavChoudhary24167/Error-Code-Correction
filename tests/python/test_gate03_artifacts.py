@@ -182,6 +182,12 @@ def test_gate01_gate02_immutable_authorized_scope_and_binary_verdict():
         "scripts/gate03r/",
         "tests/python/test_gate03r_artifacts.py",
     )
+    gate03e_paths = (
+        "docs/date2027/rigour_gate_03e/",
+        "scripts/gate03e/",
+        "tests/python/test_gate03_artifacts.py",
+        "tests/python/test_gate03e_",
+    )
     runtime_paths = (
         "PracticalSRAMSimulator.exe",
         "drift.json",
@@ -192,6 +198,7 @@ def test_gate01_gate02_immutable_authorized_scope_and_binary_verdict():
         assert path.startswith(
             ("docs/date2027/rigour_gate_03/", "scripts/gate03/", "tests/python/test_gate03_")
             + gate03r_paths
+            + gate03e_paths
             + runtime_paths
         )
     decision = (OUT / "BINARY_NO_GO_DECISION.md").read_text(encoding="utf-8")

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "description": "Files whose bytes can affect the pinned sky130hd/gcd execution after the packaged env.sh is sourced.",
+  "selected_paths": [
+    "env.sh",
+    "flow/Makefile",
+    "flow/settings.mk",
+    "flow/scripts",
+    "flow/util",
+    "flow/platforms/sky130hd",
+    "flow/platforms/sky130hs/rcx_patterns.rules",
+    "flow/designs/sky130hd/gcd",
+    "flow/designs/src/gcd"
+  ],
+  "preflight_makefile_list": [
+    "flow/Makefile",
+    "flow/settings.mk",
+    "flow/designs/sky130hd/gcd/config.mk",
+    "flow/scripts/variables.mk",
+    "flow/platforms/sky130hd/config.mk",
+    "flow/util/utils.mk"
+  ],
+  "excluded_from_byte_identity": "Every path outside selected_paths; those top-level populations are recorded but the immutable OCI digest identifies the complete container."
+}

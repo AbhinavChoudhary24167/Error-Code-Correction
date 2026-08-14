@@ -1,0 +1,22 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /mapping-work/results/sky130hd/bch_78_64_t2_v1_encoder/base/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /gate03e-repo/asic/rtl/bch/bch_78_64_t2_v1.sv
+4. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+5. Executing HIERARCHY pass (managing design hierarchy).
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\bch_78_64_t2_v1_encoder'.
+6.1. Analyzing design hierarchy..
+6.2. Analyzing design hierarchy..
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module bch_78_64_t2_v1_encoder because it contains processes (run 'proc' command first).
+8. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 94199d62fb, time: 0.45s, user: 0.30s, system: 0.10s, MEM: 56.40 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 50% 4x read_liberty (0 sec), 29% 1x hierarchy (0 sec), ...
+Elapsed time: 0:00.47[h:]min:sec. CPU time: user 0.33 sys 0.11 (94%). Peak memory: 60384KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          0             58 2851f6e0fe56d166aa89

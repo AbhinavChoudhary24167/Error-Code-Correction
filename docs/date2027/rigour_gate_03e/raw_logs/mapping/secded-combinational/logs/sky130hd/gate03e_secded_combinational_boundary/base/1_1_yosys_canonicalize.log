@@ -1,0 +1,27 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /mapping-work/results/sky130hd/gate03e_secded_combinational_boundary/base/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /gate03e-repo/scripts/gate03r/rtl/secded_characterization_tops.sv
+4. Executing Verilog-2005 frontend: /gate03e-repo/scripts/gate03e/mapping/secded_package_free_boundary.sv
+5. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+6. Executing HIERARCHY pass (managing design hierarchy).
+7. Executing AST frontend in derive mode using pre-parsed AST for module `\gate03e_secded_combinational_boundary'.
+7.1. Analyzing design hierarchy..
+7.2. Executing AST frontend in derive mode using pre-parsed AST for module `\gate03r_secded_baseline_decoder'.
+7.3. Executing AST frontend in derive mode using pre-parsed AST for module `\gate03r_secded_baseline_encoder'.
+7.4. Analyzing design hierarchy..
+7.5. Analyzing design hierarchy..
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module gate03r_secded_baseline_decoder because it contains processes (run 'proc' command first).
+Warning: Ignoring module gate03r_secded_baseline_encoder because it contains processes (run 'proc' command first).
+9. Executing RTLIL backend.
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: eabc40fe9e, time: 0.71s, user: 0.53s, system: 0.12s, MEM: 56.77 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 44% 1x hierarchy (0 sec), 39% 4x read_liberty (0 sec), ...
+Elapsed time: 0:00.73[h:]min:sec. CPU time: user 0.56 sys 0.14 (97%). Peak memory: 60728KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          0             59 8e5d401e71a209bb252b

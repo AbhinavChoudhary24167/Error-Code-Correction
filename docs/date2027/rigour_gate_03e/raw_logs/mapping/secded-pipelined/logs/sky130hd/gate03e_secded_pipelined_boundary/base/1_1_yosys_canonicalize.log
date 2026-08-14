@@ -1,0 +1,29 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /mapping-work/results/sky130hd/gate03e_secded_pipelined_boundary/base/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /gate03e-repo/asic/rtl/secded/secded_pipelined_72_64_v1.sv
+4. Executing Verilog-2005 frontend: /gate03e-repo/scripts/gate03e/mapping/independent_channel_boundaries.sv
+5. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+6. Executing HIERARCHY pass (managing design hierarchy).
+7. Executing AST frontend in derive mode using pre-parsed AST for module `\gate03e_secded_pipelined_boundary'.
+7.1. Analyzing design hierarchy..
+7.2. Executing AST frontend in derive mode using pre-parsed AST for module `\secded_pipelined_72_64_v1_decoder'.
+Warning: Replacing memory \syndrome_group with list of registers. See /gate03e-repo/asic/rtl/secded/secded_pipelined_72_64_v1.sv:106, /gate03e-repo/asic/rtl/secded/secded_pipelined_72_64_v1.sv:99
+7.3. Executing AST frontend in derive mode using pre-parsed AST for module `\secded_pipelined_72_64_v1_encoder'.
+Warning: Replacing memory \parity_group with list of registers. See /gate03e-repo/asic/rtl/secded/secded_pipelined_72_64_v1.sv:48, /gate03e-repo/asic/rtl/secded/secded_pipelined_72_64_v1.sv:30
+7.4. Analyzing design hierarchy..
+7.5. Analyzing design hierarchy..
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module secded_pipelined_72_64_v1_encoder because it contains processes (run 'proc' command first).
+Warning: Ignoring module secded_pipelined_72_64_v1_decoder because it contains processes (run 'proc' command first).
+9. Executing RTLIL backend.
+Warnings: 4 unique messages, 4 total
+End of script. Logfile hash: fdbe5794dc, time: 1.53s, user: 1.37s, system: 0.11s, MEM: 63.66 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 74% 1x hierarchy (1 sec), 12% 4x read_liberty (0 sec), ...
+Elapsed time: 0:01.57[h:]min:sec. CPU time: user 1.44 sys 0.11 (98%). Peak memory: 67804KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          1             66 91c66df7fc5a0deacb65

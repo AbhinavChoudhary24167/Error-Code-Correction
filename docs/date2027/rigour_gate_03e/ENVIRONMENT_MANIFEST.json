@@ -1,0 +1,149 @@
+{
+  "deadline": {
+    "aoe": "2026-08-16T23:59:59-12:00",
+    "utc": "2026-08-17T11:59:59Z"
+  },
+  "docker": {
+    "docker_info_evidence": {
+      "path": "$GATE03E_EVIDENCE/provision/docker-info.log",
+      "sha256": "eef360e1e41beed705a1ee4801a82271d5bc98a1267599ff987705c52d2f140f",
+      "size_bytes": 1289
+    },
+    "docker_version_evidence": {
+      "path": "$GATE03E_EVIDENCE/provision/docker-version.log",
+      "sha256": "bc6a607ecdce377775811779ab27a7c64f138928b8ce804f3a4d36413a120af7",
+      "size_bytes": 769
+    },
+    "engine": "Docker Engine CE",
+    "functional_health_test": "successful execution of the required pinned ORFS container",
+    "hello_world_required": false,
+    "package_inventory": {
+      "path": "$GATE03E_EVIDENCE/provision/dpkg-query.tsv",
+      "sha256": "13a695de7e95bf15c7199f1a7066a7df8025e3ab9d1a413cd5bb83fbb33471f6",
+      "size_bytes": 20009
+    },
+    "packages": [
+      {
+        "package": "docker-ce",
+        "version": "5:29.7.2-1~ubuntu.24.04~noble"
+      },
+      {
+        "package": "docker-ce-cli",
+        "version": "5:29.7.2-1~ubuntu.24.04~noble"
+      },
+      {
+        "package": "containerd.io",
+        "version": "2.3.3-1~ubuntu.24.04~noble"
+      }
+    ],
+    "service_active": true,
+    "service_enabled": true,
+    "version": "29.7.2"
+  },
+  "gate": "03E",
+  "gate03r_freeze": {
+    "checkpoint_tag": "gate03e-pre-reboot-db32a47",
+    "commit_pushed": false,
+    "gate03e_files_committed": false,
+    "preserved_verdict": "REMEDIATION_FAILED",
+    "starting_commit": "db32a47d103495787a17b59388dfad3cc4cb77e8",
+    "subresults": {
+      "BCH_78_64_T2_REMEDIATION": "PASS",
+      "EXACT_IDENTITY_SECDED_REMEDIATION": "PASS",
+      "PHYSICAL_ENVIRONMENT_REMEDIATION": "FAIL"
+    },
+    "tag_pushed": false
+  },
+  "generated_utc": "2026-08-14T11:32:25.474621Z",
+  "host": {
+    "architecture": "x86_64",
+    "default_wsl_generation": 2,
+    "distribution": "Ubuntu-24.04",
+    "distribution_generation": 2,
+    "distribution_state": "Running",
+    "kernel": "6.18.33.2-microsoft-standard-WSL2",
+    "systemd": true,
+    "ubuntu_release": "24.04.4 LTS",
+    "wsl_version": "2.7.11.0"
+  },
+  "orfs_container": {
+    "architecture": "amd64",
+    "health_and_tool_versions": {
+      "path": "$GATE03E_EVIDENCE/image/pinned-container-health.log",
+      "sha256": "3480715b69e7a376ca3e9a21a9bb579184232a5159dee3cb91662edbca8a109b",
+      "size_bytes": 1475
+    },
+    "image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "image_id": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "installed_package_inventory": {
+      "path": "$GATE03E_EVIDENCE/image/container-dpkg-query.tsv",
+      "sha256": "1f5a38cae2082e972d9abfb0330e147ab68dd44d1cdc7dcca9b0dfa2e10de2bc",
+      "size_bytes": 21089
+    },
+    "make_version": "GNU Make 4.3",
+    "openroad_executable_sha256": "2fc67d3a82df36014b615e710ce2e68600b592b27b051e4533c30248a2e2eb91",
+    "openroad_version": "26Q3-1080-gab6fd26351",
+    "operating_system": "linux",
+    "yosys_executable_sha256": "5cd52bc790d39b1e59a88112e9132ef8de338c2a26e4b0df8222d937e65bab92",
+    "yosys_version": "0.68+post"
+  },
+  "previous_gate_byte_hashes": {
+    "docs/date2027/rigour_gate_01": {
+      "actual_sha256": "24cd71d2f7cbb10f0709bd49e89855fca50d2dbeb3c8d6f8aabb6c9e83bee526",
+      "expected_sha256": "24cd71d2f7cbb10f0709bd49e89855fca50d2dbeb3c8d6f8aabb6c9e83bee526"
+    },
+    "docs/date2027/rigour_gate_02": {
+      "actual_sha256": "972c873d377c66ad183a52b25632f6811c916d44be27a2892b119a2fda8dc79f",
+      "expected_sha256": "972c873d377c66ad183a52b25632f6811c916d44be27a2892b119a2fda8dc79f"
+    },
+    "docs/date2027/rigour_gate_03": {
+      "actual_sha256": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+      "expected_sha256": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4"
+    }
+  },
+  "schema_version": 1,
+  "scope": {
+    "large_run_root": "/var/lib/green-ecc-gate03e",
+    "previous_gate_evidence_modified_in_gate03e": false,
+    "production_rtl_modified_in_gate03e": false,
+    "registries_modified_in_gate03e": false,
+    "stable_run_root_token": "$GATE03E_EVIDENCE"
+  },
+  "source": {
+    "checkout_clean": true,
+    "commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "complete_checkout_manifest": {
+      "path": "$GATE03E_EVIDENCE/source/complete-checkout-files.sha256",
+      "sha256": "6757ea8eb6fce76ff12febbbc0480526b008bf6992c97580680d87a4d9e2eb25",
+      "size_bytes": 3612021
+    },
+    "complete_non_admin_file_count": 28939,
+    "expected_short_revision": "56496f398",
+    "git_clone_log": {
+      "path": "$GATE03E_EVIDENCE/source/git-clone.log",
+      "sha256": "7208becd5a14ecac168f54be1620e81c0870effd85168e6f847ad817b87d3eae",
+      "size_bytes": 10346
+    },
+    "git_submodules": {
+      "path": "$GATE03E_EVIDENCE/source/git-submodules.txt",
+      "sha256": "565083f8e12beec76949e1303b04f7269591f90d499ad3f497009659015c46f2",
+      "size_bytes": 2911
+    },
+    "git_tree": "2b736d484fa7a26b38b1439f177aeb6c1f3e9d5a",
+    "official_repository": "https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts.git",
+    "recursive_submodule_count": 29,
+    "relationship": {
+      "execution_subset_byte_identity": true,
+      "full_source_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+      "image_config_digest": "sha256:ab3a3006003431cd7189a82567df3e6deb0d0aae66aa42a0bdf56d2751447c08",
+      "linux_amd64_manifest_digest": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+      "tag": "26Q3-275-g56496f398"
+    },
+    "schema_version": 1,
+    "source_status": {
+      "path": "$GATE03E_EVIDENCE/source/git-status.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    }
+  }
+}

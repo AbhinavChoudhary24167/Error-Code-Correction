@@ -1,0 +1,94 @@
+COMMAND=["C:\\ProgramData\\chocolatey\\bin\\make.EXE", "test"]
+START_UTC=2026-08-14T10:59:05.944389Z
+g++ -std=c++17 -O2 -MMD -MP -I. BCHvsHamming.o src/bch63.o -o BCHvsHamming
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming32bit1Gb.o -o Hamming32bit1Gb
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming64bit128Gb.o src/energy_loader.o -o Hamming64bit128Gb
+g++ -std=c++17 -O2 -MMD -MP -I. SAT.o -o SATDemo
+g++ -std=c++17 -O2 -MMD -MP -I. PracticalSRAMSimulator.o -o PracticalSRAMSimulator
+g++ -std=c++17 -O0 -I. tests/unit/SecDaec64_test.cpp -o tests/unit/SecDaec64_test
+./tests/unit/SecDaec64_test
+if not exist BCHvsHamming.exe exit /b 1
+if not exist Hamming32bit1Gb.exe exit /b 1
+if not exist Hamming64bit128Gb.exe exit /b 1
+if not exist SATDemo.exe exit /b 1
+python ecc_selector.py 1e-6 2 0.6 1e-15 1 --sustainability >NUL
+set PYTHONPATH=.&& pytest -q tests/python
+........................................................................ [ 18%]
+........................................................................ [ 36%]
+............................F.F......................................... [ 54%]
+........................................................................ [ 72%]
+........................................................................ [ 90%]
+.....................................                                    [100%]
+================================== FAILURES ===================================
+______ test_gate01_gate02_immutable_authorized_scope_and_binary_verdict _______
+
+    def test_gate01_gate02_immutable_authorized_scope_and_binary_verdict():
+        environment = json.loads((OUT / "baseline/environment_manifest.json").read_text(encoding="utf-8"))
+        assert environment["gate01"]["byte_identical"] is True
+        assert environment["gate02"]["byte_identical"] is True
+        for gate in ("rigour_gate_01", "rigour_gate_02"):
+            assert subprocess.run(["git", "diff", "--quiet", "HEAD", "--", f"docs/date2027/{gate}"], cwd=ROOT).returncode == 0
+        # Validate the candidate change set. Other tests may create ignored or
+        # untracked runtime fixtures while the isolated regression is in flight.
+        staged = subprocess.check_output(["git", "diff", "--cached", "--name-only"], cwd=ROOT, text=True)
+        candidate_paths = staged.splitlines()
+        if not candidate_paths:  # Main workspace keeps additions intentionally unstaged.
+            candidate_paths = [
+                line[3:] for line in subprocess.check_output(
+                    ["git", "status", "--porcelain", "--untracked-files=all"], cwd=ROOT, text=True
+                ).splitlines()
+            ]
+        gate03r_paths = (
+            "asic/rtl/bch/bch_78_64_t2_v1.sv",
+            "asic/rtl/secded/secded_pipelined_72_64_v1.sv",
+            "docs/date2027/rigour_gate_03r/",
+            "green_ecc_physical_simulation/registry/implementations/secded-rtl-pipelined-72-64-v1.json",
+            "green_ecc_physical_simulation/registry/implementations/shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1.json",
+            "green_ecc_physical_simulation/registry/registry_gate03r.json",
+            "scripts/gate03r/",
+            "tests/python/test_gate03r_artifacts.py",
+        )
+        runtime_paths = (
+            "PracticalSRAMSimulator.exe",
+            "drift.json",
+            "tests/fixtures/runtime_ml_feature_pack/",
+        )
+        for path in candidate_paths:
+            path = path.replace("\\", "/")
+>           assert path.startswith(
+                ("docs/date2027/rigour_gate_03/", "scripts/gate03/", "tests/python/test_gate03_")
+                + gate03r_paths
+                + runtime_paths
+            )
+E           AssertionError: assert False
+E            +  where False = <built-in method startswith of str object at 0x000001EDE1C55290>(((('docs/date2027/rigour_gate_03/', 'scripts/gate03/', 'tests/python/test_gate03_') + ('asic/rtl/bch/bch_78_64_t2_v1.sv', 'asic/rtl/secded/secded_pipelined_72_64_v1.sv', 'docs/date2027/rigour_gate_03r/', ...tened-bch-78-64-t2-v1-rtl-syndrome-chien-v1.json', 'green_ecc_physical_simulation/registry/registry_gate03r.json', ...)) + ('PracticalSRAMSimulator.exe', 'drift.json', 'tests/fixtures/runtime_ml_feature_pack/')))
+E            +    where <built-in method startswith of str object at 0x000001EDE1C55290> = 'docs/date2027/rigour_gate_03e/COMMAND_MANIFEST.json'.startswith
+
+tests\python\test_gate03_artifacts.py:192: AssertionError
+_______________________ test_gate03e_artifact_validator _______________________
+
+    def test_gate03e_artifact_validator() -> None:
+>       assert validate() == []
+E       AssertionError: assert ['working-tre...imulator.exe'] == []
+E         
+E         Left contains one more item: 'working-tree scope violation: PracticalSRAMSimulator.exe'
+E         Use -v to get more diff
+
+tests\python\test_gate03e_artifacts.py:19: AssertionError
+============================== warnings summary ===============================
+tests/python/test_ml_integration.py::test_ml_evaluate_smoke
+tests/python/test_ml_integration.py::test_ml_feature_pack_train_predict_evaluate_smoke
+tests/python/test_ml_integration.py::test_ml_report_card_cli_smoke_and_output_resolution
+  D:\Python\Lib\site-packages\sklearn\metrics\_classification.py:534: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict
+FAILED tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator
+2 failed, 395 passed, 3 warnings in 453.80s (0:07:33)
+make: *** [Makefile:63: test] Error 1
+
+END_UTC=2026-08-14T11:06:54.771395Z
+EXIT_STATUS=2
+TIMED_OUT=false

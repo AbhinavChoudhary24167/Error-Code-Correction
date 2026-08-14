@@ -1,0 +1,9 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /mapping-work/results/sky130hd/gate03e_secded_combinational_boundary/base/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /gate03e-repo/asic/include/ecc_pkg.sv
+/gate03e-repo/asic/include/ecc_pkg.sv:23: ERROR: syntax error, unexpected TOK_CONSTVAL
+Elapsed time: 0:00.33[h:]min:sec. CPU time: user 0.21 sys 0.11 (94%). Peak memory: 57360KB.
