@@ -1,0 +1,19 @@
+command_id=cmd-pilot-02-secded-verilator-build
+command="D:\Compiler Cpp\msys2_shell.cmd" -defterm -no-start -ucrt64 -here -c "export VERILATOR_ROOT='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root'; export MAKE='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/make.exe'; export TMPDIR='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded'; export TMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded'; export TEMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded'; verilator --binary --timing -Wno-fatal --top-module gate03_tb_secded -Iasic/include --Mdir 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded/verilator-obj' asic/rtl/secded/secded_codec.sv scripts/gate03/verification/tb_gate03_secded.sv -o sim.exe"
+start_utc=2026-08-05T05:47:00.561421Z
+end_utc=2026-08-05T05:47:01.805627Z
+exit_code=0
+status=PASS
+duration_seconds=1.240710
+
+STDOUT
+/home/CodexSandboxOffline could not be created.
+Setting HOME to /tmp.
+make: Entering directory '/c/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded/verilator-obj'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/c/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded/verilator-obj'
+
+STDERR
+[1;32mMSYS2 is starting for the first time. Executing the initial setup.[1;0m
+mkdir: cannot create directory '/home/CodexSandboxOffline': Permission denied
+[1;32mInitial setup complete. MSYS2 is now ready to use.[1;0m

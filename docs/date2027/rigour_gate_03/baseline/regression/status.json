@@ -1,0 +1,81 @@
+{
+  "isolated_worktree": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+  "source_commit": "61b2eec71e900ce698831b3f26011bc200dead40",
+  "commands": [
+    {
+      "command_id": "cmd-regression-make",
+      "command": ["make"],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/make.log"
+    },
+    {
+      "command_id": "cmd-regression-make-test-attempt-01",
+      "command": ["make", "test"],
+      "exit_code": 124,
+      "status": "TIMEOUT_WITH_GATE03_TEST_DIAGNOSED",
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/make_test_attempt_01_timeout.log"
+    },
+    {
+      "command_id": "cmd-regression-make-test-attempt-02",
+      "command": ["make", "test"],
+      "exit_code": 2,
+      "status": "FAIL_UNRELATED_FIXTURE_HASH",
+      "passed_tests": 367,
+      "failed_tests": 1,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/make_test.log"
+    },
+    {
+      "command_id": "cmd-regression-python3-pytest",
+      "command": ["python3", "-m", "pytest", "-q"],
+      "exit_code": 1,
+      "status": "FAIL_UNRELATED_FIXTURE_HASH",
+      "passed_tests": 369,
+      "failed_tests": 1,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/python3_pytest.log"
+    },
+    {
+      "command_id": "cmd-regression-git-diff-check",
+      "command": ["git", "diff", "--check"],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_check.log"
+    },
+    {
+      "command_id": "cmd-regression-git-diff-cached-check-attempt-01",
+      "command": ["git", "diff", "--cached", "--check"],
+      "exit_code": 2,
+      "status": "FAIL_GATE03_EOF_BLANK_LINES_FIXED",
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_cached_check_attempt_01.log"
+    },
+    {
+      "command_id": "cmd-regression-git-diff-cached-check-attempt-02",
+      "command": ["git", "diff", "--cached", "--check"],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_cached_check.log"
+    },
+    {
+      "command_id": "cmd-regression-git-diff-cached-check-final",
+      "command": ["git", "diff", "--cached", "--check"],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_cached_check_final.log"
+    },
+    {
+      "command_id": "cmd-regression-gate03-focused",
+      "command": ["python", "-m", "pytest", "-q", "tests/python/test_gate03_artifacts.py"],
+      "exit_code": 0,
+      "status": "PASS",
+      "passed_tests": 11,
+      "failed_tests": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/gate03_focused.log"
+    }
+  ],
+  "unrelated_failure": {
+    "test": "tests/python/test_multi_ecc_framework.py::test_external_ecc_uses_only_public_plugin_interface",
+    "reason": "isolated CRLF checkout does not match the pre-existing byte hash for tests/fixtures/multi_ecc_external/plugin.py",
+    "gate03_files_involved": false,
+    "repair_authorized": false
+  }
+}

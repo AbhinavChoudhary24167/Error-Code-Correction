@@ -1,0 +1,279 @@
+{
+  "commands": [
+    {
+      "command": [
+        "vvp",
+        "verification-stress.vvp"
+      ],
+      "command_id": "cmd-00-secded-vvp",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\run-01\\secded",
+      "end_utc": "2026-08-05T05:05:20Z",
+      "exit_code": null,
+      "log": "docs/date2027/rigour_gate_03/baseline/failed-attempts/cmd-00-secded-vvp-interrupted.log",
+      "start_utc": "2026-08-05T05:03:39Z",
+      "status": "INTERRUPTED_INVOCATION_DEFECT"
+    },
+    {
+      "command": [
+        "vvp",
+        "verification-stress.vvp"
+      ],
+      "command_id": "cmd-00b-secded-vvp",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-01\\secded",
+      "end_utc": "2026-08-05T05:09:15Z",
+      "exit_code": null,
+      "log": "docs/date2027/rigour_gate_03/baseline/failed-attempts/cmd-00b-secded-vvp-interrupted.log",
+      "start_utc": "2026-08-05T05:07:25Z",
+      "status": "INTERRUPTED_INVOCATION_DEFECT"
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\msys2_shell.cmd",
+        "-defterm",
+        "-no-start",
+        "-ucrt64",
+        "-here",
+        "-c",
+        "export VERILATOR_ROOT='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root'; export MAKE='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/make.exe'; export TMPDIR='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/secded'; export TMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/secded'; export TEMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/secded'; verilator --binary --timing -Wno-fatal --top-module gate03_tb_secded -Iasic/include --Mdir 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/secded/verilator-obj' asic/rtl/secded/secded_codec.sv scripts/gate03/verification/tb_gate03_secded.sv -o sim.exe"
+      ],
+      "command_id": "cmd-pilot-01-secded-verilator-build",
+      "cwd": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction",
+      "end_utc": "2026-08-05T05:46:59.145560Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-01/secded/verilator_build.log",
+      "start_utc": "2026-08-05T05:46:55.737126Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-01\\secded\\verilator-obj\\sim.exe"
+      ],
+      "command_id": "cmd-pilot-01-secded-verilated-sim",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-01\\secded",
+      "end_utc": "2026-08-05T05:46:59.233613Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-01/secded/functional_verification.log",
+      "start_utc": "2026-08-05T05:46:59.161474Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\msys2_shell.cmd",
+        "-defterm",
+        "-no-start",
+        "-ucrt64",
+        "-here",
+        "-c",
+        "export VERILATOR_ROOT='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root'; export MAKE='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/make.exe'; export TMPDIR='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/hsiao'; export TMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/hsiao'; export TEMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/hsiao'; verilator --binary --timing -Wno-fatal --top-module gate03_tb_hsiao -Iasic/include --Mdir 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-01/hsiao/verilator-obj' green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv scripts/gate03/verification/tb_gate03_hsiao.sv -o sim.exe"
+      ],
+      "command_id": "cmd-pilot-01-hsiao-verilator-build",
+      "cwd": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction",
+      "end_utc": "2026-08-05T05:47:00.484076Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-01/hsiao/verilator_build.log",
+      "start_utc": "2026-08-05T05:46:59.266035Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-01\\hsiao\\verilator-obj\\sim.exe"
+      ],
+      "command_id": "cmd-pilot-01-hsiao-verilated-sim",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-01\\hsiao",
+      "end_utc": "2026-08-05T05:47:00.539527Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-01/hsiao/functional_verification.log",
+      "start_utc": "2026-08-05T05:47:00.509187Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\msys2_shell.cmd",
+        "-defterm",
+        "-no-start",
+        "-ucrt64",
+        "-here",
+        "-c",
+        "export VERILATOR_ROOT='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root'; export MAKE='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/make.exe'; export TMPDIR='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded'; export TMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded'; export TEMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded'; verilator --binary --timing -Wno-fatal --top-module gate03_tb_secded -Iasic/include --Mdir 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/secded/verilator-obj' asic/rtl/secded/secded_codec.sv scripts/gate03/verification/tb_gate03_secded.sv -o sim.exe"
+      ],
+      "command_id": "cmd-pilot-02-secded-verilator-build",
+      "cwd": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction",
+      "end_utc": "2026-08-05T05:47:01.805627Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-02/secded/verilator_build.log",
+      "start_utc": "2026-08-05T05:47:00.561421Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-02\\secded\\verilator-obj\\sim.exe"
+      ],
+      "command_id": "cmd-pilot-02-secded-verilated-sim",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-02\\secded",
+      "end_utc": "2026-08-05T05:47:01.901492Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-02/secded/functional_verification.log",
+      "start_utc": "2026-08-05T05:47:01.828393Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "D:\\Compiler Cpp\\msys2_shell.cmd",
+        "-defterm",
+        "-no-start",
+        "-ucrt64",
+        "-here",
+        "-c",
+        "export VERILATOR_ROOT='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root'; export MAKE='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/make.exe'; export TMPDIR='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/hsiao'; export TMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/hsiao'; export TEMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/hsiao'; verilator --binary --timing -Wno-fatal --top-module gate03_tb_hsiao -Iasic/include --Mdir 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/run-02/hsiao/verilator-obj' green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv scripts/gate03/verification/tb_gate03_hsiao.sv -o sim.exe"
+      ],
+      "command_id": "cmd-pilot-02-hsiao-verilator-build",
+      "cwd": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction",
+      "end_utc": "2026-08-05T05:47:03.234416Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-02/hsiao/verilator_build.log",
+      "start_utc": "2026-08-05T05:47:01.934526Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-02\\hsiao\\verilator-obj\\sim.exe"
+      ],
+      "command_id": "cmd-pilot-02-hsiao-verilated-sim",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03\\61b2eec71e900ce698831b3f26011bc200dead40\\pilot-attempt-01\\run-02\\hsiao",
+      "end_utc": "2026-08-05T05:47:03.292274Z",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/run-02/hsiao/functional_verification.log",
+      "start_utc": "2026-08-05T05:47:03.260264Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "make"
+      ],
+      "command_id": "cmd-regression-make",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/make.log",
+      "start_utc": "",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "make",
+        "test"
+      ],
+      "command_id": "cmd-regression-make-test-attempt-01",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 124,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/make_test_attempt_01_timeout.log",
+      "start_utc": "",
+      "status": "TIMEOUT_WITH_GATE03_TEST_DIAGNOSED"
+    },
+    {
+      "command": [
+        "make",
+        "test"
+      ],
+      "command_id": "cmd-regression-make-test-attempt-02",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 2,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/make_test.log",
+      "start_utc": "",
+      "status": "FAIL_UNRELATED_FIXTURE_HASH"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "command_id": "cmd-regression-python3-pytest",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 1,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/python3_pytest.log",
+      "start_utc": "",
+      "status": "FAIL_UNRELATED_FIXTURE_HASH"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "command_id": "cmd-regression-git-diff-check",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_check.log",
+      "start_utc": "",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "command_id": "cmd-regression-git-diff-cached-check-attempt-01",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 2,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_cached_check_attempt_01.log",
+      "start_utc": "",
+      "status": "FAIL_GATE03_EOF_BLANK_LINES_FIXED"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "command_id": "cmd-regression-git-diff-cached-check-attempt-02",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_cached_check.log",
+      "start_utc": "",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "command_id": "cmd-regression-git-diff-cached-check-final",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/git_diff_cached_check_final.log",
+      "start_utc": "",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/python/test_gate03_artifacts.py"
+      ],
+      "command_id": "cmd-regression-gate03-focused",
+      "cwd": "C:\\Users\\Abhinav\\AppData\\Local\\Temp\\green-ecc-gate03-staged-61b2eec7",
+      "end_utc": "",
+      "exit_code": 0,
+      "log": "docs/date2027/rigour_gate_03/baseline/regression/gate03_focused.log",
+      "start_utc": "",
+      "status": "PASS"
+    }
+  ],
+  "schema_version": 1
+}

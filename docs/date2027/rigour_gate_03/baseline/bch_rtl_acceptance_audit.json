@@ -1,0 +1,91 @@
+{
+  "accepted_rtl": [],
+  "decoder_acceptance": {
+    "calculation": "1 + 78 + C(78,2)",
+    "mask_weights": [
+      0,
+      1,
+      2
+    ],
+    "required_mask_cases": 3082,
+    "required_outputs": [
+      "decoded_data",
+      "corrected_codeword",
+      "latency",
+      "status_semantics"
+    ],
+    "symbolic_payload_required": true
+  },
+  "encoder_acceptance": {
+    "allowed_methods": [
+      "formal_equivalence_to_frozen_generator_matrix",
+      "formal_linearity_plus_zero_and_all_64_basis_messages"
+    ],
+    "required_payload_cases": 65
+  },
+  "examined_sources": [
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "asic/bch/bch_decoder.sv",
+      "sha256": "0bb350e961ede3775a4a85bbc06eb04ed2d2450d83b42e0d3f014bf0b7812626"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "asic/bch/bch_encoder.sv",
+      "sha256": "434862ed866f20ced2bcec759d45c670fc40f0e845513ad0bf3a924e4d67ca62"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "asic/bch/sram_bch_top.sv",
+      "sha256": "8f2277f8b5fe31a63ebdb8e8389220f1c2554a78c21b718303cfea7cba793221"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "asic/rtl/bch/bch_codec.sv",
+      "sha256": "4fd6d0a91efc255ab1964d7db417d18f14e178149739a68666cb520c02102639"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "asic/tb/tb_bch.sv",
+      "sha256": "627151112f27ff482d4ef2750f7b1a3a90dd347e4ab0d601199514499e5733c9"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "rtl/ecc_generated/bch_16b.v",
+      "sha256": "e61fb4b021fdcbb6b00401cf1ec3e1b8f6ffdb371acec5c405793e7de1ef23a3"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "rtl/ecc_generated/bch_32b.v",
+      "sha256": "3f81c9ab566f77cbe2ec2430e6cac3d84efb61b67a72d53193c3f62efa366e4c"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "rtl/ecc_generated/bch_51b.v",
+      "sha256": "f8d4da16d719b845928a5263924d6131b4959c02a159c0f1d8f1d282f9eb0ee5"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "rtl/ecc_generated/bch_8b.v",
+      "sha256": "63d502169666687d50a09b9e215b9d56d797a46b7c9353c7b4d94e2a591cb2d1"
+    },
+    {
+      "acceptance_status": "REJECTED_NO_EXACT_GATE02_EQUIVALENCE_PROOF",
+      "mentions_exact_78_64_identity": false,
+      "path": "rtl/ecc_generated/tb/tb_bch_32b.v",
+      "sha256": "b382ab612b4f735c03f33b3f1c8a623f16497fc97e2ec2b00d207aaa1d907a3c"
+    }
+  ],
+  "probe_only_equivalence_is_complete": false,
+  "status": "BLOCKED_MISSING_VALID_RTL",
+  "target_mathematical_code_id": "shortened-bch-78-64-t2-v1"
+}

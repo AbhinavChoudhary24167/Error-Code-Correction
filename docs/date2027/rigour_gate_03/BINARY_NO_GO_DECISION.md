@@ -1,0 +1,5 @@
+# Gate-03 binary decision
+
+NO_GO_FOR_DATE_2027_REGULAR_PAPER_CORE
+
+Mechanically triggered by: `UNTESTABLE_IDENTITY_MISMATCH`, `BLOCKED_MISSING_VALID_RTL`, and `BLOCKED_PINNED_ORFS_ENVIRONMENT_UNAVAILABLE`. Negative slack was not used.

@@ -1,0 +1,40 @@
+{
+  "conditional_energy_weighting": "Gate-04 only with separately calibrated fault PMF",
+  "measured_cycles": 8192,
+  "primary_power_workload_id": "normal-clean-random-v1",
+  "schema_version": 1,
+  "seed": "0x475245454E454343",
+  "vcd_interval": "measured_only",
+  "verification_stress_may_populate_primary_power": false,
+  "warmup_cycles": 256,
+  "workloads": {
+    "conditional-double-v1": {
+      "clean_fraction": "0/1",
+      "double_error_fraction": "1/1",
+      "eligible_for_primary_power": false,
+      "purpose": "conditional_power_only",
+      "single_error_fraction": "0/1"
+    },
+    "conditional-single-v1": {
+      "clean_fraction": "0/1",
+      "double_error_fraction": "0/1",
+      "eligible_for_primary_power": false,
+      "purpose": "conditional_power_only",
+      "single_error_fraction": "1/1"
+    },
+    "normal-clean-random-v1": {
+      "clean_fraction": "1/1",
+      "double_error_fraction": "0/1",
+      "eligible_for_primary_power": true,
+      "purpose": "primary_power",
+      "single_error_fraction": "0/1"
+    },
+    "verification-stress-v1": {
+      "clean_fraction": "4/5",
+      "double_error_fraction": "1/10",
+      "eligible_for_primary_power": false,
+      "purpose": "verification_only",
+      "single_error_fraction": "1/10"
+    }
+  }
+}

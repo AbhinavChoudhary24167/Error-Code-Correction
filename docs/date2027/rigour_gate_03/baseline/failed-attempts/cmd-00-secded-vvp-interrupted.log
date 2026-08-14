@@ -1,0 +1,17 @@
+command_id=cmd-01-secded-iverilog
+command=C:\Users\Abhinav\AppData\Local\Temp\green-ecc-gate03\61b2eec71e900ce698831b3f26011bc200dead40\toolchain\bin\iverilog.exe -g2012 -Iasic/include -s gate03_tb_secded -o C:\Users\Abhinav\AppData\Local\Temp\green-ecc-gate03\61b2eec71e900ce698831b3f26011bc200dead40\run-01\secded\verification-stress.vvp asic/rtl/secded/secded_codec.sv scripts/gate03/verification/tb_gate03_secded.sv
+start_utc=2026-08-05T05:03:38.418778Z
+end_utc=2026-08-05T05:03:39.534586Z
+exit_code=0
+status=PASS
+duration_seconds=1.115232
+
+STDOUT
+
+STDERR
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+
+RETRY_DIAGNOSIS
+The verification-only VCD dump caused prohibitive Windows vvp runtime. The process was interrupted; the partial VCD is preserved externally. The retry removes verification VCD generation and receives new command IDs.

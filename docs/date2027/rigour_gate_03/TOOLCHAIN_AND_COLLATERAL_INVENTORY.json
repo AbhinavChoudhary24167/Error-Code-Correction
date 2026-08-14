@@ -1,0 +1,96 @@
+{
+  "collateral": {
+    "cell_lef": null,
+    "liberty": null,
+    "platform": "SKY130HD",
+    "required_liberty_corner": "sky130_fd_sc_hd__tt_025C_1v80",
+    "routing_extraction": null,
+    "status": "BLOCKED_NOT_ACQUIRED",
+    "technology_lef": null
+  },
+  "environment_provisioning": {
+    "approval_request_status": "REJECTED_PENDING_EXPLICIT_USER_APPROVAL",
+    "approved": false,
+    "host_changed": false,
+    "reboot_performed": false
+  },
+  "licenses": {
+    "proprietary_acquisition_attempted": false,
+    "public_collateral_acquisition_attempted": false
+  },
+  "orfs": {
+    "image_digest": null,
+    "image_reference": null,
+    "image_source_hash_match": "NOT_ESTABLISHED",
+    "matching_source_commit": null,
+    "status": "BLOCKED_NOT_PROVISIONED"
+  },
+  "schema_version": 1,
+  "toolchain_id": "gate03-local-audit-v1",
+  "tools": [
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "role": "RTL elaboration/VCD generation",
+      "sha256": "67ad019127af918172156ea3393ca297d61d889bb8b1efb202fcf6e985ca6e82",
+      "tool": "iverilog",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\vvp.EXE",
+      "role": "RTL simulation",
+      "sha256": "7d18c437867e2ff41c7e4b7bb2d072e5f1e2cf08794b68405a93423e52334fc0",
+      "tool": "vvp",
+      "version": "Icarus Verilog runtime version 12.0 (devel) (s20150603-1391-gd480c4d7d)"
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\verilator",
+      "role": "bounded RTL compilation and simulation",
+      "sha256": "59a001ed47f9cccfa1b13acb503708f627b65f523667bdbaddbae9db7b8252b1",
+      "tool": "verilator",
+      "version": null
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "role": "generic synthesis proxy",
+      "sha256": "da2209de850fff3546f3fc7fb4203e62c611fda7d5103785a1a453e16566aaa5",
+      "tool": "yosys",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)"
+    },
+    {
+      "available": false,
+      "path": null,
+      "role": "placement/routing",
+      "sha256": null,
+      "tool": "openroad",
+      "version": null
+    },
+    {
+      "available": false,
+      "path": null,
+      "role": "static timing/power activity",
+      "sha256": null,
+      "tool": "sta",
+      "version": null
+    },
+    {
+      "available": false,
+      "path": null,
+      "role": "container runtime",
+      "sha256": null,
+      "tool": "docker",
+      "version": null
+    },
+    {
+      "available": true,
+      "path": "C:\\WINDOWS\\system32\\wsl.EXE",
+      "role": "Linux environment launcher",
+      "sha256": "e27cbfcbd61c44796e2cfdd031663245bda8d6e4a43c1451b1fc505333908126",
+      "tool": "wsl",
+      "version": "T\u0000h\u0000e\u0000 \u0000W\u0000i\u0000n\u0000d\u0000o\u0000w\u0000s\u0000 \u0000S\u0000u\u0000b\u0000s\u0000y\u0000s\u0000t\u0000e\u0000m\u0000 \u0000f\u0000o\u0000r\u0000 \u0000L\u0000i\u0000n\u0000u\u0000x\u0000 \u0000i\u0000s\u0000 \u0000n\u0000o\u0000t\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000e\u0000d\u0000.\u0000 \u0000Y\u0000o\u0000u\u0000 \u0000c\u0000a\u0000n\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000 \u0000b\u0000y\u0000 \u0000r\u0000u\u0000n\u0000n\u0000i\u0000n\u0000g\u0000 \u0000'\u0000w\u0000s\u0000l\u0000.\u0000e\u0000x\u0000e\u0000 \u0000-\u0000-\u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000'\u0000.\u0000"
+    }
+  ]
+}
