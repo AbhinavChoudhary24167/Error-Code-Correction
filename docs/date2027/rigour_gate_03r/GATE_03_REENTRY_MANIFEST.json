@@ -1,0 +1,21 @@
+{
+  "authorization": {
+    "complete_gate03_reentry_authorized": false,
+    "hard_stop_consequence": "NO_GO_FOR_DATE_2027_REGULAR_PAPER_CORE if complete Gate 03 re-entry has not passed",
+    "reason": "Gate 03R acceptance criteria A1, A6, and A7 did not pass",
+    "reentry_deadline": "2026-08-21T23:59:59-12:00"
+  },
+  "candidate_implementation_ids": [
+    "secded-rtl-combinational-72-64-v1",
+    "secded-rtl-pipelined-72-64-v1",
+    "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+  ],
+  "freeze_commit": "62cb42093354cc72bf50b280ed34a59d84a294a8",
+  "gate03r_verdict": "REMEDIATION_FAILED",
+  "generated_utc": "2026-08-14T06:28:39.449627Z",
+  "previous_gate_hash_status": "PASS",
+  "prohibited_claims_generated": false,
+  "registry_overlay": "green_ecc_physical_simulation/registry/registry_gate03r.json",
+  "registry_overlay_status": "PASS",
+  "schema_version": 1
+}

@@ -1,0 +1,35 @@
+{
+  "attempts_preserved": true,
+  "bch": {
+    "compile_exit_code": 0,
+    "encoder_vectors": 1,
+    "proof_radius_vectors": 3082,
+    "simulation_exit_code": null,
+    "status": "PASS_VERILATOR_COMPILED_SMOKE",
+    "vectors": 1,
+    "verilator_build_exit_code": 0,
+    "verilator_simulation_exit_code": 0
+  },
+  "icarus_attempt_status": {
+    "bch": "BLOCKED_EVENT_SIMULATOR_NONTERMINATION",
+    "preserved_logs": true,
+    "secded": "BLOCKED_EVENT_SIMULATOR_RUNTIME_NONTERMINATION"
+  },
+  "passing_simulator": "Verilator",
+  "schema_version": 1,
+  "secded": {
+    "compile_exit_code": 0,
+    "initiation_interval": 1,
+    "latency_cycles": 2,
+    "simulation_exit_code": null,
+    "status": "PASS_VERILATOR_COMPILED_SMOKE",
+    "vectors": 1,
+    "verilator_build_exit_code": 0,
+    "verilator_simulation_exit_code": 0,
+    "weight2_masks_exact_replay": 2556,
+    "weight2_masks_simulated": 0,
+    "weight3_masks_exact_replay": 59640,
+    "weight3_masks_simulated": 0
+  },
+  "status": "PASS"
+}

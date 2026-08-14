@@ -1,0 +1,4 @@
+implementation_id,proof_scope,payload,mask_count,assertions,status,limitations
+secded-rtl-pipelined-72-64-v1,universal arbitrary 72-bit input plus Gate02 replay,symbolic/compositional,62269,data;corrected codeword;detected;corrected;uncorrectable;latency,PASS,Verilator smoke passed; exact coverage is proof-based
+shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1,weight 0/1/2,64-bit symbolic each job,3082,data;corrected codeword;mask;S1..S4;status;latency,PASS,weight3 characterized only; Verilator smoke passed
+shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1,weight3 characterization,zero exhaustive plus 1024 deterministic samples,76076,reference consistency only,PASS,NO_WEIGHT3_CORRECTION_CLAIM

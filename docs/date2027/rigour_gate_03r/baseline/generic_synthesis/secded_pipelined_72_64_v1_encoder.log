@@ -1,0 +1,1109 @@
+$ "D:\Compiler Cpp\ucrt64\bin\yosys.EXE" -p "read_verilog -sv asic/rtl/secded/secded_pipelined_72_64_v1.sv; hierarchy -check -top secded_pipelined_72_64_v1_encoder; proc; flatten; opt; synth -top secded_pipelined_72_64_v1_encoder -flatten; check; write_json docs/date2027/rigour_gate_03r/baseline/generic_synthesis/secded_pipelined_72_64_v1_encoder.json; write_verilog -noattr docs/date2027/rigour_gate_03r/baseline/generic_synthesis/secded_pipelined_72_64_v1_encoder.v"
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+
+
+-- Running command `read_verilog -sv asic/rtl/secded/secded_pipelined_72_64_v1.sv; hierarchy -check -top secded_pipelined_72_64_v1_encoder; proc; flatten; opt; synth -top secded_pipelined_72_64_v1_encoder -flatten; check; write_json docs/date2027/rigour_gate_03r/baseline/generic_synthesis/secded_pipelined_72_64_v1_encoder.json; write_verilog -noattr docs/date2027/rigour_gate_03r/baseline/generic_synthesis/secded_pipelined_72_64_v1_encoder.v' --
+
+1. Executing Verilog-2005 frontend: asic/rtl/secded/secded_pipelined_72_64_v1.sv
+Parsing SystemVerilog input from `asic/rtl/secded/secded_pipelined_72_64_v1.sv' to AST representation.
+Generating RTLIL representation for module `\secded_pipelined_72_64_v1_encoder'.
+Warning: Replacing memory \parity_group with list of registers. See asic/rtl/secded/secded_pipelined_72_64_v1.sv:48, asic/rtl/secded/secded_pipelined_72_64_v1.sv:30
+Note: Assuming pure combinatorial block at asic/rtl/secded/secded_pipelined_72_64_v1.sv:26.3-54.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\secded_pipelined_72_64_v1_decoder'.
+Warning: Replacing memory \syndrome_group with list of registers. See asic/rtl/secded/secded_pipelined_72_64_v1.sv:106, asic/rtl/secded/secded_pipelined_72_64_v1.sv:99
+Note: Assuming pure combinatorial block at asic/rtl/secded/secded_pipelined_72_64_v1.sv:96.3-112.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at asic/rtl/secded/secded_pipelined_72_64_v1.sv:114.3-142.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \secded_pipelined_72_64_v1_encoder
+
+2.2. Analyzing design hierarchy..
+Top module:  \secded_pipelined_72_64_v1_encoder
+Removing unused module `\secded_pipelined_72_64_v1_decoder'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 71 empty switches in `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+Cleaned up 71 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 504 switch rules as full_case in process $proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82 in module secded_pipelined_72_64_v1_encoder.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 278 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~504 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:56$3746'.
+Creating decoders for process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+     1/504: $72\parity_group[6][8:8]
+     2/504: $71\parity_group[6][8:8]
+     3/504: $70\parity_group[6][8:8]
+     4/504: $69\parity_group[6][8:8]
+     5/504: $68\parity_group[6][8:8]
+     6/504: $67\parity_group[6][8:8]
+     7/504: $66\parity_group[6][8:8]
+     8/504: $65\parity_group[6][8:8]
+     9/504: $64\parity_group[6][7:7]
+    10/504: $63\parity_group[6][7:7]
+    11/504: $62\parity_group[6][7:7]
+    12/504: $61\parity_group[6][7:7]
+    13/504: $60\parity_group[6][7:7]
+    14/504: $59\parity_group[6][7:7]
+    15/504: $58\parity_group[6][7:7]
+    16/504: $57\parity_group[6][7:7]
+    17/504: $56\parity_group[6][6:6]
+    18/504: $55\parity_group[6][6:6]
+    19/504: $54\parity_group[6][6:6]
+    20/504: $53\parity_group[6][6:6]
+    21/504: $52\parity_group[6][6:6]
+    22/504: $51\parity_group[6][6:6]
+    23/504: $50\parity_group[6][6:6]
+    24/504: $49\parity_group[6][6:6]
+    25/504: $48\parity_group[6][5:5]
+    26/504: $47\parity_group[6][5:5]
+    27/504: $46\parity_group[6][5:5]
+    28/504: $45\parity_group[6][5:5]
+    29/504: $44\parity_group[6][5:5]
+    30/504: $43\parity_group[6][5:5]
+    31/504: $42\parity_group[6][5:5]
+    32/504: $41\parity_group[6][5:5]
+    33/504: $40\parity_group[6][4:4]
+    34/504: $39\parity_group[6][4:4]
+    35/504: $38\parity_group[6][4:4]
+    36/504: $37\parity_group[6][4:4]
+    37/504: $36\parity_group[6][4:4]
+    38/504: $35\parity_group[6][4:4]
+    39/504: $34\parity_group[6][4:4]
+    40/504: $33\parity_group[6][4:4]
+    41/504: $32\parity_group[6][3:3]
+    42/504: $31\parity_group[6][3:3]
+    43/504: $30\parity_group[6][3:3]
+    44/504: $29\parity_group[6][3:3]
+    45/504: $28\parity_group[6][3:3]
+    46/504: $27\parity_group[6][3:3]
+    47/504: $26\parity_group[6][3:3]
+    48/504: $25\parity_group[6][3:3]
+    49/504: $24\parity_group[6][2:2]
+    50/504: $23\parity_group[6][2:2]
+    51/504: $22\parity_group[6][2:2]
+    52/504: $21\parity_group[6][2:2]
+    53/504: $20\parity_group[6][2:2]
+    54/504: $19\parity_group[6][2:2]
+    55/504: $18\parity_group[6][2:2]
+    56/504: $17\parity_group[6][2:2]
+    57/504: $16\parity_group[6][1:1]
+    58/504: $15\parity_group[6][1:1]
+    59/504: $14\parity_group[6][1:1]
+    60/504: $13\parity_group[6][1:1]
+    61/504: $12\parity_group[6][1:1]
+    62/504: $11\parity_group[6][1:1]
+    63/504: $10\parity_group[6][1:1]
+    64/504: $9\parity_group[6][1:1]
+    65/504: $8\parity_group[6][0:0]
+    66/504: $7\parity_group[6][0:0]
+    67/504: $6\parity_group[6][0:0]
+    68/504: $5\parity_group[6][0:0]
+    69/504: $4\parity_group[6][0:0]
+    70/504: $3\parity_group[6][0:0]
+    71/504: $2\parity_group[6][0:0]
+    72/504: $1\parity_group[6][0:0]
+    73/504: $72\parity_group[5][8:8]
+    74/504: $71\parity_group[5][8:8]
+    75/504: $70\parity_group[5][8:8]
+    76/504: $69\parity_group[5][8:8]
+    77/504: $68\parity_group[5][8:8]
+    78/504: $67\parity_group[5][8:8]
+    79/504: $66\parity_group[5][8:8]
+    80/504: $65\parity_group[5][8:8]
+    81/504: $64\parity_group[5][7:7]
+    82/504: $63\parity_group[5][7:7]
+    83/504: $62\parity_group[5][7:7]
+    84/504: $61\parity_group[5][7:7]
+    85/504: $60\parity_group[5][7:7]
+    86/504: $59\parity_group[5][7:7]
+    87/504: $58\parity_group[5][7:7]
+    88/504: $57\parity_group[5][7:7]
+    89/504: $56\parity_group[5][6:6]
+    90/504: $55\parity_group[5][6:6]
+    91/504: $54\parity_group[5][6:6]
+    92/504: $53\parity_group[5][6:6]
+    93/504: $52\parity_group[5][6:6]
+    94/504: $51\parity_group[5][6:6]
+    95/504: $50\parity_group[5][6:6]
+    96/504: $49\parity_group[5][6:6]
+    97/504: $48\parity_group[5][5:5]
+    98/504: $47\parity_group[5][5:5]
+    99/504: $46\parity_group[5][5:5]
+   100/504: $45\parity_group[5][5:5]
+   101/504: $44\parity_group[5][5:5]
+   102/504: $43\parity_group[5][5:5]
+   103/504: $42\parity_group[5][5:5]
+   104/504: $41\parity_group[5][5:5]
+   105/504: $40\parity_group[5][4:4]
+   106/504: $39\parity_group[5][4:4]
+   107/504: $38\parity_group[5][4:4]
+   108/504: $37\parity_group[5][4:4]
+   109/504: $36\parity_group[5][4:4]
+   110/504: $35\parity_group[5][4:4]
+   111/504: $34\parity_group[5][4:4]
+   112/504: $33\parity_group[5][4:4]
+   113/504: $32\parity_group[5][3:3]
+   114/504: $31\parity_group[5][3:3]
+   115/504: $30\parity_group[5][3:3]
+   116/504: $29\parity_group[5][3:3]
+   117/504: $28\parity_group[5][3:3]
+   118/504: $27\parity_group[5][3:3]
+   119/504: $26\parity_group[5][3:3]
+   120/504: $25\parity_group[5][3:3]
+   121/504: $24\parity_group[5][2:2]
+   122/504: $23\parity_group[5][2:2]
+   123/504: $22\parity_group[5][2:2]
+   124/504: $21\parity_group[5][2:2]
+   125/504: $20\parity_group[5][2:2]
+   126/504: $19\parity_group[5][2:2]
+   127/504: $18\parity_group[5][2:2]
+   128/504: $17\parity_group[5][2:2]
+   129/504: $16\parity_group[5][1:1]
+   130/504: $15\parity_group[5][1:1]
+   131/504: $14\parity_group[5][1:1]
+   132/504: $13\parity_group[5][1:1]
+   133/504: $12\parity_group[5][1:1]
+   134/504: $11\parity_group[5][1:1]
+   135/504: $10\parity_group[5][1:1]
+   136/504: $9\parity_group[5][1:1]
+   137/504: $8\parity_group[5][0:0]
+   138/504: $7\parity_group[5][0:0]
+   139/504: $6\parity_group[5][0:0]
+   140/504: $5\parity_group[5][0:0]
+   141/504: $4\parity_group[5][0:0]
+   142/504: $3\parity_group[5][0:0]
+   143/504: $2\parity_group[5][0:0]
+   144/504: $1\parity_group[5][0:0]
+   145/504: $72\parity_group[4][8:8]
+   146/504: $71\parity_group[4][8:8]
+   147/504: $70\parity_group[4][8:8]
+   148/504: $69\parity_group[4][8:8]
+   149/504: $68\parity_group[4][8:8]
+   150/504: $67\parity_group[4][8:8]
+   151/504: $66\parity_group[4][8:8]
+   152/504: $65\parity_group[4][8:8]
+   153/504: $64\parity_group[4][7:7]
+   154/504: $63\parity_group[4][7:7]
+   155/504: $62\parity_group[4][7:7]
+   156/504: $61\parity_group[4][7:7]
+   157/504: $60\parity_group[4][7:7]
+   158/504: $59\parity_group[4][7:7]
+   159/504: $58\parity_group[4][7:7]
+   160/504: $57\parity_group[4][7:7]
+   161/504: $56\parity_group[4][6:6]
+   162/504: $55\parity_group[4][6:6]
+   163/504: $54\parity_group[4][6:6]
+   164/504: $53\parity_group[4][6:6]
+   165/504: $52\parity_group[4][6:6]
+   166/504: $51\parity_group[4][6:6]
+   167/504: $50\parity_group[4][6:6]
+   168/504: $49\parity_group[4][6:6]
+   169/504: $48\parity_group[4][5:5]
+   170/504: $47\parity_group[4][5:5]
+   171/504: $46\parity_group[4][5:5]
+   172/504: $45\parity_group[4][5:5]
+   173/504: $44\parity_group[4][5:5]
+   174/504: $43\parity_group[4][5:5]
+   175/504: $42\parity_group[4][5:5]
+   176/504: $41\parity_group[4][5:5]
+   177/504: $40\parity_group[4][4:4]
+   178/504: $39\parity_group[4][4:4]
+   179/504: $38\parity_group[4][4:4]
+   180/504: $37\parity_group[4][4:4]
+   181/504: $36\parity_group[4][4:4]
+   182/504: $35\parity_group[4][4:4]
+   183/504: $34\parity_group[4][4:4]
+   184/504: $33\parity_group[4][4:4]
+   185/504: $32\parity_group[4][3:3]
+   186/504: $31\parity_group[4][3:3]
+   187/504: $30\parity_group[4][3:3]
+   188/504: $29\parity_group[4][3:3]
+   189/504: $28\parity_group[4][3:3]
+   190/504: $27\parity_group[4][3:3]
+   191/504: $26\parity_group[4][3:3]
+   192/504: $25\parity_group[4][3:3]
+   193/504: $24\parity_group[4][2:2]
+   194/504: $23\parity_group[4][2:2]
+   195/504: $22\parity_group[4][2:2]
+   196/504: $21\parity_group[4][2:2]
+   197/504: $20\parity_group[4][2:2]
+   198/504: $19\parity_group[4][2:2]
+   199/504: $18\parity_group[4][2:2]
+   200/504: $17\parity_group[4][2:2]
+   201/504: $16\parity_group[4][1:1]
+   202/504: $15\parity_group[4][1:1]
+   203/504: $14\parity_group[4][1:1]
+   204/504: $13\parity_group[4][1:1]
+   205/504: $12\parity_group[4][1:1]
+   206/504: $11\parity_group[4][1:1]
+   207/504: $10\parity_group[4][1:1]
+   208/504: $9\parity_group[4][1:1]
+   209/504: $8\parity_group[4][0:0]
+   210/504: $7\parity_group[4][0:0]
+   211/504: $6\parity_group[4][0:0]
+   212/504: $5\parity_group[4][0:0]
+   213/504: $4\parity_group[4][0:0]
+   214/504: $3\parity_group[4][0:0]
+   215/504: $2\parity_group[4][0:0]
+   216/504: $1\parity_group[4][0:0]
+   217/504: $72\parity_group[3][8:8]
+   218/504: $71\parity_group[3][8:8]
+   219/504: $70\parity_group[3][8:8]
+   220/504: $69\parity_group[3][8:8]
+   221/504: $68\parity_group[3][8:8]
+   222/504: $67\parity_group[3][8:8]
+   223/504: $66\parity_group[3][8:8]
+   224/504: $65\parity_group[3][8:8]
+   225/504: $64\parity_group[3][7:7]
+   226/504: $63\parity_group[3][7:7]
+   227/504: $62\parity_group[3][7:7]
+   228/504: $61\parity_group[3][7:7]
+   229/504: $60\parity_group[3][7:7]
+   230/504: $59\parity_group[3][7:7]
+   231/504: $58\parity_group[3][7:7]
+   232/504: $57\parity_group[3][7:7]
+   233/504: $56\parity_group[3][6:6]
+   234/504: $55\parity_group[3][6:6]
+   235/504: $54\parity_group[3][6:6]
+   236/504: $53\parity_group[3][6:6]
+   237/504: $52\parity_group[3][6:6]
+   238/504: $51\parity_group[3][6:6]
+   239/504: $50\parity_group[3][6:6]
+   240/504: $49\parity_group[3][6:6]
+   241/504: $48\parity_group[3][5:5]
+   242/504: $47\parity_group[3][5:5]
+   243/504: $46\parity_group[3][5:5]
+   244/504: $45\parity_group[3][5:5]
+   245/504: $44\parity_group[3][5:5]
+   246/504: $43\parity_group[3][5:5]
+   247/504: $42\parity_group[3][5:5]
+   248/504: $41\parity_group[3][5:5]
+   249/504: $40\parity_group[3][4:4]
+   250/504: $39\parity_group[3][4:4]
+   251/504: $38\parity_group[3][4:4]
+   252/504: $37\parity_group[3][4:4]
+   253/504: $36\parity_group[3][4:4]
+   254/504: $35\parity_group[3][4:4]
+   255/504: $34\parity_group[3][4:4]
+   256/504: $33\parity_group[3][4:4]
+   257/504: $32\parity_group[3][3:3]
+   258/504: $31\parity_group[3][3:3]
+   259/504: $30\parity_group[3][3:3]
+   260/504: $29\parity_group[3][3:3]
+   261/504: $28\parity_group[3][3:3]
+   262/504: $27\parity_group[3][3:3]
+   263/504: $26\parity_group[3][3:3]
+   264/504: $25\parity_group[3][3:3]
+   265/504: $24\parity_group[3][2:2]
+   266/504: $23\parity_group[3][2:2]
+   267/504: $22\parity_group[3][2:2]
+   268/504: $21\parity_group[3][2:2]
+   269/504: $20\parity_group[3][2:2]
+   270/504: $19\parity_group[3][2:2]
+   271/504: $18\parity_group[3][2:2]
+   272/504: $17\parity_group[3][2:2]
+   273/504: $16\parity_group[3][1:1]
+   274/504: $15\parity_group[3][1:1]
+   275/504: $14\parity_group[3][1:1]
+   276/504: $13\parity_group[3][1:1]
+   277/504: $12\parity_group[3][1:1]
+   278/504: $11\parity_group[3][1:1]
+   279/504: $10\parity_group[3][1:1]
+   280/504: $9\parity_group[3][1:1]
+   281/504: $8\parity_group[3][0:0]
+   282/504: $7\parity_group[3][0:0]
+   283/504: $6\parity_group[3][0:0]
+   284/504: $5\parity_group[3][0:0]
+   285/504: $4\parity_group[3][0:0]
+   286/504: $3\parity_group[3][0:0]
+   287/504: $2\parity_group[3][0:0]
+   288/504: $1\parity_group[3][0:0]
+   289/504: $72\parity_group[2][8:8]
+   290/504: $71\parity_group[2][8:8]
+   291/504: $70\parity_group[2][8:8]
+   292/504: $69\parity_group[2][8:8]
+   293/504: $68\parity_group[2][8:8]
+   294/504: $67\parity_group[2][8:8]
+   295/504: $66\parity_group[2][8:8]
+   296/504: $65\parity_group[2][8:8]
+   297/504: $64\parity_group[2][7:7]
+   298/504: $63\parity_group[2][7:7]
+   299/504: $62\parity_group[2][7:7]
+   300/504: $61\parity_group[2][7:7]
+   301/504: $60\parity_group[2][7:7]
+   302/504: $59\parity_group[2][7:7]
+   303/504: $58\parity_group[2][7:7]
+   304/504: $57\parity_group[2][7:7]
+   305/504: $56\parity_group[2][6:6]
+   306/504: $55\parity_group[2][6:6]
+   307/504: $54\parity_group[2][6:6]
+   308/504: $53\parity_group[2][6:6]
+   309/504: $52\parity_group[2][6:6]
+   310/504: $51\parity_group[2][6:6]
+   311/504: $50\parity_group[2][6:6]
+   312/504: $49\parity_group[2][6:6]
+   313/504: $48\parity_group[2][5:5]
+   314/504: $47\parity_group[2][5:5]
+   315/504: $46\parity_group[2][5:5]
+   316/504: $45\parity_group[2][5:5]
+   317/504: $44\parity_group[2][5:5]
+   318/504: $43\parity_group[2][5:5]
+   319/504: $42\parity_group[2][5:5]
+   320/504: $41\parity_group[2][5:5]
+   321/504: $40\parity_group[2][4:4]
+   322/504: $39\parity_group[2][4:4]
+   323/504: $38\parity_group[2][4:4]
+   324/504: $37\parity_group[2][4:4]
+   325/504: $36\parity_group[2][4:4]
+   326/504: $35\parity_group[2][4:4]
+   327/504: $34\parity_group[2][4:4]
+   328/504: $33\parity_group[2][4:4]
+   329/504: $32\parity_group[2][3:3]
+   330/504: $31\parity_group[2][3:3]
+   331/504: $30\parity_group[2][3:3]
+   332/504: $29\parity_group[2][3:3]
+   333/504: $28\parity_group[2][3:3]
+   334/504: $27\parity_group[2][3:3]
+   335/504: $26\parity_group[2][3:3]
+   336/504: $25\parity_group[2][3:3]
+   337/504: $24\parity_group[2][2:2]
+   338/504: $23\parity_group[2][2:2]
+   339/504: $22\parity_group[2][2:2]
+   340/504: $21\parity_group[2][2:2]
+   341/504: $20\parity_group[2][2:2]
+   342/504: $19\parity_group[2][2:2]
+   343/504: $18\parity_group[2][2:2]
+   344/504: $17\parity_group[2][2:2]
+   345/504: $16\parity_group[2][1:1]
+   346/504: $15\parity_group[2][1:1]
+   347/504: $14\parity_group[2][1:1]
+   348/504: $13\parity_group[2][1:1]
+   349/504: $12\parity_group[2][1:1]
+   350/504: $11\parity_group[2][1:1]
+   351/504: $10\parity_group[2][1:1]
+   352/504: $9\parity_group[2][1:1]
+   353/504: $8\parity_group[2][0:0]
+   354/504: $7\parity_group[2][0:0]
+   355/504: $6\parity_group[2][0:0]
+   356/504: $5\parity_group[2][0:0]
+   357/504: $4\parity_group[2][0:0]
+   358/504: $3\parity_group[2][0:0]
+   359/504: $2\parity_group[2][0:0]
+   360/504: $1\parity_group[2][0:0]
+   361/504: $72\parity_group[1][8:8]
+   362/504: $71\parity_group[1][8:8]
+   363/504: $70\parity_group[1][8:8]
+   364/504: $69\parity_group[1][8:8]
+   365/504: $68\parity_group[1][8:8]
+   366/504: $67\parity_group[1][8:8]
+   367/504: $66\parity_group[1][8:8]
+   368/504: $65\parity_group[1][8:8]
+   369/504: $64\parity_group[1][7:7]
+   370/504: $63\parity_group[1][7:7]
+   371/504: $62\parity_group[1][7:7]
+   372/504: $61\parity_group[1][7:7]
+   373/504: $60\parity_group[1][7:7]
+   374/504: $59\parity_group[1][7:7]
+   375/504: $58\parity_group[1][7:7]
+   376/504: $57\parity_group[1][7:7]
+   377/504: $56\parity_group[1][6:6]
+   378/504: $55\parity_group[1][6:6]
+   379/504: $54\parity_group[1][6:6]
+   380/504: $53\parity_group[1][6:6]
+   381/504: $52\parity_group[1][6:6]
+   382/504: $51\parity_group[1][6:6]
+   383/504: $50\parity_group[1][6:6]
+   384/504: $49\parity_group[1][6:6]
+   385/504: $48\parity_group[1][5:5]
+   386/504: $47\parity_group[1][5:5]
+   387/504: $46\parity_group[1][5:5]
+   388/504: $45\parity_group[1][5:5]
+   389/504: $44\parity_group[1][5:5]
+   390/504: $43\parity_group[1][5:5]
+   391/504: $42\parity_group[1][5:5]
+   392/504: $41\parity_group[1][5:5]
+   393/504: $40\parity_group[1][4:4]
+   394/504: $39\parity_group[1][4:4]
+   395/504: $38\parity_group[1][4:4]
+   396/504: $37\parity_group[1][4:4]
+   397/504: $36\parity_group[1][4:4]
+   398/504: $35\parity_group[1][4:4]
+   399/504: $34\parity_group[1][4:4]
+   400/504: $33\parity_group[1][4:4]
+   401/504: $32\parity_group[1][3:3]
+   402/504: $31\parity_group[1][3:3]
+   403/504: $30\parity_group[1][3:3]
+   404/504: $29\parity_group[1][3:3]
+   405/504: $28\parity_group[1][3:3]
+   406/504: $27\parity_group[1][3:3]
+   407/504: $26\parity_group[1][3:3]
+   408/504: $25\parity_group[1][3:3]
+   409/504: $24\parity_group[1][2:2]
+   410/504: $23\parity_group[1][2:2]
+   411/504: $22\parity_group[1][2:2]
+   412/504: $21\parity_group[1][2:2]
+   413/504: $20\parity_group[1][2:2]
+   414/504: $19\parity_group[1][2:2]
+   415/504: $18\parity_group[1][2:2]
+   416/504: $17\parity_group[1][2:2]
+   417/504: $16\parity_group[1][1:1]
+   418/504: $15\parity_group[1][1:1]
+   419/504: $14\parity_group[1][1:1]
+   420/504: $13\parity_group[1][1:1]
+   421/504: $12\parity_group[1][1:1]
+   422/504: $11\parity_group[1][1:1]
+   423/504: $10\parity_group[1][1:1]
+   424/504: $9\parity_group[1][1:1]
+   425/504: $8\parity_group[1][0:0]
+   426/504: $7\parity_group[1][0:0]
+   427/504: $6\parity_group[1][0:0]
+   428/504: $5\parity_group[1][0:0]
+   429/504: $4\parity_group[1][0:0]
+   430/504: $3\parity_group[1][0:0]
+   431/504: $2\parity_group[1][0:0]
+   432/504: $1\parity_group[1][0:0]
+   433/504: $72\parity_group[0][8:8]
+   434/504: $71\parity_group[0][8:8]
+   435/504: $70\parity_group[0][8:8]
+   436/504: $69\parity_group[0][8:8]
+   437/504: $68\parity_group[0][8:8]
+   438/504: $67\parity_group[0][8:8]
+   439/504: $66\parity_group[0][8:8]
+   440/504: $65\parity_group[0][8:8]
+   441/504: $64\parity_group[0][7:7]
+   442/504: $63\parity_group[0][7:7]
+   443/504: $62\parity_group[0][7:7]
+   444/504: $61\parity_group[0][7:7]
+   445/504: $60\parity_group[0][7:7]
+   446/504: $59\parity_group[0][7:7]
+   447/504: $58\parity_group[0][7:7]
+   448/504: $57\parity_group[0][7:7]
+   449/504: $56\parity_group[0][6:6]
+   450/504: $55\parity_group[0][6:6]
+   451/504: $54\parity_group[0][6:6]
+   452/504: $53\parity_group[0][6:6]
+   453/504: $52\parity_group[0][6:6]
+   454/504: $51\parity_group[0][6:6]
+   455/504: $50\parity_group[0][6:6]
+   456/504: $49\parity_group[0][6:6]
+   457/504: $48\parity_group[0][5:5]
+   458/504: $47\parity_group[0][5:5]
+   459/504: $46\parity_group[0][5:5]
+   460/504: $45\parity_group[0][5:5]
+   461/504: $44\parity_group[0][5:5]
+   462/504: $43\parity_group[0][5:5]
+   463/504: $42\parity_group[0][5:5]
+   464/504: $41\parity_group[0][5:5]
+   465/504: $40\parity_group[0][4:4]
+   466/504: $39\parity_group[0][4:4]
+   467/504: $38\parity_group[0][4:4]
+   468/504: $37\parity_group[0][4:4]
+   469/504: $36\parity_group[0][4:4]
+   470/504: $35\parity_group[0][4:4]
+   471/504: $34\parity_group[0][4:4]
+   472/504: $33\parity_group[0][4:4]
+   473/504: $32\parity_group[0][3:3]
+   474/504: $31\parity_group[0][3:3]
+   475/504: $30\parity_group[0][3:3]
+   476/504: $29\parity_group[0][3:3]
+   477/504: $28\parity_group[0][3:3]
+   478/504: $27\parity_group[0][3:3]
+   479/504: $26\parity_group[0][3:3]
+   480/504: $25\parity_group[0][3:3]
+   481/504: $24\parity_group[0][2:2]
+   482/504: $23\parity_group[0][2:2]
+   483/504: $22\parity_group[0][2:2]
+   484/504: $21\parity_group[0][2:2]
+   485/504: $20\parity_group[0][2:2]
+   486/504: $19\parity_group[0][2:2]
+   487/504: $18\parity_group[0][2:2]
+   488/504: $17\parity_group[0][2:2]
+   489/504: $16\parity_group[0][1:1]
+   490/504: $15\parity_group[0][1:1]
+   491/504: $14\parity_group[0][1:1]
+   492/504: $13\parity_group[0][1:1]
+   493/504: $12\parity_group[0][1:1]
+   494/504: $11\parity_group[0][1:1]
+   495/504: $10\parity_group[0][1:1]
+   496/504: $9\parity_group[0][1:1]
+   497/504: $8\parity_group[0][0:0]
+   498/504: $7\parity_group[0][0:0]
+   499/504: $6\parity_group[0][0:0]
+   500/504: $5\parity_group[0][0:0]
+   501/504: $4\parity_group[0][0:0]
+   502/504: $3\parity_group[0][0:0]
+   503/504: $2\parity_group[0][0:0]
+   504/504: $1\parity_group[0][0:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\positional_d' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_d' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\data_index' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\position' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_index' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\group_index' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\group_offset' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[0]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[1]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[2]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[3]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[4]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[5]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+No latch inferred for signal `\secded_pipelined_72_64_v1_encoder.\parity_group[6]' from process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\secded_pipelined_72_64_v1_encoder.\positional_q' using process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:56$3746'.
+  created $dff cell `$procdff$10186' with positive edge clock.
+Creating register for signal `\secded_pipelined_72_64_v1_encoder.\stage1_valid_q' using process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:56$3746'.
+  created $dff cell `$procdff$10187' with positive edge clock.
+Creating register for signal `\secded_pipelined_72_64_v1_encoder.\stage2_valid_q' using process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:56$3746'.
+  created $dff cell `$procdff$10188' with positive edge clock.
+Creating register for signal `\secded_pipelined_72_64_v1_encoder.\stage2_codeword_q' using process `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:56$3746'.
+  created $dff cell `$procdff$10189' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:56$3746'.
+Found and cleaned up 504 empty switches in `\secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+Removing empty process `secded_pipelined_72_64_v1_encoder.$proc$asic/rtl/secded/secded_pipelined_72_64_v1.sv:26$82'.
+Cleaned up 504 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+<suppressed ~4444 debug messages>
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+<suppressed ~4 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+<suppressed ~123 debug messages>
+Removed a total of 41 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \secded_pipelined_72_64_v1_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \secded_pipelined_72_64_v1_encoder.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+Removed 45 unused cells and 5227 unused wires.
+<suppressed ~46 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \secded_pipelined_72_64_v1_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \secded_pipelined_72_64_v1_encoder.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \secded_pipelined_72_64_v1_encoder
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \secded_pipelined_72_64_v1_encoder
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.3. Executing FLATTEN pass (flatten design).
+
+6.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.6. Executing CHECK pass (checking for obvious problems).
+Checking module secded_pipelined_72_64_v1_encoder...
+Found and reported 0 problems.
+
+6.7. Executing OPT pass (performing simple optimizations).
+
+6.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \secded_pipelined_72_64_v1_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \secded_pipelined_72_64_v1_encoder.
+Performed a total of 0 changes.
+
+6.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.7.9. Finished OPT passes. (There is nothing left to do.)
+
+6.8. Executing FSM pass (extract and optimize FSM).
+
+6.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.9. Executing OPT pass (performing simple optimizations).
+
+6.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \secded_pipelined_72_64_v1_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \secded_pipelined_72_64_v1_encoder.
+Performed a total of 0 changes.
+
+6.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.9.9. Finished OPT passes. (There is nothing left to do.)
+
+6.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 9) from wire secded_pipelined_72_64_v1_encoder.parity_group[3].
+Removed top 2 bits (of 9) from wire secded_pipelined_72_64_v1_encoder.parity_group[4].
+
+6.11. Executing PEEPOPT pass (run peephole optimizers).
+
+6.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+6.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module secded_pipelined_72_64_v1_encoder:
+  created 0 $alu and 0 $macc cells.
+
+6.14. Executing SHARE pass (SAT-based resource sharing).
+
+6.15. Executing OPT pass (performing simple optimizations).
+
+6.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \secded_pipelined_72_64_v1_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \secded_pipelined_72_64_v1_encoder.
+Performed a total of 0 changes.
+
+6.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.15.9. Finished OPT passes. (There is nothing left to do.)
+
+6.16. Executing MEMORY pass.
+
+6.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.18. Executing OPT pass (performing simple optimizations).
+
+6.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.18.5. Finished fast OPT passes.
+
+6.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+6.20. Executing OPT pass (performing simple optimizations).
+
+6.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \secded_pipelined_72_64_v1_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \secded_pipelined_72_64_v1_encoder.
+Performed a total of 0 changes.
+
+6.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.20.6. Executing OPT_SHARE pass.
+
+6.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+
+6.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.20.10. Finished OPT passes. (There is nothing left to do.)
+
+6.21. Executing TECHMAP pass (map to technology primitives).
+
+6.21.1. Executing Verilog-2005 frontend: D:\Compiler Cpp\ucrt64\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\Compiler Cpp\ucrt64\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+6.21.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $reduce_xor.
+Using extmapper simplemap for cells of type $dff.
+No more expansions possible.
+<suppressed ~215 debug messages>
+
+6.22. Executing OPT pass (performing simple optimizations).
+
+6.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+<suppressed ~19 debug messages>
+
+6.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+6.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+Removed 0 unused cells and 15 unused wires.
+<suppressed ~1 debug messages>
+
+6.22.5. Finished fast OPT passes.
+
+6.23. Executing ABC pass (technology mapping using ABC).
+
+6.23.1. Extracting gate netlist of module `\secded_pipelined_72_64_v1_encoder' to `<abc-temp-dir>/input.blif'..
+Extracted 236 gates and 371 wires to a netlist network with 135 inputs and 8 outputs.
+
+6.23.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.23.1.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:       26
+ABC RESULTS:               XOR cells:        4
+ABC RESULTS:              XNOR cells:      232
+ABC RESULTS:        internal signals:      228
+ABC RESULTS:           input signals:      135
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+6.24. Executing OPT pass (performing simple optimizations).
+
+6.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module secded_pipelined_72_64_v1_encoder.
+
+6.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\secded_pipelined_72_64_v1_encoder'.
+Removed a total of 0 cells.
+
+6.24.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \secded_pipelined_72_64_v1_encoder..
+Removed 0 unused cells and 260 unused wires.
+<suppressed ~4 debug messages>
+
+6.24.5. Finished fast OPT passes.
+
+6.25. Executing HIERARCHY pass (managing design hierarchy).
+
+6.25.1. Analyzing design hierarchy..
+Top module:  \secded_pipelined_72_64_v1_encoder
+
+6.25.2. Analyzing design hierarchy..
+Top module:  \secded_pipelined_72_64_v1_encoder
+Removed 0 unused modules.
+
+6.26. Printing statistics.
+
+=== secded_pipelined_72_64_v1_encoder ===
+
+   Number of wires:                275
+   Number of wire bits:            881
+   Number of public wires:          20
+   Number of public wire bits:     555
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                407
+     $_DFF_P_                      145
+     $_NOT_                         26
+     $_XNOR_                       232
+     $_XOR_                          4
+
+6.27. Executing CHECK pass (checking for obvious problems).
+Checking module secded_pipelined_72_64_v1_encoder...
+Found and reported 0 problems.
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module secded_pipelined_72_64_v1_encoder...
+Found and reported 0 problems.
+
+8. Executing JSON backend.
+
+9. Executing Verilog backend.
+
+9.1. Executing BMUXMAP pass.
+
+9.2. Executing DEMUXMAP pass.
+Dumping module `\secded_pipelined_72_64_v1_encoder'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: bd3b3466fd
+Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+Time spent: 1% 17x opt_expr (0 sec), 1% 15x opt_clean (0 sec), ...
+
+exit_code=0

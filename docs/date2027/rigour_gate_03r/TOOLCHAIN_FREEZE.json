@@ -1,0 +1,130 @@
+{
+  "captured_utc": "2026-08-14T06:28:39.368602Z",
+  "environment_provisioning": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "method": "direct provisioning script",
+        "result": "PowerShell execution policy blocked script before change"
+      },
+      {
+        "attempt": 2,
+        "method": "process-scoped execution-policy bypass",
+        "result": "administrator token required; no change"
+      },
+      {
+        "attempt": 3,
+        "method": "UAC Start-Process RunAs",
+        "result": "operation cancelled by user; no change"
+      }
+    ],
+    "host_changed": false,
+    "reboot_performed": false,
+    "reboot_required": false,
+    "required": "WSL2 Ubuntu 24.04 plus Docker Engine CE outside repository",
+    "status": "BLOCKED_USER_CANCELLED_UAC_ELEVATION"
+  },
+  "host": {
+    "logical_cpu_count": 16,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.7 (main, Dec  7 2023, 09:09:57)  [GCC UCRT 13.2.0 64 bit (AMD64)]",
+    "timezone": "Asia/Calcutta"
+  },
+  "orfs": {
+    "abbreviated_revision_from_tag": "56496f398",
+    "flow_tree_sha256": null,
+    "oci_internal_revision_evidence": null,
+    "published_tag": "26Q3-275-g56496f398",
+    "required_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "resolved_full_official_commit": null,
+    "sky130hd_platform_tree_sha256": null,
+    "source_image_reconciliation": "NOT_ESTABLISHED",
+    "status": "BLOCKED_PINNED_ENVIRONMENT_UNAVAILABLE",
+    "substitution_performed": false
+  },
+  "schema_version": 1,
+  "sky130hd": {
+    "cell_lef_path": null,
+    "cell_lef_sha256": null,
+    "corner_confirmed_from_pinned_config": false,
+    "liberty_path": null,
+    "liberty_sha256": null,
+    "licenses": "not inventoried because pinned image/platform was unavailable",
+    "required_corner": "sky130_fd_sc_hd__tt_025C_1v80",
+    "status": "BLOCKED_NOT_ACQUIRED",
+    "technology_lef_path": null,
+    "technology_lef_sha256": null
+  },
+  "tools": [
+    {
+      "available": true,
+      "path": "D:\\Git\\cmd\\git.EXE",
+      "sha256": "da240fe9bc24895b3e04150a4990b8a6ff329ecabcd8f19684c2cc310da5ef3f",
+      "tool": "git",
+      "version": "git version 2.53.0.windows.1",
+      "version_probe_status": "PASS"
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\python3.EXE",
+      "sha256": "839de069e5aff6fa4c39118785ecca0a0841e4f536aa35171e180e28b46960ba",
+      "tool": "python3",
+      "version": "Python 3.11.7",
+      "version_probe_status": "PASS"
+    },
+    {
+      "available": true,
+      "path": "C:\\ProgramData\\chocolatey\\bin\\make.EXE",
+      "sha256": "cabd1ed7c321d9c6d3f4aeacd8f0fcde52e5f3dcb9f29079f15f638c9f7e2e0e",
+      "tool": "make",
+      "version": "GNU Make 4.4.1",
+      "version_probe_status": "PASS"
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\yosys.EXE",
+      "sha256": "da2209de850fff3546f3fc7fb4203e62c611fda7d5103785a1a453e16566aaa5",
+      "tool": "yosys",
+      "version": "Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)",
+      "version_probe_status": "PASS"
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\iverilog.EXE",
+      "sha256": "67ad019127af918172156ea3393ca297d61d889bb8b1efb202fcf6e985ca6e82",
+      "tool": "iverilog",
+      "version": "Icarus Verilog version 12.0 (devel) (s20150603-1391-gd480c4d7d)",
+      "version_probe_status": "PASS"
+    },
+    {
+      "available": true,
+      "path": "D:\\Compiler Cpp\\ucrt64\\bin\\vvp.EXE",
+      "sha256": "7d18c437867e2ff41c7e4b7bb2d072e5f1e2cf08794b68405a93423e52334fc0",
+      "tool": "vvp",
+      "version": "Icarus Verilog runtime version 12.0 (devel) (s20150603-1391-gd480c4d7d)",
+      "version_probe_status": "PASS"
+    },
+    {
+      "available": false,
+      "path": null,
+      "sha256": null,
+      "tool": "verilator",
+      "version": null
+    },
+    {
+      "available": false,
+      "path": null,
+      "sha256": null,
+      "tool": "docker",
+      "version": null
+    },
+    {
+      "available": true,
+      "path": "C:\\WINDOWS\\system32\\wsl.EXE",
+      "sha256": "7e9f5cee6d641481e5a942f0e08563bae9c17ee55f0aad888f9aa0be9a5d4757",
+      "tool": "wsl",
+      "version": "T\u0000h\u0000e\u0000 \u0000W\u0000i\u0000n\u0000d\u0000o\u0000w\u0000s\u0000 \u0000S\u0000u\u0000b\u0000s\u0000y\u0000s\u0000t\u0000e\u0000m\u0000 \u0000f\u0000o\u0000r\u0000 \u0000L\u0000i\u0000n\u0000u\u0000x\u0000 \u0000i\u0000s\u0000 \u0000n\u0000o\u0000t\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000e\u0000d\u0000.\u0000 \u0000Y\u0000o\u0000u\u0000 \u0000c\u0000a\u0000n\u0000 \u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000 \u0000b\u0000y\u0000 \u0000r\u0000u\u0000n\u0000n\u0000i\u0000n\u0000g\u0000 \u0000'\u0000w\u0000s\u0000l\u0000.\u0000e\u0000x\u0000e\u0000 \u0000-\u0000-\u0000i\u0000n\u0000s\u0000t\u0000a\u0000l\u0000l\u0000'\u0000.\u0000",
+      "version_probe_status": "EXIT_1"
+    }
+  ]
+}

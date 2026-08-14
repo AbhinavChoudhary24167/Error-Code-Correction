@@ -1,0 +1,65 @@
+$ "D:\Compiler Cpp\msys2_shell.cmd" -defterm -no-start -ucrt64 -here -c "export VERILATOR_ROOT='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root'; export MAKE='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/make.exe'; export TMPDIR='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded'; export TMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded'; export TEMP='C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded'; verilator --binary --timing -Wno-fatal --top-module gate03r_secded_tb -Iasic/include --Mdir 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded/obj' asic/rtl/secded/secded_pipelined_72_64_v1.sv 'C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded/secded_tb.sv' -o sim.exe"
+/home/CodexSandboxOffline could not be created.
+Setting HOME to /tmp.
+make: Entering directory '/c/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded/obj'
+g++ -Os  -I.  -MMD -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/verilated.cpp
+g++ -Os  -I.  -MMD -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/verilated_threads.cpp
+/ucrt64/bin/python3 C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/bin/verilator_includer -DVL_INCLUDE_OPT=include Vgate03r_secded_tb.cpp Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp Vgate03r_secded_tb___024root__DepSet_h71d331ba__0.cpp Vgate03r_secded_tb__main.cpp Vgate03r_secded_tb___024root__Slow.cpp Vgate03r_secded_tb___024root__DepSet_hac2a852e__0__Slow.cpp Vgate03r_secded_tb___024root__DepSet_h71d331ba__0__Slow.cpp Vgate03r_secded_tb__Syms.cpp > Vgate03r_secded_tb__ALL.cpp
+g++ -Os  -I.  -MMD -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include -IC:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03/61b2eec71e900ce698831b3f26011bc200dead40/pilot-attempt-01/toolchain/verilator-root/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o Vgate03r_secded_tb__ALL.o Vgate03r_secded_tb__ALL.cpp
+echo "" > Vgate03r_secded_tb__ALL.verilator_deplist.tmp
+Archive ar -rcs Vgate03r_secded_tb__ALL.a Vgate03r_secded_tb__ALL.o
+g++     verilated.o verilated_timing.o verilated_threads.o Vgate03r_secded_tb__ALL.a    -pthread -lpthread -latomic   -o sim.exe
+rm Vgate03r_secded_tb__ALL.verilator_deplist.tmp
+make: Leaving directory '/c/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded/obj'
+[1;32mMSYS2 is starting for the first time. Executing the initial setup.[1;0m
+mkdir: cannot create directory '/home/CodexSandboxOffline': Permission denied
+[1;32mInitial setup complete. MSYS2 is now ready to use.[1;0m
+%Warning-TIMESCALEMOD: asic/rtl/secded\secded_pipelined_72_64_v1.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    4 | module secded_pipelined_72_64_v1_encoder (
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv:3:8: ... Location of module with timescale
+    3 | module gate03r_secded_tb;
+      |        ^~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.020
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: asic/rtl/secded\secded_pipelined_72_64_v1.sv:67:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+   67 | module secded_pipelined_72_64_v1_decoder (
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv:3:8: ... Location of module with timescale
+    3 | module gate03r_secded_tb;
+      |        ^~~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: asic/rtl/secded\secded_pipelined_72_64_v1.sv:119:20: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'syndrome_q' generates 7 bits.
+                                                                         : ... note: In instance 'gate03r_secded_tb.pipeline_decoder'
+  119 |     error_position = syndrome_q;
+      |                    ^
+In file included from Vgate03r_secded_tb__ALL.cpp:4:
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp: In function 'VlCoroutine Vgate03r_secded_tb___024root___eval_initial__TOP__Vtiming__0(Vgate03r_secded_tb___024root*)':
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:44:40: warning: unknown escape sequence: '\s'
+   44 |                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:53:56: warning: unknown escape sequence: '\s'
+   53 |                                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:64:40: warning: unknown escape sequence: '\s'
+   64 |                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:79:56: warning: unknown escape sequence: '\s'
+   79 |                                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:82:40: warning: unknown escape sequence: '\s'
+   82 |                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:88:56: warning: unknown escape sequence: '\s'
+   88 |                                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Vgate03r_secded_tb___024root__DepSet_hac2a852e__0.cpp:91:40: warning: unknown escape sequence: '\s'
+   91 |                                        "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from Vgate03r_secded_tb__ALL.cpp:5:
+Vgate03r_secded_tb___024root__DepSet_h71d331ba__0.cpp: In function 'VlCoroutine Vgate03r_secded_tb___024root___eval_initial__TOP__Vtiming__1(Vgate03r_secded_tb___024root*)':
+Vgate03r_secded_tb___024root__DepSet_h71d331ba__0.cpp:42:44: warning: unknown escape sequence: '\s'
+   42 |                                            "C:/Users/Abhinav/AppData/Local/Temp/green-ecc-gate03r-verilator/secded\secded_tb.sv",
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+exit_code=0

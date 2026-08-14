@@ -1,0 +1,575 @@
+$ "D:\Compiler Cpp\ucrt64\bin\yosys.EXE" -p "read_verilog -sv scripts/gate03r/rtl/secded_characterization_tops.sv; hierarchy -check -top gate03r_secded_baseline_encoder; proc; flatten; opt; synth -top gate03r_secded_baseline_encoder -flatten; check; write_json docs/date2027/rigour_gate_03r/baseline/generic_synthesis/gate03r_secded_baseline_encoder.json; write_verilog -noattr docs/date2027/rigour_gate_03r/baseline/generic_synthesis/gate03r_secded_baseline_encoder.v"
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+
+
+-- Running command `read_verilog -sv scripts/gate03r/rtl/secded_characterization_tops.sv; hierarchy -check -top gate03r_secded_baseline_encoder; proc; flatten; opt; synth -top gate03r_secded_baseline_encoder -flatten; check; write_json docs/date2027/rigour_gate_03r/baseline/generic_synthesis/gate03r_secded_baseline_encoder.json; write_verilog -noattr docs/date2027/rigour_gate_03r/baseline/generic_synthesis/gate03r_secded_baseline_encoder.v' --
+
+1. Executing Verilog-2005 frontend: scripts/gate03r/rtl/secded_characterization_tops.sv
+Parsing SystemVerilog input from `scripts/gate03r/rtl/secded_characterization_tops.sv' to AST representation.
+Generating RTLIL representation for module `\gate03r_secded_baseline_encoder'.
+Note: Assuming pure combinatorial block at scripts/gate03r/rtl/secded_characterization_tops.sv:13.3-26.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\gate03r_secded_baseline_decoder'.
+Note: Assuming pure combinatorial block at scripts/gate03r/rtl/secded_characterization_tops.sv:45.3-68.6 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Generating RTLIL representation for module `\gate03r_secded_baseline_combined'.
+Generating RTLIL representation for module `\gate03r_secded_pipelined_combined'.
+Generating RTLIL representation for module `\gate03r_bch_combined'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \gate03r_secded_baseline_encoder
+
+2.2. Analyzing design hierarchy..
+Top module:  \gate03r_secded_baseline_encoder
+Removing unused module `\gate03r_bch_combined'.
+Removing unused module `\gate03r_secded_pipelined_combined'.
+Removing unused module `\gate03r_secded_baseline_combined'.
+Removing unused module `\gate03r_secded_baseline_decoder'.
+Removed 4 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 568 empty switches in `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+Cleaned up 568 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 416 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\gate03r_secded_baseline_encoder.\codeword_o' from process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+No latch inferred for signal `\gate03r_secded_baseline_encoder.\positional' from process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+No latch inferred for signal `\gate03r_secded_baseline_encoder.\parity' from process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+No latch inferred for signal `\gate03r_secded_baseline_encoder.\data_index' from process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+No latch inferred for signal `\gate03r_secded_baseline_encoder.\position' from process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+No latch inferred for signal `\gate03r_secded_baseline_encoder.\parity_index' from process `\gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `gate03r_secded_baseline_encoder.$proc$scripts/gate03r/rtl/secded_characterization_tops.sv:13$78'.
+Cleaned up 0 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+<suppressed ~142 debug messages>
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate03r_secded_baseline_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate03r_secded_baseline_encoder.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+Removed 0 unused cells and 496 unused wires.
+<suppressed ~1 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate03r_secded_baseline_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate03r_secded_baseline_encoder.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \gate03r_secded_baseline_encoder
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \gate03r_secded_baseline_encoder
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.3. Executing FLATTEN pass (flatten design).
+
+6.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.6. Executing CHECK pass (checking for obvious problems).
+Checking module gate03r_secded_baseline_encoder...
+Found and reported 0 problems.
+
+6.7. Executing OPT pass (performing simple optimizations).
+
+6.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate03r_secded_baseline_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate03r_secded_baseline_encoder.
+Performed a total of 0 changes.
+
+6.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.7.9. Finished OPT passes. (There is nothing left to do.)
+
+6.8. Executing FSM pass (extract and optimize FSM).
+
+6.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.9. Executing OPT pass (performing simple optimizations).
+
+6.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate03r_secded_baseline_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate03r_secded_baseline_encoder.
+Performed a total of 0 changes.
+
+6.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.9.9. Finished OPT passes. (There is nothing left to do.)
+
+6.10. Executing WREDUCE pass (reducing word size of cells).
+
+6.11. Executing PEEPOPT pass (run peephole optimizers).
+
+6.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module gate03r_secded_baseline_encoder:
+  created 0 $alu and 0 $macc cells.
+
+6.14. Executing SHARE pass (SAT-based resource sharing).
+
+6.15. Executing OPT pass (performing simple optimizations).
+
+6.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate03r_secded_baseline_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate03r_secded_baseline_encoder.
+Performed a total of 0 changes.
+
+6.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.15.9. Finished OPT passes. (There is nothing left to do.)
+
+6.16. Executing MEMORY pass.
+
+6.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.18. Executing OPT pass (performing simple optimizations).
+
+6.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.18.5. Finished fast OPT passes.
+
+6.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+6.20. Executing OPT pass (performing simple optimizations).
+
+6.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate03r_secded_baseline_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate03r_secded_baseline_encoder.
+Performed a total of 0 changes.
+
+6.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.20.6. Executing OPT_SHARE pass.
+
+6.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+
+6.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.20.10. Finished OPT passes. (There is nothing left to do.)
+
+6.21. Executing TECHMAP pass (map to technology primitives).
+
+6.21.1. Executing Verilog-2005 frontend: D:\Compiler Cpp\ucrt64\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\Compiler Cpp\ucrt64\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+6.21.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $reduce_xor.
+No more expansions possible.
+<suppressed ~272 debug messages>
+
+6.22. Executing OPT pass (performing simple optimizations).
+
+6.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+6.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+6.22.5. Finished fast OPT passes.
+
+6.23. Executing ABC pass (technology mapping using ABC).
+
+6.23.1. Extracting gate netlist of module `\gate03r_secded_baseline_encoder' to `<abc-temp-dir>/input.blif'..
+Extracted 263 gates and 327 wires to a netlist network with 64 inputs and 8 outputs.
+
+6.23.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.23.1.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:       59
+ABC RESULTS:               XOR cells:        1
+ABC RESULTS:              XNOR cells:      262
+ABC RESULTS:        internal signals:      255
+ABC RESULTS:           input signals:       64
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+6.24. Executing OPT pass (performing simple optimizations).
+
+6.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate03r_secded_baseline_encoder.
+
+6.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate03r_secded_baseline_encoder'.
+Removed a total of 0 cells.
+
+6.24.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate03r_secded_baseline_encoder..
+Removed 0 unused cells and 269 unused wires.
+<suppressed ~1 debug messages>
+
+6.24.5. Finished fast OPT passes.
+
+6.25. Executing HIERARCHY pass (managing design hierarchy).
+
+6.25.1. Analyzing design hierarchy..
+Top module:  \gate03r_secded_baseline_encoder
+
+6.25.2. Analyzing design hierarchy..
+Top module:  \gate03r_secded_baseline_encoder
+Removed 0 unused modules.
+
+6.26. Printing statistics.
+
+=== gate03r_secded_baseline_encoder ===
+
+   Number of wires:                321
+   Number of wire bits:            618
+   Number of public wires:           7
+   Number of public wire bits:     304
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                322
+     $_NOT_                         59
+     $_XNOR_                       262
+     $_XOR_                          1
+
+6.27. Executing CHECK pass (checking for obvious problems).
+Checking module gate03r_secded_baseline_encoder...
+Found and reported 0 problems.
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module gate03r_secded_baseline_encoder...
+Found and reported 0 problems.
+
+8. Executing JSON backend.
+
+9. Executing Verilog backend.
+
+9.1. Executing BMUXMAP pass.
+
+9.2. Executing DEMUXMAP pass.
+Dumping module `\gate03r_secded_baseline_encoder'.
+
+End of script. Logfile hash: 67e8cda46c
+Yosys 0.30+48 (git sha1 b5b0b7e83, x86_64-w64-mingw32-g++ 13.1.0 -march=nocona -msahf -mtune=generic -O2 -Os)
+Time spent: 1% 17x opt_expr (0 sec), 1% 15x opt_clean (0 sec), ...
+
+exit_code=0

@@ -1,0 +1,378 @@
+{
+  "classification": "GENERIC_SYNTHESIS_ONLY_NOT_PPA",
+  "h2_generic_status": "PASS",
+  "h2_generic_structure_comparison": {
+    "baseline_decoder_has_no_dff": true,
+    "baseline_encoder_has_no_dff": true,
+    "decoder_generic_graphs_distinct": true,
+    "encoder_generic_graphs_distinct": true,
+    "pipeline_decoder_has_dff": true,
+    "pipeline_encoder_has_dff": true
+  },
+  "jobs": {
+    "bch_78_64_t2_v1_decoder": {
+      "cell_count": 14029,
+      "cell_type_counts": {
+        "$_ANDNOT_": 1802,
+        "$_AND_": 52,
+        "$_MUX_": 3599,
+        "$_NAND_": 30,
+        "$_NOR_": 530,
+        "$_NOT_": 290,
+        "$_ORNOT_": 1057,
+        "$_OR_": 733,
+        "$_XNOR_": 4748,
+        "$_XOR_": 1188
+      },
+      "dff_count": 0,
+      "exit_code": 0,
+      "normalized_graph_sha256": "830a7805cc28a9840c1cff074585238aca25a619f000f48eb0b007ae519e878c",
+      "port_contract": {
+        "codeword_i": {
+          "direction": "input",
+          "width": 78
+        },
+        "corrected_codeword_o": {
+          "direction": "output",
+          "width": 78
+        },
+        "correction_mask_o": {
+          "direction": "output",
+          "width": 78
+        },
+        "data_o": {
+          "direction": "output",
+          "width": 64
+        },
+        "err_corrected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "err_detected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "err_uncorrectable_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "syndrome_o": {
+          "direction": "output",
+          "width": 28
+        }
+      },
+      "sources": [
+        "asic/rtl/bch/bch_78_64_t2_v1.sv"
+      ],
+      "status": "PASS"
+    },
+    "bch_78_64_t2_v1_encoder": {
+      "cell_count": 481,
+      "cell_type_counts": {
+        "$_NOT_": 3,
+        "$_XNOR_": 424,
+        "$_XOR_": 54
+      },
+      "dff_count": 0,
+      "exit_code": 0,
+      "normalized_graph_sha256": "e00f54b1c9b5014ed3f97ee66fd2a03498c58eda7676f7a91ae3117f45b94fd3",
+      "port_contract": {
+        "codeword_o": {
+          "direction": "output",
+          "width": 78
+        },
+        "data_i": {
+          "direction": "input",
+          "width": 64
+        }
+      },
+      "sources": [
+        "asic/rtl/bch/bch_78_64_t2_v1.sv"
+      ],
+      "status": "PASS"
+    },
+    "gate03r_secded_baseline_combined": {
+      "cell_count": 545,
+      "cell_type_counts": {
+        "$_NOR_": 2,
+        "$_NOT_": 71,
+        "$_ORNOT_": 4,
+        "$_XNOR_": 467,
+        "$_XOR_": 1
+      },
+      "dff_count": 0,
+      "exit_code": 0,
+      "normalized_graph_sha256": "a0606b598f96cb13ab29dde6012a3ad954ee87fdce090584d715b15c75525b0d",
+      "port_contract": {
+        "codeword_o": {
+          "direction": "output",
+          "width": 72
+        },
+        "corrected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "data_i": {
+          "direction": "input",
+          "width": 64
+        },
+        "data_o": {
+          "direction": "output",
+          "width": 64
+        },
+        "detected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "uncorrectable_o": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "sources": [
+        "scripts/gate03r/rtl/secded_characterization_tops.sv"
+      ],
+      "status": "PASS"
+    },
+    "gate03r_secded_baseline_decoder": {
+      "cell_count": 835,
+      "cell_type_counts": {
+        "$_ANDNOT_": 11,
+        "$_AND_": 3,
+        "$_MUX_": 1,
+        "$_NAND_": 4,
+        "$_NOR_": 84,
+        "$_NOT_": 74,
+        "$_ORNOT_": 253,
+        "$_OR_": 44,
+        "$_XNOR_": 356,
+        "$_XOR_": 5
+      },
+      "dff_count": 0,
+      "exit_code": 0,
+      "normalized_graph_sha256": "69124253685d76566c09bf47d1b39beed5c5eb4681994c8e464e6d63f6b95345",
+      "port_contract": {
+        "codeword_i": {
+          "direction": "input",
+          "width": 72
+        },
+        "corrected_codeword_o": {
+          "direction": "output",
+          "width": 72
+        },
+        "data_o": {
+          "direction": "output",
+          "width": 64
+        },
+        "err_corrected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "err_detected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "err_uncorrectable_o": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "sources": [
+        "scripts/gate03r/rtl/secded_characterization_tops.sv"
+      ],
+      "status": "PASS"
+    },
+    "gate03r_secded_baseline_encoder": {
+      "cell_count": 322,
+      "cell_type_counts": {
+        "$_NOT_": 59,
+        "$_XNOR_": 262,
+        "$_XOR_": 1
+      },
+      "dff_count": 0,
+      "exit_code": 0,
+      "normalized_graph_sha256": "be294f8d90462708af60913c727e03e6942ff83152c19bedc7e898290aa3c386",
+      "port_contract": {
+        "codeword_o": {
+          "direction": "output",
+          "width": 72
+        },
+        "data_i": {
+          "direction": "input",
+          "width": 64
+        }
+      },
+      "sources": [
+        "scripts/gate03r/rtl/secded_characterization_tops.sv"
+      ],
+      "status": "PASS"
+    },
+    "gate03r_secded_pipelined_combined": {
+      "cell_count": 1327,
+      "cell_type_counts": {
+        "$_ANDNOT_": 18,
+        "$_AND_": 1,
+        "$_DFF_P_": 285,
+        "$_MUX_": 1,
+        "$_NAND_": 4,
+        "$_NOR_": 20,
+        "$_NOT_": 66,
+        "$_ORNOT_": 326,
+        "$_OR_": 57,
+        "$_SDFF_PP0_": 1,
+        "$_XNOR_": 539,
+        "$_XOR_": 9
+      },
+      "dff_count": 286,
+      "exit_code": 0,
+      "normalized_graph_sha256": "096eefd98a8a31514459574f2e272de00e87ee383519f85375a3be9387a26b86",
+      "port_contract": {
+        "clk_i": {
+          "direction": "input",
+          "width": 1
+        },
+        "codeword_o": {
+          "direction": "output",
+          "width": 72
+        },
+        "corrected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "data_i": {
+          "direction": "input",
+          "width": 64
+        },
+        "data_o": {
+          "direction": "output",
+          "width": 64
+        },
+        "detected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "uncorrectable_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "valid_i": {
+          "direction": "input",
+          "width": 1
+        },
+        "valid_o": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "sources": [
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv",
+        "scripts/gate03r/rtl/secded_characterization_tops.sv"
+      ],
+      "status": "PASS"
+    },
+    "secded_pipelined_72_64_v1_decoder": {
+      "cell_count": 989,
+      "cell_type_counts": {
+        "$_ANDNOT_": 14,
+        "$_DFF_P_": 156,
+        "$_MUX_": 2,
+        "$_NAND_": 6,
+        "$_NOR_": 23,
+        "$_NOT_": 40,
+        "$_ORNOT_": 367,
+        "$_OR_": 59,
+        "$_SDFF_PP0_": 1,
+        "$_XNOR_": 315,
+        "$_XOR_": 6
+      },
+      "dff_count": 157,
+      "exit_code": 0,
+      "normalized_graph_sha256": "5ef0dbb9e75d540561b09a446c942e0f31b368f1058b009362ae90e0090c13aa",
+      "port_contract": {
+        "clk_i": {
+          "direction": "input",
+          "width": 1
+        },
+        "codeword_i": {
+          "direction": "input",
+          "width": 72
+        },
+        "corrected_codeword_o": {
+          "direction": "output",
+          "width": 72
+        },
+        "data_o": {
+          "direction": "output",
+          "width": 64
+        },
+        "err_corrected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "err_detected_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "err_uncorrectable_o": {
+          "direction": "output",
+          "width": 1
+        },
+        "valid_i": {
+          "direction": "input",
+          "width": 1
+        },
+        "valid_o": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "sources": [
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv"
+      ],
+      "status": "PASS"
+    },
+    "secded_pipelined_72_64_v1_encoder": {
+      "cell_count": 407,
+      "cell_type_counts": {
+        "$_DFF_P_": 145,
+        "$_NOT_": 26,
+        "$_XNOR_": 232,
+        "$_XOR_": 4
+      },
+      "dff_count": 145,
+      "exit_code": 0,
+      "normalized_graph_sha256": "cf643e3430dac3f637a56ee09ca760dcc9b9dc66ffc5831cbb746c791d604499",
+      "port_contract": {
+        "clk_i": {
+          "direction": "input",
+          "width": 1
+        },
+        "codeword_o": {
+          "direction": "output",
+          "width": 72
+        },
+        "data_i": {
+          "direction": "input",
+          "width": 64
+        },
+        "valid_i": {
+          "direction": "input",
+          "width": 1
+        },
+        "valid_o": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "sources": [
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv"
+      ],
+      "status": "PASS"
+    }
+  },
+  "schema_version": 1,
+  "sky130hd_mapping": {
+    "claims_generated": false,
+    "status": "BLOCKED_PINNED_ORFS_ENVIRONMENT_UNAVAILABLE"
+  }
+}

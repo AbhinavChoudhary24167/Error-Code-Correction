@@ -1,0 +1,36 @@
+command=make test
+start_utc=2026-08-14T06:15:34.978985Z
+end_utc=2026-08-14T06:21:50.477173Z
+exit_code=0
+
+STDOUT
+g++ -std=c++17 -O2 -MMD -MP -I. BCHvsHamming.o src/bch63.o -o BCHvsHamming
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming32bit1Gb.o -o Hamming32bit1Gb
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming64bit128Gb.o src/energy_loader.o -o Hamming64bit128Gb
+g++ -std=c++17 -O2 -MMD -MP -I. SAT.o -o SATDemo
+g++ -std=c++17 -O2 -MMD -MP -I. PracticalSRAMSimulator.o -o PracticalSRAMSimulator
+g++ -std=c++17 -O0 -I. tests/unit/SecDaec64_test.cpp -o tests/unit/SecDaec64_test
+./tests/unit/SecDaec64_test
+if not exist BCHvsHamming.exe exit /b 1
+if not exist Hamming32bit1Gb.exe exit /b 1
+if not exist Hamming64bit128Gb.exe exit /b 1
+if not exist SATDemo.exe exit /b 1
+python ecc_selector.py 1e-6 2 0.6 1e-15 1 --sustainability >NUL
+set PYTHONPATH=.&& pytest -q tests/python
+........................................................................ [ 18%]
+........................................................................ [ 37%]
+........................................................................ [ 56%]
+........................................................................ [ 75%]
+........................................................................ [ 94%]
+.....................                                                    [100%]
+============================== warnings summary ===============================
+tests/python/test_ml_integration.py::test_ml_evaluate_smoke
+tests/python/test_ml_integration.py::test_ml_feature_pack_train_predict_evaluate_smoke
+tests/python/test_ml_integration.py::test_ml_report_card_cli_smoke_and_output_resolution
+  D:\Python\Lib\site-packages\sklearn\metrics\_classification.py:534: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+381 passed, 3 warnings in 369.65s (0:06:09)
+
+STDERR

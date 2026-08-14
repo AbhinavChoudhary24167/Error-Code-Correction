@@ -1,0 +1,131 @@
+{
+  "adapter": {
+    "factory": "green_ecc_phy.bch:create_bch_adapter",
+    "parameters": {
+      "m": 7,
+      "primitive_polynomial": 131,
+      "t": 2
+    }
+  },
+  "architecture_style": "combinational",
+  "backend_id": null,
+  "capability_claims": {
+    "data_independence_proof": "exact affine GF(2) proof for every weight-0/1/2 mask",
+    "hardware_structure_id": "unoptimized-combinational-syndrome-locator-chien-v1",
+    "mathematical": "primitive shortened BCH(78,64,t=2)",
+    "physical_characterization": null,
+    "rtl": "S1..S4, bounded two-error locator, 78-coordinate Chien search, syndrome recheck"
+  },
+  "clock_reset": {
+    "clock_required": false,
+    "reset_required": false
+  },
+  "code_id": "shortened-bch-78-64-t2-v1",
+  "code_spec_id": "shortened-bch-78-64-t2-v1",
+  "compatible_deployment_architectures": [
+    "fixed-shortened-bch-78-64-t2-v1"
+  ],
+  "configuration_modules": [],
+  "controller_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "decoder_latency": 0,
+  "decoder_policy_id": "primitive-bch-bounded-syndrome-t2-v1",
+  "decoder_top": "bch_78_64_t2_v1_decoder",
+  "encoder_id": "shortened-bch-78-64-t2-v1-systematic-encoder",
+  "encoder_latency": 0,
+  "encoder_top": "bch_78_64_t2_v1_encoder",
+  "evidence_level": "rtl_and_exact_symbolic_functional",
+  "failed_capabilities": [],
+  "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+  "initiation_interval": 1,
+  "license": "MIT repository code",
+  "manifest_sha256": "94142df185e807391383df8f3f128ac659b0a2dd0c2d12e8a260c4372a691c33",
+  "metadata_requirements": {
+    "bits_per_codeword": 0
+  },
+  "mux_requirements": {
+    "architecture_owned": true,
+    "required_in_fixed_mode": false
+  },
+  "output_status_semantics": {
+    "harness_derives_miscorrected_from_golden_data": true,
+    "native_flags_are_adapted": true
+  },
+  "parameters": {
+    "K": 64,
+    "M": 7,
+    "N": 78,
+    "T": 2
+  },
+  "pipeline_stages": 0,
+  "reencoding_requirements": {
+    "architecture_owned": true,
+    "required_for_code_transition": true
+  },
+  "schema_version": 1,
+  "source_files": [
+    "asic/rtl/bch/bch_78_64_t2_v1.sv",
+    "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md",
+    "scripts/gate03r/verify_bch_identity.py",
+    "scripts/gate03r/prove_exact_identity.py"
+  ],
+  "source_hashes": {
+    "asic/rtl/bch/bch_78_64_t2_v1.sv": "2cc8b0dd23f3cce9a091ea418a2c2d4fff5f016361228a66e6c151a7c49360e7",
+    "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md": "40b2c5082095c0327e28af3ba5b5c92ed68c70872866c1f49761e27c54b960c8",
+    "scripts/gate03r/prove_exact_identity.py": "87638b876e439d3e2a835864815f068dae62e46ecfdccfb50fdde1c9f0e2b156",
+    "scripts/gate03r/verify_bch_identity.py": "7571e13fc933d86198eb5f5235a33e85e5820cb914898f5b998c0ad31e052369"
+  },
+  "source_provenance": [
+    {
+      "path": "asic/rtl/bch/bch_78_64_t2_v1.sv",
+      "role": "Gate 03R RTL/contract/proof evidence"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md",
+      "role": "Gate 03R RTL/contract/proof evidence"
+    },
+    {
+      "path": "scripts/gate03r/verify_bch_identity.py",
+      "role": "Gate 03R RTL/contract/proof evidence"
+    },
+    {
+      "path": "scripts/gate03r/prove_exact_identity.py",
+      "role": "Gate 03R RTL/contract/proof evidence"
+    }
+  ],
+  "transaction_protocol": {
+    "backpressure": false,
+    "kind": "combinational_request_response"
+  },
+  "unsupported_capabilities": [
+    "guaranteed correction beyond t=2",
+    "weight-3 correction claims",
+    "physical PPA until pinned ORFS completes"
+  ],
+  "verification_evidence": [
+    {
+      "kind": "exact_affine_symbolic_payload_per_mask",
+      "path": "docs/date2027/rigour_gate_03r/FORMAL_PROOF_INDEX.csv",
+      "status": "passed",
+      "test_id": "bch-3082-symbolic-mask-jobs"
+    },
+    {
+      "kind": "independent_identity_reconstruction",
+      "path": "docs/date2027/rigour_gate_03r/BCH_IDENTITY_RECONSTRUCTION.json",
+      "status": "passed",
+      "test_id": "bch-matrix-hash-d518cab4"
+    }
+  ],
+  "verification_vectors": {
+    "miscorrection_probes": []
+  },
+  "verified_capabilities": [
+    "all-weight-1 correction",
+    "all-weight-2 correction",
+    "3082 fixed-mask arbitrary-symbolic-payload proofs"
+  ],
+  "version": "1.0.0-gate03r",
+  "wrapper_module": null
+}

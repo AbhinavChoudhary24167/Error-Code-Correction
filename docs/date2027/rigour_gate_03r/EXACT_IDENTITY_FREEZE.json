@@ -1,0 +1,54 @@
+{
+  "captured_utc": "2026-08-14T04:25:21.9470255Z",
+  "deadline_record": {
+    "original_gate03r_deadline": "2026-08-11T23:59:59-12:00",
+    "original_deadline_met": false,
+    "rebaselined_environment_deadline": "2026-08-15T23:59:59-12:00",
+    "rebaselined_gate03r_deadline": "2026-08-19T23:59:59-12:00",
+    "rebaselined_gate03_reentry_deadline": "2026-08-21T23:59:59-12:00"
+  },
+  "freeze_commit": "62cb42093354cc72bf50b280ed34a59d84a294a8",
+  "gate_trees": {
+    "docs/date2027/rigour_gate_01": {
+      "file_count": 40,
+      "tree_sha256": "24cd71d2f7cbb10f0709bd49e89855fca50d2dbeb3c8d6f8aabb6c9e83bee526",
+      "legacy_gate03_prefreeze_sha256": "13a2993d669b1fe54c344ed3836e3480724d4ea969e59d385e34fa50c2d132e2"
+    },
+    "docs/date2027/rigour_gate_02": {
+      "file_count": 45,
+      "tree_sha256": "972c873d377c66ad183a52b25632f6811c916d44be27a2892b119a2fda8dc79f",
+      "legacy_gate03_prefreeze_sha256": "983cc2eb2c15ee452feca56c67c8dbbbd221d94cee7a00b1b7f3904ab4419b6c"
+    },
+    "docs/date2027/rigour_gate_03": {
+      "file_count": 38,
+      "tree_sha256": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+      "legacy_gate03_prefreeze_sha256": "9580d477d7321876a97ea2062d8e987c4d0bdcccd7e04d9659f0ac49e6de6762"
+    }
+  },
+  "hash_scheme": "sha256(sorted gate-relative POSIX utf8 path NUL byte_length NUL raw_file_sha256 LF)",
+  "freeze_correction": {
+    "captured_utc": "2026-08-14T05:18:00Z",
+    "reason": "The first draft copied Gate 03 legacy prefreeze identifiers instead of the post-commit raw-byte tree manifests. The execution hashes already recorded in the committed Gate 03 environment manifest establish the Gate 01/02 corrections; Gate 03 was recomputed with the same scheme. git diff against the freeze commit remained empty for all three directories.",
+    "backdated": false
+  },
+  "secded": {
+    "mathematical_code_id": "extended-hamming-secded-72-64-v1",
+    "matrix_sha256": "40bc866e1a85aa0d8597f49fa6e97bc29a5e64d75631e13ba90ec2befcd3f749",
+    "candidate_implementation_ids": [
+      "secded-rtl-combinational-72-64-v1",
+      "secded-rtl-pipelined-72-64-v1"
+    ],
+    "excluded_same_code_policy_controls": [
+      "secdaec-rtl-bounded-72-64-v1",
+      "taec-rtl-bounded-72-64-v1"
+    ]
+  },
+  "bch": {
+    "mathematical_code_id": "shortened-bch-78-64-t2-v1",
+    "reference_implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+    "rtl_implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+    "matrix_sha256": "d518cab40c77da302afecab0e8199f3f0c4e0b2c095660d5d0df8a1e2dae4e89",
+    "parameters_provisional_until_independent_reconstruction": true
+  },
+  "schema_version": 1
+}

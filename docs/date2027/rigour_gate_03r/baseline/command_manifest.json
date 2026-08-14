@@ -1,0 +1,85 @@
+{
+  "commands": [
+    {
+      "command": "git commit -m 'Gate 03: freeze publication-rigour audit artifacts'",
+      "command_id": "freeze-commit",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/verify_bch_identity.py",
+      "command_id": "bch-identity",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/prove_exact_identity.py",
+      "command_id": "exact-proofs",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/prove_secded_identity.py",
+      "command_id": "secded-proofs",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/build_registry_overlay.py",
+      "command_id": "registry-overlay",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/run_synthesis.py",
+      "command_id": "generic-synthesis",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/run_rtl_verification.py",
+      "command_id": "rtl-runtime",
+      "exit_code": 1
+    },
+    {
+      "command": "python3 scripts/gate03r/run_verilator_smoke.py",
+      "command_id": "verilator-smoke",
+      "exit_code": 0
+    },
+    {
+      "command": "NOT_EXECUTED",
+      "command_id": "orfs-gcd-smoke",
+      "exit_code": null
+    },
+    {
+      "command": "git diff --check",
+      "command_id": "final-git_diff_check",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --cached --check",
+      "command_id": "final-git_diff_cached_check",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 scripts/gate03r/validate_artifacts.py",
+      "command_id": "final-gate03r_validator",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m pytest -q tests/python/test_gate03r_artifacts.py",
+      "command_id": "final-gate03r_focused_tests",
+      "exit_code": 0
+    },
+    {
+      "command": "make",
+      "command_id": "final-make",
+      "exit_code": 0
+    },
+    {
+      "command": "make test",
+      "command_id": "final-make_test",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "command_id": "final-python3_pytest_q",
+      "exit_code": 0
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,11 @@
+criterion_id,criterion,status
+A1,two distinct exact-identity SECDED RTL architectures,FAIL_SKY130HD_GRAPH_UNAVAILABLE
+A2,exact SECDED encoder/decoder equivalence,PASS
+A3,exact BCH encoder identity,PASS
+A4,BCH 3082 universal payload masks,PASS
+A5,all new RTL elaborates and synthesizes,PASS_GENERIC
+A5R,compiled RTL simulations and runtime guards,PASS
+A6,pinned ORFS/SKY130HD gcd smoke,FAIL
+A7,technology-mapped synthesis all candidates,FAIL
+A8,previous gates byte-identical,PASS
+A9,all existing and new scientific tests,PASS

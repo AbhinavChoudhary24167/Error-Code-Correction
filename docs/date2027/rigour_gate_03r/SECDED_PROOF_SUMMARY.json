@@ -1,0 +1,23 @@
+{
+  "all_64_basis_vectors": true,
+  "all_72_received_basis_syndromes": true,
+  "decoder_universal_compositional_equivalence": true,
+  "deterministic_random_vectors": 1024,
+  "encoder_universal_affine_equivalence": true,
+  "frozen_gate02_implementation": "secded-rtl-combinational-72-64-v1",
+  "gate02_weight2_masks_replayed": 2556,
+  "gate02_weight3_masks_replayed": 59640,
+  "interface_checks": {
+    "decoder_valid_two_registers": true,
+    "encoder_valid_two_registers": true,
+    "no_backpressure_port": true,
+    "no_reset_port": true,
+    "overall_parity_at_bit_71": true
+  },
+  "random_failures": [],
+  "replay_failures": [],
+  "schema_version": 1,
+  "status": "PASS",
+  "symbolic_payload_all_72_single_masks_failures": [],
+  "zero_proof": true
+}

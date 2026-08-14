@@ -1,0 +1,97 @@
+{
+  "commands": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "command_id": "git_diff_check",
+      "end_utc": "2026-08-14T06:15:27.035992Z",
+      "exit_code": 0,
+      "log": "baseline/regression/git_diff_check.log",
+      "start_utc": "2026-08-14T06:15:26.922503Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "command_id": "git_diff_cached_check",
+      "end_utc": "2026-08-14T06:15:27.111434Z",
+      "exit_code": 0,
+      "log": "baseline/regression/git_diff_cached_check.log",
+      "start_utc": "2026-08-14T06:15:27.037030Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/gate03r/validate_artifacts.py"
+      ],
+      "command_id": "gate03r_validator",
+      "end_utc": "2026-08-14T06:15:29.210099Z",
+      "exit_code": 0,
+      "log": "baseline/regression/gate03r_validator.log",
+      "start_utc": "2026-08-14T06:15:27.116682Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/python/test_gate03r_artifacts.py"
+      ],
+      "command_id": "gate03r_focused_tests",
+      "end_utc": "2026-08-14T06:15:33.266539Z",
+      "exit_code": 0,
+      "log": "baseline/regression/gate03r_focused_tests.log",
+      "start_utc": "2026-08-14T06:15:29.211467Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "make"
+      ],
+      "command_id": "make",
+      "end_utc": "2026-08-14T06:15:34.977895Z",
+      "exit_code": 0,
+      "log": "baseline/regression/make.log",
+      "start_utc": "2026-08-14T06:15:33.268139Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "make",
+        "test"
+      ],
+      "command_id": "make_test",
+      "end_utc": "2026-08-14T06:21:50.477173Z",
+      "exit_code": 0,
+      "log": "baseline/regression/make_test.log",
+      "start_utc": "2026-08-14T06:15:34.978985Z",
+      "status": "PASS"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "command_id": "python3_pytest_q",
+      "end_utc": "2026-08-14T06:27:37.392860Z",
+      "exit_code": 0,
+      "log": "baseline/regression/python3_pytest_q.log",
+      "start_utc": "2026-08-14T06:21:50.478176Z",
+      "status": "PASS"
+    }
+  ],
+  "schema_version": 1,
+  "status": "PASS"
+}

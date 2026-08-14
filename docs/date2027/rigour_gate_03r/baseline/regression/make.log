@@ -1,0 +1,13 @@
+command=make
+start_utc=2026-08-14T06:15:33.268139Z
+end_utc=2026-08-14T06:15:34.977895Z
+exit_code=0
+
+STDOUT
+g++ -std=c++17 -O2 -MMD -MP -I. BCHvsHamming.o src/bch63.o -o BCHvsHamming
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming32bit1Gb.o -o Hamming32bit1Gb
+g++ -std=c++17 -O2 -MMD -MP -I. Hamming64bit128Gb.o src/energy_loader.o -o Hamming64bit128Gb
+g++ -std=c++17 -O2 -MMD -MP -I. SAT.o -o SATDemo
+g++ -std=c++17 -O2 -MMD -MP -I. PracticalSRAMSimulator.o -o PracticalSRAMSimulator
+
+STDERR

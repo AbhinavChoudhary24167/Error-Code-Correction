@@ -172,9 +172,28 @@ def test_gate01_gate02_immutable_authorized_scope_and_binary_verdict():
                 ["git", "status", "--porcelain", "--untracked-files=all"], cwd=ROOT, text=True
             ).splitlines()
         ]
+    gate03r_paths = (
+        "asic/rtl/bch/bch_78_64_t2_v1.sv",
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv",
+        "docs/date2027/rigour_gate_03r/",
+        "green_ecc_physical_simulation/registry/implementations/secded-rtl-pipelined-72-64-v1.json",
+        "green_ecc_physical_simulation/registry/implementations/shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1.json",
+        "green_ecc_physical_simulation/registry/registry_gate03r.json",
+        "scripts/gate03r/",
+        "tests/python/test_gate03r_artifacts.py",
+    )
+    runtime_paths = (
+        "PracticalSRAMSimulator.exe",
+        "drift.json",
+        "tests/fixtures/runtime_ml_feature_pack/",
+    )
     for path in candidate_paths:
         path = path.replace("\\", "/")
-        assert path.startswith(("docs/date2027/rigour_gate_03/", "scripts/gate03/", "tests/python/test_gate03_"))
+        assert path.startswith(
+            ("docs/date2027/rigour_gate_03/", "scripts/gate03/", "tests/python/test_gate03_")
+            + gate03r_paths
+            + runtime_paths
+        )
     decision = (OUT / "BINARY_NO_GO_DECISION.md").read_text(encoding="utf-8")
     assert re.findall(r"(?m)^(?:GO_TO_GATE_04|NO_GO_FOR_DATE_2027_REGULAR_PAPER_CORE)$", decision) == [
         "NO_GO_FOR_DATE_2027_REGULAR_PAPER_CORE"
