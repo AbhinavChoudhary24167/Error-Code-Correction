@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "gate": "GREEN-ECC Gate 04",
+  "authorization_basis": "SCIENTIFIC_ENVIRONMENT_READY_FORMAL_GATE_FAILED",
+  "formal_prior_gate_verdicts": {
+    "Gate 03E-R": "ENVIRONMENT_ENABLEMENT_FAILED",
+    "Gate 03E-S": "ENVIRONMENT_ENABLEMENT_FAILED"
+  },
+  "technology": {
+    "platform": "sky130hd",
+    "corner": "tt_025C_1v80",
+    "orfs_git_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "num_cores": 1,
+    "lec_check": 0
+  },
+  "physical_experiment": {
+    "clock_periods_ns": [10.0, 5.0],
+    "physical_seeds": [11, 29, 47, 71, 101],
+    "seed_environment_variables": ["GPL_RANDOM_SEED", "GRT_SEED", "OR_SEED"],
+    "candidate_ids": [
+      "secded-rtl-combinational-72-64-v1",
+      "secded-rtl-pipelined-72-64-v1",
+      "hsiao-generated-combinational-72-64-v1",
+      "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+    ],
+    "reference_ids": ["boundary-reference-72-64-v1", "boundary-reference-78-64-v1"],
+    "expected_candidate_flows": 40,
+    "expected_reference_flows": 20,
+    "expected_total_flows": 60,
+    "no_retry_same_directory": true,
+    "ten_ns_mandatory": true,
+    "five_ns_failure_is_data": true
+  },
+  "fairness": {
+    "useful_payload_bits": 64,
+    "initiation_interval": 1,
+    "encoder_decoder_channels": "independent",
+    "backpressure": false,
+    "fault_injection_location": "simulation-only trace construction",
+    "input_delay_fraction_of_period": 0.10,
+    "output_delay_fraction_of_period": 0.10,
+    "output_load_pf": 0.05,
+    "core_utilization_percent": 35,
+    "core_aspect_ratio": 1.0,
+    "core_margin_um": 10.0,
+    "place_density": 0.55,
+    "reset": "synchronous active-low boundary reset held for six clocks",
+    "latencies_cycles": {
+      "secded-rtl-combinational-72-64-v1": 1,
+      "secded-rtl-pipelined-72-64-v1": 3,
+      "hsiao-generated-combinational-72-64-v1": 1,
+      "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": 1,
+      "boundary-reference-72-64-v1": 1,
+      "boundary-reference-78-64-v1": 1
+    }
+  },
+  "activity": {
+    "payload_operations_per_trace": 100000,
+    "payload_prng": "SplitMix64",
+    "payload_seed": 104375203646206,
+    "trace_classes": ["no_error", "single_error", "double_error"],
+    "fault_schedule_seed": 7085774586302733229,
+    "position_mapping": "first coordinate=floor(u1*N/2^64); second coordinate=floor(u2*N/2^64) and is incremented cyclically until distinct",
+    "method": "OpenSTA read_vcd on post-route ODB with primary-input VCD, then activity propagation",
+    "coverage": "report_activity_annotation direct VCD and unannotated pin counts retained",
+    "power_evidence_class": "SYNTHESIZED",
+    "silicon_measurement": false,
+    "field_rate_weighting": false
+  },
+  "statistics": {
+    "paired_by": ["clock_period_ns", "physical_seed", "trace_class"],
+    "summaries": ["all_values", "median", "iqr", "minimum", "maximum", "paired_difference", "effect_size"],
+    "confidence_interval": "paired nonparametric bootstrap percentile 95%",
+    "bootstrap_seed": 474104,
+    "bootstrap_resamples": 20000,
+    "material_fraction": 0.05
+  },
+  "hypotheses": {
+    "H1": "implementation-aware selection changes feasibility, Pareto membership, or selection in at least two nondegenerate preregistered scenarios, or normalized regret exceeds 5% with paired 95% interval excluding zero",
+    "H2": "same-code implementations retain distinct structures and zero versus nonzero internal sequential-cell invariants and show a stable paired difference over 5% in a primary PPA metric with paired 95% interval excluding zero",
+    "H3": "a mapping, interleaving, scrub, workload, or fault-environment factor has a material stratified interaction with residual SDC/DUE or changes selection",
+    "H4": "carbon is independent only when intensity, time/location, or embodied terms vary independently; otherwise it duplicates energy ranking"
+  },
+  "scenario_matrix": {
+    "fault_models": ["single_random", "double_random", "double_adjacent", "triple_random", "triple_adjacent"],
+    "logical_physical_mappings": ["identity", "reverse", "stride_5"],
+    "interleaving_factors": [1, 2, 4],
+    "scrub_intervals_operations": [1000, 1000000],
+    "read_fractions": [0.25, 0.75],
+    "error_conditioned_decoder_activity": ["nominal", "stress"],
+    "service_clock_constraints_ns": [10.0, 5.0],
+    "max_conditional_residual_sdc": [0.0, 0.05],
+    "max_conditional_due": [0.25, 1.0],
+    "objective_profiles": {
+      "area_first": {"stdcell_area": 0.60, "energy": 0.20, "residual_sdc": 0.15, "due": 0.05},
+      "energy_first": {"stdcell_area": 0.20, "energy": 0.60, "residual_sdc": 0.15, "due": 0.05},
+      "reliability_first": {"stdcell_area": 0.15, "energy": 0.15, "residual_sdc": 0.50, "due": 0.20}
+    },
+    "normalization": "scenario-local min-max on feasible candidates; degenerate axis contributes zero",
+    "tie_break": "lowest scalar score, then lower n, then lexicographic implementation_id",
+    "assumed_inputs": ["physical adjacency", "Qcrit", "fault PMF", "scrub interval", "workload distribution"]
+  },
+  "evidence_classes": ["MEASURED", "SYNTHESIZED", "SIMULATED", "DERIVED", "ASSUMED", "PROXY", "UNRESOLVED"],
+  "final_verdicts": [
+    "ASIC_EXPERIMENT_BLOCKED",
+    "ASIC_EVIDENCE_COMPLETE_NO_MATERIAL_SELECTION_EFFECT",
+    "ASIC_EVIDENCE_COMPLETE_MATERIAL_SELECTION_EFFECT"
+  ]
+}

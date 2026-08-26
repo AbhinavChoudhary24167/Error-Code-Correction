@@ -1,0 +1,58 @@
+{
+  "figures": {
+    "F01_CROSS_LAYER_METHOD": {
+      "kind": "methodology diagram",
+      "numeric_data": null
+    },
+    "F02_AREA_VS_FMAX": {
+      "excluded": {
+        "hsiao-generated-combinational-72-64-v1": "PPA_UNAVAILABLE"
+      },
+      "points": [
+        {
+          "area_um2": 18644.1,
+          "feasible_10ns": true,
+          "fmax_mhz": 243.881,
+          "implementation_id": "secded-rtl-combinational-72-64-v1"
+        },
+        {
+          "area_um2": 25486.9,
+          "feasible_10ns": true,
+          "fmax_mhz": 355.849,
+          "implementation_id": "secded-rtl-pipelined-72-64-v1"
+        },
+        {
+          "area_um2": 57303.7,
+          "feasible_10ns": false,
+          "fmax_mhz": 67.6566,
+          "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+        }
+      ]
+    },
+    "F03_NORMALIZED_PHYSICAL_COST": {
+      "bch_power_energy_annotation": "TARGET_CLOCK_INFEASIBLE",
+      "hsiao_annotation": "PPA_UNAVAILABLE",
+      "metrics": [
+        "area",
+        "wirelength",
+        "fmax",
+        "no_error_power",
+        "no_error_achievable_energy"
+      ],
+      "reference": "secded-rtl-combinational-72-64-v1"
+    },
+    "F04_RELIABILITY_OUTCOMES": {
+      "code_semantics": [
+        "secded-rtl-combinational-72-64-v1",
+        "hsiao-generated-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "conventional_secded_shared_by": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ],
+      "weight3_observation_only": true
+    }
+  },
+  "schema_version": 1
+}

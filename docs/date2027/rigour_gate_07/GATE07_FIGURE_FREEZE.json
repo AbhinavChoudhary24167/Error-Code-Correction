@@ -1,0 +1,34 @@
+{
+  "figures": [
+    {
+      "id": "F01_CROSS_LAYER_METHOD",
+      "manuscript_role": "methodology and evidence boundary",
+      "revision": "none; caption must state Hsiao PPA and BCH energy exclusions",
+      "source": "docs/date2027/rigour_gate_06/GATE06_FIGURE_DATA.json",
+      "status": "FIGURE_FROZEN"
+    },
+    {
+      "id": "F02_AREA_VS_FMAX",
+      "manuscript_role": "physical cost and target feasibility",
+      "revision": "none; retain 100 MHz boundary and BCH failure annotation",
+      "source": "GATE07_FIGURE_DATA.json",
+      "status": "FIGURE_FROZEN"
+    },
+    {
+      "id": "F03_NORMALIZED_PHYSICAL_COST",
+      "manuscript_role": "normalized effect-size summary",
+      "revision": "visually separate all-routed area/wire/Fmax from timing-feasible SECDED-only power/energy; never plot BCH diagnostic energy as achievable",
+      "source": "GATE07_FIGURE_DATA.json",
+      "status": "FIGURE_REVISE"
+    },
+    {
+      "id": "F04_RELIABILITY_OUTCOMES",
+      "manuscript_role": "redundant under six-page budget",
+      "revision": "move raw W3 counts and caveat to reliability table/discussion",
+      "source": "docs/date2027/rigour_gate_06/GATE06_FIGURE_DATA.json",
+      "status": "FIGURE_DROP"
+    }
+  ],
+  "page_budget_target": 3,
+  "schema_version": 1
+}

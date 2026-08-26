@@ -1,0 +1,385 @@
+{
+  "initial_assignments_counted_as_transitions": false,
+  "method": "direct read-only VCD value-change count; vector bit transitions are Hamming distances between successive values",
+  "rows": [
+    {
+      "compressed_sha256": "5777054292ef6b97af7f4924fb1f264fcbd030e598c32d7d12829b862e244998",
+      "family": "conventional_secded",
+      "file": "conventional_secded-10ns-no_error.vcd.gz",
+      "non_clock_bit_transitions": 6797261,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3598266,
+          "name": "dec_codeword_i [71:0]",
+          "value_change_events": 100001,
+          "width_bits": 72
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 6997281,
+      "total_value_change_events": 400025,
+      "trace_class": "no_error"
+    },
+    {
+      "compressed_sha256": "ecf2c4904c42e3c2cc316ab3bd715d3660abda999c04d651bf20a9307f9433aa",
+      "family": "conventional_secded",
+      "file": "conventional_secded-10ns-single_error.vcd.gz",
+      "non_clock_bit_transitions": 6796329,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3597334,
+          "name": "dec_codeword_i [71:0]",
+          "value_change_events": 100001,
+          "width_bits": 72
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 6996349,
+      "total_value_change_events": 400025,
+      "trace_class": "single_error"
+    },
+    {
+      "compressed_sha256": "7446926a04c35d4333297ab722a2af5bc0c11bb34751467b43edfaf47009e7a3",
+      "family": "conventional_secded",
+      "file": "conventional_secded-10ns-double_error.vcd.gz",
+      "non_clock_bit_transitions": 6796735,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3597740,
+          "name": "dec_codeword_i [71:0]",
+          "value_change_events": 100001,
+          "width_bits": 72
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 6996755,
+      "total_value_change_events": 400025,
+      "trace_class": "double_error"
+    },
+    {
+      "compressed_sha256": "0117c68c59ca87e85b4aa699eca26be1d20d83e26213030ee835cc4739542c99",
+      "family": "hsiao",
+      "file": "hsiao-10ns-no_error.vcd.gz",
+      "non_clock_bit_transitions": 6797821,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3598826,
+          "name": "dec_codeword_i [71:0]",
+          "value_change_events": 100001,
+          "width_bits": 72
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 6997841,
+      "total_value_change_events": 400025,
+      "trace_class": "no_error"
+    },
+    {
+      "compressed_sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+      "family": "hsiao",
+      "file": "hsiao-10ns-single_error.vcd.gz",
+      "non_clock_bit_transitions": 6797849,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3598854,
+          "name": "dec_codeword_i [71:0]",
+          "value_change_events": 100001,
+          "width_bits": 72
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 6997869,
+      "total_value_change_events": 400025,
+      "trace_class": "single_error"
+    },
+    {
+      "compressed_sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+      "family": "hsiao",
+      "file": "hsiao-10ns-double_error.vcd.gz",
+      "non_clock_bit_transitions": 6797341,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3598346,
+          "name": "dec_codeword_i [71:0]",
+          "value_change_events": 100001,
+          "width_bits": 72
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 6997361,
+      "total_value_change_events": 400025,
+      "trace_class": "double_error"
+    },
+    {
+      "compressed_sha256": "84186d94f6f2afa346e15013a6d351eb824892f474e62c8df7dff8f1091e2ff2",
+      "family": "bch78",
+      "file": "bch78-10ns-no_error.vcd.gz",
+      "non_clock_bit_transitions": 7098467,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3899472,
+          "name": "dec_codeword_i [77:0]",
+          "value_change_events": 100001,
+          "width_bits": 78
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 7298487,
+      "total_value_change_events": 400025,
+      "trace_class": "no_error"
+    },
+    {
+      "compressed_sha256": "729225b2f7040445ccf9e6f20bb9bce070130a6bd3cb3f66ddedace2caf2cf7d",
+      "family": "bch78",
+      "file": "bch78-10ns-single_error.vcd.gz",
+      "non_clock_bit_transitions": 7098579,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3899584,
+          "name": "dec_codeword_i [77:0]",
+          "value_change_events": 100001,
+          "width_bits": 78
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 7298599,
+      "total_value_change_events": 400025,
+      "trace_class": "single_error"
+    },
+    {
+      "compressed_sha256": "7c3b2d62f3e51e612a69ed8bd2b5dc658628072b7697d1eab5ec8787254340b1",
+      "family": "bch78",
+      "file": "bch78-10ns-double_error.vcd.gz",
+      "non_clock_bit_transitions": 7099009,
+      "non_clock_value_change_events": 200005,
+      "signals": [
+        {
+          "bit_transitions": 200020,
+          "name": "clk_i",
+          "value_change_events": 200020,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 3900014,
+          "name": "dec_codeword_i [77:0]",
+          "value_change_events": 100001,
+          "width_bits": 78
+        },
+        {
+          "bit_transitions": 3198992,
+          "name": "enc_data_i [63:0]",
+          "value_change_events": 100001,
+          "width_bits": 64
+        },
+        {
+          "bit_transitions": 1,
+          "name": "rst_ni",
+          "value_change_events": 1,
+          "width_bits": 1
+        },
+        {
+          "bit_transitions": 2,
+          "name": "valid_i",
+          "value_change_events": 2,
+          "width_bits": 1
+        }
+      ],
+      "total_bit_transitions": 7299029,
+      "total_value_change_events": 400025,
+      "trace_class": "double_error"
+    }
+  ],
+  "schema_version": 1
+}

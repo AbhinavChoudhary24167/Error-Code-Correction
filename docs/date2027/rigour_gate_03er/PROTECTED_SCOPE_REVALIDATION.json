@@ -1,0 +1,76 @@
+{
+  "external_run_tree_revalidation": [
+    {
+      "actual": "b707bbb6b642d7ca4968dee3804f85357712961ddeb9bf7a3d3b540629fedbe0",
+      "expected": "b707bbb6b642d7ca4968dee3804f85357712961ddeb9bf7a3d3b540629fedbe0",
+      "pass": true,
+      "path": "/var/lib/green-ecc-gate03e/runs/gcd-run-01"
+    },
+    {
+      "actual": "07f7cf5303c9913038ba5ca0a84aeacb20aa8dc8788b71574d586342de363eff",
+      "expected": "07f7cf5303c9913038ba5ca0a84aeacb20aa8dc8788b71574d586342de363eff",
+      "pass": true,
+      "path": "/var/lib/green-ecc-gate03e/runs/gcd-run-02"
+    }
+  ],
+  "gate03r_verdict": "REMEDIATION_FAILED",
+  "gate03r_verdict_pass": true,
+  "pass": true,
+  "repo_tree_revalidation": [
+    {
+      "actual": "b56050e55576ab053717c45213595f0b26d5211c6c03b92cd89d28171d055c5d",
+      "expected": "b56050e55576ab053717c45213595f0b26d5211c6c03b92cd89d28171d055c5d",
+      "pass": true,
+      "path": "asic/rtl"
+    },
+    {
+      "actual": "24cd71d2f7cbb10f0709bd49e89855fca50d2dbeb3c8d6f8aabb6c9e83bee526",
+      "expected": "24cd71d2f7cbb10f0709bd49e89855fca50d2dbeb3c8d6f8aabb6c9e83bee526",
+      "pass": true,
+      "path": "docs/date2027/rigour_gate_01"
+    },
+    {
+      "actual": "972c873d377c66ad183a52b25632f6811c916d44be27a2892b119a2fda8dc79f",
+      "expected": "972c873d377c66ad183a52b25632f6811c916d44be27a2892b119a2fda8dc79f",
+      "pass": true,
+      "path": "docs/date2027/rigour_gate_02"
+    },
+    {
+      "actual": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+      "expected": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+      "pass": true,
+      "path": "docs/date2027/rigour_gate_03"
+    },
+    {
+      "actual": "c04a81d5e03267e24c1df9b15fbd40c14ffdc79f4dbb9a52234acaa8bb0831df",
+      "expected": "c04a81d5e03267e24c1df9b15fbd40c14ffdc79f4dbb9a52234acaa8bb0831df",
+      "pass": true,
+      "path": "docs/date2027/rigour_gate_03e"
+    },
+    {
+      "actual": "ef40075e9431e51e344be1199448ed8ec5742a76e48124dd77f86c7b7491c1c3",
+      "expected": "ef40075e9431e51e344be1199448ed8ec5742a76e48124dd77f86c7b7491c1c3",
+      "pass": true,
+      "path": "docs/date2027/rigour_gate_03r"
+    },
+    {
+      "actual": "d084810a1a016ca2efef2ffd9d840adbc822b495639d6f73d43803f5dc347516",
+      "expected": "d084810a1a016ca2efef2ffd9d840adbc822b495639d6f73d43803f5dc347516",
+      "pass": true,
+      "path": "green_ecc_physical_simulation/registry"
+    },
+    {
+      "actual": "31a69c1fd1d219a7d2595f1c3b5b5f5e0c9f5446c7d90d0e775c0b2b3e940192",
+      "expected": "31a69c1fd1d219a7d2595f1c3b5b5f5e0c9f5446c7d90d0e775c0b2b3e940192",
+      "pass": true,
+      "path": "scripts/gate03e"
+    }
+  ],
+  "schema_version": 1,
+  "v1_anchor_hashes": {
+    "comparator": "9038cd174ccfd5c62d64908c6df9416f2ff542d58daa44faf3f9d6e5527d3a92",
+    "comparison": "655a0b7f6aadde7fcf0c45266e9f80fbf77f2635badd7bcee11a0d737c447628",
+    "policy": "258694f328084c3fb92dec24e07b3b40d261037d5b1bd8d32b119684211d0b9a"
+  },
+  "v1_anchor_hashes_pass": true
+}

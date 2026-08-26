@@ -1,0 +1,105 @@
+{
+  "authoritative_input_policy": {
+    "gate05_artifacts": [
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_IMPLEMENTATION_IDENTITY.json",
+        "sha256": "499a43820fc5a518721edaaee9df5750dfea74b6a7e940b02cc7116cd659ece3"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_RELIABILITY_SOURCE_MAP.json",
+        "sha256": "8e691921e46eab76720486fe18f235072c498d6a2f9f5891138279fc309fb7bc"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_INTEGRATED_RESULTS.csv",
+        "sha256": "dbb135519b6c8f5ed0ee0759fc8b1afb252bbffa76e64b1a5c8a4dc91dc2e824"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_INTEGRATED_RESULTS.json",
+        "sha256": "9077c55f9cd3658b656c33d41747d7da17e7e4b5aff4ac6fd02ce65419927587"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_DERIVED_METRICS.json",
+        "sha256": "8f50034d5c4ca9a54b8c06849c8cf363669f112e26d43390c5173f56c9800f28"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_MISSING_EVIDENCE.json",
+        "sha256": "68a21eca98425455db0e8ed9b4f2f346c08dd6b31cc86cf2b0e62d136d8967a1"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_CLAIM_CANDIDATES.md",
+        "sha256": "9878adcfb7eedb7ff7ab99b66f37e86effb989e16df90295ffd2b2d30aa3e51d"
+      },
+      {
+        "path": "docs/date2027/rigour_gate_05/GATE05_ADJUDICATION.md",
+        "sha256": "c1726cffc4e2e3e7ad8855eacb217cefd9fef523e9632774e14eb5afa67898bc"
+      }
+    ],
+    "gate05_evidence_manifest_sha256": "0b45bf839789c9e477f28ebf0438fe5587c8cf6ebdcd53171d89f780b4ff0e1f",
+    "gate05_only": true,
+    "new_physical_runs": false,
+    "stale_thesis_results_imported": false
+  },
+  "comparison_spaces": {
+    "A_FULL_PHYSICALLY_FEASIBLE": {
+      "exclusions": {
+        "hsiao-generated-combinational-72-64-v1": "PPA_UNAVAILABLE",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": "TARGET_CLOCK_INFEASIBLE_FOR_ACHIEVABLE_ENERGY"
+      },
+      "members": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ]
+    },
+    "B_PHYSICAL_IMPLEMENTATION": {
+      "exclusions": {
+        "hsiao-generated-combinational-72-64-v1": "PPA_UNAVAILABLE"
+      },
+      "members": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ]
+    },
+    "C_RELIABILITY_ONLY": {
+      "members": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1",
+        "hsiao-generated-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "physical_comparability_implied": false
+    }
+  },
+  "dominance_definition": "x dominates y iff x is no worse in every enumerated objective and strictly better in at least one",
+  "figure_policy": {
+    "decorative_figures": false,
+    "formats": [
+      "SVG",
+      "PDF",
+      "PNG preview"
+    ],
+    "missing_values_plotted_as_zero_or_infinity": false,
+    "source": "programmatic authoritative Gate 05 values"
+  },
+  "gate": "DATE 2027 Gate 06 design-space trade-off and Pareto analysis",
+  "nsga_ii_adjudication": {
+    "decision": "NOT_USED_NO_SCIENTIFIC_VALUE",
+    "reason": "four discrete measured architecture identities, three routed points, two timing-feasible energy points, and no combinatorial configuration space; exact enumeration is complete"
+  },
+  "power_energy_policy": {
+    "all_trace_classes_retained_upstream": true,
+    "bch_achievable_energy": "TARGET_CLOCK_INFEASIBLE",
+    "bch_target_constraint_power_role": "DIAGNOSTIC_ONLY",
+    "headline_trace": "no_error",
+    "hsiao": "PPA_UNAVAILABLE"
+  },
+  "reliability_semantics": {
+    "correction_guarantees_are_categorical": true,
+    "generic_reliability_score_forbidden": true,
+    "not_fit_ser": true,
+    "not_operational_probability": true,
+    "not_weight3_correction_guarantee": true,
+    "weight3_sdc_due": "exhaustive canonical-coordinate observations only"
+  },
+  "schema_version": 1
+}

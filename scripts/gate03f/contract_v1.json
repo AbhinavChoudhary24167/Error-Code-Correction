@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "gate": "DATE 2027 rigour Gate 03F",
+  "contract_state": "RESULT_BLIND_FROZEN_BEFORE_QUALIFICATION",
+  "evidence_root": "/var/lib/green-ecc-date2027-final",
+  "technology": {
+    "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "container_image_digest": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "orfs_git_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "orfs_git_tree": "2b736d484fa7a26b38b1439f177aeb6c1f3e9d5a",
+    "openroad_git_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36",
+    "openroad_version": "26Q3-1080-gab6fd26351",
+    "openroad_binary_sha256": "2fc67d3a82df36014b615e710ce2e68600b592b27b051e4533c30248a2e2eb91",
+    "platform": "sky130hd",
+    "corner": "tt_025C_1v80",
+    "liberty": {
+      "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+      "sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9"
+    },
+    "technology_lef": {
+      "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef",
+      "sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e"
+    },
+    "standard_cell_lef": {
+      "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef",
+      "sha256": "44180aaa0068b1fcb0789f128b090304c01ad48f511d3f7afa66c90b3e176ec5"
+    },
+    "set_rc_tcl": {
+      "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl",
+      "sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a"
+    }
+  },
+  "flow": {
+    "clock_period_ns": 10.0,
+    "abc_clock_period_ps": 10000,
+    "input_delay_fraction": 0.1,
+    "output_delay_fraction": 0.1,
+    "output_load_pf": 0.05,
+    "core_utilization_percent": 35,
+    "core_aspect_ratio": 1.0,
+    "core_margin_um": 10.0,
+    "place_density": 0.55,
+    "num_cores": 1,
+    "lec_check": 0,
+    "physical_seed": 11,
+    "seed_environment_variables": [
+      "GPL_RANDOM_SEED",
+      "GRT_SEED",
+      "OR_SEED"
+    ],
+    "relevant_environment": {
+      "ABC_CLOCK_PERIOD_IN_PS": "10000",
+      "CLOCK_PERIOD": "10.0",
+      "GPL_RANDOM_SEED": "11",
+      "GRT_SEED": "11",
+      "LEC_CHECK": "0",
+      "NUM_CORES": "1",
+      "OR_SEED": "11"
+    }
+  },
+  "qualification_runs": [
+    {"run_id": "gcd-01", "design_family": "gcd", "design_top": "gcd", "config": "gcd.mk", "power_family": null},
+    {"run_id": "gcd-02", "design_family": "gcd", "design_top": "gcd", "config": "gcd.mk", "power_family": null},
+    {"run_id": "gcd-03", "design_family": "gcd", "design_top": "gcd", "config": "gcd.mk", "power_family": null},
+    {"run_id": "secded-01", "design_family": "representative_secded_72_64", "design_top": "gate04_secded_comb_72_64", "config": "secded.mk", "power_family": "conventional_secded"},
+    {"run_id": "secded-02", "design_family": "representative_secded_72_64", "design_top": "gate04_secded_comb_72_64", "config": "secded.mk", "power_family": "conventional_secded"},
+    {"run_id": "bch78-01", "design_family": "bch_78_64_t2", "design_top": "gate04_bch_78_64", "config": "bch.mk", "power_family": "bch78"},
+    {"run_id": "bch78-02", "design_family": "bch_78_64_t2", "design_top": "gate04_bch_78_64", "config": "bch.mk", "power_family": "bch78"}
+  ],
+  "physical_experiment": {
+    "clock_periods_ns": [10.0]
+  },
+  "activity": {
+    "payload_operations_per_trace": 100000,
+    "payload_seed": 104375203646206,
+    "trace_classes": ["no_error", "single_error", "double_error"],
+    "fault_schedule_seed": 7085774586302733229
+  },
+  "statistics": {
+    "standard_deviation": "sample, denominator n-1",
+    "coefficient_of_variation": "sample_standard_deviation / absolute_mean; null only when mean is zero",
+    "maximum_relative_run_to_run_difference": "(max-min)/max(abs(max),abs(min)); exactly zero when max=min=0",
+    "area_cell_utilization_wirelength_max_noise_fraction": 0.01,
+    "timing_fmax_max_noise_fraction": 0.02,
+    "power_max_noise_fraction": 0.02,
+    "interpretation_policy": "A comparative ECC effect will be interpreted quantitatively only when its magnitude is at least 5× the measured reproducibility noise for that metric.",
+    "noise_magnitude": "observed max-min range in the metric's own units",
+    "zero_noise_policy": "report zero observed variation; any future quantitatively interpreted effect must still be nonzero"
+  },
+  "power": {
+    "qualification_state": "ACTIVITY_METHOD_FROZEN_PENDING_EXECUTION",
+    "method": "OpenSTA post-route read_vcd on final ODB/SDC/SPEF, followed by activity propagation and report_power",
+    "trace_scope": "gate04_trace_top",
+    "trace_classes": ["no_error", "single_error", "double_error"],
+    "clock_periods_ns": [10.0],
+    "payload_operations_per_trace": 100000,
+    "payload_prng": "SplitMix64",
+    "payload_seed": 104375203646206,
+    "fault_schedule_seed": 7085774586302733229,
+    "families": ["conventional_secded", "hsiao", "bch78"],
+    "energy_definition": "power_W * total_trace_time_ps / useful_operations = pJ per useful ECC operation",
+    "arbitrary_toggle_rates": false,
+    "field_rate_weighting": false
+  }
+}

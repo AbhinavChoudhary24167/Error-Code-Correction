@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "adjudication_id": "gate03es-read-only-contract-vs-science-adjudication",
+  "adjudicated_at_utc": "2026-08-14T15:14:46.7742585Z",
+  "frozen_gate03es": {
+    "acceptance_sha256": "6d9f20f8b2987fd56acb1cab2c0adc5256b86002f1b3530f1947e743fad1277e",
+    "comparison_sha256": "4f071b263f592b920346bff53b028e19cca7a41ad2bb194707587335da7e4cbd",
+    "formal_verdict_preserved": true,
+    "formal_verdict_sha256": "10be65de31504bd5c6f4029606dd2e4850eca227e9d84c1d1512e21388cf8a7c",
+    "frozen_scope_validation": "FAIL",
+    "frozen_duplicate_key_rule": "FAIL",
+    "reinterpretation_as_formal_pass": false
+  },
+  "repository_commands": {
+    "status": "PASS",
+    "basis_sha256": "93fac3568f35546495b44f4af68652243e47d067140de14272a02b09fc6fb40c",
+    "passed_command_ids": [
+      "gate03es-focused",
+      "historical-golden",
+      "make",
+      "make-test",
+      "pytest",
+      "git-diff-check"
+    ],
+    "post_adjudication_revalidation": {
+      "evidence": "ADJUDICATION_REPOSITORY_COMMAND_RESULTS.json",
+      "evidence_sha256": "949de1077b26dee4ae0687a8759ff8ae5385828e5f5f8022271745e3698b7884",
+      "make": "PASS",
+      "make_test": "PASS (423 tests)",
+      "python3_pytest": "PASS (425 tests)",
+      "focused_adjudication_tests": "PASS (6 tests)"
+    },
+    "scope_is_a_separate_validation_axis": true,
+    "correction": "The frozen finalizer incorrectly presented the independent path-scope failure as a required-repository-command failure."
+  },
+  "ordered_json_occurrence_adjudication": {
+    "status": "PASS",
+    "evidence": "ORDERED_JSON_OCCURRENCE_ADJUDICATION.json",
+    "evidence_sha256": "e6fb50196845a63040608e70e77d4d64f5eb2f61890df7fc82b2f2ebfa52638c",
+    "shared_json_artifacts": 16,
+    "leaf_occurrence_comparisons": 2645,
+    "duplicate_key_occurrence_comparisons": 2220,
+    "duplicate_scientific_occurrence_comparisons": 556,
+    "duplicate_scientific_failures": 0,
+    "scientific_occurrence_comparisons": 981,
+    "scientific_failures": 0,
+    "unresolved_occurrences": 0,
+    "differing_occurrences": 1138,
+    "differing_artifact": "logs/sky130hd/gcd/base/5_1_grt.json",
+    "differing_key_families": 9,
+    "runtime_resource_differing_occurrences": 1138,
+    "scientific_or_unresolved_differing_occurrences": 0,
+    "interpretation": "The raw difference is one JSON artifact, not one scalar. All 1138 differing ordered occurrences are samples of nine frozen FastRoute *_s runtime timer fields."
+  },
+  "historical_raw_byte_adjudication": {
+    "status": "UNCHANGED",
+    "evidence": "HISTORICAL_RAW_BYTE_ADJUDICATION.json",
+    "evidence_sha256": "3ec116adabe718c0893bedc881a4353191a81edf4cac49acc7ee0967d861f694",
+    "tracked_files": 384,
+    "head_index_object_mismatches": 0,
+    "recorded_tree_hash_failures": 0,
+    "working_bytes_equal_git_blob": 226,
+    "checkout_crlf_only_differences": 158,
+    "non_eol_working_blob_differences": 0,
+    "preexisting_gate03er_tree_hash_match": true,
+    "external_gate03e_tree_hash_match": true,
+    "external_gate03er_tree_hash_match": true
+  },
+  "scope_validation": {
+    "frozen_original_status": "FAIL",
+    "frozen_original_status_preserved": true,
+    "isolated_lf_adjudication_status": "PASS",
+    "evidence": "ISOLATED_LF_SCOPE_ADJUDICATION.json",
+    "evidence_sha256": "5487a62d8bd091a613e90ba9becb50be018f7d69ce85ac632ca47235a1cdf778",
+    "core_autocrlf": false,
+    "core_eol": "lf",
+    "candidate_paths": 70,
+    "allowed_candidate_paths": 70,
+    "physical_flow_executed": false,
+    "interpretation": "The original failure remains a frozen administrative result. In a disposable LF checkout, the exact authorized source/evidence delta passes the same scope validator. Generated build/test products are not source-delta candidates."
+  },
+  "scientific_adjudication": {
+    "fresh_runs_completed": true,
+    "frozen_scientific_metrics_passed": 443,
+    "semantic_physical_artifacts_pass": true,
+    "technology_xml_pass": true,
+    "complete_odb_semantics_pass": true,
+    "connectivity_and_master_identity_pass": true,
+    "qor_pass": true,
+    "mapping_revalidation_pass": true,
+    "ordered_duplicate_scientific_values_pass": true,
+    "historical_bytes_unchanged": true,
+    "scientific_environment_ready": true,
+    "formal_gate_pass": false
+  },
+  "execution_controls": {
+    "gcd_runs_7_and_8_executed": false,
+    "gate04_started": false,
+    "gate04_authorized": false,
+    "required_before_gate04": "Explicit superseding authorization accepting the preserved frozen administrative failure while relying on this scientific adjudication."
+  },
+  "verdict": "SCIENTIFIC_ENVIRONMENT_READY_FORMAL_GATE_FAILED"
+}

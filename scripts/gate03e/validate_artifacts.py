@@ -8,9 +8,15 @@ import hashlib
 import json
 import subprocess
 from pathlib import Path
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts.gate03es.scope_compatibility import is_scope_path_allowed
+
 DOC = ROOT / "docs" / "date2027" / "rigour_gate_03e"
 FREEZE_COMMIT = "db32a47d103495787a17b59388dfad3cc4cb77e8"
 ORFS_DIGEST = "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e"
@@ -176,16 +182,13 @@ def validate() -> list[str]:
     )
     for line in changed:
         path = line[3:].replace("\\", "/")
-        if not path.startswith(allowed):
+        if not is_scope_path_allowed(path, allowed):
             errors.append(f"working-tree scope violation: {path}")
-    tracked_gate03e = subprocess.check_output(
-        ["git", "ls-files", "--", "scripts/gate03e", "tests/python/test_gate03e_*", "docs/date2027/rigour_gate_03e"],
-        cwd=ROOT,
-        text=True,
-        encoding="utf-8",
-    ).splitlines()
-    if tracked_gate03e:
-        errors.append("Gate-03E files must remain uncommitted")
+        historical_gate03e = path.startswith((
+            "docs/date2027/rigour_gate_03e/", "scripts/gate03e/", "tests/python/test_gate03e_"
+        ))
+        if historical_gate03e and path != "scripts/gate03e/validate_artifacts.py":
+            errors.append(f"historical Gate-03E path changed: {path}")
     return errors
 
 

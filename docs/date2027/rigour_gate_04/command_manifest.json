@@ -1,0 +1,17 @@
+{
+  "matrix": "sudo bash /var/lib/green-ecc-gate04/policy/repo_snapshot/scripts/gate04/run_matrix.sh",
+  "per_flow": "sudo bash /var/lib/green-ecc-gate04/policy/repo_snapshot/scripts/gate04/run_flow.sh RUN_ID IMPLEMENTATION_ID CONFIG CLOCK_NS SEED TOP N K KIND",
+  "preflow": [
+    "python3 scripts/gate04/prepare_freeze.py",
+    "python3 scripts/gate04/validate_preflow.py",
+    "sudo bash scripts/gate04/freeze_gate04.sh"
+  ],
+  "prohibited": [
+    "GCD runs 7-8",
+    "commit",
+    "push",
+    "production RTL edits",
+    "same-directory retry"
+  ],
+  "schema_version": 1
+}

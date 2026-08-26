@@ -1,0 +1,33 @@
+{
+  "deadline_utc": "2026-08-17T11:59:59Z",
+  "effective_environment": [
+    "source /OpenROAD-flow-scripts/env.sh",
+    "export LEC_CHECK=0",
+    "export NUM_CORES=1",
+    "export WORK_HOME=<fresh run root>",
+    "cd /OpenROAD-flow-scripts/flow"
+  ],
+  "gate": "03E-S",
+  "image_configuration_digest": "sha256:ab3a3006003431cd7189a82567df3e6deb0d0aae66aa42a0bdf56d2751447c08",
+  "image_index_digest": "sha256:68d42e5c92a7193a9cf9a331a429250e47d42e16883366af2107022f7dafff74",
+  "image_linux_amd64_manifest_digest": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+  "official_make_invocation": "make DESIGN_CONFIG=./designs/sky130hd/gcd/config.mk",
+  "postprocess": "complete semantic export for every stage ODB using the frozen exporter under the same pinned image",
+  "reuse_delete_or_retry_existing_run": false,
+  "run_order": "sequential",
+  "runs": [
+    {
+      "container_root": "/gate03es-run-05",
+      "host_root": "/var/lib/green-ecc-gate03es/runs/gcd-run-05",
+      "id": 5,
+      "label": "gcd-run-05"
+    },
+    {
+      "container_root": "/gate03es-run-06",
+      "host_root": "/var/lib/green-ecc-gate03es/runs/gcd-run-06",
+      "id": 6,
+      "label": "gcd-run-06"
+    }
+  ],
+  "schema_version": 3
+}

@@ -1,0 +1,21 @@
+\section{Introduction}
+
+Memory ECCs are usually compared by code rate and guaranteed correction or detection capability. These properties are indispensable, but they do not fix encoder/decoder logic, register placement, latency, clocking, routing, or activity. Consequently, a code name is not a sufficient experimental unit: two designs can implement exactly the same input/output relation and occupy different physical trade-off regions, while one RTL instance cannot safely inherit correctness or PPA from another merely because their labels match.
+
+Hardware-aware SECDED construction and checker optimization are established~\cite{hsiao1970,ghosh2004,reviriego2013}; stronger-correction codec cost and BCH microarchitecture are likewise established~\cite{naseer2008,wong2011,das2019,lagendijk2026}. Cross-layer memory studies already trade reliability against device, array, storage, performance, or energy cost~\cite{delbel2014,pajouhi2015,wei2020,lee2022}. Our question is narrower: when correctness-qualified RTL instances share a transaction contract and a pinned post-route policy, do architecture orderings and effect magnitudes survive placement/routing heuristic variation?
+
+We treat implementation identity as the experimental unit and predeclare five matched OpenROAD seeds. The central relation is
+\begin{center}
+\fbox{\parbox{0.91\columnwidth}{\centering
+\textbf{ECC code identity} $\ne$ \textbf{hardware architecture identity}\\
+$\ne$ \textbf{physical implementation outcome}.}}
+\end{center}
+The exact-equivalent SECDED pair isolates temporal microarchitecture. A newly algorithmic Hsiao decoder recovers a physical point only after exact equivalence to the historical qualified behavior is proved. A correctness-qualified BCH realization supplies a stronger-guarantee, implementation-scoped feasibility contrast. Missing and timing-infeasible measurements remain explicit.
+
+This paper contributes:
+\begin{enumerate}
+\item an auditable qualification and characterization method that prevents evidence from being pooled across code, RTL, and physical identities;
+\item a prospective matched-seed experiment for an exact-equivalent SECDED pair, including route, timing, and equal-useful-work energy sensitivity; and
+\item a common-policy comparison with a same-code algorithmic Hsiao identity and one stronger-correcting BCH realization, with correction strength kept categorical.
+\end{enumerate}
+The work does not propose a new ECC, claim that ECC/PPA co-evaluation is new, or estimate a universal distribution of routing outcomes.

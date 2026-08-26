@@ -27,6 +27,7 @@ from scripts.gate03.constants import (
     WORKLOADS,
 )
 from scripts.gate03.validate_artifacts import validate
+from scripts.gate03es.scope_compatibility import is_scope_path_allowed
 
 
 OUT = ROOT / "docs" / "date2027" / "rigour_gate_03"
@@ -195,11 +196,12 @@ def test_gate01_gate02_immutable_authorized_scope_and_binary_verdict():
     )
     for path in candidate_paths:
         path = path.replace("\\", "/")
-        assert path.startswith(
+        assert is_scope_path_allowed(
+            path,
             ("docs/date2027/rigour_gate_03/", "scripts/gate03/", "tests/python/test_gate03_")
             + gate03r_paths
             + gate03e_paths
-            + runtime_paths
+            + runtime_paths,
         )
     decision = (OUT / "BINARY_NO_GO_DECISION.md").read_text(encoding="utf-8")
     assert re.findall(r"(?m)^(?:GO_TO_GATE_04|NO_GO_FOR_DATE_2027_REGULAR_PAPER_CORE)$", decision) == [

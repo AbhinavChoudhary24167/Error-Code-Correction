@@ -1,0 +1,7 @@
+# Gate 04 policy amendment 03 — exact terminating sequential equivalence
+
+The original post-flow equivalence command used direct SAT independently on each `$equiv` output bit. On the preserved `secded-comb-10ns-seed11-attempt2` mapped netlist it proved many bits, then spent unbounded time on one encoder bit. A monolithic temporal-induction trial and two EQY partition strategies were also retained as method trials; none produced a contrary result, but they did not terminate within the qualification window.
+
+Amendment 03 replaces only that proof schedule with ABC `dsec` in the same pinned ORFS image. Each design is normalized to a named sequential AIG, synchronous reset muxes are retained, and `zinit -all` makes the fairness contract's post-reset zero state explicit. RTL-to-mapped equivalence is proved by two-frame inductive sequential correspondence with fraiging. Mapped-to-post-route equivalence is proved separately; transitivity therefore establishes RTL-to-post-route equivalence. A proof passes only when ABC emits `Networks are equivalent.` and both input AIGs are retained and non-empty.
+
+The qualification case proved RTL-to-mapped equivalence in 31.51 seconds after reducing the 698-register miter to six latches and proving the mismatch state unreachable. The mapped-to-post-route miter reduced to zero latches and zero nodes and passed immediately. This amendment changes no RTL, netlist, GDS, SDC, physical seed, trace, reliability model, hypothesis, materiality threshold or selection rule. It performs no additional physical flow for attempt2.

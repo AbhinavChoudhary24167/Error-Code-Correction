@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "catalog_id": "gate03er-producer-catalog-v2",
+  "orfs_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+  "openroad_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36",
+  "yosys_commit": "a5af9d690a43744bf6b2cc3dea2717c16b54621c",
+  "producers": {
+    "yosys_summary": {
+      "producer": "Yosys",
+      "source": "tools/yosys/kernel/driver.cc",
+      "lines": "579-669",
+      "classification": "execution runtime/resource usage",
+      "derived_hash_classification": "serialization/path/timestamp metadata"
+    },
+    "orfs_elapsed_table": {
+      "producer": "ORFS",
+      "source": "flow/util/genElapsedTime.py",
+      "lines": "77-140",
+      "classification": "execution runtime/resource usage"
+    },
+    "orfs_process_resource_summary": {
+      "producer": "ORFS",
+      "source": "flow/scripts/run_command.py",
+      "lines": "36-56",
+      "classification": "execution runtime/resource usage"
+    },
+    "orfs_took_timer": {
+      "producer": "ORFS",
+      "source": "flow/scripts/util.tcl",
+      "lines": "18-25",
+      "classification": "execution runtime/resource usage"
+    },
+    "openroad_resizer_runtime": {
+      "producer": "OpenROAD Resizer",
+      "source": "tools/OpenROAD/src/rsz/src/Resizer.cc",
+      "lines": "5007,5304,5390,5435",
+      "classification": "execution runtime/resource usage"
+    },
+    "openroad_cts_runtime": {
+      "producer": "OpenROAD CTS",
+      "source": "tools/OpenROAD/src/cts/src/TritonCTS.cpp",
+      "lines": "127",
+      "classification": "execution runtime/resource usage"
+    },
+    "openroad_dpl_runtime": {
+      "producer": "OpenROAD detailed placement",
+      "source": "tools/OpenROAD/src/dpl/src/Opendp.cpp",
+      "lines": "290",
+      "classification": "execution runtime/resource usage"
+    },
+    "openroad_drt_resource": {
+      "producer": "OpenROAD detailed routing",
+      "source": "tools/OpenROAD/src/drt/src/db/infra/frTime.cpp",
+      "lines": "27-36",
+      "classification": "execution runtime/resource usage"
+    },
+    "openroad_drt_runtime": {
+      "producer": "OpenROAD detailed routing",
+      "source": "tools/OpenROAD/src/drt/src/TritonRoute.cpp",
+      "lines": "1079",
+      "classification": "execution runtime/resource usage"
+    },
+    "openroad_fastroute_timers": {
+      "producer": "OpenROAD FastRoute",
+      "source": "tools/OpenROAD/src/grt/src/fastroute/src/FastRoute.cpp",
+      "lines": "198-222",
+      "classification": "execution runtime/resource usage",
+      "key_pattern": "(?:^|__)global_route__fastroute__(?:run|initial_rsmt|route_l|congestion_rsmt|new_route_l|spiral|route_z|monotonic|overflow_iterations|finalization|snapshot_batch_(?:route|apply|sync))_s$"
+    },
+    "klayout_technology_generator": {
+      "producer": "ORFS KLayout technology generator",
+      "source": "flow/util/generate_klayout_tech.py",
+      "lines": "12-62",
+      "classification": "serialization/path/timestamp metadata",
+      "allowed_field": "technology/reader-options/lefdef/lef-files run-root prefix only"
+    }
+  },
+  "scientific_log_content": [
+    "warnings and errors",
+    "optimization and synthesis pass identities and call counts",
+    "cell counts and mapped masters",
+    "design transformations",
+    "timing and physical QoR",
+    "routing, antenna, and DRC state"
+  ],
+  "closed_schema_rule": "Every numeric JSON metric present in the preserved runs is classified before policy freeze. A metric absent from that frozen schema is unresolved and fails."
+}

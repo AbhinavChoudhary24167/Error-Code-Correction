@@ -1,0 +1,147 @@
+{
+  "authorization_sha256": "fa11ba7216c2c58ac02c7efdf04926b11e8492cda09b354856e4da589daea799",
+  "candidate_flows": 40,
+  "candidate_rows": 18,
+  "checks": [
+    {
+      "check": "explicit superseding authorization exists",
+      "status": "PASS"
+    },
+    {
+      "check": "authorization directs Gate 04 to begin",
+      "status": "PASS"
+    },
+    {
+      "check": "authorization basis is exact",
+      "status": "PASS"
+    },
+    {
+      "check": "no further environment gate",
+      "status": "PASS"
+    },
+    {
+      "check": "Gate 03E-R formal failure preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "Gate 03E-S formal failure preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "read-only adjudication verdict preserved",
+      "status": "PASS"
+    },
+    {
+      "check": "exactly 14 Gate-02 eligible implementations",
+      "status": "PASS"
+    },
+    {
+      "check": "matrix contains 14 eligible, two exact overlays, and two references",
+      "status": "PASS"
+    },
+    {
+      "check": "all 14 eligible IDs reconciled",
+      "status": "PASS"
+    },
+    {
+      "check": "all four mandatory physical candidates reconciled",
+      "status": "PASS"
+    },
+    {
+      "check": "all mandatory candidates full-flow eligible",
+      "status": "PASS"
+    },
+    {
+      "check": "all mandatory candidates have encoder and decoder",
+      "status": "PASS"
+    },
+    {
+      "check": "combinational SECDED exact identity bound",
+      "status": "PASS"
+    },
+    {
+      "check": "pipelined SECDED same-code identity bound",
+      "status": "PASS"
+    },
+    {
+      "check": "Hsiao exact identity bound",
+      "status": "PASS"
+    },
+    {
+      "check": "BCH RTL exact reference identity bound",
+      "status": "PASS"
+    },
+    {
+      "check": "complete 60-flow candidate-plus-reference matrix",
+      "status": "PASS"
+    },
+    {
+      "check": "at least 40 and exactly 40 mandatory candidate flows",
+      "status": "PASS"
+    },
+    {
+      "check": "20 paired boundary-reference flows",
+      "status": "PASS"
+    },
+    {
+      "check": "run IDs and directories unique",
+      "status": "PASS"
+    },
+    {
+      "check": "two frozen clocks",
+      "status": "PASS"
+    },
+    {
+      "check": "five frozen paired seeds",
+      "status": "PASS"
+    },
+    {
+      "check": "all effective seed controls bind to matrix seed",
+      "status": "PASS"
+    },
+    {
+      "check": "result-blind status and no retry",
+      "status": "PASS"
+    },
+    {
+      "check": "no synthesizable fault-injection interface or logic",
+      "status": "PASS"
+    },
+    {
+      "check": "no backpressure interface",
+      "status": "PASS"
+    },
+    {
+      "check": "four candidate and two reference top modules",
+      "status": "PASS"
+    },
+    {
+      "check": "same-code internal pipeline retained in wrapper",
+      "status": "PASS"
+    },
+    {
+      "check": "production RTL, registries, and selectors have no tracked diff",
+      "status": "PASS"
+    },
+    {
+      "check": "pre-flow raw source hashes validate",
+      "status": "PASS"
+    },
+    {
+      "check": "at least 100,000 useful operations per activity trace",
+      "status": "PASS"
+    },
+    {
+      "check": "three separate activity conditions",
+      "status": "PASS"
+    },
+    {
+      "check": "bootstrap and materiality rules frozen",
+      "status": "PASS"
+    }
+  ],
+  "gate02_eligible_rows": 14,
+  "reference_flows": 20,
+  "schema_version": 1,
+  "status": "PASS"
+}

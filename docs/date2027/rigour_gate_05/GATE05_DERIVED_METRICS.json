@@ -1,0 +1,158 @@
+{
+  "conventional_secded_architecture_trade": {
+    "area_percent_change": 36.70222751433431,
+    "comparison": "pipelined conventional SECDED relative to combinational conventional SECDED",
+    "detailed_wirelength_percent_change": 12.067071667152367,
+    "fmax_percent_change": 45.910915569478554,
+    "initiation_interval_change_cycles": 0,
+    "interpretation": "steady-stream energy is comparable at 10 ns and II=1; the pipelined architecture retains a two-cycle nominal-latency penalty",
+    "no_error_achievable_energy_percent_change": -24.016027025898108,
+    "no_error_power_percent_change": -24.01602702589812,
+    "nominal_latency_change_cycles": 2,
+    "operation_normalization_status": "VALID_FOR_EQUIVALENT_STEADY_STREAM_USEFUL_OPERATION_COMPARISON",
+    "pipeline_depth_change_cycles": 2,
+    "same_reliability_semantics": true
+  },
+  "cross_layer_observations": {
+    "bch_vs_conventional_physical": {
+      "achievable_energy_at_10ns": null,
+      "achievable_energy_missing_reason": "TARGET_CLOCK_INFEASIBLE",
+      "area_percent_change": 207.35567820382857,
+      "detailed_wirelength_percent_change": 310.9753637158421,
+      "fmax_percent_change": -72.25835550944927,
+      "timing_feasibility": "FAILS_10NS"
+    },
+    "bch_vs_conventional_weight3_sdc_absolute_percentage_point_change": -57.84897583266746,
+    "bch_weight3_sdc_fraction": "265/1463",
+    "conventional_secded_weight3_sdc_fraction": "809/1065",
+    "hsiao_vs_conventional_weight3_sdc_absolute_percentage_point_change": -18.678739101274314,
+    "hsiao_weight3_sdc_fraction": "2847/4970",
+    "reliability_improvement_per_area_overhead": {
+      "missing_reason": "METRIC_NOT_PROVEN",
+      "reason": "A physically weighted common fault distribution is absent and BCH/SECDED weight-3 mask universes have different codeword widths; a scalar ratio would overstate comparability.",
+      "value": null
+    },
+    "reliability_improvement_per_energy_overhead": {
+      "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+      "reason": "BCH has no achievable 10 ns energy, so a realizable reliability-per-energy ratio cannot be formed.",
+      "value": null
+    },
+    "weight3_comparison_scope": "exhaustive uniform mask fractions within each implementation's canonical codeword coordinates; not a field-rate model and not a correction guarantee"
+  },
+  "excluded_derived_quantities": [
+    {
+      "quantity": "arbitrary composite score",
+      "reason": "FORBIDDEN_NOT_PHYSICALLY_INTERPRETABLE"
+    },
+    {
+      "quantity": "GREEN Score",
+      "reason": "OUT_OF_SCOPE_GATE05"
+    },
+    {
+      "quantity": "formal Pareto frontier",
+      "reason": "DEFERRED_TO_GATE06"
+    },
+    {
+      "quantity": "field-weighted SDC/DUE/FIT/SER",
+      "reason": "METRIC_NOT_PROVEN"
+    }
+  ],
+  "operation_normalization": {
+    "common_clock_period_ns": 10.0,
+    "common_initiation_interval_cycles": 1,
+    "comparison_scope": "steady-stream energy per accepted comparison transaction, not single-request response energy or latency",
+    "drain_cycles": 4,
+    "effective_trace_time_ps_per_useful_operation": 10001.0,
+    "equivalent_work_basis": "Gate 03R proves identical conventional SECDED encoder/decoder behavior after temporal alignment; both traces use the same conventional_secded input VCD and physical comparison boundary",
+    "latency_cycles": {
+      "hsiao-generated-combinational-72-64-v1": 1,
+      "secded-rtl-combinational-72-64-v1": 1,
+      "secded-rtl-pipelined-72-64-v1": 3,
+      "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": 1
+    },
+    "overhead_treatment": "the common six reset plus four drain cycles are included in every reported trace duration and divided by the same 100,000 useful operations",
+    "pipeline_drain_adjudication": "four invalid drain cycles exceed the three-cycle pipelined SECDED comparison-boundary latency; all 100,000 accepted inputs drain",
+    "reset_cycles": 6,
+    "sources": [
+      "docs/date2027/rigour_gate_04_final/GATE04_EXPERIMENT_MANIFEST.json",
+      "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "docs/date2027/rigour_gate_04_final/GATE04_POWER_ACTIVITY_AUDIT.json",
+      "scripts/gate04/generate_traces.py",
+      "scripts/gate04/rtl/gate04_boundaries.sv",
+      "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md"
+    ],
+    "status": "VALID_FOR_EQUIVALENT_STEADY_STREAM_USEFUL_OPERATION_COMPARISON",
+    "total_time_ps": 1000100000,
+    "total_trace_cycles": 100010,
+    "useful_operation_definition": "one accepted 64-bit comparison transaction per asserted-valid cycle, exercising one independent encoder payload and one independent decoder codeword channel in parallel",
+    "useful_operations_per_trace": 100000,
+    "valid_workload_cycles": 100000
+  },
+  "per_implementation": [
+    {
+      "achieved_fmax_mhz_per_kum2": 13.080867405774482,
+      "area_metric_missing_reason": null,
+      "area_um2_per_protected_payload_bit": 291.3140625,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "no_error_achievable_energy_missing_reason": null,
+      "no_error_achievable_energy_pj_per_useful_operation": 145.76251578139872,
+      "no_error_target_constraint_energy_estimate_pj_per_useful_operation": 145.76251578139872,
+      "performance_per_area_missing_reason": null,
+      "redundancy_bits": 8,
+      "redundancy_bits_per_payload_bit": 0.125,
+      "sources": {
+        "architecture": "GATE05_IMPLEMENTATION_IDENTITY.json",
+        "physical_and_energy": "GATE05_INTEGRATED_RESULTS.json"
+      }
+    },
+    {
+      "achieved_fmax_mhz_per_kum2": 13.962035398577306,
+      "area_metric_missing_reason": null,
+      "area_um2_per_protected_payload_bit": 398.2328125,
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "no_error_achievable_energy_missing_reason": null,
+      "no_error_achievable_energy_pj_per_useful_operation": 110.75615059770901,
+      "no_error_target_constraint_energy_estimate_pj_per_useful_operation": 110.75615059770901,
+      "performance_per_area_missing_reason": null,
+      "redundancy_bits": 8,
+      "redundancy_bits_per_payload_bit": 0.125,
+      "sources": {
+        "architecture": "GATE05_IMPLEMENTATION_IDENTITY.json",
+        "physical_and_energy": "GATE05_INTEGRATED_RESULTS.json"
+      }
+    },
+    {
+      "achieved_fmax_mhz_per_kum2": null,
+      "area_metric_missing_reason": "PPA_UNAVAILABLE",
+      "area_um2_per_protected_payload_bit": null,
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "no_error_achievable_energy_missing_reason": "PPA_UNAVAILABLE",
+      "no_error_achievable_energy_pj_per_useful_operation": null,
+      "no_error_target_constraint_energy_estimate_pj_per_useful_operation": null,
+      "performance_per_area_missing_reason": "PPA_UNAVAILABLE",
+      "redundancy_bits": 8,
+      "redundancy_bits_per_payload_bit": 0.125,
+      "sources": {
+        "architecture": "GATE05_IMPLEMENTATION_IDENTITY.json",
+        "physical_and_energy": "GATE05_INTEGRATED_RESULTS.json"
+      }
+    },
+    {
+      "achieved_fmax_mhz_per_kum2": 1.180667216951087,
+      "area_metric_missing_reason": null,
+      "area_um2_per_protected_payload_bit": 895.3703125,
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "no_error_achievable_energy_missing_reason": "TARGET_CLOCK_INFEASIBLE",
+      "no_error_achievable_energy_pj_per_useful_operation": null,
+      "no_error_target_constraint_energy_estimate_pj_per_useful_operation": 8488.495344399975,
+      "performance_per_area_missing_reason": null,
+      "redundancy_bits": 14,
+      "redundancy_bits_per_payload_bit": 0.21875,
+      "sources": {
+        "architecture": "GATE05_IMPLEMENTATION_IDENTITY.json",
+        "physical_and_energy": "GATE05_INTEGRATED_RESULTS.json"
+      }
+    }
+  ],
+  "schema_version": 1
+}

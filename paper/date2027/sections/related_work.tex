@@ -1,0 +1,16 @@
+\section{Background and Related Work}
+
+\subsection{ECC Algorithms and Hardware Implementations}
+
+Extended-Hamming SECDED corrects one error and detects two, while odd-weight-column Hsiao codes reduce checker complexity for the same guarantee~\cite{hsiao1970,chen1984review}. Ghosh \emph{et al.} used parity-check-matrix freedom to reduce Hamming/Hsiao checker power while monitoring area and delay~\cite{ghosh2004,ghosh2005}; Reviriego \emph{et al.} constructed SEC/SECDED codes to reduce encoder/decoder delay and area~\cite{reviriego2013}. Naseer and Draper compared SEC, Hsiao SECDED, double-error-correcting (DEC), and DEC-TED parallel hardware for SRAM multi-bit upsets~\cite{naseer2008}. These works establish both hardware-conscious code design and correction-cost comparison.
+
+BCH hardware has its own broad architecture space. Chien-search power can be reduced through RTL-level activity management~\cite{wong2011}, and recent conventional/direct decoder comparisons show large architecture-dependent area, throughput, and latency differences for common BCH parameters~\cite{lagendijk2026}. Accordingly, our BCH measurement is one implementation point, not a bound on BCH as a family.
+
+\subsection{Reliability-Aware Memory Protection}
+
+System-level work jointly evaluates reliability and memory overhead. Virtualized ECC and LOT-ECC trade correction strength against storage, traffic, performance, and energy~\cite{yoon2010,udipi2012}; Bamboo ECC changes code organization to improve protection under channel constraints~\cite{kim2015bamboo}. FaultSim provides field-model-driven simulation of SECDED/Chipkill-class resilience~\cite{nair2016faultsim}. Those studies are broader in memory organization and operational reliability than ours. We instead report finite canonical-coordinate guarantees/observations and do not claim FIT, SER, or field-weighted rates.
+
+\subsection{Hardware-Cost and Cross-Layer Evaluation}
+
+DATE studies of STT-MRAM explicitly co-design correction strength with device, cell, array, area, energy, and yield considerations~\cite{delbel2014,pajouhi2015}. The present work therefore does not claim cross-layer ECC/cost analysis itself as new. Its narrower focus is a controlled post-route study: correctness-qualified RTL identities, two exact-equivalent SECDED microarchitectures, a shared physical methodology, equal useful work for energy, and explicit missing/infeasible points. OpenROAD supplies the open digital-flow foundation~\cite{ajayi2019}; our contribution is the ECC experiment and evidence discipline built on a pinned instance of that flow.
+

@@ -1,0 +1,111 @@
+{
+  "schema_version": 2,
+  "policy_id": "gate03er-reproducibility-v2",
+  "amends": {
+    "policy_id": "gate03e-reproducibility-v1",
+    "sha256": "258694f328084c3fb92dec24e07b3b40d261037d5b1bd8d32b119684211d0b9a",
+    "preserved_result": "FAIL",
+    "preserved_unexplained_raw_difference_count": 16,
+    "preserved_numeric_breach_count": 29,
+    "preserved_semantic_failure_count": 0
+  },
+  "amendment_reason": "Policy v1 used exact equality for every unclassified number and matched the word overflow before recognizing the _s unit. ORFS and OpenROAD report wall time, CPU time, stage timers, and peak memory alongside scientific metrics. Those execution observations depend on host scheduling and resource allocation and are not deterministic scientific outputs. Policy v2 retains them and their raw hashes for audit while gating the scientific state separately.",
+  "freeze_rule": "The policy, comparator, producer catalogue, closed metric schema, immutable-input manifest, command manifest, adjudication, and runner must be hashed and made read-only before either fresh run directory is created.",
+  "run_roots": [
+    "/gate03er-run-03",
+    "/gate03er-run-04"
+  ],
+  "run_root_token": "<RUN_ROOT>",
+  "raw_evidence": {
+    "hash_algorithm": "sha256",
+    "retain_every_artifact_report_metric_and_log": true,
+    "raw_hashes_are_audit_evidence_not_a_blanket_equality_gate": true,
+    "explain_every_raw_hash_difference": true
+  },
+  "immutable_inputs": {
+    "comparison": "exact sha256",
+    "required": [
+      "OCI image digest and image ID",
+      "ORFS commit, tree, recursive submodules, and reconciled execution subset",
+      "GCD RTL, configuration, SDC, platform scripts, and SKY130HD collateral",
+      "OpenROAD and Yosys executables",
+      "runner, environment settings, and official make command"
+    ]
+  },
+  "canonicalization": {
+    "line_endings": "LF",
+    "remove_trailing_horizontal_whitespace": true,
+    "absolute_run_roots": "replace only recognized Gate 03E/03E-R run roots with the frozen token",
+    "json_object_key_order": "lexicographic",
+    "gds": {
+      "zero_record_payloads": ["BGNLIB", "BGNSTR"],
+      "sort_structures_by": "normalized_binary_encoding",
+      "sort_complete_elements_by": "normalized_binary_encoding",
+      "preserve_record_order_within_each_element": true,
+      "fail_on_unrecognized_inter_element_records": true
+    },
+    "netlist": "structural JSON emitted by the exact-hashed pinned Yosys plus exact parsed mapped-master histogram",
+    "def": "conservative complete token stream with no scientific-field removal",
+    "sdc": "conservative complete token stream with no constraint removal",
+    "spef": "conservative complete token stream with only the SPEF DATE record replaced",
+    "klayout_lyt": "XML C14N after replacing only a recognized run-root prefix inside reader-options/lefdef/lef-files",
+    "odb": "exact raw sha256"
+  },
+  "field_classes": [
+    "scientific QoR/state",
+    "execution runtime/resource usage",
+    "serialization/path/timestamp metadata",
+    "unresolved"
+  ],
+  "nongating_observations": [
+    "wall time",
+    "CPU time",
+    "peak memory",
+    "stage-runtime counters",
+    "process IDs",
+    "container IDs",
+    "host scheduling data"
+  ],
+  "qor_rules": [
+    {"family": "discrete_counts_masters_statuses", "absolute_tolerance": 0.0, "unit": "exact"},
+    {"family": "area", "absolute_tolerance": 0.0, "unit": "um^2"},
+    {"family": "utilization_density", "absolute_tolerance": 1e-6, "unit": "ratio"},
+    {"family": "timing", "absolute_tolerance": 1e-6, "unit": "ns"},
+    {"family": "wirelength_dimension_displacement", "absolute_tolerance": 1e-3, "unit": "reported length unit"},
+    {"family": "capacitance_resistance", "absolute_tolerance": 1e-6, "unit": "reported unit"},
+    {"family": "power", "absolute_tolerance": 1e-9, "unit": "W"},
+    {"family": "frequency", "absolute_tolerance": 1.0, "unit": "Hz"},
+    {"family": "voltage", "absolute_tolerance": 1e-6, "unit": "V"},
+    {"family": "preenumerated_other_qor", "absolute_tolerance": 0.0, "unit": "exact"}
+  ],
+  "semantic_artifacts": {
+    "required_exact_canonical_globs": [
+      "**/6_final.gds",
+      "**/6_final.def",
+      "**/6_final.v",
+      "**/1_2_yosys.v",
+      "**/*.sdc",
+      "**/*.spef"
+    ],
+    "required_exact_raw_globs": ["**/*.odb"],
+    "required_technology_glob": "**/klayout.lyt"
+  },
+  "anti_posthoc_rules": {
+    "field_specific_exclusions_selected_because_policy_v1_failed": "prohibited",
+    "path_specific_exclusion_list": [],
+    "unknown_or_unresolved_field": "gate failure"
+  },
+  "failure_conditions": [
+    "policy or immutable-input hash mismatch",
+    "post-run policy or comparator change",
+    "posthoc field-specific exclusion",
+    "missing or additional artifact or metric",
+    "semantic canonical mismatch",
+    "technology XML mismatch outside the one predeclared run-root substitution",
+    "exact invariant mismatch",
+    "QoR tolerance breach",
+    "unresolved field or parse failure",
+    "protected evidence change",
+    "deadline missed"
+  ]
+}

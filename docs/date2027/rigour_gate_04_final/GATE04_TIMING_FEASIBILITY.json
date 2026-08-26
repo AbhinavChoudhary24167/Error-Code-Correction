@@ -1,0 +1,59 @@
+{
+  "records": [
+    {
+      "achieved_fmax_mhz": 243.881,
+      "hold_status": "HOLD_CLEAN",
+      "hold_violation_count": 0,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "setup_violation_count": 0,
+      "timing_deficit_ns": 0.0,
+      "timing_feasibility": "MEETS_10NS",
+      "tns_ns": 0.0,
+      "wns_ns": 0.0,
+      "worst_hold_slack_ns": 0.447184,
+      "worst_setup_slack_ns": 5.89964
+    },
+    {
+      "achieved_fmax_mhz": 355.849,
+      "hold_status": "HOLD_CLEAN",
+      "hold_violation_count": 0,
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "setup_violation_count": 0,
+      "timing_deficit_ns": 0.0,
+      "timing_feasibility": "MEETS_10NS",
+      "tns_ns": 0.0,
+      "wns_ns": 0.0,
+      "worst_hold_slack_ns": 0.325726,
+      "worst_setup_slack_ns": 7.18982
+    },
+    {
+      "achieved_fmax_mhz": null,
+      "hold_status": "NOT_AVAILABLE_PHYSICAL_FAILURE",
+      "hold_violation_count": null,
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "setup_violation_count": null,
+      "timing_deficit_ns": null,
+      "timing_feasibility": "NOT_AVAILABLE_PHYSICAL_FAILURE",
+      "tns_ns": null,
+      "wns_ns": null,
+      "worst_hold_slack_ns": null,
+      "worst_setup_slack_ns": null
+    },
+    {
+      "achieved_fmax_mhz": 67.6566,
+      "hold_status": "HOLD_CLEAN",
+      "hold_violation_count": 0,
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "setup_violation_count": 66,
+      "timing_deficit_ns": 4.78052,
+      "timing_feasibility": "FAILS_10NS",
+      "tns_ns": -309.445,
+      "wns_ns": -4.78052,
+      "worst_hold_slack_ns": 0.437918,
+      "worst_setup_slack_ns": -4.78052
+    }
+  ],
+  "schema_version": 1,
+  "target_clock_period_ns": 10.0,
+  "target_frequency_mhz": 100.0
+}

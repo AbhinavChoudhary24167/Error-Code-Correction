@@ -1,0 +1,188 @@
+{
+  "bch_energy_rule": "BCH target-constraint energy remains diagnostic; achievable 100 MHz energy is TARGET_CLOCK_INFEASIBLE.",
+  "hsiao_pareto_rule": "Hsiao may appear in reliability/correctness tables but must not be a full point in any analysis requiring unavailable PPA dimensions.",
+  "missing_value_tokens": [
+    "PPA_UNAVAILABLE",
+    "RELIABILITY_NOT_APPLICABLE",
+    "TARGET_CLOCK_INFEASIBLE",
+    "METRIC_NOT_PROVEN"
+  ],
+  "records": [
+    {
+      "explanation": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+      "field": "reliability.fit_ser_projection",
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+      "field": "reliability.placement_interleaving",
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+      "field": "reliability.field_or_distribution_weighted_sdc_due",
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+      "field": "reliability.fit_ser_projection",
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+      "field": "reliability.placement_interleaving",
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+      "field": "reliability.field_or_distribution_weighted_sdc_due",
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.standard_cell_instance_area_um2",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.wns_ns",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.tns_ns",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.worst_setup_slack_ns",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.worst_hold_slack_ns",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.achieved_fmax_mhz",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.detailed_route_wirelength_um",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.global_route_wirelength_um",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.via_count",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "physical.metrics.final_drc_count",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "power_by_trace.no_error",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "power_by_trace.single_error",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "power_by_trace.double_error",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "Gate 04 Hsiao synthesis stopped under the frozen memory policy; no PPA is fabricated.",
+      "field": "future_full_dimension_pareto_point",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "PPA_UNAVAILABLE"
+    },
+    {
+      "explanation": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+      "field": "reliability.fit_ser_projection",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+      "field": "reliability.placement_interleaving",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+      "field": "reliability.field_or_distribution_weighted_sdc_due",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "BCH failed the common 10 ns target; target-constraint energy is diagnostic, not achievable.",
+      "field": "power_by_trace.no_error.metrics.achievable_total_energy_pj_per_operation",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "missing_reason": "TARGET_CLOCK_INFEASIBLE"
+    },
+    {
+      "explanation": "BCH failed the common 10 ns target; target-constraint energy is diagnostic, not achievable.",
+      "field": "power_by_trace.single_error.metrics.achievable_total_energy_pj_per_operation",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "missing_reason": "TARGET_CLOCK_INFEASIBLE"
+    },
+    {
+      "explanation": "BCH failed the common 10 ns target; target-constraint energy is diagnostic, not achievable.",
+      "field": "power_by_trace.double_error.metrics.achievable_total_energy_pj_per_operation",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "missing_reason": "TARGET_CLOCK_INFEASIBLE"
+    },
+    {
+      "explanation": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+      "field": "reliability.fit_ser_projection",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+      "field": "reliability.placement_interleaving",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    },
+    {
+      "explanation": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+      "field": "reliability.field_or_distribution_weighted_sdc_due",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "missing_reason": "METRIC_NOT_PROVEN"
+    }
+  ],
+  "schema_version": 1,
+  "zero_substitution_forbidden": true
+}

@@ -1,0 +1,178 @@
+{
+  "implementation_sources": [
+    {
+      "identity_transfer": [
+        "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+        "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+        "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json"
+      ],
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "physical_source": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "reliability_aggregate": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+      "reliability_source_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "identity_transfer": [
+        "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md",
+        "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+        "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+        "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json"
+      ],
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "physical_source": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "reliability_aggregate": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+      "reliability_source_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "identity_transfer": [
+        "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+        "docs/date2027/rigour_gate_03/baseline/run-01/hsiao/functional_verification.log",
+        "docs/date2027/rigour_gate_03/baseline/run-02/hsiao/functional_verification.log"
+      ],
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "physical_source": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "reliability_aggregate": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+      "reliability_source_implementation_id": "hsiao-generated-combinational-72-64-v1"
+    },
+    {
+      "identity_transfer": [
+        "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md",
+        "docs/date2027/rigour_gate_03r/BCH_IDENTITY_RECONSTRUCTION.json",
+        "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+        "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+        "docs/date2027/rigour_gate_03r/EXACT_PROOF_SUMMARY.json",
+        "docs/date2027/rigour_gate_03r/BCH_WEIGHT3_CHARACTERIZATION.json"
+      ],
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "physical_source": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "reliability_aggregate": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+      "reliability_source_implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder"
+    }
+  ],
+  "policy": {
+    "missing_values_converted_to_zero": false,
+    "only_gate_validated_evidence": true,
+    "physical_runs_launched": false,
+    "stale_thesis_values_allowed": false
+  },
+  "quantity_rules": {
+    "energy": "achievable energy populated only when MEETS_10NS; target-constraint diagnostic estimate retained separately",
+    "fit_ser": "METRIC_NOT_PROVEN because no frozen validated projection exists",
+    "placement_interleaving": "METRIC_NOT_PROVEN because Gate 02 adjacency is logical, not a physical mapping",
+    "power": "all three Gate 04 trace classes retained separately; no averaging",
+    "sdc_due": "exact counts and rational fractions remain universe-specific; no cross-universe averaging"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "path": "docs/date2027/rigour_gate_02/GATE_02_REPORT.md",
+      "role": "Gate 02 scope boundary, including absence of physical, FIT, SER, and physical-placement evidence",
+      "sha256": "176dd2c98d00b05d056090c070f2bcb60bbdc92e79e057312458c133144f5387"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+      "role": "Exact Hsiao reliability outcomes by finite fault universe",
+      "sha256": "502b2caaf6b9fe66cd87677f03ed5f5a3baa2c9093786c4ace2ed0d961982800"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+      "role": "Exact SECDED reliability outcomes by finite fault universe",
+      "sha256": "42a8efb1820c8eaca64ef774d0a7c744912e5bfca68b438b9023acf052e45f95"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+      "role": "Exact BCH reliability outcomes by finite fault universe",
+      "sha256": "8793ec34a63344c4a7d84b6bca1cfa704221955ae2c870b70929674f34bbad86"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_02/baseline/translation_invariance.json",
+      "role": "Gate 02 basis for payload-translation invariance of finite mask results",
+      "sha256": "0940ba41f0d9a2b00875db427be7af2f4f38c75a7df64cd3a75c18746bcf2ded"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03/baseline/run-01/hsiao/functional_verification.log",
+      "role": "First compiled Hsiao RTL campaign",
+      "sha256": "01ab8949d39ac953bd6c47e9d9b1bfc8fae551d5c7bcf83045bd13eceab23776"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03/baseline/run-02/hsiao/functional_verification.log",
+      "role": "Second compiled Hsiao RTL campaign",
+      "sha256": "3de1bd206651807a71c81a09c4b3f00d9389736f10b52d171067571d4667ed77"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md",
+      "role": "Frozen BCH construction and proof boundary",
+      "sha256": "40b2c5082095c0327e28af3ba5b5c92ed68c70872866c1f49761e27c54b960c8"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/BCH_IDENTITY_RECONSTRUCTION.json",
+      "role": "Independent BCH identity reconstruction",
+      "sha256": "be80995c419890a95283093cc9611a01df76180f63a0bb0f2607bdf2a339e351"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/BCH_WEIGHT3_CHARACTERIZATION.json",
+      "role": "BCH exhaustive zero-payload weight-3 characterization summary",
+      "sha256": "74ea35288fa37766c48fea9eb6373e055fa6b64df95f4bf514836bbfe60cd1b7"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+      "role": "Exact decoder identity results",
+      "sha256": "98d85b07405aaefff25947107a58f2e139c9096bfb4d47a750ee809654e48b73"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+      "role": "Exact encoder identity results",
+      "sha256": "7c5c5f97e50ed9db86a072aa666987773d177ce46e7542bc38d6641c97f5767d"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/EXACT_PROOF_SUMMARY.json",
+      "role": "BCH 3,082-job symbolic proof summary",
+      "sha256": "0cd22d61b7436a4898cf1149f693e9b32c978dacf8bb6fe43994becfa07802ab"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md",
+      "role": "SECDED code identity, latency, initiation interval, and universal equivalence contract",
+      "sha256": "03a92c1b94b00edbe457f4fbf5e965737fb100705d4c9220d14a5824167e1e94"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json",
+      "role": "Universal SECDED equivalence summary",
+      "sha256": "f63dc73401d616177edd5b5d2a84f8a1ab058234746571c5e02232e38e7f711a"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_04_final/GATE04_EXPERIMENT_MANIFEST.json",
+      "role": "Frozen physical environment and useful-operation definition",
+      "sha256": "2ac426f6a42485a42472ce2befc5893d000307232d8899ec5a9355e5ad7a7c4c"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_04_final/GATE04_FINAL_ECC_SET.json",
+      "role": "Frozen Gate 04 implementation identities and comparison boundary",
+      "sha256": "ad8b11339e9d97595b9cb23affd540a22f61beb5f720337d26d9f8b707fd909d"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_04_final/GATE04_POWER_ACTIVITY_AUDIT.json",
+      "role": "Read-only VCD activity counts and trace hashes",
+      "sha256": "d9fd43845c32db45597a9b8d95ec88dbb8191b66e95e8e3e5c1ad3eb6b517ac0"
+    },
+    {
+      "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "role": "Authoritative physical and full-precision power values",
+      "sha256": "395efc7bad2eba7eae5c1b83d34c181494b586580308ab0283b6d4f070d3b7c7"
+    },
+    {
+      "path": "scripts/gate04/generate_traces.py",
+      "role": "Frozen trace construction, reset, valid workload, and pipeline drain behavior",
+      "sha256": "0ee42f27fa79ddfd9a1f7cb3055c94810461eb84f3846d83c2b2487985c10b6f"
+    },
+    {
+      "path": "scripts/gate04/rtl/gate04_boundaries.sv",
+      "role": "Common registered boundaries and architecture-specific valid alignment",
+      "sha256": "7de8e8d2933cdf17740ec5ec6f45a3654d5d54d9e419ed1c628ab29ca03308f8"
+    },
+    {
+      "path": "scripts/gate05/build_gate05.py",
+      "role": "Gate 05 deterministic evidence-join and derived-metric implementation",
+      "sha256": "ac2c0c4593bdf002553575bf002b421107132b36eb0f8ca88bac763657614e99"
+    }
+  ]
+}

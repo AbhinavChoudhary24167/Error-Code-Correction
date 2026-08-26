@@ -1,0 +1,445 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+
+-- Running command `read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv /repo/scripts/revision2/rtl/hsiao_exact_identity_miter.sv; prep -top rev2_hsiao_exact_identity_miter -flatten; memory_map; opt; select -clear; select rev2_hsiao_exact_identity_miter; sat -verify -prove mismatch 0 -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_syndrome'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_decoder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /repo/scripts/revision2/rtl/hsiao_exact_identity_miter.sv
+Parsing SystemVerilog input from `/repo/scripts/revision2/rtl/hsiao_exact_identity_miter.sv' to AST representation.
+Generating RTLIL representation for module `\rev2_hsiao_exact_identity_miter'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \rev2_hsiao_exact_identity_miter
+Used module:     \hsiao_secded_72_64_v2_algorithmic_decoder
+Used module:         \hsiao_secded_72_64_v1_syndrome
+Used module:     \hsiao_secded_72_64_v1_decoder
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \rev2_hsiao_exact_identity_miter
+Used module:     \hsiao_secded_72_64_v2_algorithmic_decoder
+Used module:         \hsiao_secded_72_64_v1_syndrome
+Used module:     \hsiao_secded_72_64_v1_decoder
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\hsiao_secded_72_64_v1_decoder.$proc$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:13$209'.
+     1/1: { $1\correction_mask[71:0] $1\correction_known[0:0] }
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\hsiao_secded_72_64_v1_decoder.\correction_mask' from process `\hsiao_secded_72_64_v1_decoder.$proc$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:13$209'.
+No latch inferred for signal `\hsiao_secded_72_64_v1_decoder.\correction_known' from process `\hsiao_secded_72_64_v1_decoder.$proc$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:13$209'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\hsiao_secded_72_64_v1_decoder.$proc$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:13$209'.
+Removing empty process `hsiao_secded_72_64_v1_decoder.$proc$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:13$209'.
+Cleaned up 1 empty switch.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+<suppressed ~2 debug messages>
+Optimizing module hsiao_secded_72_64_v1_decoder.
+<suppressed ~2 debug messages>
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+5.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module hsiao_secded_72_64_v2_algorithmic_decoder.
+Deleting now unused module hsiao_secded_72_64_v1_decoder.
+Deleting now unused module hsiao_secded_72_64_v1_syndrome.
+<suppressed ~4 debug messages>
+
+5.4. Executing FUTURE pass.
+
+5.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+5.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+Removed 0 unused cells and 101 unused wires.
+<suppressed ~1 debug messages>
+
+5.7. Executing CHECK pass (checking for obvious problems).
+Checking module rev2_hsiao_exact_identity_miter...
+Found and reported 0 problems.
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 512 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 501 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 493 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 485 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 477 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 469 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 461 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 453 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 445 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 437 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 429 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 421 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 413 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 405 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 397 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 389 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 381 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 373 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 365 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 357 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 349 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 341 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 334 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 327 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 321 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 315 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 309 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 304 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 301 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 300 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+<suppressed ~636 debug messages>
+Removed a total of 212 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rev2_hsiao_exact_identity_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rev2_hsiao_exact_identity_miter.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 300 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+Removed 0 unused cells and 204 unused wires.
+<suppressed ~1 debug messages>
+
+5.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+5.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rev2_hsiao_exact_identity_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rev2_hsiao_exact_identity_miter.
+Performed a total of 0 changes.
+
+5.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 300 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Removed a total of 0 cells.
+
+5.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+
+5.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+5.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 24 address bits (of 32) from memory init port rev2_hsiao_exact_identity_miter.$flatten\historical.$auto$mem.cc:351:emit$303 ($flatten\historical.$auto$proc_rom.cc:155:do_switch$301).
+Removed top 8 bits (of 72) from port Y of cell rev2_hsiao_exact_identity_miter.$flatten\historical.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:94$215 ($xor).
+Removed top 8 bits (of 72) from port A of cell rev2_hsiao_exact_identity_miter.$flatten\historical.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:94$215 ($xor).
+Removed top 8 bits (of 72) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\historical.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv:94$215 ($xor).
+Removed top 8 bits (of 72) from port Y of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$294 ($xor).
+Removed top 8 bits (of 72) from port A of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$294 ($xor).
+Removed top 8 bits (of 72) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$294 ($xor).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:92$286 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:91$285 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:90$284 ($eq).
+Removed top 4 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:89$283 ($eq).
+Removed top 5 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:88$282 ($eq).
+Removed top 6 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:87$281 ($eq).
+Removed top 7 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:86$280 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:85$279 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:84$278 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:83$277 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:82$276 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:81$275 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:80$274 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:79$273 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:78$272 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:56$250 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:55$249 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:54$248 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:53$247 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:52$246 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:51$245 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:50$244 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:49$243 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:48$242 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:47$241 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:46$240 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:45$239 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:44$238 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:43$237 ($eq).
+Removed top 1 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:42$236 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:41$235 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:40$234 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:39$233 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:38$232 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:37$231 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:36$230 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:35$229 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:34$228 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:33$227 ($eq).
+Removed top 2 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:32$226 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:31$225 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:30$224 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:29$223 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:28$222 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:27$221 ($eq).
+Removed top 3 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:26$220 ($eq).
+Removed top 4 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:25$219 ($eq).
+Removed top 4 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:24$218 ($eq).
+Removed top 4 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:23$217 ($eq).
+Removed top 5 bits (of 8) from port B of cell rev2_hsiao_exact_identity_miter.$flatten\algorithmic.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:22$216 ($eq).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+
+5.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 299 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Removed a total of 0 cells.
+
+5.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+
+5.12.4. Finished fast OPT passes.
+
+5.13. Executing SORT pass.
+
+5.14. Printing statistics.
+
+=== rev2_hsiao_exact_identity_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      234 wires
+     1153 wire bits
+       28 public wires
+      947 public wire bits
+        2 ports
+       73 port bits
+      299 cells
+       72   $eq
+        4   $logic_and
+        2   $logic_not
+        2   $logic_or
+        1   $mem_v2
+        3   $ne
+        1   $reduce_bool
+        1   $reduce_or
+        4   $scopeinfo
+      209   $xor
+
+5.15. Executing CHECK pass (checking for obvious problems).
+Checking module rev2_hsiao_exact_identity_miter...
+Found and reported 0 problems.
+
+6. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $flatten\historical.$auto$proc_rom.cc:155:do_switch$301 in module \rev2_hsiao_exact_identity_miter:
+  created 256 $dff cells and 0 static cells of width 73.
+  read interface: 0 $dff and 255 $mux cells.
+  write interface: 0 write mux blocks.
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+<suppressed ~84 debug messages>
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 469 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rev2_hsiao_exact_identity_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~172 debug messages>
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rev2_hsiao_exact_identity_miter.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 469 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+Removed 0 unused cells and 340 unused wires.
+<suppressed ~1 debug messages>
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rev2_hsiao_exact_identity_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~172 debug messages>
+
+7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rev2_hsiao_exact_identity_miter.
+Performed a total of 0 changes.
+
+7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rev2_hsiao_exact_identity_miter'.
+Computing hashes of 469 cells of `\rev2_hsiao_exact_identity_miter'.
+Finding duplicate cells in `\rev2_hsiao_exact_identity_miter'.
+Removed a total of 0 cells.
+
+7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rev2_hsiao_exact_identity_miter..
+
+7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rev2_hsiao_exact_identity_miter.
+
+7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+8. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 469 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \word
+Import show expression: \mismatch
+
+Solving problem with 72642 variables and 192472 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 9ac3fc245c, time: 0.64s, user: 0.49s, system: 0.21s, MEM: 76.66 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 59% 1x sat (0 sec), 9% 7x opt_clean (0 sec), ...

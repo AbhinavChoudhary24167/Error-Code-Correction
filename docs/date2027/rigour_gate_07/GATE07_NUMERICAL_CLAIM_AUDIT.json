@@ -1,0 +1,261 @@
+{
+  "comparisons": [
+    {
+      "candidate_implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "comparison": "pipelined SECDED vs combinational SECDED",
+      "metrics": [
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 25486.9,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 36.70222751433431,
+          "metric": "standard_cell_instance_area_um2",
+          "recomputed_percent_change": 36.70222751433431,
+          "reference_raw": 18644.1,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 2660.0,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 28.254580520732887,
+          "metric": "cell_count",
+          "recomputed_percent_change": 28.254580520732887,
+          "reference_raw": 2074.0,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 49992.0,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 12.067071667152367,
+          "metric": "detailed_route_wirelength_um",
+          "recomputed_percent_change": 12.067071667152367,
+          "reference_raw": 44609.0,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 355.849,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 45.910915569478554,
+          "metric": "achieved_fmax_mhz",
+          "recomputed_percent_change": 45.910915569478554,
+          "reference_raw": 243.881,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 0.01107450760901,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": -24.01602702589812,
+          "metric": "no_error_total_power_w",
+          "recomputed_percent_change": -24.01602702589812,
+          "reference_raw": 0.01457479409873,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 110.75615059770901,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": -24.016027025898108,
+          "metric": "no_error_achievable_total_energy_pj_per_operation",
+          "recomputed_percent_change": -24.016027025898108,
+          "reference_raw": 145.76251578139872,
+          "status": "MATCH"
+        },
+        {
+          "candidate_raw": 3,
+          "formula": "candidate_raw-reference_raw",
+          "gate06_reported_absolute_change": 2,
+          "metric": "nominal_operation_latency_cycles",
+          "recomputed_absolute_change": 2,
+          "reference_raw": 1,
+          "status": "MATCH"
+        },
+        {
+          "candidate_raw": 0.0,
+          "formula": "candidate_raw-reference_raw",
+          "gate06_reported_absolute_change": 0.0,
+          "metric": "timing_deficit_ns",
+          "recomputed_absolute_change": 0.0,
+          "reference_raw": 0.0,
+          "status": "MATCH"
+        }
+      ],
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "candidate_implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "comparison": "BCH vs combinational SECDED",
+      "metrics": [
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 57303.7,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 207.35567820382857,
+          "metric": "standard_cell_instance_area_um2",
+          "recomputed_percent_change": 207.35567820382857,
+          "reference_raw": 18644.1,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 7129.0,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 243.73191899710704,
+          "metric": "cell_count",
+          "recomputed_percent_change": 243.73191899710704,
+          "reference_raw": 2074.0,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 183332.0,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 310.9753637158421,
+          "metric": "detailed_route_wirelength_um",
+          "recomputed_percent_change": 310.9753637158421,
+          "reference_raw": 44609.0,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 67.6566,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": -72.25835550944927,
+          "metric": "achieved_fmax_mhz",
+          "recomputed_percent_change": -72.25835550944927,
+          "reference_raw": 243.881,
+          "status": "MATCH"
+        },
+        {
+          "candidate_raw": 0.8487646579742,
+          "gate06_reported_percent_change": null,
+          "metric": "no_error_total_power_w",
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "recomputed_percent_change": null,
+          "reference_raw": 0.01457479409873,
+          "status": "CORRECTLY_NOT_COMPUTED"
+        },
+        {
+          "candidate_raw": null,
+          "gate06_reported_percent_change": null,
+          "metric": "no_error_achievable_total_energy_pj_per_operation",
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "recomputed_percent_change": null,
+          "reference_raw": 145.76251578139872,
+          "status": "CORRECTLY_NOT_COMPUTED"
+        },
+        {
+          "candidate_raw": 1,
+          "formula": "candidate_raw-reference_raw",
+          "gate06_reported_absolute_change": 0,
+          "metric": "nominal_operation_latency_cycles",
+          "recomputed_absolute_change": 0,
+          "reference_raw": 1,
+          "status": "MATCH"
+        },
+        {
+          "candidate_raw": 4.78052,
+          "formula": "candidate_raw-reference_raw",
+          "gate06_reported_absolute_change": 4.78052,
+          "metric": "timing_deficit_ns",
+          "recomputed_absolute_change": 4.78052,
+          "reference_raw": 0.0,
+          "status": "MATCH"
+        }
+      ],
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "candidate_implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "comparison": "BCH vs pipelined SECDED",
+      "metrics": [
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 57303.7,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 124.83589608779411,
+          "metric": "standard_cell_instance_area_um2",
+          "recomputed_percent_change": 124.83589608779411,
+          "reference_raw": 25486.9,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 7129.0,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 168.00751879699249,
+          "metric": "cell_count",
+          "recomputed_percent_change": 168.00751879699249,
+          "reference_raw": 2660.0,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 183332.0,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": 266.7226756281005,
+          "metric": "detailed_route_wirelength_um",
+          "recomputed_percent_change": 266.7226756281005,
+          "reference_raw": 49992.0,
+          "status": "MATCH"
+        },
+        {
+          "absolute_mismatch": 0.0,
+          "candidate_raw": 67.6566,
+          "formula": "(candidate_raw-reference_raw)/reference_raw*100",
+          "gate06_reported_percent_change": -80.98727269150679,
+          "metric": "achieved_fmax_mhz",
+          "recomputed_percent_change": -80.98727269150679,
+          "reference_raw": 355.849,
+          "status": "MATCH"
+        },
+        {
+          "candidate_raw": 0.8487646579742,
+          "gate06_reported_percent_change": null,
+          "metric": "no_error_total_power_w",
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "recomputed_percent_change": null,
+          "reference_raw": 0.01107450760901,
+          "status": "CORRECTLY_NOT_COMPUTED"
+        },
+        {
+          "candidate_raw": null,
+          "gate06_reported_percent_change": null,
+          "metric": "no_error_achievable_total_energy_pj_per_operation",
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "recomputed_percent_change": null,
+          "reference_raw": 110.75615059770901,
+          "status": "CORRECTLY_NOT_COMPUTED"
+        },
+        {
+          "candidate_raw": 1,
+          "formula": "candidate_raw-reference_raw",
+          "gate06_reported_absolute_change": -2,
+          "metric": "nominal_operation_latency_cycles",
+          "recomputed_absolute_change": -2,
+          "reference_raw": 3,
+          "status": "MATCH"
+        },
+        {
+          "candidate_raw": 4.78052,
+          "formula": "candidate_raw-reference_raw",
+          "gate06_reported_absolute_change": 4.78052,
+          "metric": "timing_deficit_ns",
+          "recomputed_absolute_change": 4.78052,
+          "reference_raw": 0.0,
+          "status": "MATCH"
+        }
+      ],
+      "reference_implementation_id": "secded-rtl-pipelined-72-64-v1"
+    }
+  ],
+  "cross_check": "docs/date2027/rigour_gate_06/GATE06_EFFECT_SIZES.json",
+  "mismatch_count": 0,
+  "result": "NUMERICAL_CLAIM_AUDIT_PASS",
+  "rounded_prose_used_as_input": false,
+  "schema_version": 1,
+  "source": "docs/date2027/rigour_gate_06/GATE06_DESIGN_SPACE.csv"
+}

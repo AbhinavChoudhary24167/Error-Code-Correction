@@ -1,0 +1,336 @@
+{
+  "allowed_statuses": [
+    "CLAIM_FROZEN",
+    "CLAIM_NARROWED",
+    "CLAIM_DISCUSSION_ONLY",
+    "CLAIM_REMOVED"
+  ],
+  "claims": [
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ],
+      "claim_id": "C01",
+      "derivation": "Gate 03R identity transfer fixes code semantics; exact Space-A dominance enumeration finds neither architecture dominates.",
+      "evidence_sources": [
+        "GATE05_IMPLEMENTATION_IDENTITY.json",
+        "GATE06_DOMINANCE_ANALYSIS.json"
+      ],
+      "exact_proposed_wording": "For the evaluated conventional SECDED RTL, identical W1-correction/W2-detection semantics produce a non-dominated area/latency versus Fmax/steady-stream-energy trade-off when the microarchitecture changes from combinational to pipelined.",
+      "final_status": "CLAIM_FROZEN",
+      "gate06_candidate": "A / requested Claim 1",
+      "limitations": [
+        "evaluated RTL implementations only",
+        "SKY130HD TT 1.80 V / 25 C",
+        "frozen 10 ns flow and seed policy"
+      ],
+      "raw_numbers": {
+        "initiation_interval_cycles": [
+          1,
+          1
+        ],
+        "latency_cycles": [
+          1,
+          3
+        ]
+      },
+      "reviewer_risk": "LOW"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ],
+      "claim_id": "C02",
+      "derivation": "All percentages are recomputed as (pipelined-combinational)/combinational*100 from Gate 05 raw values.",
+      "evidence_sources": [
+        "GATE06_DESIGN_SPACE.csv",
+        "GATE07_NUMERICAL_CLAIM_AUDIT.json",
+        "GATE07_ENERGY_AUDIT.md"
+      ],
+      "exact_proposed_wording": "Relative to the evaluated combinational SECDED implementation, pipelining increases standard-cell area by 36.702%, detailed wirelength by 12.067%, and nominal latency by two cycles, while increasing achieved Fmax by 45.911% and reducing no-error steady-stream power and energy per operation by 24.016% at the common 10 ns constraint.",
+      "final_status": "CLAIM_FROZEN",
+      "gate06_candidate": "B / requested Claim 2",
+      "limitations": [
+        "evaluated RTL implementations only",
+        "SKY130HD TT 1.80 V / 25 C",
+        "frozen 10 ns flow and seed policy",
+        "steady-stream II=1 result; does not imply lower request latency"
+      ],
+      "raw_numbers": {
+        "area_um2": [
+          18644.1,
+          25486.9
+        ],
+        "energy_pj_per_operation": [
+          145.76251578139872,
+          110.75615059770901
+        ],
+        "fmax_mhz": [
+          243.881,
+          355.849
+        ],
+        "power_w": [
+          0.01457479409873,
+          0.01107450760901
+        ],
+        "wirelength_um": [
+          44609.0,
+          49992.0
+        ]
+      },
+      "reviewer_risk": "LOW"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C03",
+      "derivation": "Categorical W1/W2 guarantees are stated separately from physical percent changes.",
+      "evidence_sources": [
+        "GATE06_DESIGN_SPACE.csv",
+        "GATE07_NUMERICAL_CLAIM_AUDIT.json"
+      ],
+      "exact_proposed_wording": "The evaluated shortened BCH (78,64,t=2) RTL corrects all W1/W2 masks, whereas the evaluated SECDED code corrects W1 and detects W2; under the frozen flow it uses 207.356% more standard-cell area, 243.732% more cells, and 310.975% more detailed wirelength than combinational SECDED.",
+      "final_status": "CLAIM_NARROWED",
+      "gate06_candidate": "C / requested Claim 3",
+      "limitations": [
+        "evaluated RTL implementations only",
+        "SKY130HD TT 1.80 V / 25 C",
+        "frozen 10 ns flow and seed policy",
+        "one evaluated BCH RTL",
+        "different 72- versus 78-bit protected widths"
+      ],
+      "raw_numbers": {
+        "bch_width_bits": 78,
+        "payload_width_bits": 64,
+        "secded_width_bits": 72
+      },
+      "reviewer_risk": "MEDIUM"
+    },
+    {
+      "applicable_architectures": [
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C04",
+      "derivation": "Achieved period is target period minus worst setup slack; Fmax is its reciprocal in GHz.",
+      "evidence_sources": [
+        "GATE06_DESIGN_SPACE.csv",
+        "GATE04_RAW_RESULTS.json"
+      ],
+      "exact_proposed_wording": "The evaluated BCH implementation fails the common 10 ns target under the frozen SKY130HD flow, with WNS -4.78052 ns, a 4.78052 ns timing deficit, and achieved Fmax 67.6566 MHz.",
+      "final_status": "CLAIM_FROZEN",
+      "gate06_candidate": "requested Claim 4",
+      "limitations": [
+        "evaluated RTL implementations only",
+        "SKY130HD TT 1.80 V / 25 C",
+        "frozen 10 ns flow and seed policy",
+        "not a family-wide BCH frequency limit"
+      ],
+      "raw_numbers": {
+        "fmax_mhz": 67.6566,
+        "timing_deficit_ns": 4.78052,
+        "wns_ns": -4.78052
+      },
+      "reviewer_risk": "LOW"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C05",
+      "derivation": "Logical guarantee and physical objectives are kept as separate evidence dimensions.",
+      "evidence_sources": [
+        "GATE06_DOMINANCE_ANALYSIS.json",
+        "GATE07_NUMERICAL_CLAIM_AUDIT.json"
+      ],
+      "exact_proposed_wording": "Within the evaluated set, algorithm-level correction capability alone is insufficient to describe implementation trade-offs because identical SECDED guarantees admit different physical outcomes and stronger BCH correction coexists with substantially higher physical cost and target-clock infeasibility.",
+      "final_status": "CLAIM_NARROWED",
+      "gate06_candidate": "D / requested Claim 5",
+      "limitations": [
+        "evaluated RTL implementations only",
+        "SKY130HD TT 1.80 V / 25 C",
+        "frozen 10 ns flow and seed policy",
+        "descriptive within evaluated set; not a universal ECC-selection theorem"
+      ],
+      "raw_numbers": {},
+      "reviewer_risk": "MEDIUM"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C06",
+      "derivation": "Reproducibility is bounded to the pinned image/tool/seed/worker/policy and observed repetitions.",
+      "evidence_sources": [
+        "GATE_03F_VERDICT.json",
+        "REPRODUCIBILITY_STATISTICS.json",
+        "GATE04_EXPERIMENT_MANIFEST.json"
+      ],
+      "exact_proposed_wording": "The workflow reproducibly joins correctness-qualified identities, exhaustive finite-universe reliability evidence, and post-route physical measurements within the pinned Gate 03F/Gate 04 environment; repeated Gate 03F runs showed zero observed run-to-run variation in the reported metrics.",
+      "final_status": "CLAIM_NARROWED",
+      "gate06_candidate": "E / requested Claim 6",
+      "limitations": [
+        "does not claim general EDA determinism",
+        "Gate 04 uses one prospective run per implementation after Gate 03F qualification"
+      ],
+      "raw_numbers": {
+        "gate03f_physical_runs": 7,
+        "observed_metric_ranges": 0
+      },
+      "reviewer_risk": "MEDIUM"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "hsiao-generated-combinational-72-64-v1"
+      ],
+      "claim_id": "C07",
+      "derivation": "Direct finite-universe counts; no operational weighting.",
+      "evidence_sources": [
+        "GATE06_RELIABILITY_TABLE.csv",
+        "GATE07_RELIABILITY_SEMANTICS.md"
+      ],
+      "exact_proposed_wording": "In the exhaustive canonical-coordinate weight-3 universe, Hsiao produced 34,164 SDC outcomes out of 59,640 versus 45,304 out of 59,640 for conventional SECDED.",
+      "final_status": "CLAIM_DISCUSSION_ONLY",
+      "gate06_candidate": "F",
+      "limitations": [
+        "observation only",
+        "no PPA for Hsiao",
+        "not FIT/SER or field reliability"
+      ],
+      "raw_numbers": {
+        "conventional_sdc": 45304,
+        "hsiao_sdc": 34164,
+        "total_each": 59640
+      },
+      "reviewer_risk": "HIGH"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1",
+        "hsiao-generated-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C08",
+      "derivation": "No practical-significance or field-frequency evidence exists.",
+      "evidence_sources": [
+        "GATE04_POWER_ACTIVITY_AUDIT.json"
+      ],
+      "exact_proposed_wording": "Error-class power differences are practically significant.",
+      "final_status": "CLAIM_REMOVED",
+      "gate06_candidate": "G",
+      "limitations": [
+        "precision resolution is not practical significance"
+      ],
+      "raw_numbers": {},
+      "reviewer_risk": "HIGH"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1",
+        "hsiao-generated-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C09",
+      "derivation": "Each quantity is METRIC_NOT_PROVEN.",
+      "evidence_sources": [
+        "GATE05_MISSING_EVIDENCE.json"
+      ],
+      "exact_proposed_wording": "The results establish FIT, SER, operational failure probability, or physical-interleaving superiority.",
+      "final_status": "CLAIM_REMOVED",
+      "gate06_candidate": "H",
+      "limitations": [
+        "no field model or physical bit mapping"
+      ],
+      "raw_numbers": {},
+      "reviewer_risk": "CRITICAL"
+    },
+    {
+      "applicable_architectures": [
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C10",
+      "derivation": "One implementation and flow cannot support a family-wide limit.",
+      "evidence_sources": [
+        "GATE04_ADJUDICATION.md"
+      ],
+      "exact_proposed_wording": "BCH as a family cannot operate at 100 MHz.",
+      "final_status": "CLAIM_REMOVED",
+      "gate06_candidate": "I",
+      "limitations": [
+        "evaluated implementation only"
+      ],
+      "raw_numbers": {},
+      "reviewer_risk": "CRITICAL"
+    },
+    {
+      "applicable_architectures": [
+        "hsiao-generated-combinational-72-64-v1"
+      ],
+      "claim_id": "C11",
+      "derivation": "Hsiao PPA is unavailable.",
+      "evidence_sources": [
+        "GATE05_MISSING_EVIDENCE.json"
+      ],
+      "exact_proposed_wording": "Hsiao physically or Pareto-dominates a measured implementation.",
+      "final_status": "CLAIM_REMOVED",
+      "gate06_candidate": "J",
+      "limitations": [
+        "PPA_UNAVAILABLE"
+      ],
+      "raw_numbers": {},
+      "reviewer_risk": "CRITICAL"
+    },
+    {
+      "applicable_architectures": [
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C12",
+      "derivation": "The design fails the target; achievable energy is TARGET_CLOCK_INFEASIBLE.",
+      "evidence_sources": [
+        "GATE05_MISSING_EVIDENCE.json"
+      ],
+      "exact_proposed_wording": "BCH target-constraint energy is achievable 100 MHz operating energy.",
+      "final_status": "CLAIM_REMOVED",
+      "gate06_candidate": "K",
+      "limitations": [
+        "diagnostic target-constraint estimate only"
+      ],
+      "raw_numbers": {
+        "diagnostic_target_energy_pj_per_operation": 8488.495344399975
+      },
+      "reviewer_risk": "CRITICAL"
+    },
+    {
+      "applicable_architectures": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1",
+        "hsiao-generated-combinational-72-64-v1",
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+      ],
+      "claim_id": "C13",
+      "derivation": "Objectives conflict and reliability tiers are categorical.",
+      "evidence_sources": [
+        "GATE06_DOMINANCE_ANALYSIS.json"
+      ],
+      "exact_proposed_wording": "A unique best ECC or universal Pareto winner has been established.",
+      "final_status": "CLAIM_REMOVED",
+      "gate06_candidate": "L",
+      "limitations": [
+        "small exact-enumerated measured set"
+      ],
+      "raw_numbers": {},
+      "reviewer_risk": "CRITICAL"
+    }
+  ],
+  "entry_policy": "No manuscript claim enters without exact wording, raw evidence, derivation, scope, and status.",
+  "schema_version": 1
+}

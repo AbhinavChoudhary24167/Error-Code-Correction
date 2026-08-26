@@ -1,0 +1,47 @@
+{
+  "code_id": "hsiao-secded-72-64-v1",
+  "frozen_at_utc": "2026-08-25T15:52:35Z",
+  "hardware_implementation_id": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+  "initiation_interval_cycles": 1,
+  "latency_cycles": 1,
+  "post_freeze_rtl_change_rule": "any change creates a new identity and invalidates all PPA",
+  "schema_version": 1,
+  "source_files": [
+    {
+      "bytes": 4853,
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+      "sha256": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036"
+    },
+    {
+      "bytes": 2711,
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+      "sha256": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+    },
+    {
+      "bytes": 11695,
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv",
+      "sha256": "9f74648a861c0506bdd698ab53bb47f8f999eed2bdcc1f6e3c0cf548d9929bfb"
+    },
+    {
+      "bytes": 4572,
+      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv",
+      "sha256": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf"
+    },
+    {
+      "bytes": 897,
+      "path": "scripts/revision2/rtl/hsiao_exact_identity_miter.sv",
+      "sha256": "76cd9d8958e4940df4b6d2401fc4e4d7dc88497d2fcdf3bd2fbd596cdbf50585"
+    },
+    {
+      "bytes": 1995,
+      "path": "scripts/revision2/rtl/rev2_hsiao_boundary.sv",
+      "sha256": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+    },
+    {
+      "bytes": 3657,
+      "path": "docs/date2027/revision2/REV2_HSIAO_IDENTITY_SPEC.json",
+      "sha256": "29d4565c21ef804f091a7d712fd2cff23ea9995dc236bdbbd1a86e7bb93c2fc0"
+    }
+  ],
+  "state": "REV2_HSIAO_RTL_FROZEN_BEFORE_PHYSICAL_EXECUTION"
+}

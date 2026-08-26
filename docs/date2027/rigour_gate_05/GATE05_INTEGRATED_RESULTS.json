@@ -1,0 +1,1226 @@
+{
+  "gate04_environment_identity": "DATE_FINAL_PHYSICAL_ENVIRONMENT_FROZEN",
+  "headline_power_basis": "no_error trace; single_error and double_error remain separate in every record",
+  "operation_normalization": {
+    "common_clock_period_ns": 10.0,
+    "common_initiation_interval_cycles": 1,
+    "comparison_scope": "steady-stream energy per accepted comparison transaction, not single-request response energy or latency",
+    "drain_cycles": 4,
+    "effective_trace_time_ps_per_useful_operation": 10001.0,
+    "equivalent_work_basis": "Gate 03R proves identical conventional SECDED encoder/decoder behavior after temporal alignment; both traces use the same conventional_secded input VCD and physical comparison boundary",
+    "latency_cycles": {
+      "hsiao-generated-combinational-72-64-v1": 1,
+      "secded-rtl-combinational-72-64-v1": 1,
+      "secded-rtl-pipelined-72-64-v1": 3,
+      "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": 1
+    },
+    "overhead_treatment": "the common six reset plus four drain cycles are included in every reported trace duration and divided by the same 100,000 useful operations",
+    "pipeline_drain_adjudication": "four invalid drain cycles exceed the three-cycle pipelined SECDED comparison-boundary latency; all 100,000 accepted inputs drain",
+    "reset_cycles": 6,
+    "sources": [
+      "docs/date2027/rigour_gate_04_final/GATE04_EXPERIMENT_MANIFEST.json",
+      "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+      "docs/date2027/rigour_gate_04_final/GATE04_POWER_ACTIVITY_AUDIT.json",
+      "scripts/gate04/generate_traces.py",
+      "scripts/gate04/rtl/gate04_boundaries.sv",
+      "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md"
+    ],
+    "status": "VALID_FOR_EQUIVALENT_STEADY_STREAM_USEFUL_OPERATION_COMPARISON",
+    "total_time_ps": 1000100000,
+    "total_trace_cycles": 100010,
+    "useful_operation_definition": "one accepted 64-bit comparison transaction per asserted-valid cycle, exercising one independent encoder payload and one independent decoder codeword channel in parallel",
+    "useful_operations_per_trace": 100000,
+    "valid_workload_cycles": 100000
+  },
+  "records": [
+    {
+      "architecture": {
+        "encoded_width_bits": 72,
+        "implementation_variant": "positional combinational XOR-network encoder and decoder behind the frozen registered comparison boundary",
+        "initiation_interval_cycles": 1,
+        "nominal_operation_latency_cycles": 1,
+        "organization": "combinational core",
+        "payload_width_bits": 64,
+        "pipeline_depth_cycles": 0,
+        "rtl_top": "gate04_secded_comb_72_64",
+        "throughput_capability": "one useful operation per cycle"
+      },
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "correction_capability": "all weight-1 corrected; all weight-2 detected",
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "label": "Conventional SECDED (72,64), combinational",
+      "missing_reasons": {
+        "reliability.field_or_distribution_weighted_sdc_due": "METRIC_NOT_PROVEN",
+        "reliability.fit_ser_projection": "METRIC_NOT_PROVEN",
+        "reliability.placement_interleaving": "METRIC_NOT_PROVEN"
+      },
+      "physical": {
+        "characterization_status": "PHYSICAL_CHARACTERIZATION_PASS_TIMING_MET",
+        "clock_period_ns": 10.0,
+        "design_top": "gate04_secded_comb_72_64",
+        "hold_status": "HOLD_CLEAN",
+        "implementation_id": "secded-rtl-combinational-72-64-v1",
+        "metrics": {
+          "achieved_fmax_mhz": 243.881,
+          "buffer_count": 415,
+          "cell_count": 2074,
+          "clock_buffer_count": 56,
+          "congestion_violation_count": 0,
+          "detailed_route_wirelength_um": 44609.0,
+          "final_drc_count": 0,
+          "final_flow_error_count": 0,
+          "global_route_wirelength_um": 65287.0,
+          "hold_violation_count": 0,
+          "routed_signal_net_count": 1673,
+          "sequential_cell_count": 349,
+          "setup_violation_count": 0,
+          "standard_cell_instance_area_um2": 18644.1,
+          "timing_deficit_ns": 0.0,
+          "timing_repair_buffer_count": 359,
+          "tns_ns": 0.0,
+          "utilization_percent": 49.4984,
+          "via_count": 9134,
+          "wns_ns": 0.0,
+          "worst_hold_slack_ns": 0.447184,
+          "worst_setup_slack_ns": 5.89964
+        },
+        "physical_exit_status": 0,
+        "physical_seed": 11,
+        "power_run_status": "ACTIVITY_POWER_PASS_FULL_PRECISION_TEXT",
+        "routing_complete": true,
+        "run_id": "secded-comb-final-01",
+        "timing_feasibility": "MEETS_10NS"
+      },
+      "power_by_trace": {
+        "double_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_TIMING_FEASIBLE",
+          "implementation_id": "secded-rtl-combinational-72-64-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": 145.75725328270147,
+            "direct_vcd_annotated_pin_count": 139,
+            "internal_energy_pj_per_operation_estimate": 67.87127060210537,
+            "internal_power_w": 0.006786448415369,
+            "leakage_energy_pj_per_operation_estimate": 7.30079233863824e-05,
+            "leakage_power_w": 7.300062332405e-09,
+            "native_rounded_json_total_power_w": 0.0146,
+            "switching_energy_pj_per_operation_estimate": 77.88590816734553,
+            "switching_power_w": 0.007787812035531,
+            "total_energy_pj_per_operation_estimate": 145.75725328270147,
+            "total_power_w": 0.01457426790148,
+            "unannotated_pin_count_before_propagation": 4705
+          },
+          "power_family": "conventional_secded",
+          "run_id": "secded-comb-final-01",
+          "timing_feasible_at_10ns": true,
+          "total_time_ps": 1000100000,
+          "trace_class": "double_error",
+          "useful_operations": 100000
+        },
+        "no_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_TIMING_FEASIBLE",
+          "implementation_id": "secded-rtl-combinational-72-64-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": 145.76251578139872,
+            "direct_vcd_annotated_pin_count": 139,
+            "internal_energy_pj_per_operation_estimate": 67.87295646453475,
+            "internal_power_w": 0.006786616984755,
+            "leakage_energy_pj_per_operation_estimate": 7.30081321291846e-05,
+            "leakage_power_w": 7.300083204598e-09,
+            "native_rounded_json_total_power_w": 0.0146,
+            "switching_energy_pj_per_operation_estimate": 77.88948014657774,
+            "switching_power_w": 0.007788169197738,
+            "total_energy_pj_per_operation_estimate": 145.76251578139872,
+            "total_power_w": 0.01457479409873,
+            "unannotated_pin_count_before_propagation": 4705
+          },
+          "power_family": "conventional_secded",
+          "run_id": "secded-comb-final-01",
+          "timing_feasible_at_10ns": true,
+          "total_time_ps": 1000100000,
+          "trace_class": "no_error",
+          "useful_operations": 100000
+        },
+        "single_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_TIMING_FEASIBLE",
+          "implementation_id": "secded-rtl-combinational-72-64-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": 145.74665377195637,
+            "direct_vcd_annotated_pin_count": 139,
+            "internal_energy_pj_per_operation_estimate": 67.86759151006295,
+            "internal_power_w": 0.006786080542952,
+            "leakage_energy_pj_per_operation_estimate": 7.300793671039468e-05,
+            "leakage_power_w": 7.300063664673e-09,
+            "native_rounded_json_total_power_w": 0.0146,
+            "switching_energy_pj_per_operation_estimate": 77.87898774864286,
+            "switching_power_w": 0.007787120062858,
+            "total_energy_pj_per_operation_estimate": 145.74665377195637,
+            "total_power_w": 0.01457320805639,
+            "unannotated_pin_count_before_propagation": 4705
+          },
+          "power_family": "conventional_secded",
+          "run_id": "secded-comb-final-01",
+          "timing_feasible_at_10ns": true,
+          "total_time_ps": 1000100000,
+          "trace_class": "single_error",
+          "useful_operations": 100000
+        }
+      },
+      "provenance": {
+        "identity": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_FINAL_ECC_SET.json",
+          "selector": "records[implementation_id=secded-rtl-combinational-72-64-v1]"
+        },
+        "physical": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "physical_results[implementation_id=secded-rtl-combinational-72-64-v1]"
+        },
+        "power": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "power_results[implementation_id=secded-rtl-combinational-72-64-v1]"
+        },
+        "reliability": {
+          "identity_transfer_evidence": [
+            "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+            "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+            "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json"
+          ],
+          "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+          "selector": "aggregates[*]"
+        }
+      },
+      "reliability": {
+        "application_to_architecture": "DIRECT_GATE02_IDENTITY_WITH_GATE03R_EXACT_RTL_PROOF",
+        "code_id": "extended-hamming-secded-72-64-v1",
+        "declared_proven_error_universe": "all canonical-storage-coordinate masks of weight 1 and 2; weight 3 is observation only",
+        "exact_fault_universes": [
+          {
+            "clean": 1,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "clean",
+            "detection_fraction": "0/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "0e7b7795f3bbc435c4f0a0db72eb00f5723e7224f6f620d152c9bf6cdfca7bf5",
+            "proven_capability": "clean",
+            "safe_handling_fraction": "0/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-0]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-0",
+            "total_masks": 1,
+            "weight": 0
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 72,
+            "correction_fraction": "1/1",
+            "declared_capability": "correction",
+            "detection_fraction": "1/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "8b9b374532be39e43445c931bebc6750d5407bb5e51783f3fbfc9b57b45e6f05",
+            "proven_capability": "correction",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-1]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-1",
+            "total_masks": 72,
+            "weight": 1
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "detection",
+            "detection_fraction": "1/1",
+            "due": 2556,
+            "due_fraction": "1/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "2aed772e429723e8d9b2b07da52dc6c6b652058b3710d0ce1fd60d97829f0f83",
+            "proven_capability": "safe_handling",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-2]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-2",
+            "total_masks": 2556,
+            "weight": 2
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "observation",
+            "detection_fraction": "256/1065",
+            "due": 14336,
+            "due_fraction": "256/1065",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "4deb38f57a80070edfc141be487588b59b21ef2b865bd98850437a3556293c4d",
+            "proven_capability": "characterized_with_sdc_or_invalid_state",
+            "safe_handling_fraction": "256/1065",
+            "sdc_fraction": "809/1065",
+            "sdc_miscorrection": 45304,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-3]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-3",
+            "total_masks": 59640,
+            "weight": 3
+          }
+        ],
+        "field_or_distribution_weighted_sdc_due": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+          "value": null
+        },
+        "fit_ser_projection": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+          "value": null
+        },
+        "gate_status": "PASS",
+        "identity_evidence": [
+          "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+          "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+          "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json"
+        ],
+        "modeled_support_fault_coverage": {
+          "definition": "(CORRECTED + DUE) over the combined exhaustive weight-1 and weight-2 universes",
+          "fraction": "1",
+          "safe_masks": 2628,
+          "sdc_masks": 0,
+          "total_masks": 2628
+        },
+        "placement_interleaving": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+          "value": null
+        },
+        "source_implementation_id": "secded-rtl-combinational-72-64-v1",
+        "weight3_miscorrection_behavior": {
+          "claim_scope": "EXHAUSTIVE_OBSERVATION_ONLY_NOT_A_CORRECTION_GUARANTEE",
+          "due": 14336,
+          "due_fraction": "256/1065",
+          "sdc_fraction": "809/1065",
+          "sdc_miscorrection": 45304,
+          "sdc_undetected": 0,
+          "total_masks": 59640
+        }
+      }
+    },
+    {
+      "architecture": {
+        "encoded_width_bits": 72,
+        "implementation_variant": "exact-equivalent pipelined encoder and decoder behind the frozen registered comparison boundary",
+        "initiation_interval_cycles": 1,
+        "nominal_operation_latency_cycles": 3,
+        "organization": "pipelined core",
+        "payload_width_bits": 64,
+        "pipeline_depth_cycles": 2,
+        "rtl_top": "gate04_secded_pipe_72_64",
+        "throughput_capability": "one useful operation per cycle after pipeline fill"
+      },
+      "code_id": "extended-hamming-secded-72-64-v1",
+      "correction_capability": "all weight-1 corrected; all weight-2 detected",
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "label": "Conventional SECDED (72,64), pipelined",
+      "missing_reasons": {
+        "reliability.field_or_distribution_weighted_sdc_due": "METRIC_NOT_PROVEN",
+        "reliability.fit_ser_projection": "METRIC_NOT_PROVEN",
+        "reliability.placement_interleaving": "METRIC_NOT_PROVEN"
+      },
+      "physical": {
+        "characterization_status": "PHYSICAL_CHARACTERIZATION_PASS_TIMING_MET",
+        "clock_period_ns": 10.0,
+        "design_top": "gate04_secded_pipe_72_64",
+        "hold_status": "HOLD_CLEAN",
+        "implementation_id": "secded-rtl-pipelined-72-64-v1",
+        "metrics": {
+          "achieved_fmax_mhz": 355.849,
+          "buffer_count": 452,
+          "cell_count": 2660,
+          "clock_buffer_count": 99,
+          "congestion_violation_count": 0,
+          "detailed_route_wirelength_um": 49992.0,
+          "final_drc_count": 0,
+          "final_flow_error_count": 0,
+          "global_route_wirelength_um": 73029.0,
+          "hold_violation_count": 0,
+          "routed_signal_net_count": 2054,
+          "sequential_cell_count": 633,
+          "setup_violation_count": 0,
+          "standard_cell_instance_area_um2": 25486.9,
+          "timing_deficit_ns": 0.0,
+          "timing_repair_buffer_count": 353,
+          "tns_ns": 0.0,
+          "utilization_percent": 47.267700000000005,
+          "via_count": 10870,
+          "wns_ns": 0.0,
+          "worst_hold_slack_ns": 0.325726,
+          "worst_setup_slack_ns": 7.18982
+        },
+        "physical_exit_status": 0,
+        "physical_seed": 11,
+        "power_run_status": "ACTIVITY_POWER_PASS_FULL_PRECISION_TEXT",
+        "routing_complete": true,
+        "run_id": "secded-pipe-final-01",
+        "timing_feasibility": "MEETS_10NS"
+      },
+      "power_by_trace": {
+        "double_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_TIMING_FEASIBLE",
+          "implementation_id": "secded-rtl-pipelined-72-64-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": 110.75319800987975,
+            "direct_vcd_annotated_pin_count": 139,
+            "internal_energy_pj_per_operation_estimate": 71.29795364476624,
+            "internal_power_w": 0.007129082456231,
+            "leakage_energy_pj_per_operation_estimate": 9.769552139538201e-05,
+            "leakage_power_w": 9.76857528201e-09,
+            "native_rounded_json_total_power_w": 0.0111,
+            "switching_energy_pj_per_operation_estimate": 39.4551512235803,
+            "switching_power_w": 0.003945120610297,
+            "total_energy_pj_per_operation_estimate": 110.75319800987975,
+            "total_power_w": 0.01107421237975,
+            "unannotated_pin_count_before_propagation": 5672
+          },
+          "power_family": "conventional_secded",
+          "run_id": "secded-pipe-final-01",
+          "timing_feasible_at_10ns": true,
+          "total_time_ps": 1000100000,
+          "trace_class": "double_error",
+          "useful_operations": 100000
+        },
+        "no_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_TIMING_FEASIBLE",
+          "implementation_id": "secded-rtl-pipelined-72-64-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": 110.75615059770901,
+            "direct_vcd_annotated_pin_count": 139,
+            "internal_energy_pj_per_operation_estimate": 71.29945322405916,
+            "internal_power_w": 0.007129232399166,
+            "leakage_energy_pj_per_operation_estimate": 9.769513944047034e-05,
+            "leakage_power_w": 9.768537090338e-09,
+            "native_rounded_json_total_power_w": 0.0111,
+            "switching_energy_pj_per_operation_estimate": 39.456608889162275,
+            "switching_power_w": 0.00394526636228,
+            "total_energy_pj_per_operation_estimate": 110.75615059770901,
+            "total_power_w": 0.01107450760901,
+            "unannotated_pin_count_before_propagation": 5672
+          },
+          "power_family": "conventional_secded",
+          "run_id": "secded-pipe-final-01",
+          "timing_feasible_at_10ns": true,
+          "total_time_ps": 1000100000,
+          "trace_class": "no_error",
+          "useful_operations": 100000
+        },
+        "single_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_TIMING_FEASIBLE",
+          "implementation_id": "secded-rtl-pipelined-72-64-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": 110.74910909492914,
+            "direct_vcd_annotated_pin_count": 139,
+            "internal_energy_pj_per_operation_estimate": 71.29580207448072,
+            "internal_power_w": 0.007128867320716,
+            "leakage_energy_pj_per_operation_estimate": 9.769546809934294e-05,
+            "leakage_power_w": 9.768569952939e-09,
+            "native_rounded_json_total_power_w": 0.0111,
+            "switching_energy_pj_per_operation_estimate": 39.453209221829546,
+            "switching_power_w": 0.00394492642954,
+            "total_energy_pj_per_operation_estimate": 110.74910909492914,
+            "total_power_w": 0.01107380352914,
+            "unannotated_pin_count_before_propagation": 5672
+          },
+          "power_family": "conventional_secded",
+          "run_id": "secded-pipe-final-01",
+          "timing_feasible_at_10ns": true,
+          "total_time_ps": 1000100000,
+          "trace_class": "single_error",
+          "useful_operations": 100000
+        }
+      },
+      "provenance": {
+        "identity": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_FINAL_ECC_SET.json",
+          "selector": "records[implementation_id=secded-rtl-pipelined-72-64-v1]"
+        },
+        "physical": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "physical_results[implementation_id=secded-rtl-pipelined-72-64-v1]"
+        },
+        "power": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "power_results[implementation_id=secded-rtl-pipelined-72-64-v1]"
+        },
+        "reliability": {
+          "identity_transfer_evidence": [
+            "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md",
+            "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+            "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+            "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json"
+          ],
+          "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+          "selector": "aggregates[*]"
+        }
+      },
+      "reliability": {
+        "application_to_architecture": "EXACT_CODE_LEVEL_SEMANTICS_TRANSFERRED_BY_UNIVERSAL_GATE03R_EQUIVALENCE",
+        "code_id": "extended-hamming-secded-72-64-v1",
+        "declared_proven_error_universe": "all canonical-storage-coordinate masks of weight 1 and 2; weight 3 is observation only",
+        "exact_fault_universes": [
+          {
+            "clean": 1,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "clean",
+            "detection_fraction": "0/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "0e7b7795f3bbc435c4f0a0db72eb00f5723e7224f6f620d152c9bf6cdfca7bf5",
+            "proven_capability": "clean",
+            "safe_handling_fraction": "0/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-0]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-0",
+            "total_masks": 1,
+            "weight": 0
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 72,
+            "correction_fraction": "1/1",
+            "declared_capability": "correction",
+            "detection_fraction": "1/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "8b9b374532be39e43445c931bebc6750d5407bb5e51783f3fbfc9b57b45e6f05",
+            "proven_capability": "correction",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-1]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-1",
+            "total_masks": 72,
+            "weight": 1
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "detection",
+            "detection_fraction": "1/1",
+            "due": 2556,
+            "due_fraction": "1/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "2aed772e429723e8d9b2b07da52dc6c6b652058b3710d0ce1fd60d97829f0f83",
+            "proven_capability": "safe_handling",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-2]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-2",
+            "total_masks": 2556,
+            "weight": 2
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "observation",
+            "detection_fraction": "256/1065",
+            "due": 14336,
+            "due_fraction": "256/1065",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "4deb38f57a80070edfc141be487588b59b21ef2b865bd98850437a3556293c4d",
+            "proven_capability": "characterized_with_sdc_or_invalid_state",
+            "safe_handling_fraction": "256/1065",
+            "sdc_fraction": "809/1065",
+            "sdc_miscorrection": 45304,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/secded-rtl-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=secded-rtl-combinational-72-64-v1:weight-3]"
+            },
+            "source_universe_id": "secded-rtl-combinational-72-64-v1:weight-3",
+            "total_masks": 59640,
+            "weight": 3
+          }
+        ],
+        "field_or_distribution_weighted_sdc_due": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+          "value": null
+        },
+        "fit_ser_projection": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+          "value": null
+        },
+        "gate_status": "PASS",
+        "identity_evidence": [
+          "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md",
+          "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+          "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+          "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json"
+        ],
+        "modeled_support_fault_coverage": {
+          "definition": "(CORRECTED + DUE) over the combined exhaustive weight-1 and weight-2 universes",
+          "fraction": "1",
+          "safe_masks": 2628,
+          "sdc_masks": 0,
+          "total_masks": 2628
+        },
+        "placement_interleaving": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+          "value": null
+        },
+        "source_implementation_id": "secded-rtl-combinational-72-64-v1",
+        "weight3_miscorrection_behavior": {
+          "claim_scope": "EXHAUSTIVE_OBSERVATION_ONLY_NOT_A_CORRECTION_GUARANTEE",
+          "due": 14336,
+          "due_fraction": "256/1065",
+          "sdc_fraction": "809/1065",
+          "sdc_miscorrection": 45304,
+          "sdc_undetected": 0,
+          "total_masks": 59640
+        }
+      }
+    },
+    {
+      "architecture": {
+        "encoded_width_bits": 72,
+        "implementation_variant": "generated combinational Hsiao encoder/syndrome/decoder behind the frozen registered comparison boundary",
+        "initiation_interval_cycles": 1,
+        "nominal_operation_latency_cycles": 1,
+        "organization": "combinational core",
+        "payload_width_bits": 64,
+        "pipeline_depth_cycles": 0,
+        "rtl_top": "gate04_hsiao_72_64",
+        "throughput_capability": "one useful operation per cycle"
+      },
+      "code_id": "hsiao-secded-72-64-v1",
+      "correction_capability": "all weight-1 corrected; all weight-2 detected",
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "label": "Hsiao SECDED (72,64), combinational",
+      "missing_reasons": {
+        "future_full_dimension_pareto_point": "PPA_UNAVAILABLE",
+        "physical.metrics.achieved_fmax_mhz": "PPA_UNAVAILABLE",
+        "physical.metrics.detailed_route_wirelength_um": "PPA_UNAVAILABLE",
+        "physical.metrics.final_drc_count": "PPA_UNAVAILABLE",
+        "physical.metrics.global_route_wirelength_um": "PPA_UNAVAILABLE",
+        "physical.metrics.standard_cell_instance_area_um2": "PPA_UNAVAILABLE",
+        "physical.metrics.tns_ns": "PPA_UNAVAILABLE",
+        "physical.metrics.via_count": "PPA_UNAVAILABLE",
+        "physical.metrics.wns_ns": "PPA_UNAVAILABLE",
+        "physical.metrics.worst_hold_slack_ns": "PPA_UNAVAILABLE",
+        "physical.metrics.worst_setup_slack_ns": "PPA_UNAVAILABLE",
+        "power_by_trace.double_error": "PPA_UNAVAILABLE",
+        "power_by_trace.no_error": "PPA_UNAVAILABLE",
+        "power_by_trace.single_error": "PPA_UNAVAILABLE",
+        "reliability.field_or_distribution_weighted_sdc_due": "METRIC_NOT_PROVEN",
+        "reliability.fit_ser_projection": "METRIC_NOT_PROVEN",
+        "reliability.placement_interleaving": "METRIC_NOT_PROVEN"
+      },
+      "physical": {
+        "characterization_status": "PHYSICAL_CHARACTERIZATION_PARTIAL",
+        "clock_period_ns": 10.0,
+        "design_top": "gate04_hsiao_72_64",
+        "hold_status": "NOT_AVAILABLE_PHYSICAL_FAILURE",
+        "implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "metrics": {
+          "achieved_fmax_mhz": null,
+          "buffer_count": null,
+          "cell_count": null,
+          "clock_buffer_count": null,
+          "congestion_violation_count": null,
+          "detailed_route_wirelength_um": null,
+          "final_drc_count": null,
+          "final_flow_error_count": null,
+          "global_route_wirelength_um": null,
+          "hold_violation_count": null,
+          "routed_signal_net_count": null,
+          "sequential_cell_count": null,
+          "setup_violation_count": null,
+          "standard_cell_instance_area_um2": null,
+          "timing_deficit_ns": null,
+          "timing_repair_buffer_count": null,
+          "tns_ns": null,
+          "utilization_percent": null,
+          "via_count": null,
+          "wns_ns": null,
+          "worst_hold_slack_ns": null,
+          "worst_setup_slack_ns": null
+        },
+        "physical_exit_status": 2,
+        "physical_failure_reason": "FROZEN_ORFS_SYNTH_MEMORY_MAX_BITS_EXCEEDED",
+        "physical_seed": 11,
+        "power_run_status": "NOT_RUN_PHYSICAL_FAILURE",
+        "routing_complete": false,
+        "run_id": "hsiao-final-01",
+        "timing_feasibility": "NOT_AVAILABLE_PHYSICAL_FAILURE"
+      },
+      "power_by_trace": {
+        "double_error": null,
+        "no_error": null,
+        "single_error": null
+      },
+      "provenance": {
+        "identity": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_FINAL_ECC_SET.json",
+          "selector": "records[implementation_id=hsiao-generated-combinational-72-64-v1]"
+        },
+        "physical": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "physical_results[implementation_id=hsiao-generated-combinational-72-64-v1]"
+        },
+        "power": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "power_results[implementation_id=hsiao-generated-combinational-72-64-v1]"
+        },
+        "reliability": {
+          "identity_transfer_evidence": [
+            "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+            "docs/date2027/rigour_gate_03/baseline/run-01/hsiao/functional_verification.log",
+            "docs/date2027/rigour_gate_03/baseline/run-02/hsiao/functional_verification.log"
+          ],
+          "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+          "selector": "aggregates[*]"
+        }
+      },
+      "reliability": {
+        "application_to_architecture": "DIRECT_GATE02_IDENTITY_WITH_TWO_GATE03_COMPILED_FUNCTIONAL_CAMPAIGNS",
+        "code_id": "hsiao-secded-72-64-v1",
+        "declared_proven_error_universe": "all canonical-storage-coordinate masks of weight 1 and 2; weight 3 is observation only",
+        "exact_fault_universes": [
+          {
+            "clean": 1,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "clean",
+            "detection_fraction": "0/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "0e7b7795f3bbc435c4f0a0db72eb00f5723e7224f6f620d152c9bf6cdfca7bf5",
+            "proven_capability": "clean",
+            "safe_handling_fraction": "0/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=hsiao-generated-combinational-72-64-v1:weight-0]"
+            },
+            "source_universe_id": "hsiao-generated-combinational-72-64-v1:weight-0",
+            "total_masks": 1,
+            "weight": 0
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 72,
+            "correction_fraction": "1/1",
+            "declared_capability": "correction",
+            "detection_fraction": "1/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "8b9b374532be39e43445c931bebc6750d5407bb5e51783f3fbfc9b57b45e6f05",
+            "proven_capability": "correction",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=hsiao-generated-combinational-72-64-v1:weight-1]"
+            },
+            "source_universe_id": "hsiao-generated-combinational-72-64-v1:weight-1",
+            "total_masks": 72,
+            "weight": 1
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "detection",
+            "detection_fraction": "1/1",
+            "due": 2556,
+            "due_fraction": "1/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "2aed772e429723e8d9b2b07da52dc6c6b652058b3710d0ce1fd60d97829f0f83",
+            "proven_capability": "safe_handling",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=hsiao-generated-combinational-72-64-v1:weight-2]"
+            },
+            "source_universe_id": "hsiao-generated-combinational-72-64-v1:weight-2",
+            "total_masks": 2556,
+            "weight": 2
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "observation",
+            "detection_fraction": "2123/4970",
+            "due": 25476,
+            "due_fraction": "2123/4970",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "c0fe7d90df3298f20acd0d23f805c70d532cc8afbc2223054ccafdfee8cb5db0",
+            "proven_capability": "characterized_with_sdc_or_invalid_state",
+            "safe_handling_fraction": "2123/4970",
+            "sdc_fraction": "2847/4970",
+            "sdc_miscorrection": 34164,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+              "selector": "aggregates[universe_id=hsiao-generated-combinational-72-64-v1:weight-3]"
+            },
+            "source_universe_id": "hsiao-generated-combinational-72-64-v1:weight-3",
+            "total_masks": 59640,
+            "weight": 3
+          }
+        ],
+        "field_or_distribution_weighted_sdc_due": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+          "value": null
+        },
+        "fit_ser_projection": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+          "value": null
+        },
+        "gate_status": "PASS",
+        "identity_evidence": [
+          "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/hsiao-generated-combinational-72-64-v1.json",
+          "docs/date2027/rigour_gate_03/baseline/run-01/hsiao/functional_verification.log",
+          "docs/date2027/rigour_gate_03/baseline/run-02/hsiao/functional_verification.log"
+        ],
+        "modeled_support_fault_coverage": {
+          "definition": "(CORRECTED + DUE) over the combined exhaustive weight-1 and weight-2 universes",
+          "fraction": "1",
+          "safe_masks": 2628,
+          "sdc_masks": 0,
+          "total_masks": 2628
+        },
+        "placement_interleaving": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+          "value": null
+        },
+        "source_implementation_id": "hsiao-generated-combinational-72-64-v1",
+        "weight3_miscorrection_behavior": {
+          "claim_scope": "EXHAUSTIVE_OBSERVATION_ONLY_NOT_A_CORRECTION_GUARANTEE",
+          "due": 25476,
+          "due_fraction": "2123/4970",
+          "sdc_fraction": "2847/4970",
+          "sdc_miscorrection": 34164,
+          "sdc_undetected": 0,
+          "total_masks": 59640
+        }
+      }
+    },
+    {
+      "architecture": {
+        "encoded_width_bits": 78,
+        "implementation_variant": "systematic combinational encoder and syndrome/Chien-search decoder behind the frozen registered comparison boundary",
+        "initiation_interval_cycles": 1,
+        "nominal_operation_latency_cycles": 1,
+        "organization": "combinational core",
+        "payload_width_bits": 64,
+        "pipeline_depth_cycles": 0,
+        "rtl_top": "gate04_bch_78_64",
+        "throughput_capability": "one useful operation per cycle if timing permits"
+      },
+      "code_id": "shortened-bch-78-64-t2-v1",
+      "correction_capability": "all weight-0/1/2 masks corrected; weight-3 is characterized without a correction guarantee",
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "label": "Shortened BCH (78,64,t=2), combinational syndrome/Chien",
+      "missing_reasons": {
+        "power_by_trace.double_error.metrics.achievable_total_energy_pj_per_operation": "TARGET_CLOCK_INFEASIBLE",
+        "power_by_trace.no_error.metrics.achievable_total_energy_pj_per_operation": "TARGET_CLOCK_INFEASIBLE",
+        "power_by_trace.single_error.metrics.achievable_total_energy_pj_per_operation": "TARGET_CLOCK_INFEASIBLE",
+        "reliability.field_or_distribution_weighted_sdc_due": "METRIC_NOT_PROVEN",
+        "reliability.fit_ser_projection": "METRIC_NOT_PROVEN",
+        "reliability.placement_interleaving": "METRIC_NOT_PROVEN"
+      },
+      "physical": {
+        "characterization_status": "PHYSICAL_CHARACTERIZATION_PASS_TIMING_MISSED",
+        "clock_period_ns": 10.0,
+        "design_top": "gate04_bch_78_64",
+        "hold_status": "HOLD_CLEAN",
+        "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+        "metrics": {
+          "achieved_fmax_mhz": 67.6566,
+          "buffer_count": 1843,
+          "cell_count": 7129,
+          "clock_buffer_count": 54,
+          "congestion_violation_count": 0,
+          "detailed_route_wirelength_um": 183332.0,
+          "final_drc_count": 0,
+          "final_flow_error_count": 0,
+          "global_route_wirelength_um": 265663.0,
+          "hold_violation_count": 0,
+          "routed_signal_net_count": 5846,
+          "sequential_cell_count": 367,
+          "setup_violation_count": 66,
+          "standard_cell_instance_area_um2": 57303.7,
+          "timing_deficit_ns": 4.78052,
+          "timing_repair_buffer_count": 1789,
+          "tns_ns": -309.445,
+          "utilization_percent": 54.359500000000004,
+          "via_count": 36034,
+          "wns_ns": -4.78052,
+          "worst_hold_slack_ns": 0.437918,
+          "worst_setup_slack_ns": -4.78052
+        },
+        "physical_exit_status": 0,
+        "physical_seed": 11,
+        "power_run_status": "ACTIVITY_POWER_PASS_FULL_PRECISION_TEXT",
+        "routing_complete": true,
+        "run_id": "bch78-final-01",
+        "timing_feasibility": "FAILS_10NS"
+      },
+      "power_by_trace": {
+        "double_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_AT_TARGET_CONSTRAINT_TIMING_INFEASIBLE",
+          "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": null,
+            "direct_vcd_annotated_pin_count": 145,
+            "internal_energy_pj_per_operation_estimate": 4247.227904409408,
+            "internal_power_w": 0.4246803224087,
+            "leakage_energy_pj_per_operation_estimate": 0.00023559323628673186,
+            "leakage_power_w": 2.355696793188e-08,
+            "native_rounded_json_total_power_w": 0.849,
+            "switching_energy_pj_per_operation_estimate": 4241.426600307006,
+            "switching_power_w": 0.4241002500057,
+            "total_energy_pj_per_operation_estimate": 8488.654504716415,
+            "total_power_w": 0.8487805724144,
+            "unannotated_pin_count_before_propagation": 16960
+          },
+          "power_family": "bch78",
+          "run_id": "bch78-final-01",
+          "timing_feasible_at_10ns": false,
+          "total_time_ps": 1000100000,
+          "trace_class": "double_error",
+          "useful_operations": 100000
+        },
+        "no_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_AT_TARGET_CONSTRAINT_TIMING_INFEASIBLE",
+          "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": null,
+            "direct_vcd_annotated_pin_count": 145,
+            "internal_energy_pj_per_operation_estimate": 4247.158160000666,
+            "internal_power_w": 0.4246733486652,
+            "leakage_energy_pj_per_operation_estimate": 0.0002355930231026156,
+            "leakage_power_w": 2.35569466156e-08,
+            "native_rounded_json_total_power_w": 0.849,
+            "switching_energy_pj_per_operation_estimate": 4241.3374824521115,
+            "switching_power_w": 0.4240913391113,
+            "total_energy_pj_per_operation_estimate": 8488.495344399975,
+            "total_power_w": 0.8487646579742,
+            "unannotated_pin_count_before_propagation": 16960
+          },
+          "power_family": "bch78",
+          "run_id": "bch78-final-01",
+          "timing_feasible_at_10ns": false,
+          "total_time_ps": 1000100000,
+          "trace_class": "no_error",
+          "useful_operations": 100000
+        },
+        "single_error": {
+          "authoritative_precision": "OpenSTA report_power -digits 12 text Total row",
+          "classification": "POWER_AT_TARGET_CONSTRAINT_TIMING_INFEASIBLE",
+          "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+          "metrics": {
+            "achievable_total_energy_pj_per_operation": null,
+            "direct_vcd_annotated_pin_count": 145,
+            "internal_energy_pj_per_operation_estimate": 4247.141767084538,
+            "internal_power_w": 0.4246717095375,
+            "leakage_energy_pj_per_operation_estimate": 0.00023559346723622452,
+            "leakage_power_w": 2.355699102452e-08,
+            "native_rounded_json_total_power_w": 0.849,
+            "switching_energy_pj_per_operation_estimate": 4241.316022634344,
+            "switching_power_w": 0.4240891933441,
+            "total_energy_pj_per_operation_estimate": 8488.457789718881,
+            "total_power_w": 0.8487609028816,
+            "unannotated_pin_count_before_propagation": 16960
+          },
+          "power_family": "bch78",
+          "run_id": "bch78-final-01",
+          "timing_feasible_at_10ns": false,
+          "total_time_ps": 1000100000,
+          "trace_class": "single_error",
+          "useful_operations": 100000
+        }
+      },
+      "provenance": {
+        "identity": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_FINAL_ECC_SET.json",
+          "selector": "records[implementation_id=shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1]"
+        },
+        "physical": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "physical_results[implementation_id=shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1]"
+        },
+        "power": {
+          "path": "docs/date2027/rigour_gate_04_final/GATE04_RAW_RESULTS.json",
+          "selector": "power_results[implementation_id=shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1]"
+        },
+        "reliability": {
+          "identity_transfer_evidence": [
+            "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md",
+            "docs/date2027/rigour_gate_03r/BCH_IDENTITY_RECONSTRUCTION.json",
+            "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+            "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+            "docs/date2027/rigour_gate_03r/EXACT_PROOF_SUMMARY.json",
+            "docs/date2027/rigour_gate_03r/BCH_WEIGHT3_CHARACTERIZATION.json"
+          ],
+          "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+          "selector": "aggregates[*]"
+        }
+      },
+      "reliability": {
+        "application_to_architecture": "EXACT_GATE02_REFERENCE_TO_GATE03R_RTL_IDENTITY_TRANSFER",
+        "code_id": "shortened-bch-78-64-t2-v1",
+        "declared_proven_error_universe": "all canonical-storage-coordinate masks of weight 1 and 2; weight 3 is observation only",
+        "exact_fault_universes": [
+          {
+            "clean": 1,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "clean",
+            "detection_fraction": "0/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "0e7b7795f3bbc435c4f0a0db72eb00f5723e7224f6f620d152c9bf6cdfca7bf5",
+            "proven_capability": "clean",
+            "safe_handling_fraction": "0/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+              "selector": "aggregates[universe_id=shortened-bch-78-64-t2-v1-reference-decoder:weight-0]"
+            },
+            "source_universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-0",
+            "total_masks": 1,
+            "weight": 0
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 78,
+            "correction_fraction": "1/1",
+            "declared_capability": "correction",
+            "detection_fraction": "1/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "fd96fff85c5e2211cd78ec44fc81e16dc5e0be5aea32aa0b71438e4de4d6e385",
+            "proven_capability": "correction",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+              "selector": "aggregates[universe_id=shortened-bch-78-64-t2-v1-reference-decoder:weight-1]"
+            },
+            "source_universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-1",
+            "total_masks": 78,
+            "weight": 1
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 3003,
+            "correction_fraction": "1/1",
+            "declared_capability": "correction",
+            "detection_fraction": "1/1",
+            "due": 0,
+            "due_fraction": "0/1",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "cdc60af9eb637d1a7b4fc177d614fa4aa8a23633711e9f1c272bd38165c295b5",
+            "proven_capability": "correction",
+            "safe_handling_fraction": "1/1",
+            "sdc_fraction": "0/1",
+            "sdc_miscorrection": 0,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+              "selector": "aggregates[universe_id=shortened-bch-78-64-t2-v1-reference-decoder:weight-2]"
+            },
+            "source_universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-2",
+            "total_masks": 3003,
+            "weight": 2
+          },
+          {
+            "clean": 0,
+            "coordinate_space": "canonical storage coordinates",
+            "corrected": 0,
+            "correction_fraction": "0/1",
+            "declared_capability": "observation",
+            "detection_fraction": "1198/1463",
+            "due": 62296,
+            "due_fraction": "1198/1463",
+            "exhaustive": true,
+            "invalid_state": 0,
+            "kind": "all_combinations",
+            "ordered_transcript_sha256": "06139ac6be9210232aec8d277350bfcb223907d5a4db83204f543abf4168dd52",
+            "proven_capability": "characterized_with_sdc_or_invalid_state",
+            "safe_handling_fraction": "1198/1463",
+            "sdc_fraction": "265/1463",
+            "sdc_miscorrection": 13780,
+            "sdc_undetected": 0,
+            "source": {
+              "path": "docs/date2027/rigour_gate_02/baseline/implementation_aggregates/shortened-bch-78-64-t2-v1-reference-decoder.json",
+              "selector": "aggregates[universe_id=shortened-bch-78-64-t2-v1-reference-decoder:weight-3]"
+            },
+            "source_universe_id": "shortened-bch-78-64-t2-v1-reference-decoder:weight-3",
+            "total_masks": 76076,
+            "weight": 3
+          }
+        ],
+        "field_or_distribution_weighted_sdc_due": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Exact finite-universe fractions are available, but no frozen operational fault-probability distribution exists for Gate 05 weighting.",
+          "value": null
+        },
+        "fit_ser_projection": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "No FIT/SER projection was validated by Gates 02/03/03R/04.",
+          "value": null
+        },
+        "gate_status": "PASS",
+        "identity_evidence": [
+          "docs/date2027/rigour_gate_03r/BCH_78_64_T2_CONTRACT.md",
+          "docs/date2027/rigour_gate_03r/BCH_IDENTITY_RECONSTRUCTION.json",
+          "docs/date2027/rigour_gate_03r/ENCODER_PROOF_MATRIX.csv",
+          "docs/date2027/rigour_gate_03r/DECODER_PROOF_MATRIX.csv",
+          "docs/date2027/rigour_gate_03r/EXACT_PROOF_SUMMARY.json",
+          "docs/date2027/rigour_gate_03r/BCH_WEIGHT3_CHARACTERIZATION.json"
+        ],
+        "modeled_support_fault_coverage": {
+          "definition": "(CORRECTED + DUE) over the combined exhaustive weight-1 and weight-2 universes",
+          "fraction": "1",
+          "safe_masks": 3081,
+          "sdc_masks": 0,
+          "total_masks": 3081
+        },
+        "placement_interleaving": {
+          "missing_reason": "METRIC_NOT_PROVEN",
+          "reason": "Gate 02 explicitly states that logical adjacency has no physical bit/interleave mapping; arbitrary-weight universes are canonical storage coordinates.",
+          "value": null
+        },
+        "source_implementation_id": "shortened-bch-78-64-t2-v1-reference-decoder",
+        "weight3_miscorrection_behavior": {
+          "claim_scope": "EXHAUSTIVE_OBSERVATION_ONLY_NOT_A_CORRECTION_GUARANTEE",
+          "due": 62296,
+          "due_fraction": "1198/1463",
+          "sdc_fraction": "265/1463",
+          "sdc_miscorrection": 13780,
+          "sdc_undetected": 0,
+          "total_masks": 76076
+        }
+      }
+    }
+  ],
+  "row_granularity": "one exact hardware architecture; code-level reliability may transfer only through listed equivalence evidence",
+  "schema_version": 1,
+  "sdc_due_basis": "exhaustive canonical-coordinate finite universes, never field-rate weighted"
+}

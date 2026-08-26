@@ -1,0 +1,397 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+
+-- Running command `read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv; prep -top hsiao_secded_72_64_v2_algorithmic_decoder; memory_dff; memory_collect; select -assert-none t: t: t: t:; stat' --
+
+1. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_syndrome'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \hsiao_secded_72_64_v2_algorithmic_decoder
+Used module:     \hsiao_secded_72_64_v1_syndrome
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \hsiao_secded_72_64_v2_algorithmic_decoder
+Used module:     \hsiao_secded_72_64_v1_syndrome
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+<suppressed ~2 debug messages>
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hsiao_secded_72_64_v2_algorithmic_decoder..
+Finding unused cells or wires in module \hsiao_secded_72_64_v1_syndrome..
+Removed 0 unused cells and 84 unused wires.
+<suppressed ~2 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module hsiao_secded_72_64_v2_algorithmic_decoder...
+Checking module hsiao_secded_72_64_v1_syndrome...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Computing hashes of 80 cells of `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding duplicate cells in `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Computing hashes of 79 cells of `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding duplicate cells in `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\hsiao_secded_72_64_v1_syndrome'.
+Computing hashes of 208 cells of `\hsiao_secded_72_64_v1_syndrome'.
+Finding duplicate cells in `\hsiao_secded_72_64_v1_syndrome'.
+Computing hashes of 207 cells of `\hsiao_secded_72_64_v1_syndrome'.
+Finding duplicate cells in `\hsiao_secded_72_64_v1_syndrome'.
+<suppressed ~3 debug messages>
+Removed a total of 2 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \hsiao_secded_72_64_v2_algorithmic_decoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hsiao_secded_72_64_v1_syndrome..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \hsiao_secded_72_64_v2_algorithmic_decoder.
+  Optimizing cells in module \hsiao_secded_72_64_v1_syndrome.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Computing hashes of 79 cells of `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding duplicate cells in `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding identical cells in module `\hsiao_secded_72_64_v1_syndrome'.
+Computing hashes of 207 cells of `\hsiao_secded_72_64_v1_syndrome'.
+Finding duplicate cells in `\hsiao_secded_72_64_v1_syndrome'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hsiao_secded_72_64_v2_algorithmic_decoder..
+Finding unused cells or wires in module \hsiao_secded_72_64_v1_syndrome..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \hsiao_secded_72_64_v2_algorithmic_decoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \hsiao_secded_72_64_v1_syndrome..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \hsiao_secded_72_64_v2_algorithmic_decoder.
+  Optimizing cells in module \hsiao_secded_72_64_v1_syndrome.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Computing hashes of 79 cells of `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding duplicate cells in `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding identical cells in module `\hsiao_secded_72_64_v1_syndrome'.
+Computing hashes of 207 cells of `\hsiao_secded_72_64_v1_syndrome'.
+Finding duplicate cells in `\hsiao_secded_72_64_v1_syndrome'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hsiao_secded_72_64_v2_algorithmic_decoder..
+Finding unused cells or wires in module \hsiao_secded_72_64_v1_syndrome..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+3.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 5 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:22$209 ($eq).
+Removed top 4 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:23$210 ($eq).
+Removed top 4 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:24$211 ($eq).
+Removed top 4 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:25$212 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:26$213 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:27$214 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:28$215 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:29$216 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:30$217 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:31$218 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:32$219 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:33$220 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:34$221 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:35$222 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:36$223 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:37$224 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:38$225 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:39$226 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:40$227 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:41$228 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:42$229 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:43$230 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:44$231 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:45$232 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:46$233 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:47$234 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:48$235 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:49$236 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:50$237 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:51$238 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:52$239 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:53$240 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:54$241 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:55$242 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:56$243 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:78$265 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:79$266 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:80$267 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:81$268 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:82$269 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:83$270 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:84$271 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:85$272 ($eq).
+Removed top 7 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:86$273 ($eq).
+Removed top 6 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:87$274 ($eq).
+Removed top 5 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:88$275 ($eq).
+Removed top 4 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:89$276 ($eq).
+Removed top 3 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:90$277 ($eq).
+Removed top 2 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:91$278 ($eq).
+Removed top 1 bits (of 8) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:92$279 ($eq).
+Removed top 8 bits (of 72) from port Y of cell hsiao_secded_72_64_v2_algorithmic_decoder.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$287 ($xor).
+Removed top 8 bits (of 72) from port A of cell hsiao_secded_72_64_v2_algorithmic_decoder.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$287 ($xor).
+Removed top 8 bits (of 72) from port B of cell hsiao_secded_72_64_v2_algorithmic_decoder.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$287 ($xor).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hsiao_secded_72_64_v2_algorithmic_decoder..
+Finding unused cells or wires in module \hsiao_secded_72_64_v1_syndrome..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Computing hashes of 79 cells of `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding duplicate cells in `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Finding identical cells in module `\hsiao_secded_72_64_v1_syndrome'.
+Computing hashes of 207 cells of `\hsiao_secded_72_64_v1_syndrome'.
+Finding duplicate cells in `\hsiao_secded_72_64_v1_syndrome'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \hsiao_secded_72_64_v2_algorithmic_decoder..
+Finding unused cells or wires in module \hsiao_secded_72_64_v1_syndrome..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Executing SORT pass.
+
+3.13. Printing statistics.
+
+=== hsiao_secded_72_64_v1_syndrome ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      201 wires
+      279 wire bits
+        2 public wires
+       80 public wire bits
+        2 ports
+       80 port bits
+      207 cells
+      207   $xor
+
+=== hsiao_secded_72_64_v2_algorithmic_decoder ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+      293 wire bits
+        8 public wires
+      291 public wire bits
+        4 ports
+      138 port bits
+       78 cells
+       72   $eq
+        2   $logic_and
+        1   $logic_not
+        1   $reduce_bool
+        1   $reduce_or
+        1   $xor
+        1 submodules
+        1   hsiao_secded_72_64_v1_syndrome
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      285 hsiao_secded_72_64_v2_algorithmic_decoder
+      207 hsiao_secded_72_64_v1_syndrome
+
+        +----------Count including submodules.
+        | 
+      211 wires
+      572 wire bits
+       10 public wires
+      371 public wire bits
+        6 ports
+      218 port bits
+        - memories
+        - memory bits
+        - processes
+      285 cells
+       72   $eq
+        2   $logic_and
+        1   $logic_not
+        1   $reduce_bool
+        1   $reduce_or
+      208   $xor
+        1 submodules
+        1   hsiao_secded_72_64_v1_syndrome
+
+3.14. Executing CHECK pass (checking for obvious problems).
+Checking module hsiao_secded_72_64_v1_syndrome...
+Checking module hsiao_secded_72_64_v2_algorithmic_decoder...
+Found and reported 0 problems.
+
+4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+5. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6. Printing statistics.
+
+=== hsiao_secded_72_64_v1_syndrome ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      201 wires
+      279 wire bits
+        2 public wires
+       80 public wire bits
+        2 ports
+       80 port bits
+      207 cells
+      207   $xor
+
+=== hsiao_secded_72_64_v2_algorithmic_decoder ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+      293 wire bits
+        8 public wires
+      291 public wire bits
+        4 ports
+      138 port bits
+       78 cells
+       72   $eq
+        2   $logic_and
+        1   $logic_not
+        1   $reduce_bool
+        1   $reduce_or
+        1   $xor
+        1 submodules
+        1   hsiao_secded_72_64_v1_syndrome
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      285 hsiao_secded_72_64_v2_algorithmic_decoder
+      207 hsiao_secded_72_64_v1_syndrome
+
+        +----------Count including submodules.
+        | 
+      211 wires
+      572 wire bits
+       10 public wires
+      371 public wire bits
+        6 ports
+      218 port bits
+        - memories
+        - memory bits
+        - processes
+      285 cells
+       72   $eq
+        2   $logic_and
+        1   $logic_not
+        1   $reduce_bool
+        1   $reduce_or
+      208   $xor
+        1 submodules
+        1   hsiao_secded_72_64_v1_syndrome
+
+End of script. Logfile hash: f19fd0a2e7, time: 0.08s, user: 0.06s, system: 0.05s, MEM: 25.48 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 30% 3x read_verilog (0 sec), 20% 5x opt_clean (0 sec), ...

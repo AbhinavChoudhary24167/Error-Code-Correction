@@ -1,0 +1,12 @@
+export DESIGN_NAME = gcd
+export PLATFORM = sky130hd
+export VERILOG_FILES = /OpenROAD-flow-scripts/flow/designs/src/gcd/gcd.v
+export SDC_FILE = /date-final-repo/scripts/gate03f/configs/gcd.sdc
+export ADDER_MAP_FILE :=
+export CORE_UTILIZATION = 35
+export CORE_ASPECT_RATIO = 1
+export CORE_MARGIN = 10
+export PLACE_DENSITY = 0.55
+export TNS_END_PERCENT = 100
+export SWAP_ARITH_OPERATORS = 1
+export OPENROAD_HIERARCHICAL = 1

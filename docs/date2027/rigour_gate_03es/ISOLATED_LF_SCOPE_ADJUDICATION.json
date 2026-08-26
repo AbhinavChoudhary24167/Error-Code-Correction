@@ -1,0 +1,627 @@
+{
+  "adjudication": "gate03es-isolated-lf-scope-validation",
+  "candidate_delta_policy": "Copy only the two authorized compatibility edits, the pre-existing Gate 03E-R delta, and additive Gate 03E-S paths. Build/test products are not source-delta candidates.",
+  "candidate_paths": [
+    "docs/date2027/rigour_gate_03er/ACCEPTANCE.json",
+    "docs/date2027/rigour_gate_03er/COMMAND_MANIFEST.json",
+    "docs/date2027/rigour_gate_03er/EVIDENCE.sha256",
+    "docs/date2027/rigour_gate_03er/FRESH_RUN_COMPARISON.json",
+    "docs/date2027/rigour_gate_03er/FROZEN_BUNDLE.json",
+    "docs/date2027/rigour_gate_03er/GATE_03ER_REPORT.md",
+    "docs/date2027/rigour_gate_03er/GATE_03ER_VERDICT.txt",
+    "docs/date2027/rigour_gate_03er/IMMUTABLE_INPUT_MANIFEST.json",
+    "docs/date2027/rigour_gate_03er/MAPPING_REVALIDATION.json",
+    "docs/date2027/rigour_gate_03er/PRODUCER_CATALOG_V2.json",
+    "docs/date2027/rigour_gate_03er/PROTECTED_SCOPE_REVALIDATION.json",
+    "docs/date2027/rigour_gate_03er/QOR_METRIC_SCHEMA_V2.json",
+    "docs/date2027/rigour_gate_03er/REPRODUCIBILITY_ADJUDICATION.json",
+    "docs/date2027/rigour_gate_03er/REPRODUCIBILITY_ADJUDICATION.md",
+    "docs/date2027/rigour_gate_03er/REPRODUCIBILITY_POLICY_V2.json",
+    "docs/date2027/rigour_gate_03er/RUN_03_INVENTORY.json",
+    "docs/date2027/rigour_gate_03er/RUN_04_INVENTORY.json",
+    "docs/date2027/rigour_gate_03es/ACCEPTANCE.json",
+    "docs/date2027/rigour_gate_03es/COMMAND_MANIFEST.json",
+    "docs/date2027/rigour_gate_03es/EVIDENCE.sha256",
+    "docs/date2027/rigour_gate_03es/EXTERNAL_ARTIFACT_INDEX.csv",
+    "docs/date2027/rigour_gate_03es/FRESH_RUN_COMPARISON.json",
+    "docs/date2027/rigour_gate_03es/FROZEN_BUNDLE.json",
+    "docs/date2027/rigour_gate_03es/GATE_03ER_ADJUDICATION.json",
+    "docs/date2027/rigour_gate_03es/GATE_03ES_REPORT.md",
+    "docs/date2027/rigour_gate_03es/GATE_03ES_VERDICT.txt",
+    "docs/date2027/rigour_gate_03es/HISTORICAL_RAW_BYTE_ADJUDICATION.json",
+    "docs/date2027/rigour_gate_03es/IMMUTABLE_INPUT_MANIFEST.json",
+    "docs/date2027/rigour_gate_03es/LEGACY_VALIDATOR_COMPATIBILITY_CHANGE.json",
+    "docs/date2027/rigour_gate_03es/ORDERED_JSON_OCCURRENCE_ADJUDICATION.json",
+    "docs/date2027/rigour_gate_03es/PATH_SCOPE_REVALIDATION.json",
+    "docs/date2027/rigour_gate_03es/PRIOR_EVIDENCE_HASH_REVALIDATION.json",
+    "docs/date2027/rigour_gate_03es/PRODUCER_CATALOG_V3.json",
+    "docs/date2027/rigour_gate_03es/QOR_METRIC_SCHEMA_V3.json",
+    "docs/date2027/rigour_gate_03es/RAW_LOG_INDEX.csv",
+    "docs/date2027/rigour_gate_03es/REPOSITORY_COMMAND_RESULTS.json",
+    "docs/date2027/rigour_gate_03es/REPRODUCIBILITY_POLICY_V3.json",
+    "docs/date2027/rigour_gate_03es/RUN_05_INVENTORY.json",
+    "docs/date2027/rigour_gate_03es/RUN_06_INVENTORY.json",
+    "docs/date2027/rigour_gate_03es/STARTING_STATE_AND_PROTECTED_BASELINE.json",
+    "scripts/gate03e/validate_artifacts.py",
+    "scripts/gate03er/__init__.py",
+    "scripts/gate03er/finalize_gate03er.py",
+    "scripts/gate03er/prepare_gate03er.py",
+    "scripts/gate03er/producer_catalog_v2.json",
+    "scripts/gate03er/reproducibility.py",
+    "scripts/gate03er/reproducibility_policy_v2.json",
+    "scripts/gate03er/run_gcd_fresh.sh",
+    "scripts/gate03er/validate_gate03er.py",
+    "scripts/gate03es/__init__.py",
+    "scripts/gate03es/adjudicate_duplicate_json.py",
+    "scripts/gate03es/adjudicate_historical_bytes.py",
+    "scripts/gate03es/adjudicate_lf_scope.py",
+    "scripts/gate03es/finalize_gate03es.py",
+    "scripts/gate03es/odb_semantic_export.py",
+    "scripts/gate03es/prepare_gate03es.py",
+    "scripts/gate03es/producer_catalog_v3.json",
+    "scripts/gate03es/qor_metric_schema_v3.json",
+    "scripts/gate03es/reproducibility.py",
+    "scripts/gate03es/reproducibility_policy_v3.json",
+    "scripts/gate03es/run_gcd_fresh.sh",
+    "scripts/gate03es/scope_compatibility.py",
+    "scripts/gate03es/validate_gate03es.py",
+    "scripts/gate03es/validate_scope.py",
+    "tests/python/test_gate03_artifacts.py",
+    "tests/python/test_gate03er_reproducibility.py",
+    "tests/python/test_gate03es_adjudication.py",
+    "tests/python/test_gate03es_historical_bytes.py",
+    "tests/python/test_gate03es_lf_scope.py",
+    "tests/python/test_gate03es_reproducibility.py"
+  ],
+  "isolated_branch": "main",
+  "isolated_git_config": {
+    "core.autocrlf": "false",
+    "core.eol": "lf"
+  },
+  "isolated_head": "ceae4ad9b5a3ba612596fb7ac1a93dd144114409",
+  "isolated_status_rows": [
+    "M scripts/gate03e/validate_artifacts.py",
+    " M tests/python/test_gate03_artifacts.py",
+    "?? docs/date2027/rigour_gate_03er/ACCEPTANCE.json",
+    "?? docs/date2027/rigour_gate_03er/COMMAND_MANIFEST.json",
+    "?? docs/date2027/rigour_gate_03er/EVIDENCE.sha256",
+    "?? docs/date2027/rigour_gate_03er/FRESH_RUN_COMPARISON.json",
+    "?? docs/date2027/rigour_gate_03er/FROZEN_BUNDLE.json",
+    "?? docs/date2027/rigour_gate_03er/GATE_03ER_REPORT.md",
+    "?? docs/date2027/rigour_gate_03er/GATE_03ER_VERDICT.txt",
+    "?? docs/date2027/rigour_gate_03er/IMMUTABLE_INPUT_MANIFEST.json",
+    "?? docs/date2027/rigour_gate_03er/MAPPING_REVALIDATION.json",
+    "?? docs/date2027/rigour_gate_03er/PRODUCER_CATALOG_V2.json",
+    "?? docs/date2027/rigour_gate_03er/PROTECTED_SCOPE_REVALIDATION.json",
+    "?? docs/date2027/rigour_gate_03er/QOR_METRIC_SCHEMA_V2.json",
+    "?? docs/date2027/rigour_gate_03er/REPRODUCIBILITY_ADJUDICATION.json",
+    "?? docs/date2027/rigour_gate_03er/REPRODUCIBILITY_ADJUDICATION.md",
+    "?? docs/date2027/rigour_gate_03er/REPRODUCIBILITY_POLICY_V2.json",
+    "?? docs/date2027/rigour_gate_03er/RUN_03_INVENTORY.json",
+    "?? docs/date2027/rigour_gate_03er/RUN_04_INVENTORY.json",
+    "?? docs/date2027/rigour_gate_03es/ACCEPTANCE.json",
+    "?? docs/date2027/rigour_gate_03es/COMMAND_MANIFEST.json",
+    "?? docs/date2027/rigour_gate_03es/EVIDENCE.sha256",
+    "?? docs/date2027/rigour_gate_03es/EXTERNAL_ARTIFACT_INDEX.csv",
+    "?? docs/date2027/rigour_gate_03es/FRESH_RUN_COMPARISON.json",
+    "?? docs/date2027/rigour_gate_03es/FROZEN_BUNDLE.json",
+    "?? docs/date2027/rigour_gate_03es/GATE_03ER_ADJUDICATION.json",
+    "?? docs/date2027/rigour_gate_03es/GATE_03ES_REPORT.md",
+    "?? docs/date2027/rigour_gate_03es/GATE_03ES_VERDICT.txt",
+    "?? docs/date2027/rigour_gate_03es/HISTORICAL_RAW_BYTE_ADJUDICATION.json",
+    "?? docs/date2027/rigour_gate_03es/IMMUTABLE_INPUT_MANIFEST.json",
+    "?? docs/date2027/rigour_gate_03es/LEGACY_VALIDATOR_COMPATIBILITY_CHANGE.json",
+    "?? docs/date2027/rigour_gate_03es/ORDERED_JSON_OCCURRENCE_ADJUDICATION.json",
+    "?? docs/date2027/rigour_gate_03es/PATH_SCOPE_REVALIDATION.json",
+    "?? docs/date2027/rigour_gate_03es/PRIOR_EVIDENCE_HASH_REVALIDATION.json",
+    "?? docs/date2027/rigour_gate_03es/PRODUCER_CATALOG_V3.json",
+    "?? docs/date2027/rigour_gate_03es/QOR_METRIC_SCHEMA_V3.json",
+    "?? docs/date2027/rigour_gate_03es/RAW_LOG_INDEX.csv",
+    "?? docs/date2027/rigour_gate_03es/REPOSITORY_COMMAND_RESULTS.json",
+    "?? docs/date2027/rigour_gate_03es/REPRODUCIBILITY_POLICY_V3.json",
+    "?? docs/date2027/rigour_gate_03es/RUN_05_INVENTORY.json",
+    "?? docs/date2027/rigour_gate_03es/RUN_06_INVENTORY.json",
+    "?? docs/date2027/rigour_gate_03es/STARTING_STATE_AND_PROTECTED_BASELINE.json",
+    "?? scripts/gate03er/__init__.py",
+    "?? scripts/gate03er/finalize_gate03er.py",
+    "?? scripts/gate03er/prepare_gate03er.py",
+    "?? scripts/gate03er/producer_catalog_v2.json",
+    "?? scripts/gate03er/reproducibility.py",
+    "?? scripts/gate03er/reproducibility_policy_v2.json",
+    "?? scripts/gate03er/run_gcd_fresh.sh",
+    "?? scripts/gate03er/validate_gate03er.py",
+    "?? scripts/gate03es/__init__.py",
+    "?? scripts/gate03es/adjudicate_duplicate_json.py",
+    "?? scripts/gate03es/adjudicate_historical_bytes.py",
+    "?? scripts/gate03es/adjudicate_lf_scope.py",
+    "?? scripts/gate03es/finalize_gate03es.py",
+    "?? scripts/gate03es/odb_semantic_export.py",
+    "?? scripts/gate03es/prepare_gate03es.py",
+    "?? scripts/gate03es/producer_catalog_v3.json",
+    "?? scripts/gate03es/qor_metric_schema_v3.json",
+    "?? scripts/gate03es/reproducibility.py",
+    "?? scripts/gate03es/reproducibility_policy_v3.json",
+    "?? scripts/gate03es/run_gcd_fresh.sh",
+    "?? scripts/gate03es/scope_compatibility.py",
+    "?? scripts/gate03es/validate_gate03es.py",
+    "?? scripts/gate03es/validate_scope.py",
+    "?? tests/python/test_gate03er_reproducibility.py",
+    "?? tests/python/test_gate03es_adjudication.py",
+    "?? tests/python/test_gate03es_historical_bytes.py",
+    "?? tests/python/test_gate03es_lf_scope.py",
+    "?? tests/python/test_gate03es_reproducibility.py"
+  ],
+  "lf_protected_hash_basis": {
+    "asic/rtl": "starting HEAD Git blobs materialized with core.autocrlf=false",
+    "docs/date2027/rigour_gate_01": "starting HEAD Git blobs materialized with core.autocrlf=false",
+    "docs/date2027/rigour_gate_02": "starting HEAD Git blobs materialized with core.autocrlf=false",
+    "docs/date2027/rigour_gate_03": "starting HEAD Git blobs materialized with core.autocrlf=false",
+    "docs/date2027/rigour_gate_03e": "starting HEAD Git blobs materialized with core.autocrlf=false",
+    "docs/date2027/rigour_gate_03er": "recorded Gate 03E-S starting hash for pre-existing untracked evidence",
+    "docs/date2027/rigour_gate_03r": "starting HEAD Git blobs materialized with core.autocrlf=false",
+    "green_ecc_physical_simulation/registry": "starting HEAD Git blobs materialized with core.autocrlf=false"
+  },
+  "lf_protected_hashes": {
+    "asic/rtl": "a1f1aabfaf03b765d546ff30bb0fb1cee07b8429dab08aed4956b8cb35c7cb49",
+    "docs/date2027/rigour_gate_01": "fb5aa3c155c1c388dfbebdcd4683a70e4c70e413b56839d32e349bfe591b0d74",
+    "docs/date2027/rigour_gate_02": "08c231c7147b3a18ce914c950ca3cd0aa7415511ff377594b2b1d18b82b72487",
+    "docs/date2027/rigour_gate_03": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+    "docs/date2027/rigour_gate_03e": "0b83d1c1097258f61b02548ff3d0e69e20b3ab1c63fbdc53e93f67b36a48ffdc",
+    "docs/date2027/rigour_gate_03er": "bd16599085d008819607ef23c586cba3b8bb76754ff56e21d2f1d07c816c9aa0",
+    "docs/date2027/rigour_gate_03r": "a631231a23592306cf4f781e14147fa7b3de4eddc297c1d160dcc15efe369ded",
+    "green_ecc_physical_simulation/registry": "25133d4e7008958cbcb7d1d202a87cc4d293946a519b957a4958c39847862732"
+  },
+  "physical_flow_executed": false,
+  "schema_version": 1,
+  "source_head": "ceae4ad9b5a3ba612596fb7ac1a93dd144114409",
+  "summary": {
+    "candidate_path_count": 70,
+    "isolated_status_row_count": 70,
+    "pass": true,
+    "validator_status": "PASS"
+  },
+  "temporary_checkout_removed_on_exit": true,
+  "validator_exit_status": 0,
+  "validator_result": {
+    "errors": [],
+    "external_tree_revalidation": [
+      {
+        "actual": "45abe4bbe7af1cbf1477ae913544d7cd4912969a7c4653e6b80bfda9bee6aeef",
+        "expected": "45abe4bbe7af1cbf1477ae913544d7cd4912969a7c4653e6b80bfda9bee6aeef",
+        "pass": true,
+        "path": "/var/lib/green-ecc-gate03e"
+      },
+      {
+        "actual": "03621538c1cf510252027e498e8cb6ecdd3cc2d452518df4848dfa54d191aaa9",
+        "expected": "03621538c1cf510252027e498e8cb6ecdd3cc2d452518df4848dfa54d191aaa9",
+        "pass": true,
+        "path": "/var/lib/green-ecc-gate03er"
+      }
+    ],
+    "legacy_validator_change_revalidation": [
+      {
+        "actual_after_sha256": "faad28a16c150080eb96b714e15e58c895aae49b93c2fe88aae138c389b5e9d3",
+        "after_sha256": "faad28a16c150080eb96b714e15e58c895aae49b93c2fe88aae138c389b5e9d3",
+        "before_sha256": "54e645385a56ab5fd6a5b5c7e4f5b73be6632dd953ece21ee0a70fa8c9450299",
+        "pass": true,
+        "path": "scripts/gate03e/validate_artifacts.py",
+        "rationale": "minimum path-scope compatibility adapter for explicitly registered additive gate directories; historical evidence hashing remains unchanged"
+      },
+      {
+        "actual_after_sha256": "a727790f0f8a397176c22ba03a124f93369cdeb6faa778188e45080b8bad4997",
+        "after_sha256": "a727790f0f8a397176c22ba03a124f93369cdeb6faa778188e45080b8bad4997",
+        "before_sha256": "ece77a9c427e8cb7f6f064c0ccd9e46f924cdeff55bd9a14afece89fbaac7c4b",
+        "pass": true,
+        "path": "tests/python/test_gate03_artifacts.py",
+        "rationale": "minimum path-scope compatibility adapter for explicitly registered additive gate directories; historical evidence hashing remains unchanged"
+      }
+    ],
+    "repository_tree_revalidation": [
+      {
+        "actual": "a1f1aabfaf03b765d546ff30bb0fb1cee07b8429dab08aed4956b8cb35c7cb49",
+        "expected": "a1f1aabfaf03b765d546ff30bb0fb1cee07b8429dab08aed4956b8cb35c7cb49",
+        "pass": true,
+        "path": "asic/rtl"
+      },
+      {
+        "actual": "fb5aa3c155c1c388dfbebdcd4683a70e4c70e413b56839d32e349bfe591b0d74",
+        "expected": "fb5aa3c155c1c388dfbebdcd4683a70e4c70e413b56839d32e349bfe591b0d74",
+        "pass": true,
+        "path": "docs/date2027/rigour_gate_01"
+      },
+      {
+        "actual": "08c231c7147b3a18ce914c950ca3cd0aa7415511ff377594b2b1d18b82b72487",
+        "expected": "08c231c7147b3a18ce914c950ca3cd0aa7415511ff377594b2b1d18b82b72487",
+        "pass": true,
+        "path": "docs/date2027/rigour_gate_02"
+      },
+      {
+        "actual": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+        "expected": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+        "pass": true,
+        "path": "docs/date2027/rigour_gate_03"
+      },
+      {
+        "actual": "0b83d1c1097258f61b02548ff3d0e69e20b3ab1c63fbdc53e93f67b36a48ffdc",
+        "expected": "0b83d1c1097258f61b02548ff3d0e69e20b3ab1c63fbdc53e93f67b36a48ffdc",
+        "pass": true,
+        "path": "docs/date2027/rigour_gate_03e"
+      },
+      {
+        "actual": "bd16599085d008819607ef23c586cba3b8bb76754ff56e21d2f1d07c816c9aa0",
+        "expected": "bd16599085d008819607ef23c586cba3b8bb76754ff56e21d2f1d07c816c9aa0",
+        "pass": true,
+        "path": "docs/date2027/rigour_gate_03er"
+      },
+      {
+        "actual": "a631231a23592306cf4f781e14147fa7b3de4eddc297c1d160dcc15efe369ded",
+        "expected": "a631231a23592306cf4f781e14147fa7b3de4eddc297c1d160dcc15efe369ded",
+        "pass": true,
+        "path": "docs/date2027/rigour_gate_03r"
+      },
+      {
+        "actual": "25133d4e7008958cbcb7d1d202a87cc4d293946a519b957a4958c39847862732",
+        "expected": "25133d4e7008958cbcb7d1d202a87cc4d293946a519b957a4958c39847862732",
+        "pass": true,
+        "path": "green_ecc_physical_simulation/registry"
+      }
+    ],
+    "schema_version": 3,
+    "starting_branch": "main",
+    "starting_head": "ceae4ad9b5a3ba612596fb7ac1a93dd144114409",
+    "status": "PASS",
+    "status_rows": [
+      {
+        "allowed": true,
+        "path": "scripts/gate03e/validate_artifacts.py",
+        "status": " M"
+      },
+      {
+        "allowed": true,
+        "path": "tests/python/test_gate03_artifacts.py",
+        "status": " M"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/ACCEPTANCE.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/COMMAND_MANIFEST.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/EVIDENCE.sha256",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/FRESH_RUN_COMPARISON.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/FROZEN_BUNDLE.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/GATE_03ER_REPORT.md",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/GATE_03ER_VERDICT.txt",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/IMMUTABLE_INPUT_MANIFEST.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/MAPPING_REVALIDATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/PRODUCER_CATALOG_V2.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/PROTECTED_SCOPE_REVALIDATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/QOR_METRIC_SCHEMA_V2.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/REPRODUCIBILITY_ADJUDICATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/REPRODUCIBILITY_ADJUDICATION.md",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/REPRODUCIBILITY_POLICY_V2.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/RUN_03_INVENTORY.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03er/RUN_04_INVENTORY.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/ACCEPTANCE.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/COMMAND_MANIFEST.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/EVIDENCE.sha256",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/EXTERNAL_ARTIFACT_INDEX.csv",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/FRESH_RUN_COMPARISON.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/FROZEN_BUNDLE.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/GATE_03ER_ADJUDICATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/GATE_03ES_REPORT.md",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/GATE_03ES_VERDICT.txt",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/HISTORICAL_RAW_BYTE_ADJUDICATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/IMMUTABLE_INPUT_MANIFEST.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/LEGACY_VALIDATOR_COMPATIBILITY_CHANGE.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/ORDERED_JSON_OCCURRENCE_ADJUDICATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/PATH_SCOPE_REVALIDATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/PRIOR_EVIDENCE_HASH_REVALIDATION.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/PRODUCER_CATALOG_V3.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/QOR_METRIC_SCHEMA_V3.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/RAW_LOG_INDEX.csv",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/REPOSITORY_COMMAND_RESULTS.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/REPRODUCIBILITY_POLICY_V3.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/RUN_05_INVENTORY.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/RUN_06_INVENTORY.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "docs/date2027/rigour_gate_03es/STARTING_STATE_AND_PROTECTED_BASELINE.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/__init__.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/finalize_gate03er.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/prepare_gate03er.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/producer_catalog_v2.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/reproducibility.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/reproducibility_policy_v2.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/run_gcd_fresh.sh",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03er/validate_gate03er.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/__init__.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/adjudicate_duplicate_json.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/adjudicate_historical_bytes.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/adjudicate_lf_scope.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/finalize_gate03es.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/odb_semantic_export.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/prepare_gate03es.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/producer_catalog_v3.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/qor_metric_schema_v3.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/reproducibility.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/reproducibility_policy_v3.json",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/run_gcd_fresh.sh",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/scope_compatibility.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/validate_gate03es.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "scripts/gate03es/validate_scope.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "tests/python/test_gate03er_reproducibility.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "tests/python/test_gate03es_adjudication.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "tests/python/test_gate03es_historical_bytes.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "tests/python/test_gate03es_lf_scope.py",
+        "status": "??"
+      },
+      {
+        "allowed": true,
+        "path": "tests/python/test_gate03es_reproducibility.py",
+        "status": "??"
+      }
+    ]
+  },
+  "validator_stderr": ""
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "state": "REV2_MULTI_SEED_ENVIRONMENT_FROZEN_BEFORE_EXECUTION",
+  "frozen_at_utc": "2026-08-25T00:00:00Z",
+  "evidence_root": "/var/lib/green-ecc-date2027-revision2",
+  "historical_environment_identity": "DATE_FINAL_PHYSICAL_ENVIRONMENT_FROZEN",
+  "historical_environment_manifest": "docs/date2027/rigour_gate_03f/DATE_FINAL_PHYSICAL_ENVIRONMENT.json",
+  "historical_environment_manifest_sha256": "df0d50ea3093e45cad50769facdaf588142ec56c9c66afde534504c5f9dc93cb",
+  "experimental_factor": {
+    "name": "physical_seed",
+    "selection_rule": "first five prime integers greater than or equal to 11",
+    "values": [11, 13, 17, 19, 23],
+    "controls": ["GPL_RANDOM_SEED", "GRT_SEED", "OR_SEED"],
+    "assignment": "all three controls equal the run seed"
+  },
+  "technology": {
+    "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "orfs_git_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "orfs_git_tree": "2b736d484fa7a26b38b1439f177aeb6c1f3e9d5a",
+    "openroad_git_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36",
+    "openroad_binary_sha256": "2fc67d3a82df36014b615e710ce2e68600b592b27b051e4533c30248a2e2eb91",
+    "yosys_version": "Yosys 0.68+post (git sha1 UNKNOWN, Release)",
+    "klayout_version": "KLayout 0.30.7",
+    "platform": "sky130hd",
+    "corner": "tt_025C_1v80",
+    "voltage_v": 1.8,
+    "temperature_c": 25,
+    "liberty_sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+    "technology_lef_sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e",
+    "merged_lef_sha256": "44180aaa0068b1fcb0789f128b090304c01ad48f511d3f7afa66c90b3e176ec5",
+    "rc_script_sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a"
+  },
+  "flow": {
+    "clock_period_ns": 10.0,
+    "abc_clock_period_ps": 10000,
+    "input_delay_fraction": 0.1,
+    "output_delay_fraction": 0.1,
+    "output_load_pf": 0.05,
+    "core_utilization_percent": 35,
+    "core_aspect_ratio": 1.0,
+    "core_margin_um": 10.0,
+    "place_density": 0.55,
+    "num_cores": 1,
+    "lec_check": 0,
+    "synthesis_memory_max_bits": 4096,
+    "individual_tuning": false
+  },
+  "power": {
+    "method": "OpenSTA post-route read_vcd on final ODB/SDC/SPEF, propagate activity, report_power -digits 12",
+    "trace_class": "no_error",
+    "trace_scope": "gate04_trace_top",
+    "payload_operations": 100000,
+    "payload_prng": "SplitMix64",
+    "payload_seed": 104375203646206,
+    "clock_period_ns": 10.0,
+    "initiation_interval_cycles": 1,
+    "trace_manifest_sha256": "5608b592deef797e5426430ce3b8ad83a0a5359ce452c87e4b54bfdaa9a9c9aa",
+    "vcd_reused_identically_across_seeds": true
+  },
+  "repository": {
+    "git_commit": "ceae4ad9b5a3ba612596fb7ac1a93dd144114409",
+    "snapshot_policy": "fresh byte snapshot and SHA-256 inventory under the external Revision-2 policy root before execution",
+    "historical_results_reused_as_samples": false
+  },
+  "scope": {
+    "seed_values_are_probability_distribution": false,
+    "historical_gate_03f_through_07_mutated": false,
+    "revision1_result_replacement": false
+  }
+}

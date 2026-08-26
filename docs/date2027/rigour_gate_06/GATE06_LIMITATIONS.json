@@ -1,0 +1,91 @@
+{
+  "hidden_limitations": false,
+  "hsiao_absence_alone_causes_not_ready": false,
+  "limitations": [
+    {
+      "id": "L01",
+      "impact": "no node/library generalization",
+      "scope": "technology",
+      "statement": "SKY130HD only"
+    },
+    {
+      "id": "L02",
+      "impact": "no PVT robustness claim",
+      "scope": "corner",
+      "statement": "TT 1.80 V / 25 C only"
+    },
+    {
+      "id": "L03",
+      "impact": "no timing-normalized energy comparison for BCH",
+      "scope": "constraint",
+      "statement": "one common primary 10 ns target"
+    },
+    {
+      "id": "L04",
+      "impact": "no universal claim about each ECC family",
+      "scope": "implementation",
+      "statement": "specific evaluated RTL implementations"
+    },
+    {
+      "id": "L05",
+      "impact": "reliability-only; excluded from physical fronts",
+      "scope": "missing PPA",
+      "statement": "Hsiao PPA unavailable"
+    },
+    {
+      "id": "L06",
+      "impact": "diagnostic only",
+      "scope": "energy",
+      "statement": "BCH target-clock energy is not physically achievable"
+    },
+    {
+      "id": "L07",
+      "impact": "no device/system failure-rate claims",
+      "scope": "reliability projection",
+      "statement": "no proven FIT/SER"
+    },
+    {
+      "id": "L08",
+      "impact": "finite-universe fractions only",
+      "scope": "fault weighting",
+      "statement": "no operationally weighted SDC/DUE"
+    },
+    {
+      "id": "L09",
+      "impact": "not operational probabilities or correction guarantees",
+      "scope": "weight-3 semantics",
+      "statement": "canonical-coordinate exhaustive observations"
+    },
+    {
+      "id": "L10",
+      "impact": "no placement-aware reliability claim",
+      "scope": "memory organization",
+      "statement": "no final physical SRAM-array/interleaving characterization"
+    },
+    {
+      "id": "L11",
+      "impact": "estimated comparative power only",
+      "scope": "power",
+      "statement": "post-route OpenSTA estimates, not silicon measurements"
+    },
+    {
+      "id": "L12",
+      "impact": "exact enumeration is appropriate; broad optimization claims are not",
+      "scope": "sample size",
+      "statement": "four reliability identities, three routed points, two feasible energy points"
+    },
+    {
+      "id": "L13",
+      "impact": "no statistical process/seed distribution claim",
+      "scope": "physical variability",
+      "statement": "one qualified deterministic seed policy"
+    },
+    {
+      "id": "L14",
+      "impact": "Gate 07 must adversarially verify manuscript claim framing",
+      "scope": "novelty",
+      "statement": "external literature novelty is not re-audited in Gate 06"
+    }
+  ],
+  "schema_version": 1
+}

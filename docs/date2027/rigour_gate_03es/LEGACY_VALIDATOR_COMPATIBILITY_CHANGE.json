@@ -1,0 +1,19 @@
+{
+  "changes": [
+    {
+      "after_sha256": "faad28a16c150080eb96b714e15e58c895aae49b93c2fe88aae138c389b5e9d3",
+      "before_sha256": "54e645385a56ab5fd6a5b5c7e4f5b73be6632dd953ece21ee0a70fa8c9450299",
+      "path": "scripts/gate03e/validate_artifacts.py",
+      "rationale": "minimum path-scope compatibility adapter for explicitly registered additive gate directories; historical evidence hashing remains unchanged"
+    },
+    {
+      "after_sha256": "a727790f0f8a397176c22ba03a124f93369cdeb6faa778188e45080b8bad4997",
+      "before_sha256": "ece77a9c427e8cb7f6f064c0ccd9e46f924cdeff55bd9a14afece89fbaac7c4b",
+      "path": "tests/python/test_gate03_artifacts.py",
+      "rationale": "minimum path-scope compatibility adapter for explicitly registered additive gate directories; historical evidence hashing remains unchanged"
+    }
+  ],
+  "historical_positive_and_negative_tests_preserved": true,
+  "schema_version": 1,
+  "scope_rule": "explicitly registered additive gate paths only; historical evidence remains recursively hash-gated"
+}

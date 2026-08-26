@@ -1,0 +1,221 @@
+{
+  "comparisons": [
+    {
+      "candidate_implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "comparison": "pipelined SECDED vs combinational SECDED",
+      "correction_guarantee_context": {
+        "candidate": "W1_CORRECTION_W2_DETECTION",
+        "categorical_not_numerically_scored": true,
+        "reference": "W1_CORRECTION_W2_DETECTION"
+      },
+      "metrics": {
+        "achieved_fmax_mhz": {
+          "absolute_change": 111.96799999999999,
+          "candidate_raw": 355.849,
+          "percent_change": 45.910915569478554,
+          "reference_raw": 243.881
+        },
+        "cell_count": {
+          "absolute_change": 586,
+          "candidate_raw": 2660,
+          "percent_change": 28.254580520732887,
+          "reference_raw": 2074
+        },
+        "detailed_route_wirelength_um": {
+          "absolute_change": 5383.0,
+          "candidate_raw": 49992.0,
+          "percent_change": 12.067071667152367,
+          "reference_raw": 44609.0
+        },
+        "no_error_achievable_total_energy_pj_per_operation": {
+          "absolute_change": -35.00636518368971,
+          "candidate_raw": 110.75615059770901,
+          "percent_change": -24.016027025898108,
+          "reference_raw": 145.76251578139872
+        },
+        "no_error_total_power_w": {
+          "absolute_change": -0.0035002864897200007,
+          "candidate_raw": 0.01107450760901,
+          "percent_change": -24.01602702589812,
+          "reference_raw": 0.01457479409873
+        },
+        "nominal_operation_latency_cycles": {
+          "absolute_change": 2,
+          "candidate_raw": 3,
+          "percent_change": 200.0,
+          "reference_raw": 1
+        },
+        "standard_cell_instance_area_um2": {
+          "absolute_change": 6842.800000000003,
+          "candidate_raw": 25486.9,
+          "percent_change": 36.70222751433431,
+          "reference_raw": 18644.1
+        },
+        "timing_deficit_ns": {
+          "absolute_change": 0.0,
+          "candidate_raw": 0.0,
+          "percent_change": null,
+          "percent_missing_reason": "NOT_APPLICABLE_ZERO_REFERENCE",
+          "reference_raw": 0.0
+        },
+        "wns_ns": {
+          "absolute_change": 0.0,
+          "candidate_raw": 0.0,
+          "percent_change": null,
+          "percent_missing_reason": "NOT_APPLICABLE_SLACK_RATIO",
+          "reference_raw": 0.0
+        }
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "candidate_implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "comparison": "BCH vs combinational SECDED",
+      "correction_guarantee_context": {
+        "candidate": "W1_AND_W2_CORRECTION",
+        "categorical_not_numerically_scored": true,
+        "reference": "W1_CORRECTION_W2_DETECTION"
+      },
+      "metrics": {
+        "achieved_fmax_mhz": {
+          "absolute_change": -176.2244,
+          "candidate_raw": 67.6566,
+          "percent_change": -72.25835550944927,
+          "reference_raw": 243.881
+        },
+        "cell_count": {
+          "absolute_change": 5055,
+          "candidate_raw": 7129,
+          "percent_change": 243.73191899710704,
+          "reference_raw": 2074
+        },
+        "detailed_route_wirelength_um": {
+          "absolute_change": 138723.0,
+          "candidate_raw": 183332.0,
+          "percent_change": 310.9753637158421,
+          "reference_raw": 44609.0
+        },
+        "no_error_achievable_total_energy_pj_per_operation": {
+          "absolute_change": null,
+          "candidate_raw": null,
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "percent_change": null,
+          "reference_raw": 145.76251578139872
+        },
+        "no_error_total_power_w": {
+          "absolute_change": null,
+          "candidate_raw": 0.8487646579742,
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "percent_change": null,
+          "reference_raw": 0.01457479409873
+        },
+        "nominal_operation_latency_cycles": {
+          "absolute_change": 0,
+          "candidate_raw": 1,
+          "percent_change": 0.0,
+          "reference_raw": 1
+        },
+        "standard_cell_instance_area_um2": {
+          "absolute_change": 38659.6,
+          "candidate_raw": 57303.7,
+          "percent_change": 207.35567820382857,
+          "reference_raw": 18644.1
+        },
+        "timing_deficit_ns": {
+          "absolute_change": 4.78052,
+          "candidate_raw": 4.78052,
+          "percent_change": null,
+          "percent_missing_reason": "NOT_APPLICABLE_ZERO_REFERENCE",
+          "reference_raw": 0.0
+        },
+        "wns_ns": {
+          "absolute_change": -4.78052,
+          "candidate_raw": -4.78052,
+          "percent_change": null,
+          "percent_missing_reason": "NOT_APPLICABLE_SLACK_RATIO",
+          "reference_raw": 0.0
+        }
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "candidate_implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "comparison": "BCH vs pipelined SECDED",
+      "correction_guarantee_context": {
+        "candidate": "W1_AND_W2_CORRECTION",
+        "categorical_not_numerically_scored": true,
+        "reference": "W1_CORRECTION_W2_DETECTION"
+      },
+      "metrics": {
+        "achieved_fmax_mhz": {
+          "absolute_change": -288.1924,
+          "candidate_raw": 67.6566,
+          "percent_change": -80.98727269150679,
+          "reference_raw": 355.849
+        },
+        "cell_count": {
+          "absolute_change": 4469,
+          "candidate_raw": 7129,
+          "percent_change": 168.00751879699249,
+          "reference_raw": 2660
+        },
+        "detailed_route_wirelength_um": {
+          "absolute_change": 133340.0,
+          "candidate_raw": 183332.0,
+          "percent_change": 266.7226756281005,
+          "reference_raw": 49992.0
+        },
+        "no_error_achievable_total_energy_pj_per_operation": {
+          "absolute_change": null,
+          "candidate_raw": null,
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "percent_change": null,
+          "reference_raw": 110.75615059770901
+        },
+        "no_error_total_power_w": {
+          "absolute_change": null,
+          "candidate_raw": 0.8487646579742,
+          "missing_reason": "TARGET_CLOCK_INFEASIBLE",
+          "percent_change": null,
+          "reference_raw": 0.01107450760901
+        },
+        "nominal_operation_latency_cycles": {
+          "absolute_change": -2,
+          "candidate_raw": 1,
+          "percent_change": -66.66666666666666,
+          "reference_raw": 3
+        },
+        "standard_cell_instance_area_um2": {
+          "absolute_change": 31816.799999999996,
+          "candidate_raw": 57303.7,
+          "percent_change": 124.83589608779411,
+          "reference_raw": 25486.9
+        },
+        "timing_deficit_ns": {
+          "absolute_change": 4.78052,
+          "candidate_raw": 4.78052,
+          "percent_change": null,
+          "percent_missing_reason": "NOT_APPLICABLE_ZERO_REFERENCE",
+          "reference_raw": 0.0
+        },
+        "wns_ns": {
+          "absolute_change": -4.78052,
+          "candidate_raw": -4.78052,
+          "percent_change": null,
+          "percent_missing_reason": "NOT_APPLICABLE_SLACK_RATIO",
+          "reference_raw": 0.0
+        }
+      },
+      "reference_implementation_id": "secded-rtl-pipelined-72-64-v1"
+    }
+  ],
+  "formula": "(candidate - reference) / reference * 100%",
+  "rules": {
+    "bch_energy_effect": "TARGET_CLOCK_INFEASIBLE",
+    "rounded_prose_is_not_an_input": true,
+    "slack_ratios": "NOT_APPLICABLE",
+    "zero_reference_ratios": "NOT_APPLICABLE"
+  },
+  "schema_version": 1,
+  "source": "docs/date2027/rigour_gate_05/GATE05_INTEGRATED_RESULTS.json"
+}

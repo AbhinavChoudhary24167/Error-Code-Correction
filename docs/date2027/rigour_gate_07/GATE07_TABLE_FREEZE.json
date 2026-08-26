@@ -1,0 +1,19 @@
+{
+  "major_table_count": 2,
+  "schema_version": 1,
+  "tables": [
+    {
+      "data_file": "GATE07_TABLE_I_IMPLEMENTATIONS.csv",
+      "id": "TABLE_I_EVALUATED_IMPLEMENTATIONS",
+      "purpose": "identity, code, guarantee, latency, II, and PPA availability",
+      "status": "TABLE_FROZEN"
+    },
+    {
+      "data_file": "GATE07_TABLE_II_RESULTS.csv",
+      "id": "TABLE_II_PHYSICAL_RELIABILITY_RESULTS",
+      "purpose": "compact physical result with categorical reliability class and explicit missingness",
+      "status": "TABLE_FROZEN"
+    }
+  ],
+  "weight3_main_table_decision": "OMIT_FROM_MAJOR_TABLES; retain raw counts in GATE07_RELIABILITY_SEMANTICS.md and discussion because they are observation-only and need a long caveat"
+}

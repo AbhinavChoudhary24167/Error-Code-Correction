@@ -1,0 +1,292 @@
+{
+  "bch_energy_rule": "TARGET_CLOCK_INFEASIBLE; excluded from achievable-energy fronts",
+  "exact_enumeration": true,
+  "formal_definition": "x dominates y iff x is no worse in every enumerated objective and strictly better in at least one",
+  "hsiao_physical_rule": "PPA_UNAVAILABLE; excluded from every physical-objective front",
+  "nsga_ii_used": false,
+  "reliability_stratified": {
+    "cross_tier_dominance_computed": false,
+    "fronts": [
+      {
+        "dominance_pairs": [],
+        "dominated_by": {
+          "hsiao-generated-combinational-72-64-v1": [],
+          "secded-rtl-combinational-72-64-v1": [],
+          "secded-rtl-pipelined-72-64-v1": []
+        },
+        "guarantee_tier": "W1_CORRECTION_W2_DETECTION",
+        "interpretation": "No strict dominance: conventional architectures are identical reliability points; Hsiao trades lower observed SDC for higher DUE.",
+        "method": "exact pairwise enumeration; no optimizer or heuristic",
+        "nondominated": [
+          "secded-rtl-combinational-72-64-v1",
+          "secded-rtl-pipelined-72-64-v1",
+          "hsiao-generated-combinational-72-64-v1"
+        ],
+        "objectives": [
+          {
+            "direction": "minimize",
+            "metric": "weight3_sdc_fraction"
+          },
+          {
+            "direction": "minimize",
+            "metric": "weight3_due_fraction"
+          }
+        ],
+        "points": {
+          "hsiao-generated-combinational-72-64-v1": {
+            "weight3_due_fraction": 0.4271629778672032,
+            "weight3_sdc_fraction": 0.5728370221327967
+          },
+          "secded-rtl-combinational-72-64-v1": {
+            "weight3_due_fraction": 0.2403755868544601,
+            "weight3_sdc_fraction": 0.7596244131455399
+          },
+          "secded-rtl-pipelined-72-64-v1": {
+            "weight3_due_fraction": 0.2403755868544601,
+            "weight3_sdc_fraction": 0.7596244131455399
+          }
+        }
+      },
+      {
+        "dominance_pairs": [],
+        "dominated_by": {
+          "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": []
+        },
+        "guarantee_tier": "W1_AND_W2_CORRECTION",
+        "interpretation": "Singleton exact front; no optimization inference.",
+        "method": "exact pairwise enumeration; no optimizer or heuristic",
+        "nondominated": [
+          "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1"
+        ],
+        "objectives": [
+          {
+            "direction": "minimize",
+            "metric": "weight3_sdc_fraction"
+          },
+          {
+            "direction": "minimize",
+            "metric": "weight3_due_fraction"
+          }
+        ],
+        "points": {
+          "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": {
+            "weight3_due_fraction": 0.8188653451811346,
+            "weight3_sdc_fraction": 0.18113465481886534
+          }
+        }
+      }
+    ],
+    "reason": "correction guarantees are categorical and are not converted into a numerical reliability score"
+  },
+  "schema_version": 1,
+  "spaces": [
+    {
+      "dominance_pairs": [],
+      "dominated_by": {
+        "secded-rtl-combinational-72-64-v1": [],
+        "secded-rtl-pipelined-72-64-v1": []
+      },
+      "interpretation": "Neither SECDED architecture dominates: combinational is better in area, wirelength, and latency; pipelined is better in Fmax and achievable steady-stream energy.",
+      "method": "exact pairwise enumeration; no optimizer or heuristic",
+      "nondominated": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ],
+      "objectives": [
+        {
+          "direction": "minimize",
+          "metric": "area_um2"
+        },
+        {
+          "direction": "minimize",
+          "metric": "wirelength_um"
+        },
+        {
+          "direction": "minimize",
+          "metric": "achievable_energy_pj_per_operation"
+        },
+        {
+          "direction": "minimize",
+          "metric": "latency_cycles"
+        },
+        {
+          "direction": "maximize",
+          "metric": "fmax_mhz"
+        }
+      ],
+      "points": {
+        "secded-rtl-combinational-72-64-v1": {
+          "achievable_energy_pj_per_operation": 145.76251578139872,
+          "area_um2": 18644.1,
+          "fmax_mhz": 243.881,
+          "latency_cycles": 1,
+          "wirelength_um": 44609.0
+        },
+        "secded-rtl-pipelined-72-64-v1": {
+          "achievable_energy_pj_per_operation": 110.75615059770901,
+          "area_um2": 25486.9,
+          "fmax_mhz": 355.849,
+          "latency_cycles": 3,
+          "wirelength_um": 49992.0
+        }
+      },
+      "space": "A_FULL_PHYSICALLY_FEASIBLE"
+    },
+    {
+      "dominance_pairs": [
+        {
+          "dominated": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+          "dominator": "secded-rtl-combinational-72-64-v1"
+        }
+      ],
+      "dominated_by": {
+        "secded-rtl-combinational-72-64-v1": [],
+        "secded-rtl-pipelined-72-64-v1": [],
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": [
+          "secded-rtl-combinational-72-64-v1"
+        ]
+      },
+      "interpretation": "Combinational SECDED physically dominates BCH on this objective set. This cannot override BCH's stronger categorical correction guarantee.",
+      "method": "exact pairwise enumeration; no optimizer or heuristic",
+      "nondominated": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ],
+      "objectives": [
+        {
+          "direction": "minimize",
+          "metric": "area_um2"
+        },
+        {
+          "direction": "minimize",
+          "metric": "cell_count"
+        },
+        {
+          "direction": "minimize",
+          "metric": "wirelength_um"
+        },
+        {
+          "direction": "minimize",
+          "metric": "timing_deficit_ns"
+        },
+        {
+          "direction": "minimize",
+          "metric": "latency_cycles"
+        },
+        {
+          "direction": "maximize",
+          "metric": "fmax_mhz"
+        }
+      ],
+      "points": {
+        "secded-rtl-combinational-72-64-v1": {
+          "area_um2": 18644.1,
+          "cell_count": 2074,
+          "fmax_mhz": 243.881,
+          "latency_cycles": 1,
+          "timing_deficit_ns": 0.0,
+          "wirelength_um": 44609.0,
+          "wns_ns": 0.0
+        },
+        "secded-rtl-pipelined-72-64-v1": {
+          "area_um2": 25486.9,
+          "cell_count": 2660,
+          "fmax_mhz": 355.849,
+          "latency_cycles": 3,
+          "timing_deficit_ns": 0.0,
+          "wirelength_um": 49992.0,
+          "wns_ns": 0.0
+        },
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": {
+          "area_um2": 57303.7,
+          "cell_count": 7129,
+          "fmax_mhz": 67.6566,
+          "latency_cycles": 1,
+          "timing_deficit_ns": 4.78052,
+          "wirelength_um": 183332.0,
+          "wns_ns": -4.78052
+        }
+      },
+      "reliability_agnostic_physical_dominance_only": true,
+      "space": "B_PHYSICAL_IMPLEMENTATION"
+    },
+    {
+      "dominance_pairs": [
+        {
+          "dominated": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+          "dominator": "secded-rtl-combinational-72-64-v1"
+        },
+        {
+          "dominated": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+          "dominator": "secded-rtl-pipelined-72-64-v1"
+        }
+      ],
+      "dominated_by": {
+        "secded-rtl-combinational-72-64-v1": [],
+        "secded-rtl-pipelined-72-64-v1": [],
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": [
+          "secded-rtl-combinational-72-64-v1",
+          "secded-rtl-pipelined-72-64-v1"
+        ]
+      },
+      "interpretation": "When latency is excluded, both SECDED physical points dominate BCH; this sensitivity is reported, not substituted for the primary set.",
+      "method": "exact pairwise enumeration; no optimizer or heuristic",
+      "nondominated": [
+        "secded-rtl-combinational-72-64-v1",
+        "secded-rtl-pipelined-72-64-v1"
+      ],
+      "objectives": [
+        {
+          "direction": "minimize",
+          "metric": "area_um2"
+        },
+        {
+          "direction": "minimize",
+          "metric": "cell_count"
+        },
+        {
+          "direction": "minimize",
+          "metric": "wirelength_um"
+        },
+        {
+          "direction": "minimize",
+          "metric": "timing_deficit_ns"
+        },
+        {
+          "direction": "maximize",
+          "metric": "fmax_mhz"
+        }
+      ],
+      "points": {
+        "secded-rtl-combinational-72-64-v1": {
+          "area_um2": 18644.1,
+          "cell_count": 2074,
+          "fmax_mhz": 243.881,
+          "latency_cycles": 1,
+          "timing_deficit_ns": 0.0,
+          "wirelength_um": 44609.0,
+          "wns_ns": 0.0
+        },
+        "secded-rtl-pipelined-72-64-v1": {
+          "area_um2": 25486.9,
+          "cell_count": 2660,
+          "fmax_mhz": 355.849,
+          "latency_cycles": 3,
+          "timing_deficit_ns": 0.0,
+          "wirelength_um": 49992.0,
+          "wns_ns": 0.0
+        },
+        "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1": {
+          "area_um2": 57303.7,
+          "cell_count": 7129,
+          "fmax_mhz": 67.6566,
+          "latency_cycles": 1,
+          "timing_deficit_ns": 4.78052,
+          "wirelength_um": 183332.0,
+          "wns_ns": -4.78052
+        }
+      },
+      "space": "B_PHYSICAL_IMPLEMENTATION_LATENCY_EXCLUDED_SENSITIVITY"
+    }
+  ]
+}

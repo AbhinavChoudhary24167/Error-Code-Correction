@@ -1,0 +1,49 @@
+\section{Results and Analysis}
+
+\subsection{Exact-Equivalent SECDED Microarchitecture}
+
+Table~\ref{tab:results} and Fig.~\ref{fig:area-fmax} show that the SECDED architectures occupy distinct physical points despite identical coding semantics. Combinational SECDED uses \SecCombArea\,$\mu$m$^2$, \SecCombWire\,$\mu$m of detailed wirelength, and reaches \SecCombFmax\,MHz. Pipelined SECDED uses \SecPipeArea\,$\mu$m$^2$, \SecPipeWire\,$\mu$m, and reaches \SecPipeFmax\,MHz. Relative changes are +\SecAreaPct\% area, +\SecWirePct\% wirelength, and +\SecFmaxPct\% Fmax.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figure02_area_fmax.pdf}
+    \caption{Post-route area versus achieved Fmax. BCH is routed but misses the 100 MHz target; Hsiao has no artificial point.}
+    \label{fig:area-fmax}
+\end{figure}
+
+The pipeline boundary changes nominal request latency from one to three cycles, while II remains one. It therefore exchanges area and latency for frequency rather than improving all objectives. On the primary objective set (minimize area, latency, and energy; maximize Fmax), neither SECDED point dominates the other.
+
+Cell count provides a consistent secondary check: the combinational and pipelined implementations contain 2,074 and 2,660 standard-cell instances, respectively, a 28.25\% increase. Because both implement the same code and transaction semantics, this controlled pair isolates an architecture-sensitive effect that a code-level redundancy or gate-count model would miss. It does not isolate the cost of any one register boundary; placement, buffering, clocking, and routing are jointly reflected in the final netlist.
+
+The equal-work activity study yields \SecCombPowerMw\,mW and \SecCombEnergy\,pJ/op for the combinational design, versus \SecPipePowerMw\,mW and \SecPipeEnergy\,pJ/op for the pipelined design. The latter is a \SecEnergyReductionPct\% reduction in steady-stream power and energy per useful operation. Lower energy and higher request latency are not contradictory: energy integrates activity over equal useful work, whereas latency counts cycles from one request to its response. Reset/drain overhead is present in both traces, and the pipeline sustains one accepted operation per cycle.
+
+This contrast is intentionally evaluated at the shared 100 MHz workload rather than at each design's maximum frequency. It therefore answers which accepted implementation consumes less estimated energy for the same amount of useful work under the common feasible operating point. It does not project voltage-frequency scaling, idle behavior, bursty traffic, or energy at the reported Fmax values.
+
+\input{tables/generated_table_ii.tex}
+
+\subsection{Correction Capability versus Physical Feasibility}
+
+The evaluated BCH (78,64,$t=2$) RTL raises the proven guarantee from W1 correction/W2 detection to W1/W2 correction. That stronger guarantee coexists with substantial implementation cost: relative to combinational SECDED, standard-cell area rises by \BchAreaPct\%, detailed wirelength by \BchWirePct\%, and achieved Fmax falls by \BchFmaxReductionPct\%.
+
+BCH completes routing with zero final design-rule violations, but has \BchWns\,ns WNS at the 10 ns constraint. Equation~\eqref{eq:fmax} gives an achieved Fmax of \BchFmax\,MHz, below the common 100 MHz target. Its target-constraint power remains a diagnostic analysis value; target-clock energy is excluded because 100 MHz is not an achievable operating point for this implementation. The result characterizes the evaluated syndrome/Chien RTL under the stated physical environment. It is not a family-wide frequency or cost bound on BCH implementations.
+
+The physical spread is not a small perturbation. BCH contains 7,129 cells, 243.73\% more than combinational SECDED, while its six additional codeword bits account for only part of the realized decoder structure. The result therefore motivates architecture-aware exploration, but it cannot distinguish unavoidable algebraic complexity from avoidable characteristics of this RTL. That distinction is why the implementation identifier accompanies every value and why the claim remains scoped to this syndrome/Chien realization.
+
+\subsection{Design-Space Interpretation}
+
+Figure~\ref{fig:normalized} separates all routed physical metrics from timing-feasible energy. BCH is retained in the routed panel, including its lower achieved Fmax, but omitted from energy. Hsiao is omitted rather than placed at an artificial coordinate. This separation prevents a timing-infeasible power estimate from masquerading as an operating point.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figure03_normalized_tradeoffs.pdf}
+    \caption{Normalized trade-offs. (a) Area, detailed wirelength, and achieved Fmax for all routed designs. (b) No-error power and energy/op only for timing-feasible designs. Ratios use combinational SECDED as 1.0.}
+    \label{fig:normalized}
+\end{figure}
+
+Exact enumeration confirms two different readings of the design space. Within the timing-feasible SECDED tier, neither microarchitecture dominates: combinational wins area and latency, whereas pipelined wins Fmax and achievable energy. In a reliability-agnostic routed-physical space, combinational SECDED dominates the evaluated BCH point because it has lower area, lower cell count, lower wirelength, no target deficit, equal one-cycle latency, and higher Fmax. Excluding latency does not change that sensitivity result; both SECDED implementations dominate BCH on the remaining physical objectives.
+
+These physical dominance statements are intentionally not global ECC rankings. BCH occupies a stronger guarantee stratum, so its W2 correction cannot be exchanged for area by an unstated preference weight. A system requiring correction of every double-coordinate error may reject both SECDED points regardless of physical cost; a system requiring 100 MHz under this exact implementation set cannot select BCH. The method exposes that feasibility boundary without pretending to resolve the system-level requirement.
+
+The exhaustive weight-3 observations provide secondary context. Conventional SECDED produces 45,304 SDC and 14,336 DUE outcomes among 59,640 masks; Hsiao produces 34,164 SDC and 25,476 DUE outcomes over the same universe; BCH produces 13,780 SDC and 62,296 DUE outcomes among 76,076 masks. Reduced fractions are respectively 809/1065 and 256/1065, 2847/4970 and 2123/4970, and 265/1463 and 1198/1463. Because coordinate universes differ and no field weighting is applied, these counts do not rank operational reliability.
+
+Even the same-size SECDED universe requires care: Hsiao's lower W3 SDC count is an exact canonical-coordinate property of the evaluated parity-check construction, not an operational failure rate. Workload data values, physical bit adjacency, upset multiplicity, interleaving, and scrubbing can change which masks matter in a deployed memory. The counts are useful for checking decoder behavior beyond its guarantee and for exposing structural differences, but not for assigning expected field failures.

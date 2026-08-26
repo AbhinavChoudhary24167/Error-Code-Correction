@@ -1,0 +1,74 @@
+[
+  {
+    "command_id": "gate03es-focused",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/gate03es-focused.log",
+    "log_sha256": "e6e86538ae883b5230e9611d8f9116ea45b298b11e2ba7c2e1f7653b31ffb16a",
+    "log_size_bytes": 202,
+    "pass": true
+  },
+  {
+    "command_id": "historical-golden",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/historical-golden.log",
+    "log_sha256": "5a269386b6aec6499dcde53f044192559f7e37da818b64d15fc2b3ff37f676f4",
+    "log_size_bytes": 206,
+    "pass": true
+  },
+  {
+    "command_id": "make",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/make.log",
+    "log_sha256": "d94b15083d61d0c80908576a2fc6227f1ad2752bf64e2d1886a31c1196f7d1fd",
+    "log_size_bytes": 750,
+    "pass": true
+  },
+  {
+    "command_id": "make-test",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/make-test.log",
+    "log_sha256": "c9907e282a92a6b37a7c924ad34220fc0c00cc621558a0c588bcb50c898e28fc",
+    "log_size_bytes": 3896,
+    "pass": true
+  },
+  {
+    "command_id": "pytest",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/pytest.log",
+    "log_sha256": "c1c442bbd59bb1e6fc963a7e29b2552f94f14a15b32a73a7f54298167700110c",
+    "log_size_bytes": 1040,
+    "pass": true
+  },
+  {
+    "command_id": "git-diff-check",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/git-diff-check.log",
+    "log_sha256": "ad9b1291e2c501b0954ffeb5ea0b0a380f46ec44577a005df307c93f8f50493c",
+    "log_size_bytes": 1208,
+    "pass": true
+  },
+  {
+    "command_id": "path-scope",
+    "exit_status": null,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/path-scope.log",
+    "log_sha256": "b11c06d122d81b90ba72b000ed5b4a59235d7735cc23a974c04691d2dc744673",
+    "log_size_bytes": 180530,
+    "pass": false
+  },
+  {
+    "command_id": "prior-evidence-hashes",
+    "exit_status": 0,
+    "log_exists": true,
+    "log_path": "/var/lib/green-ecc-gate03es/repository-validation/prior-evidence-hashes.log",
+    "log_sha256": "9f78d782b551c7270f3bf222ef534e8694a4e66fa4abfc62023cb551633044a6",
+    "log_size_bytes": 7040,
+    "pass": true
+  }
+]

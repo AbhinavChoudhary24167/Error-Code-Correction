@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Qualified implementation identities}
+\label{tab:identities}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{5.0pt}
+\begin{tabular}{@{}lccccp{7.2cm}@{}}
+\toprule
+Architecture & Bits & Guarantee & Lat. & II & Evidence \\
+\midrule
+SECDED comb. & 72 & W1 correct; W2 detect & 1 & 1 & qualified; routed 5/5; 10 ns 5/5 \\
+SECDED pipe. & 72 & W1 correct; W2 detect & 3 & 1 & qualified; routed 5/5; 10 ns 5/5 \\
+Hsiao algorithmic & 72 & W1 correct; W2 detect & 1 & 1 & exact identity; routed 5/5; 10 ns 5/5 \\
+BCH (78,64,t=2) & 78 & W1/W2 correct & 1 & 1 & qualified; routed 5/5; 10 ns 0/5 \\
+\bottomrule
+\end{tabular}
+\end{table*}

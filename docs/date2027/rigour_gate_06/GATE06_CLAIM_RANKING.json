@@ -1,0 +1,78 @@
+{
+  "claims": [
+    {
+      "basis": "universal SECDED equivalence plus measured area, timing, routing, power, energy, and latency differences",
+      "claim": "Hardware microarchitecture materially changes cost even when ECC protection semantics are identical.",
+      "id": "A",
+      "rank": "STRONG"
+    },
+    {
+      "basis": "programmatic raw-data effects: +36.702% area, +45.911% Fmax, -24.016% energy, +2 cycles latency, II unchanged",
+      "claim": "Pipelining the evaluated SECDED implementation increases area but substantially improves achievable frequency and steady-stream energy per operation.",
+      "id": "B",
+      "rank": "STRONG"
+    },
+    {
+      "basis": "evaluated BCH point has stronger W2 correction, +207.356% area, +310.975% wirelength, and fails 10 ns; one implementation cannot establish a family-wide law",
+      "claim": "Stronger error correction may impose nonlinear physical-design cost and can make a design infeasible at a common target clock.",
+      "id": "C",
+      "rank": "SUPPORTED"
+    },
+    {
+      "basis": "BCH's stronger guarantee coexists with substantial cost and target infeasibility; identical SECDED semantics also admit materially different costs",
+      "claim": "Algorithm-level correction strength alone is insufficient to select an ECC implementation.",
+      "id": "D",
+      "rank": "STRONG"
+    },
+    {
+      "basis": "identity-preserving Gate 05 join reveals the SECDED architecture trade and BCH timing failure; novelty relative to external literature remains for Gate 07 audit",
+      "claim": "A reproducible cross-layer flow exposes implementation trade-offs that code-level ECC comparison alone misses.",
+      "id": "E",
+      "rank": "SUPPORTED"
+    },
+    {
+      "basis": "2847/4970 versus 809/1065; observation-only and not a physical or field-weighted claim",
+      "claim": "Hsiao has a lower exhaustive weight-3 SDC observation fraction than conventional SECDED in its canonical-coordinate universe.",
+      "id": "F",
+      "rank": "SUPPORTED"
+    },
+    {
+      "basis": "numerically resolved by full-precision OpenSTA, but no practical-significance or field-frequency evidence",
+      "claim": "Resolved error-class power differences are practically significant.",
+      "id": "G",
+      "rank": "WEAK"
+    },
+    {
+      "basis": "METRIC_NOT_PROVEN in Gate 05",
+      "claim": "The evaluated results establish FIT, SER, operational failure probability, or physical-interleaving superiority.",
+      "id": "H",
+      "rank": "UNSUPPORTED"
+    },
+    {
+      "basis": "only the evaluated RTL, policy, technology, corner, and constraint were characterized",
+      "claim": "BCH as a family cannot operate at 100 MHz.",
+      "id": "I",
+      "rank": "UNSUPPORTED"
+    },
+    {
+      "basis": "PPA_UNAVAILABLE",
+      "claim": "Hsiao physically or Pareto-dominates a measured implementation.",
+      "id": "J",
+      "rank": "UNSUPPORTED"
+    },
+    {
+      "basis": "TARGET_CLOCK_INFEASIBLE",
+      "claim": "BCH's 10 ns target-constraint energy is achievable 100 MHz operating energy.",
+      "id": "K",
+      "rank": "UNSUPPORTED"
+    },
+    {
+      "basis": "objectives conflict, correction tiers are categorical, and the measured design space is small",
+      "claim": "A unique best ECC or universal Pareto winner has been established.",
+      "id": "L",
+      "rank": "UNSUPPORTED"
+    }
+  ],
+  "ranking_policy": "strength reflects this dataset's direct support and claim scope, not rhetorical value",
+  "schema_version": 1
+}

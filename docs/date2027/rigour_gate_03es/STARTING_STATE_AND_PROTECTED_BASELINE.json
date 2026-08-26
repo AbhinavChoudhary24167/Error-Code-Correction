@@ -1,0 +1,61 @@
+{
+  "external_trees": {
+    "gate03e": {
+      "file_count": 30559,
+      "path": "/var/lib/green-ecc-gate03e",
+      "size_bytes": 6348556142,
+      "tree_sha256": "45abe4bbe7af1cbf1477ae913544d7cd4912969a7c4653e6b80bfda9bee6aeef"
+    },
+    "gate03er": {
+      "file_count": 244,
+      "path": "/var/lib/green-ecc-gate03er",
+      "size_bytes": 134452907,
+      "tree_sha256": "03621538c1cf510252027e498e8cb6ecdd3cc2d452518df4848dfa54d191aaa9"
+    }
+  },
+  "gate03er_adjudication": {
+    "comparison_sha256": "a1fdefb8bd82bebd92b3a71112a74b91810c148bf8516fc04b676a87a9b776f5",
+    "formal_pass_claim_prohibited": true,
+    "gate03er_verdict": "ENVIRONMENT_ENABLEMENT_FAILED",
+    "only_comparison_failure": [
+      "run-metadata.json: canonical scientific/technology difference"
+    ],
+    "report_consistent": true,
+    "report_sha256": "9ab0ba04cb1d7053aa1e286d751a89f9cc46b74574e0c5168711f0f4f1795511",
+    "scientific_comparison_rows": 461,
+    "scientific_comparisons_all_pass": true
+  },
+  "legacy_validator_changes": [
+    {
+      "after_sha256": "faad28a16c150080eb96b714e15e58c895aae49b93c2fe88aae138c389b5e9d3",
+      "before_sha256": "54e645385a56ab5fd6a5b5c7e4f5b73be6632dd953ece21ee0a70fa8c9450299",
+      "path": "scripts/gate03e/validate_artifacts.py",
+      "rationale": "minimum path-scope compatibility adapter for explicitly registered additive gate directories; historical evidence hashing remains unchanged"
+    },
+    {
+      "after_sha256": "a727790f0f8a397176c22ba03a124f93369cdeb6faa778188e45080b8bad4997",
+      "before_sha256": "ece77a9c427e8cb7f6f064c0ccd9e46f924cdeff55bd9a14afece89fbaac7c4b",
+      "path": "tests/python/test_gate03_artifacts.py",
+      "rationale": "minimum path-scope compatibility adapter for explicitly registered additive gate directories; historical evidence hashing remains unchanged"
+    }
+  ],
+  "repo_trees": {
+    "asic/rtl": "b56050e55576ab053717c45213595f0b26d5211c6c03b92cd89d28171d055c5d",
+    "docs/date2027/rigour_gate_01": "24cd71d2f7cbb10f0709bd49e89855fca50d2dbeb3c8d6f8aabb6c9e83bee526",
+    "docs/date2027/rigour_gate_02": "972c873d377c66ad183a52b25632f6811c916d44be27a2892b119a2fda8dc79f",
+    "docs/date2027/rigour_gate_03": "e5e96c4f02ffec03ffbab532f5d09dc3249a51534bbc43e494798b270fb51bc4",
+    "docs/date2027/rigour_gate_03e": "c04a81d5e03267e24c1df9b15fbd40c14ffdc79f4dbb9a52234acaa8bb0831df",
+    "docs/date2027/rigour_gate_03er": "bd16599085d008819607ef23c586cba3b8bb76754ff56e21d2f1d07c816c9aa0",
+    "docs/date2027/rigour_gate_03r": "ef40075e9431e51e344be1199448ed8ec5742a76e48124dd77f86c7b7491c1c3",
+    "green_ecc_physical_simulation/registry": "d084810a1a016ca2efef2ffd9d840adbc822b495639d6f73d43803f5dc347516"
+  },
+  "schema_version": 3,
+  "starting_branch": "main",
+  "starting_head": "ceae4ad9b5a3ba612596fb7ac1a93dd144114409",
+  "starting_tracked_changes": [],
+  "starting_untracked_scope": [
+    "docs/date2027/rigour_gate_03er/",
+    "scripts/gate03er/",
+    "tests/python/test_gate03er_reproducibility.py"
+  ]
+}

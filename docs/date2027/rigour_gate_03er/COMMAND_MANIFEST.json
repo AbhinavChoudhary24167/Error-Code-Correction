@@ -1,0 +1,28 @@
+{
+  "deadline_utc": "2026-08-17T11:59:59Z",
+  "effective_environment": [
+    "source /OpenROAD-flow-scripts/env.sh",
+    "export LEC_CHECK=0",
+    "export WORK_HOME=<fresh run root>",
+    "cd /OpenROAD-flow-scripts/flow"
+  ],
+  "gate": "03E-R",
+  "image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+  "official_make_invocation": "make DESIGN_CONFIG=./designs/sky130hd/gcd/config.mk",
+  "policy_must_be_frozen_before_run_directories": true,
+  "reuse_or_delete_existing_run": false,
+  "run_order": "sequential",
+  "runs": [
+    {
+      "container_root": "/gate03er-run-03",
+      "host_root": "/var/lib/green-ecc-gate03er/runs/gcd-run-03",
+      "id": 3
+    },
+    {
+      "container_root": "/gate03er-run-04",
+      "host_root": "/var/lib/green-ecc-gate03er/runs/gcd-run-04",
+      "id": 4
+    }
+  ],
+  "schema_version": 1
+}

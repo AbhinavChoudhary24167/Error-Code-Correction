@@ -1,0 +1,147 @@
+{
+  "schema_version": 3,
+  "policy_id": "gate03es-reproducibility-v3",
+  "prospective_only": true,
+  "preserves_gate03er_verdict": "ENVIRONMENT_ENABLEMENT_FAILED",
+  "amends": {
+    "policy_id": "gate03er-reproducibility-v2",
+    "sha256": "d605d48ecb040e43d77fd278756e31e663ed30d329388e2217d13bc348a41493",
+    "preserved_result": "ENVIRONMENT_ENABLEMENT_FAILED",
+    "preserved_scientific_comparisons_passed": true,
+    "preserved_repository_commands_passed": false
+  },
+  "amendment_reason": "Policy v2 correctly separated scientific state from runtime/resource observations, but it equality-gated the mandatory run_label even though runs 3 and 4 were required to have distinct labels. Historical scope validators also conflated an unchanged historical evidence tree with a repository containing additive, separately named future-gate paths. Policy v3 prospectively classifies mandatory per-run labels as provenance identity: presence, syntax, uniqueness, and expected per-run values are gated, while cross-run equality is prohibited.",
+  "freeze_rule": "Policy v3, comparator v3, producer catalogue v3, the closed QoR schema, ODB semantic exporter, immutable-input manifest, command manifest, compatibility adapter, and runner are hashed and made read-only before either run 5 or run 6 directory is created.",
+  "run_contract": {
+    "run_5": {
+      "run_label": "gcd-run-05",
+      "host_root": "/var/lib/green-ecc-gate03es/runs/gcd-run-05",
+      "container_root": "/gate03es-run-05"
+    },
+    "run_6": {
+      "run_label": "gcd-run-06",
+      "host_root": "/var/lib/green-ecc-gate03es/runs/gcd-run-06",
+      "container_root": "/gate03es-run-06"
+    },
+    "labels_must_differ": true,
+    "label_pattern": "^gcd-run-0[56]$",
+    "duplicate_json_keys": "gate failure",
+    "missing_malformed_or_unexpected_label": "gate failure"
+  },
+  "run_root_token": "<RUN_ROOT>",
+  "raw_evidence": {
+    "hash_algorithm": "sha256",
+    "retain_every_artifact_report_metric_and_log": true,
+    "raw_hashes_are_audit_evidence_not_a_blanket_equality_gate": true,
+    "preserve_raw_hash_for_every_field_class": true,
+    "explain_every_raw_hash_difference": true
+  },
+  "immutable_inputs": {
+    "comparison": "exact sha256",
+    "required": [
+      "OCI index, linux/amd64 manifest, and OCI configuration/ImageID as separate identities",
+      "ORFS commit, tree, recursive submodules, and reconciled 169-file execution subset",
+      "GCD RTL, configuration, SDC, platform scripts, and SKY130HD collateral",
+      "OpenROAD, Yosys, KLayout, make, and Python executables and versions",
+      "runner, environment variables, thread count, and official make command",
+      "policy v3, comparator v3, ODB semantic exporter, canonicalizers, compatibility adapter, and command manifest"
+    ]
+  },
+  "field_classes": [
+    "SCIENTIFIC_EXACT",
+    "SCIENTIFIC_TOLERANCED",
+    "PROVENANCE_IDENTITY",
+    "RUNTIME_RESOURCE_OBSERVATION",
+    "UNRESOLVED"
+  ],
+  "field_class_rules": {
+    "SCIENTIFIC_EXACT": "Cross-run equality is required.",
+    "SCIENTIFIC_TOLERANCED": "The frozen field-specific absolute tolerance is applied.",
+    "PROVENANCE_IDENTITY": "Presence, producer, syntax, uniqueness, and expected per-run identity are gated; cross-run equality is not required unless explicitly declared.",
+    "RUNTIME_RESOURCE_OBSERVATION": "The raw value and hash are retained but cross-run equality is not gated.",
+    "UNRESOLVED": "Gate failure."
+  },
+  "canonicalization": {
+    "line_endings": "LF",
+    "remove_trailing_horizontal_whitespace": true,
+    "absolute_run_roots": "replace only recognized Gate 03E/03E-R/03E-S run roots with the frozen token",
+    "json_object_key_order": "lexicographic after duplicate-key rejection",
+    "run_metadata": "producer-catalogue classification; provenance/runtime fields are validated individually rather than equality-gated",
+    "gds": {
+      "zero_record_payloads": ["BGNLIB", "BGNSTR"],
+      "sort_structures_by": "normalized_binary_encoding",
+      "sort_complete_elements_by": "normalized_binary_encoding",
+      "preserve_record_order_within_each_element": true,
+      "fail_on_unrecognized_inter_element_records": true
+    },
+    "netlist": "structural JSON emitted by the exact-hashed pinned Yosys plus exact parsed mapped-master histogram",
+    "def": "conservative complete token stream with no scientific-field removal",
+    "sdc": "conservative complete token stream with no constraint removal",
+    "spef": "conservative complete token stream with only the SPEF DATE record replaced",
+    "klayout_lyt": "XML C14N after replacing only a recognized run-root prefix inside reader-options/lefdef/lef-files",
+    "odb": "exact raw SHA-256 is recorded as the stronger observation; a mismatch requires equality of complete pre-frozen semantic exports covering every required category"
+  },
+  "nongating_observations": [
+    "run root",
+    "timestamp",
+    "process or container ID",
+    "wall time",
+    "CPU time",
+    "peak memory",
+    "stage-runtime counters",
+    "host scheduling data"
+  ],
+  "qor_rules": [
+    {"family": "discrete_counts_masters_statuses", "absolute_tolerance": 0.0, "unit": "exact", "class": "SCIENTIFIC_EXACT"},
+    {"family": "area", "absolute_tolerance": 0.0, "unit": "um^2", "class": "SCIENTIFIC_EXACT"},
+    {"family": "utilization_density", "absolute_tolerance": 0.000001, "unit": "ratio", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "timing", "absolute_tolerance": 0.000001, "unit": "ns", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "wirelength_dimension_displacement", "absolute_tolerance": 0.001, "unit": "reported length unit", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "capacitance_resistance", "absolute_tolerance": 0.000001, "unit": "reported unit", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "power", "absolute_tolerance": 1e-9, "unit": "W", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "frequency", "absolute_tolerance": 1.0, "unit": "Hz", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "voltage", "absolute_tolerance": 0.000001, "unit": "V", "class": "SCIENTIFIC_TOLERANCED"},
+    {"family": "preenumerated_other_qor", "absolute_tolerance": 0.0, "unit": "exact", "class": "SCIENTIFIC_EXACT"}
+  ],
+  "semantic_artifacts": {
+    "required_exact_canonical_globs": [
+      "**/6_final.gds",
+      "**/6_final.def",
+      "**/6_final.v",
+      "**/1_2_yosys.v",
+      "**/*.sdc",
+      "**/*.spef"
+    ],
+    "required_odb_glob": "**/*.odb",
+    "required_odb_semantic_suffix": ".semantic.json",
+    "required_odb_categories": [
+      "technology", "units", "die_core_geometry", "rows", "tracks", "masters",
+      "instances", "orientations", "placement_status", "nets", "pins",
+      "connectivity", "routing_shapes", "vias"
+    ],
+    "required_technology_glob": "**/klayout.lyt"
+  },
+  "anti_posthoc_rules": {
+    "field_specific_exclusions_after_runs_begin": "prohibited",
+    "path_specific_exclusion_list": [],
+    "unknown_or_unresolved_field": "gate failure"
+  },
+  "failure_conditions": [
+    "policy, catalogue, schema, comparator, exporter, runner, compatibility adapter, or immutable-input hash mismatch",
+    "OCI index, manifest, and configuration identities are missing, conflated, or mismatched",
+    "post-run policy or comparator change",
+    "posthoc field-specific exclusion",
+    "missing, malformed, duplicated, equal, or unexpected run labels",
+    "missing or additional artifact or metric",
+    "semantic canonical mismatch",
+    "technology XML mismatch outside the one predeclared run-root substitution",
+    "ODB raw mismatch without a complete equal semantic export",
+    "unparsed ODB object category or incomplete semantic export",
+    "exact invariant mismatch",
+    "QoR tolerance breach",
+    "unresolved field or parse failure",
+    "historical evidence or prior external run-tree change",
+    "required repository validation failure",
+    "deadline missed"
+  ]
+}

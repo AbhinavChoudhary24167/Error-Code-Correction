@@ -1,0 +1,255 @@
+{
+  "dominance": {
+    "aggregate_mean": {
+      "points": {
+        "secded_comb": {
+          "area": 18649.64,
+          "energy": 145.76888107636458,
+          "frequency": 238.88714393052732,
+          "latency": 1.0
+        },
+        "secded_pipe": {
+          "area": 25587.54,
+          "energy": 111.62919634507416,
+          "frequency": 349.9777367952565,
+          "latency": 3.0
+        }
+      },
+      "relation": "NON_DOMINATED"
+    },
+    "objectives": {
+      "maximize": [
+        "slack_derived_frequency"
+      ],
+      "minimize": [
+        "area",
+        "latency",
+        "achievable_energy"
+      ]
+    },
+    "per_seed": [
+      {
+        "combinational": {
+          "area": 18644.1,
+          "energy": 145.76251578139872,
+          "frequency": 243.8810250807246,
+          "latency": 1.0
+        },
+        "pipelined": {
+          "area": 25486.9,
+          "energy": 110.75615059770901,
+          "frequency": 355.84909151726936,
+          "latency": 3.0
+        },
+        "relation": "NON_DOMINATED",
+        "seed": 11
+      },
+      {
+        "combinational": {
+          "area": 18626.6,
+          "energy": 146.0450141653124,
+          "frequency": 225.6450062503667,
+          "latency": 1.0
+        },
+        "pipelined": {
+          "area": 25569.5,
+          "energy": 111.28824044857373,
+          "frequency": 350.5229802865876,
+          "latency": 3.0
+        },
+        "relation": "NON_DOMINATED",
+        "seed": 13
+      },
+      {
+        "combinational": {
+          "area": 18728.0,
+          "energy": 146.49493452254939,
+          "frequency": 239.80815347721824,
+          "latency": 1.0
+        },
+        "pipelined": {
+          "area": 25627.1,
+          "energy": 112.03057876698293,
+          "frequency": 347.7027280756045,
+          "latency": 3.0
+        },
+        "relation": "NON_DOMINATED",
+        "seed": 17
+      },
+      {
+        "combinational": {
+          "area": 18655.4,
+          "energy": 145.70806521918695,
+          "frequency": 245.06140013380352,
+          "latency": 1.0
+        },
+        "pipelined": {
+          "area": 25639.6,
+          "energy": 111.85219403079297,
+          "frequency": 348.27187495646604,
+          "latency": 3.0
+        },
+        "relation": "NON_DOMINATED",
+        "seed": 19
+      },
+      {
+        "combinational": {
+          "area": 18594.1,
+          "energy": 144.8338756933754,
+          "frequency": 240.0401347105236,
+          "latency": 1.0
+        },
+        "pipelined": {
+          "area": 25614.6,
+          "energy": 112.21881788131216,
+          "frequency": 347.5420091403549,
+          "latency": 3.0
+        },
+        "relation": "NON_DOMINATED",
+        "seed": 23
+      }
+    ],
+    "sensitivity_range": {
+      "interpretation": "no range-based dominance is claimed unless worst-case intervals are no worse in every objective",
+      "relation": "NON_DOMINATED"
+    }
+  },
+  "effects": {
+    "achievable_energy_percent": {
+      "formula": "(pipelined - combinational) / combinational * 100 percent",
+      "metric": "achievable_no_error_energy_pj_per_operation",
+      "summary": {
+        "count": 5,
+        "maximum": -22.518942930942384,
+        "mean": -23.419005222611922,
+        "median": -23.52597096131095,
+        "minimum": -24.016027025898108,
+        "range": 1.4970840949557243,
+        "sample_standard_deviation": 0.5822030551792997,
+        "values_by_seed": {
+          "11": -24.016027025898108,
+          "13": -23.79867187892941,
+          "17": -23.52597096131095,
+          "19": -23.235413315978757,
+          "23": -22.518942930942384
+        }
+      }
+    },
+    "area_percent": {
+      "formula": "(pipelined - combinational) / combinational * 100 percent",
+      "metric": "standard_cell_instance_area_um2",
+      "summary": {
+        "count": 5,
+        "maximum": 37.756600211895176,
+        "mean": 37.201863692705786,
+        "median": 37.27411336475794,
+        "minimum": 36.70222751433431,
+        "range": 1.054372697560865,
+        "sample_standard_deviation": 0.4331327677096363,
+        "values_by_seed": {
+          "11": 36.70222751433431,
+          "13": 37.27411336475794,
+          "17": 36.83842375053395,
+          "19": 37.437953622007555,
+          "23": 37.756600211895176
+        }
+      }
+    },
+    "cell_count_percent": {
+      "formula": "(pipelined - combinational) / combinational * 100 percent",
+      "metric": "cell_count",
+      "summary": {
+        "count": 5,
+        "maximum": 28.44744455159113,
+        "mean": 28.257600963139527,
+        "median": 28.254580520732887,
+        "minimum": 28.055822906641005,
+        "range": 0.3916216449501242,
+        "sample_standard_deviation": 0.1411747423960434,
+        "values_by_seed": {
+          "11": 28.254580520732887,
+          "13": 28.227360308285164,
+          "17": 28.055822906641005,
+          "19": 28.302796528447445,
+          "23": 28.44744455159113
+        }
+      }
+    },
+    "detailed_wirelength_percent": {
+      "formula": "(pipelined - combinational) / combinational * 100 percent",
+      "metric": "detailed_route_wirelength_um",
+      "summary": {
+        "count": 5,
+        "maximum": 12.067071667152367,
+        "mean": 11.239589735278788,
+        "median": 11.28201683682608,
+        "minimum": 10.632609320105177,
+        "range": 1.4344623470471909,
+        "sample_standard_deviation": 0.5764216934341716,
+        "values_by_seed": {
+          "11": 12.067071667152367,
+          "13": 10.632609320105177,
+          "17": 10.762054252426326,
+          "19": 11.454196599883986,
+          "23": 11.28201683682608
+        }
+      }
+    },
+    "slack_derived_frequency_percent": {
+      "formula": "(pipelined - combinational) / combinational * 100 percent",
+      "metric": "slack_derived_frequency_mhz",
+      "summary": {
+        "count": 5,
+        "maximum": 55.34267126552815,
+        "mean": 46.62935498217704,
+        "median": 44.992037607527074,
+        "minimum": 42.11616956661049,
+        "range": 13.226501698917666,
+        "sample_standard_deviation": 5.071721923703692,
+        "values_by_seed": {
+          "11": 45.910938089375065,
+          "13": 55.34267126552815,
+          "17": 44.992037607527074,
+          "19": 42.11616956661049,
+          "23": 44.78495838184442
+        }
+      }
+    },
+    "total_power_percent": {
+      "formula": "(pipelined - combinational) / combinational * 100 percent",
+      "metric": "total_power_w",
+      "summary": {
+        "count": 5,
+        "maximum": -22.518942930942387,
+        "mean": -23.419005222611926,
+        "median": -23.525970961310957,
+        "minimum": -24.01602702589812,
+        "range": 1.4970840949557314,
+        "sample_standard_deviation": 0.5822030551793002,
+        "values_by_seed": {
+          "11": -24.01602702589812,
+          "13": -23.798671878929408,
+          "17": -23.525970961310957,
+          "19": -23.235413315978764,
+          "23": -22.518942930942387
+        }
+      }
+    }
+  },
+  "interpretation": "matched-seed sensitivity envelope; no population inference or p-values",
+  "latency": {
+    "secded_comb_cycles": 1,
+    "secded_pipe_cycles": 3,
+    "seed_sensitive": false
+  },
+  "robustness": {
+    "area_pipe_greater_count": 5,
+    "energy_pipe_lower_count": 5,
+    "frequency_pipe_greater_count": 5,
+    "power_pipe_lower_count": 5,
+    "secded_comb_10ns_feasible_count": 5,
+    "secded_pipe_10ns_feasible_count": 5,
+    "wirelength_pipe_greater_count": 5
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,49 @@
+\section{Identity-Preserving Method}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure01_methodology.pdf}
+\caption{Qualification precedes physical characterization. A failed evidence join remains unavailable; accepted identities enter one common matched-seed policy.}
+\label{fig:method}
+\end{figure*}
+
+\subsection{Qualification and Reliability Semantics}
+
+Figure~\ref{fig:method} separates three identities. A \emph{code identity} fixes the payload/codeword mapping and decoder semantics. A \emph{hardware identity} fixes RTL, interface, latency, and initiation interval (II). A \emph{physical identity} adds constraints, tools, collateral, and seed. Correctness evidence admits a hardware identity; favorable PPA cannot rescue an unqualified design.
+
+Every admitted cross-layer claim is an explicit evidence join. The code record supplies the guarantee and exact payload/codeword mapping; the RTL freeze supplies source hashes, interface, latency, and II; the physical record supplies the run seed, configuration hashes, stage status, and raw reports. A join is valid only when these identities agree. This prevents three common substitutions: transferring a proof between nominally similar RTLs, presenting a routed result beside power from another netlist, or treating a failed target-clock analysis as an achievable energy point. The Hsiao recovery deliberately exercises this rule: semantic equivalence transfers, but physical measurements do not transfer between table and algorithmic hardware representations.
+
+The two conventional SECDED candidates implement the same systematic extended-Hamming (72,64) relation. Formal equivalence after a two-cycle temporal alignment proves identical encoder/decoder responses. Both accept independent encoder and decoder transactions at II=1; request latency is one cycle for combinational and three for pipelined RTL.
+
+Historical Hsiao semantics used a qualified (72,64) parity-check identity, but its table representation inferred a $256\times73$ memory exceeding the unchanged \MemoryMaxBits-bit synthesis-memory policy. Revision~2 reconstructs the exact column order and implements syndrome generation plus 72 explicit syndrome-to-column comparisons. Before PPA, a miter proves the algorithmic decoder and qualified reference produce identical outputs for every arbitrary 72-bit received word. Thus code-level guarantees transfer, while PPA belongs specifically to the new algorithmic hardware identity.
+
+Formal equivalence is stronger here than enumerating only errors inside a declared guarantee. The Hsiao miter accepts an unconstrained 72-bit received vector, computes both decoders, and asserts equality of payload and status outputs. It therefore covers no-error words, codewords with any injected mask, and vectors that are not reachable from the selected encoder. A separate structural check confirms 72 equality comparators and no inferred memory, while the parity-check column sequence is byte-frozen. The proof completed and the RTL hash was recorded before any Hsiao physical run.
+
+Conventional and Hsiao SECDED correct every weight-1 coordinate error and detect every weight-2 error. The shortened BCH (78,64,$t=2$) realization corrects every weight-1 and weight-2 error in its qualified universe. Correction strength remains categorical; it is never converted into an arbitrary scalar score. Exhaustive weight-3 observations remain artifact-level decoder characterization because no physical fault weighting makes them operational rates.
+
+\input{tables/generated_table_i.tex}
+
+\subsection{Timing, Power, and Decision Rules}
+
+Authoritative ORFS reporting derives its clock metric from OpenSTA's minimum-period analysis with port paths included. We retain both that raw value and the signed worst setup slack. For the fixed implementation optimized under target $T=\ClockPeriodNs$~ns, we report
+\begin{equation}
+ f_{\mathrm{slack}}=\frac{1000}{T-s_{\mathrm{setup}}}\ \mathrm{MHz},
+ \label{eq:fslack}
+\end{equation}
+where $s_{\mathrm{setup}}$ is signed, not conventional WNS clipped at zero. This is a \emph{post-route slack-derived frequency estimate}; it is not a frequency sweep, an experimentally searched Fmax, or a design re-optimized at the derived period. Target feasibility separately requires nonnegative setup slack and zero setup violations.
+
+Power uses post-route OpenSTA with the same deterministic no-error VCD for each seed. Each timing-feasible SECDED and Hsiao point receives \PowerOperations\ useful II=1 operations, identical reset/drain semantics, the \ClockPeriodNs~ns clock, and common input activity. Energy is $E_{\mathrm{op}}=P T_{\mathrm{trace}}/N_{\mathrm{useful}}$. BCH power at an infeasible target is diagnostic only; its target-clock energy is unavailable.
+
+Within the SECDED guarantee tier, dominance minimizes area, request latency, and achievable energy/op while maximizing $f_{\mathrm{slack}}$. We enumerate relations independently per seed, at aggregate means, and over sensitivity ranges. No $p$-values or distributional interpretation are attached to five deterministic heuristic seeds.
+
+The matched design controls comparison noise without claiming randomized inference. For each seed $s$, both SECDED implementations receive identical values for global placement, global routing, and general OpenROAD randomness. Paired effects are computed before aggregation as $(x_{\mathrm{pipe},s}-x_{\mathrm{comb},s})/x_{\mathrm{comb},s}$. We report all five values plus mean, median, sample standard deviation, extrema, and range. Pairing exposes whether an ordering flips under a common heuristic perturbation; the standard deviation is descriptive only. A predeclared poor seed remains in the envelope, and an infrastructure replacement is permitted only with the same seed and a preserved failed attempt.
+
+Dominance is assessed three ways. Per-seed enumeration tests whether either implementation is no worse in every admitted objective at that realization. Aggregate-mean enumeration asks the same question of the two mean points. Finally, a conservative range check refuses to claim dominance unless sensitivity intervals are no worse in every objective. These checks cannot establish a universal Pareto frontier, but they prevent averaging from hiding seed-dependent reversals.
+
+\subsection{Prospective Controls and Missingness}
+
+The campaign matrix, seed rule, qualification gates, timing target, power eligibility, and analysis code were fixed before the first measured route. A completed but timing-infeasible route remains a physical observation: its area, routing, DRC, hold, signed setup slack, and setup-violation count are retained. It does not, however, become a target-feasible design through a derived-frequency calculation. Likewise, energy at the target clock is reported only when the corresponding routed netlist passes setup. This produces an explicit unavailable value for BCH rather than a favorable-looking estimate at an operating point the implementation cannot sustain.
+
+No seed is discarded for an unfavorable metric, and no architecture receives a seed-specific density, floorplan, clock, or synthesis change. The protocol distinguishes an infrastructure failure from a design outcome: only the former could be retried, using the same seed and with the failed attempt preserved. The completed matrix needed no such replacements. Hsiao qualification is also prospective; its exact proof, structural check, source hash, and synthesis-policy check precede its physical measurements. These controls make the route set closed under the declared decision rules and prevent a later result from changing which measurements are admitted.
+
+The unit of analysis depends on the claim. A physical point is one frozen hardware identity at one seed. A paired effect is the difference between the two SECDED points sharing that seed. An architecture summary aggregates five points only after the paired values are preserved. A correctness statement joins proof evidence to a hardware identity but not to a place-and-route seed. Keeping these units distinct prevents a mean PPA value from being mistaken for a proof, a formal proof from implying timing closure, or five deterministic routes from being described as statistical replication of fabricated chips.

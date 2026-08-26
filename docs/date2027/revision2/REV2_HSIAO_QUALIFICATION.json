@@ -1,0 +1,26 @@
+{
+  "code_id": "hsiao-secded-72-64-v1",
+  "equivalence": {
+    "latency_alignment": "both decoder cores combinational; common registered boundary unchanged",
+    "log": "REV2_HSIAO_EXACT_IDENTITY.log",
+    "method": "Yosys exhaustive SAT over arbitrary 72-bit received word",
+    "outputs_compared": [
+      "data_out[63:0]",
+      "correction_applied",
+      "detected_uncorrectable"
+    ],
+    "passed": true
+  },
+  "historical_evidence_transfer": "permitted for code-level W0/W1/W2/W3 semantics only",
+  "matrix_hash": "1cc658a0e86f0911d0d26def91d61c2b4dc146daaea531a5a923aabf0ca387a7",
+  "ppa_authorized": true,
+  "schema_version": 1,
+  "structure": {
+    "large_table_inferred": false,
+    "log": "REV2_HSIAO_STRUCTURE.log",
+    "method": "post-process Yosys memory collection and assert no memory cell types",
+    "passed": true,
+    "synthesis_memory_policy_changed": false
+  },
+  "verdict": "HSIAO_EXACT_IDENTITY_PASS"
+}

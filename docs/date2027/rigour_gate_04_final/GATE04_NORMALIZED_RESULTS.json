@@ -1,0 +1,201 @@
+{
+  "formula": "(m_ecc - m_secded) / m_secded * 100 percent",
+  "physical": [
+    {
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "percent_delta_vs_secded": {
+        "achieved_fmax_mhz": 0.0,
+        "buffer_count": 0.0,
+        "cell_count": 0.0,
+        "detailed_route_wirelength_um": 0.0,
+        "global_route_wirelength_um": 0.0,
+        "sequential_cell_count": 0.0,
+        "standard_cell_instance_area_um2": 0.0,
+        "via_count": 0.0
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "percent_delta_vs_secded": {
+        "achieved_fmax_mhz": 45.910915569478554,
+        "buffer_count": 8.91566265060241,
+        "cell_count": 28.254580520732887,
+        "detailed_route_wirelength_um": 12.067071667152367,
+        "global_route_wirelength_um": 11.858409790616815,
+        "sequential_cell_count": 81.37535816618912,
+        "standard_cell_instance_area_um2": 36.70222751433431,
+        "via_count": 19.00591197722794
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "percent_delta_vs_secded": {
+        "achieved_fmax_mhz": null,
+        "buffer_count": null,
+        "cell_count": null,
+        "detailed_route_wirelength_um": null,
+        "global_route_wirelength_um": null,
+        "sequential_cell_count": null,
+        "standard_cell_instance_area_um2": null,
+        "via_count": null
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    },
+    {
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "percent_delta_vs_secded": {
+        "achieved_fmax_mhz": -72.25835550944927,
+        "buffer_count": 344.09638554216866,
+        "cell_count": 243.73191899710704,
+        "detailed_route_wirelength_um": 310.9753637158421,
+        "global_route_wirelength_um": 306.91561872960926,
+        "sequential_cell_count": 5.157593123209169,
+        "standard_cell_instance_area_um2": 207.35567820382857,
+        "via_count": 294.5040507992117
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1"
+    }
+  ],
+  "power": [
+    {
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 0.0,
+        "internal_power_w": 0.0,
+        "leakage_energy_pj_per_operation_estimate": 0.0,
+        "leakage_power_w": 0.0,
+        "switching_energy_pj_per_operation_estimate": 0.0,
+        "switching_power_w": 0.0,
+        "total_energy_pj_per_operation_estimate": 0.0,
+        "total_power_w": 0.0
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "no_error"
+    },
+    {
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 0.0,
+        "internal_power_w": 0.0,
+        "leakage_energy_pj_per_operation_estimate": 0.0,
+        "leakage_power_w": 0.0,
+        "switching_energy_pj_per_operation_estimate": 0.0,
+        "switching_power_w": 0.0,
+        "total_energy_pj_per_operation_estimate": 0.0,
+        "total_power_w": 0.0
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "single_error"
+    },
+    {
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 0.0,
+        "internal_power_w": 0.0,
+        "leakage_energy_pj_per_operation_estimate": 0.0,
+        "leakage_power_w": 0.0,
+        "switching_energy_pj_per_operation_estimate": 0.0,
+        "switching_power_w": 0.0,
+        "total_energy_pj_per_operation_estimate": 0.0,
+        "total_power_w": 0.0
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "double_error"
+    },
+    {
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 5.048397680031572,
+        "internal_power_w": 5.048397680031565,
+        "leakage_energy_pj_per_operation_estimate": 33.814051382116155,
+        "leakage_power_w": 33.81405138211617,
+        "switching_energy_pj_per_operation_estimate": -49.342826765681146,
+        "switching_power_w": -49.34282676568114,
+        "total_energy_pj_per_operation_estimate": -24.016027025898108,
+        "total_power_w": -24.01602702589812
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "no_error"
+    },
+    {
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 5.051321975835043,
+        "internal_power_w": 5.05132197583504,
+        "leakage_energy_pj_per_operation_estimate": 33.81485972802916,
+        "leakage_power_w": 33.81485972802916,
+        "switching_energy_pj_per_operation_estimate": -49.34036719998704,
+        "switching_power_w": -49.34036719998705,
+        "total_energy_pj_per_operation_estimate": -24.012588811669332,
+        "total_power_w": -24.012588811669342
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "single_error"
+    },
+    {
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 5.048797543145706,
+        "internal_power_w": 5.048797543145696,
+        "leakage_energy_pj_per_operation_estimate": 33.81495714971177,
+        "leakage_power_w": 33.81495714971176,
+        "switching_energy_pj_per_operation_estimate": -49.342375081758014,
+        "switching_power_w": -49.342375081758014,
+        "total_energy_pj_per_operation_estimate": -24.015309347885477,
+        "total_power_w": -24.01530934788548
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "double_error"
+    },
+    {
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 6157.511652995266,
+        "internal_power_w": 6157.511652995265,
+        "leakage_energy_pj_per_operation_estimate": 222.694220810559,
+        "leakage_power_w": 222.694220810559,
+        "switching_energy_pj_per_operation_estimate": 5345.327757317771,
+        "switching_power_w": 5345.32775731777,
+        "total_energy_pj_per_operation_estimate": 5723.510453901773,
+        "total_power_w": 5723.510453901771
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "no_error"
+    },
+    {
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 6157.98215699875,
+        "internal_power_w": 6157.98215699875,
+        "leakage_energy_pj_per_operation_estimate": 222.6956928953744,
+        "leakage_power_w": 222.6956928953744,
+        "switching_energy_pj_per_operation_estimate": 5346.033834342248,
+        "switching_power_w": 5346.033834342248,
+        "total_energy_pj_per_operation_estimate": 5724.118475474856,
+        "total_power_w": 5724.118475474856
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "single_error"
+    },
+    {
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "percent_delta_vs_secded": {
+        "internal_energy_pj_per_operation_estimate": 6157.769843898664,
+        "internal_power_w": 6157.769843898664,
+        "leakage_energy_pj_per_operation_estimate": 222.69543545279805,
+        "leakage_power_w": 222.69543545279805,
+        "switching_energy_pj_per_operation_estimate": 5345.6919102668535,
+        "switching_power_w": 5345.6919102668535,
+        "total_energy_pj_per_operation_estimate": 5723.829904541602,
+        "total_power_w": 5723.829904541602
+      },
+      "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+      "trace_class": "double_error"
+    }
+  ],
+  "reference_implementation_id": "secded-rtl-combinational-72-64-v1",
+  "schema_version": 1,
+  "timing_slack_ratios_computed": false
+}

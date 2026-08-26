@@ -1,0 +1,34 @@
+{
+  "completed_at_utc": "2026-08-24T16:37:24Z",
+  "executed_run_count": 4,
+  "outcomes": [
+    {
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "process_exit_status": 0,
+      "replacement_of_excluded_infrastructure_attempt": true,
+      "run_id": "secded-comb-final-01"
+    },
+    {
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "process_exit_status": 0,
+      "replacement_of_excluded_infrastructure_attempt": true,
+      "run_id": "secded-pipe-final-01"
+    },
+    {
+      "implementation_id": "hsiao-generated-combinational-72-64-v1",
+      "process_exit_status": 2,
+      "replacement_of_excluded_infrastructure_attempt": false,
+      "run_id": "hsiao-final-01"
+    },
+    {
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "process_exit_status": 0,
+      "replacement_of_excluded_infrastructure_attempt": false,
+      "run_id": "bch78-final-01"
+    }
+  ],
+  "planned_run_count": 4,
+  "replacement_attempt_count": 2,
+  "schema_version": 1,
+  "started_at_utc": "2026-08-24T16:02:41Z"
+}

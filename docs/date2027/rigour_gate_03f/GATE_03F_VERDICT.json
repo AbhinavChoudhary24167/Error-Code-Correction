@@ -1,0 +1,20 @@
+{
+  "conditions": {
+    "all_runs_complete_normally": true,
+    "area_cell_utilization_wirelength_stable": true,
+    "exactly_seven_unique_runs_present": true,
+    "logical_behavior_valid": true,
+    "noise_small_enough_for_meaningful_ecc_comparison": true,
+    "provenance_pinned": true,
+    "routing_and_drc_consistent": true,
+    "timing_and_fmax_stable": true
+  },
+  "environment_manifest_sha256": "df0d50ea3093e45cad50769facdaf588142ec56c9c66afde534504c5f9dc93cb",
+  "gate04_state": "GATE_04_READY",
+  "interpretation_policy": "A comparative ECC effect will be interpreted quantitatively only when its magnitude is at least 5\u00d7 the measured reproducibility noise for that metric.",
+  "physical_run_count": 7,
+  "power_result_count": 12,
+  "power_status": "ACTIVITY_BASED_POWER_QUALIFIED",
+  "schema_version": 1,
+  "verdict": "GATE_03F_PASS"
+}

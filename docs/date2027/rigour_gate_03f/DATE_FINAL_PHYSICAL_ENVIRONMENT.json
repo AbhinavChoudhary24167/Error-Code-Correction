@@ -1,0 +1,312 @@
+{
+  "docker": {
+    "architecture": "amd64",
+    "client_version": "29.7.2",
+    "created": "2026-08-10T13:38:16.013541933Z",
+    "image_id": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "os": "linux",
+    "reference": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "repo_digests": [
+      "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e"
+    ],
+    "server_version": "29.7.2"
+  },
+  "evidence_root": "/var/lib/green-ecc-date2027-final",
+  "exact_commands": {
+    "analysis": "python3 /var/lib/green-ecc-date2027-final/policy/repo_snapshot/scripts/gate03f/analyze_qualification.py --logical-validation PASS",
+    "freeze": "python3 scripts/gate03f/prepare_environment.py --repo /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction",
+    "matrix": "python3 /var/lib/green-ecc-date2027-final/policy/repo_snapshot/scripts/gate03f/run_matrix.py",
+    "per_run": "python3 /var/lib/green-ecc-date2027-final/policy/repo_snapshot/scripts/gate03f/run_qualification.py RUN_ID",
+    "physical_container": "source /OpenROAD-flow-scripts/env.sh; export LEC_CHECK=0 NUM_CORES=1 WORK_HOME=/date-final-run CLOCK_PERIOD=10.0 GPL_RANDOM_SEED=11 GRT_SEED=11 OR_SEED=11; cd /OpenROAD-flow-scripts/flow; make ABC_CLOCK_PERIOD_IN_PS=10000 DESIGN_CONFIG=/date-final-repo/scripts/gate03f/configs/CONFIG"
+  },
+  "flow": {
+    "abc_clock_period_ps": 10000,
+    "clock_period_ns": 10.0,
+    "core_aspect_ratio": 1.0,
+    "core_margin_um": 10.0,
+    "core_utilization_percent": 35,
+    "input_delay_fraction": 0.1,
+    "lec_check": 0,
+    "num_cores": 1,
+    "output_delay_fraction": 0.1,
+    "output_load_pf": 0.05,
+    "physical_seed": 11,
+    "place_density": 0.55,
+    "relevant_environment": {
+      "ABC_CLOCK_PERIOD_IN_PS": "10000",
+      "CLOCK_PERIOD": "10.0",
+      "GPL_RANDOM_SEED": "11",
+      "GRT_SEED": "11",
+      "LEC_CHECK": "0",
+      "NUM_CORES": "1",
+      "OR_SEED": "11"
+    },
+    "seed_environment_variables": [
+      "GPL_RANDOM_SEED",
+      "GRT_SEED",
+      "OR_SEED"
+    ]
+  },
+  "frozen_at_utc": "2026-08-24T10:43:21Z",
+  "frozen_before_qualification": true,
+  "gate": "DATE 2027 rigour Gate 03F",
+  "gcd_rtl": {
+    "path": "/OpenROAD-flow-scripts/flow/designs/src/gcd/gcd.v",
+    "sha256": "5009f224876d39e5e77e59ee1528cb0d2a03697251f0971b77cf3e8b0426dd3e"
+  },
+  "host_execution": {
+    "distribution": "Ubuntu 24.04.4 LTS",
+    "kernel": "Linux 6.18.33.2-microsoft-standard-WSL2 x86_64 GNU/Linux",
+    "wsl_distribution": "Ubuntu-24.04"
+  },
+  "orfs": {
+    "git_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "git_tree": "2b736d484fa7a26b38b1439f177aeb6c1f3e9d5a",
+    "identity_basis": "executing image bytes previously reconciled to this ORFS source revision; image digest is the primary execution identity"
+  },
+  "platform": {
+    "corner": "tt_025C_1v80",
+    "files": [
+      {
+        "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/config.mk",
+        "sha256": "1a36b8fbd58ee4b6b961bc14f3ca44e7b44a4ea47faf6f116f827eb5177509d5"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef",
+        "sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef",
+        "sha256": "44180aaa0068b1fcb0789f128b090304c01ad48f511d3f7afa66c90b3e176ec5"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+        "sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl",
+        "sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a"
+      }
+    ],
+    "name": "sky130hd"
+  },
+  "power": {
+    "arbitrary_toggle_rates": false,
+    "clock_periods_ns": [
+      10.0
+    ],
+    "energy_definition": "power_W * total_trace_time_ps / useful_operations = pJ per useful ECC operation",
+    "families": [
+      "conventional_secded",
+      "hsiao",
+      "bch78"
+    ],
+    "fault_schedule_seed": 7085774586302733229,
+    "field_rate_weighting": false,
+    "method": "OpenSTA post-route read_vcd on final ODB/SDC/SPEF, followed by activity propagation and report_power",
+    "payload_operations_per_trace": 100000,
+    "payload_prng": "SplitMix64",
+    "payload_seed": 104375203646206,
+    "qualification_state": "ACTIVITY_METHOD_FROZEN_PENDING_EXECUTION",
+    "trace_classes": [
+      "no_error",
+      "single_error",
+      "double_error"
+    ],
+    "trace_count": 9,
+    "trace_manifest_sha256": "5608b592deef797e5426430ce3b8ad83a0a5359ce452c87e4b54bfdaa9a9c9aa",
+    "trace_scope": "gate04_trace_top"
+  },
+  "qualification_runs": [
+    {
+      "config": "gcd.mk",
+      "design_family": "gcd",
+      "design_top": "gcd",
+      "power_family": null,
+      "run_id": "gcd-01"
+    },
+    {
+      "config": "gcd.mk",
+      "design_family": "gcd",
+      "design_top": "gcd",
+      "power_family": null,
+      "run_id": "gcd-02"
+    },
+    {
+      "config": "gcd.mk",
+      "design_family": "gcd",
+      "design_top": "gcd",
+      "power_family": null,
+      "run_id": "gcd-03"
+    },
+    {
+      "config": "secded.mk",
+      "design_family": "representative_secded_72_64",
+      "design_top": "gate04_secded_comb_72_64",
+      "power_family": "conventional_secded",
+      "run_id": "secded-01"
+    },
+    {
+      "config": "secded.mk",
+      "design_family": "representative_secded_72_64",
+      "design_top": "gate04_secded_comb_72_64",
+      "power_family": "conventional_secded",
+      "run_id": "secded-02"
+    },
+    {
+      "config": "bch.mk",
+      "design_family": "bch_78_64_t2",
+      "design_top": "gate04_bch_78_64",
+      "power_family": "bch78",
+      "run_id": "bch78-01"
+    },
+    {
+      "config": "bch.mk",
+      "design_family": "bch_78_64_t2",
+      "design_top": "gate04_bch_78_64",
+      "power_family": "bch78",
+      "run_id": "bch78-02"
+    }
+  ],
+  "repository": {
+    "git_commit": "ceae4ad9b5a3ba612596fb7ac1a93dd144114409",
+    "snapshot_file_count": 16,
+    "snapshot_files": [
+      {
+        "bytes": 12328,
+        "path": "asic/rtl/bch/bch_78_64_t2_v1.sv",
+        "sha256": "2cc8b0dd23f3cce9a091ea418a2c2d4fff5f016361228a66e6c151a7c49360e7"
+      },
+      {
+        "bytes": 1566230,
+        "path": "docs/date2027/rigour_gate_02/CANONICAL_CODE_SPECS.json",
+        "sha256": "a8740b30d653a6e1d97b2dfdd42ad857b38bd43af4351dd7c4b4f23f7384292c"
+      },
+      {
+        "bytes": 15112,
+        "path": "scripts/gate03f/analyze_qualification.py",
+        "sha256": "7a4e938ef5be4e48d15153ff9c47af0bcba08190d93564b03548c666e3e4f9c0"
+      },
+      {
+        "bytes": 404,
+        "path": "scripts/gate03f/configs/bch.mk",
+        "sha256": "f3eaeab349ee6a694ddf017939bf811847d03cc44051d26f63eb38011936528a"
+      },
+      {
+        "bytes": 361,
+        "path": "scripts/gate03f/configs/ecc.sdc",
+        "sha256": "7d8c4f563ace74fa762c1a8df4593a68aa0ca285519962c8121504333ec8fb09"
+      },
+      {
+        "bytes": 421,
+        "path": "scripts/gate03f/configs/gcd.mk",
+        "sha256": "0d2133424aef47953b1224f62f3e12498510550f03f4c6b43a32809022eaf486"
+      },
+      {
+        "bytes": 351,
+        "path": "scripts/gate03f/configs/gcd.sdc",
+        "sha256": "36b996eab32fcbc177425befbc41e5191a0e931906a3b6bb7913a616573aa680"
+      },
+      {
+        "bytes": 432,
+        "path": "scripts/gate03f/configs/secded.mk",
+        "sha256": "1736a717940ea9f6966e03bf0973c208a87fb473a09d5ad1ab93659b481e8f3d"
+      },
+      {
+        "bytes": 5196,
+        "path": "scripts/gate03f/contract_v1.json",
+        "sha256": "b9860d076b68d68f45051235ba3a75ce29476285ddffe8b8cf8db12a8beb870f"
+      },
+      {
+        "bytes": 863,
+        "path": "scripts/gate03f/power.tcl",
+        "sha256": "7ed38fa89c55363736da07c74da79032476e299a93408b0edf30b904931d7461"
+      },
+      {
+        "bytes": 12917,
+        "path": "scripts/gate03f/prepare_environment.py",
+        "sha256": "00b707f41aa651832cc42cee7f0ae2820a8dc2c04b6f8540c96f1a94acaa701d"
+      },
+      {
+        "bytes": 2051,
+        "path": "scripts/gate03f/run_matrix.py",
+        "sha256": "155335f881f3c6186ce2cc08dd05d4b5ecacf590a0df4b9c6b0bcae708d00f69"
+      },
+      {
+        "bytes": 10279,
+        "path": "scripts/gate03f/run_qualification.py",
+        "sha256": "7f0eb8ec8297ec6db8fb8ec358e477d46585a6d3c75e07e1bb33aebcba2ac7c1"
+      },
+      {
+        "bytes": 4916,
+        "path": "scripts/gate03r/rtl/secded_characterization_tops.sv",
+        "sha256": "560bc8092ba759f7dd3412a106d86a30a7498d88285298c721be2d5ef4dc440b"
+      },
+      {
+        "bytes": 8143,
+        "path": "scripts/gate04/generate_traces.py",
+        "sha256": "0ee42f27fa79ddfd9a1f7cb3055c94810461eb84f3846d83c2b2487985c10b6f"
+      },
+      {
+        "bytes": 10836,
+        "path": "scripts/gate04/rtl/gate04_boundaries.sv",
+        "sha256": "7de8e8d2933cdf17740ec5ec6f45a3654d5d54d9e419ed1c628ab29ca03308f8"
+      }
+    ],
+    "worktree_status_sha256": "274f986e9b9f792d49af087ea8e696c16ee0d4c8e22354fe04dec07df9f59004"
+  },
+  "schema_version": 1,
+  "seed_control": {
+    "available_variables": [
+      "GPL_RANDOM_SEED",
+      "GRT_SEED",
+      "OR_SEED"
+    ],
+    "fixed_seed": 11,
+    "source_files": [
+      {
+        "path": "/OpenROAD-flow-scripts/flow/scripts/global_place.tcl",
+        "sha256": "05a7a124580f8a023113ad1f4d56c15e61c3640142f4581c27d5ebaa6aa59e33"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/scripts/global_place_skip_io.tcl",
+        "sha256": "d8d7cfeea598ef6f7f3a0e3c575f226f1c6f46c7bc73240b5cc23377d371ff22"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/scripts/global_route.tcl",
+        "sha256": "db46daed96b8855d87396022412246b002d62fceab0e7c891822400d90dddb04"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/scripts/detail_route.tcl",
+        "sha256": "e4041889c5949b6ea62f6e0605588c8bcdc55ea62bf9b71c51474bfd5d560952"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/scripts/variables.json",
+        "sha256": "73356680c17b7e352f7b1a18062f650be0ecf01902ca9bde3eb9f19c059a6dc1"
+      },
+      {
+        "path": "/OpenROAD-flow-scripts/flow/scripts/variables.yaml",
+        "sha256": "0b7c9629c8ef8cd1056150c4f4ee4e8759cbd0b63d6c181f253e662ba487a842"
+      }
+    ]
+  },
+  "state": "DATE_FINAL_PHYSICAL_ENVIRONMENT_FROZEN",
+  "statistics": {
+    "area_cell_utilization_wirelength_max_noise_fraction": 0.01,
+    "coefficient_of_variation": "sample_standard_deviation / absolute_mean; null only when mean is zero",
+    "interpretation_policy": "A comparative ECC effect will be interpreted quantitatively only when its magnitude is at least 5\u00d7 the measured reproducibility noise for that metric.",
+    "maximum_relative_run_to_run_difference": "(max-min)/max(abs(max),abs(min)); exactly zero when max=min=0",
+    "noise_magnitude": "observed max-min range in the metric's own units",
+    "power_max_noise_fraction": 0.02,
+    "standard_deviation": "sample, denominator n-1",
+    "timing_fmax_max_noise_fraction": 0.02,
+    "zero_noise_policy": "report zero observed variation; any future quantitatively interpreted effect must still be nonzero"
+  },
+  "tools": {
+    "klayout_version": "KLayout 0.30.7",
+    "openroad_binary_sha256": "2fc67d3a82df36014b615e710ce2e68600b592b27b051e4533c30248a2e2eb91",
+    "openroad_git_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36",
+    "openroad_version": "26Q3-1080-gab6fd26351 ",
+    "yosys_version": "Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)"
+  }
+}

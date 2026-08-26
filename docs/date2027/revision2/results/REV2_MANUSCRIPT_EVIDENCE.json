@@ -1,0 +1,1786 @@
+{
+  "all_final_drc_clean": true,
+  "all_run_count": 20,
+  "architectures": {
+    "bch78": {
+      "hold_clean_count": 5,
+      "implementation_id": "shortened-bch-78-64-t2-v1-rtl-syndrome-chien-v1",
+      "metrics": {
+        "achievable_no_error_energy_pj_per_operation": {
+          "count": 0,
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "range": null,
+          "sample_standard_deviation": null,
+          "values_by_seed": {}
+        },
+        "cell_count": {
+          "count": 5,
+          "maximum": 7168.0,
+          "mean": 7132.6,
+          "median": 7129.0,
+          "minimum": 7095.0,
+          "range": 73.0,
+          "sample_standard_deviation": 26.36854186336438,
+          "values_by_seed": {
+            "11": 7129.0,
+            "13": 7168.0,
+            "17": 7095.0,
+            "19": 7129.0,
+            "23": 7142.0
+          }
+        },
+        "clock_buffer_count": {
+          "count": 5,
+          "maximum": 54.0,
+          "mean": 49.6,
+          "median": 49.0,
+          "minimum": 47.0,
+          "range": 7.0,
+          "sample_standard_deviation": 2.701851217221259,
+          "values_by_seed": {
+            "11": 54.0,
+            "13": 50.0,
+            "17": 47.0,
+            "19": 49.0,
+            "23": 48.0
+          }
+        },
+        "congestion_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "detailed_route_wirelength_um": {
+          "count": 5,
+          "maximum": 191875.0,
+          "mean": 185035.2,
+          "median": 183332.0,
+          "minimum": 179964.0,
+          "range": 11911.0,
+          "sample_standard_deviation": 4518.832448763729,
+          "values_by_seed": {
+            "11": 183332.0,
+            "13": 191875.0,
+            "17": 183231.0,
+            "19": 179964.0,
+            "23": 186774.0
+          }
+        },
+        "final_drc_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "global_route_wirelength_um": {
+          "count": 5,
+          "maximum": 274192.0,
+          "mean": 266651.6,
+          "median": 265663.0,
+          "minimum": 259433.0,
+          "range": 14759.0,
+          "sample_standard_deviation": 5361.069417569595,
+          "values_by_seed": {
+            "11": 265663.0,
+            "13": 274192.0,
+            "17": 265436.0,
+            "19": 259433.0,
+            "23": 268534.0
+          }
+        },
+        "hold_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "internal_power_w": {
+          "count": 0,
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "range": null,
+          "sample_standard_deviation": null,
+          "values_by_seed": {}
+        },
+        "leakage_power_w": {
+          "count": 0,
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "range": null,
+          "sample_standard_deviation": null,
+          "values_by_seed": {}
+        },
+        "sequential_cell_count": {
+          "count": 5,
+          "maximum": 367.0,
+          "mean": 367.0,
+          "median": 367.0,
+          "minimum": 367.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 367.0,
+            "13": 367.0,
+            "17": 367.0,
+            "19": 367.0,
+            "23": 367.0
+          }
+        },
+        "setup_violation_count": {
+          "count": 5,
+          "maximum": 66.0,
+          "mean": 66.0,
+          "median": 66.0,
+          "minimum": 66.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 66.0,
+            "13": 66.0,
+            "17": 66.0,
+            "19": 66.0,
+            "23": 66.0
+          }
+        },
+        "signed_worst_setup_slack_ns": {
+          "count": 5,
+          "maximum": -4.77921,
+          "mean": -5.009228,
+          "median": -5.1463,
+          "minimum": -5.17499,
+          "range": 0.39578000000000024,
+          "sample_standard_deviation": 0.2096328451602945,
+          "values_by_seed": {
+            "11": -4.78052,
+            "13": -5.17499,
+            "17": -4.77921,
+            "19": -5.1463,
+            "23": -5.16512
+          }
+        },
+        "slack_derived_frequency_mhz": {
+          "count": 5,
+          "maximum": 67.66261525480726,
+          "mean": 66.6361301545659,
+          "median": 66.02272502195255,
+          "minimum": 65.89790174491054,
+          "range": 1.7647135098967226,
+          "sample_standard_deviation": 0.9353892345270722,
+          "values_by_seed": {
+            "11": 67.65661830571591,
+            "13": 65.89790174491054,
+            "17": 67.66261525480726,
+            "19": 66.02272502195255,
+            "23": 65.94079044544323
+          }
+        },
+        "standard_cell_instance_area_um2": {
+          "count": 5,
+          "maximum": 57762.9,
+          "mean": 57239.659999999996,
+          "median": 57103.5,
+          "minimum": 56992.2,
+          "range": 770.7000000000044,
+          "sample_standard_deviation": 315.88550615689957,
+          "values_by_seed": {
+            "11": 57303.7,
+            "13": 57762.9,
+            "17": 57036.0,
+            "19": 57103.5,
+            "23": 56992.2
+          }
+        },
+        "switching_power_w": {
+          "count": 0,
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "range": null,
+          "sample_standard_deviation": null,
+          "values_by_seed": {}
+        },
+        "timing_repair_buffer_count": {
+          "count": 5,
+          "maximum": 1829.0,
+          "mean": 1796.6,
+          "median": 1798.0,
+          "minimum": 1766.0,
+          "range": 63.0,
+          "sample_standard_deviation": 22.722235805483578,
+          "values_by_seed": {
+            "11": 1789.0,
+            "13": 1829.0,
+            "17": 1766.0,
+            "19": 1798.0,
+            "23": 1801.0
+          }
+        },
+        "tns_ns": {
+          "count": 5,
+          "maximum": -309.445,
+          "mean": -325.31219999999996,
+          "median": -334.126,
+          "minimum": -336.395,
+          "range": 26.94999999999999,
+          "sample_standard_deviation": 13.890406822696008,
+          "values_by_seed": {
+            "11": -309.445,
+            "13": -336.395,
+            "17": -310.82,
+            "19": -334.126,
+            "23": -335.775
+          }
+        },
+        "total_power_w": {
+          "count": 0,
+          "maximum": null,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "range": null,
+          "sample_standard_deviation": null,
+          "values_by_seed": {}
+        },
+        "utilization_percent": {
+          "count": 5,
+          "maximum": 54.7951,
+          "mean": 54.298739999999995,
+          "median": 54.169599999999996,
+          "minimum": 54.064,
+          "range": 0.7310999999999979,
+          "sample_standard_deviation": 0.2996609467381438,
+          "values_by_seed": {
+            "11": 54.359500000000004,
+            "13": 54.7951,
+            "17": 54.10549999999999,
+            "19": 54.169599999999996,
+            "23": 54.064
+          }
+        },
+        "via_count": {
+          "count": 5,
+          "maximum": 36370.0,
+          "mean": 36085.0,
+          "median": 36034.0,
+          "minimum": 35942.0,
+          "range": 428.0,
+          "sample_standard_deviation": 169.24538398432023,
+          "values_by_seed": {
+            "11": 36034.0,
+            "13": 36095.0,
+            "17": 35984.0,
+            "19": 36370.0,
+            "23": 35942.0
+          }
+        },
+        "wns_ns": {
+          "count": 5,
+          "maximum": -4.77921,
+          "mean": -5.009228,
+          "median": -5.1463,
+          "minimum": -5.17499,
+          "range": 0.39578000000000024,
+          "sample_standard_deviation": 0.2096328451602945,
+          "values_by_seed": {
+            "11": -4.78052,
+            "13": -5.17499,
+            "17": -4.77921,
+            "19": -5.1463,
+            "23": -5.16512
+          }
+        },
+        "worst_hold_slack_ns": {
+          "count": 5,
+          "maximum": 0.440591,
+          "mean": 0.43762239999999997,
+          "median": 0.437918,
+          "minimum": 0.434053,
+          "range": 0.006537999999999988,
+          "sample_standard_deviation": 0.002448969844648968,
+          "values_by_seed": {
+            "11": 0.437918,
+            "13": 0.438848,
+            "17": 0.436702,
+            "19": 0.434053,
+            "23": 0.440591
+          }
+        }
+      },
+      "power_result_count": 0,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "timing_feasible_count": 0,
+      "valid_route_count": 5
+    },
+    "hsiao_algorithmic": {
+      "hold_clean_count": 5,
+      "implementation_id": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "metrics": {
+        "achievable_no_error_energy_pj_per_operation": {
+          "count": 5,
+          "maximum": 150.77111060360002,
+          "mean": 149.56895097903796,
+          "median": 149.09113472140987,
+          "minimum": 148.87430114482032,
+          "range": 1.8968094587796998,
+          "sample_standard_deviation": 0.8121844369528156,
+          "values_by_seed": {
+            "11": 150.04507206010533,
+            "13": 148.87430114482032,
+            "17": 149.06313636525422,
+            "19": 150.77111060360002,
+            "23": 149.09113472140987
+          }
+        },
+        "cell_count": {
+          "count": 5,
+          "maximum": 2177.0,
+          "mean": 2175.4,
+          "median": 2175.0,
+          "minimum": 2173.0,
+          "range": 4.0,
+          "sample_standard_deviation": 1.6733200530681511,
+          "values_by_seed": {
+            "11": 2177.0,
+            "13": 2175.0,
+            "17": 2173.0,
+            "19": 2177.0,
+            "23": 2175.0
+          }
+        },
+        "clock_buffer_count": {
+          "count": 5,
+          "maximum": 55.0,
+          "mean": 53.6,
+          "median": 54.0,
+          "minimum": 51.0,
+          "range": 4.0,
+          "sample_standard_deviation": 1.51657508881031,
+          "values_by_seed": {
+            "11": 51.0,
+            "13": 55.0,
+            "17": 54.0,
+            "19": 54.0,
+            "23": 54.0
+          }
+        },
+        "congestion_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "detailed_route_wirelength_um": {
+          "count": 5,
+          "maximum": 50142.0,
+          "mean": 49810.4,
+          "median": 49791.0,
+          "minimum": 49599.0,
+          "range": 543.0,
+          "sample_standard_deviation": 224.1669021064439,
+          "values_by_seed": {
+            "11": 49903.0,
+            "13": 50142.0,
+            "17": 49599.0,
+            "19": 49617.0,
+            "23": 49791.0
+          }
+        },
+        "final_drc_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "global_route_wirelength_um": {
+          "count": 5,
+          "maximum": 71442.0,
+          "mean": 71127.6,
+          "median": 71242.0,
+          "minimum": 70773.0,
+          "range": 669.0,
+          "sample_standard_deviation": 269.5705844486746,
+          "values_by_seed": {
+            "11": 71249.0,
+            "13": 71242.0,
+            "17": 70932.0,
+            "19": 71442.0,
+            "23": 70773.0
+          }
+        },
+        "hold_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "internal_power_w": {
+          "count": 5,
+          "maximum": 0.007042227312922,
+          "mean": 0.006974504236131799,
+          "median": 0.006961538922042,
+          "minimum": 0.006907750386745,
+          "range": 0.00013447692617700024,
+          "sample_standard_deviation": 5.791338964725994e-05,
+          "values_by_seed": {
+            "11": 0.007042227312922,
+            "13": 0.006961538922042,
+            "17": 0.006907750386745,
+            "19": 0.007025962695479,
+            "23": 0.006935041863471
+          }
+        },
+        "leakage_power_w": {
+          "count": 5,
+          "maximum": 7.510577937353e-09,
+          "mean": 7.4715012843284e-09,
+          "median": 7.45885042619e-09,
+          "minimum": 7.448124783593e-09,
+          "range": 6.245315375999962e-11,
+          "sample_standard_deviation": 2.527558092320517e-11,
+          "values_by_seed": {
+            "11": 7.510577937353e-09,
+            "13": 7.45885042619e-09,
+            "17": 7.448124783593e-09,
+            "19": 7.482571895423e-09,
+            "23": 7.457381379083e-09
+          }
+        },
+        "sequential_cell_count": {
+          "count": 5,
+          "maximum": 349.0,
+          "mean": 349.0,
+          "median": 349.0,
+          "minimum": 349.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 349.0,
+            "13": 349.0,
+            "17": 349.0,
+            "19": 349.0,
+            "23": 349.0
+          }
+        },
+        "setup_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "signed_worst_setup_slack_ns": {
+          "count": 5,
+          "maximum": 5.3622,
+          "mean": 5.302136,
+          "median": 5.33407,
+          "minimum": 5.1695,
+          "range": 0.19269999999999943,
+          "sample_standard_deviation": 0.08054657491166194,
+          "values_by_seed": {
+            "11": 5.28434,
+            "13": 5.36057,
+            "17": 5.1695,
+            "19": 5.33407,
+            "23": 5.3622
+          }
+        },
+        "slack_derived_frequency_mhz": {
+          "count": 5,
+          "maximum": 215.61947475095948,
+          "mean": 212.91200827244285,
+          "median": 214.31954615692905,
+          "minimum": 207.01790704895976,
+          "range": 8.601567701999727,
+          "sample_standard_deviation": 3.595303334509482,
+          "values_by_seed": {
+            "11": 212.0593935949581,
+            "13": 215.54371981040774,
+            "17": 207.01790704895976,
+            "19": 214.31954615692905,
+            "23": 215.61947475095948
+          }
+        },
+        "standard_cell_instance_area_um2": {
+          "count": 5,
+          "maximum": 19257.2,
+          "mean": 19190.64,
+          "median": 19179.6,
+          "minimum": 19135.9,
+          "range": 121.29999999999927,
+          "sample_standard_deviation": 51.13641559593367,
+          "values_by_seed": {
+            "11": 19257.2,
+            "13": 19179.6,
+            "17": 19135.9,
+            "19": 19228.4,
+            "23": 19152.1
+          }
+        },
+        "switching_power_w": {
+          "count": 5,
+          "maximum": 0.008049633353949,
+          "mean": 0.0079808879643678,
+          "median": 0.00797257386148,
+          "minimum": 0.007924395613372,
+          "range": 0.00012523774057700103,
+          "sample_standard_deviation": 4.651015104766631e-05,
+          "values_by_seed": {
+            "11": 0.007960772141814,
+            "13": 0.007924395613372,
+            "17": 0.007997064851224,
+            "19": 0.008049633353949,
+            "23": 0.00797257386148
+          }
+        },
+        "timing_repair_buffer_count": {
+          "count": 5,
+          "maximum": 356.0,
+          "mean": 355.4,
+          "median": 356.0,
+          "minimum": 354.0,
+          "range": 2.0,
+          "sample_standard_deviation": 0.8944271909999159,
+          "values_by_seed": {
+            "11": 356.0,
+            "13": 354.0,
+            "17": 355.0,
+            "19": 356.0,
+            "23": 356.0
+          }
+        },
+        "tns_ns": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "total_power_w": {
+          "count": 5,
+          "maximum": 0.01507560350001,
+          "mean": 0.014955399557948001,
+          "median": 0.01490762270987,
+          "minimum": 0.01488594152033,
+          "range": 0.000189661979680001,
+          "sample_standard_deviation": 8.121032266301513e-05,
+          "values_by_seed": {
+            "11": 0.01500300690532,
+            "13": 0.01488594152033,
+            "17": 0.01490482315421,
+            "19": 0.01507560350001,
+            "23": 0.01490762270987
+          }
+        },
+        "utilization_percent": {
+          "count": 5,
+          "maximum": 49.4824,
+          "mean": 49.31134,
+          "median": 49.283100000000005,
+          "minimum": 49.1705,
+          "range": 0.3119000000000014,
+          "sample_standard_deviation": 0.13145768520706605,
+          "values_by_seed": {
+            "11": 49.4824,
+            "13": 49.283100000000005,
+            "17": 49.1705,
+            "19": 49.4084,
+            "23": 49.2123
+          }
+        },
+        "via_count": {
+          "count": 5,
+          "maximum": 9763.0,
+          "mean": 9718.0,
+          "median": 9734.0,
+          "minimum": 9611.0,
+          "range": 152.0,
+          "sample_standard_deviation": 62.120849961989414,
+          "values_by_seed": {
+            "11": 9723.0,
+            "13": 9611.0,
+            "17": 9759.0,
+            "19": 9734.0,
+            "23": 9763.0
+          }
+        },
+        "wns_ns": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "worst_hold_slack_ns": {
+          "count": 5,
+          "maximum": 0.446892,
+          "mean": 0.42810819999999994,
+          "median": 0.425395,
+          "minimum": 0.413024,
+          "range": 0.03386800000000001,
+          "sample_standard_deviation": 0.012393904356577879,
+          "values_by_seed": {
+            "11": 0.425395,
+            "13": 0.446892,
+            "17": 0.431236,
+            "19": 0.413024,
+            "23": 0.423994
+          }
+        }
+      },
+      "power_result_count": 5,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "timing_feasible_count": 5,
+      "valid_route_count": 5
+    },
+    "secded_comb": {
+      "hold_clean_count": 5,
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "metrics": {
+        "achievable_no_error_energy_pj_per_operation": {
+          "count": 5,
+          "maximum": 146.49493452254939,
+          "mean": 145.76888107636458,
+          "median": 145.76251578139872,
+          "minimum": 144.8338756933754,
+          "range": 1.6610588291739816,
+          "sample_standard_deviation": 0.6085592085433615,
+          "values_by_seed": {
+            "11": 145.76251578139872,
+            "13": 146.0450141653124,
+            "17": 146.49493452254939,
+            "19": 145.70806521918695,
+            "23": 144.8338756933754
+          }
+        },
+        "cell_count": {
+          "count": 5,
+          "maximum": 2078.0,
+          "mean": 2075.2,
+          "median": 2074.0,
+          "minimum": 2074.0,
+          "range": 4.0,
+          "sample_standard_deviation": 1.7888543819998317,
+          "values_by_seed": {
+            "11": 2074.0,
+            "13": 2076.0,
+            "17": 2078.0,
+            "19": 2074.0,
+            "23": 2074.0
+          }
+        },
+        "clock_buffer_count": {
+          "count": 5,
+          "maximum": 59.0,
+          "mean": 56.2,
+          "median": 56.0,
+          "minimum": 55.0,
+          "range": 4.0,
+          "sample_standard_deviation": 1.6431676725154984,
+          "values_by_seed": {
+            "11": 56.0,
+            "13": 59.0,
+            "17": 55.0,
+            "19": 55.0,
+            "23": 56.0
+          }
+        },
+        "congestion_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "detailed_route_wirelength_um": {
+          "count": 5,
+          "maximum": 45257.0,
+          "mean": 44917.0,
+          "median": 44822.0,
+          "minimum": 44609.0,
+          "range": 648.0,
+          "sample_standard_deviation": 309.5779384904551,
+          "values_by_seed": {
+            "11": 44609.0,
+            "13": 45257.0,
+            "17": 45233.0,
+            "19": 44822.0,
+            "23": 44664.0
+          }
+        },
+        "final_drc_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "global_route_wirelength_um": {
+          "count": 5,
+          "maximum": 66295.0,
+          "mean": 65662.6,
+          "median": 65584.0,
+          "minimum": 65287.0,
+          "range": 1008.0,
+          "sample_standard_deviation": 385.8669459800878,
+          "values_by_seed": {
+            "11": 65287.0,
+            "13": 66295.0,
+            "17": 65584.0,
+            "19": 65701.0,
+            "23": 65446.0
+          }
+        },
+        "hold_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "internal_power_w": {
+          "count": 5,
+          "maximum": 0.006813587620854,
+          "mean": 0.0067533181980252,
+          "median": 0.006754889618605,
+          "minimum": 0.006703948136419,
+          "range": 0.00010963948443499984,
+          "sample_standard_deviation": 4.81558362897368e-05,
+          "values_by_seed": {
+            "11": 0.006786616984755,
+            "13": 0.006703948136419,
+            "17": 0.006813587620854,
+            "19": 0.006754889618605,
+            "23": 0.006707548629493
+          }
+        },
+        "leakage_power_w": {
+          "count": 5,
+          "maximum": 7.337091378901e-09,
+          "mean": 7.3002572875682e-09,
+          "median": 7.300083204598e-09,
+          "minimum": 7.270191115794e-09,
+          "range": 6.690026310699974e-11,
+          "sample_standard_deviation": 2.4685374962692894e-11,
+          "values_by_seed": {
+            "11": 7.300083204598e-09,
+            "13": 7.288157632956e-09,
+            "17": 7.337091378901e-09,
+            "19": 7.305763105592e-09,
+            "23": 7.270191115794e-09
+          }
+        },
+        "sequential_cell_count": {
+          "count": 5,
+          "maximum": 349.0,
+          "mean": 349.0,
+          "median": 349.0,
+          "minimum": 349.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 349.0,
+            "13": 349.0,
+            "17": 349.0,
+            "19": 349.0,
+            "23": 349.0
+          }
+        },
+        "setup_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "signed_worst_setup_slack_ns": {
+          "count": 5,
+          "maximum": 5.91939,
+          "mean": 5.810264,
+          "median": 5.83403,
+          "minimum": 5.56826,
+          "range": 0.3511299999999995,
+          "sample_standard_deviation": 0.14090495175826837,
+          "values_by_seed": {
+            "11": 5.89964,
+            "13": 5.56826,
+            "17": 5.83,
+            "19": 5.91939,
+            "23": 5.83403
+          }
+        },
+        "slack_derived_frequency_mhz": {
+          "count": 5,
+          "maximum": 245.06140013380352,
+          "mean": 238.88714393052732,
+          "median": 240.0401347105236,
+          "minimum": 225.6450062503667,
+          "range": 19.416393883436825,
+          "sample_standard_deviation": 7.755516508753182,
+          "values_by_seed": {
+            "11": 243.8810250807246,
+            "13": 225.6450062503667,
+            "17": 239.80815347721824,
+            "19": 245.06140013380352,
+            "23": 240.0401347105236
+          }
+        },
+        "standard_cell_instance_area_um2": {
+          "count": 5,
+          "maximum": 18728.0,
+          "mean": 18649.64,
+          "median": 18644.1,
+          "minimum": 18594.1,
+          "range": 133.90000000000146,
+          "sample_standard_deviation": 49.54717953627699,
+          "values_by_seed": {
+            "11": 18644.1,
+            "13": 18626.6,
+            "17": 18728.0,
+            "19": 18655.4,
+            "23": 18594.1
+          }
+        },
+        "switching_power_w": {
+          "count": 5,
+          "maximum": 0.007899085991085,
+          "mean": 0.0078221049159766,
+          "median": 0.007814452052116,
+          "minimum": 0.007774383760989,
+          "range": 0.00012470223009600039,
+          "sample_standard_deviation": 4.890191653200291e-05,
+          "values_by_seed": {
+            "11": 0.007788169197738,
+            "13": 0.007899085991085,
+            "17": 0.007834433577955,
+            "19": 0.007814452052116,
+            "23": 0.007774383760989
+          }
+        },
+        "timing_repair_buffer_count": {
+          "count": 5,
+          "maximum": 359.0,
+          "mean": 358.4,
+          "median": 358.0,
+          "minimum": 358.0,
+          "range": 1.0,
+          "sample_standard_deviation": 0.5477225575051661,
+          "values_by_seed": {
+            "11": 359.0,
+            "13": 358.0,
+            "17": 359.0,
+            "19": 358.0,
+            "23": 358.0
+          }
+        },
+        "tns_ns": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "total_power_w": {
+          "count": 5,
+          "maximum": 0.01464802864939,
+          "mean": 0.01457543056458,
+          "median": 0.01457479409873,
+          "minimum": 0.0144819393754,
+          "range": 0.0001660892739900003,
+          "sample_standard_deviation": 6.084983587074943e-05,
+          "values_by_seed": {
+            "11": 0.01457479409873,
+            "13": 0.01460304111242,
+            "17": 0.01464802864939,
+            "19": 0.01456934958696,
+            "23": 0.0144819393754
+          }
+        },
+        "utilization_percent": {
+          "count": 5,
+          "maximum": 49.721,
+          "mean": 49.51302,
+          "median": 49.4984,
+          "minimum": 49.365500000000004,
+          "range": 0.35549999999999216,
+          "sample_standard_deviation": 0.13153013723097548,
+          "values_by_seed": {
+            "11": 49.4984,
+            "13": 49.4519,
+            "17": 49.721,
+            "19": 49.528299999999994,
+            "23": 49.365500000000004
+          }
+        },
+        "via_count": {
+          "count": 5,
+          "maximum": 9258.0,
+          "mean": 9162.0,
+          "median": 9158.0,
+          "minimum": 9042.0,
+          "range": 216.0,
+          "sample_standard_deviation": 82.99397568498571,
+          "values_by_seed": {
+            "11": 9134.0,
+            "13": 9218.0,
+            "17": 9258.0,
+            "19": 9042.0,
+            "23": 9158.0
+          }
+        },
+        "wns_ns": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "worst_hold_slack_ns": {
+          "count": 5,
+          "maximum": 0.447184,
+          "mean": 0.4392628,
+          "median": 0.438047,
+          "minimum": 0.433125,
+          "range": 0.014059000000000044,
+          "sample_standard_deviation": 0.005300714829152776,
+          "values_by_seed": {
+            "11": 0.447184,
+            "13": 0.441252,
+            "17": 0.436706,
+            "19": 0.438047,
+            "23": 0.433125
+          }
+        }
+      },
+      "power_result_count": 5,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "timing_feasible_count": 5,
+      "valid_route_count": 5
+    },
+    "secded_pipe": {
+      "hold_clean_count": 5,
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "metrics": {
+        "achievable_no_error_energy_pj_per_operation": {
+          "count": 5,
+          "maximum": 112.21881788131216,
+          "mean": 111.62919634507416,
+          "median": 111.85219403079297,
+          "minimum": 110.75615059770901,
+          "range": 1.4626672836031531,
+          "sample_standard_deviation": 0.5993640739983799,
+          "values_by_seed": {
+            "11": 110.75615059770901,
+            "13": 111.28824044857373,
+            "17": 112.03057876698293,
+            "19": 111.85219403079297,
+            "23": 112.21881788131216
+          }
+        },
+        "cell_count": {
+          "count": 5,
+          "maximum": 2664.0,
+          "mean": 2661.6,
+          "median": 2661.0,
+          "minimum": 2660.0,
+          "range": 4.0,
+          "sample_standard_deviation": 1.51657508881031,
+          "values_by_seed": {
+            "11": 2660.0,
+            "13": 2662.0,
+            "17": 2661.0,
+            "19": 2661.0,
+            "23": 2664.0
+          }
+        },
+        "clock_buffer_count": {
+          "count": 5,
+          "maximum": 99.0,
+          "mean": 97.0,
+          "median": 97.0,
+          "minimum": 95.0,
+          "range": 4.0,
+          "sample_standard_deviation": 1.5811388300841898,
+          "values_by_seed": {
+            "11": 99.0,
+            "13": 97.0,
+            "17": 96.0,
+            "19": 98.0,
+            "23": 95.0
+          }
+        },
+        "congestion_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "detailed_route_wirelength_um": {
+          "count": 5,
+          "maximum": 50101.0,
+          "mean": 49964.2,
+          "median": 49992.0,
+          "minimum": 49703.0,
+          "range": 398.0,
+          "sample_standard_deviation": 157.13274642798044,
+          "values_by_seed": {
+            "11": 49992.0,
+            "13": 50069.0,
+            "17": 50101.0,
+            "19": 49956.0,
+            "23": 49703.0
+          }
+        },
+        "final_drc_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "global_route_wirelength_um": {
+          "count": 5,
+          "maximum": 73029.0,
+          "mean": 72804.2,
+          "median": 72808.0,
+          "minimum": 72436.0,
+          "range": 593.0,
+          "sample_standard_deviation": 232.30626336799446,
+          "values_by_seed": {
+            "11": 73029.0,
+            "13": 72808.0,
+            "17": 72974.0,
+            "19": 72436.0,
+            "23": 72774.0
+          }
+        },
+        "hold_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "internal_power_w": {
+          "count": 5,
+          "maximum": 0.007258250378072,
+          "mean": 0.007210383657366,
+          "median": 0.007218887563795,
+          "minimum": 0.007129232399166,
+          "range": 0.00012901797890600003,
+          "sample_standard_deviation": 5.158988971659501e-05,
+          "values_by_seed": {
+            "11": 0.007129232399166,
+            "13": 0.00719641149044,
+            "17": 0.007249136455357,
+            "19": 0.007258250378072,
+            "23": 0.007218887563795
+          }
+        },
+        "leakage_power_w": {
+          "count": 5,
+          "maximum": 9.837583192507e-09,
+          "mean": 9.813436285810602e-09,
+          "median": 9.822707980334e-09,
+          "minimum": 9.768537090338e-09,
+          "range": 6.904610216900021e-11,
+          "sample_standard_deviation": 2.8959304152348456e-11,
+          "values_by_seed": {
+            "11": 9.768537090338e-09,
+            "13": 9.801802924869e-09,
+            "17": 9.837583192507e-09,
+            "19": 9.836550241005e-09,
+            "23": 9.822707980334e-09
+          }
+        },
+        "sequential_cell_count": {
+          "count": 5,
+          "maximum": 633.0,
+          "mean": 633.0,
+          "median": 633.0,
+          "minimum": 633.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 633.0,
+            "13": 633.0,
+            "17": 633.0,
+            "19": 633.0,
+            "23": 633.0
+          }
+        },
+        "setup_violation_count": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "signed_worst_setup_slack_ns": {
+          "count": 5,
+          "maximum": 7.18982,
+          "mean": 7.142449999999999,
+          "median": 7.12868,
+          "minimum": 7.12265,
+          "range": 0.06716999999999995,
+          "sample_standard_deviation": 0.028233488980287158,
+          "values_by_seed": {
+            "11": 7.18982,
+            "13": 7.14712,
+            "17": 7.12398,
+            "19": 7.12868,
+            "23": 7.12265
+          }
+        },
+        "slack_derived_frequency_mhz": {
+          "count": 5,
+          "maximum": 355.84909151726936,
+          "mean": 349.9777367952565,
+          "median": 348.27187495646604,
+          "minimum": 347.5420091403549,
+          "range": 8.30708237691448,
+          "sample_standard_deviation": 3.492438089391433,
+          "values_by_seed": {
+            "11": 355.84909151726936,
+            "13": 350.5229802865876,
+            "17": 347.7027280756045,
+            "19": 348.27187495646604,
+            "23": 347.5420091403549
+          }
+        },
+        "standard_cell_instance_area_um2": {
+          "count": 5,
+          "maximum": 25639.6,
+          "mean": 25587.54,
+          "median": 25614.6,
+          "minimum": 25486.9,
+          "range": 152.6999999999971,
+          "sample_standard_deviation": 62.17180229010448,
+          "values_by_seed": {
+            "11": 25486.9,
+            "13": 25569.5,
+            "17": 25627.1,
+            "19": 25639.6,
+            "23": 25614.6
+          }
+        },
+        "switching_power_w": {
+          "count": 5,
+          "maximum": 0.004001861438155,
+          "mean": 0.0039514098316432,
+          "median": 0.00394526636228,
+          "minimum": 0.003925839904696,
+          "range": 7.602153345899997e-05,
+          "sample_standard_deviation": 3.018130337387543e-05,
+          "values_by_seed": {
+            "11": 0.00394526636228,
+            "13": 0.003931290004402,
+            "17": 0.003952791448683,
+            "19": 0.003925839904696,
+            "23": 0.004001861438155
+          }
+        },
+        "timing_repair_buffer_count": {
+          "count": 5,
+          "maximum": 353.0,
+          "mean": 353.0,
+          "median": 353.0,
+          "minimum": 353.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 353.0,
+            "13": 353.0,
+            "17": 353.0,
+            "19": 353.0,
+            "23": 353.0
+          }
+        },
+        "tns_ns": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "total_power_w": {
+          "count": 5,
+          "maximum": 0.01122075971216,
+          "mean": 0.011161803454162001,
+          "median": 0.01118410099298,
+          "minimum": 0.01107450760901,
+          "range": 0.0001462521031500002,
+          "sample_standard_deviation": 5.9930414358402025e-05,
+          "values_by_seed": {
+            "11": 0.01107450760901,
+            "13": 0.01112771127373,
+            "17": 0.01120193768293,
+            "19": 0.01118410099298,
+            "23": 0.01122075971216
+          }
+        },
+        "utilization_percent": {
+          "count": 5,
+          "maximum": 47.550799999999995,
+          "mean": 47.45426,
+          "median": 47.504400000000004,
+          "minimum": 47.267700000000005,
+          "range": 0.28309999999999036,
+          "sample_standard_deviation": 0.11525726875125664,
+          "values_by_seed": {
+            "11": 47.267700000000005,
+            "13": 47.4208,
+            "17": 47.5276,
+            "19": 47.550799999999995,
+            "23": 47.504400000000004
+          }
+        },
+        "via_count": {
+          "count": 5,
+          "maximum": 10930.0,
+          "mean": 10890.0,
+          "median": 10884.0,
+          "minimum": 10843.0,
+          "range": 87.0,
+          "sample_standard_deviation": 36.51711927302043,
+          "values_by_seed": {
+            "11": 10870.0,
+            "13": 10930.0,
+            "17": 10923.0,
+            "19": 10884.0,
+            "23": 10843.0
+          }
+        },
+        "wns_ns": {
+          "count": 5,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "range": 0.0,
+          "sample_standard_deviation": 0.0,
+          "values_by_seed": {
+            "11": 0.0,
+            "13": 0.0,
+            "17": 0.0,
+            "19": 0.0,
+            "23": 0.0
+          }
+        },
+        "worst_hold_slack_ns": {
+          "count": 5,
+          "maximum": 0.334445,
+          "mean": 0.3273062,
+          "median": 0.325726,
+          "minimum": 0.324849,
+          "range": 0.009595999999999993,
+          "sample_standard_deviation": 0.00402708116382076,
+          "values_by_seed": {
+            "11": 0.325726,
+            "13": 0.325225,
+            "17": 0.326286,
+            "19": 0.324849,
+            "23": 0.334445
+          }
+        }
+      },
+      "power_result_count": 5,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "timing_feasible_count": 5,
+      "valid_route_count": 5
+    }
+  },
+  "bch_10ns_feasibility": "0/5",
+  "hsiao_10ns_feasibility": "5/5",
+  "hsiao_qualification_verdict": "HSIAO_EXACT_IDENTITY_PASS",
+  "schema_version": 1,
+  "secded_paired": {
+    "dominance": {
+      "aggregate_mean": {
+        "points": {
+          "secded_comb": {
+            "area": 18649.64,
+            "energy": 145.76888107636458,
+            "frequency": 238.88714393052732,
+            "latency": 1.0
+          },
+          "secded_pipe": {
+            "area": 25587.54,
+            "energy": 111.62919634507416,
+            "frequency": 349.9777367952565,
+            "latency": 3.0
+          }
+        },
+        "relation": "NON_DOMINATED"
+      },
+      "objectives": {
+        "maximize": [
+          "slack_derived_frequency"
+        ],
+        "minimize": [
+          "area",
+          "latency",
+          "achievable_energy"
+        ]
+      },
+      "per_seed": [
+        {
+          "combinational": {
+            "area": 18644.1,
+            "energy": 145.76251578139872,
+            "frequency": 243.8810250807246,
+            "latency": 1.0
+          },
+          "pipelined": {
+            "area": 25486.9,
+            "energy": 110.75615059770901,
+            "frequency": 355.84909151726936,
+            "latency": 3.0
+          },
+          "relation": "NON_DOMINATED",
+          "seed": 11
+        },
+        {
+          "combinational": {
+            "area": 18626.6,
+            "energy": 146.0450141653124,
+            "frequency": 225.6450062503667,
+            "latency": 1.0
+          },
+          "pipelined": {
+            "area": 25569.5,
+            "energy": 111.28824044857373,
+            "frequency": 350.5229802865876,
+            "latency": 3.0
+          },
+          "relation": "NON_DOMINATED",
+          "seed": 13
+        },
+        {
+          "combinational": {
+            "area": 18728.0,
+            "energy": 146.49493452254939,
+            "frequency": 239.80815347721824,
+            "latency": 1.0
+          },
+          "pipelined": {
+            "area": 25627.1,
+            "energy": 112.03057876698293,
+            "frequency": 347.7027280756045,
+            "latency": 3.0
+          },
+          "relation": "NON_DOMINATED",
+          "seed": 17
+        },
+        {
+          "combinational": {
+            "area": 18655.4,
+            "energy": 145.70806521918695,
+            "frequency": 245.06140013380352,
+            "latency": 1.0
+          },
+          "pipelined": {
+            "area": 25639.6,
+            "energy": 111.85219403079297,
+            "frequency": 348.27187495646604,
+            "latency": 3.0
+          },
+          "relation": "NON_DOMINATED",
+          "seed": 19
+        },
+        {
+          "combinational": {
+            "area": 18594.1,
+            "energy": 144.8338756933754,
+            "frequency": 240.0401347105236,
+            "latency": 1.0
+          },
+          "pipelined": {
+            "area": 25614.6,
+            "energy": 112.21881788131216,
+            "frequency": 347.5420091403549,
+            "latency": 3.0
+          },
+          "relation": "NON_DOMINATED",
+          "seed": 23
+        }
+      ],
+      "sensitivity_range": {
+        "interpretation": "no range-based dominance is claimed unless worst-case intervals are no worse in every objective",
+        "relation": "NON_DOMINATED"
+      }
+    },
+    "effects": {
+      "achievable_energy_percent": {
+        "formula": "(pipelined - combinational) / combinational * 100 percent",
+        "metric": "achievable_no_error_energy_pj_per_operation",
+        "summary": {
+          "count": 5,
+          "maximum": -22.518942930942384,
+          "mean": -23.419005222611922,
+          "median": -23.52597096131095,
+          "minimum": -24.016027025898108,
+          "range": 1.4970840949557243,
+          "sample_standard_deviation": 0.5822030551792997,
+          "values_by_seed": {
+            "11": -24.016027025898108,
+            "13": -23.79867187892941,
+            "17": -23.52597096131095,
+            "19": -23.235413315978757,
+            "23": -22.518942930942384
+          }
+        }
+      },
+      "area_percent": {
+        "formula": "(pipelined - combinational) / combinational * 100 percent",
+        "metric": "standard_cell_instance_area_um2",
+        "summary": {
+          "count": 5,
+          "maximum": 37.756600211895176,
+          "mean": 37.201863692705786,
+          "median": 37.27411336475794,
+          "minimum": 36.70222751433431,
+          "range": 1.054372697560865,
+          "sample_standard_deviation": 0.4331327677096363,
+          "values_by_seed": {
+            "11": 36.70222751433431,
+            "13": 37.27411336475794,
+            "17": 36.83842375053395,
+            "19": 37.437953622007555,
+            "23": 37.756600211895176
+          }
+        }
+      },
+      "cell_count_percent": {
+        "formula": "(pipelined - combinational) / combinational * 100 percent",
+        "metric": "cell_count",
+        "summary": {
+          "count": 5,
+          "maximum": 28.44744455159113,
+          "mean": 28.257600963139527,
+          "median": 28.254580520732887,
+          "minimum": 28.055822906641005,
+          "range": 0.3916216449501242,
+          "sample_standard_deviation": 0.1411747423960434,
+          "values_by_seed": {
+            "11": 28.254580520732887,
+            "13": 28.227360308285164,
+            "17": 28.055822906641005,
+            "19": 28.302796528447445,
+            "23": 28.44744455159113
+          }
+        }
+      },
+      "detailed_wirelength_percent": {
+        "formula": "(pipelined - combinational) / combinational * 100 percent",
+        "metric": "detailed_route_wirelength_um",
+        "summary": {
+          "count": 5,
+          "maximum": 12.067071667152367,
+          "mean": 11.239589735278788,
+          "median": 11.28201683682608,
+          "minimum": 10.632609320105177,
+          "range": 1.4344623470471909,
+          "sample_standard_deviation": 0.5764216934341716,
+          "values_by_seed": {
+            "11": 12.067071667152367,
+            "13": 10.632609320105177,
+            "17": 10.762054252426326,
+            "19": 11.454196599883986,
+            "23": 11.28201683682608
+          }
+        }
+      },
+      "slack_derived_frequency_percent": {
+        "formula": "(pipelined - combinational) / combinational * 100 percent",
+        "metric": "slack_derived_frequency_mhz",
+        "summary": {
+          "count": 5,
+          "maximum": 55.34267126552815,
+          "mean": 46.62935498217704,
+          "median": 44.992037607527074,
+          "minimum": 42.11616956661049,
+          "range": 13.226501698917666,
+          "sample_standard_deviation": 5.071721923703692,
+          "values_by_seed": {
+            "11": 45.910938089375065,
+            "13": 55.34267126552815,
+            "17": 44.992037607527074,
+            "19": 42.11616956661049,
+            "23": 44.78495838184442
+          }
+        }
+      },
+      "total_power_percent": {
+        "formula": "(pipelined - combinational) / combinational * 100 percent",
+        "metric": "total_power_w",
+        "summary": {
+          "count": 5,
+          "maximum": -22.518942930942387,
+          "mean": -23.419005222611926,
+          "median": -23.525970961310957,
+          "minimum": -24.01602702589812,
+          "range": 1.4970840949557314,
+          "sample_standard_deviation": 0.5822030551793002,
+          "values_by_seed": {
+            "11": -24.01602702589812,
+            "13": -23.798671878929408,
+            "17": -23.525970961310957,
+            "19": -23.235413315978764,
+            "23": -22.518942930942387
+          }
+        }
+      }
+    },
+    "interpretation": "matched-seed sensitivity envelope; no population inference or p-values",
+    "latency": {
+      "secded_comb_cycles": 1,
+      "secded_pipe_cycles": 3,
+      "seed_sensitive": false
+    },
+    "robustness": {
+      "area_pipe_greater_count": 5,
+      "energy_pipe_lower_count": 5,
+      "frequency_pipe_greater_count": 5,
+      "power_pipe_lower_count": 5,
+      "secded_comb_10ns_feasible_count": 5,
+      "secded_pipe_10ns_feasible_count": 5,
+      "wirelength_pipe_greater_count": 5
+    },
+    "schema_version": 1
+  },
+  "seed_set": [
+    11,
+    13,
+    17,
+    19,
+    23
+  ],
+  "source": "fresh Revision-2 routes only",
+  "timing": {
+    "fixed_implementation_optimized_at_10ns": true,
+    "formula": "1000 / (10.0 - signed_worst_setup_slack_ns)",
+    "frequency_sweep": false,
+    "metric_name": "post-route slack-derived frequency estimate"
+  },
+  "valid_route_count": 20
+}

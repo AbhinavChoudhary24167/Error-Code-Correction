@@ -1,0 +1,38 @@
+\documentclass[conference,10pt]{IEEEtran}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+\input{data/generated_claims.tex}
+
+\title{Implementation Identity Matters: Matched-Seed Post-Route Evidence for Memory ECC Hardware}
+\author{\IEEEauthorblockN{Anonymous submission}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+An error-correcting-code (ECC) label identifies coding semantics, not a unique hardware or physical realization. We present an identity-preserving evaluation method that qualifies correctness before physical measurement and applies one pinned RTL-to-route and equal-work power policy over \SeedCount\ predeclared matched seeds. For exact-equivalent combinational and pipelined SECDED (72,64), the pipeline changes area by \SecAreaEffectMean\% on average (range \SecAreaEffectMin--\SecAreaEffectMax\%), slack-derived frequency by \SecFreqEffectMean\% (\SecFreqEffectMin--\SecFreqEffectMax\%), and steady-stream energy/op by \SecEnergyEffectMean\% (from \SecEnergyEffectMin\% to \SecEnergyEffectMax\%). Area, frequency, and energy orderings occur in \AreaOrderingCount/\SeedCount, \FreqOrderingCount/\SeedCount, and \EnergyOrderingCount/\SeedCount\ matched seeds, respectively; request latency remains one versus three cycles. We also prove exact behavioral identity for an algorithmic Hsiao decoder before routing it under the same sweep; it meets the \ClockPeriodNs~ns target in \HsiaoFeasible\ runs. The evaluated shortened BCH (78,64,$t=2$) realization meets that target in \BchFeasible\ runs. These are controlled heuristic-sensitivity envelopes, not population estimates or family-wide rankings. The results show that correctness evidence, RTL identity, target feasibility, and physical variability must remain explicit when comparing ECC hardware.
+\end{abstract}
+
+\begin{IEEEkeywords}
+memory ECC, SECDED, Hsiao, BCH, physical design, seed sensitivity, energy
+\end{IEEEkeywords}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/methodology}
+\input{sections/experimental_setup}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\clearpage
+\bibliographystyle{IEEEtran}
+\bibliography{references_date2027_v2}
+\end{document}

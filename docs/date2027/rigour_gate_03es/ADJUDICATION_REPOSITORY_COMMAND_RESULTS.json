@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "scope": "post-adjudication repository verification; no physical-flow commands",
+  "commands": [
+    {
+      "command": "python -m pytest -q tests/python/test_gate03es_adjudication.py tests/python/test_gate03es_historical_bytes.py tests/python/test_gate03es_lf_scope.py",
+      "exit_status": 0,
+      "tests_passed": 6,
+      "status": "PASS"
+    },
+    {
+      "command": "make",
+      "exit_status": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "make test",
+      "exit_status": 0,
+      "tests_passed": 423,
+      "warnings": 3,
+      "pytest_duration_seconds": 521.96,
+      "status": "PASS"
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "exit_status": 0,
+      "tests_passed": 425,
+      "pytest_duration_seconds": 427.82,
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}
