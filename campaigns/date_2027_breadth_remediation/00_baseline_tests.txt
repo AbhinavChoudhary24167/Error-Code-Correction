@@ -1,0 +1,52 @@
+DATE 2027 breadth-remediation baseline test record
+==================================================
+
+Repository commit:
+  b51291442bbd04346dac939dea6ba7d532b9c5c4
+
+Branch at test execution:
+  main
+
+Working tree before test execution:
+  clean
+
+Command 1:
+  make
+
+Result:
+  exit status: 0
+  build targets completed: 5
+  test pass count: not applicable
+  test fail count: not applicable
+  test skipped count: not applicable
+
+Command 2:
+  make test
+
+Result:
+  exit status: 0
+  C++ unit executable: PASS (tests/unit/SecDaec64_test)
+  Python pass count: 484
+  Python fail count: 0
+  Python skipped count: 0
+  warnings: 3 sklearn single-label confusion-matrix warnings
+  elapsed Python time: 402.66 s
+  failures: none
+
+Command 3:
+  python3 -m pytest -q
+
+Result:
+  exit status: 0
+  pass count: 486
+  fail count: 0
+  skipped count: 0
+  elapsed time: 480.03 s
+  failures: none
+
+Test-created by-products:
+  The build regenerated PracticalSRAMSimulator.exe and the Python runs created
+  eight UUID-named runtime_ml_feature_pack directories. These exact products
+  were created by the commands above, removed after recording the results, and
+  the executable was restored to its exact HEAD bytes. The working tree was
+  clean before creation of the additive campaign branch.

@@ -1,0 +1,415 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+
+-- Running command `read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv /repo/campaigns/date_2027_breadth_remediation/formal/hsiao_structural_exact_miter.sv; prep -top breadth_hsiao_structural_exact_miter -flatten; memory_map; opt; sat -verify -prove mismatch 0 -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_syndrome'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v3_hierarchical_decoder'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/formal/hsiao_structural_exact_miter.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/formal/hsiao_structural_exact_miter.sv' to AST representation.
+Generating RTLIL representation for module `\breadth_hsiao_structural_exact_miter'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \breadth_hsiao_structural_exact_miter
+Used module:     \hsiao_secded_72_64_v3_hierarchical_decoder
+Used module:         \hsiao_secded_72_64_v1_syndrome
+Used module:     \hsiao_secded_72_64_v2_algorithmic_decoder
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \breadth_hsiao_structural_exact_miter
+Used module:     \hsiao_secded_72_64_v3_hierarchical_decoder
+Used module:         \hsiao_secded_72_64_v1_syndrome
+Used module:     \hsiao_secded_72_64_v2_algorithmic_decoder
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+Optimizing module hsiao_secded_72_64_v3_hierarchical_decoder.
+<suppressed ~4 debug messages>
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+<suppressed ~2 debug messages>
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+
+5.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module hsiao_secded_72_64_v3_hierarchical_decoder.
+Deleting now unused module hsiao_secded_72_64_v2_algorithmic_decoder.
+Deleting now unused module hsiao_secded_72_64_v1_syndrome.
+<suppressed ~4 debug messages>
+
+5.4. Executing FUTURE pass.
+
+5.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+5.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_structural_exact_miter..
+Removed 1 unused cells and 201 unused wires.
+<suppressed ~2 debug messages>
+
+5.7. Executing CHECK pass (checking for obvious problems).
+Checking module breadth_hsiao_structural_exact_miter...
+Found and reported 0 problems.
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 614 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 603 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 595 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 587 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 579 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 571 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 563 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 555 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 547 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 539 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 531 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 523 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 515 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 507 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 499 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 491 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 483 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 475 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 467 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 459 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 451 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 443 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 436 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 429 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 423 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 417 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 411 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 406 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 403 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 402 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+<suppressed ~636 debug messages>
+Removed a total of 212 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_structural_exact_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_structural_exact_miter.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 402 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_structural_exact_miter..
+Removed 0 unused cells and 204 unused wires.
+<suppressed ~1 debug messages>
+
+5.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+5.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_structural_exact_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_structural_exact_miter.
+Performed a total of 0 changes.
+
+5.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 402 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Removed a total of 0 cells.
+
+5.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_structural_exact_miter..
+
+5.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+5.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 8 bits (of 72) from port Y of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$287 ($xor).
+Removed top 8 bits (of 72) from port A of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$287 ($xor).
+Removed top 8 bits (of 72) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$287 ($xor).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:92$279 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:91$278 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:90$277 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:89$276 ($eq).
+Removed top 5 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:88$275 ($eq).
+Removed top 6 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:87$274 ($eq).
+Removed top 7 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:86$273 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:85$272 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:84$271 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:83$270 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:82$269 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:81$268 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:80$267 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:79$266 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:78$265 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:56$243 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:55$242 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:54$241 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:53$240 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:52$239 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:51$238 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:50$237 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:49$236 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:48$235 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:47$234 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:46$233 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:45$232 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:44$231 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:43$230 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:42$229 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:41$228 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:40$227 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:39$226 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:38$225 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:37$224 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:36$223 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:35$222 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:34$221 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:33$220 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:32$219 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:31$218 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:30$217 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:29$216 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:28$215 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:27$214 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:26$213 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:25$212 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:24$211 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:23$210 ($eq).
+Removed top 5 bits (of 8) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\baseline.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:22$209 ($eq).
+Removed top 8 bits (of 72) from port Y of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$xor$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:137$398 ($xor).
+Removed top 8 bits (of 72) from port A of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$xor$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:137$398 ($xor).
+Removed top 8 bits (of 72) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$xor$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:137$398 ($xor).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:49$311 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:48$310 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:47$309 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:46$308 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:45$307 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:44$306 ($eq).
+Removed top 3 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:43$305 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:32$295 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:31$294 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:30$293 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:29$292 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:28$291 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:27$290 ($eq).
+Removed top 3 bits (of 4) from port B of cell breadth_hsiao_structural_exact_miter.$flatten\hierarchical.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:26$289 ($eq).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_structural_exact_miter..
+
+5.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 402 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Removed a total of 0 cells.
+
+5.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_structural_exact_miter..
+
+5.12.4. Finished fast OPT passes.
+
+5.13. Executing SORT pass.
+
+5.14. Printing statistics.
+
+=== breadth_hsiao_structural_exact_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      236 wires
+     1185 wire bits
+       30 public wires
+      979 public wire bits
+        2 ports
+       73 port bits
+      402 cells
+       72   $and
+      101   $eq
+        4   $logic_and
+        4   $logic_not
+        2   $logic_or
+        3   $ne
+        1   $reduce_bool
+        2   $reduce_or
+        4   $scopeinfo
+      209   $xor
+
+5.15. Executing CHECK pass (checking for obvious problems).
+Checking module breadth_hsiao_structural_exact_miter...
+Found and reported 0 problems.
+
+6. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 402 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_structural_exact_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_structural_exact_miter.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_structural_exact_miter'.
+Computing hashes of 402 cells of `\breadth_hsiao_structural_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_structural_exact_miter'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_structural_exact_miter..
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_structural_exact_miter.
+
+7.9. Finished fast OPT passes. (There is nothing left to do.)
+
+8. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 402 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \word
+Import show expression: \mismatch
+
+Solving problem with 3592 variables and 10212 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 2bed4fb705, time: 0.23s, user: 0.17s, system: 0.13s, MEM: 29.00 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 20% 1x sat (0 sec), 18% 5x read_verilog (0 sec), ...

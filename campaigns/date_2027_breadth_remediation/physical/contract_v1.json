@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "campaign": "DATE 2027 breadth remediation",
+  "state": "FROZEN_PROSPECTIVE_CONTRACT",
+  "external_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+  "baseline_commit": "b51291442bbd04346dac939dea6ba7d532b9c5c4",
+  "technology": {
+    "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "platform": "sky130hd",
+    "corner": "tt_025C_1v80",
+    "voltage_v": 1.8,
+    "temperature_c": 25,
+    "orfs_git_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "openroad_git_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36"
+  },
+  "common_flow": {
+    "num_cores": 1,
+    "lec_check": 0,
+    "core_utilization_percent": 35,
+    "core_aspect_ratio": 1.0,
+    "core_margin_um": 10.0,
+    "place_density": 0.55,
+    "input_delay_fraction": 0.1,
+    "output_delay_fraction": 0.1,
+    "output_load_pf": 0.05,
+    "seeds": [11, 13, 17, 19, 23],
+    "seed_environment_variables": ["GPL_RANDOM_SEED", "GRT_SEED", "OR_SEED"],
+    "individual_tuning": false,
+    "replacement_of_poor_result": false
+  },
+  "power": {
+    "method": "OpenSTA final ODB/SDC/SPEF plus primary-input VCD propagation and report_power -digits 12",
+    "payload_operations_per_trace": 100000,
+    "payload_seed": 104375203646206,
+    "fault_schedule_seed": 7085774586302733229,
+    "trace_scope": "gate04_trace_top",
+    "energy_formula": "total_power_w * total_trace_time_ps / useful_operations = pJ/operation",
+    "requires_target_feasibility": true
+  },
+  "source_hashes": {
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
+    "scripts/revision2/rtl/rev2_hsiao_boundary.sv": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73",
+    "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253",
+    "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b",
+    "scripts/gate03r/rtl/secded_characterization_tops.sv": "560bc8092ba759f7dd3412a106d86a30a7498d88285298c721be2d5ef4dc440b",
+    "scripts/gate04/rtl/gate04_boundaries.sv": "7de8e8d2933cdf17740ec5ec6f45a3654d5d54d9e419ed1c628ab29ca03308f8",
+    "asic/rtl/secded/secded_pipelined_72_64_v1.sv": "e250a6741b6aa56e0bdc5892ac5753e4487769a6683f68db6ab9155c26a3b155"
+  },
+  "architectures": {
+    "A_hsiao_flat": {
+      "workstream": "A",
+      "implementation_id": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "design_top": "gate04_rev2_hsiao_72_64",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_flat.mk",
+      "sources": [
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv",
+        "scripts/revision2/rtl/rev2_hsiao_boundary.sv"
+      ],
+      "clock_period_ns": 10.0,
+      "abc_clock_period_ps": 10000,
+      "latency_cycles": 1,
+      "initiation_interval_cycles": 1,
+      "power_trace_file": "hsiao-10ns-no_error.vcd.gz"
+    },
+    "A_hsiao_hierarchical": {
+      "workstream": "A",
+      "implementation_id": "hsiao-hierarchical-nibble-decode-combinational-72-64-breadth-v1",
+      "design_top": "breadth_hsiao_hierarchical_72_64",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_hierarchical.mk",
+      "sources": [
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+        "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv",
+        "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv"
+      ],
+      "clock_period_ns": 10.0,
+      "abc_clock_period_ps": 10000,
+      "latency_cycles": 1,
+      "initiation_interval_cycles": 1,
+      "power_trace_file": "hsiao-10ns-no_error.vcd.gz"
+    },
+    "C_secded_comb": {
+      "workstream": "C",
+      "implementation_id": "secded-rtl-combinational-72-64-v1",
+      "design_top": "gate04_secded_comb_72_64",
+      "config": "campaigns/date_2027_breadth_remediation/configs/C_secded_comb_5ns.mk",
+      "sources": [
+        "scripts/gate03r/rtl/secded_characterization_tops.sv",
+        "scripts/gate04/rtl/gate04_boundaries.sv"
+      ],
+      "clock_period_ns": 5.0,
+      "abc_clock_period_ps": 5000,
+      "latency_cycles": 1,
+      "initiation_interval_cycles": 1,
+      "power_trace_file": "conventional_secded-5ns-no_error.vcd.gz"
+    },
+    "C_secded_pipe": {
+      "workstream": "C",
+      "implementation_id": "secded-rtl-pipelined-72-64-v1",
+      "design_top": "gate04_secded_pipe_72_64",
+      "config": "campaigns/date_2027_breadth_remediation/configs/C_secded_pipe_5ns.mk",
+      "sources": [
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv",
+        "scripts/gate03r/rtl/secded_characterization_tops.sv",
+        "scripts/gate04/rtl/gate04_boundaries.sv"
+      ],
+      "clock_period_ns": 5.0,
+      "abc_clock_period_ps": 5000,
+      "latency_cycles": 3,
+      "initiation_interval_cycles": 1,
+      "power_trace_file": "conventional_secded-5ns-no_error.vcd.gz"
+    }
+  },
+  "runs": [
+    {"run_id": "A-hsiao-flat-seed-11", "workstream": "A", "architecture": "A_hsiao_flat", "seed": 11},
+    {"run_id": "A-hsiao-hierarchical-seed-11", "workstream": "A", "architecture": "A_hsiao_hierarchical", "seed": 11},
+    {"run_id": "A-hsiao-flat-seed-13", "workstream": "A", "architecture": "A_hsiao_flat", "seed": 13},
+    {"run_id": "A-hsiao-hierarchical-seed-13", "workstream": "A", "architecture": "A_hsiao_hierarchical", "seed": 13},
+    {"run_id": "A-hsiao-flat-seed-17", "workstream": "A", "architecture": "A_hsiao_flat", "seed": 17},
+    {"run_id": "A-hsiao-hierarchical-seed-17", "workstream": "A", "architecture": "A_hsiao_hierarchical", "seed": 17},
+    {"run_id": "A-hsiao-flat-seed-19", "workstream": "A", "architecture": "A_hsiao_flat", "seed": 19},
+    {"run_id": "A-hsiao-hierarchical-seed-19", "workstream": "A", "architecture": "A_hsiao_hierarchical", "seed": 19},
+    {"run_id": "A-hsiao-flat-seed-23", "workstream": "A", "architecture": "A_hsiao_flat", "seed": 23},
+    {"run_id": "A-hsiao-hierarchical-seed-23", "workstream": "A", "architecture": "A_hsiao_hierarchical", "seed": 23},
+    {"run_id": "C-secded-comb-5ns-seed-11", "workstream": "C", "architecture": "C_secded_comb", "seed": 11},
+    {"run_id": "C-secded-pipe-5ns-seed-11", "workstream": "C", "architecture": "C_secded_pipe", "seed": 11},
+    {"run_id": "C-secded-comb-5ns-seed-13", "workstream": "C", "architecture": "C_secded_comb", "seed": 13},
+    {"run_id": "C-secded-pipe-5ns-seed-13", "workstream": "C", "architecture": "C_secded_pipe", "seed": 13},
+    {"run_id": "C-secded-comb-5ns-seed-17", "workstream": "C", "architecture": "C_secded_comb", "seed": 17},
+    {"run_id": "C-secded-pipe-5ns-seed-17", "workstream": "C", "architecture": "C_secded_pipe", "seed": 17},
+    {"run_id": "C-secded-comb-5ns-seed-19", "workstream": "C", "architecture": "C_secded_comb", "seed": 19},
+    {"run_id": "C-secded-pipe-5ns-seed-19", "workstream": "C", "architecture": "C_secded_pipe", "seed": 19},
+    {"run_id": "C-secded-comb-5ns-seed-23", "workstream": "C", "architecture": "C_secded_comb", "seed": 23},
+    {"run_id": "C-secded-pipe-5ns-seed-23", "workstream": "C", "architecture": "C_secded_pipe", "seed": 23}
+  ]
+}

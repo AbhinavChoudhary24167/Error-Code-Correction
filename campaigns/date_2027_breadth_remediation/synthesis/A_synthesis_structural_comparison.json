@@ -1,0 +1,161 @@
+{
+  "baseline": {
+    "cell_type_histogram": {
+      "sky130_fd_sc_hd__a2111oi_0": 1,
+      "sky130_fd_sc_hd__a211oi_1": 8,
+      "sky130_fd_sc_hd__a21boi_0": 2,
+      "sky130_fd_sc_hd__a21o_1": 1,
+      "sky130_fd_sc_hd__a21oi_1": 57,
+      "sky130_fd_sc_hd__and2_0": 291,
+      "sky130_fd_sc_hd__and3_1": 2,
+      "sky130_fd_sc_hd__and3b_1": 4,
+      "sky130_fd_sc_hd__clkinv_1": 1,
+      "sky130_fd_sc_hd__dfxtp_1": 349,
+      "sky130_fd_sc_hd__lpflow_inputiso1p_1": 3,
+      "sky130_fd_sc_hd__nand2_1": 12,
+      "sky130_fd_sc_hd__nand2b_1": 1,
+      "sky130_fd_sc_hd__nand3_1": 10,
+      "sky130_fd_sc_hd__nand4_1": 15,
+      "sky130_fd_sc_hd__nand4b_1": 1,
+      "sky130_fd_sc_hd__nor2_1": 31,
+      "sky130_fd_sc_hd__nor3_1": 32,
+      "sky130_fd_sc_hd__nor3b_1": 1,
+      "sky130_fd_sc_hd__nor4_1": 9,
+      "sky130_fd_sc_hd__o211ai_1": 1,
+      "sky130_fd_sc_hd__o21a_1": 1,
+      "sky130_fd_sc_hd__o21ai_0": 53,
+      "sky130_fd_sc_hd__o221ai_1": 1,
+      "sky130_fd_sc_hd__o22ai_1": 1,
+      "sky130_fd_sc_hd__o2bb2ai_1": 1,
+      "sky130_fd_sc_hd__o311ai_0": 1,
+      "sky130_fd_sc_hd__o31a_1": 1,
+      "sky130_fd_sc_hd__or3_1": 1,
+      "sky130_fd_sc_hd__or4_1": 2,
+      "sky130_fd_sc_hd__xnor2_1": 205,
+      "sky130_fd_sc_hd__xnor3_1": 38,
+      "sky130_fd_sc_hd__xor2_1": 103,
+      "sky130_fd_sc_hd__xor3_1": 4
+    },
+    "logic_depth_no_flip_flops": null,
+    "mapped_cell_count": 1244,
+    "mapped_json_sha256": "043a3df70ca1a7e2b9428bfabaf8ed6f6dda97e68ac3fc6140b063901f6ab240",
+    "mapped_netlist_sha256": "81da02968ca0488519fa001adb2ee8418735ff194903c6ce946867816a2fc6ba",
+    "memory_count": 0,
+    "mux_count": 0,
+    "name_independent_graph_signature": "9921779e7555a58f02fac1d20ed1f062a3c7356ef1c846ad10ea7908b2062456",
+    "process_count": 0,
+    "public_wire_count": 16,
+    "register_count": 349,
+    "runtime_seconds": 4.011472246,
+    "sources": [
+      {
+        "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+        "sha256": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036"
+      },
+      {
+        "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+        "sha256": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      {
+        "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv",
+        "sha256": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf"
+      },
+      {
+        "path": "scripts/revision2/rtl/rev2_hsiao_boundary.sv",
+        "sha256": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+      }
+    ],
+    "synthesis_log_sha256": "7be1dc21323ecca7dd1afd219885a42dc95a1aa3a1f76f08a83fa2371233acb6",
+    "top": "gate04_rev2_hsiao_72_64",
+    "wire_bit_count": 1392,
+    "wire_count": 911,
+    "xor_xnor_count": 350,
+    "yosys_script": "read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv /repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv; hierarchy -check -top gate04_rev2_hsiao_72_64; proc; flatten; opt; memory; opt; techmap; opt; dfflibmap -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; abc -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; clean -purge; rename -top synthesized_top; tee -o /out/stat.json stat -json -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; tee -o /out/ltp.log ltp -noff; write_verilog -noattr /out/mapped_netlist.v; write_json /out/mapped_netlist.json"
+  },
+  "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+  "criterion": "mapped cell histogram or name-independent mapped graph signature differs under one common synthesis policy",
+  "differences": {
+    "cell_type_histogram_equal": false,
+    "logic_depth_no_flip_flops": null,
+    "mapped_cell_count": 10,
+    "mux_count": 0,
+    "name_independent_graph_signature_equal": false,
+    "register_count": 0,
+    "xor_xnor_count": -7
+  },
+  "liberty": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+  "new_hierarchical": {
+    "cell_type_histogram": {
+      "sky130_fd_sc_hd__a2111o_1": 2,
+      "sky130_fd_sc_hd__a211oi_1": 1,
+      "sky130_fd_sc_hd__a21boi_0": 5,
+      "sky130_fd_sc_hd__a21oi_1": 63,
+      "sky130_fd_sc_hd__a31oi_1": 1,
+      "sky130_fd_sc_hd__a41oi_1": 2,
+      "sky130_fd_sc_hd__and2_0": 279,
+      "sky130_fd_sc_hd__clkinv_1": 4,
+      "sky130_fd_sc_hd__dfxtp_1": 349,
+      "sky130_fd_sc_hd__lpflow_inputiso1p_1": 2,
+      "sky130_fd_sc_hd__lpflow_isobufsrc_1": 3,
+      "sky130_fd_sc_hd__nand2_1": 15,
+      "sky130_fd_sc_hd__nand2b_1": 1,
+      "sky130_fd_sc_hd__nand3_1": 2,
+      "sky130_fd_sc_hd__nand4_1": 17,
+      "sky130_fd_sc_hd__nand4b_1": 7,
+      "sky130_fd_sc_hd__nor2_1": 53,
+      "sky130_fd_sc_hd__nor2b_1": 1,
+      "sky130_fd_sc_hd__nor3_1": 7,
+      "sky130_fd_sc_hd__nor4_1": 9,
+      "sky130_fd_sc_hd__nor4b_1": 1,
+      "sky130_fd_sc_hd__o21a_1": 1,
+      "sky130_fd_sc_hd__o21ai_0": 65,
+      "sky130_fd_sc_hd__o21ba_1": 1,
+      "sky130_fd_sc_hd__o22ai_1": 7,
+      "sky130_fd_sc_hd__o2bb2ai_1": 2,
+      "sky130_fd_sc_hd__o32ai_1": 2,
+      "sky130_fd_sc_hd__or3_1": 5,
+      "sky130_fd_sc_hd__or4_1": 4,
+      "sky130_fd_sc_hd__xnor2_1": 212,
+      "sky130_fd_sc_hd__xnor3_1": 31,
+      "sky130_fd_sc_hd__xor2_1": 93,
+      "sky130_fd_sc_hd__xor3_1": 7
+    },
+    "logic_depth_no_flip_flops": null,
+    "mapped_cell_count": 1254,
+    "mapped_json_sha256": "894f3d036fdf627acd7790139f450e423728e316efd05cfce985584a244d9dc4",
+    "mapped_netlist_sha256": "3c446b2863d950f10efeb9e569b3f985600dab57a7de7dcf87cf2b560314fd34",
+    "memory_count": 0,
+    "mux_count": 0,
+    "name_independent_graph_signature": "11c43f7e6e4c2f55257f8ff48bfbc08e0aca11b181443bab7496c7ab855654c2",
+    "process_count": 0,
+    "public_wire_count": 16,
+    "register_count": 349,
+    "runtime_seconds": 3.524329322,
+    "sources": [
+      {
+        "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
+        "sha256": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036"
+      },
+      {
+        "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
+        "sha256": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      {
+        "path": "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv",
+        "sha256": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253"
+      },
+      {
+        "path": "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv",
+        "sha256": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b"
+      }
+    ],
+    "synthesis_log_sha256": "b989cbfb43d5cd4a3b7e79e504d193dfcea580d4d344f45a3729763bc955646c",
+    "top": "breadth_hsiao_hierarchical_72_64",
+    "wire_bit_count": 1402,
+    "wire_count": 921,
+    "xor_xnor_count": 343,
+    "yosys_script": "read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv /repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv; hierarchy -check -top breadth_hsiao_hierarchical_72_64; proc; flatten; opt; memory; opt; techmap; opt; dfflibmap -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; abc -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; clean -purge; rename -top synthesized_top; tee -o /out/stat.json stat -json -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; tee -o /out/ltp.log ltp -noff; write_verilog -noattr /out/mapped_netlist.v; write_json /out/mapped_netlist.json"
+  },
+  "schema_version": 1,
+  "status": "PASS"
+}
