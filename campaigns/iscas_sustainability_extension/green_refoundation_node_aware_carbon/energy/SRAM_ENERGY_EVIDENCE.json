@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "classification": "SRAM_ENERGY_TIER_5_NOT_QUALIFIED",
+  "production_model": "UPSTREAM_ORIGINAL",
+  "sensitivity_model": "RESEARCH_CORRECTED_DIAGNOSTIC",
+  "evidence_tier_definitions": {
+    "TIER_1": "independently characterized credible macro energy",
+    "TIER_2": "validated Liberty internal-power tables",
+    "TIER_3": "published or reference macro energy",
+    "TIER_4": "bounded parametric estimate",
+    "TIER_5": "not qualified"
+  },
+  "decision_critical_quantities": [
+    {
+      "quantity": "read_energy",
+      "tier": "TIER_5",
+      "value": "NOT_QUALIFIED",
+      "finding": "Conditional upstream Liberty internal-power groups exist, but no isolated read-energy validation or mapped macro-boundary activity exists for both architectures."
+    },
+    {
+      "quantity": "write_energy",
+      "tier": "TIER_5",
+      "value": "NOT_QUALIFIED",
+      "finding": "Conditional upstream Liberty internal-power groups exist, but no isolated write-energy validation or matched full-coverage power run exists."
+    },
+    {
+      "quantity": "leakage",
+      "tier": "TIER_5",
+      "value": "NOT_QUALIFIED",
+      "diagnostic_only_tt_w": {
+        "sram22_256x64m4w8_ce1_rstb1": 6.41484e-7,
+        "sram22_256x8m8w1_ce1_rstb1": 8.919359828496e-8
+      },
+      "finding": "Values are unvalidated upstream-Liberty/OpenROAD diagnostics, not independent leakage measurements."
+    },
+    {
+      "quantity": "input_capacitance_rstb",
+      "tier": "NOT_AN_ENERGY_TIER",
+      "evidence_class": "UPSTREAM_LIBERTY_CHARACTERIZATION_DIAGNOSTIC",
+      "tt_rise_capacitance_pf": {
+        "sram22_256x64m4w8": 0.448008,
+        "sram22_256x8m8w1": 0.250926
+      },
+      "finding": "The 256x64 value is 1.785419 times the 256x8 value and dominates the observed external rstb load."
+    },
+    {
+      "quantity": "access_delay",
+      "tier": "NOT_AN_ENERGY_TIER",
+      "evidence_class": "UPSTREAM_LIBERTY_TABLE_PRESENT_NOT_INDEPENDENTLY_VALIDATED",
+      "value": "NOT_CONSUMED_AS_MEASURED",
+      "finding": "Timing tables are retained, but this phase did not perform independent transient characterization."
+    },
+    {
+      "quantity": "output_transition_behavior",
+      "tier": "NOT_AN_ENERGY_TIER",
+      "evidence_class": "DIAGNOSTIC_BOUND",
+      "tt_table_range_ns": {
+        "sram22_256x64m4w8": [0.080573, 3.25762],
+        "sram22_256x8m8w1": [0.081685, 3.25718]
+      },
+      "upstream_global_default_max_transition_ns": 0.04,
+      "finding": "Every supplied output-transition table sample exceeds the global default; the corrected view only adds characterization-consistent output-pin bounds."
+    },
+    {
+      "quantity": "rstb_behavior",
+      "tier": "NOT_AN_ENERGY_TIER",
+      "evidence_class": "INSUFFICIENT_EVIDENCE",
+      "max_transition_ns": 0.351,
+      "finding": "The constraint is unchanged in every model; no independent evidence justifies a waiver."
+    }
+  ],
+  "liberty_separation": {
+    "UPSTREAM_ORIGINAL": {
+      "tt_256x64_sha256": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+      "tt_256x8_sha256": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec",
+      "use": "production provenance baseline"
+    },
+    "RESEARCH_CORRECTED_DIAGNOSTIC": {
+      "tt_256x64_sha256": "0534a288e03d0313c9b85085583276208b13a01acebdbea31efef2297a0d0191",
+      "tt_256x8_sha256": "36de23c465d8c735a05663c246fc67feb5953284a837a37c3f21cf89828a7654",
+      "use": "optimizer-sensitivity evidence only",
+      "timing_and_internal_power_groups_byte_identical_to_original": true
+    }
+  },
+  "source_ids": {
+    "A10_LIBERTY_SENSITIVITY_RESULTS": "3367546e767869592c47d9aacf4868fcfa916063440f2adad2347ab93748c9c9",
+    "A10_RSTB_CHARACTERIZATION": "f12896d1ca5ca5b8261664cfe5186a264a85e9ef47aacdefa635564174198d88"
+  },
+  "green_scoring_allowed": false
+}
