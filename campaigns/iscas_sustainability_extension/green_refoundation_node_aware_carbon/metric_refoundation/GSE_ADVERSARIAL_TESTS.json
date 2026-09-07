@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {"id": "zero_reliability_gain", "expected": "ranking follows carbon only when Q is identical; no invented reliability benefit"},
+    {"id": "extreme_reliability_huge_carbon", "candidate": {"Q": 0.999999, "carbon": 100.0}, "baseline": {"Q": 0.99, "carbon": 1.0}, "expected": "candidate GSE is lower"},
+    {"id": "low_carbon_unacceptable_sdc", "expected": "hard-infeasible only with declared SDC threshold; otherwise SDC remains Pareto dimension"},
+    {"id": "high_retry_frequency", "expected": "recovered retries add service but retry energy raises operational carbon"},
+    {"id": "heavy_scrubbing", "expected": "scrub adds no direct service; any Q gain and energy/carbon cost are both propagated"},
+    {"id": "embodied_dominant", "expected": "short/low-activity life is sensitive to die/yield carbon"},
+    {"id": "operational_dominant", "expected": "long/high-activity life is sensitive to workload energy and use-grid CI"},
+    {"id": "short_lifetime", "expected": "embodied carbon amortizes over less service and GCI rises"},
+    {"id": "long_lifetime", "expected": "service and operational carbon both scale; embodied carbon per service falls"},
+    {"id": "clean_grid", "expected": "operational carbon falls linearly; embodied fraction rises"},
+    {"id": "carbon_intensive_grid", "expected": "operational energy differences become more influential"},
+    {"id": "interleaving_tradeoff", "expected": "Q improvement competes with measured/parametric routing energy and embodied area"},
+    {"id": "stronger_ecc_tradeoff", "expected": "higher Q is selected only if service-per-carbon improves and constraints pass"},
+    {"id": "due_recovered_by_retry", "expected": "classified SUCCESS_AFTER_RETRY, not failed service; retry energy counted once"},
+    {"id": "sdc_silently_delivered", "expected": "I_k=0 and no useful service credit"},
+    {"id": "zero_near_zero_fault_rate", "expected": "stronger ECC receives negligible Q benefit while retaining its carbon cost"}
+  ],
+  "evidence_class": "PARAMETRIC_ADVERSARIAL_TEST",
+  "schema_version": 1
+}

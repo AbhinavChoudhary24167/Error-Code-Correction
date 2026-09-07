@@ -1,0 +1,17 @@
+{
+  "functional_unit": "one correct payload-bit memory service delivered under the declared workload and service policy",
+  "implementation_equivalent": "one correct payload memory transaction completed under the declared timing/reliability policy",
+  "indicator": {
+    "no_external_sla": "I_k = 1 iff the correct requested payload is delivered under the declared recovery policy",
+    "with_external_sla": "I_k = 1 iff correct_k and latency_k <= L_max",
+    "policy": "do not invent L_max"
+  },
+  "mutually_exclusive_outcomes": {
+    "failures": ["DETECTED_FAILURE", "SILENT_DATA_CORRUPTION", "TIMEOUT_OR_SLA_FAILURE"],
+    "successes": ["SUCCESS_NORMAL", "SUCCESS_CORRECTED", "SUCCESS_AFTER_RETRY"]
+  },
+  "service_equation": "S = E[sum_k B_k I_k]; for fixed B,N: S=B*N*Q",
+  "service_success_probability": "Q=P(SUCCESS_NORMAL)+P(SUCCESS_CORRECTED)+P(SUCCESS_AFTER_RETRY)",
+  "source_module": "metric_refoundation/green_service.py",
+  "schema_version": 1
+}
