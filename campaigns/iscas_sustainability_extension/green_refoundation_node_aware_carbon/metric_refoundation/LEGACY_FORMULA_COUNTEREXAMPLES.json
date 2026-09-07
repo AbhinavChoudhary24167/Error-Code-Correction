@@ -1,0 +1,59 @@
+{
+  "cases": [
+    {
+      "claim": "GS_H <= 100*min(Sr,Sc,Sl)",
+      "computed_gs": 15.625,
+      "id": "harmonic_weakest_component_bound_false",
+      "scores": [0.1, 1.0, 1.0],
+      "status": "FALSIFIED",
+      "weights": [0.6, 0.3, 0.1],
+      "weakest_component_bound": 10.0
+    },
+    {
+      "claim": "GS_G <= 100*min(Sr,Sc,Sl)",
+      "computed_gs": 25.118864315095802,
+      "id": "geometric_weakest_component_bound_false",
+      "scores": [0.1, 1.0, 1.0],
+      "status": "FALSIFIED",
+      "weights": [0.6, 0.3, 0.1]
+    },
+    {
+      "claim": "a zero component forces zero GS_H",
+      "computed_gs": 1.6666666655555557e-7,
+      "epsilon": 1e-9,
+      "id": "harmonic_epsilon_zero_leak",
+      "scores": [0.0, 1.0, 1.0],
+      "status": "FALSIFIED",
+      "weights": [0.6, 0.3, 0.1]
+    },
+    {
+      "candidate_a": {"scores": [0.2, 1.0, 1.0]},
+      "candidate_b": {"scores": [0.8, 0.4, 0.4]},
+      "id": "harmonic_weight_rank_reversal",
+      "ranking_with_weights_0p6_0p3_0p1": "B>A",
+      "ranking_with_weights_0p1_0p8_0p1": "A>B",
+      "status": "ARBITRARY_WEIGHT_DEPENDENCE"
+    },
+    {
+      "after_addition": {"cohort": [0.2, 0.4, 0.1], "existing_scores": [33.33333333333333, 100.0]},
+      "before_addition": {"cohort": [0.2, 0.4], "existing_scores": [0.0, 100.0]},
+      "id": "nesii_candidate_addition_changes_existing_values",
+      "normalization": "selector N<20 min-max fallback",
+      "status": "CANDIDATE_SET_DEPENDENT"
+    },
+    {
+      "after_addition": {"cohort_carbon_kg": [1.0, 1.0, 2.0], "existing_carbon_utility": 0.5},
+      "before_addition": {"cohort_carbon_kg": [1.0, 1.0], "existing_carbon_utility": 1.0},
+      "id": "selector_gs_degenerate_cohort_change",
+      "status": "CANDIDATE_SET_DEPENDENT"
+    },
+    {
+      "id": "esii_v1_zero_carbon_discontinuity",
+      "inputs": {"delta_fit": 100.0, "total_carbon_kgco2e": 0.0},
+      "output": 0.0,
+      "status": "PERVERSE_BOUNDARY_BEHAVIOR",
+      "statement": "a positive reliability benefit at zero/near-zero carbon maps to zero rather than an unbounded or explicitly undefined intensity"
+    }
+  ],
+  "schema_version": 1
+}

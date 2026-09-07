@@ -1,0 +1,70 @@
+{
+  "classification": "LEGACY_COMPATIBILITY_METRICS",
+  "documentation_conflict": {
+    "current_executable_source": "esii.py",
+    "prose_source": "docs/ESII.md",
+    "status": "CONFLICT",
+    "statement": "docs/ESII.md describes ESII-v1 while current esii.py implements ESII-v2"
+  },
+  "metrics": [
+    {
+      "equation": "delta_FIT / total_kgCO2e when total_kgCO2e >= 1e-12, else 0",
+      "id": "ESII-v1",
+      "source_commit": "b21e5c341c0767c9a7f86f3e626206a4dad3dcb4",
+      "source_path": "esii.py",
+      "units": "FIT/kgCO2e"
+    },
+    {
+      "anchors": {
+        "carbon_halfsat_kg": 1.0,
+        "energy_halfsat_kWh": 1.0,
+        "fit_floor": 1e-30,
+        "reliability_halfsat_decades": 2.0
+      },
+      "equation": "U_rel * (0.5*U_energy + 0.5*U_carbon)",
+      "id": "ESII-v2",
+      "sha256": "00df7bdf9d3e6bcb005b83f0a3cccbf4a1c7d358cc1c7e4c9302877006d9145a",
+      "source_commit": "fcb09edbe3cdf095152e26a7f41c1762b5da1412",
+      "source_path": "esii.py",
+      "units": "dimensionless"
+    },
+    {
+      "anchors": ["cohort_p05", "cohort_p95"],
+      "equation": "100*(clip(x,p05,p95)-p05)/(p95-p05+1e-9)",
+      "fallback": "selector uses cohort min-max for N<20 or equal anchors; equal min/max maps all candidates to 50",
+      "id": "NESII",
+      "source_commit": "f54fc7c3391b621bf7d53cae9346313085aa8ee5",
+      "source_path": "esii.py::normalise_esii and ecc_selector.py",
+      "units": "cohort-relative points"
+    },
+    {
+      "anchors": {"carbon_kg": 1.0, "epsilon": 1e-9, "latency_ns": 10.0, "relative_fit_gain": 0.05},
+      "equation": "100 / sum_i(w_i/max(S_i,epsilon))",
+      "git_blob": "e2f40395f67be60fcacf857486a040123e536bdd",
+      "id": "GS-harmonic-v1",
+      "source_commit": "b21e5c341c0767c9a7f86f3e626206a4dad3dcb4",
+      "source_path": "gs.py",
+      "weights": [0.6, 0.3, 0.1]
+    },
+    {
+      "anchors": {"carbon_kg": 1.0, "epsilon": 1e-12, "latency_ns": 10.0, "overhead": 0.25, "reliability_decades": 2.0},
+      "equation": "100*exp(sum_i(normalized_w_i*log(max(S_i,epsilon))))",
+      "id": "GS-geometric-v2",
+      "selector_cohort_preprocessing": "p95 carbon clipping (maximum for N<5), plus degenerate carbon/latency replacement",
+      "sha256": "5f13dc67750aa6a0baf31e0ff403cece7429ba669c917aef4a6990e51a9b9fb2",
+      "source_commit": "fcb09edbe3cdf095152e26a7f41c1762b5da1412",
+      "source_path": "gs.py",
+      "weights": [0.6, 0.25, 0.1, 0.05]
+    },
+    {
+      "domain": "corrections > 0",
+      "equation": "estimate_energy(xor_count,and_count,node,VDD)/corrections",
+      "id": "EPC",
+      "sha256": "a23022ff13ae45026de8858cf9de41cddcba1833e587e840180f0b845352efa1",
+      "source_commit": "a663d92b",
+      "source_path": "energy_model.py::epc",
+      "units": "J/corrected bit"
+    }
+  ],
+  "schema_version": 1
+}
