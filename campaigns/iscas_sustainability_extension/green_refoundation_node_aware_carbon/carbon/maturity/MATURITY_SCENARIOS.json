@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "evidence_label": "PARAMETRIC_UNCERTAIN",
+  "source_ids_for_direction_only": [
+    "SRC_CARBONCLARITY_2025",
+    "SRC_IMEC_IEDM_2023"
+  ],
+  "interpretation": "Independent intervals for bounded sensitivity; not fitted probability distributions.",
+  "scenarios": [
+    {
+      "name": "EARLY_NODE_ENVELOPE",
+      "defect_density_per_cm2": [0.15, 0.50],
+      "line_yield_fraction": [0.80, 0.90],
+      "fab_electricity_factor": [1.00, 1.30],
+      "process_gas_use_factor": [1.00, 1.25],
+      "upstream_factor": [1.00, 1.15],
+      "patterning_energy_factor": [1.00, 1.30],
+      "abatement_efficiency": [0.50, 0.95],
+      "provenance": "PARAMETRIC; endpoints are research bounds and not source measurements"
+    },
+    {
+      "name": "MATURE_NODE_ENVELOPE",
+      "defect_density_per_cm2": [0.05, 0.15],
+      "line_yield_fraction": [0.90, 0.99],
+      "fab_electricity_factor": [0.85, 1.00],
+      "process_gas_use_factor": [0.80, 1.00],
+      "upstream_factor": [0.90, 1.00],
+      "patterning_energy_factor": [0.85, 1.00],
+      "abatement_efficiency": [0.80, 0.99],
+      "provenance": "PARAMETRIC; directional hypothesis only"
+    }
+  ],
+  "warning": "Do not combine independently extreme endpoints and call the result a statistical confidence bound."
+}

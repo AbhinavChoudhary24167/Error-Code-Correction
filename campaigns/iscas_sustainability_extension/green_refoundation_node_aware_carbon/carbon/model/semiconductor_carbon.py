@@ -8,7 +8,7 @@ parametric studies without presenting one evidence class as another.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from enum import Enum
 import math
 from typing import Iterable, Mapping, Sequence
@@ -216,6 +216,112 @@ class WaferCarbonBreakdown:
     total_kgco2e: float
     patterning_scope2_kgco2e_diagnostic: float
     evidence: Evidence
+
+
+@dataclass(frozen=True)
+class GasAbatementOverride:
+    gas: str
+    abatement_efficiency: float
+
+    def __post_init__(self) -> None:
+        if not self.gas.strip():
+            raise ValueError("gas override name must be non-empty")
+        _fraction("abatement_efficiency", self.abatement_efficiency)
+
+
+@dataclass(frozen=True)
+class MaturityScenario:
+    """Explicit process-maturity factors; no implicit early/mature constants."""
+
+    name: str
+    defect_density_per_cm2: float
+    line_yield_fraction: float
+    fab_electricity_factor: float
+    process_gas_use_factor: float
+    upstream_factor: float
+    patterning_energy_factor: float
+    abatement_overrides: tuple[GasAbatementOverride, ...]
+    evidence: Evidence
+
+    def __post_init__(self) -> None:
+        if not self.name.strip():
+            raise ValueError("maturity scenario name must be non-empty")
+        _finite_nonnegative("defect_density_per_cm2", self.defect_density_per_cm2)
+        line_yield = _fraction("line_yield_fraction", self.line_yield_fraction)
+        if line_yield == 0.0:
+            raise ValueError("line_yield_fraction must be strictly positive")
+        for field_name in (
+            "fab_electricity_factor",
+            "process_gas_use_factor",
+            "upstream_factor",
+            "patterning_energy_factor",
+        ):
+            _finite_positive(field_name, getattr(self, field_name))
+        override_names = [override.gas for override in self.abatement_overrides]
+        if len(override_names) != len(set(override_names)):
+            raise ValueError("abatement override gas names must be unique")
+
+
+@dataclass(frozen=True)
+class MaturityAppliedInventory:
+    inventory: WaferProcessInventory
+    defect_density_per_cm2: float
+    line_yield_fraction: float
+    scenario: MaturityScenario
+
+
+def apply_maturity_scenario(
+    inventory: WaferProcessInventory, scenario: MaturityScenario
+) -> MaturityAppliedInventory:
+    """Apply declared maturity factors while preserving accounting boundaries."""
+    overrides = {
+        override.gas: override.abatement_efficiency
+        for override in scenario.abatement_overrides
+    }
+    gases = tuple(
+        replace(
+            gas,
+            mass_kg_per_wafer=gas.mass_kg_per_wafer
+            * scenario.process_gas_use_factor,
+            abatement_efficiency=overrides.get(gas.gas, gas.abatement_efficiency),
+        )
+        for gas in inventory.process_gases
+    )
+    route = inventory.patterning_route
+    if route is not None:
+        route = replace(
+            route,
+            steps=tuple(
+                replace(
+                    step,
+                    electricity_kwh_per_step=step.electricity_kwh_per_step
+                    * scenario.patterning_energy_factor,
+                )
+                for step in route.steps
+            ),
+        )
+    evidence = Evidence(
+        scenario.evidence.label,
+        merge_source_ids(inventory.evidence.source_ids, scenario.evidence.source_ids),
+        f"{inventory.evidence.note} Maturity scenario: {scenario.evidence.note}",
+    )
+    matured_inventory = replace(
+        inventory,
+        maturity=scenario.name,
+        fab_electricity_kwh=inventory.fab_electricity_kwh
+        * scenario.fab_electricity_factor,
+        process_gases=gases,
+        upstream_kgco2e_per_wafer=inventory.upstream_kgco2e_per_wafer
+        * scenario.upstream_factor,
+        evidence=evidence,
+        patterning_route=route,
+    )
+    return MaturityAppliedInventory(
+        inventory=matured_inventory,
+        defect_density_per_cm2=scenario.defect_density_per_cm2,
+        line_yield_fraction=scenario.line_yield_fraction,
+        scenario=scenario,
+    )
 
 
 def wafer_carbon(inventory: WaferProcessInventory) -> WaferCarbonBreakdown:
