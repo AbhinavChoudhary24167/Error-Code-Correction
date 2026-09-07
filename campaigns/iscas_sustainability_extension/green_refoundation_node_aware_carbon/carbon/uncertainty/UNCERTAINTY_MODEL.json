@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "analysis_id": "NORMALIZED_MANUFACTURING_CARBON_INTERVAL_ENSEMBLE_V1",
+  "seed": 20260908,
+  "sample_count": 4096,
+  "sampling": "deterministic Latin hypercube using mid-stratum points and seeded cross-parameter permutations",
+  "interpretation": "epistemic scenario ensemble; no fitted probability distribution",
+  "output": {
+    "name": "normalized_good_die_carbon_index",
+    "unit": "relative_to_constructed_baseline",
+    "evidence_label": "PARAMETRIC_UNCERTAIN"
+  },
+  "constructed_baseline": {
+    "scope1_share": 0.07,
+    "scope2_share": 0.58,
+    "upstream_share": 0.35,
+    "abatement_efficiency": 0.90,
+    "defect_density_per_cm2": 0.15,
+    "line_yield_fraction": 0.90,
+    "note": "Shares form a parametric point within broad ranges described by SRC_IMEC_IEDM_2023; they are not a node measurement."
+  },
+  "parameters": [
+    {"name": "fab_grid_CI_factor", "low": 0.20, "high": 1.50, "scale": "linear", "provenance": "PARAMETRIC_DECARBONIZATION_ENVELOPE"},
+    {"name": "fab_energy_factor", "low": 0.85, "high": 1.30, "scale": "linear", "provenance": "PARAMETRIC_MATURITY_ENVELOPE"},
+    {"name": "gas_use_factor", "low": 0.80, "high": 1.25, "scale": "linear", "provenance": "PARAMETRIC_MATURITY_ENVELOPE"},
+    {"name": "abatement_efficiency", "low": 0.50, "high": 0.99, "scale": "linear", "provenance": "PARAMETRIC_ABATEMENT_ENVELOPE"},
+    {"name": "upstream_factor", "low": 0.80, "high": 1.20, "scale": "linear", "provenance": "PARAMETRIC_INCOMPLETE_SCOPE3_ENVELOPE"},
+    {"name": "defect_density_per_cm2", "low": 0.05, "high": 0.50, "scale": "linear", "provenance": "PARAMETRIC_MATURITY_ENVELOPE"},
+    {"name": "line_yield_fraction", "low": 0.80, "high": 0.99, "scale": "linear", "provenance": "PARAMETRIC_MATURITY_ENVELOPE"}
+  ],
+  "deferred_variables": [
+    {"name": "mask_NRE", "status": "PARAMETRIC_SEPARATE_SWEEP", "reason": "no credible absolute maskset carbon"},
+    {"name": "package_allocation", "status": "NOT_QUALIFIED"},
+    {"name": "lifetime", "status": "DEFERRED_TO_OPERATIONAL_MODEL"},
+    {"name": "use_phase_CI", "status": "DEFERRED_TO_OPERATIONAL_MODEL"},
+    {"name": "activity", "status": "DEFERRED_ACTIVITY_COVERAGE"},
+    {"name": "SER", "status": "DEFERRED_RELIABILITY_SCENARIO"},
+    {"name": "MBU_geometry", "status": "DEFERRED_INTERLEAVING_SCENARIO"},
+    {"name": "macro_energy", "status": "DEFERRED_SRAM_ENERGY_TIER"}
+  ],
+  "quantile_semantics": "P05 and P95 are quantiles of the declared interval ensemble and are not statistical confidence bounds.",
+  "sensitivity_method": "Spearman rank correlation screening normalized by total absolute rho",
+  "source_ids": ["SRC_IMEC_IEDM_2023", "SRC_CARBONCLARITY_2025"]
+}
