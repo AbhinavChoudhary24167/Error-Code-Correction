@@ -1,0 +1,140 @@
+{
+  "attempt10": {
+    "artifact_manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/ARTIFACT_MANIFEST.json",
+    "artifact_manifest_sha256": "0e79783b58c3e703f90731145d9275be44d40989008830bb3d453bf4caf8b092",
+    "classification": "EVIDENCE_CHAIN_ESTABLISHED_SELECTION_NOT_QUALIFIED",
+    "environment_manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/ENVIRONMENT_MANIFEST.json",
+    "environment_manifest_sha256": "b9bf9f68c45040c85d4e0f136ae127a44f803cad1581f47715ae3ba2db9fd6bb",
+    "gate3_status": "FAIL"
+  },
+  "campaign": "green_refoundation_node_aware_carbon",
+  "captured_at_utc": "2026-09-07T14:58:55.951283+00:00",
+  "hash_manifests": {
+    "tracked_calibrations": "integrity/baseline_calibration_hashes.json",
+    "tracked_sources": "integrity/baseline_source_hashes.json"
+  },
+  "host": {
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.5",
+    "release": "11",
+    "system": "Windows",
+    "timezone_environment": "NOT_SET"
+  },
+  "limitations": [
+    "The prior Attempt01-Attempt10 campaign tree is local, untracked evidence in this checkout.",
+    "Local OpenROAD/OpenSTA availability is recorded separately from Attempt10's frozen-container versions.",
+    "ORFS and PDK revisions retain Attempt10's explicit NOT_EXPOSED classifications."
+  ],
+  "protected_prior_evidence": {
+    "attempt09": {
+      "bytes": 5132662262,
+      "file_count": 2098,
+      "immutable": true,
+      "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure",
+      "tree_sha256": "146242fee8690f23434198d0a1f6cd22267bbbf357461e797c75f4c614cc77ac"
+    },
+    "attempt10": {
+      "bytes": 51428283,
+      "file_count": 302,
+      "immutable": true,
+      "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation",
+      "tree_sha256": "5d0ca45b8c14f9d6ac6ce810562f6d3d782e4d96e7c6dc6e35c19f47e13b3b33"
+    }
+  },
+  "repository": {
+    "branch": "codex/iscas-green-refoundation-node-aware-carbon",
+    "branch_matches": true,
+    "expected_branch": "codex/iscas-green-refoundation-node-aware-carbon",
+    "expected_parent_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+    "parent_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+    "parent_matches": true,
+    "path": "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction",
+    "status_capture": "campaigns/iscas_sustainability_extension/green_refoundation_node_aware_carbon/integrity/baseline_git_status.txt",
+    "status_capture_sha256": "09b1e6d8db3258c10e11329ba85d534ee4083ca9742e128d3509a80829a4f825",
+    "status_clean": false,
+    "status_entry_count": 6304
+  },
+  "schema_version": 1,
+  "sram22": {
+    "attempt10_manifest": {
+      "liberty_sha256": {
+        "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_ff_n40C_1v95.lib": "b1aecf549a589b285f2238dcba19654e3324da90232e98fa6bb5cee5a7f17a75",
+        "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_ss_100C_1v60.lib": "afd1ebdc2d793eebe326e11b13c2c0d5644ff15900eb880580068dadea4e7e64",
+        "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+        "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_ff_n40C_1v95.lib": "4d3a565198706fb0803b660af817ce53dc2f5868cf10d507c07da790fcc0fbb9",
+        "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_ss_100C_1v60.lib": "9dde364de6decf0107e31422cb4c6073abd8a6265377098414d5193eb202a94b",
+        "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec"
+      },
+      "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05"
+    },
+    "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05"
+  },
+  "technology": {
+    "pdk_release": "PDK_RELEASE_NOT_EXPOSED_BY_FROZEN_IMAGE",
+    "platform": "sky130hd",
+    "pvt": "SKY130HD TT/25C/1.8V",
+    "routing_stack": [
+      "met1",
+      "met2",
+      "met3",
+      "met4",
+      "met5"
+    ],
+    "standard_cell_liberty": {
+      "container_path": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+      "sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9"
+    }
+  },
+  "tools": {
+    "attempt10_frozen_toolchain": {
+      "docker_base_label": "22.04",
+      "docker_image": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+      "docker_image_created_utc": "2026-08-10T13:38:16.013541933Z",
+      "openroad": "26Q3-1080-gab6fd26351",
+      "opensta": "3.1.0",
+      "orfs_executable_provenance": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+      "orfs_revision": "ORFS_VERSION_NOT_EXPOSED_BY_FROZEN_IMAGE"
+    },
+    "cxx": {
+      "available": true,
+      "exit_code": 0,
+      "output": "g++ (Rev3, Built by MSYS2 project) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    },
+    "git": {
+      "available": true,
+      "exit_code": 0,
+      "output": "git version 2.53.0.windows.1"
+    },
+    "make": {
+      "available": true,
+      "exit_code": 0,
+      "output": "GNU Make 4.4.1\nBuilt for Windows32\nCopyright (C) 1988-2023 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."
+    },
+    "openroad_local": {
+      "available": false,
+      "exit_code": null,
+      "output": "FileNotFoundError"
+    },
+    "opensta_local": {
+      "available": false,
+      "exit_code": null,
+      "output": "FileNotFoundError"
+    },
+    "pytest": {
+      "available": true,
+      "exit_code": 0,
+      "output": "pytest 8.4.1"
+    },
+    "python": {
+      "available": true,
+      "exit_code": 0,
+      "output": "Python 3.12.5"
+    },
+    "python3": {
+      "available": true,
+      "exit_code": 0,
+      "output": "Python 3.11.7"
+    }
+  }
+}
