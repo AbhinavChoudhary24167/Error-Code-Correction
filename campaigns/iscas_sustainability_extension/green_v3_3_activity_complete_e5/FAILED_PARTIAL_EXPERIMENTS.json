@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "classification": "E5_BLOCKED_NO_ACTIVITY_POWER_RUN",
+      "experiment": "activity_complete_post_route_power",
+      "partial_artifacts_preserved": [
+        "WORKLOAD_MANIFEST.json",
+        "TIMING_FEASIBILITY.json"
+      ],
+      "reason": "The native environment exposes no OpenROAD/OpenSTA executable and the v3.2 final netlist/SPEF artifacts referenced by hash are not present for the complete four-architecture population.",
+      "status": "NOT_EXECUTED_ENVIRONMENT_BLOCKED"
+    },
+    {
+      "classification": "INHERITED_40_RUN_POPULATION_REUSED",
+      "experiment": "fresh_rtl_to_gdsii",
+      "partial_artifacts_preserved": [],
+      "reason": "The complete matched v3.2 routed/GDS population is referenced immutably; budget is reserved for E5 work.",
+      "status": "NOT_EXECUTED_OPTIONAL"
+    }
+  ],
+  "schema_version": 1
+}

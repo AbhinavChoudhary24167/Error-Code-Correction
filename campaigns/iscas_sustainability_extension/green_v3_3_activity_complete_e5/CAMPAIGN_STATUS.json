@@ -1,0 +1,63 @@
+{
+  "E5_status": "E5_BLOCKED_NO_ACTIVITY_POWER_RUN",
+  "Qcrit": "BLOCKED",
+  "SKY130_manufacturing_lifecycle_carbon": "BLOCKED",
+  "activity_annotation_coverage": null,
+  "activity_format": null,
+  "campaign": "green_v3_3_activity_complete_e5",
+  "classification": "GREEN_V3_3_ACTIVITY_WORKLOAD_AND_GLOBAL_RUNTIME_INFRASTRUCTURE_COMPLETE_INHERITED_MATCHED_PHYSICAL_POPULATION_E5_BLOCKED_NO_ACTIVITY_POWER_RUN_MACRO_ENERGY_INCOMPLETE_ABSOLUTE_RELIABILITY_AND_LIFECYCLE_BLOCKED",
+  "ecc_logic_e5_qualified": false,
+  "evidence_added": {
+    "E3": 0,
+    "E4": 0,
+    "E5": 0
+  },
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "fresh_physical_run_count": 0,
+  "generated_on": "2026-09-09",
+  "global_winner": "NO_GLOBAL_WINNER_QUALIFIED",
+  "included_architectures": [
+    "U0",
+    "SECDED",
+    "HSIAO_SECDED",
+    "BCH_78_64_T2"
+  ],
+  "inherited_physical_run_count": 40,
+  "interleaver_reliability": "BLOCKED",
+  "macro_power_qualification": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "parent_matched_campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "parent_matched_campaign_seal_commit": "8af0fc5a2532b3471016a86cde7968af7d15cfa9",
+  "parent_physical_population_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "physical_SDC_DUE_FIT": "BLOCKED",
+  "physical_logical_topology": "BLOCKED",
+  "post_route_activity_generated": false,
+  "qualified_e5_pareto_status": "BLOCKED",
+  "qualified_sustainability_pareto_status": "BLOCKED",
+  "runtime_budget": {
+    "campaign_started": false,
+    "deadline_hit": false,
+    "hours": 15,
+    "per_run_timeout_seconds": null,
+    "scope": "ENTIRE_CAMPAIGN",
+    "seconds": 54000
+  },
+  "schema_version": "1.0.0",
+  "timing_feasible_10ns": [
+    "U0",
+    "SECDED",
+    "HSIAO_SECDED"
+  ],
+  "timing_feasible_5ns": [
+    "U0"
+  ],
+  "timing_infeasible_as_implemented": [
+    "BCH_78_64_T2@10ns",
+    "SECDED@5ns",
+    "HSIAO_SECDED@5ns",
+    "BCH_78_64_T2@5ns"
+  ],
+  "whole_memory_e5_qualified": false,
+  "workload_specification_count": 180
+}

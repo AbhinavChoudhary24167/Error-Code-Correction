@@ -1,0 +1,149 @@
+{
+  "records": [
+    {
+      "architecture_id": "U0",
+      "clock_period_ns": 10.0,
+      "implementation_class": "TIMING_FEASIBLE_10NS",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 5,
+      "setup_wns_ns": {
+        "coefficient_of_variation": 0.0011220597578492806,
+        "count": 5,
+        "descriptive_95_percent_ci_high": 3.968232049300916,
+        "descriptive_95_percent_ci_low": 3.9571919506990842,
+        "maximum": 3.96668,
+        "mean": 3.9627120000000002,
+        "median": 3.96361,
+        "minimum": 3.95616,
+        "sample_standard_deviation": 0.004446399667146439
+      }
+    },
+    {
+      "architecture_id": "U0",
+      "clock_period_ns": 5.0,
+      "implementation_class": "TIMING_FEASIBLE_5NS",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 5,
+      "setup_wns_ns": {
+        "coefficient_of_variation": 0.014949838262996482,
+        "count": 5,
+        "descriptive_95_percent_ci_high": 0.2933879731300814,
+        "descriptive_95_percent_ci_low": 0.2826960268699186,
+        "maximum": 0.292094,
+        "mean": 0.288042,
+        "median": 0.29003,
+        "minimum": 0.281788,
+        "sample_standard_deviation": 0.004306181312950033
+      }
+    },
+    {
+      "architecture_id": "SECDED",
+      "clock_period_ns": 10.0,
+      "implementation_class": "TIMING_FEASIBLE_10NS",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 5,
+      "setup_wns_ns": {
+        "coefficient_of_variation": 0.41428576595057576,
+        "count": 5,
+        "descriptive_95_percent_ci_high": 0.6568395697127574,
+        "descriptive_95_percent_ci_low": 0.21066403028724273,
+        "maximum": 0.619944,
+        "mean": 0.4337518,
+        "median": 0.433814,
+        "minimum": 0.205922,
+        "sample_standard_deviation": 0.17969719669544096
+      }
+    },
+    {
+      "architecture_id": "SECDED",
+      "clock_period_ns": 5.0,
+      "implementation_class": "TIMING_INFEASIBLE_AS_IMPLEMENTED",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 0,
+      "setup_wns_ns": {
+        "coefficient_of_variation": -0.02461018452230939,
+        "count": 5,
+        "descriptive_95_percent_ci_high": -3.0842249054104123,
+        "descriptive_95_percent_ci_low": -3.278627094589588,
+        "maximum": -3.10492,
+        "mean": -3.181426,
+        "median": -3.19961,
+        "minimum": -3.29155,
+        "sample_standard_deviation": 0.07829548090407268
+      }
+    },
+    {
+      "architecture_id": "HSIAO_SECDED",
+      "clock_period_ns": 10.0,
+      "implementation_class": "TIMING_FEASIBLE_10NS",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 5,
+      "setup_wns_ns": {
+        "coefficient_of_variation": 0.21540140544140435,
+        "count": 5,
+        "descriptive_95_percent_ci_high": 0.8586007704969977,
+        "descriptive_95_percent_ci_low": 0.4962860295030024,
+        "maximum": 0.880356,
+        "mean": 0.6774434,
+        "median": 0.707029,
+        "minimum": 0.52024,
+        "sample_standard_deviation": 0.14592226046700346
+      }
+    },
+    {
+      "architecture_id": "HSIAO_SECDED",
+      "clock_period_ns": 5.0,
+      "implementation_class": "TIMING_INFEASIBLE_AS_IMPLEMENTED",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 0,
+      "setup_wns_ns": {
+        "coefficient_of_variation": -0.00800558640443964,
+        "count": 5,
+        "descriptive_95_percent_ci_high": -2.806914999132318,
+        "descriptive_95_percent_ci_low": -2.8632690008676818,
+        "maximum": -2.80982,
+        "mean": -2.835092,
+        "median": -2.84137,
+        "minimum": -2.85946,
+        "sample_standard_deviation": 0.022696573970535587
+      }
+    },
+    {
+      "architecture_id": "BCH_78_64_T2",
+      "clock_period_ns": 10.0,
+      "implementation_class": "TIMING_INFEASIBLE_AS_IMPLEMENTED",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 0,
+      "setup_wns_ns": {
+        "coefficient_of_variation": -0.012825514918862711,
+        "count": 5,
+        "descriptive_95_percent_ci_high": -10.93506998980451,
+        "descriptive_95_percent_ci_low": -11.28893001019549,
+        "maximum": -10.9001,
+        "mean": -11.112,
+        "median": -11.1572,
+        "minimum": -11.2613,
+        "sample_standard_deviation": 0.14251712177840245
+      }
+    },
+    {
+      "architecture_id": "BCH_78_64_T2",
+      "clock_period_ns": 5.0,
+      "implementation_class": "TIMING_INFEASIBLE_AS_IMPLEMENTED",
+      "seed_count": 5,
+      "setup_feasible_seed_count": 0,
+      "setup_wns_ns": {
+        "coefficient_of_variation": -0.008675312076774256,
+        "count": 5,
+        "descriptive_95_percent_ci_high": -15.544877422242537,
+        "descriptive_95_percent_ci_low": -15.883362577757461,
+        "maximum": -15.5633,
+        "mean": -15.71412,
+        "median": -15.789,
+        "minimum": -15.8314,
+        "sample_standard_deviation": 0.13632489501187986
+      }
+    }
+  ],
+  "schema_version": 1
+}
