@@ -1,6 +1,6 @@
 # Functional validation summary
 
-- Campaign commit: `UNSEALED_WORKTREE`
+- Campaign commit: `daaa83b6b3571060aec9d4d753b4907df5a2ba47`
 - Parent GREEN v3.2: `29f20b196e04c713f88fd1a93440a2ff47986f06`
 
 | Architecture | Status | Scope |
