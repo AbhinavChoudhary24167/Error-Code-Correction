@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "boundaries": [
+    {
+      "boundary_id": "SB_MP_IMPLEMENTATION_ONLY",
+      "technology": "SKY130",
+      "lifecycle_stage": "implementation observation",
+      "scope1": "NOT_APPLICABLE",
+      "scope2": "NOT_APPLICABLE",
+      "upstream_scope3": "NOT_APPLICABLE",
+      "mask_nre": "NOT_APPLICABLE",
+      "packaging": "NOT_APPLICABLE",
+      "use_phase": "NOT_APPLICABLE"
+    },
+    {
+      "boundary_id": "SB_SKY130_CRADLE_TO_FAB_GATE_CANDIDATE",
+      "technology": "SKY130",
+      "lifecycle_stage": "cradle-to-fab-gate candidate",
+      "scope1": "INCLUDED_BUT_UNAVAILABLE",
+      "scope2": "INCLUDED_BUT_UNAVAILABLE",
+      "upstream_scope3": "INCLUDED_BUT_UNAVAILABLE",
+      "mask_nre": "SEPARATE_UNAVAILABLE",
+      "packaging": "EXCLUDED_BY_BOUNDARY",
+      "use_phase": "EXCLUDED_BY_BOUNDARY"
+    },
+    {
+      "boundary_id": "SB_CSCI_MEMORY_SERVICE_CANDIDATE",
+      "technology": "SKY130",
+      "lifecycle_stage": "allocated manufacturing plus use phase",
+      "scope1": "INCLUDED_BUT_UNAVAILABLE",
+      "scope2": "INCLUDED_BUT_UNAVAILABLE",
+      "upstream_scope3": "DECLARED_COMPONENTS_ONLY_BUT_UNAVAILABLE",
+      "mask_nre": "SEPARATE_PARAMETRIC_OR_EXCLUDED_BY_SCENARIO",
+      "packaging": "EXCLUDED_UNLESS_SCENARIO_OVERRIDES",
+      "use_phase": "INCLUDED_BUT_ACTIVITY_ENERGY_UNAVAILABLE",
+      "functional_unit": "one correct payload-bearing memory service under the declared workload and policy"
+    },
+    {
+      "boundary_id": "SB_IMEC_IEDM_2023_PUBLIC",
+      "technology": "N28_TO_A14_GENERIC_HVM",
+      "lifecycle_stage": "cradle-to-fab-gate",
+      "scope1": "INCLUDED",
+      "scope2": "INCLUDED",
+      "upstream_scope3": "PARTIAL",
+      "mask_nre": "EXCLUDED",
+      "packaging": "EXCLUDED",
+      "use_phase": "EXCLUDED",
+      "notes": "Generic virtual-fab modeling; not a foundry-specific inventory."
+    },
+    {
+      "boundary_id": "SB_ACT_MATCHED_SYNTHETIC_VALIDATION",
+      "technology": "SYNTHETIC",
+      "lifecycle_stage": "logic embodied equation only",
+      "scope1": "MATCHED_GAS_PER_AREA",
+      "scope2": "MATCHED_ELECTRICITY_PER_AREA",
+      "upstream_scope3": "MATCHED_MATERIALS_PER_AREA",
+      "mask_nre": "EXCLUDED",
+      "packaging": "EXCLUDED",
+      "use_phase": "EXCLUDED"
+    }
+  ]
+}

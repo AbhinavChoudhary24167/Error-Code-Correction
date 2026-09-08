@@ -1,0 +1,27 @@
+{
+  "epsilon_floors": false,
+  "implementation_test_file": "tests/test_green_matrix_v3_core.py",
+  "properties": [
+    "dimensional_consistency",
+    "positivity_of_inputs",
+    "zero_denominator_is_undefined",
+    "zero_carbon_is_zero_when_service_positive",
+    "zero_correct_service_is_undefined",
+    "lifetime_scaling",
+    "zero_operational_energy",
+    "embodied_dominated_regime",
+    "operational_dominated_regime",
+    "grid_CI_scaling",
+    "reliability_monotonicity_at_fixed_carbon",
+    "carbon_monotonicity_at_fixed_service",
+    "candidate_set_independence",
+    "payload_scaling",
+    "explicit_unit_conversion",
+    "fixed_baseline_dependence_of_MRCC",
+    "access_vs_bit_rank_reversal_possible",
+    "missing_data_remains_missing",
+    "uncertainty_status_propagation",
+    "asymptotic_embodied_amortization"
+  ],
+  "schema_version": "3.0.0"
+}

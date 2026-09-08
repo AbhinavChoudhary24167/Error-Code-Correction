@@ -1,0 +1,112 @@
+{
+  "fields": [
+    {
+      "name": "quantity_id",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "entity_id",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "quantity_name",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "value",
+      "nullable": true,
+      "type": "string_or_number"
+    },
+    {
+      "name": "unit",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "source_id",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "source_type",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "implementation_hash",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "experiment_hash",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "technology_id",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "pvt",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "workload_id",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "measurement_model_boundary",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "evidence_tier",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "evidence_kind",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "uncertainty_representation",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "citation",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "date_version",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "qualification_status",
+      "nullable": false,
+      "type": "string_or_number"
+    },
+    {
+      "name": "blocking_reason",
+      "nullable": false,
+      "type": "string_or_number"
+    }
+  ],
+  "foreign_key": {
+    "entity_id": "M_P.record_id"
+  },
+  "matrix_symbol": "M_E",
+  "primary_key": [
+    "quantity_id"
+  ],
+  "schema_version": "3.0.0"
+}

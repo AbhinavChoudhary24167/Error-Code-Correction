@@ -1,0 +1,106 @@
+{
+  "derived": true,
+  "fields": [
+    {
+      "name": "record_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "design_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "architecture_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "technology_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "fault_environment_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "interleaving_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "workload_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "service_policy_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "fab_scenario_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "lifetime_scenario_id",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "observed_macro_area_um2",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "logical_control_sdc_fraction",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "logical_control_due_fraction",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "physical_sdc_probability",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "physical_due_probability",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "operational_energy_j",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "lifecycle_kgco2e",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "csci_kgco2e_per_correct_service",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "qualification_status",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    },
+    {
+      "name": "blocking_reasons",
+      "nullable": true,
+      "type": "string_or_number_or_empty"
+    }
+  ],
+  "schema_version": "3.0.0"
+}

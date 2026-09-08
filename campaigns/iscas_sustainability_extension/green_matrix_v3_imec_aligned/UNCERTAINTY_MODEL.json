@@ -1,0 +1,39 @@
+{
+  "current_uncertainties": [
+    {
+      "decision_effect": "blocks absolute lifecycle carbon",
+      "kind": "EPISTEMIC",
+      "quantity": "SKY130 manufacturing inventory",
+      "representation": "MISSING"
+    },
+    {
+      "decision_effect": "blocks physical SDC/DUE and feasibility",
+      "kind": "EPISTEMIC_AND_ALEATORY_UNRESOLVED",
+      "quantity": "physical SBU/DBU/MBU event probabilities",
+      "representation": "MISSING"
+    },
+    {
+      "decision_effect": "blocks operational carbon and energy frontier",
+      "kind": "EPISTEMIC",
+      "quantity": "matched workload activity and energy",
+      "representation": "MISSING"
+    },
+    {
+      "decision_effect": "limits physical-cost generalization",
+      "kind": "ALEATORY_OR_TOOL_VARIABILITY",
+      "quantity": "implementation seed variability",
+      "representation": "NOT_SAMPLED"
+    }
+  ],
+  "random_seed": 1447906611,
+  "reporting_rule": "Scenario envelopes are not statistical confidence intervals.",
+  "schema_version": 1,
+  "supported_methods": [
+    "BOUNDED_INTERVAL",
+    "SCENARIO_ENSEMBLE",
+    "MONTE_CARLO_WHEN_DISTRIBUTIONS_DEFENSIBLE",
+    "LATIN_HYPERCUBE",
+    "EMPIRICAL_BOOTSTRAP",
+    "IMPLEMENTATION_SEEDS"
+  ]
+}

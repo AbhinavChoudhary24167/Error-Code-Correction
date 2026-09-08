@@ -1,0 +1,33 @@
+{
+  "schema_version": "3.0.0",
+  "status": "PASS",
+  "required_commands": {
+    "make": {
+      "status": "PASS",
+      "exit_code": 0
+    },
+    "make test": {
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_passed": 484,
+      "warnings": 4,
+      "duration_seconds": 376.87
+    },
+    "python3 -m pytest -q": {
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_passed": 655,
+      "warnings": 1,
+      "duration_seconds": 455.25,
+      "interpreter": "D:/Compiler Cpp/ucrt64/bin/python3.exe (Python 3.11.7)",
+      "launcher_note": "The bare Windows python3 alias returned exit 9009; the installed python3.exe was invoked directly."
+    }
+  },
+  "focused_v3_suite": {
+    "command": "python -m pytest -q tests/test_green_matrix_v3_core.py tests/test_green_matrix_v3_artifacts.py",
+    "status": "PASS",
+    "tests_passed": 44
+  },
+  "workspace_scope_note": "Legacy DATE validators inspect git status and reject unrelated untracked paths. Existing ISCAS provenance remained in place and accessible; only its git-status visibility was temporarily filtered through .git/info/exclude, which was restored byte-for-byte after each full run.",
+  "historical_provenance_modified": false
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "random_seed": 1447906611,
+  "supported_methods": ["BOUNDED_INTERVAL", "SCENARIO_ENSEMBLE", "MONTE_CARLO_WHEN_DISTRIBUTIONS_DEFENSIBLE", "LATIN_HYPERCUBE", "EMPIRICAL_BOOTSTRAP", "IMPLEMENTATION_SEEDS"],
+  "current_uncertainties": [
+    {"quantity": "SKY130 manufacturing inventory", "kind": "EPISTEMIC", "representation": "MISSING", "decision_effect": "blocks absolute lifecycle carbon"},
+    {"quantity": "physical SBU/DBU/MBU event probabilities", "kind": "EPISTEMIC_AND_ALEATORY_UNRESOLVED", "representation": "MISSING", "decision_effect": "blocks physical SDC/DUE and feasibility"},
+    {"quantity": "matched workload activity and energy", "kind": "EPISTEMIC", "representation": "MISSING", "decision_effect": "blocks operational carbon and energy frontier"},
+    {"quantity": "implementation seed variability", "kind": "ALEATORY_OR_TOOL_VARIABILITY", "representation": "NOT_SAMPLED", "decision_effect": "limits physical-cost generalization"}
+  ],
+  "reporting_rule": "Scenario envelopes are not statistical confidence intervals."
+}

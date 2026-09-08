@@ -1,0 +1,11 @@
+{
+  "conceptual_tensor": "G[A,N,F,I,W,P,G,L,M]",
+  "dense_array_required": false,
+  "implementation": "normalized sparse CSV+JSON datasets",
+  "relations": {
+    "M_E": "entity_id -> M_P.record_id",
+    "M_P": "record_id/design_id",
+    "M_S": "design_id -> M_P.design_id"
+  },
+  "schema_version": "3.0.0"
+}

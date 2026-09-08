@@ -1,0 +1,78 @@
+{
+  "assessments": [
+    {
+      "design_id": "E0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "IMPLEMENTATION_FRONTIER",
+      "reasons": "operational_energy:TIER_E0_BELOW_E5;operational_energy:CLASS_UNQUALIFIED_NOT_ALLOWED;latency:TIER_E0_BELOW_E4;latency:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "E0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "reasons": "",
+      "status": "QUALIFIED"
+    },
+    {
+      "design_id": "E0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "PHYSICAL_RELIABILITY_FRONTIER",
+      "reasons": "physical_fault_probability:TIER_E0_BELOW_E2;physical_fault_probability:CLASS_UNQUALIFIED_NOT_ALLOWED;physical_outcome_model:TIER_E0_BELOW_E3;physical_outcome_model:CLASS_UNQUALIFIED_NOT_ALLOWED;operational_energy:TIER_E0_BELOW_E5;operational_energy:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "E0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "CSCI_ABSOLUTE",
+      "reasons": "lifecycle_carbon:TIER_E0_BELOW_E2;lifecycle_carbon:CLASS_UNQUALIFIED_NOT_ALLOWED;correct_service_probability:TIER_E0_BELOW_E2;correct_service_probability:CLASS_UNQUALIFIED_NOT_ALLOWED;service_count_lifetime:TIER_E0_BELOW_E2;service_count_lifetime:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "E0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "CSCI_PARAMETRIC",
+      "reasons": "lifecycle_carbon:TIER_E0_BELOW_E1;lifecycle_carbon:CLASS_UNQUALIFIED_NOT_ALLOWED;correct_service_probability:TIER_E0_BELOW_E2;correct_service_probability:CLASS_UNQUALIFIED_NOT_ALLOWED;service_count_lifetime:TIER_E0_BELOW_E1;service_count_lifetime:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "E0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "MRCC_MATCHED_BASELINE",
+      "reasons": "matched_lifecycle_carbon:TIER_E0_BELOW_E2;matched_lifecycle_carbon:CLASS_UNQUALIFIED_NOT_ALLOWED;matched_correct_service:TIER_E0_BELOW_E2;matched_correct_service:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "U0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "IMPLEMENTATION_FRONTIER",
+      "reasons": "operational_energy:TIER_E0_BELOW_E5;operational_energy:CLASS_UNQUALIFIED_NOT_ALLOWED;latency:TIER_E0_BELOW_E4;latency:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "U0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "reasons": "",
+      "status": "QUALIFIED"
+    },
+    {
+      "design_id": "U0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "PHYSICAL_RELIABILITY_FRONTIER",
+      "reasons": "physical_fault_probability:TIER_E0_BELOW_E2;physical_fault_probability:CLASS_UNQUALIFIED_NOT_ALLOWED;physical_outcome_model:TIER_E0_BELOW_E3;physical_outcome_model:CLASS_UNQUALIFIED_NOT_ALLOWED;operational_energy:TIER_E0_BELOW_E5;operational_energy:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "U0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "CSCI_ABSOLUTE",
+      "reasons": "lifecycle_carbon:TIER_E0_BELOW_E2;lifecycle_carbon:CLASS_UNQUALIFIED_NOT_ALLOWED;correct_service_probability:TIER_E0_BELOW_E2;correct_service_probability:CLASS_UNQUALIFIED_NOT_ALLOWED;service_count_lifetime:TIER_E0_BELOW_E2;service_count_lifetime:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "U0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "CSCI_PARAMETRIC",
+      "reasons": "lifecycle_carbon:TIER_E0_BELOW_E1;lifecycle_carbon:CLASS_UNQUALIFIED_NOT_ALLOWED;correct_service_probability:TIER_E0_BELOW_E2;correct_service_probability:CLASS_UNQUALIFIED_NOT_ALLOWED;service_count_lifetime:TIER_E0_BELOW_E1;service_count_lifetime:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    },
+    {
+      "design_id": "U0|SKY130|I0|W0_READ_DOMINANT_SEED|P0_NO_SCRUB_NO_RETRY",
+      "metric_id": "MRCC_MATCHED_BASELINE",
+      "reasons": "matched_lifecycle_carbon:TIER_E0_BELOW_E2;matched_lifecycle_carbon:CLASS_UNQUALIFIED_NOT_ALLOWED;matched_correct_service:TIER_E0_BELOW_E2;matched_correct_service:CLASS_UNQUALIFIED_NOT_ALLOWED",
+      "status": "BLOCKED"
+    }
+  ],
+  "qualified_winner": null,
+  "schema_version": "3.0.0"
+}

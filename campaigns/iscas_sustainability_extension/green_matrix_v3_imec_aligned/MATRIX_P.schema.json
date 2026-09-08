@@ -1,0 +1,232 @@
+{
+  "description": "Physical/architectural observations only; no GREEN scalar or sustainability translation.",
+  "fields": [
+    {
+      "name": "record_id",
+      "nullable": false,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "design_id",
+      "nullable": false,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "architecture_id",
+      "nullable": false,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "ecc_family",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "payload_bits",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "codeword_bits",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "parity_bits",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "correction_capability_bits",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "detection_capability_bits",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "decoder_architecture",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "pipeline_stages",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "initiation_interval_cycles",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "technology_id",
+      "nullable": false,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "process_route_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "compiler_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "implementation_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "interleaving_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "physical_interleaver_implemented",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "workload_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "service_policy_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "fault_environment_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "clock_hz",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "Hz"
+    },
+    {
+      "name": "voltage_v",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "V"
+    },
+    {
+      "name": "temperature_c",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "degree_C"
+    },
+    {
+      "name": "observed_macro_area_um2",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "um2"
+    },
+    {
+      "name": "activity_coverage_fraction",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "diagnostic_tool_power_w",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "W"
+    },
+    {
+      "name": "latency_s",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "s"
+    },
+    {
+      "name": "throughput_services_per_s",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "services_per_s"
+    },
+    {
+      "name": "logical_pattern_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_success_normal_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_success_corrected_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_success_after_retry_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_detected_failure_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_sdc_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_timeout_count",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_control_success_fraction",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_control_due_fraction",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_control_sdc_fraction",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_control_corrected_fraction",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "logical_control_retry_fraction",
+      "nullable": true,
+      "type": "number_or_empty"
+    },
+    {
+      "name": "rate_semantics",
+      "nullable": true,
+      "type": "string_or_boolean"
+    },
+    {
+      "name": "source_record_id",
+      "nullable": true,
+      "type": "string_or_boolean"
+    }
+  ],
+  "matrix_symbol": "M_P",
+  "primary_key": [
+    "record_id"
+  ],
+  "schema_version": "3.0.0"
+}

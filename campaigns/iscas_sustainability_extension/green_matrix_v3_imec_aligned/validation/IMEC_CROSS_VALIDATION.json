@@ -1,0 +1,32 @@
+{
+  "alignment_label": "IMEC_PUBLIC_EVIDENCE_ALIGNED",
+  "certified_or_compliant_claim": false,
+  "comparisons": [
+    {
+      "claim": "fab energy rises with advanced process-route complexity in the cited N28-to-A14 study",
+      "classification": "TREND_REPRODUCTION",
+      "source_id": "SRC_IMEC_IEDM_2023"
+    },
+    {
+      "claim": "Scope 2 changes linearly with electricity CI for fixed energy",
+      "classification": "EXACT_REPRODUCTION",
+      "source_id": "SRC_IMEC_SSTS_2022"
+    },
+    {
+      "claim": "abatement reduces direct process-gas emissions",
+      "classification": "EXACT_REPRODUCTION",
+      "source_id": "SRC_IMEC_SSTS_2022"
+    },
+    {
+      "claim": "EUV route effects depend on eliminated deposition/etch/clean steps, not scanner power alone",
+      "classification": "QUALITATIVE_ONLY",
+      "source_id": "SRC_IMEC_IEDM_2023;SRC_IMEC_LITHO_2024"
+    },
+    {
+      "claim": "absolute SKY130 wafer carbon from imec advanced-node values",
+      "classification": "NOT_COMPARABLE",
+      "source_id": "SRC_IMEC_IEDM_2023;SRC_SKYWATER_SKY130_PDK"
+    }
+  ],
+  "schema_version": "3.0.0"
+}

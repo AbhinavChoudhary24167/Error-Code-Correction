@@ -1,0 +1,257 @@
+{
+  "double_count_guards": [
+    "patterning_scope2_is_subset_not_addend",
+    "correction_energy_either_in_read_or_incremental_not_both",
+    "mask_NRE_amortized_once_across_production",
+    "base_memory_and_incremental_ECC_allocations_are_disjoint"
+  ],
+  "edges": [
+    {
+      "from": "technology",
+      "to": "process_route"
+    },
+    {
+      "from": "process_route",
+      "to": "process_steps"
+    },
+    {
+      "from": "process_steps",
+      "to": "fab_energy"
+    },
+    {
+      "from": "process_steps",
+      "to": "process_gases"
+    },
+    {
+      "from": "fab_energy",
+      "to": "wafer_carbon"
+    },
+    {
+      "from": "manufacturing_grid_ci",
+      "to": "wafer_carbon"
+    },
+    {
+      "from": "process_gases",
+      "to": "wafer_carbon"
+    },
+    {
+      "from": "die_area",
+      "to": "gross_dies"
+    },
+    {
+      "from": "die_area",
+      "to": "yield"
+    },
+    {
+      "from": "gross_dies",
+      "to": "good_die_carbon"
+    },
+    {
+      "from": "yield",
+      "to": "good_die_carbon"
+    },
+    {
+      "from": "wafer_carbon",
+      "to": "good_die_carbon"
+    },
+    {
+      "from": "ecc_architecture",
+      "to": "implementation_cost"
+    },
+    {
+      "from": "interleaving",
+      "to": "implementation_cost"
+    },
+    {
+      "from": "ecc_architecture",
+      "to": "physical_mapping"
+    },
+    {
+      "from": "interleaving",
+      "to": "physical_mapping"
+    },
+    {
+      "from": "physical_mapping",
+      "to": "conditional_outcome"
+    },
+    {
+      "from": "fault_topology_distribution",
+      "to": "sdc_due"
+    },
+    {
+      "from": "conditional_outcome",
+      "to": "sdc_due"
+    },
+    {
+      "from": "workload",
+      "to": "activity"
+    },
+    {
+      "from": "service_policy",
+      "to": "activity"
+    },
+    {
+      "from": "implementation_cost",
+      "to": "activity"
+    },
+    {
+      "from": "activity",
+      "to": "operational_energy"
+    },
+    {
+      "from": "operational_energy",
+      "to": "operational_carbon"
+    },
+    {
+      "from": "use_grid_ci",
+      "to": "operational_carbon"
+    },
+    {
+      "from": "good_die_carbon",
+      "to": "lifecycle_carbon"
+    },
+    {
+      "from": "operational_carbon",
+      "to": "lifecycle_carbon"
+    },
+    {
+      "from": "sdc_due",
+      "to": "correct_service_probability"
+    },
+    {
+      "from": "workload",
+      "to": "correct_services"
+    },
+    {
+      "from": "service_policy",
+      "to": "correct_services"
+    },
+    {
+      "from": "correct_service_probability",
+      "to": "correct_services"
+    },
+    {
+      "from": "lifecycle_carbon",
+      "to": "csci"
+    },
+    {
+      "from": "correct_services",
+      "to": "csci"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "technology",
+      "kind": "scenario"
+    },
+    {
+      "id": "process_route",
+      "kind": "model_structure"
+    },
+    {
+      "id": "process_steps",
+      "kind": "inventory"
+    },
+    {
+      "id": "fab_energy",
+      "kind": "physical_quantity"
+    },
+    {
+      "id": "process_gases",
+      "kind": "physical_inventory"
+    },
+    {
+      "id": "manufacturing_grid_ci",
+      "kind": "scenario_parameter"
+    },
+    {
+      "id": "wafer_carbon",
+      "kind": "derived_quantity"
+    },
+    {
+      "id": "die_area",
+      "kind": "physical_observation"
+    },
+    {
+      "id": "gross_dies",
+      "kind": "derived_quantity"
+    },
+    {
+      "id": "yield",
+      "kind": "modelled_or_measured_parameter"
+    },
+    {
+      "id": "good_die_carbon",
+      "kind": "derived_quantity"
+    },
+    {
+      "id": "ecc_architecture",
+      "kind": "design_variable"
+    },
+    {
+      "id": "interleaving",
+      "kind": "design_variable"
+    },
+    {
+      "id": "implementation_cost",
+      "kind": "physical_observation"
+    },
+    {
+      "id": "physical_mapping",
+      "kind": "physical_observation"
+    },
+    {
+      "id": "fault_topology_distribution",
+      "kind": "physical_environment"
+    },
+    {
+      "id": "conditional_outcome",
+      "kind": "logical_or_physical_model"
+    },
+    {
+      "id": "sdc_due",
+      "kind": "reliability_outcome"
+    },
+    {
+      "id": "workload",
+      "kind": "scenario"
+    },
+    {
+      "id": "service_policy",
+      "kind": "scenario"
+    },
+    {
+      "id": "activity",
+      "kind": "physical_observation"
+    },
+    {
+      "id": "operational_energy",
+      "kind": "derived_quantity"
+    },
+    {
+      "id": "use_grid_ci",
+      "kind": "scenario_parameter"
+    },
+    {
+      "id": "operational_carbon",
+      "kind": "derived_quantity"
+    },
+    {
+      "id": "lifecycle_carbon",
+      "kind": "derived_quantity"
+    },
+    {
+      "id": "correct_service_probability",
+      "kind": "reliability_outcome"
+    },
+    {
+      "id": "correct_services",
+      "kind": "functional_output"
+    },
+    {
+      "id": "csci",
+      "kind": "decision_metric"
+    }
+  ],
+  "schema_version": "3.0.0"
+}
