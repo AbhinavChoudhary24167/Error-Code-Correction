@@ -1,0 +1,37 @@
+{
+  "architecture_ids": [
+    "E0",
+    "U0"
+  ],
+  "blocking_inputs": [
+    "physical SER/FIT and spatial event distribution",
+    "activity-qualified SRAM and complete ECC operational energy",
+    "matched absolute SKY130 wafer-carbon inventory",
+    "service latency under a declared policy"
+  ],
+  "builder": "green_matrix_v2/build_matrix_v2.py",
+  "classification": "MATRIX_SCHEMA_AND_LOGICAL_CONTROLS_POPULATED_GREEN_ROWS_UNQUALIFIED",
+  "deterministic_seed": 20260908,
+  "green_metric_rows": 0,
+  "input_sha256": {
+    "carbon/validation/SKY130_TRANSLATION_STATUS.json": "10e7fe487d0fdb5e14d6e242cf56a410935818a1b075597028d9c3256951fbc3",
+    "energy/ENERGY_RESULTS.csv": "3b762e9208cc4f0be7e23b45ecc493b57a4059ba43823ea5c72352ec894f86a9",
+    "interleaving/INTERLEAVING_COST.csv": "46541f9510df01d0949a265a3e34dc37769fbd6087ac267f3699226c908ba6ae",
+    "reliability/RELIABILITY_RESULTS.csv": "be4496e2ace3e11450ce55311364cd21018989c4d60baf8dfeeb740406c9ca8f"
+  },
+  "join_policy": "Preserve exact logical controls and diagnostic physical/activity evidence; never coerce unavailable physical rates, energy, or carbon into scores.",
+  "qualification_counts": {
+    "UNQUALIFIED": 14
+  },
+  "qualified_absolute_rows": 0,
+  "qualified_relative_rows": 0,
+  "row_count": 14,
+  "schema_version": 2,
+  "seed_use": "recorded for reproducibility; current exhaustive join uses no randomness",
+  "source_ids": [
+    "A10_LOGICAL_CONTROLS",
+    "A10_POSTROUTE_ACTIVITY_DIAGNOSTIC",
+    "A10_INTERLEAVING_COST",
+    "SRC_SKYWATER_SKY130_PDK"
+  ]
+}

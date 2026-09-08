@@ -1,0 +1,30 @@
+{
+  "NSGA_II_used": false,
+  "candidate_row_count": 14,
+  "classification": "NO_QUALIFIED_FULL_OBJECTIVE_ROWS",
+  "eligible_row_count": 0,
+  "frontier_row_count": 0,
+  "frontier_row_ids": [],
+  "method": "EXACT_DETERMINISTIC_ENUMERATION",
+  "objectives": [
+    {
+      "direction": "min",
+      "name": "GCI"
+    },
+    {
+      "direction": "min",
+      "name": "SDC"
+    },
+    {
+      "direction": "min",
+      "name": "DUE"
+    },
+    {
+      "direction": "min",
+      "name": "latency_ns"
+    }
+  ],
+  "reason": "GCI, physical SDC/DUE probabilities, and service latency are not jointly qualified for any row. Logical mask fractions are not substituted.",
+  "schema_version": 1,
+  "winner": null
+}

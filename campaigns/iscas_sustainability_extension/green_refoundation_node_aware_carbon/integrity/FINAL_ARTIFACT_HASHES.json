@@ -1,0 +1,554 @@
+{
+  "algorithm": "SHA-256",
+  "artifact_count": 109,
+  "artifacts": [
+    {
+      "bytes": 3033,
+      "path": "BASELINE_MANIFEST.json",
+      "sha256": "298c00ae4a519453aa11f5d264910c7d4c9c68a22cbd1aa7629ebe9fd8e718c7"
+    },
+    {
+      "bytes": 6491,
+      "path": "CAMPAIGN_BASELINE.json",
+      "sha256": "ffc796b0ec94d1461c13dcc359a94bae094933b9abd6ac7a244d7e1864ccabc8"
+    },
+    {
+      "bytes": 1850,
+      "path": "CAMPAIGN_STATUS.json",
+      "sha256": "3d5fad1a77f546ab1e14150d719c7e38fba38a4a909b5a3d7ea0a3fb5ea7c05b"
+    },
+    {
+      "bytes": 15418,
+      "path": "FINAL_REPORT.md",
+      "sha256": "8be97a6e54711efd778879ef8362624343fff133ff5918d48f6c26a9ef6d0799"
+    },
+    {
+      "bytes": 1508,
+      "path": "README.md",
+      "sha256": "56f057d8a56d4eff033997c27e03c10f069815bc40754269eed0109eea03a43c"
+    },
+    {
+      "bytes": 2363,
+      "path": "carbon/calibration/IMEC_CALIBRATION_METADATA.json",
+      "sha256": "58a861856009a11b0686c72e8e289195afba43098047dbe937ca4ea868068533"
+    },
+    {
+      "bytes": 4553,
+      "path": "carbon/calibration/IMEC_CURRENT_CALIBRATION.csv",
+      "sha256": "832dcdecf13517aada1c6feda29ca0eebf96f4c5d93b37c2a40800672c6e622d"
+    },
+    {
+      "bytes": 840,
+      "path": "carbon/calibration/IMEC_HISTORICAL_CALIBRATION.csv",
+      "sha256": "b6092b6cd4d6a4e9a76f0eea03f61a2da85f690ab0ead5c3e03ab3ca3a60bb5b"
+    },
+    {
+      "bytes": 1436,
+      "path": "carbon/calibration/IMEC_MODEL_EVOLUTION.csv",
+      "sha256": "9eac40387bba9182c0b1fdb0b2047f7ea05dd0dc1f529a30b8a19a1a09c165d5"
+    },
+    {
+      "bytes": 1392,
+      "path": "carbon/calibration/IMEC_MODEL_EVOLUTION.md",
+      "sha256": "b753f4f9f81ff79ef45f9efa00574d609a03028ce66e22ffafffd2b25a2d7d01"
+    },
+    {
+      "bytes": 741,
+      "path": "carbon/calibration/IMEC_PUBLIC_ACCESS_STATUS.json",
+      "sha256": "d52071ef59a9a473d52944ce8d528f6901e74eadb855904445ac34a8ee3a8408"
+    },
+    {
+      "bytes": 3105,
+      "path": "carbon/calibration/NODE_SCALING_VALIDATION.md",
+      "sha256": "223203de16ac828cc85730b826b9eff94b3ef0c208745d50f32d8c0439871bec"
+    },
+    {
+      "bytes": 852,
+      "path": "carbon/mask/MASK_NRE_MODEL.md",
+      "sha256": "ed9c7c78e4df0d5ef1b890db70714aa7788026cf1fd4af09212eb2fc9d0a1fb2"
+    },
+    {
+      "bytes": 468,
+      "path": "carbon/mask/MASK_NRE_SENSITIVITY.csv",
+      "sha256": "d4b63246265a3e9fe0981894e27bf59bcf326a60c32d184467352971c728261e"
+    },
+    {
+      "bytes": 1082,
+      "path": "carbon/maturity/MATURITY_MODEL.md",
+      "sha256": "4b8fab05b999a4cecc35cd3d23cf72aeecf1169688626eabc86dd17347093f07"
+    },
+    {
+      "bytes": 1294,
+      "path": "carbon/maturity/MATURITY_SCENARIOS.json",
+      "sha256": "6d93475a6961ef259044700d25a5df92c1b0d1b6eae7c6f67fb90d51a51a808f"
+    },
+    {
+      "bytes": 110,
+      "path": "carbon/model/__init__.py",
+      "sha256": "fe873eba71ae9f0955e45c7515907af9c13cf492f1d2cdf0bb3a8098bc51c514"
+    },
+    {
+      "bytes": 23485,
+      "path": "carbon/model/semiconductor_carbon.py",
+      "sha256": "36e172b6d06fc5a8115d2731168000f8db64a495f4f05cdc9c03c736daeca197"
+    },
+    {
+      "bytes": 1757,
+      "path": "carbon/scenarios/FAB_SCENARIOS.json",
+      "sha256": "3dc2605aa2f8448d46adf8800e725f580882c63101c63ef5d3f2ea4139d6326c"
+    },
+    {
+      "bytes": 1115,
+      "path": "carbon/scenarios/FAB_SCENARIO_RESULTS.csv",
+      "sha256": "490a54b4d3112d6ba2283eb117ea74ca0077761bd5a145bea820354f1543cb2c"
+    },
+    {
+      "bytes": 3061,
+      "path": "carbon/scenarios/fab_scenarios.py",
+      "sha256": "11aa463b808774e65b14f83419df9f4edf53f9611f28e3b15291311d5b4e81ba"
+    },
+    {
+      "bytes": 7992,
+      "path": "carbon/sources/SOURCE_REGISTRY.csv",
+      "sha256": "26901e0e096df2100d13a805189d2241f37a0fea9b4fbfbc7be5981fcfe1495f"
+    },
+    {
+      "bytes": 19049,
+      "path": "carbon/sources/SOURCE_REGISTRY.json",
+      "sha256": "042c0fb90a92392714e43ecff2fdfc47df857ec34adaa467bd1ad0ebd58f5f14"
+    },
+    {
+      "bytes": 6751,
+      "path": "carbon/sources/SOURCE_REVIEW.md",
+      "sha256": "e2c6b8206bf314d386bd6fa0f14303ed8305686ab975f4db6967c59ae3a2214f"
+    },
+    {
+      "bytes": 2744,
+      "path": "carbon/uncertainty/SENSITIVITY_ANALYSIS.md",
+      "sha256": "9c97eabd8834e5a61872830fdff197fbc826345b4648be2de3921881a108d109"
+    },
+    {
+      "bytes": 2701,
+      "path": "carbon/uncertainty/UNCERTAINTY_MODEL.json",
+      "sha256": "993fbb283bfdbd063f20140fff1d7b4fb8d00381fa8dca9f462df1dc38116c80"
+    },
+    {
+      "bytes": 446,
+      "path": "carbon/uncertainty/UNCERTAINTY_RESULTS.csv",
+      "sha256": "affec9291309425b026baf285124cfef4c0952934d52e8c05dfacfef0fe28e3c"
+    },
+    {
+      "bytes": 590,
+      "path": "carbon/uncertainty/UNCERTAINTY_SENSITIVITY.csv",
+      "sha256": "565422b786a092e02caf671868dc0e1b65da11fa6858a7e95e6065991a0470fa"
+    },
+    {
+      "bytes": 2980,
+      "path": "carbon/uncertainty/run_uncertainty.py",
+      "sha256": "5319f30dc9f729893dfdc701600b7d450ba4d16aa7c8f882b912270270e594db"
+    },
+    {
+      "bytes": 8598,
+      "path": "carbon/uncertainty/uncertainty.py",
+      "sha256": "fbc2bd2eaff5dddd0e3c35843880b58161c6620770f46da27f6ead232c8edbba"
+    },
+    {
+      "bytes": 816,
+      "path": "carbon/validation/ACT_COMPARISON.csv",
+      "sha256": "e6a683e00fd96ea07d3c22af65cdba61155c3f623c198fa752c3af8e19060a15"
+    },
+    {
+      "bytes": 1457,
+      "path": "carbon/validation/ACT_COMPARISON.md",
+      "sha256": "81cba6db2dde5570d17c1ef6a8dcbe35f29ebdf35ae540313fac1918049b6777"
+    },
+    {
+      "bytes": 1813,
+      "path": "carbon/validation/FOUNDRY_DISCLOSURE_CROSSCHECK.csv",
+      "sha256": "0a070544e08ee1a372e1f8fa25152d181433b0c5d09af4e0ee040fddd8044069"
+    },
+    {
+      "bytes": 981,
+      "path": "carbon/validation/SKY130_TRANSLATION_STATUS.json",
+      "sha256": "10e7fe487d0fdb5e14d6e242cf56a410935818a1b075597028d9c3256951fbc3"
+    },
+    {
+      "bytes": 809,
+      "path": "carbon/validation/SKY130_TRANSLATION_STATUS.md",
+      "sha256": "d93b96dffe80793f90c9c1aa25b2812b84e84bf1a0eb75fe887e213dd5b8ffd6"
+    },
+    {
+      "bytes": 2592,
+      "path": "carbon/validation/act_cross_validation.py",
+      "sha256": "b61db85bfdad19f128e04b696817c1e653fa584db1897dd1b1f85e9e0d4df7f0"
+    },
+    {
+      "bytes": 1293,
+      "path": "carbon/yield/YIELD_MODEL.md",
+      "sha256": "b300a826958fb382943fc7ac97956ba10ac7935b1792db30e49992c45086e54d"
+    },
+    {
+      "bytes": 1791,
+      "path": "carbon/yield/YIELD_SENSITIVITY.csv",
+      "sha256": "e567e0aaecd76350e54ee2576cfc8ed8790fe391a499104fb488b37d71300598"
+    },
+    {
+      "bytes": 2452,
+      "path": "cleanup/CLEANUP_DIFF_SUMMARY.md",
+      "sha256": "1aea92c32bd62183cd86a29f598e154a064522f0e22418b2297124d320b0cc40"
+    },
+    {
+      "bytes": 221267,
+      "path": "cleanup/CLEANUP_INVENTORY.csv",
+      "sha256": "85ca6c41a30e7b43d6f7ca79b188940194754ef53a573094a989fcb57997b7ae"
+    },
+    {
+      "bytes": 309693,
+      "path": "cleanup/CLEANUP_INVENTORY.json",
+      "sha256": "40ded4e25803a7d4bd719e5d3866d10a4cdbfdafa98e42c09503c200848c1a27"
+    },
+    {
+      "bytes": 4240,
+      "path": "cleanup/CLEANUP_PLAN.md",
+      "sha256": "eaa5f03810b6db3c503c0cfcfd3442b6d69e02033bb9ace61d72e3c298468f2d"
+    },
+    {
+      "bytes": 116526,
+      "path": "cleanup/DELETED_FILES_MANIFEST.json",
+      "sha256": "b8eb6fe2901d7b0a62897b4b9b39981ea7f43e67c1efd30b7d5586dcbbaa9049"
+    },
+    {
+      "bytes": 920336,
+      "path": "cleanup/DUPLICATE_FILE_GROUPS.json",
+      "sha256": "411353b33afbd610cb2cea2edbde405f40062eaebda4591a197247d92d689263"
+    },
+    {
+      "bytes": 106187,
+      "path": "cleanup/KEPT_EVIDENCE_MANIFEST.json",
+      "sha256": "db32b8f253cee8eb12e8c1b8eb922f27962a7d3471a62b715b0ab90829cdb97b"
+    },
+    {
+      "bytes": 20325,
+      "path": "cleanup/POST_TEST_CLEANUP_MANIFEST.json",
+      "sha256": "2d321a54cc49c3243907ee90d3f6e66320c9dc8c74f2e2351f1ef557212c5696"
+    },
+    {
+      "bytes": 2437,
+      "path": "energy/ACTIVITY_COVERAGE_BY_COMPONENT.csv",
+      "sha256": "d2697a868fab7bd68eb2bda3b0e67aa7ed7a6af88c0be2286df827d9ac8f4a0d"
+    },
+    {
+      "bytes": 4875,
+      "path": "energy/ACTIVITY_MAPPING_DIAGNOSTICS.md",
+      "sha256": "564f9719c81806c04304eeb364e228f615a9a5d1e853ff632d925f7696972d2b"
+    },
+    {
+      "bytes": 763,
+      "path": "energy/ENERGY_RESULTS.csv",
+      "sha256": "3b762e9208cc4f0be7e23b45ecc493b57a4059ba43823ea5c72352ec894f86a9"
+    },
+    {
+      "bytes": 1985,
+      "path": "energy/ENERGY_RESULTS.json",
+      "sha256": "4bd7b7444dc27b211a6e5c5929063759560bdefb61ba613b3b8c30b7561d010d"
+    },
+    {
+      "bytes": 3850,
+      "path": "energy/SRAM_ENERGY_EVIDENCE.json",
+      "sha256": "6795729810c56fff37d8d0ee8925572ca622d646e2d01436e192c0d9657f7efa"
+    },
+    {
+      "bytes": 2289,
+      "path": "energy/SRAM_ENERGY_MODEL.md",
+      "sha256": "f89ae9289f422a327b317d227b854c8ed37a5a85d3033c7095ba38861eb57408"
+    },
+    {
+      "bytes": 7674,
+      "path": "energy/audit_attempt10_activity.py",
+      "sha256": "467f84658d6483724f76d4770588ab1f4bf208fd2dfd0f8f3493301233ed3435"
+    },
+    {
+      "bytes": 10937,
+      "path": "energy/energy_accounting.py",
+      "sha256": "d27eddef17e753759a8b913956640e8f01b7e98a47cc804f06316c4b49eba110"
+    },
+    {
+      "bytes": 2309,
+      "path": "figures/FIGURE_DATA_STATUS.csv",
+      "sha256": "63902ca08a70aa8fe0d7cbe3627b81af68f2defcfa9d6c0b6f2569de4f99f0ee"
+    },
+    {
+      "bytes": 630,
+      "path": "figures/FIGURE_DATA_STATUS.md",
+      "sha256": "abe1fc76271b4a4370db6f822f913995545da262aced242440ced94378cb5fef"
+    },
+    {
+      "bytes": 1542,
+      "path": "green_matrix_v2/GREEN_MATRIX_V2_METADATA.json",
+      "sha256": "764ed11b3605037b37bd9ef804f13577e1e994d89833277c2a58943b9ac0b4f2"
+    },
+    {
+      "bytes": 21095,
+      "path": "green_matrix_v2/GREEN_MATRIX_V2_RAW.csv",
+      "sha256": "7106bc2a8d7157a8940bcb279f56b88181bd5685fc35ebbcfe433122fdc45ae5"
+    },
+    {
+      "bytes": 28694,
+      "path": "green_matrix_v2/GREEN_MATRIX_V2_SCHEMA.json",
+      "sha256": "2106d13b3942b94889768fbe10f3602a2f2e39954e0e0d300aa111d0e828efa1"
+    },
+    {
+      "bytes": 56,
+      "path": "green_matrix_v2/__init__.py",
+      "sha256": "d3c412adaebc61e979ffe157c5795f7215697bcad96550bc60d9d49d8ea251e3"
+    },
+    {
+      "bytes": 18708,
+      "path": "green_matrix_v2/build_matrix_v2.py",
+      "sha256": "a4793fe771af608c1a5d8d7c2ca63c5a4b661f083e809fb578cc9bfc0e4f7be5"
+    },
+    {
+      "bytes": 4353,
+      "path": "integrity/REGRESSION_STATUS.json",
+      "sha256": "3902fd076942f47b916c8245207333b3900f4e03dd34f5f70088299c1ca37c97"
+    },
+    {
+      "bytes": 697,
+      "path": "integrity/baseline_calibration_hashes.json",
+      "sha256": "24c2b798b1d45d513d8a2c528067bb60ddda233f856a97660feed34ba55e0f6f"
+    },
+    {
+      "bytes": 1213806,
+      "path": "integrity/baseline_git_status.txt",
+      "sha256": "09b1e6d8db3258c10e11329ba85d534ee4083ca9742e128d3509a80829a4f825"
+    },
+    {
+      "bytes": 63356,
+      "path": "integrity/baseline_source_hashes.json",
+      "sha256": "aa9c4f3a93568c1afb1698a735f48c995722f5d1404e770070cb1885bb9bca50"
+    },
+    {
+      "bytes": 1648,
+      "path": "integrity/build_final_hashes.py",
+      "sha256": "d0eb950ed5ddd88c24f78f07d0398e7ab4d1cf4d93506bb17752251b3adbcdc9"
+    },
+    {
+      "bytes": 3,
+      "path": "integrity/regression/campaign_pytest.exit_code.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "bytes": 101,
+      "path": "integrity/regression/campaign_pytest.log",
+      "sha256": "7e060aabf2fac1a0dabfee36c0c68fe80c0cbf5c5a1b8860d06fbe6dd499493c"
+    },
+    {
+      "bytes": 3,
+      "path": "integrity/regression/make.exit_code.txt",
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "bytes": 747,
+      "path": "integrity/regression/make.log",
+      "sha256": "510ce54e08b8935e15abdba39f6a1dc1aaa61852b78f253d6d650b48a6f87ff4"
+    },
+    {
+      "bytes": 3,
+      "path": "integrity/regression/make_test.exit_code.txt",
+      "sha256": "df4e26a04a444901b95afef44e4a96cfae34690fff2ad2c66389c70079cdff2b"
+    },
+    {
+      "bytes": 6514,
+      "path": "integrity/regression/make_test.log",
+      "sha256": "79f7379ee97b139c43015c9a1a2d727cc5fea70e6d1a6c3f1b13bee018465099"
+    },
+    {
+      "bytes": 3,
+      "path": "integrity/regression/python3_pytest.exit_code.txt",
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "bytes": 5047,
+      "path": "integrity/regression/python3_pytest.log",
+      "sha256": "2ec9c7bdea77c6b78b7ea08c730b852cb4cb29c2d792dd708a3fc39a339c5c28"
+    },
+    {
+      "bytes": 1475,
+      "path": "interleaving/FAULT_TO_CODEWORD_MAPPING.json",
+      "sha256": "9abc2e9957e8edeabef6f1ce1999dfb4a0bb8091c19e6723f5c6b6b6d0373271"
+    },
+    {
+      "bytes": 1262,
+      "path": "interleaving/INTERLEAVING_COST.csv",
+      "sha256": "46541f9510df01d0949a265a3e34dc37769fbd6087ac267f3699226c908ba6ae"
+    },
+    {
+      "bytes": 1850,
+      "path": "interleaving/PHYSICAL_MAPPING.json",
+      "sha256": "899d21e1a5bf58b9c980eea5bbca4321ac9d0337c8055f205991591343e63573"
+    },
+    {
+      "bytes": 6454,
+      "path": "interleaving/physical_mapping.py",
+      "sha256": "bc202af1eb45924bf9433bf2e68a6df34745df2187b3380a34f2a71ee8e46148"
+    },
+    {
+      "bytes": 1156,
+      "path": "metric_refoundation/FUNCTIONAL_UNIT.md",
+      "sha256": "0169f3ccd79b8746829fa36c617a5f6f5de8fdfacce92a61d02b1098233517bd"
+    },
+    {
+      "bytes": 1644,
+      "path": "metric_refoundation/GSE_ADVERSARIAL_ANALYSIS.md",
+      "sha256": "108f861380a046ff16da87dc88163fff0e2bf8449230b1d3c1cabe1aef038890"
+    },
+    {
+      "bytes": 2072,
+      "path": "metric_refoundation/GSE_ADVERSARIAL_TESTS.json",
+      "sha256": "77d95801af3d627312073d0dc49cef586406ca3daceba317c0cdd4ed2f61c37d"
+    },
+    {
+      "bytes": 3627,
+      "path": "metric_refoundation/GSE_THEOREMS.md",
+      "sha256": "e850e5ebc9e9074c2de29179f58b2526b48d68cc24c940924164df386dd77641"
+    },
+    {
+      "bytes": 5404,
+      "path": "metric_refoundation/LEGACY_FORMULA_AUDIT.md",
+      "sha256": "f58321020869e1c6bb2eddbb0a69256e3ec8e221c8fe12ab77829f601162b893"
+    },
+    {
+      "bytes": 2131,
+      "path": "metric_refoundation/LEGACY_FORMULA_COUNTEREXAMPLES.json",
+      "sha256": "c0d2771ad246bcf8600c86bcbc25938a8b4b84317052337cbd20ede3834bf71c"
+    },
+    {
+      "bytes": 2803,
+      "path": "metric_refoundation/LEGACY_METRIC_SPEC.json",
+      "sha256": "93ff2ef1a1ba0df28e3e4b313073cdbf5f8fe807bdc566113beac2df258c1f11"
+    },
+    {
+      "bytes": 4087,
+      "path": "metric_refoundation/LEGACY_METRIC_SPEC.md",
+      "sha256": "1ab31b5874048ea47a849bec82895fff1cd288c302c55e37e72a84ab452d0b3c"
+    },
+    {
+      "bytes": 298,
+      "path": "metric_refoundation/LEGACY_VS_GSE.csv",
+      "sha256": "513016fb1fd043bbe5abc871b98e21185c705ef411b9538bfa952b7739e76128"
+    },
+    {
+      "bytes": 1141,
+      "path": "metric_refoundation/LEGACY_VS_GSE.md",
+      "sha256": "8db6e8953a8e7923444f956bd4535a72518a27841a9b0df4fb3f249dcf30b06a"
+    },
+    {
+      "bytes": 778,
+      "path": "metric_refoundation/LIFECYCLE_ACCOUNTING.md",
+      "sha256": "4090b892758516405442457800ae2458c232f8339905eb03383a640665596136"
+    },
+    {
+      "bytes": 1450,
+      "path": "metric_refoundation/METRIC_CAUSAL_GRAPH.md",
+      "sha256": "d518357650e4b9460c2ae941e085b84c38a7167df9e5cdd96b5b353b18c4dce2"
+    },
+    {
+      "bytes": 1924,
+      "path": "metric_refoundation/METRIC_DOUBLE_COUNT_AUDIT.md",
+      "sha256": "3a8cf6041fd7494a1ff295137b7a596b3fe2a9f7356b0449d8b5b95ec6c1adde"
+    },
+    {
+      "bytes": 960,
+      "path": "metric_refoundation/SERVICE_MODEL.json",
+      "sha256": "e354349c9d65ba8b93fcbf2924cc2a784c6b9d19e2e01d2762c68bfcf3890673"
+    },
+    {
+      "bytes": 12155,
+      "path": "metric_refoundation/green_service.py",
+      "sha256": "c638da8405ba3c8469fcdef048c36ca77dcd334e5e2b2a091011e9e00616068e"
+    },
+    {
+      "bytes": 46,
+      "path": "pareto/EXACT_PARETO_RESULTS.csv",
+      "sha256": "568fe7d125e564a8faef00c22c05742101e86f5f2e5087832a82fab2a964e235"
+    },
+    {
+      "bytes": 701,
+      "path": "pareto/EXACT_PARETO_RESULTS.json",
+      "sha256": "fe878820e7d66c894a6782931ff674889b7f10b41c3eb75649e9c6b97f69f7d0"
+    },
+    {
+      "bytes": 752,
+      "path": "pareto/EXACT_PARETO_RESULTS.md",
+      "sha256": "8c61bd87e6b763d44fc6ac2233556b55d8d8673f92bf1f48676519e6bb1fd476"
+    },
+    {
+      "bytes": 82,
+      "path": "pareto/ROBUST_SELECTION.csv",
+      "sha256": "2584341c770e2d9a34eb573ae80b98685eacdf970d2984a3a4001a554780851f"
+    },
+    {
+      "bytes": 454,
+      "path": "pareto/ROBUST_SELECTION.json",
+      "sha256": "3c63ee14fdde3c3a433deb129587337a0aaa2d2ade722557e75577965f10bc1a"
+    },
+    {
+      "bytes": 602,
+      "path": "pareto/ROBUST_SELECTION.md",
+      "sha256": "21248fcf3f8a2375d7524f72251c7b03a173df3a1fbb9d9ebd96950741b58f69"
+    },
+    {
+      "bytes": 49,
+      "path": "pareto/__init__.py",
+      "sha256": "66da73ef4de09e4babecd788705fdd689b462020ea859db3fcb4dca13557e35a"
+    },
+    {
+      "bytes": 3824,
+      "path": "pareto/build_selection.py",
+      "sha256": "34d500b5af968eb72f9dd684ac4cc1e48fe183249a179a9914bba19c74e2db3c"
+    },
+    {
+      "bytes": 3748,
+      "path": "pareto/selection.py",
+      "sha256": "8ae0c7aa96da9e622a9d27ba2a1a724b3a3cd09b246a2d2d72f7d4be3bf59638"
+    },
+    {
+      "bytes": 3307,
+      "path": "reliability/RELIABILITY_RESULTS.csv",
+      "sha256": "be4496e2ace3e11450ce55311364cd21018989c4d60baf8dfeeb740406c9ca8f"
+    },
+    {
+      "bytes": 1264,
+      "path": "reliability/RELIABILITY_RESULTS.json",
+      "sha256": "9ebc5ba3192d086586ed2d9385dd95006b7f5fa8e5c8f4e9f59b6cc7c9c14258"
+    },
+    {
+      "bytes": 938,
+      "path": "reliability/SERVICE_OUTCOME_MODEL.json",
+      "sha256": "c2687f0483452138e60c6c4d6ef002655faf4799114fbc082f4195bcc55ffe64"
+    },
+    {
+      "bytes": 1784,
+      "path": "reliability/SERVICE_OUTCOME_MODEL.md",
+      "sha256": "a535eff03c67981b62f91c24e370e1d849cdcd3eba8e42b9b0f7a217742156bc"
+    },
+    {
+      "bytes": 5135,
+      "path": "reliability/service_outcomes.py",
+      "sha256": "cdda88bf6fc151d440a27e4b8af95b47d7f52f4deac7651a4922b8a486cc3bab"
+    },
+    {
+      "bytes": 4277,
+      "path": "results/RESEARCH_QUESTIONS.md",
+      "sha256": "430befaf0213e4115f969ab6917036fee28de1d93acc6fbada5433b51dcf04b9"
+    },
+    {
+      "bytes": 27965,
+      "path": "scripts/phase0_audit.py",
+      "sha256": "e7831f467de8620f7de9f826b970c2ab44399ae9e77803f20ea343e6f80acba6"
+    }
+  ],
+  "root": "green_refoundation_node_aware_carbon",
+  "schema_version": 1,
+  "self_exclusion": "integrity/FINAL_ARTIFACT_HASHES.json"
+}
