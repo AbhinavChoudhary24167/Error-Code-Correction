@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "classification": "PARAMETRIC_SCENARIOS_NOT_FORECASTS",
+  "factor_semantics": {
+    "scope1_residual_factor": "Combined residual process-gas emissions relative to the matched current baseline after gas use, release, and abatement.",
+    "scope2_grid_ci_factor": "Use the same fab electricity with grid carbon intensity scaled relative to the matched current baseline.",
+    "upstream_factor": "Supported upstream term scaled separately; no claim of complete Scope 3."
+  },
+  "scenarios": [
+    {"scenario_id": "F0_CURRENT", "scope1_residual_factor": [1.0, 1.0], "scope2_grid_ci_factor": [1.0, 1.0], "upstream_factor": [1.0, 1.0], "evidence_class": "MATCHED_BASELINE_IDENTITY"},
+    {"scenario_id": "F1_LOW_CARBON_ELECTRICITY", "scope1_residual_factor": [1.0, 1.0], "scope2_grid_ci_factor": [0.1, 0.5], "upstream_factor": [1.0, 1.0], "evidence_class": "PARAMETRIC"},
+    {"scenario_id": "F2_HIGH_ABATEMENT", "scope1_residual_factor": [0.1, 0.5], "scope2_grid_ci_factor": [1.0, 1.0], "upstream_factor": [1.0, 1.0], "evidence_class": "PARAMETRIC"},
+    {"scenario_id": "F3_LOW_CARBON_PLUS_HIGH_ABATEMENT", "scope1_residual_factor": [0.1, 0.5], "scope2_grid_ci_factor": [0.1, 0.5], "upstream_factor": [1.0, 1.0], "evidence_class": "PARAMETRIC"},
+    {"scenario_id": "F4_2030_STYLE_DECARBONIZED_SCENARIO", "scope1_residual_factor": [0.05, 0.3], "scope2_grid_ci_factor": [0.05, 0.35], "upstream_factor": [0.8, 1.0], "evidence_class": "PARAMETRIC_NOT_CORPORATE_FORECAST"}
+  ],
+  "source_ids_for_direction_only": ["SRC_IMEC_SSTS_2022", "SRC_IMEC_IEDM_2023"],
+  "warning": "Endpoints are declared research bounds, not measured fab values, probabilities, or promises. Apply only to a source-matched current Scope-1/2/upstream breakdown."
+}

@@ -282,6 +282,26 @@
       "confidence_tier": "TIER_A_PRIMARY_DISCLOSURE",
       "retrieval_status": "VERIFIED_PUBLIC",
       "calibration_use": "EXTERNAL_VALIDATION_ONLY"
+    },
+    {
+      "source_id": "SRC_SKYWATER_SKY130_PDK",
+      "authors": ["SkyWater SKY130 PDK authors", "SkyWater Technology", "Google"],
+      "title": "SkyWater SKY130 PDK documentation: background, status, and process rules",
+      "year": 2020,
+      "publisher": "SkyWater SKY130 PDK documentation",
+      "doi": null,
+      "url": "https://skywater-pdk.readthedocs.io/en/main/rules/background.html",
+      "source_type": "first-party foundry-supported PDK documentation",
+      "access_date": "2026-09-08",
+      "node_coverage": "SKY130 mature 180 nm-130 nm hybrid technology",
+      "system_boundary": "process identity, layer/mask rules, and PDK release status; no environmental inventory",
+      "units": "technology dimensions and design rules; no kWh/wafer or kgCO2e/wafer",
+      "assumptions": "open PDK is documented as an experimental preview rather than a production-qualified release",
+      "usable_fields": ["SKY130 process identity", "five-level metal stack", "public mask-layer inventory", "PDK qualification boundary"],
+      "limitations": "supplies no node-specific fab energy, process-gas, yield, abatement, or wafer-carbon coefficient",
+      "confidence_tier": "TIER_A_PRIMARY_PROCESS_IDENTITY",
+      "retrieval_status": "VERIFIED_PUBLIC",
+      "calibration_use": "PROCESS_IDENTITY_ONLY_NO_CARBON_CALIBRATION"
     }
   ]
 }

@@ -94,6 +94,17 @@ figures are retained as an external magnitude and maturity/utilization check,
 not as an imec coefficient: their foundry-specific ISO 14067 boundary and node
 bins differ from the generic-HVM imec boundary.
 
+## SKY130 search disposition
+
+The official foundry-supported PDK documentation identifies SKY130 as a mature
+180 nm-130 nm hybrid technology with a five-level metal stack and publishes its
+process-mask inventory. It also labels the open PDK an experimental preview.
+Those facts establish process identity and the limits of the physical evidence;
+the public documentation does not supply kWh/wafer, kgCO2e/wafer, process-gas
+inventory, abatement, or node-specific yield. The campaign therefore adds no
+exact SKY130 manufacturing-carbon coefficient. SKY130 PPA remains measured/tool
+physical evidence, while any carbon translation remains bounded or parametric.
+
 ## Gases and accounting boundary
 
 The model admits AR6 GWP-100 factors for CF4, C2F6, NF3, and SF6. These factors
