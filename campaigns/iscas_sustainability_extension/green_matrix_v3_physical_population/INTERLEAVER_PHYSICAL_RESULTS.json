@@ -1,0 +1,537 @@
+{
+  "baseline": "I0 routed macro-level organization; no added external interleaver",
+  "classification": "I0_BASELINE_PHYSICAL_I1_I2_PROPOSALS_NOT_IMPLEMENTED",
+  "implemented_nontrivial_interleaver_count": 0,
+  "records": [
+    {
+      "adjacent_bit_mapping": "NOT_QUALIFIED: macro din pin indices do not establish bitcell adjacency; internal column mux m4/m8 must be traced",
+      "bank_count": 1,
+      "interleaving_id": "I0",
+      "macro_count": {
+        "E0": 2,
+        "U0": 1
+      },
+      "mapping_examples": [
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 63,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 7,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        }
+      ],
+      "minimum_ecc_word_bit_separation_um": "NOT_MEASURED",
+      "physical_bit_interleaving_qualified": false,
+      "proposal_floorplan": "retain I0 data/ECC pair; additional identical pairs placed in separate side-by-side bank sites with >=60 um proposed channels; no coordinates assigned before placement",
+      "qualification_requirements": [
+        "address+column-select electrical mapping",
+        "GDS bitcell instance coordinates",
+        "routed wrapper implementing lane transpose and RMW",
+        "matched timing/area/activity/power measurements"
+      ],
+      "read_semantics": "existing synchronous macro read",
+      "same_capacity": "256 logical payload words x 64 bits; additional macro rows remain unused",
+      "status": "EXTERNAL_BASELINE_MAPPING_BITCELL_MAP_UNPROVEN",
+      "stored_word_mapping": {
+        "data": "bank = bit % 1; macro_address = word // 1; din_pin = (bit // 1) * 1 + word % 1",
+        "ecc": "apply same rule to parity bit index (codeword_bit - 64) in the separate ECC macro"
+      },
+      "word_group_size": 1,
+      "write_semantics": "existing full-word write"
+    },
+    {
+      "adjacent_bit_mapping": "NOT_QUALIFIED: macro din pin indices do not establish bitcell adjacency; internal column mux m4/m8 must be traced",
+      "bank_count": 2,
+      "interleaving_id": "I1",
+      "macro_count": {
+        "E0": 4,
+        "U0": 2
+      },
+      "mapping_examples": [
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 62,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 6,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 63,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 7,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        }
+      ],
+      "minimum_ecc_word_bit_separation_um": "NOT_MEASURED",
+      "physical_bit_interleaving_qualified": false,
+      "proposal_floorplan": "retain I0 data/ECC pair; additional identical pairs placed in separate side-by-side bank sites with >=60 um proposed channels; no coordinates assigned before placement",
+      "qualification_requirements": [
+        "address+column-select electrical mapping",
+        "GDS bitcell instance coordinates",
+        "routed wrapper implementing lane transpose and RMW",
+        "matched timing/area/activity/power measurements"
+      ],
+      "read_semantics": "read all banks at grouped macro address, gather selected word lanes; controller and timing not implemented",
+      "same_capacity": "256 logical payload words x 64 bits; additional macro rows remain unused",
+      "status": "EXPLICIT_PHYSICAL_MACRO_BANK_PROPOSAL_NOT_IMPLEMENTED",
+      "stored_word_mapping": {
+        "data": "bank = bit % 2; macro_address = word // 2; din_pin = (bit // 2) * 2 + word % 2",
+        "ecc": "apply same rule to parity bit index (codeword_bit - 64) in the separate ECC macro"
+      },
+      "word_group_size": 2,
+      "write_semantics": "requires read-modify-write or a group buffer because interspersed word bits share SRAM22 byte write masks"
+    },
+    {
+      "adjacent_bit_mapping": "NOT_QUALIFIED: macro din pin indices do not establish bitcell adjacency; internal column mux m4/m8 must be traced",
+      "bank_count": 4,
+      "interleaving_id": "I2",
+      "macro_count": {
+        "E0": 8,
+        "U0": 4
+      },
+      "mapping_examples": [
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 2,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 60,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 0,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 4,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 0
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 2,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 61,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 1,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 5,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 1
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 2,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 62,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 2,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 6,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 2
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 0,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        },
+        {
+          "bank": 1,
+          "codeword_bit": 1,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        },
+        {
+          "bank": 2,
+          "codeword_bit": 2,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 3,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 63,
+          "macro_address": 0,
+          "macro_data_pin": 63,
+          "macro_kind": "data",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        },
+        {
+          "bank": 0,
+          "codeword_bit": 64,
+          "macro_address": 0,
+          "macro_data_pin": 3,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        },
+        {
+          "bank": 3,
+          "codeword_bit": 71,
+          "macro_address": 0,
+          "macro_data_pin": 7,
+          "macro_kind": "ecc",
+          "physical_bitcell_coordinate_um": "NOT_MEASURED",
+          "word": 3
+        }
+      ],
+      "minimum_ecc_word_bit_separation_um": "NOT_MEASURED",
+      "physical_bit_interleaving_qualified": false,
+      "proposal_floorplan": "retain I0 data/ECC pair; additional identical pairs placed in separate side-by-side bank sites with >=60 um proposed channels; no coordinates assigned before placement",
+      "qualification_requirements": [
+        "address+column-select electrical mapping",
+        "GDS bitcell instance coordinates",
+        "routed wrapper implementing lane transpose and RMW",
+        "matched timing/area/activity/power measurements"
+      ],
+      "read_semantics": "read all banks at grouped macro address, gather selected word lanes; controller and timing not implemented",
+      "same_capacity": "256 logical payload words x 64 bits; additional macro rows remain unused",
+      "status": "EXPLICIT_PHYSICAL_MACRO_BANK_PROPOSAL_NOT_IMPLEMENTED",
+      "stored_word_mapping": {
+        "data": "bank = bit % 4; macro_address = word // 4; din_pin = (bit // 4) * 4 + word % 4",
+        "ecc": "apply same rule to parity bit index (codeword_bit - 64) in the separate ECC macro"
+      },
+      "word_group_size": 4,
+      "write_semantics": "requires read-modify-write or a group buffer because interspersed word bits share SRAM22 byte write masks"
+    }
+  ],
+  "reliability_benefit_qualified": false,
+  "schema_version": "3.1.0"
+}

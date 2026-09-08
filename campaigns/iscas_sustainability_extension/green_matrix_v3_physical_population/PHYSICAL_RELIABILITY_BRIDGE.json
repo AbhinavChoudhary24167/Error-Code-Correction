@@ -1,0 +1,25 @@
+{
+  "fit": "BLOCKED",
+  "formula": "P(outcome) = sum_f P(outcome | f, ECC, interleaving, policy) * P(f | technology, geometry, PVT, environment)",
+  "literature_transfer": "NO_NUMERIC_VALUE_TRANSFERRED_TO_SKY130",
+  "logical_enumeration_semantics": "ENUMERATED_MASK_FREQUENCY_NOT_EVENT_RATE",
+  "outcomes": [
+    "CORRECT",
+    "CORRECTED",
+    "DUE",
+    "SDC"
+  ],
+  "physical_due": "PHYSICAL_SDC_DUE_BLOCKED",
+  "physical_sdc": "PHYSICAL_SDC_DUE_BLOCKED",
+  "schema_version": "3.1.0",
+  "ser": "BLOCKED",
+  "stage_1_physical_event_model": {
+    "probabilities": null,
+    "status": "E0_UNAVAILABLE"
+  },
+  "stage_2_conditional_ecc_model": {
+    "physical_mapping_status": "E0_UNAVAILABLE",
+    "source": "Attempt10 topology_reliability.py and frozen Hsiao decoder",
+    "status": "E3_EXACT_LOGICAL_MODEL_AVAILABLE_AFTER_MAPPING"
+  }
+}

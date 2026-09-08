@@ -1,0 +1,104 @@
+{
+  "e5_measurement_count": 0,
+  "global_architecture_winner": "NO_GLOBAL_WINNER_QUALIFIED",
+  "metrics": [
+    {
+      "highest_tier": "E4",
+      "metric": "matched_route_area_wirelength_vias",
+      "reason": "five matched U0/E0 seeds",
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "highest_tier": "E4",
+      "metric": "power_internal_switching_leakage",
+      "reason": "post-route tool estimates; vectorless for five seeds",
+      "status": "DIAGNOSTIC_ONLY"
+    },
+    {
+      "highest_tier": "E4",
+      "metric": "matched_trace_energy_per_requested_service",
+      "reason": "seed-11 partial pin annotation; not read/write partitioned",
+      "status": "DIAGNOSTIC_ONLY_NOT_E5"
+    },
+    {
+      "highest_tier": "E3",
+      "metric": "rtl_service_latency",
+      "reason": "one synchronous cycle at the declared 10 ns clock",
+      "status": "QUALIFIED_WITHIN_RTL_BOUNDARY"
+    },
+    {
+      "highest_tier": "E3",
+      "metric": "rtl_initiation_interval",
+      "reason": "one request per cycle; separate from latency",
+      "status": "QUALIFIED_WITHIN_RTL_BOUNDARY"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "maximum_sustainable_throughput",
+      "reason": "no saturation/backpressure experiment",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E4",
+      "metric": "macro_placement_geometry",
+      "reason": "DEF origin/orientation plus LEF extent and SPICE organization",
+      "status": "MACRO_LEVEL_ONLY"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "bitcell_xy_and_logical_map",
+      "reason": "address/column-select-to-GDS-cell join unavailable",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "qcrit",
+      "reason": "no defensible transient-injection run with complete model/waveform provenance",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "physical_event_probability",
+      "reason": "no technology/PVT/geometry-matched radiation or field data",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "physical_sdc_due_fit",
+      "reason": "total-probability first stage unavailable",
+      "status": "PHYSICAL_SDC_DUE_BLOCKED"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "implemented_nontrivial_interleaver",
+      "reason": "I1/I2 remain proposals",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "manufacturing_and_lifecycle_carbon",
+      "reason": "matched SKY130 inventory/lifetime unavailable",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E0",
+      "metric": "csci_mrcc",
+      "reason": "reliability and lifecycle chain incomplete",
+      "status": "BLOCKED"
+    },
+    {
+      "highest_tier": "E4",
+      "metric": "pareto",
+      "reason": "exact area/diagnostic-energy view only",
+      "status": "DIAGNOSTIC_FRONT"
+    }
+  ],
+  "new_evidence_count": 262,
+  "new_evidence_tier_counts": {
+    "E0": 110,
+    "E3": 42,
+    "E4": 110
+  },
+  "schema_version": "3.1.0",
+  "validated_equation_does_not_validate_parameter": true
+}

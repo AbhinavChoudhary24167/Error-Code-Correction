@@ -1,0 +1,49 @@
+{
+  "architectures": [
+    "U0",
+    "E0"
+  ],
+  "classification": "GREEN_MATRIX_V3_1_PHYSICAL_POPULATION_PARTIAL_E4_E3_PHYSICAL_SDC_DUE_BLOCKED",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "global_architecture_winner": "NO_GLOBAL_WINNER_QUALIFIED",
+  "highest_value_remaining_measurement": "MATCHED_SKY130_SRAM_PARTICLE_BEAM_EVENT_COORDINATES_FLUENCE_AND_VERIFIED_BITCELL_LOGICAL_MAP",
+  "matched_workload_count": 8,
+  "new_evidence_tier_counts": {
+    "E0": 110,
+    "E3": 42,
+    "E4": 110
+  },
+  "new_matrix_counts": {
+    "M_E": 262,
+    "M_P": 10,
+    "M_S": 0
+  },
+  "newly_qualified_metrics": [
+    "RTL_SERVICE_LATENCY_E3",
+    "RTL_INITIATION_INTERVAL_E3",
+    "MATCHED_ROUTE_DIAGNOSTICS_E4",
+    "MATCHED_RTL_ACTIVITY_E3"
+  ],
+  "parent_matrix_counts": {
+    "M_E": 210,
+    "M_P": 14,
+    "M_S": 2
+  },
+  "physical_seed_count_per_architecture": 5,
+  "requested_starting_baseline_commit": "59f3821",
+  "schema_version": "3.1.0",
+  "still_blocked_metrics": [
+    "E5_OPERATIONAL_ENERGY",
+    "BITCELL_GEOMETRY",
+    "QCRIT",
+    "PHYSICAL_EVENT_PROBABILITY",
+    "PHYSICAL_SDC",
+    "PHYSICAL_DUE",
+    "FIT",
+    "NONTRIVIAL_PHYSICAL_INTERLEAVER",
+    "MANUFACTURING_CARBON",
+    "CSCI",
+    "MRCC",
+    "SUSTAINABILITY_PARETO"
+  ]
+}

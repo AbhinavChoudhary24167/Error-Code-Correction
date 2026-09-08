@@ -1,0 +1,63 @@
+{
+  "records": [
+    {
+      "architecture_id": "U0",
+      "boundary": "one request accepted before a rising edge; synchronous SRAM result and combinational ECC response after that edge",
+      "clock_hz": 100000000.0,
+      "clock_period_s": 1e-08,
+      "correction_service_latency_cycles": "NOT_APPLICABLE",
+      "decoder_latency_cycles": "NOT_APPLICABLE",
+      "encoder_latency_cycles": "NOT_APPLICABLE",
+      "evidence_kind": "ANALYTICAL",
+      "evidence_tier": "E3",
+      "initiation_interval_cycles": 1,
+      "maximum_sustainable_throughput_services_per_s": "UNAVAILABLE",
+      "nominal_initiation_capacity_services_per_s": 100000000.0,
+      "not_established": [
+        "analog SRAM access time",
+        "post-route request-to-correct-payload latency distribution",
+        "maximum sustainable throughput under backpressure",
+        "retry latency",
+        "scrub interference"
+      ],
+      "pipeline_depth_cycles": 1,
+      "qualification_status": "RTL_SERVICE_SEMANTICS_QUALIFIED_PHYSICAL_MAX_THROUGHPUT_BLOCKED",
+      "registered_service_latency_cycles": 1,
+      "registered_service_latency_s": 1e-08,
+      "retry_latency_cycles": "UNAVAILABLE",
+      "scrub_interference_cycles": "UNAVAILABLE",
+      "source_rtl": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/unprotected_sram_256x64_sram22.sv",
+      "sram_access_latency_cycles": 1
+    },
+    {
+      "architecture_id": "E0",
+      "boundary": "one request accepted before a rising edge; synchronous SRAM result and combinational ECC response after that edge",
+      "clock_hz": 100000000.0,
+      "clock_period_s": 1e-08,
+      "correction_service_latency_cycles": 1,
+      "decoder_latency_cycles": 0,
+      "encoder_latency_cycles": 0,
+      "evidence_kind": "ANALYTICAL",
+      "evidence_tier": "E3",
+      "initiation_interval_cycles": 1,
+      "maximum_sustainable_throughput_services_per_s": "UNAVAILABLE",
+      "nominal_initiation_capacity_services_per_s": 100000000.0,
+      "not_established": [
+        "analog SRAM access time",
+        "post-route request-to-correct-payload latency distribution",
+        "maximum sustainable throughput under backpressure",
+        "retry latency",
+        "scrub interference"
+      ],
+      "pipeline_depth_cycles": 1,
+      "qualification_status": "RTL_SERVICE_SEMANTICS_QUALIFIED_PHYSICAL_MAX_THROUGHPUT_BLOCKED",
+      "registered_service_latency_cycles": 1,
+      "registered_service_latency_s": 1e-08,
+      "retry_latency_cycles": "UNAVAILABLE",
+      "scrub_interference_cycles": "UNAVAILABLE",
+      "source_rtl": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/ecc_sram_256x72_sram22.sv",
+      "sram_access_latency_cycles": 1
+    }
+  ],
+  "schema_version": "3.1.0"
+}
