@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "classification": "EVIDENCE_BOUNDED_TOPOLOGY_NO_EVENT_PROBABILITY",
+  "causal_chain": "physical affected slots -> inverse bank mapping -> logical word/bit sets -> errors per codeword -> decoder observation -> service outcome -> retry/scrub events -> energy/carbon",
+  "topology_scenarios": {
+    "BEST_CASE_INTERLEAVING": "Each affected bit reaches a different codeword; optimistic bound, not an I1/I2 measurement.",
+    "NOMINAL_PARAMETRIC": "An explicitly chosen number of codewords share the event; parameter, not a fitted probability model.",
+    "WORST_CASE_CLUSTERING": "All affected bits reach one codeword; conservative clustering bound."
+  },
+  "fault_weight_examples": [
+    {"fault_weight": 1, "best_case": [1], "nominal_spread_1": [1], "worst_case": [1]},
+    {"fault_weight": 2, "best_case": [1, 1], "nominal_spread_2": [1, 1], "worst_case": [2]},
+    {"fault_weight": 3, "best_case": [1, 1, 1], "nominal_spread_2": [2, 1], "worst_case": [3]},
+    {"fault_weight": 4, "best_case": [1, 1, 1, 1], "nominal_spread_2": [2, 2], "worst_case": [4]}
+  ],
+  "physical_records": [],
+  "physical_rate": "NOT_QUALIFIED",
+  "physical_coverage": "NOT_QUALIFIED",
+  "blocking_evidence": "Complete source-hashed bitcell coordinates joined through SRAM address/column selection plus a calibrated spatial upset distribution.",
+  "source_ids": {
+    "A10_MBU_TO_CODEWORD_MAPPING": "97716ca302a1582a547f3c59c7a1fb020e4c5c138168253d090242fb6ac0ec05"
+  }
+}
