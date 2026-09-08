@@ -1,0 +1,149 @@
+{
+  "artifact_type": "FIGURE_SPECIFICATION",
+  "campaign_commit": "UNCOMMITTED_VALIDATION_BUILD",
+  "edges": [
+    {
+      "from": "physical_event_source",
+      "gated_by": "M_E",
+      "to": "topology_mapping"
+    },
+    {
+      "from": "topology_mapping",
+      "gated_by": "M_E",
+      "to": "logical_corruption"
+    },
+    {
+      "from": "logical_corruption",
+      "gated_by": "M_E",
+      "to": "ecc_interleaving"
+    },
+    {
+      "from": "ecc_interleaving",
+      "gated_by": "M_E",
+      "to": "service_outcome"
+    },
+    {
+      "from": "service_outcome",
+      "gated_by": "M_E",
+      "to": "operational_cost"
+    },
+    {
+      "from": "operational_cost",
+      "gated_by": "M_E",
+      "to": "lifecycle_scenario"
+    }
+  ],
+  "evidence_gate": {
+    "applies_to_every_transition": true,
+    "label": "M_E: tier + boundary + provenance + compatibility + status",
+    "missing_evidence_action": "STOP_DOWNSTREAM_ABSOLUTE_CLAIM"
+  },
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "generated_at": "2026-09-08",
+  "generator": "green_matrix_v3_2.build_campaign/3.2.0",
+  "nodes": [
+    {
+      "id": "physical_event_source",
+      "label": "Physical Event Source",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "topology_mapping",
+      "label": "Topology / Physical Mapping",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "logical_corruption",
+      "label": "Logical Corruption",
+      "state": "ANALYTICAL"
+    },
+    {
+      "id": "ecc_interleaving",
+      "label": "ECC + Interleaving Response",
+      "state": "CONDITIONAL"
+    },
+    {
+      "id": "service_outcome",
+      "label": "Service Outcome",
+      "state": "CONDITIONAL"
+    },
+    {
+      "id": "operational_cost",
+      "label": "Operational Cost",
+      "state": "DIAGNOSTIC"
+    },
+    {
+      "id": "lifecycle_scenario",
+      "label": "Lifecycle Scenario",
+      "state": "BLOCKED"
+    }
+  ],
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "reproducibility": {
+    "activity_hashes": [
+      "a09fed258ee5e5fbe3859629f69ef57ffb59cea05053ea4611c1f95d1c7298c0",
+      "da0025a410d64c1269ecbd5ff84776ca43ceafafdd2bde924d4b1d5217eaf67b"
+    ],
+    "architecture_identifiers": [
+      "U0",
+      "E0"
+    ],
+    "configuration_hashes": [
+      "9c3815a782be62795be0b7cf4eb467032c2bb0c36d6af77984fa1ad46b732830",
+      "aa3f5945ea6f76d5cd471acf06d9aacb29f5a7331f7e19a0957a35b6d4ffcb4a"
+    ],
+    "implementation_hashes": [
+      "0331bd0c05c8fd41e5be525d375b87b113124f5cf339ef15cc63084c3789ee3d",
+      "1a263502ae81073f6cfafceb41ba7c717378f57e1b1ba4039e129fdc8b047f99",
+      "204d91b0196aa77ce35d195efc0aaa51a1d04d0b81f0f4c8bc369740160dcbc9",
+      "728cba6b02b41ce256692791cd5c24b8e873fdca26ebc1911656475d2ac22e0a",
+      "72db22e74d2f01d402d3afd5109a4c11e5bc65ecb857dae817af6bc4f6c2f68a",
+      "99ba38bfa7bccff1c34bb20d9b3cef4148d27e2f1fa3fd497cfbc8609862fe3a",
+      "b3bc28660b6d97821c13f7eb4646ff43977ff9fea84da53839bef4e3152b99ae",
+      "c7e48b60a221c3240ebeaba78ef53a722a128156943112808c84d5e262272f75",
+      "cb082a4dae6ed537e8994e1f96fe12d68b1bba32a44face58a3cca2e0465e086",
+      "dc5e2d90770996b06d47b517db0f21b7d35be60d3f55d836b2818f4ed20091e5"
+    ],
+    "netlist_hashes": [
+      "1d27b3cc5f9bd107f9f7dc8c3dfaa36375eefc46ad69a82c006bbf37d1839569",
+      "7f3379e7f1afed6e922109e85fafc54990fcf3b54dc772e4178e975e27c5fb26",
+      "90db8ba99880047f277844cef511ea59a9072f0c0ec89101342a14f37f9bfb31",
+      "d8744a20c29d0174c7f50098d0cd8166aa669c55d42ecc4c589adc8c9b00af72",
+      "e3f9208950eee23e804ef0135cd98272a5c06654319b7dd9b2f391b7908b3147",
+      "fb2aa6861d2f2203a3e1d622ed68d85d0658228d9621419453c98c4fe071605e"
+    ],
+    "seed_identifiers": [
+      11,
+      13,
+      17,
+      19,
+      23
+    ],
+    "timing_constraint_hashes": [
+      "83b9951d04766eeb85d673794aefe8a3b540af1686222a1a5017cb62e27a31ad",
+      "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+    ],
+    "workload_hashes": [
+      "d414d57ee0438a1610b4435dd8b61422d00ba6eb98ac960f7c11f411a178f4be"
+    ]
+  },
+  "schema_version": "3.2.0",
+  "source_artifact_hashes": {
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/FROZEN_FOUNDATION_MANIFEST.json": "5a5dda39b9674c34bd883a56877c13dba0378bd840ae8efdac32efa00e769687",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/INTERLEAVER_PHYSICAL_RESULTS.json": "af9b2551dc2ca4feadd375b1f4b0406e425149423e2f089ec141575ad0fed6ba",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/LITERATURE_FAULT_EVIDENCE.json": "244770ccee5d1006eeefabcd8b0b3cd7316ede09913b4d31255861c63734ded2",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/MATRIX_E_V3_1.json": "d08d24a915a18d3c3fa49462b9f21c948f0c6ef5318201c0de0c3d7f074771c7",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/MATRIX_P_V3_1.json": "c5363eb42d1084a92c45b240f9808fd58444c1bbc860a19dadb0d3d7c02d7f95",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/MATRIX_S_V3_1.json": "af6e1c1c20654c279c62568966fda13577b233b69b3ec7d815082f51aa05847e",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/PHYSICAL_FAULT_TOPOLOGY.json": "b65eef06176cce309c6878fa61e2efe38f091fa2943b521963c306db28cfc614",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/POST_ROUTE_ACTIVITY.json": "0928aa898d85cb02af26ac24375b3335d6cb6138440d2d3b20bca142adc90ad0",
+    "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/SERVICE_METRICS.json": "93a45f45b160580b858434b6641ab48d24778429759dfd8ae9067ee66b78b120"
+  },
+  "title": "GREEN Matrix v3.2 evidence-gated causal decision path",
+  "visual_encoding": {
+    "blocked": "red stop marker",
+    "conditional": "blue dashed",
+    "diagnostic": "amber dotted",
+    "measured": "solid green"
+  }
+}
