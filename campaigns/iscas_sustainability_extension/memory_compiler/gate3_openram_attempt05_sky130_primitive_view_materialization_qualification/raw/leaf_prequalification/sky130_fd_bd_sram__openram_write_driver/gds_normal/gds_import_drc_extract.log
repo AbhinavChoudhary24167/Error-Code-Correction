@@ -1,0 +1,36 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: sky130_fd_bd_sram__openram_write_driver
+Reading "sky130_fd_bd_sram__openram_write_driver".
+Writing 'sky130_fd_bd_sram__openram_write_driver'
+Loading DRC CIF style.
+No errors found.
+__RULE_CSV_BEGIN__
+rule,count
+__RULE_CSV_END__
+RULE_TOTAL=0
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=0
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Extraction style is now "ngspice(si)"
+Processing sky130_fd_bd_sram__openram_write_driver
+Extracting sky130_fd_bd_sram__openram_write_driver into sky130_fd_bd_sram__openram_write_driver.ext:
+Warning:  Ports "GND_uq0" and "GND" are electrically shorted.
+Finished extract
+Warning:  Ports "GND_uq0" and "GND" are electrically shorted.
+exttospice finished.
+Finished ext2spice

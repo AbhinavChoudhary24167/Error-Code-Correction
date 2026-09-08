@@ -1,0 +1,348 @@
+{
+  "campaign": "gate3_attempt10_green_matrix_physical_model_validation",
+  "current_gate3_status": "FAIL",
+  "final_research_direction": "PHYSICAL SRAM/ECC + PHYSICAL FAULT TOPOLOGY + BIT INTERLEAVING + ACTIVITY-QUALIFIED ENERGY + EMBODIED/OPERATIONAL CARBON + RELIABILITY -> GREEN MATRICES -> PARETO-OPTIMAL SUSTAINABILITY-AWARE ECC SELECTION",
+  "green_matrix": {
+    "eligible_rows": 0,
+    "excluded_rows": 5760,
+    "physical_rows": 20,
+    "raw_rows": 5760
+  },
+  "historical_attempt09": {
+    "classification": "RESIDUAL_SRAM_INPUT_DRV_FAIL",
+    "gate3_status": "FAIL",
+    "immutable": true,
+    "recommended_reassessment": "KEEP_GATE3_FAILED"
+  },
+  "integrity_checkpoints": [
+    "integrity/baseline_repository.json",
+    "integrity/baseline_external.json",
+    "integrity/final_repository.json",
+    "integrity/final_external.json"
+  ],
+  "integrity_status": {
+    "baseline_external": "PASS",
+    "baseline_repository": "PASS",
+    "final_external": "PASS",
+    "final_repository": "PASS"
+  },
+  "overall_classification": "EVIDENCE_CHAIN_ESTABLISHED_SELECTION_NOT_QUALIFIED",
+  "phase_summaries": [
+    {
+      "effect_on_carbon": "No qualified carbon effect.",
+      "effect_on_energy": "No activity-qualified energy conclusion; only post-route tool-power sensitivity.",
+      "effect_on_green_ranking": "No ranking is permitted while source objectives are unqualified.",
+      "effect_on_ppa": "For E0, corrected versus original means: standard-cell area -6.7524%, wirelength +0.7381%, vias -7.5332%, tool power -0.5083%; U0 is not qualified.",
+      "effect_on_reliability": "No reliability effect measured.",
+      "exact_classification": "STRICT_MATRIX_EXECUTED_WITH_DETERMINISTIC_U0_RSZ0090_ABORTS",
+      "five_seed_robustness": "Original 10/10 and diagnostic E0 10/10 complete; diagnostic U0 10/10 aborts (strict plus retained non-qualifying continuation evidence).",
+      "impact_on_iscas_claims": "Supports a physically observed optimizer sensitivity claim for E0 and a deterministic feasibility-boundary claim for U0.",
+      "new_unsupported_claims": [
+        "Foundry-corrected Liberty",
+        "Diagnostic U0 PPA equivalence",
+        "Gate-3 closure"
+      ],
+      "original_vs_corrected_model": "UPSTREAM_ORIGINAL is retained as production evidence; isolated research-corrected and no-global views are sensitivity-only.",
+      "phase": "A",
+      "proven": [
+        "All six frozen SRAM22 Liberty views and 24 output transition tables were audited.",
+        "The global 0.04 ns value conflicts with every supplied output transition table.",
+        "All 30 strict configurations were executed; 20 completed and 10 diagnostic U0 runs aborted deterministically at RSZ-0090.",
+        "Corrected and no-global E0 PPA are identical across all five seeds."
+      ],
+      "recommended_next_action": "Independently re-characterize SRAM output constraints and investigate U0 RSZ-0090 without changing Gate-3 limits.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Liberty output-transition model sensitivity",
+      "u0_e0_matched_results": "Original U0/E0 reproduce Attempt09 for five seeds. Diagnostic E0 completes; diagnostic U0 aborts before PPA.",
+      "unproven": [
+        "Foundry accuracy of either diagnostic view.",
+        "Corrected/counterfactual U0 PPA because strict runs abort before completion."
+      ]
+    },
+    {
+      "effect_on_carbon": "No carbon result.",
+      "effect_on_energy": "No energy result.",
+      "effect_on_green_ranking": "No ranking effect.",
+      "effect_on_ppa": "No retained implementation PPA replacement.",
+      "effect_on_reliability": "Explains a physical parameter relevant to fault-protection implementation but changes no reliability rate.",
+      "exact_classification": "INSUFFICIENT_EVIDENCE",
+      "five_seed_robustness": "Five-seed historical closure remains 5/5 setup/hold and 0/5 external-DRV clean; controlled diagnostics are characterization experiments.",
+      "impact_on_iscas_claims": "Supports the narrower-macro load explanation while preserving an explicit evidence limit.",
+      "new_unsupported_claims": [
+        "Frozen interface impossibility",
+        "Constraint provenance inconsistency"
+      ],
+      "original_vs_corrected_model": "This phase retains upstream input constraints and does not use the output-transition diagnostic correction.",
+      "phase": "B",
+      "proven": [
+        "The 256x64 rise capacitance is 0.448008 pF versus 0.250926 pF for 256x8 (1.785419x).",
+        "Macro pin load dominates measured routed wire capacitance.",
+        "Zero-wire and localized strongest-driver tests still miss 0.351 ns for the 256x64 macro; the 256x8 comparison can pass.",
+        "OpenSTA and table interpolation agree within 4.34e-8 ns."
+      ],
+      "recommended_next_action": "Obtain independent macro input-slew characterization including internal RC/transient evidence.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "256x64 data-rstb physical characterization",
+      "u0_e0_matched_results": "Attempt09 seed11 is reproduced: U0 0.619147718 ns, E0 data 0.615635812 ns, E0 ECC 0.307288498 ns.",
+      "unproven": [
+        "A universal frozen-interface impossibility proof.",
+        "That the 0.351 ns input limit is invalid."
+      ]
+    },
+    {
+      "effect_on_carbon": "Carbon stays NOT_QUALIFIED.",
+      "effect_on_energy": "Unqualified energy stays NOT_QUALIFIED.",
+      "effect_on_green_ranking": "No scores are computed.",
+      "effect_on_ppa": "Measured physical fields are preserved without imputation.",
+      "effect_on_reliability": "Physical rates stay NOT_QUALIFIED.",
+      "exact_classification": "SCHEMA_COMPLETE_WITH_EXPLICIT_MISSINGNESS",
+      "five_seed_robustness": "Five canonical seeds are represented for each baseline/model combination that can be populated.",
+      "impact_on_iscas_claims": "Provides the auditable data contract for later ISCAS evaluation.",
+      "new_unsupported_claims": [],
+      "original_vs_corrected_model": "Rows explicitly label original or research-corrected Liberty.",
+      "phase": "C",
+      "proven": [
+        "The required physical, reliability, energy, carbon, and score fields have typed semantics and explicit sentinel values.",
+        "The physical table contains 20 provenance-linked rows."
+      ],
+      "recommended_next_action": "Populate currently missing fields only from traceable experiments.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Physical GREEN matrix schema",
+      "u0_e0_matched_results": "U0/E0 rows remain separate by architecture, model, and seed.",
+      "unproven": [
+        "Missing quantities are not measurements."
+      ]
+    },
+    {
+      "effect_on_carbon": "Carbon fields remain gated.",
+      "effect_on_energy": "Energy fields remain gated.",
+      "effect_on_green_ranking": "Rows are excluded from ranking while required objectives remain unavailable.",
+      "effect_on_ppa": "E0 material changes are quantified; U0 diagnostic change is unqualified.",
+      "effect_on_reliability": "Reliability fields remain gated.",
+      "exact_classification": "PROVENANCE_AWARE_PHYSICAL_BASELINE_POPULATED",
+      "five_seed_robustness": "Original five seeds complete for both; corrected E0 five seeds complete; corrected U0 five runs abort.",
+      "impact_on_iscas_claims": "Provides a defensible matched physical baseline.",
+      "new_unsupported_claims": [
+        "Macro-internal DRC",
+        "Independent LVS",
+        "Qualified energy"
+      ],
+      "original_vs_corrected_model": "Both baselines coexist; no silent substitution.",
+      "phase": "D",
+      "proven": [
+        "Original five-seed U0/E0 metrics and completed corrected E0 metrics are populated.",
+        "Diagnostic U0 abort rows retain explicit NOT_MEASURED values."
+      ],
+      "recommended_next_action": "Close the corrected U0 feasibility gap or retain it as an excluded design point.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "U0/E0 matched GREEN baseline",
+      "u0_e0_matched_results": "Ten upstream-original rows plus ten research-corrected rows are represented.",
+      "unproven": [
+        "Corrected U0 physical comparison.",
+        "Gate-3 pass."
+      ]
+    },
+    {
+      "effect_on_carbon": "No carbon values may consume the partial estimate.",
+      "effect_on_energy": "Energy values remain NOT_QUALIFIED.",
+      "effect_on_green_ranking": "No GREEN score may consume the partial estimate.",
+      "effect_on_ppa": "No physical implementation changes were made in this phase.",
+      "effect_on_reliability": "No rate effect.",
+      "exact_classification": "RTL_ACTIVITY_COMPLETE_ENERGY_NOT_QUALIFIED",
+      "five_seed_robustness": "RTL activity is deterministic, but post-route activity power is only seed11.",
+      "impact_on_iscas_claims": "Defines a reproducible workload-to-activity chain and documents why power-to-energy remains incomplete.",
+      "new_unsupported_claims": [
+        "Energy per access",
+        "Architecture energy advantage",
+        "Macro power-model accuracy"
+      ],
+      "original_vs_corrected_model": "Activity traces do not change Liberty; sensitivity models were not used for the post-route diagnostic.",
+      "phase": "E",
+      "proven": [
+        "Eight workloads execute identically for U0 and E0 with checked outputs and no unknowns.",
+        "A seed-11 upstream-original post-route diagnostic records exact annotation coverage and power-component tool estimates."
+      ],
+      "recommended_next_action": "Run mapped, glitch-aware, five-seed activity with independently validated macro power and explicit component partitioning.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Activity-qualified energy",
+      "u0_e0_matched_results": "Workload traces are matched; post-route coverage is U0 48.68% and E0 4.35%.",
+      "unproven": [
+        "Activity-qualified energy/access.",
+        "Five-seed and corrected-model activity power.",
+        "Validated macro read/write internal energy.",
+        "Glitch-aware gate activity and disjoint component attribution."
+      ]
+    },
+    {
+      "effect_on_carbon": "No qualified carbon result.",
+      "effect_on_energy": "I1/I2 energy is NOT_MEASURED.",
+      "effect_on_green_ranking": "No ranking effect.",
+      "effect_on_ppa": "I1/I2 PPA is NOT_MEASURED.",
+      "effect_on_reliability": "No physical interleaving coverage claim.",
+      "exact_classification": "PHYSICAL_TOPOLOGY_MAPPING_INCOMPLETE",
+      "five_seed_robustness": "Five-seed placement evidence exists for I0; proposals are not implemented.",
+      "impact_on_iscas_claims": "Defines implementable experiments without treating a logical permutation as physical evidence.",
+      "new_unsupported_claims": [
+        "Physical interleaving effectiveness",
+        "Interleaving overhead"
+      ],
+      "original_vs_corrected_model": "Independent of Liberty model.",
+      "phase": "F",
+      "proven": [
+        "I0 macro placements and macro dimensions are extracted from frozen DEF/LEF evidence.",
+        "I1/I2 are explicit banking and transpose proposals with stated implementation requirements."
+      ],
+      "recommended_next_action": "Implement I1/I2 banking/controller changes and extract address-to-physical mapping.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Physical bit interleaving",
+      "u0_e0_matched_results": "Both architectures are described, but only I0 macro-level organization has physical evidence.",
+      "unproven": [
+        "Bitcell coordinates or address-to-physical-bit maps.",
+        "Physical separation, routing, area, energy, and latency for I1/I2."
+      ]
+    },
+    {
+      "effect_on_carbon": "No carbon effect.",
+      "effect_on_energy": "No energy effect.",
+      "effect_on_green_ranking": "No ranking effect.",
+      "effect_on_ppa": "No PPA effect.",
+      "effect_on_reliability": "All physical reliability-rate fields remain NOT_QUALIFIED.",
+      "exact_classification": "PHYSICAL_RELIABILITY_RATES_NOT_QUALIFIED",
+      "five_seed_robustness": "Deterministic logical enumeration is complete; physical event sampling is empty.",
+      "impact_on_iscas_claims": "Prevents topology-independent MBU claims and establishes the required coupling interface.",
+      "new_unsupported_claims": [
+        "Physical SBU/DBU/MBU rates",
+        "Altitude or Qcrit-scaled campaign conclusions"
+      ],
+      "original_vs_corrected_model": "Independent of Liberty model until physical/topology coupling is available.",
+      "phase": "G",
+      "proven": [
+        "Logical controls show E0 corrects all 72 SBU positions and detects all 2556 DBU pairs in the enumerated codeword model.",
+        "Three-bit logical patterns expose possible miscorrection/SDC and are not mislabeled as physical MBU rates."
+      ],
+      "recommended_next_action": "Generate qualified bit maps, then drive physical upset geometries through the simulator.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Reliability GREEN matrix",
+      "u0_e0_matched_results": "U0/E0 logical controls exist; physical comparison is withheld.",
+      "unproven": [
+        "Physical SER, FIT, SDC, DUE, burst, and interleaving coverage rates."
+      ]
+    },
+    {
+      "effect_on_carbon": "All lifecycle values are NOT_QUALIFIED.",
+      "effect_on_energy": "Energy gating prevents operational carbon calculation.",
+      "effect_on_green_ranking": "No ranking effect.",
+      "effect_on_ppa": "Physical area alone is insufficient for lifecycle carbon.",
+      "effect_on_reliability": "No reliability result is converted into recovery carbon.",
+      "exact_classification": "NOT_QUALIFIED",
+      "five_seed_robustness": "All seeds remain blocked consistently.",
+      "impact_on_iscas_claims": "Supplies an auditable model and sensitivity grid without fabricating carbon totals.",
+      "new_unsupported_claims": [
+        "Lifecycle carbon advantage",
+        "Grid-dependent winner",
+        "28 nm proxy as SKY130 truth"
+      ],
+      "original_vs_corrected_model": "Rows retain Liberty provenance, but neither model has qualified lifecycle inputs.",
+      "phase": "H",
+      "proven": [
+        "Embodied, operational, recovery, and total equations, units, gates, grid scenarios, and sensitivity axes are explicit.",
+        "Existing carbon calibration/default files are hashed and preserved read-only."
+      ],
+      "recommended_next_action": "Qualify energy, lifetime/access counts, SKY130 manufacturing assumptions, and recovery policy.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Carbon model",
+      "u0_e0_matched_results": "U0/E0 carbon rows are generated only as blocked records.",
+      "unproven": [
+        "SKY130-specific manufacturing factor.",
+        "Qualified workload/lifetime energy.",
+        "Recovery carbon."
+      ]
+    },
+    {
+      "effect_on_carbon": "Carbon is a blocking objective.",
+      "effect_on_energy": "Energy is a blocking objective.",
+      "effect_on_green_ranking": "Eligible rows: 0; normalized scores remain empty.",
+      "effect_on_ppa": "Available PPA remains raw.",
+      "effect_on_reliability": "Physical reliability is a blocking objective.",
+      "exact_classification": "BLOCKED_NO_FULLY_QUALIFIED_ROWS",
+      "five_seed_robustness": "Seed is a matrix dimension.",
+      "impact_on_iscas_claims": "Prevents a mathematically complete but scientifically unsupported ranking.",
+      "new_unsupported_claims": [
+        "GREEN winner",
+        "Normalized sustainability score"
+      ],
+      "original_vs_corrected_model": "Both original and corrected physical baselines remain distinguishable.",
+      "phase": "I",
+      "proven": [
+        "A 5,760-row Cartesian raw scenario matrix preserves source values, units, evidence labels, and missingness.",
+        "Normalization metadata records a bounded policy for future use."
+      ],
+      "recommended_next_action": "Qualify each objective and freeze normalization bounds before scoring.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Integrated GREEN decision matrix",
+      "u0_e0_matched_results": "Architecture rows are explicit; no forced comparison is made.",
+      "unproven": [
+        "Validated normalization bounds, EPC/ESII/NESII, or GREEN scores."
+      ]
+    },
+    {
+      "effect_on_carbon": "Carbon objective unavailable.",
+      "effect_on_energy": "Energy objective unavailable.",
+      "effect_on_green_ranking": "No GREEN winner.",
+      "effect_on_ppa": "PPA alone cannot determine the requested front.",
+      "effect_on_reliability": "Physical SDC/DUE objectives unavailable.",
+      "exact_classification": "BLOCKED_NO_FULLY_QUALIFIED_ROWS",
+      "five_seed_robustness": "Five seeds are retained but ineligible.",
+      "impact_on_iscas_claims": "Correctly stops analysis at the qualification gate and leaves a deterministic sorter for future complete rows.",
+      "new_unsupported_claims": [
+        "Sustainability-aware winner",
+        "Static-selector superiority/inferiority",
+        "NSGA-II result"
+      ],
+      "original_vs_corrected_model": "Liberty provenance is an explicit dimension.",
+      "phase": "J",
+      "proven": [
+        "All 5,760 rows are deterministically screened and excluded with machine-readable reasons.",
+        "The existing deterministic selector is preserved as the baseline."
+      ],
+      "recommended_next_action": "Re-run deterministic exact Pareto analysis after qualification; use NSGA-II only if the design space becomes non-enumerable.",
+      "repository_integrity_status": "PASS: baseline and final repository/external checkpoints, Attempts 1-9, protected DATE evidence, and frozen SRAM22 sources all verify.",
+      "title": "Pareto and selector analysis",
+      "u0_e0_matched_results": "No U0/E0 Pareto claim.",
+      "unproven": [
+        "Pareto front, dominated solutions, hypervolume, knee points, and scenario winner."
+      ]
+    }
+  ],
+  "recommended_reassessment": "KEEP_GATE3_FAILED",
+  "regression_status_path": "integrity/REGRESSION_STATUS.json",
+  "research_questions": {
+    "RQ1": "PARTIALLY_ANSWERED: E0 shows material implementation changes; U0 becomes infeasible at global placement, so a reporting-only explanation is disproven but full cross-architecture quantification is incomplete.",
+    "RQ2": "PARTIALLY_ANSWERED: the 256x64 rstb pin has 1.785419x the 256x8 rise capacitance and remains above limit in zero-wire/local-driver controls; universal limitation or invalid constraint remains unproven.",
+    "RQ3": "PARTIALLY_ANSWERED_FOR_PHYSICAL_PPA_ONLY; energy is not qualified.",
+    "RQ4": "UNANSWERED_PENDING_PHYSICAL_BIT_MAP.",
+    "RQ5": "UNANSWERED_PENDING_IMPLEMENTED_I1_I2.",
+    "RQ6": "UNANSWERED_PENDING_ENERGY_RELIABILITY_CARBON.",
+    "RQ7": "UNANSWERED_PENDING_QUALIFIED_CARBON.",
+    "RQ8": "UNANSWERED_PENDING_ADDITIONAL_ARCHITECTURES_AND_QUALIFIED_OBJECTIVES.",
+    "RQ9": "UNANSWERED_PENDING_QUALIFIED_GREEN_MATRIX."
+  },
+  "schema_version": 1,
+  "strict_sensitivity_execution": {
+    "complete": 20,
+    "deterministic_u0_rsz0090_aborts": 10,
+    "executed": 30,
+    "planned": 30
+  },
+  "unsupported_claims": [
+    "foundry signoff",
+    "silicon validation",
+    "physical LVS closure",
+    "SRAM macro-internal DRC closure",
+    "regenerated Liberty accuracy",
+    "physical bitcell interleaving",
+    "activity-qualified energy",
+    "qualified lifecycle carbon",
+    "GREEN or Pareto winner"
+  ]
+}

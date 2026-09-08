@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "campaign": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt08_sram22_slew_provenance_and_drv_closure",
+  "final_attempt08_classification": "SLEW_REPAIR_PARTIAL",
+  "sram22_upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+  "technology_pvt": "SKY130HD TT/25C/1.8V",
+  "common_clock": {
+    "period_ns": 10.0,
+    "frequency_mhz": 100.0,
+    "uncertainty_ns": 0.1
+  },
+  "original_slew": {
+    "U0": {
+      "count": 65,
+      "class_distribution_A_through_F": {
+        "A": 0,
+        "B": 1,
+        "C": 64,
+        "D": 0,
+        "E": 0,
+        "F": 0
+      }
+    },
+    "E0": {
+      "count": 80,
+      "class_distribution_A_through_F": {
+        "A": 3,
+        "B": 4,
+        "C": 72,
+        "D": 0,
+        "E": 1,
+        "F": 0
+      }
+    }
+  },
+  "accepted_repairs": [
+    {
+      "design": "E0",
+      "instance": "_513_",
+      "from": "sky130_fd_sc_hd__xnor2_1",
+      "to": "sky130_fd_sc_hd__xnor2_2"
+    },
+    {
+      "design": "E0",
+      "target": "u_protected_memory.u_data/din[56]",
+      "from": "sky130_fd_sc_hd__buf_4",
+      "to": "sky130_fd_sc_hd__buf_8"
+    },
+    {
+      "design": "E0",
+      "target": "u_protected_memory.u_data/din[57]",
+      "from": "sky130_fd_sc_hd__buf_4",
+      "to": "sky130_fd_sc_hd__buf_8"
+    }
+  ],
+  "constraint_relaxed_to_force_pass": false,
+  "macro_internals_changed": false,
+  "canonical": {
+    "U0": {
+      "design": "U0",
+      "seed": 11,
+      "flow_completed": true,
+      "missing_final_artifacts": [],
+      "integration_drc": 0,
+      "drc_report_bytes": 0,
+      "antenna_violating_nets": 0,
+      "setup_violations": 0,
+      "hold_violations": 0,
+      "max_slew_violations": 65,
+      "max_capacitance_violations": 0,
+      "unconstrained_endpoints": 0,
+      "setup_wns_ns": 4.46099,
+      "setup_tns_ns": 0,
+      "worst_hold_slack_ns": 0.0249489,
+      "external_timing_drv_clean": false,
+      "provenance_limited_exception_eligible": false,
+      "matched_standard_eligible": false,
+      "macro_count": 1,
+      "macro_area_um2": 201267,
+      "standard_cell_area_um2": 5566.59,
+      "total_placed_design_area_um2": 206833,
+      "core_area_um2": 439734,
+      "die_area_um2": 470000,
+      "achieved_utilization_fraction": 0.47036,
+      "wirelength_um": 22186,
+      "vias": 1084,
+      "routing_layer_usage_um": {
+        "li1": 0,
+        "met1": 436,
+        "met2": 18944,
+        "met3": 137,
+        "met4": 2668,
+        "met5": 0
+      },
+      "clock_buffers": 0,
+      "clock_inverters": 0,
+      "timing_repair_buffers": 156,
+      "power_w": {
+        "internal": 0.000772797,
+        "switching": 3.10699e-05,
+        "leakage": 6.42569e-07,
+        "total": 0.00080451,
+        "evidence_level": "COMPARATIVE_POST_ROUTE_TOOL_ESTIMATE"
+      },
+      "final_artifact_sha256": {
+        "odb": "ba70acab903290083952f45c2bc1b2f9ddd5073dd51d2bfdd43049261750c735",
+        "def": "b1f5dc2d3c8d7d05c5c719a7742d02f8c8a79340fcc782cf3fbe5d5c1934333d",
+        "gds": "82fd7d893f570c69aea17cac310a797b0970623d6b2417364c2e51f7ac54d211",
+        "spef": "76c0eecdd67731023b5233acd45bc8951475777754e24827512ab0227e5c53b3",
+        "sdc": "83b9951d04766eeb85d673794aefe8a3b540af1686222a1a5017cb62e27a31ad"
+      }
+    },
+    "E0": {
+      "design": "E0",
+      "seed": 11,
+      "flow_completed": true,
+      "missing_final_artifacts": [],
+      "integration_drc": 0,
+      "drc_report_bytes": 0,
+      "antenna_violating_nets": 0,
+      "setup_violations": 0,
+      "hold_violations": 0,
+      "max_slew_violations": 75,
+      "max_capacitance_violations": 0,
+      "unconstrained_endpoints": 0,
+      "setup_wns_ns": 0.584552,
+      "setup_tns_ns": 0,
+      "worst_hold_slack_ns": 0.00122125,
+      "external_timing_drv_clean": false,
+      "provenance_limited_exception_eligible": false,
+      "matched_standard_eligible": false,
+      "macro_count": 2,
+      "macro_area_um2": 260332,
+      "standard_cell_area_um2": 15438.6,
+      "total_placed_design_area_um2": 275770,
+      "core_area_um2": 615628,
+      "die_area_um2": 650000,
+      "achieved_utilization_fraction": 0.447949,
+      "wirelength_um": 79769,
+      "vias": 6690,
+      "routing_layer_usage_um": {
+        "li1": 0,
+        "met1": 22867,
+        "met2": 44015,
+        "met3": 5913,
+        "met4": 6905,
+        "met5": 68
+      },
+      "clock_buffers": 3,
+      "clock_inverters": 1,
+      "timing_repair_buffers": 551,
+      "power_w": {
+        "internal": 0.00139235,
+        "switching": 0.000583346,
+        "leakage": 7.34373e-07,
+        "total": 0.00197643,
+        "evidence_level": "COMPARATIVE_POST_ROUTE_TOOL_ESTIMATE"
+      },
+      "final_artifact_sha256": {
+        "odb": "808943d134dede9f837b5c15e3d5ed9fc6b6d6b0f9036b23d7a2333e35af94b1",
+        "def": "603987b3afe718759af74be65cbebb8c2de5773ab49de9a5f9664e88821ee5a2",
+        "gds": "6030816d6c1a5c811eb42ca82d87e77ca3abd83ff833f212552bf24a11c7147d",
+        "spef": "67a78a6767e5af82aa2d8e48b726a8f7c860c1668fc3ee34262243ce68b9f463",
+        "sdc": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+      }
+    }
+  },
+  "canonical_remaining_slew_distribution": {
+    "U0": {
+      "A": 0,
+      "B": 1,
+      "C": 64,
+      "D": 0,
+      "E": 0,
+      "F": 0
+    },
+    "E0": {
+      "A": 0,
+      "B": 2,
+      "C": 72,
+      "D": 0,
+      "E": 1,
+      "F": 0
+    }
+  },
+  "canonical_pair_externally_timing_drv_clean": false,
+  "provenance_limited_exception_eligible": false,
+  "multiseed": {
+    "seeds": [
+      11,
+      13,
+      17,
+      19,
+      23
+    ],
+    "all_u0_route_clean": true,
+    "all_e0_route_clean": true,
+    "matched_setup_hold_clean_count": 4,
+    "matched_external_timing_drv_closure_count": 0,
+    "e0_seed17_hold_violations": 1
+  },
+  "power_evidence_level": "COMPARATIVE_POST_ROUTE_TOOL_ESTIMATE",
+  "energy_per_access": "NOT_QUALIFIED",
+  "sram_internal_drc_disposition": "MACRO_INTERNAL_DRC_NOT_INDEPENDENTLY_SIGNOFF_QUALIFIED",
+  "physical_lvs": "NOT_INDEPENDENTLY_REPRODUCED",
+  "remaining_unsupported_claims": [
+    "SRAM22 macro-internal foundry signoff DRC",
+    "independently reproduced physical LVS",
+    "independently regenerated SRAM22 Liberty characterization",
+    "physical bitcell interleaving",
+    "activity-qualified power and energy per access"
+  ],
+  "regression": {
+    "schema_version": 1,
+    "overall_status": "PASS_WITH_EXPECTED_FROZEN_FAILURES",
+    "campaign_local_tests": {
+      "status": "PASS",
+      "exit_code": 0,
+      "passed": 9,
+      "failed": 0,
+      "failure_nodeids": [],
+      "log": "raw/regression/campaign_local_tests.log"
+    },
+    "make": {
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "raw/regression/make.log",
+      "toolchain": "Windows GNU make / MSYS-compatible g++"
+    },
+    "make_test": {
+      "status": "EXPECTED_FROZEN_FAILURES_ONLY",
+      "exit_code": 2,
+      "passed": 482,
+      "failed": 2,
+      "failure_nodeids": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+      ],
+      "log": "raw/regression/make_test.log"
+    },
+    "full_pytest": {
+      "status": "EXPECTED_FROZEN_FAILURES_ONLY",
+      "exit_code": 1,
+      "passed": 484,
+      "failed": 2,
+      "failure_nodeids": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+      ],
+      "log": "raw/regression/full_pytest.log"
+    },
+    "expected_frozen_failure_nodeids": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ],
+    "new_regression_count": 0,
+    "protected_date_baseline": {
+      "status": "PASS",
+      "protected_file_count": 7094,
+      "added": [],
+      "changed": [],
+      "missing": []
+    },
+    "prior_campaign_evidence": {
+      "status": "PASS",
+      "campaign_count": 6
+    },
+    "frozen_sram22_sources": {
+      "status": "PASS",
+      "artifact_count": 14,
+      "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05"
+    },
+    "protected_binary": {
+      "status": "RESTORED",
+      "required_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+      "actual_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef"
+    }
+  },
+  "gate3_recommendation": "KEEP_GATE3_FAILED",
+  "gate3_historical_state": "FAIL",
+  "gate3_reassessment_started": false,
+  "gate4_state": "NOT_STARTED_UNAUTHORIZED",
+  "attempt09_started": false
+}

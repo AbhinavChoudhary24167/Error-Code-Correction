@@ -1,0 +1,1756 @@
+{
+  "campaign": "gate3_openram_attempt04_sky130_control_integration_repair",
+  "algorithm": "sha256",
+  "manifest_scope": "all Attempt04 repository files except this manifest",
+  "external_work_root": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair",
+  "external_work_archived_under": "raw/",
+  "file_count": 349,
+  "byte_count": 42684636,
+  "files": [
+    {
+      "path": "ATTEMPT04_STATUS.json",
+      "byte_size": 6274,
+      "sha256": "26e689760475a9c89f1718c3c76b5b46b90f9d61bf4dcd3c0f4fbd7dd9fa0656"
+    },
+    {
+      "path": "ATTEMPT04_SUMMARY.md",
+      "byte_size": 1227,
+      "sha256": "d708f3b6c46a5dcd04e0dc550d6929524fed860400cbfe8ae9d502f97140f8a8"
+    },
+    {
+      "path": "CONTROL_CONFIG_SHA256.json",
+      "byte_size": 578,
+      "sha256": "b965baa78857048cf86da2e5344d146b117fd71567d5482587ba49df3d4c54ec"
+    },
+    {
+      "path": "DRC_ROOT_CAUSE.md",
+      "byte_size": 3134,
+      "sha256": "8566b6f2219887e6c6bfb4e9572783ab93cb7f49b4af2925d60f0f731e692cb0"
+    },
+    {
+      "path": "ENVIRONMENT_MANIFEST.json",
+      "byte_size": 3454,
+      "sha256": "e5c95f1ab9e5cfbe9422961f4552fd7af22af824fb8b7f89de0f3e09b8df09c1"
+    },
+    {
+      "path": "FINAL_INTEGRITY_AUDIT.json",
+      "byte_size": 2222,
+      "sha256": "b7aa68094183a6e2aaf497f22206081d7e46cc709daf5b37323f37f01e0292e5"
+    },
+    {
+      "path": "LVS_ROOT_CAUSE.md",
+      "byte_size": 2209,
+      "sha256": "58759f4e9311e15ebad2ecf662df07a470503d587b6344a1bba175f97cf021e0"
+    },
+    {
+      "path": "PATCH_MANIFEST.json",
+      "byte_size": 4624,
+      "sha256": "d41a77b84eb6fae681b7d131b30d6d60c81b628f11320018da1808024e0963b0"
+    },
+    {
+      "path": "PATCH_RATIONALE.md",
+      "byte_size": 1686,
+      "sha256": "f6afd68128fb34354ddd01b5da9726dced410b13dd0f34549ebd1fa307158503"
+    },
+    {
+      "path": "PATCH_SEQUENCE.md",
+      "byte_size": 995,
+      "sha256": "91cb2d436b298445430f88fa9406e404b17c429134d662793862e0a32041a498"
+    },
+    {
+      "path": "POSTPATCH_CONTROL_VERIFICATION.json",
+      "byte_size": 1275,
+      "sha256": "755b9ec1f4c55861d04db8c6acd52fc3aea02f851990d170cc241e02820eaf6b"
+    },
+    {
+      "path": "POSTPATCH_CONTROL_VERIFICATION.md",
+      "byte_size": 950,
+      "sha256": "86d9fd8cd9072d426ebaff772b09c6ff9578d09062c43cb4494e59ccee81e150"
+    },
+    {
+      "path": "PREPATCH_CONTROL_REPRODUCTION.json",
+      "byte_size": 2771,
+      "sha256": "c35388839e3587e19fb14dc3e6ce0b55f366a428cab760bacc067599aa69bc9b"
+    },
+    {
+      "path": "PREPATCH_CONTROL_REPRODUCTION.md",
+      "byte_size": 2480,
+      "sha256": "aec4ab7daf7ce70b913efd50013d37f86bb0fa842ac02ed366ae12f64921db4d"
+    },
+    {
+      "path": "PRIMITIVE_BISECTION_MATRIX.md",
+      "byte_size": 4656,
+      "sha256": "281c738c7c8f21d07e40e14d13d1170488e87460543044726edada3a4f254ad9"
+    },
+    {
+      "path": "REGRESSION_STATUS.json",
+      "byte_size": 1820,
+      "sha256": "a9016d62973e2ff86dfaa335875850d8239755411bf46f76e925b61be9619d99"
+    },
+    {
+      "path": "configs/control_8x16_config.py",
+      "byte_size": 1146,
+      "sha256": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6"
+    },
+    {
+      "path": "diagnostics/drc_diagnostic.tcl",
+      "byte_size": 1261,
+      "sha256": "be205857793a35cf94d417babdf39be7324a79a55de539a2f234efa429270d77"
+    },
+    {
+      "path": "diagnostics/drc_gds_diagnostic.tcl",
+      "byte_size": 1902,
+      "sha256": "4946268d941a5ff0641ee93e2f61a042675e4419885bb1106f6e3fdbe8b913e8"
+    },
+    {
+      "path": "diagnostics/primitive_drc_matrix.sh",
+      "byte_size": 3271,
+      "sha256": "481607f665c6c8896fa604996eb4c0fe15070e39b2cba7a8f050ae32cc7f8a06"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_direct_gds_drc/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_direct_gds_drc/drc.log",
+      "byte_size": 66573,
+      "sha256": "1b94b1fb1deec1ad7ca4922da09615979b7d43621acfebcaa9663c07a07998a3"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_port_data.log",
+      "byte_size": 1005,
+      "sha256": "a02d04753e38591ceeaf97d569b28c1f9f936ae02c3b5762ec2fd2ad096aaab2"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_precharge_0.log",
+      "byte_size": 896,
+      "sha256": "31220b694e0d1431c272272471897aafcb4cc732fef6aed909fbe10034db98a0"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array.log",
+      "byte_size": 2323,
+      "sha256": "ad525569cb0b02749c1fe00e5387995e65e2afd4296df04095a532024745f2b7"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array.log",
+      "byte_size": 4222,
+      "sha256": "819f888555f556fbb730d12241d2f3a4a52e1349e00336ea0da6b1186fae8931"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array.log",
+      "byte_size": 2082,
+      "sha256": "95c497b3656c28eba3d9c35391d1718d05bf4e695a25c376a2fc9b6e99f094cc"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array.log",
+      "byte_size": 4142,
+      "sha256": "d2383891258a07f08149cd3cba27c1fea7accd5000d65a43b7b23dc6f100c9f3"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column.log",
+      "byte_size": 2668,
+      "sha256": "bb4efea164070e9e1e3acd5f27c21b4ada7be8dfd3342b07d139d9680c44d08d"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/generated_sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array.log",
+      "byte_size": 899,
+      "sha256": "d2e19c84ba5c498b2d258e8d5d4402954f245538298830bead98cfd3cd97423b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dff/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dff/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dff/sky130_fd_bd_sram__openram_dff.mag",
+      "byte_size": 18790,
+      "sha256": "1d7c89e4c7e8286ffd416a794e5a0686043b9d159bd0375e3420c188b6889974"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell/drc.log",
+      "byte_size": 2862,
+      "sha256": "b396359fb02af118d1c4313da5aea22874ea8231671fa0434c6db6df5b058a0c"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell/sky130_fd_bd_sram__openram_dp_cell.mag",
+      "byte_size": 10427,
+      "sha256": "959233f039c089d5aacb930606943d03fac9868eaeae2ccd6e7f594b9454fa34"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell_dummy/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell_dummy/drc.log",
+      "byte_size": 2374,
+      "sha256": "27dd54410a2ae7a72bff6da24cceaecb8a2cab56d918210f7cbe0326d6431009"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell_dummy/sky130_fd_bd_sram__openram_dp_cell_dummy.mag",
+      "byte_size": 9367,
+      "sha256": "9a3938c5b7afd60b0d634de8827c065d093bf849106e366dd326c3d6a174bf04"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell_replica/drc.log",
+      "byte_size": 2878,
+      "sha256": "89fe4ed30cb1c7fc3118d2dac04e061f0f158a7cd943c8e05c73ae661c934958"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_dp_cell_replica/sky130_fd_bd_sram__openram_dp_cell_replica.mag",
+      "byte_size": 10435,
+      "sha256": "cdb17863b157fa8fa03514520a8041df71cb42a99f63d7bd8ced0b11133f9888"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sense_amp/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sense_amp/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.mag",
+      "byte_size": 10495,
+      "sha256": "f3677a27fdc86a3aa6f65ff9c5b34382e54f944aa7f58564e9800dcc31466df8"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1_replica/drc.log",
+      "byte_size": 2850,
+      "sha256": "b16951e348caaedb9e4d67cbe35ba507845944fdb4a66084ce27d034a3816715"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.mag",
+      "byte_size": 3745,
+      "sha256": "2473df7fa23f4c3a4284e93e45f615acc115f791c39465901217272c2befafde"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy/drc.log",
+      "byte_size": 2651,
+      "sha256": "0665c3c683fcb0ea890a33755bc6c9cba0adb62f8e2f9fb979582ea28b19db36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.mag",
+      "byte_size": 3249,
+      "sha256": "896e5a41b86bccc7c8e847834499d0f65a466df86cb6d0b80860a36c0b3f6b26"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica/drc.log",
+      "byte_size": 2851,
+      "sha256": "ea92ffe6a498a53fcf73ede6a8ed737f25b3ecfd4b44f1bb32d4a6ccbdc7939f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.mag",
+      "byte_size": 3743,
+      "sha256": "e62e1c3483b40c03c46b23918673249fc7dd4e5dfb89c18813b1747a0d031ea1"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_nand2_dec/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_nand2_dec/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.mag",
+      "byte_size": 2773,
+      "sha256": "c8f0976a05dea8dea01b97cd2722baf70ddf0536191be3a1a7561afc15576c77"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_nand3_dec/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_nand3_dec/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.mag",
+      "byte_size": 4719,
+      "sha256": "2509419751b1ba962e61ca4325877afaecea0825e6f120d7d23ed414bf5e6461"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_rowend_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_rowend_replica/drc.log",
+      "byte_size": 1382,
+      "sha256": "73f09e64ea94867873f3c08056c1ef26dce4f458194a360402556a9147303b36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.mag",
+      "byte_size": 687,
+      "sha256": "d3ac0e3bb81d850b39ff8082ff69c09358760147ef61bcda6f11c31749687d24"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_rowenda_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_rowenda_replica/drc.log",
+      "byte_size": 2162,
+      "sha256": "e6416e410f60ab45ba202078065c9b66a09d6055b333ecc3e2596719b8d238bf"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.mag",
+      "byte_size": 859,
+      "sha256": "7b74474e132d100b844d7aca3c0ebe0fd2af09aa5a75d84770b4555a791eb783"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_write_driver/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_write_driver/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__openram_write_driver/sky130_fd_bd_sram__openram_write_driver.mag",
+      "byte_size": 9158,
+      "sha256": "2899ab94709349de57ee348d70abf3a6e35bcd76dfbca5fda5cd0cd1db8571db"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1/drc.log",
+      "byte_size": 2839,
+      "sha256": "fe4acd365a6344b1ba7a0404cece9891990a2d6ec45ebebc33861617d171853f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+      "byte_size": 3713,
+      "sha256": "94b47ae1e4f7f0760d9d8468e0d64de5ccfb6f15f808dd23831626252ba84560"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1_ce/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1_ce/drc.log",
+      "byte_size": 2617,
+      "sha256": "aef0be222e87660d574f6200f8d3ec5e203c96f86e5abab3bad8d5d196c8a53e"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1_ce/sky130_fd_bd_sram__sram_sp_cell_opt1_ce.mag",
+      "byte_size": 3185,
+      "sha256": "e869837e0b32ce8dc39a6812a75301bf3dd53965b0e0b1cfaf992529e285c751"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1a/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1a/drc.log",
+      "byte_size": 2840,
+      "sha256": "73804441f0961502ba7b16438ace3c7033013ea2338cb5f4beb7f8669699380f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+      "byte_size": 3711,
+      "sha256": "a456e658b9c9415787219df7611cbdc1f8fcfc39a0183e5b729f001ae6b5f8e7"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend/drc.log",
+      "byte_size": 2152,
+      "sha256": "650bd0e078c3c323b0365faf3e2b614251cd611e971f749513fd7ea537ad5ed7"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.mag",
+      "byte_size": 1992,
+      "sha256": "b634943ba8460009503f8a3346fff7d4b3b2598475a79761b78c590a3f5ca308"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend_cent/drc.log",
+      "byte_size": 1212,
+      "sha256": "7a6fe42b006df86f84906d73cd6782fe54e34914d7f96c0b90c94de00793f068"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.mag",
+      "byte_size": 2888,
+      "sha256": "6929fe8e1d5afd2843c9b4bfb437566904b1ba779bde2d844da87442e46270b3"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend_p_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend_p_cent/drc.log",
+      "byte_size": 1264,
+      "sha256": "46246e62fdf37122838acb38b6585d27cce6296e786784a67b70342ba53a5fde"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.mag",
+      "byte_size": 2671,
+      "sha256": "b016081ecb26124cd6adebb6df33b0252794c5406e6c313aafe06a453834beef"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda/drc.log",
+      "byte_size": 2117,
+      "sha256": "99bdbb26c0f1f22369e7305bf5d91fc6782ccba3509edcabcb263bd2c68274fc"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.mag",
+      "byte_size": 1931,
+      "sha256": "c2f098dc17289915b0ff37c8b95aed78dc2373ae695f861c1596ba87aacd0f70"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda_cent/drc.log",
+      "byte_size": 1213,
+      "sha256": "9a966893fcb82c40112ed86219dc7c118dfadc7aa2ae3bc9bd55ee41f41b1690"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.mag",
+      "byte_size": 2888,
+      "sha256": "169b928cd41564199acb833cc0570d097ac7b526d8bbf54e33c40aa85d551151"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda_p_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda_p_cent/drc.log",
+      "byte_size": 1229,
+      "sha256": "0689b9f7f38385da0c0402836b1bbda05a61545e3d7af6fd46e3b304addcbda8"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.mag",
+      "byte_size": 2570,
+      "sha256": "12d47abfb839e1b11c117fdccad2c41629e285b20327ce4f527dc34f04d03b05"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_corner/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_corner/drc.log",
+      "byte_size": 1535,
+      "sha256": "2607afff73ce4b1d888f9d14185628fbea13a2f2b1662638009b8bf959f961e1"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.mag",
+      "byte_size": 2473,
+      "sha256": "f8cd52f11ef2b603c1fb5e1cd7d2f371a330f77a3a0ea04a37f6c03025007637"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cornera/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cornera/drc.log",
+      "byte_size": 1536,
+      "sha256": "1575a03141d93002bfc936ff1af0711944d83cab560fdebe0162f6804c3789ed"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.mag",
+      "byte_size": 2473,
+      "sha256": "2d6daf10f72463252d6a2f1a28f6d138da44dfd5485c6de54b7b1a04340ea7e1"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cornerb/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cornerb/drc.log",
+      "byte_size": 1536,
+      "sha256": "a8bc8078862f535b3ef5ccef891229e483b3c02e7d938bc5b66de59ce4544d35"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.mag",
+      "byte_size": 2473,
+      "sha256": "fa35aa3d52e4ad42eb65700b3cd7977c630433956206b3cf8af85d6b08512217"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_rowend/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_rowend/drc.log",
+      "byte_size": 1884,
+      "sha256": "3a052adf51e50ada050d153b022d66ac7d8eae4571bf26182df25884664316d4"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.mag",
+      "byte_size": 2147,
+      "sha256": "b83710f99cc37355dc86ba17b1b62294273738a55dc5d8036e903b16e60e0546"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_rowenda/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_rowenda/drc.log",
+      "byte_size": 1885,
+      "sha256": "bca6bee7350175d28e7c4d6a507b715d4b00d44bbcbf70152786b2b7683080fd"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.mag",
+      "byte_size": 2147,
+      "sha256": "b714ca611b0a54268d0da81da8f2d438fe5e190feeb2804b706676d68cdde8a3"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap/drc.log",
+      "byte_size": 2003,
+      "sha256": "52f4efc70b7d932cf125c4e0c5384142b0dae6096c5cbe7404dede9fa18425f5"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.mag",
+      "byte_size": 2740,
+      "sha256": "07ee2b67a9b5758c9922fe171390e5203fc01fe36c8993e17268273a1ba59b89"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_ce/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_ce/drc.log",
+      "byte_size": 2053,
+      "sha256": "59ed27b12fdee62151d916168d95ec479fd6787fec31ab390a0eaf513a9c2a76"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.mag",
+      "byte_size": 2458,
+      "sha256": "54796ddd93e032e1aa3ee0ba028f5720cbe2b4535d4fef4bf5970bee010fb5ec"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_p/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_p/drc.log",
+      "byte_size": 1810,
+      "sha256": "ab39dd84e7e1a0893ea38db7afb31154f60b93db20c8b43a57a94ee8a9b4d1bb"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.mag",
+      "byte_size": 2777,
+      "sha256": "405a1316d9bbdc0f660c10ec7ba238df988443077804ee62169a98f4fe384e40"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce/drc.log",
+      "byte_size": 1859,
+      "sha256": "5111b80e7b918dc48ad15f17e9db2bd0618a710a5c9c0b1e26dc9282c69d5ce5"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.mag",
+      "byte_size": 2583,
+      "sha256": "2a7357f81d3c6a1f9c83c4fbdfef28ef7b9a727ddf2ccbba3dc44122cb5e88a9"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrapa/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrapa/drc.log",
+      "byte_size": 2004,
+      "sha256": "bb86ae884759380e4632de9e19b9fcf781b3fcb3b9c74f3dcfb9c4d5256ab492"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.mag",
+      "byte_size": 2740,
+      "sha256": "3ef8335f055deac650fed4eaef4d89155c5d03e764195e400f35f0a432663552"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrapa_p/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrapa_p/drc.log",
+      "byte_size": 1811,
+      "sha256": "100b941a53d462a5a184a53c31ee3da31006c20e7d2f43f8fd91006bcea5a0f5"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_mag/sky130_fd_bd_sram__sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.mag",
+      "byte_size": 2777,
+      "sha256": "405a1316d9bbdc0f660c10ec7ba238df988443077804ee62169a98f4fe384e40"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dff/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dff/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dff/sky130_fd_bd_sram__openram_dff.mag",
+      "byte_size": 2395,
+      "sha256": "415741bda30af5ec458d1400f7e1914aaccc94fac623453a0044c3142826cbba"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell/drc.log",
+      "byte_size": 871,
+      "sha256": "91c2865c572ac5e13536a4f9752b52788dcffdd49b5081458c2479d19720dae7"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell/sky130_fd_bd_sram__openram_dp_cell.mag",
+      "byte_size": 1817,
+      "sha256": "24adf66f8734c5ac5bad13052e28c8f79414abb3f69f32f9b07c1d87beb2b58d"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell_dummy/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell_dummy/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell_dummy/sky130_fd_bd_sram__openram_dp_cell_dummy.mag",
+      "byte_size": 1705,
+      "sha256": "bd92cd88c4314adda406d00c37c488ff0702e2943ac4370a88629cf8d4e66c19"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell_replica/drc.log",
+      "byte_size": 879,
+      "sha256": "4279eb8a87de344ab75f388a11f1fb22e1f150324c23aa9f445722f7006d7a5e"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_dp_cell_replica/sky130_fd_bd_sram__openram_dp_cell_replica.mag",
+      "byte_size": 1817,
+      "sha256": "c63c45a70fed29d89d218ff371ccc0e390602ec2820dfbda6a31b611bb6e3552"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sense_amp/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sense_amp/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.mag",
+      "byte_size": 2600,
+      "sha256": "40b6fe1545cff148cb45ccdc6278f0afa2195b9feff7477c1005c2a77970a25d"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1_replica/drc.log",
+      "byte_size": 922,
+      "sha256": "d2d9f0b0f0cb9d0323f4637cf653e50ee0f8d98c1a2c5b5c2653b025eb44d9c5"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.mag",
+      "byte_size": 2755,
+      "sha256": "4e4a2844e43b46b8f4124b3e657e4f091386c823c8983a82b4ee4bb1483063d1"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy/drc.log",
+      "byte_size": 921,
+      "sha256": "23e71f1212c8215bb266371f8fa5ed4f9189b0d1ee9a16cc635a46f7692a409a"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.mag",
+      "byte_size": 3084,
+      "sha256": "a9bda682dc0a2957fe345b5742ff7ae9ae96e9edd05907b8334a967c8573df62"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica/drc.log",
+      "byte_size": 923,
+      "sha256": "04e539df35eb358b10d744f3375848de7ded4f2e8f448d378c35cfb8d4199f78"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.mag",
+      "byte_size": 2755,
+      "sha256": "4aed413cc03f3096cd14b9557a3695ca649c4301dd820258b63cf3e669d9d376"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_nand2_dec/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_nand2_dec/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.mag",
+      "byte_size": 2656,
+      "sha256": "207090d751748d327462291360b5a0ea3904ce8022bbe1f4731c02f5f5a325fe"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_nand3_dec/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_nand3_dec/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.mag",
+      "byte_size": 3933,
+      "sha256": "2b7f9193f4e8f4c33a235f5e345a4594fb63d36022e06b8c2c3db9319bcff93f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_rowend_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_rowend_replica/drc.log",
+      "byte_size": 881,
+      "sha256": "f6001dd88972892270aa8897b8def76ef7ca029036eba9249b3cba2320f84362"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.mag",
+      "byte_size": 2034,
+      "sha256": "ac3f4947c1068a47d0b2caecde48bdebbdfe231648c0c81c78bc3215eec8bcb6"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_rowenda_replica/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_rowenda_replica/drc.log",
+      "byte_size": 882,
+      "sha256": "0daaea7f8e64f02b464f019b9833c50e131317af3452ff597ec421567433d5c9"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.mag",
+      "byte_size": 2034,
+      "sha256": "9e8cd882b72aad0a334b29b8508130d7e1738b8476f1900e415ede0f8b945c49"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_write_driver/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_write_driver/drc.log",
+      "byte_size": 814,
+      "sha256": "53bc1f1b866ad5d24f300c4c584e652a3f080521ba81fac85b7ad95672080a36"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__openram_write_driver/sky130_fd_bd_sram__openram_write_driver.mag",
+      "byte_size": 3301,
+      "sha256": "6e670a10442512f0a54d8553456f881091cc433fd06c4ec62241f8cb92d7095c"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1/drc.log",
+      "byte_size": 911,
+      "sha256": "2bf24ef372f5a9cd893dbffd952b38ad55b7c822f1ece7a363418b3af35e9adf"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+      "byte_size": 2313,
+      "sha256": "f7caf8d4c0eec194b9a64c56223f48d971acb35bb6a509f346eb930071582163"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1_ce/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1_ce/drc.log",
+      "byte_size": 1379,
+      "sha256": "bb0284c55640105082910d7b15006ff2a4f0979287f6dc90216b7b8f4cc1ee0a"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1_ce/sky130_fd_bd_sram__sram_sp_cell_opt1_ce.mag",
+      "byte_size": 541,
+      "sha256": "a8b365f2335d7482c58a14da2fc3821105f65d788f8233525c357f832a6450fb"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1a/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1a/drc.log",
+      "byte_size": 912,
+      "sha256": "b0b565533a661b817a2682e6e980072b4c39f2c9848ed28a0bc2ade3ff6fe395"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+      "byte_size": 2313,
+      "sha256": "2adcfc82573296f0e628c1eeea9247b764699a944fe3865c0de090bd7dd3ccc5"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend/drc.log",
+      "byte_size": 908,
+      "sha256": "0924824b5859b4abb99f46ad395e543cb868bd517a0a9d4f6fa3401af36f4961"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.mag",
+      "byte_size": 2369,
+      "sha256": "3bff142bbd0831341a906feea4fec45fc6dd3325f3ca66fd16ec904d4ff66e2b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend_cent/drc.log",
+      "byte_size": 877,
+      "sha256": "cbc457419e2df7bcdf1c3dafd7565d1a22a1eec7c8e255c24e141253b8a2e99f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.mag",
+      "byte_size": 3871,
+      "sha256": "1ccd9a0061dbe876bfe55f9a592c88c5618eb1a67807a8a9bc40ca6824e5334e"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend_p_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend_p_cent/drc.log",
+      "byte_size": 879,
+      "sha256": "4f83e8fd61ed6a625f030403a68f582e170ead2f8fccde8b02cc322a6b0aac07"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.mag",
+      "byte_size": 4344,
+      "sha256": "2bbba4d1b4aee2bcabfc21a66c8d5dfbeb394b371611af5a73b0922c32f7c9b5"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda/drc.log",
+      "byte_size": 909,
+      "sha256": "46cf6be8ee2cd7a74f1b23d36502b145aad474a0be70bcf55196e881c02a428d"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.mag",
+      "byte_size": 2369,
+      "sha256": "f38fee3963cc5f0e60470ce01779b8cebaa57ebc622ae042107ff895aeb936fb"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda_cent/drc.log",
+      "byte_size": 878,
+      "sha256": "7fab01d17dc3cd949e1f3ddf25d19921935c84af5f3c832f31f0dc6b155a25fe"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.mag",
+      "byte_size": 3871,
+      "sha256": "165c2bcf5c71248e73195e1e8abdaffd98fa0e355d617b8cf2def10e088e612a"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda_p_cent/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda_p_cent/drc.log",
+      "byte_size": 880,
+      "sha256": "499d98c96731371a7df389a5f5dddac0e61fdd925cbe8c2db94fc0a5cfdaae6f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.mag",
+      "byte_size": 4344,
+      "sha256": "85c73e42340ee4ea85d54eda4d4e8d0e7988086890d41418268ec3888d9e9e8c"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_corner/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_corner/drc.log",
+      "byte_size": 907,
+      "sha256": "79fb90f517acb8671e9efe90afa18b85c4d18f4a75a06aad5b5e8042d82c4f72"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.mag",
+      "byte_size": 3422,
+      "sha256": "eff49f68b5aff8baa6d246d25d9b79c3bf084cf754cb5c295f9afdcf4d5897c0"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cornera/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cornera/drc.log",
+      "byte_size": 908,
+      "sha256": "1debbcf77b17ebba10debef4709f4652101530423bbcb8f18165b78cb15a8051"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.mag",
+      "byte_size": 3422,
+      "sha256": "db1bf180a6fbebd74ef751ae95b50ef884ceff74146327281b278449fb5db825"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cornerb/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cornerb/drc.log",
+      "byte_size": 908,
+      "sha256": "49ad15e1a81003cc55b31f510bcc4d521ba189076fe750e2e068c44db4d2931f"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.mag",
+      "byte_size": 3422,
+      "sha256": "1f53f5febb07f78597f2f03a621b0049eb5e6245eb9903c121d1d59df13b3419"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_rowend/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_rowend/drc.log",
+      "byte_size": 870,
+      "sha256": "3bc584d76448fe3e0a2c5ebc9296d2fcf48494e584a2da52b8326fb08e578afa"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.mag",
+      "byte_size": 2034,
+      "sha256": "bfec32557b90321f9c4d90d43dfeaef481c68d5bc54e1f8bcf9256c5444a63d1"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_rowenda/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_rowenda/drc.log",
+      "byte_size": 871,
+      "sha256": "adcc1811a9c91f13ec391c022927928151a55780a037f552bbcddfaf4c2bbfbe"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.mag",
+      "byte_size": 2034,
+      "sha256": "d1c5b88e7fe9ef2a1ee8cc2e007d7b7fb6d1b0941f2c33070c6c115c279a38aa"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap/drc.log",
+      "byte_size": 875,
+      "sha256": "1b1f51bfdc8db7d325deec560514a0b79e634d904bb7ad24cb96eb370e8dbd24"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.mag",
+      "byte_size": 2148,
+      "sha256": "4917f41928e0911538d96f87864eb8b5f14a3f9624555443a3e7a2e839fcdaaf"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_ce/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_ce/drc.log",
+      "byte_size": 994,
+      "sha256": "b60f9980f33645d150f245117492ca21e40ec80892c442c68fa987432ab93d94"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.mag",
+      "byte_size": 1164,
+      "sha256": "e31ab915b51f7ed17596e8b446eb840d16bbf7b1bed01f57693f2916f98aff0a"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_p/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_p/drc.log",
+      "byte_size": 877,
+      "sha256": "adc48ae578d31d89df6576376f40f7d3e5a32f2fd0d1db51038d26d5c4b3f1e3"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.mag",
+      "byte_size": 1973,
+      "sha256": "5ecc2a6e63fef68c9e2aeafdd430701a8005277cdf398fa6c67c2cea73f56e58"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce/drc.log",
+      "byte_size": 926,
+      "sha256": "4d4f776e9e13aa48be388859f7ec0e2f3e8813e27735a2a0bb381d3b59d22362"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.mag",
+      "byte_size": 945,
+      "sha256": "bc0855b0e324aff3cedbd237eff2c2215e2d8481cf1472a0d37e52fd42638a5e"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrapa/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrapa/drc.log",
+      "byte_size": 876,
+      "sha256": "6e737d81e63125ca8b2e08369fe676221e954b8aa03d41d98a7d2805e217f269"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.mag",
+      "byte_size": 2148,
+      "sha256": "76d809fce74333494701ad3c18b7cdb1eada972ff74b9e485d6299874ab18da7"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrapa_p/.magicrc",
+      "byte_size": 3503,
+      "sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrapa_p/drc.log",
+      "byte_size": 878,
+      "sha256": "519bc4a1464bb5809840f3e99af3127dc38b607d1a7d9273adb3e3e995100314"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_drc/source_maglef/sky130_fd_bd_sram__sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.mag",
+      "byte_size": 1973,
+      "sha256": "5ecc2a6e63fef68c9e2aeafdd430701a8005277cdf398fa6c67c2cea73f56e58"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_top_drc_diagnostic.log",
+      "byte_size": 4534,
+      "sha256": "51cdfd37a413c8ed15f21867726b71f9106db712caf8a5e5d95a9831663adacc"
+    },
+    {
+      "path": "raw/diagnostics/prepatch_top_drc_full_style.log",
+      "byte_size": 4849,
+      "sha256": "f5fb31c549fe14d4983c8af4d5112e5c607e121d663b05c4f52bbbd055d5c346"
+    },
+    {
+      "path": "raw/environment/environment_capture.txt",
+      "byte_size": 1727,
+      "sha256": "e5ea07e737b671b6fe46e32fcb4308f6583c6d3e6234e81b729f86944bc84fa5"
+    },
+    {
+      "path": "raw/environment/python-freeze-prepatch.txt",
+      "byte_size": 646,
+      "sha256": "24dccde75f1e4b951e42131d477f40900cfdcd5bc64321b4e23f43e88989c6e6"
+    },
+    {
+      "path": "raw/environment/python_requirements_attempt02.lock.txt",
+      "byte_size": 722,
+      "sha256": "3187b1a00a45c19b556d398fc4daf1e85fcb26c21b05e80928768fa1ac0fccc0"
+    },
+    {
+      "path": "raw/integrity/pre_regression/PracticalSRAMSimulator.exe",
+      "byte_size": 372808,
+      "sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef"
+    },
+    {
+      "path": "raw/integrity/pre_regression/initial_git_status.txt",
+      "byte_size": 956,
+      "sha256": "e2cf320c3519dae44d9f051034f78d0e055a5d3e063b4a5e5ec41c2e7ac42f05"
+    },
+    {
+      "path": "raw/logs/openram-clone.log",
+      "byte_size": 711,
+      "sha256": "778b44b09271c1d6e4d95a082d6054b538c9683d68edfa5531bae618c5d0f7ff"
+    },
+    {
+      "path": "raw/logs/p1_lvs_views_control.log",
+      "byte_size": 1737695,
+      "sha256": "8fe2c9eef8c365a978989e1e21b24ba18b37a151dccf84fa2fb5d7a37e06b288"
+    },
+    {
+      "path": "raw/logs/p2_complete_upstream_lvs_fix_control.log",
+      "byte_size": 1737695,
+      "sha256": "461c278ed695ae1567c6a652a68d2483b6120736fc1bba12426576b40c3be1fb"
+    },
+    {
+      "path": "raw/logs/prepatch_control.log",
+      "byte_size": 1736621,
+      "sha256": "12073ac904cde62e716167b93d709aa3d300ae25a839a34fdf0b170b1c92e32c"
+    },
+    {
+      "path": "raw/logs/python-environment-setup.log",
+      "byte_size": 6277,
+      "sha256": "d0af89fe99a33af85b94973e29f69354183a068cb80a582ba53224914c7f06c9"
+    },
+    {
+      "path": "raw/logs/sky130-openram-install.log",
+      "byte_size": 281116,
+      "sha256": "cef0ae687a43f8b59b02cec0c919a86fae70d7f01c903274ec822b23fd54bf80"
+    },
+    {
+      "path": "raw/logs/sky130-pdk-install.log",
+      "byte_size": 2699,
+      "sha256": "dda600819c9402d0f3214d0475fc4df7eca6cd2ec0b95cb1252a6bea98f6aeed"
+    },
+    {
+      "path": "raw/patches/p1_selected/lvs_views.patch",
+      "byte_size": 11720,
+      "sha256": "884d6b5640d092506ddb8797e3b8e1cf0f633a7503359f8645abf2e9b323dce2"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp",
+      "byte_size": 739,
+      "sha256": "54e7f75b23ed9d122109616868c458d2c3019a41d048a837a4a2706957bc4ab6"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp",
+      "byte_size": 1017,
+      "sha256": "86d76d052da050307971fa3babfe52a5a2f0f493c5d5b2c54e10672e17d92182"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp",
+      "byte_size": 741,
+      "sha256": "224bb6318c201c7c901ecdefd630c81de2037ad2f9a33f1056ed7a9cff645265"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp",
+      "byte_size": 1019,
+      "sha256": "91de9e91ebc0d1853cb620d4f605fa693dca176438d7aca64cfa57826264250a"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+      "byte_size": 708,
+      "sha256": "2164e8fe683e76f729eb1853fb431425e4d7c70ac531f802c07470afb8b331b6"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp",
+      "byte_size": 709,
+      "sha256": "e17619d42f527b3bfc33b40f57c1a25b8790292253fe6f68c2d7d345b98a93f0"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_colend.sp",
+      "byte_size": 230,
+      "sha256": "f088f201b296e426ca494c5b304be741b039154676d896caa1e68c2e89b5e8f3"
+    },
+    {
+      "path": "raw/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_colenda.sp",
+      "byte_size": 233,
+      "sha256": "578e81abd9b2445c664092e2322be84dece837e0e7f2f5494cbd0c774d50f77a"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp",
+      "byte_size": 733,
+      "sha256": "d92308c520bd23aaa657d9460828adef541454b1507870083d7908603f7d5d15"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp",
+      "byte_size": 1011,
+      "sha256": "4bf8b680988828360ca6627fa3f5f93b137fd2e79edd18b717d6527eea95d1b2"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp",
+      "byte_size": 735,
+      "sha256": "ce1f7b2ef76001072e73caecf6ba2117577cb80d960df01d972d8e9e374f9153"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp",
+      "byte_size": 1013,
+      "sha256": "5323beb96d7a9b3d3014a0d9a6aa56346d710f21e11f70a1906c3cf5b776537a"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+      "byte_size": 702,
+      "sha256": "7c527d2f59dcdf99257fd8ad2afb5e86aa4eedae9a2b9874040082ad72a18a56"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp",
+      "byte_size": 703,
+      "sha256": "034037b5e2c79e1a38d8985fc4235552fcd8784a731f84e3476e7155f873e6ea"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_colend.sp",
+      "byte_size": 230,
+      "sha256": "8dc851b4f032dc83f35464d8b6b2fd580899d7821b0027bb6c96f47368f0a956"
+    },
+    {
+      "path": "raw/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_colenda.sp",
+      "byte_size": 233,
+      "sha256": "ef8e8f6009c8ea451284d504912385c7fa6da9d98909f1c87a5fa49057d7e600"
+    },
+    {
+      "path": "raw/patches/p2_complete_upstream/original/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag",
+      "byte_size": 2493,
+      "sha256": "34b065af3d17a5c380d76713c065a5946cb658f5a638f3422b7f379b1a24da61"
+    },
+    {
+      "path": "raw/patches/p2_complete_upstream/original/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+      "byte_size": 694,
+      "sha256": "06d9a60f321394645457bbb0d3c1eca4f9f858d2818d62ecf1df855820dd5418"
+    },
+    {
+      "path": "raw/patches/p2_complete_upstream/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag",
+      "byte_size": 2313,
+      "sha256": "0f71817a368c48f3498df21d99f2d91423db71ec99d35f9d1366168d6725bbcf"
+    },
+    {
+      "path": "raw/patches/p2_complete_upstream/patched/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+      "byte_size": 692,
+      "sha256": "2aef1164f8fb3ed06f2215a5ae780368e053be4e100105d81d62f86cbcc3e93b"
+    },
+    {
+      "path": "raw/patches/p2_complete_upstream/upstream_remaining.patch",
+      "byte_size": 1554,
+      "sha256": "f385f7592ce4b0107ca488c6b104fd2c3d3bc00103c531ff95bfac8c4e70d5f5"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/openram_exit_code.txt",
+      "byte_size": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+      "byte_size": 988578,
+      "sha256": "9c1c8104025e989372c38760d89cd165b02c73b4088c301a7799757fef423ebb"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lef",
+      "byte_size": 7766,
+      "sha256": "064c1bb042578879571eedf0bd8930930d41582d561f66a5a64fb55ed645b5ff"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.log",
+      "byte_size": 1937161,
+      "sha256": "b490706925a721ddf7ac798cee5dd8419410e13a89adb7ae4bbc99d43e68d36a"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.sp",
+      "byte_size": 106001,
+      "sha256": "d40eb3afa112fc8628fa6ee6a47df73795e2e9db05c886764820056a35db7219"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.sp",
+      "byte_size": 107277,
+      "sha256": "f69fad284bfa6d48bc7f21f6bacb5e56a8e7b85a884d3a2cf001d315340e2307"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1.ext",
+      "byte_size": 5360,
+      "sha256": "e0996493a6299406218616ceed0d377941c5cca4673aab5b55f7070e1a6259bb"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+      "byte_size": 2313,
+      "sha256": "f7caf8d4c0eec194b9a64c56223f48d971acb35bb6a509f346eb930071582163"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1a.ext",
+      "byte_size": 5372,
+      "sha256": "6b99aca07811116cb0e99bc576b85aa9e527178dc99d6134caf3017c3d6e0885"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+      "byte_size": 2313,
+      "sha256": "2adcfc82573296f0e628c1eeea9247b764699a944fe3865c0de090bd7dd3ccc5"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_colend.ext",
+      "byte_size": 3092,
+      "sha256": "2e37b0666abff6613072aefd4b197594e677ee07b8448daef1cceaf4e4f65f26"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_colend.mag",
+      "byte_size": 2369,
+      "sha256": "3bff142bbd0831341a906feea4fec45fc6dd3325f3ca66fd16ec904d4ff66e2b"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_colenda.ext",
+      "byte_size": 3124,
+      "sha256": "6d557bd1edc11296c692816cc9f564ce0e90fca1f9bbfe975832a6b58e363879"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_fd_bd_sram__sram_sp_colenda.mag",
+      "byte_size": 2369,
+      "sha256": "f38fee3963cc5f0e60470ce01779b8cebaa57ebc622ae042107ff895aeb936fb"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.err",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.out",
+      "byte_size": 1903,
+      "sha256": "a62deabeb89fe8bb08b957ba8f55d2cc4b40e2f2927a25e11e59c017f0608352"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext",
+      "byte_size": 5051675,
+      "sha256": "a9a90cd0f31bc7c2ba37bf6c3634b60d5eba2b058ad629744f3278f4f6fbc86b"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext.err",
+      "byte_size": 57373,
+      "sha256": "f3b5342d4409860787de3c2f9de5e647fa9ce5290049ffb0069e6ef9539449cb"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext.out",
+      "byte_size": 66834,
+      "sha256": "35e91cfb404537405e1d4e64ced962d71dbc19f2dd1b0913b5a17cba4f60bf52"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+      "byte_size": 988578,
+      "sha256": "2b422e87511b09fe3dfdd7f1748e76098a633ddbf9a78eb0bfba82b06e00fe50"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.err",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.json",
+      "byte_size": 648093,
+      "sha256": "f87f1d0310e63335fd9fab2205e506d56bd347f05c79925f242ec911899a33f4"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.out",
+      "byte_size": 91579,
+      "sha256": "280fa94cd6ad0b0e726f3fe8245e1b23d9e2b37188407042ff9817021714f093"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.report",
+      "byte_size": 1509284,
+      "sha256": "d4b794d0a6e4848c192e336ceb43eff11cb89d22f5ce0f7726e6263fa27284b9"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.mag",
+      "byte_size": 216040,
+      "sha256": "4f7eadec90f90564dcbfa80cbd6b31754ca0154c18177c3e44c3853a0dd1ed8c"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.sp",
+      "byte_size": 106001,
+      "sha256": "d40eb3afa112fc8628fa6ee6a47df73795e2e9db05c886764820056a35db7219"
+    },
+    {
+      "path": "raw/runs/p1_lvs_views/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.spice",
+      "byte_size": 109893,
+      "sha256": "ae43c6216df56baa5f2caf594ad0ef74ec102a0d51774b58c5f59d152549ccc0"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/openram_exit_code.txt",
+      "byte_size": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+      "byte_size": 988642,
+      "sha256": "4f109f5cd70053027f57c24b7fe1d2455d43f8165b521ad5995dff62d347dadf"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lef",
+      "byte_size": 7766,
+      "sha256": "05d944a49f249355dc92584c25938a18fbef71d90b1f02cb2fc555d6dcb9fa47"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.log",
+      "byte_size": 1937161,
+      "sha256": "d8e3c5c4b3d77e369604bd0ab624cf5417cd66fbc3c8f43daacb241d763c2e70"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.sp",
+      "byte_size": 106001,
+      "sha256": "8866afcb05c6ee61899809c2050a23b769b558c84956f54ad43599ec27a81fad"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.sp",
+      "byte_size": 107275,
+      "sha256": "5d5eaf2fc345b92665d0b8f4b764dd3aae3241184ba39c5083a9321f3fc1eac0"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1.ext",
+      "byte_size": 5360,
+      "sha256": "6b818a6bbbacd8b396af01b0a422c79811ce6199a06bfed6cfcbde96d1667111"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+      "byte_size": 2313,
+      "sha256": "f7caf8d4c0eec194b9a64c56223f48d971acb35bb6a509f346eb930071582163"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1a.ext",
+      "byte_size": 5372,
+      "sha256": "660c5487c5db4fa6b8b22c6cebc35e4fd0cda79b2b58c777e89b5b3329061125"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+      "byte_size": 2313,
+      "sha256": "2adcfc82573296f0e628c1eeea9247b764699a944fe3865c0de090bd7dd3ccc5"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_colend.ext",
+      "byte_size": 3092,
+      "sha256": "3eaf308d4dd58ebba94ced55c1fefb012eaae900246783e4faacc1ec00b3273e"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_colend.mag",
+      "byte_size": 2369,
+      "sha256": "3bff142bbd0831341a906feea4fec45fc6dd3325f3ca66fd16ec904d4ff66e2b"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_colenda.ext",
+      "byte_size": 3124,
+      "sha256": "ee0ee4f8e35ed07d34040901f6590457293477102071b47cc69fd40bcf1700b9"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_fd_bd_sram__sram_sp_colenda.mag",
+      "byte_size": 2369,
+      "sha256": "f38fee3963cc5f0e60470ce01779b8cebaa57ebc622ae042107ff895aeb936fb"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.err",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.out",
+      "byte_size": 1903,
+      "sha256": "e8b024177152dc6dac04ba962c594fbcac787a75a5e7f7a707763a430eda8a88"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext",
+      "byte_size": 5056858,
+      "sha256": "fdf140153ebc1423265bfe0f5e8f19153fa3540dfc7323d6e6595d8316d4a295"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext.err",
+      "byte_size": 57373,
+      "sha256": "cd3974500f0e98df128014990072dfbde6c3caf3c4af313b8894104a846dcaf2"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext.out",
+      "byte_size": 66834,
+      "sha256": "6bdffe2d2aca5fd2754b46a5c0e505ea27880452fb34a059998ab07c772afb7e"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+      "byte_size": 988642,
+      "sha256": "0222c504c2c5543b7b6cd8a6fe588ed89cbbc099454ef6a614c1b7cffb18ef63"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.err",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.json",
+      "byte_size": 648093,
+      "sha256": "f87f1d0310e63335fd9fab2205e506d56bd347f05c79925f242ec911899a33f4"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.out",
+      "byte_size": 91579,
+      "sha256": "2302f3ed9fe37451c55f134b76d17e0e0fe417c622ef68db502ff50373f26bcd"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.report",
+      "byte_size": 1509284,
+      "sha256": "d4b794d0a6e4848c192e336ceb43eff11cb89d22f5ce0f7726e6263fa27284b9"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.mag",
+      "byte_size": 215961,
+      "sha256": "b094cd6b144e50e3047dab6fa10f103855412f5f0a05ae6a3eb4707657fd0c92"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.sp",
+      "byte_size": 106001,
+      "sha256": "8866afcb05c6ee61899809c2050a23b769b558c84956f54ad43599ec27a81fad"
+    },
+    {
+      "path": "raw/runs/p2_complete_upstream_lvs_fix/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.spice",
+      "byte_size": 109893,
+      "sha256": "ae43c6216df56baa5f2caf594ad0ef74ec102a0d51774b58c5f59d152549ccc0"
+    },
+    {
+      "path": "raw/runs/prepatch/openram_exit_code.txt",
+      "byte_size": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+      "byte_size": 988578,
+      "sha256": "bb55cbfa8593f0fa65ea5f963a070970f78a596b3faf2d1cd67117dd5c311bd3"
+    },
+    {
+      "path": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lef",
+      "byte_size": 7766,
+      "sha256": "87f34ca9839acdb4297769c4ded6efc78209f8a36bb7ee5c29fd0368ede432e1"
+    },
+    {
+      "path": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.log",
+      "byte_size": 1935719,
+      "sha256": "77f67651aa9a56d4a6ee15b26a3ebcbd410982c117ee7393f031750fcdc45f5e"
+    },
+    {
+      "path": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.sp",
+      "byte_size": 106031,
+      "sha256": "48fafaf518c4ea867656f9203180cad4b93e2f1c6a6983fbec10b8d606727a61"
+    },
+    {
+      "path": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.sp",
+      "byte_size": 107277,
+      "sha256": "cc079e47ea870586a7225184b133f891e67dd4c94eb2b2b10812ecb5378f9aef"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1.ext",
+      "byte_size": 5360,
+      "sha256": "c4f60056bb28c5758b9cf4cb63c97aa6db0380ddf6ce1e05a3f82041cd6f7176"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+      "byte_size": 2313,
+      "sha256": "f7caf8d4c0eec194b9a64c56223f48d971acb35bb6a509f346eb930071582163"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1a.ext",
+      "byte_size": 5372,
+      "sha256": "c0532bf69c14cac4daaebc7269c6babcf896d04d90d9a63265b4cb237332f7d4"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+      "byte_size": 2313,
+      "sha256": "2adcfc82573296f0e628c1eeea9247b764699a944fe3865c0de090bd7dd3ccc5"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_colend.ext",
+      "byte_size": 3092,
+      "sha256": "cd02c303fbcb7dbfd3da30c53601b5d3fa83a4b674655bba9969ec5920612a96"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_colend.mag",
+      "byte_size": 2369,
+      "sha256": "3bff142bbd0831341a906feea4fec45fc6dd3325f3ca66fd16ec904d4ff66e2b"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_colenda.ext",
+      "byte_size": 3124,
+      "sha256": "4708ebee47c737fa227f9d963dddf44c99459c508831b274442e2e063f563cea"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_fd_bd_sram__sram_sp_colenda.mag",
+      "byte_size": 2369,
+      "sha256": "f38fee3963cc5f0e60470ce01779b8cebaa57ebc622ae042107ff895aeb936fb"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.err",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.out",
+      "byte_size": 1903,
+      "sha256": "9c28efa41846e3efea15700eed58488094b2b369580f253c16cb44366194c93e"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext",
+      "byte_size": 5060820,
+      "sha256": "892dff8f6618df9b263917ad8bffab54338413bc222e71c9287c9f0f14ceed10"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext.err",
+      "byte_size": 57373,
+      "sha256": "5c9a42c21cbc62e4198d1a22b99e94c3ef18cad3890c673db370649865dbfe5f"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext.out",
+      "byte_size": 66834,
+      "sha256": "af24ac61e1da9cd8fcbc49adefd8d10d6be0d786c3fa5a017e8a44513f858f3a"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+      "byte_size": 988578,
+      "sha256": "197f617e1c77f38ba29aad41cd279ff149a98e22ea8a1d29e818310ee9839401"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.err",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.json",
+      "byte_size": 647393,
+      "sha256": "ab0a3df07236ac296d8695bcf0192b10a20c23bf7ed7fa1e93024e96117c7438"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.out",
+      "byte_size": 91000,
+      "sha256": "fbc3ec334d9c5ccabc4eb5e8fd14631809048782744a1dfdb7e3563252eecc6b"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.report",
+      "byte_size": 1508650,
+      "sha256": "ad4385acbc4f2d9b187f72eb4327bc862426935ac6996bbfd87b64b28b3c6db7"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.mag",
+      "byte_size": 216142,
+      "sha256": "c3e896d7d0c8f4fcee155e92f3d36b69928f4a2009d37e75ffbb17d6de5a3fdf"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.sp",
+      "byte_size": 106031,
+      "sha256": "48fafaf518c4ea867656f9203180cad4b93e2f1c6a6983fbec10b8d606727a61"
+    },
+    {
+      "path": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.spice",
+      "byte_size": 109893,
+      "sha256": "ae43c6216df56baa5f2caf594ad0ef74ec102a0d51774b58c5f59d152549ccc0"
+    },
+    {
+      "path": "scripts/archive_external_evidence.sh",
+      "byte_size": 3283,
+      "sha256": "1cbdda42b3236af2d5b6bf65dab46d4d900021a1fb7f3be47dfaa4eb7ea15322"
+    },
+    {
+      "path": "scripts/build_evidence_manifest.py",
+      "byte_size": 1404,
+      "sha256": "4403e5d34c074da0f3863e2a9194ce78dda77b9624b0fba3bace35032f06d85b"
+    },
+    {
+      "path": "scripts/run_control.sh",
+      "byte_size": 1427,
+      "sha256": "5ca33f1e26b1166ed2240a5cc93811c94329c92f772160b79afc0aaaa4860250"
+    },
+    {
+      "path": "tests/test_attempt04_artifacts.py",
+      "byte_size": 2811,
+      "sha256": "795907ed5ae45a244f160c9e738f036a757ad8db105a421db04fb639966328dc"
+    }
+  ]
+}

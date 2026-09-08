@@ -1,0 +1,156 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib
+read_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/3_3_place_gp.odb
+read_sdc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/2_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+source /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/openroad/pre_resize_sram22.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      1207
+       10 |     +0.0% |       0 |       0 |             0 |      1197
+       20 |     +0.0% |       0 |       0 |             0 |      1187
+       30 |     +0.0% |       0 |       0 |             0 |      1177
+       40 |     +0.0% |       0 |       0 |             0 |      1167
+       50 |     +0.0% |       0 |       0 |             0 |      1157
+       60 |     +0.0% |       0 |       0 |             0 |      1147
+       70 |     +0.0% |       0 |       0 |             0 |      1137
+       80 |     +0.0% |       0 |       0 |             0 |      1127
+       90 |     +0.0% |       0 |       0 |             0 |      1117
+      100 |     +0.0% |       0 |       0 |             0 |      1107
+      110 |     +0.0% |       0 |       0 |             0 |      1097
+      120 |     +0.0% |       0 |       0 |             0 |      1087
+      130 |     +0.0% |       0 |       0 |             0 |      1077
+      140 |     +0.0% |       0 |       0 |             0 |      1067
+      150 |     +0.0% |       0 |       0 |             0 |      1057
+      160 |     +0.0% |       0 |       0 |             0 |      1047
+      170 |     +0.0% |       0 |       0 |             0 |      1037
+      180 |     +0.0% |       0 |       0 |             0 |      1027
+      190 |     +0.0% |       0 |       0 |             0 |      1017
+      200 |     +0.0% |       0 |       0 |             0 |      1007
+      210 |     +0.0% |       0 |       0 |             0 |       997
+      220 |     +0.0% |       0 |       0 |             0 |       987
+      230 |     +0.0% |       0 |       0 |             0 |       977
+      240 |     +0.0% |       0 |       0 |             0 |       967
+      250 |     +0.0% |       0 |       0 |             0 |       957
+      260 |     +0.0% |       0 |       0 |             0 |       947
+      270 |     +0.0% |       0 |       0 |             0 |       937
+      280 |     +0.0% |       0 |       0 |             0 |       927
+      290 |     +0.0% |       0 |       0 |             0 |       917
+      300 |     +0.0% |       0 |       0 |             0 |       907
+      310 |     +0.0% |       0 |       0 |             0 |       897
+      320 |     +0.0% |       0 |       0 |             0 |       887
+      330 |     +0.0% |       0 |       0 |             0 |       877
+      340 |     +0.0% |       0 |       0 |             0 |       867
+      350 |     +0.0% |       0 |       0 |             0 |       857
+      360 |     +0.0% |       0 |       0 |             0 |       847
+      370 |     +0.0% |       0 |       0 |             0 |       837
+      380 |     +0.0% |       0 |       0 |             0 |       827
+      390 |     +0.0% |       0 |       0 |             0 |       817
+      400 |     +0.0% |       0 |       0 |             0 |       807
+      410 |     +0.0% |       0 |       0 |             0 |       797
+      420 |     +0.0% |       0 |       0 |             0 |       787
+      430 |     +0.0% |       0 |       0 |             0 |       777
+      440 |     +0.0% |       0 |       0 |             0 |       767
+      450 |     +0.0% |       0 |       0 |             0 |       757
+      460 |     +0.0% |       0 |       0 |             0 |       747
+      470 |     +0.0% |       0 |       0 |             0 |       737
+      480 |     +0.0% |       0 |       0 |             0 |       727
+      490 |     +0.0% |       0 |       0 |             0 |       717
+      500 |     +0.0% |       0 |       0 |             0 |       707
+      510 |     +0.0% |       0 |       0 |             0 |       697
+      520 |     +0.0% |       0 |       0 |             0 |       687
+      530 |     +0.0% |       0 |       0 |             0 |       677
+      540 |     +0.0% |       0 |       0 |             0 |       667
+      550 |     +0.0% |       0 |       0 |             0 |       657
+      560 |     +0.0% |       0 |       0 |             0 |       647
+      570 |     +0.0% |       0 |       0 |             0 |       637
+      580 |     +0.0% |       0 |       0 |             0 |       627
+      590 |     +0.0% |       0 |       0 |             0 |       617
+      600 |     +0.0% |       0 |       0 |             0 |       607
+      610 |     +0.0% |       0 |       2 |             2 |       597
+      620 |     +0.0% |       0 |       2 |             2 |       587
+      630 |     +0.0% |       0 |       2 |             2 |       577
+      640 |     +0.0% |       0 |       2 |             2 |       567
+      650 |     +0.0% |       0 |       2 |             2 |       557
+      660 |     +0.0% |       0 |       2 |             2 |       547
+      670 |     +0.0% |       0 |       2 |             2 |       537
+      680 |     +0.0% |       0 |       2 |             2 |       527
+      690 |     +0.0% |       0 |       2 |             2 |       517
+      700 |     +0.0% |       0 |       2 |             2 |       507
+      710 |     +0.0% |       0 |       2 |             2 |       497
+      720 |     +0.0% |       0 |       2 |             2 |       487
+      730 |     +0.0% |       0 |       2 |             2 |       477
+      740 |     +0.0% |       0 |       2 |             2 |       467
+      750 |     +0.0% |       0 |       2 |             2 |       457
+      760 |     +0.0% |       0 |       2 |             2 |       447
+      770 |     +0.0% |       0 |       2 |             2 |       437
+      780 |     +0.0% |       0 |       2 |             2 |       427
+      790 |     +0.0% |       0 |       2 |             2 |       417
+      800 |     +0.0% |       0 |       2 |             2 |       407
+      810 |     +0.0% |       0 |       2 |             2 |       397
+      820 |     +0.0% |       0 |       2 |             2 |       387
+      830 |     +0.0% |       0 |       2 |             2 |       377
+      840 |     +0.0% |       0 |       2 |             2 |       367
+      850 |     +0.0% |       0 |       2 |             2 |       357
+      860 |     +0.0% |       0 |       2 |             2 |       347
+      870 |     +0.0% |       0 |       2 |             2 |       337
+      880 |     +0.0% |       0 |       2 |             2 |       327
+      890 |     +0.0% |       0 |       2 |             2 |       317
+      900 |     +0.0% |       0 |       2 |             2 |       307
+      910 |     +0.0% |       0 |       2 |             2 |       297
+      920 |     +0.0% |       0 |       2 |             2 |       287
+      930 |     +0.0% |       0 |       2 |             2 |       277
+      940 |     +0.0% |       0 |       2 |             2 |       267
+      950 |     +0.0% |       0 |       2 |             2 |       257
+      960 |     +0.0% |       0 |       2 |             9 |       247
+      970 |     +0.1% |       0 |      12 |            19 |       237
+      980 |     +0.1% |       0 |      22 |            29 |       227
+      990 |     +0.1% |       0 |      33 |            39 |       217
+     1000 |     +0.1% |       0 |      43 |            49 |       207
+     1010 |     +0.2% |       0 |      53 |            59 |       197
+     1020 |     +0.2% |       0 |      64 |            69 |       187
+     1030 |     +0.2% |       0 |      70 |            74 |       177
+     1040 |     +0.2% |       0 |      70 |            74 |       167
+     1050 |     +0.2% |       0 |      70 |            74 |       157
+     1060 |     +0.2% |       0 |      70 |            74 |       147
+     1070 |     +0.2% |       0 |      70 |            74 |       137
+     1080 |     +0.2% |       0 |      70 |            74 |       127
+     1090 |     +0.2% |       0 |      70 |            74 |       117
+     1100 |     +0.2% |       0 |      70 |            74 |       107
+     1110 |     +0.2% |       0 |      70 |            74 |        97
+     1120 |     +0.2% |       0 |      70 |            74 |        87
+     1130 |     +0.2% |       0 |      70 |            74 |        77
+     1140 |     +0.2% |       0 |      70 |            74 |        67
+     1150 |     +0.2% |       0 |      70 |            74 |        57
+     1160 |     +0.2% |       0 |      70 |            74 |        47
+     1170 |     +0.2% |       0 |      70 |            74 |        37
+     1180 |     +0.2% |       0 |      70 |            74 |        27
+     1190 |     +0.2% |       0 |      70 |            74 |        17
+     1200 |     +0.2% |       0 |      70 |            74 |         7
+    final |     +0.2% |       0 |      70 |            74 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 74 slew violations.
+[INFO RSZ-0038] Inserted 70 buffers in 74 nets.
+[INFO RSZ-0504] Runtime: 0.31s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 277742 um^2 38% utilization.
+Instance count before 7424, after 7494
+Pin count before 2977, after 3117
+write_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/3_4_place_resized.odb
+Elapsed time: 0:06.35[h:]min:sec. CPU time: user 1.66 sys 0.66 (36%). Peak memory: 153256KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_4_place_resized         .odb            6            149 c1ec85c90f4d1947ce64

@@ -1,0 +1,9 @@
+* NGSPICE file created from sky130_sram_1rw_8x16_gate3a03_control_pnand2_0.ext - technology: sky130A
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pnand2_0 Z gnd vdd A B
+X0 a_144_51# A gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.259p pd=2.18u as=0.222p ps=2.08u w=0.74u l=0.15u
+X1 vdd B Z w_n36_679# sky130_fd_pr__pfet_01v8 ad=0.672p pd=5.68u as=0.392p ps=2.94u w=1.12u l=0.15u
+X2 Z A vdd w_n36_679# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 Z B a_144_51# VSUBS sky130_fd_pr__nfet_01v8 ad=0.222p pd=2.08u as=0p ps=0u w=0.74u l=0.15u
+.ends
+

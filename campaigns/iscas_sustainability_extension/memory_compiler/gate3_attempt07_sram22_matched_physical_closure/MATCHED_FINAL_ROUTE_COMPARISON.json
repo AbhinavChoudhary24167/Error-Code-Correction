@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "campaign": "gate3_attempt07_sram22_matched_physical_closure",
+  "canonical_seed": 11,
+  "common_clock": {
+    "period_ns": 10.0,
+    "frequency_mhz": 100.0
+  },
+  "matched_policy": true,
+  "matched_comparison_validity": "DIAGNOSTIC_ONLY_TIMING_DRV_LIMITED",
+  "U0": {
+    "architecture": "256x64 SRAM22 data macro plus minimum wrapper/control",
+    "area_um2": {
+      "macro": 201266.5968,
+      "standard_cells_and_physical_cells": 5566.59,
+      "total_placed_design": 206833.0,
+      "core": 439734.24,
+      "die": 470000.0,
+      "whitespace_core_minus_placed": 232901.24,
+      "achieved_utilization_fraction": 0.47036
+    },
+    "routing": {
+      "detailed_route_drc": 0,
+      "antenna_violating_nets": 0,
+      "wirelength_um": 22186,
+      "vias": 1084,
+      "layer_wirelength_um": {"li1": 0, "met1": 436, "met2": 18944, "met3": 137, "met4": 2668, "met5": 0},
+      "global_route_aggregate_usage_percent": 1.29,
+      "global_route_final_total_congestion": 0
+    },
+    "timing": {
+      "setup_wns_ns": 4.46099,
+      "setup_tns_ns": 0.0,
+      "worst_hold_slack_ns": 0.0249489,
+      "setup_violations": 0,
+      "hold_violations": 0,
+      "max_slew_violations": 65,
+      "max_capacitance_violations": 0,
+      "unconstrained_endpoints": 0,
+      "diagnostic_fmax_mhz": 180.538,
+      "critical_path_category": "wrapper reset input to SRAM macro input"
+    },
+    "clock": {
+      "clock_buffers": 0,
+      "clock_inverters": 0,
+      "skew": "NOT_OBSERVABLE_NO_LAUNCH_CAPTURE_PATHS",
+      "path_specific_target_latency_ns": [0.0021, 0.0101]
+    },
+    "buffers": {"timing_repair": 156, "clock": 0},
+    "power_w": {
+      "internal": 0.000772797,
+      "switching": 0.0000310699,
+      "leakage": 0.000000642569,
+      "total": 0.000804510,
+      "evidence_level": "COMPARATIVE_POST_ROUTE_TOOL_ESTIMATE"
+    }
+  },
+  "E0": {
+    "architecture": "256x64 SRAM22 data macro plus 256x8 SRAM22 ECC macro plus frozen Hsiao SECDED (72,64) logic and equivalent wrapper/control",
+    "area_um2": {
+      "macro": 260331.5664,
+      "standard_cells_and_physical_cells": 15418.5,
+      "total_placed_design": 275750.0,
+      "core": 615627.936,
+      "die": 650000.0,
+      "whitespace_core_minus_placed": 339877.936,
+      "achieved_utilization_fraction": 0.447917
+    },
+    "routing": {
+      "detailed_route_drc": 0,
+      "antenna_violating_nets": 0,
+      "wirelength_um": 79745,
+      "vias": 6686,
+      "layer_wirelength_um": {"li1": 0, "met1": 22384, "met2": 43956, "met3": 6431, "met4": 6904, "met5": 68},
+      "global_route_aggregate_usage_percent": 3.31,
+      "global_route_final_total_congestion": 0
+    },
+    "timing": {
+      "setup_wns_ns": 0.591127,
+      "setup_tns_ns": 0.0,
+      "worst_hold_slack_ns": 0.000901557,
+      "setup_violations": 0,
+      "hold_violations": 0,
+      "max_slew_violations": 80,
+      "max_capacitance_violations": 0,
+      "unconstrained_endpoints": 0,
+      "diagnostic_fmax_mhz": 106.283,
+      "critical_path_category": "SRAM macro output through Hsiao decoder/flag logic to output port"
+    },
+    "clock": {
+      "clock_buffers": 3,
+      "clock_inverters": 1,
+      "skew": "NOT_OBSERVABLE_NO_LAUNCH_CAPTURE_PATHS",
+      "path_specific_target_latency_ns": [0.2847, 0.4942]
+    },
+    "buffers": {"timing_repair": 551, "clock": 3, "clock_inverter": 1},
+    "power_w": {
+      "internal": 0.00139174,
+      "switching": 0.000582002,
+      "leakage": 0.000000734367,
+      "total": 0.00197447,
+      "evidence_level": "COMPARATIVE_POST_ROUTE_TOOL_ESTIMATE"
+    }
+  },
+  "E0_minus_U0": {
+    "ecc_macro_area_um2": 59064.9696,
+    "ecc_macro_area_percent_of_U0_macro": 29.346633,
+    "synthesis_isolated_ecc_logic_area_um2_from_attempt06": 4710.77,
+    "post_route_standard_cell_area_displacement_um2": 9851.91,
+    "total_placed_design_area_um2": 68917.0,
+    "total_placed_design_area_percent": 33.320118,
+    "core_area_um2": 175893.696,
+    "core_area_percent": 40.0,
+    "die_area_um2": 180000.0,
+    "die_area_percent": 38.297872,
+    "wirelength_um": 57559,
+    "wirelength_percent": 259.438385,
+    "vias": 5602,
+    "vias_percent": 516.789668,
+    "total_power_w": 0.00116996,
+    "total_power_percent": 145.425166
+  },
+  "power_evidence_level": "COMPARATIVE_POST_ROUTE_TOOL_ESTIMATE",
+  "energy_per_access": "NOT_QUALIFIED",
+  "integration_drc_disposition": "INTEGRATION_DRC_CLEAN_WITH_UNQUALIFIED_HARD_MACRO_INTERNALS",
+  "sram_internal_drc_disposition": "MACRO_INTERNAL_DRC_NOT_INDEPENDENTLY_SIGNOFF_QUALIFIED"
+}

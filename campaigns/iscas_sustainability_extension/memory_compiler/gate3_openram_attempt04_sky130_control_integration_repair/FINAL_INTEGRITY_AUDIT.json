@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-08-31T09:26:39.5305824+05:30",
+  "protected_date_baseline": {
+    "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify",
+    "execution_environment": "Attempt04-Recovery WSL",
+    "status": "PASS",
+    "protected_file_count": 7094,
+    "scopes": [
+      "repository",
+      "date2027_breadth_raw",
+      "date2027_revision2_raw"
+    ],
+    "changed": [],
+    "missing": [],
+    "added": []
+  },
+  "repository_only_independent_check": {
+    "status": "PASS",
+    "protected_file_count": 2327,
+    "changed": [],
+    "missing": [],
+    "added": []
+  },
+  "prior_evidence": {
+    "gate2_gate3_manifest": {
+      "status": "PASS",
+      "checked_files": 22,
+      "changed": [],
+      "missing": []
+    },
+    "attempt01_incident_sha256": {
+      "status": "PASS",
+      "sha256": "76bce8942b510ccfba921b74bd4d470e1f0a24b6b6c093756960f65cb44db72b"
+    },
+    "attempt02_repository_files": {
+      "status": "PASS_VIA_GATE2_GATE3_MANIFEST",
+      "file_count": 17
+    },
+    "attempt03_repository_manifest": {
+      "status": "PASS",
+      "checked_files": 25,
+      "changed": [],
+      "missing": []
+    }
+  },
+  "protected_binary": {
+    "path": "PracticalSRAMSimulator.exe",
+    "expected_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "actual_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "status": "PASS_RESTORED_AFTER_MAKE"
+  },
+  "unavailable_checks": [
+    {
+      "check": "current external Attempt02 tree rehash (historical baseline: 36,548 files, 5,430,332,296 bytes, tree SHA-256 f0dc7607d459831124aed3b767195535d24542ce0a24e62595f8dae7ec20c2b6)",
+      "reason": "The original Ubuntu-24.04 ext4 VHDX still fails to attach with ERROR_SHARING_VIOLATION; the verified pre-move recovery VHDX does not contain this later tree."
+    },
+    {
+      "check": "current external Attempt03 artifact rehash",
+      "reason": "The original Ubuntu-24.04 ext4 VHDX still fails to attach with ERROR_SHARING_VIOLATION; the verified pre-move recovery VHDX does not contain this later tree."
+    }
+  ],
+  "final_tracked_git_diff": [],
+  "status": "PASS_WITH_EXPLICIT_EXTERNAL_PRIOR_RUN_LIMITATION"
+}

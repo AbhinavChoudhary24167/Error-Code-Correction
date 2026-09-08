@@ -1,0 +1,53 @@
+{
+  "method": "fresh replay and cross-correlation of the complete retained Attempt06 global-route, detailed-route, congestion, ODB and macro-LEF evidence; no frozen Attempt06 artifact was modified",
+  "source_campaign": "../gate3_attempt06_replacement_sram_backend_qualification",
+  "source_artifacts": [
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/5_1_grt.log",
+      "byte_size": 18834,
+      "sha256": "43a1f06d7d0d09ad09b28a0a474bc39fb9434818b35ea10273a665df76d1e967"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/5_2_route.tmp.log",
+      "byte_size": 40134,
+      "sha256": "9dbce5d23ab7fd793de4a1a09ac047ff4bcd467eb93f125d07d7983ae2c91f14"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/congestion-5.rpt",
+      "byte_size": 10112,
+      "sha256": "e551b9a36747b87f2bb26ed792cdd1616dee3d1e03fda08a4daf229baaf009b6"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/5_1_grt.odb",
+      "byte_size": 5341468,
+      "sha256": "445b1b1e1b4bbdd8380881777cc4ea42a2e0c520e654a6df3d7f03994bd5874f"
+    }
+  ],
+  "attempt06_macro": {
+    "location_um": [10.26, 21.18],
+    "orientation": "MY",
+    "signal_pin_edge": "LEF bottom edge",
+    "approximate_die_edge_escape_um": 21.18,
+    "approximate_core_edge_escape_um": 11.18
+  },
+  "global_route": {
+    "final_overflow": 0,
+    "wirelength_um": 205137,
+    "vias": 458
+  },
+  "detailed_route_completed_iteration_violations": [2338, 1784, 1523, 886, 696, 632, 613, 602, 567, 549, 378, 278, 221, 203, 176, 150, 144, 243],
+  "best_completed_iteration_violations": 144,
+  "last_completed_iteration_violations": 243,
+  "last_detailed_route_wirelength_um": 199593,
+  "last_detailed_route_vias": 7306,
+  "representative_local_congestion_bbox_um": [510, 179, 558, 303],
+  "primary_cause": "FLOORPLAN_GEOMETRY_MACRO_PIN_ACCESS_IO_PDN_BOUNDARY_INTERACTION",
+  "not_primary": [
+    "functional macro failure",
+    "full-chip routing-layer exhaustion",
+    "global-route overflow",
+    "clock-tree congestion",
+    "antenna behavior",
+    "high fanout"
+  ]
+}

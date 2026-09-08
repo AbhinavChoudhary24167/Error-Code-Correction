@@ -1,0 +1,234 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 0.99
+
+==========================================================================
+global place report_clock_min_period
+--------------------------------------------------------------------------
+core_clk period_min = 9.01 fmax = 110.93
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rstb (input port clocked by core_clk)
+Endpoint: u_protected_memory.u_data
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.50    0.50 v input external delay
+     1    0.05    0.00    0.00    0.50 v rstb (in)
+                                         rstb (net)
+                  0.01    0.01    0.51 v input90/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.04    0.05    0.15    0.66 v input90/X (sky130_fd_sc_hd__clkbuf_16)
+                                         net89 (net)
+                  0.05    0.00    0.66 v wire304/A (sky130_fd_sc_hd__buf_16)
+     1    0.02    0.03    0.13    0.79 v wire304/X (sky130_fd_sc_hd__buf_16)
+                                         net303 (net)
+                  0.03    0.00    0.79 v wire633/A (sky130_fd_sc_hd__buf_16)
+     1    0.08    0.06    0.15    0.94 v wire633/X (sky130_fd_sc_hd__buf_16)
+                                         net632 (net)
+                  0.08    0.00    0.94 v u_protected_memory.u_data/rstb (sram22_256x64m4w8)
+                                  0.94   data arrival time
+
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.10    0.10   clock uncertainty
+                          0.00    0.10   clock reconvergence pessimism
+                                  0.10 ^ u_protected_memory.u_data/clk (sram22_256x64m4w8)
+                          4.87    4.97   library hold time
+                                  4.97   data required time
+-----------------------------------------------------------------------------
+                                  4.97   data required time
+                                 -0.94   data arrival time
+-----------------------------------------------------------------------------
+                                 -4.03   slack (VIOLATED)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: u_protected_memory.u_data
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: detected_uncorrectable (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_protected_memory.u_data/clk (sram22_256x64m4w8)
+     2    0.03    0.29    3.46    3.46 ^ u_protected_memory.u_data/dout[61] (sram22_256x64m4w8)
+                                         u_protected_memory.data_dout[61] (net)
+                  0.22    0.00    3.47 ^ max_cap553/A (sky130_fd_sc_hd__clkdlybuf4s25_1)
+     2    0.01    0.09    0.33    3.80 ^ max_cap553/X (sky130_fd_sc_hd__clkdlybuf4s25_1)
+                                         net552 (net)
+                  0.09    0.00    3.80 ^ max_cap552/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.06    0.49    4.29 ^ max_cap552/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net551 (net)
+                  0.06    0.00    4.29 ^ max_cap190/A (sky130_fd_sc_hd__clkbuf_2)
+     1    0.01    0.05    0.11    4.40 ^ max_cap190/X (sky130_fd_sc_hd__clkbuf_2)
+                                         net189 (net)
+                  0.05    0.00    4.40 ^ _492_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.01    0.22    0.15    4.55 ^ _492_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _034_ (net)
+                  0.22    0.00    4.55 ^ _495_/A (sky130_fd_sc_hd__xnor3_1)
+     2    0.01    0.11    0.49    5.04 v _495_/X (sky130_fd_sc_hd__xnor3_1)
+                                         _037_ (net)
+                  0.11    0.00    5.04 v _500_/A (sky130_fd_sc_hd__xnor3_1)
+     2    0.03    0.20    0.53    5.57 v _500_/X (sky130_fd_sc_hd__xnor3_1)
+                                         _042_ (net)
+                  0.20    0.00    5.57 v _587_/B (sky130_fd_sc_hd__xnor2_4)
+    10    0.05    0.37    0.38    5.95 ^ _587_/Y (sky130_fd_sc_hd__xnor2_4)
+                                         _128_ (net)
+                  0.37    0.00    5.95 ^ place715/A (sky130_fd_sc_hd__buf_4)
+     7    0.03    0.10    0.23    6.19 ^ place715/X (sky130_fd_sc_hd__buf_4)
+                                         net714 (net)
+                  0.10    0.00    6.19 ^ _683_/B (sky130_fd_sc_hd__nor4_2)
+     1    0.00    0.07    0.06    6.25 v _683_/Y (sky130_fd_sc_hd__nor4_2)
+                                         _199_ (net)
+                  0.07    0.00    6.25 v place694/A (sky130_fd_sc_hd__buf_4)
+     5    0.02    0.04    0.17    6.41 v place694/X (sky130_fd_sc_hd__buf_4)
+                                         net693 (net)
+                  0.04    0.00    6.41 v _768_/A2 (sky130_fd_sc_hd__a32o_1)
+     1    0.00    0.05    0.25    6.66 v _768_/X (sky130_fd_sc_hd__a32o_1)
+                                         _247_ (net)
+                  0.05    0.00    6.66 v _780_/A2 (sky130_fd_sc_hd__a211oi_1)
+     1    0.01    0.25    0.28    6.94 ^ _780_/Y (sky130_fd_sc_hd__a211oi_1)
+                                         _259_ (net)
+                  0.25    0.00    6.94 ^ _814_/A (sky130_fd_sc_hd__nand4_1)
+     2    0.04    0.46    0.42    7.36 v _814_/Y (sky130_fd_sc_hd__nand4_1)
+                                         _293_ (net)
+                  0.46    0.00    7.36 v _851_/B1 (sky130_fd_sc_hd__a211oi_4)
+     1    0.01    0.23    0.38    7.75 ^ _851_/Y (sky130_fd_sc_hd__a211oi_4)
+                                         net92 (net)
+                  0.23    0.00    7.75 ^ output93/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.02    0.23    0.67    8.41 ^ output93/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         detected_uncorrectable (net)
+                  0.23    0.00    8.41 ^ detected_uncorrectable (out)
+                                  8.41   data arrival time
+
+                  0.00   10.00   10.00   clock core_clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -0.50    9.40   output external delay
+                                  9.40   data required time
+-----------------------------------------------------------------------------
+                                  9.40   data required time
+                                 -8.41   data arrival time
+-----------------------------------------------------------------------------
+                                  0.99   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: u_protected_memory.u_data
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: detected_uncorrectable (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_protected_memory.u_data/clk (sram22_256x64m4w8)
+     2    0.03    0.29    3.46    3.46 ^ u_protected_memory.u_data/dout[61] (sram22_256x64m4w8)
+                                         u_protected_memory.data_dout[61] (net)
+                  0.22    0.00    3.47 ^ max_cap553/A (sky130_fd_sc_hd__clkdlybuf4s25_1)
+     2    0.01    0.09    0.33    3.80 ^ max_cap553/X (sky130_fd_sc_hd__clkdlybuf4s25_1)
+                                         net552 (net)
+                  0.09    0.00    3.80 ^ max_cap552/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.06    0.49    4.29 ^ max_cap552/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net551 (net)
+                  0.06    0.00    4.29 ^ max_cap190/A (sky130_fd_sc_hd__clkbuf_2)
+     1    0.01    0.05    0.11    4.40 ^ max_cap190/X (sky130_fd_sc_hd__clkbuf_2)
+                                         net189 (net)
+                  0.05    0.00    4.40 ^ _492_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.01    0.22    0.15    4.55 ^ _492_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _034_ (net)
+                  0.22    0.00    4.55 ^ _495_/A (sky130_fd_sc_hd__xnor3_1)
+     2    0.01    0.11    0.49    5.04 v _495_/X (sky130_fd_sc_hd__xnor3_1)
+                                         _037_ (net)
+                  0.11    0.00    5.04 v _500_/A (sky130_fd_sc_hd__xnor3_1)
+     2    0.03    0.20    0.53    5.57 v _500_/X (sky130_fd_sc_hd__xnor3_1)
+                                         _042_ (net)
+                  0.20    0.00    5.57 v _587_/B (sky130_fd_sc_hd__xnor2_4)
+    10    0.05    0.37    0.38    5.95 ^ _587_/Y (sky130_fd_sc_hd__xnor2_4)
+                                         _128_ (net)
+                  0.37    0.00    5.95 ^ place715/A (sky130_fd_sc_hd__buf_4)
+     7    0.03    0.10    0.23    6.19 ^ place715/X (sky130_fd_sc_hd__buf_4)
+                                         net714 (net)
+                  0.10    0.00    6.19 ^ _683_/B (sky130_fd_sc_hd__nor4_2)
+     1    0.00    0.07    0.06    6.25 v _683_/Y (sky130_fd_sc_hd__nor4_2)
+                                         _199_ (net)
+                  0.07    0.00    6.25 v place694/A (sky130_fd_sc_hd__buf_4)
+     5    0.02    0.04    0.17    6.41 v place694/X (sky130_fd_sc_hd__buf_4)
+                                         net693 (net)
+                  0.04    0.00    6.41 v _768_/A2 (sky130_fd_sc_hd__a32o_1)
+     1    0.00    0.05    0.25    6.66 v _768_/X (sky130_fd_sc_hd__a32o_1)
+                                         _247_ (net)
+                  0.05    0.00    6.66 v _780_/A2 (sky130_fd_sc_hd__a211oi_1)
+     1    0.01    0.25    0.28    6.94 ^ _780_/Y (sky130_fd_sc_hd__a211oi_1)
+                                         _259_ (net)
+                  0.25    0.00    6.94 ^ _814_/A (sky130_fd_sc_hd__nand4_1)
+     2    0.04    0.46    0.42    7.36 v _814_/Y (sky130_fd_sc_hd__nand4_1)
+                                         _293_ (net)
+                  0.46    0.00    7.36 v _851_/B1 (sky130_fd_sc_hd__a211oi_4)
+     1    0.01    0.23    0.38    7.75 ^ _851_/Y (sky130_fd_sc_hd__a211oi_4)
+                                         net92 (net)
+                  0.23    0.00    7.75 ^ output93/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.02    0.23    0.67    8.41 ^ output93/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         detected_uncorrectable (net)
+                  0.23    0.00    8.41 ^ detected_uncorrectable (out)
+                                  8.41   data arrival time
+
+                  0.00   10.00   10.00   clock core_clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -0.50    9.40   output external delay
+                                  9.40   data required time
+-----------------------------------------------------------------------------
+                                  9.40   data required time
+                                 -8.41   data arrival time
+-----------------------------------------------------------------------------
+                                  0.99   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          2.41e-04   4.13e-04   3.55e-09   6.54e-04  37.5%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  1.09e-03   0.00e+00   7.31e-07   1.09e-03  62.5%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.33e-03   4.13e-04   7.34e-07   1.74e-03 100.0%
+                          76.3%      23.7%       0.0%

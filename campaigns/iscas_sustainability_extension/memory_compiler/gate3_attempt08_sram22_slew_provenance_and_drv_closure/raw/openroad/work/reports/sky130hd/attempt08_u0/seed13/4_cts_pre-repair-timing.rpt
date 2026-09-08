@@ -1,0 +1,330 @@
+
+==========================================================================
+cts pre-repair-timing report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+cts pre-repair-timing report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+cts pre-repair-timing report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 5.28
+
+==========================================================================
+cts pre-repair-timing report_clock_min_period
+--------------------------------------------------------------------------
+core_clk period_min = 4.72 fmax = 211.71
+
+==========================================================================
+cts pre-repair-timing report_clock_skew
+--------------------------------------------------------------------------
+Clock core_clk
+No launch/capture paths found.
+
+
+==========================================================================
+cts pre-repair-timing report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rstb (input port clocked by core_clk)
+Endpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.50    0.50 v input external delay
+     1    0.02    0.00    0.00    0.50 v rstb (in)
+                                         rstb (net)
+                  0.00    0.00    0.50 v input74/A (sky130_fd_sc_hd__buf_12)
+     1    0.02    0.03    0.11    0.61 v input74/X (sky130_fd_sc_hd__buf_12)
+                                         net74 (net)
+                  0.03    0.00    0.61 v wire148/A (sky130_fd_sc_hd__buf_16)
+     1    0.08    0.06    0.15    0.76 v wire148/X (sky130_fd_sc_hd__buf_16)
+                                         net148 (net)
+                  0.08    0.00    0.76 v u_data/rstb (sram22_256x64m4w8)
+                                  0.76   data arrival time
+
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.10    0.10   clock uncertainty
+                          0.00    0.10   clock reconvergence pessimism
+                                  0.10 ^ u_data/clk (sram22_256x64m4w8)
+                          4.87    4.97   library hold time
+                                  4.97   data required time
+-----------------------------------------------------------------------------
+                                  4.97   data required time
+                                 -0.76   data arrival time
+-----------------------------------------------------------------------------
+                                 -4.21   slack (VIOLATED)
+
+
+
+==========================================================================
+cts pre-repair-timing report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: data_out[34] (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_data/clk (sram22_256x64m4w8)
+     1    0.01    0.16    3.40    3.40 ^ u_data/dout[34] (sram22_256x64m4w8)
+                                         net111 (net)
+                  0.12    0.00    3.41 ^ output111/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.04    0.35    0.72    4.12 ^ output111/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         data_out[34] (net)
+                  0.35    0.00    4.12 ^ data_out[34] (out)
+                                  4.12   data arrival time
+
+                  0.00   10.00   10.00   clock core_clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -0.50    9.40   output external delay
+                                  9.40   data required time
+-----------------------------------------------------------------------------
+                                  9.40   data required time
+                                 -4.12   data arrival time
+-----------------------------------------------------------------------------
+                                  5.28   slack (MET)
+
+
+
+==========================================================================
+cts pre-repair-timing report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: data_out[34] (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ u_data/clk (sram22_256x64m4w8)
+     1    0.01    0.16    3.40    3.40 ^ u_data/dout[34] (sram22_256x64m4w8)
+                                         net111 (net)
+                  0.12    0.00    3.41 ^ output111/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.04    0.35    0.72    4.12 ^ output111/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         data_out[34] (net)
+                  0.35    0.00    4.12 ^ data_out[34] (out)
+                                  4.12   data arrival time
+
+                  0.00   10.00   10.00   clock core_clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -0.50    9.40   output external delay
+                                  9.40   data required time
+-----------------------------------------------------------------------------
+                                  9.40   data required time
+                                 -4.12   data arrival time
+-----------------------------------------------------------------------------
+                                  5.28   slack (MET)
+
+
+
+==========================================================================
+cts pre-repair-timing report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+u_data/rstb                             0.35    0.62   -0.27 (VIOLATED)
+u_data/dout[9]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[17]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[32]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[4]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[25]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[52]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[6]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[35]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[54]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[42]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[21]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[8]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[31]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[46]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[63]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[62]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[7]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[14]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[37]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[51]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[19]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[49]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[60]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[56]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[47]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[29]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[10]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[20]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[12]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[58]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[44]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[5]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[50]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[28]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[43]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[27]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[39]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[15]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[61]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[3]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[55]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[22]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[18]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[23]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[1]                          0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[53]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[26]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[36]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[33]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[13]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[24]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[16]                         0.04    0.17   -0.13 (VIOLATED)
+u_data/dout[11]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[57]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[45]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[0]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[34]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[30]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[41]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[38]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[2]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[48]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[40]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[59]                         0.04    0.16   -0.12 (VIOLATED)
+
+
+==========================================================================
+cts pre-repair-timing max_slew_check_slack
+--------------------------------------------------------------------------
+-0.26629704236984253
+
+==========================================================================
+cts pre-repair-timing max_slew_check_limit
+--------------------------------------------------------------------------
+0.35100001096725464
+
+==========================================================================
+cts pre-repair-timing max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.7587
+
+==========================================================================
+cts pre-repair-timing max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+cts pre-repair-timing max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+cts pre-repair-timing max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.12097282707691193
+
+==========================================================================
+cts pre-repair-timing max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.15656499564647675
+
+==========================================================================
+cts pre-repair-timing max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.7727
+
+==========================================================================
+cts pre-repair-timing max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 65
+
+==========================================================================
+cts pre-repair-timing max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+cts pre-repair-timing max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+cts pre-repair-timing setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+cts pre-repair-timing hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+cts pre-repair-timing report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+cts pre-repair-timing report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+cts pre-repair-timing critical path target clock latency max path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+cts pre-repair-timing critical path target clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+cts pre-repair-timing critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+cts pre-repair-timing critical path delay
+--------------------------------------------------------------------------
+4.1235
+
+==========================================================================
+cts pre-repair-timing critical path slack
+--------------------------------------------------------------------------
+5.2765
+
+==========================================================================
+cts pre-repair-timing slack div critical path delay
+--------------------------------------------------------------------------
+127.961683
+
+==========================================================================
+cts pre-repair-timing report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          3.04e-05   3.51e-05   5.60e-10   6.55e-05   8.1%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  7.40e-04   0.00e+00   6.42e-07   7.40e-04  91.9%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  7.70e-04   3.51e-05   6.43e-07   8.06e-04 100.0%
+                          95.6%       4.4%       0.1%

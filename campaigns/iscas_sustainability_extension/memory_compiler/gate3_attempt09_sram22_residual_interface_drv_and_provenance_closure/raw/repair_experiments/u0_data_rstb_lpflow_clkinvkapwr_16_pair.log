@@ -1,0 +1,206 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+ATTEMPT09_EXPERIMENT design=u0 target=u_data/rstb cell=sky130_fd_sc_hd__lpflow_clkinvkapwr_16
+ATTEMPT09_BEFORE
+u_data/rstb ^ 0.130894080:0.619147718 v 0.079395398:0.315126836
+Net net151
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00-0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ hold151/X output (sky130_fd_sc_hd__buf_16) (300, 336)
+
+Load pins
+ u_data/rstb input (sram22_256x64m4w8) 0.08-0.45 (291, 323)
+
+[WARNING EST-0018] wire capacitance for corner default is zero. Use the set_wire_rc command to set wire resistance and capacitance.
+ATTEMPT09_AFTER
+u_data/rstb ^ 0.066208638:0.321766496 v 0.077696159:0.377817541
+attempt09_diag_u_data_rstb_inv1/A ^ 0.063670792:0.063670792 v 0.040250774:0.040250774
+attempt09_diag_u_data_rstb_inv2/A ^ 0.031299066:0.031299066 v 0.035994183:0.035994183
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+u_data/dout[3]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[5]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[39]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[32]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[9]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[18]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[30]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[52]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[56]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[12]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[26]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[0]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[40]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[48]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[57]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[10]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[16]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[17]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[27]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[19]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[22]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[61]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[31]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[36]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[43]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[21]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[1]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[13]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[28]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[62]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[4]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[54]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[51]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[11]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[38]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[14]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[45]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[29]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[63]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[55]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[2]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[46]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[35]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[53]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[44]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[49]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[37]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[60]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[33]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[58]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[23]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[20]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[7]                          0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[24]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[8]                          0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[41]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[47]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[59]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[50]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[15]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[25]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[6]                          0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[34]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[42]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/rstb                             0.35    0.38   -0.03 (VIOLATED)
+
+[WARNING STA-0168] unknown field nets.
+[WARNING STA-0503] report_checks -group_count is deprecated. Use -group_path_count instead.
+Startpoint: rstb (input port clocked by core_clk)
+Endpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock core_clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.500000    0.500000 v input external delay
+     1    0.003568    0.000000    0.000000    0.500000 v rstb (in)
+                      0.000139    0.000069    0.500069 v hold152/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.004407    0.060713    0.543524    1.043593 v hold152/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.060713    0.000163    1.043756 v hold149/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.003791    0.058165    0.562741    1.606496 v hold149/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.058165    0.000136    1.606632 v hold153/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.012404    0.097062    0.610788    2.217420 v hold153/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.097062    0.000663    2.218083 v input74/A (sky130_fd_sc_hd__buf_12)
+     1    0.002692    0.020514    0.136128    2.354211 v input74/X (sky130_fd_sc_hd__buf_12)
+                      0.020514    0.000087    2.354298 v hold154/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.003468    0.057305    0.544596    2.898894 v hold154/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.057305    0.000120    2.899014 v hold150/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.002883    0.053454    0.553982    3.452996 v hold150/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.053454    0.000096    3.453092 v hold155/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.015310    0.110428    0.622069    4.075161 v hold155/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.110431    0.000726    4.075887 v wire148/A (sky130_fd_sc_hd__buf_16)
+     1    0.001743    0.022452    0.144897    4.220784 v wire148/X (sky130_fd_sc_hd__buf_16)
+                      0.022452    0.000049    4.220834 v hold156/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.013871    0.103794    0.603606    4.824440 v hold156/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.103795    0.000466    4.824906 v hold151/A (sky130_fd_sc_hd__buf_16)
+     1    0.035810    0.040251    0.163541    4.988447 v hold151/X (sky130_fd_sc_hd__buf_16)
+                      0.040251    0.000000    4.988447 v attempt09_diag_u_data_rstb_inv1/A (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+     1    0.040723    0.031299    0.049135    5.037581 ^ attempt09_diag_u_data_rstb_inv1/Y (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+                      0.031299    0.000000    5.037581 ^ attempt09_diag_u_data_rstb_inv2/A (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+     1    0.442539    0.283363    0.232505    5.270087 v attempt09_diag_u_data_rstb_inv2/Y (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+                      0.377818    0.000000    5.270087 v u_data/rstb (sram22_256x64m4w8)
+                                              5.270087   data arrival time
+
+                                 10.000000   10.000000   clock core_clk (rise edge)
+                                  0.000000   10.000000   clock source latency
+     1    0.084495    0.000000    0.000000   10.000000 ^ clk (in)
+                      0.008755    0.002071   10.002071 ^ u_data/clk (sram22_256x64m4w8)
+                                 -0.100000    9.902071   clock uncertainty
+                                  0.000000    9.902071   clock reconvergence pessimism
+                                 -0.305764    9.596307   library setup time
+                                              9.596307   data required time
+---------------------------------------------------------------------------------------------
+                                              9.596307   data required time
+                                             -5.270087   data arrival time
+---------------------------------------------------------------------------------------------
+                                              4.326221   slack (MET)
+
+
+[WARNING STA-0168] unknown field nets.
+[WARNING STA-0503] report_checks -group_count is deprecated. Use -group_path_count instead.
+Startpoint: rstb (input port clocked by core_clk)
+Endpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock core_clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  0.500000    0.500000 v input external delay
+     1    0.003568    0.000000    0.000000    0.500000 v rstb (in)
+                      0.000139    0.000069    0.500069 v hold152/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.004407    0.060713    0.543524    1.043593 v hold152/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.060713    0.000163    1.043756 v hold149/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.003791    0.058165    0.562741    1.606496 v hold149/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.058165    0.000136    1.606632 v hold153/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.012404    0.097062    0.610788    2.217420 v hold153/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.097062    0.000663    2.218083 v input74/A (sky130_fd_sc_hd__buf_12)
+     1    0.002692    0.020514    0.136128    2.354211 v input74/X (sky130_fd_sc_hd__buf_12)
+                      0.020514    0.000087    2.354298 v hold154/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.003468    0.057305    0.544596    2.898894 v hold154/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.057305    0.000120    2.899014 v hold150/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.002883    0.053454    0.553982    3.452996 v hold150/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.053454    0.000096    3.453092 v hold155/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.015310    0.110428    0.622069    4.075161 v hold155/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.110431    0.000726    4.075887 v wire148/A (sky130_fd_sc_hd__buf_16)
+     1    0.001743    0.022452    0.144897    4.220784 v wire148/X (sky130_fd_sc_hd__buf_16)
+                      0.022452    0.000049    4.220834 v hold156/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.013871    0.103794    0.603606    4.824440 v hold156/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                      0.103795    0.000466    4.824906 v hold151/A (sky130_fd_sc_hd__buf_16)
+     1    0.035810    0.040251    0.163541    4.988447 v hold151/X (sky130_fd_sc_hd__buf_16)
+                      0.040251    0.000000    4.988447 v attempt09_diag_u_data_rstb_inv1/A (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+     1    0.040723    0.031299    0.049135    5.037581 ^ attempt09_diag_u_data_rstb_inv1/Y (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+                      0.031299    0.000000    5.037581 ^ attempt09_diag_u_data_rstb_inv2/A (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+     1    0.077153    0.058272    0.067821    5.105403 v attempt09_diag_u_data_rstb_inv2/Y (sky130_fd_sc_hd__lpflow_clkinvkapwr_16)
+                      0.077696    0.000000    5.105403 v u_data/rstb (sram22_256x64m4w8)
+                                              5.105403   data arrival time
+
+                                  0.000000    0.000000   clock core_clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.380246    0.000000    0.000000    0.000000 ^ clk (in)
+                      0.042701    0.010103    0.010103 ^ u_data/clk (sram22_256x64m4w8)
+                                  0.100000    0.110103   clock uncertainty
+                                  0.000000    0.110103   clock reconvergence pessimism
+                                  4.874542    4.984645   library hold time
+                                              4.984645   data required time
+---------------------------------------------------------------------------------------------
+                                              4.984645   data required time
+                                             -5.105403   data arrival time
+---------------------------------------------------------------------------------------------
+                                              0.120758   slack (MET)
+
+

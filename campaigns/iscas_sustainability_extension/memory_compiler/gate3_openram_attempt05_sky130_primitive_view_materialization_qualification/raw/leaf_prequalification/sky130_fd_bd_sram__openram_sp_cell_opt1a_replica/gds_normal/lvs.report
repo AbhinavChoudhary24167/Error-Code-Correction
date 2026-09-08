@@ -1,0 +1,63 @@
+Warning: Equate pins:  cell sky130_fd_pr__special_pfet_pass is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__special_pfet_pass is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__special_pfet_pass |Circuit 2: sky130_fd_pr__special_pfet_pass 
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__special_pfet_pass and sky130_fd_pr__special_pfet_pass are equivalent.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_latch is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_latch is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__special_nfet_latc |Circuit 2: sky130_fd_pr__special_nfet_latc 
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__special_nfet_latch and sky130_fd_pr__special_nfet_latch are equivalent.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_pass is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_pass is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__special_nfet_pass |Circuit 2: sky130_fd_pr__special_nfet_pass 
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__special_nfet_pass and sky130_fd_pr__special_nfet_pass are equivalent.
+
+Subcircuit summary:
+Circuit 1: sky130_fd_bd_sram__openram_sp_c |Circuit 2: sky130_fd_bd_sram__openram_sp_c 
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__special_pfet_pass (4)        |sky130_fd_pr__special_pfet_pass (4)        
+sky130_fd_pr__special_nfet_latch (2)       |sky130_fd_pr__special_nfet_latch (2)       
+sky130_fd_pr__special_nfet_pass (2)        |sky130_fd_pr__special_nfet_pass (2)        
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 9 **Mismatch**             |Number of nets: 8 **Mismatch**             
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: sky130_fd_bd_sram__openram_sp_c |Circuit 2: sky130_fd_bd_sram__openram_sp_c 
+
+---------------------------------------------------------------------------------------
+Net: WL                                    |Net: WL                                    
+  sky130_fd_pr__special_pfet_pass/2 = 1    |  sky130_fd_pr__special_pfet_pass/2 = 2    
+  sky130_fd_pr__special_nfet_pass/2 = 1    |  sky130_fd_pr__special_nfet_pass/2 = 2    
+                                           |                                           
+Net: a_0_262#                              |(no matching net)                          
+  sky130_fd_pr__special_pfet_pass/2 = 1    |                                           
+  sky130_fd_pr__special_nfet_pass/2 = 1    |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Netlists do not match.

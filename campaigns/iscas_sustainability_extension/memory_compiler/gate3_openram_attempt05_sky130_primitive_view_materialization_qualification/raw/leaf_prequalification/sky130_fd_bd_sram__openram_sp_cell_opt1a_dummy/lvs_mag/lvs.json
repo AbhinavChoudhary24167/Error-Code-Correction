@@ -1,0 +1,160 @@
+[
+  {
+   "pins": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ], [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ], [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ], [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+   ]
+  },
+  {
+   "name": [
+      "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",
+      "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy"
+   ],
+   "devices": [
+       [
+         ["sky130_fd_pr__special_pfet_pass", 4],
+         ["sky130_fd_pr__special_nfet_latch", 2],
+         ["sky130_fd_pr__special_nfet_pass", 2 ]
+       ], [
+         ["sky130_fd_pr__special_pfet_pass", 4 ],
+         ["sky130_fd_pr__special_nfet_latch", 2 ],
+         ["sky130_fd_pr__special_nfet_pass", 2 ]
+       ]
+   ],
+   "nets": [
+    14,
+    13
+   ],
+   "badnets": [
+      [
+        [
+          [
+            "(no matching net)",
+            [
+              [ "", "", 0 ]
+            ]
+          ]
+        ], [
+          [
+            "WL",
+            [
+              [ "sky130_fd_pr__special_nfet_pass", "2", 2 ],
+              [ "sky130_fd_pr__special_pfet_pass", "2", 2 ]
+            ]
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "VNB",
+            [
+              [ "sky130_fd_pr__special_nfet_latch", "4", 2 ],
+              [ "sky130_fd_pr__special_nfet_pass", "4", 2 ]
+            ]
+          ]
+        ], [
+          [
+            "VNB",
+            [
+              [ "sky130_fd_pr__special_nfet_pass", "4", 2 ],
+              [ "sky130_fd_pr__special_nfet_latch", "4", 2 ]
+            ]
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "VPB",
+            [
+              [ "sky130_fd_pr__special_pfet_pass", "4", 4 ]
+            ]
+          ]
+        ], [
+          [
+            "VPB",
+            [
+              [ "sky130_fd_pr__special_pfet_pass", "4", 4 ]
+            ]
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "VGND",
+            [
+              [ "sky130_fd_pr__special_nfet_latch", "1|3", 2 ]
+            ]
+          ]
+        ], [
+          [
+            "VGND",
+            [
+              [ "sky130_fd_pr__special_nfet_latch", "1|3", 2 ]
+            ]
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            "VPWR",
+            [
+              [ "sky130_fd_pr__special_pfet_pass", "1|3", 2 ]
+            ]
+          ]
+        ], [
+          [
+            "VPWR",
+            [
+              [ "sky130_fd_pr__special_pfet_pass", "1|3", 2 ]
+            ]
+          ]
+        ]
+      ]
+   ],
+   "badelements": [
+   ]
+  }
+]

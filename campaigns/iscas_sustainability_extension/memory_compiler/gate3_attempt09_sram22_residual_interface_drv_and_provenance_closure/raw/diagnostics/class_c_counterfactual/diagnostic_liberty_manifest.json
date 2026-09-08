@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "purpose": "COUNTERFACTUAL_DIAGNOSTIC_ONLY_NOT_PRODUCTION",
+  "production_liberty_immutable": true,
+  "timing_tables_pin_rules_thresholds_unchanged": true,
+  "records": [
+    {
+      "file": "sram22_256x64m4w8_tt_025C_1v80.lib",
+      "production_path": "raw/liberty/sram22_256x64m4w8_tt_025C_1v80.lib",
+      "production_sha256_before": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+      "production_sha256_after": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+      "diagnostic_copy_path": "raw/diagnostics/class_c_counterfactual/liberty/sram22_256x64m4w8_tt_025C_1v80.lib",
+      "diagnostic_copy_sha256": "4bbcc8baa0f2d96ad6a00962e63c512e06198d6c6771c0eb399f0542a0a5f24a",
+      "only_intentional_difference": "library default_max_transition 0.04 ns -> 1.50 ns to exclude the inherited SRAM-output rule"
+    },
+    {
+      "file": "sram22_256x8m8w1_tt_025C_1v80.lib",
+      "production_path": "raw/liberty/sram22_256x8m8w1_tt_025C_1v80.lib",
+      "production_sha256_before": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec",
+      "production_sha256_after": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec",
+      "diagnostic_copy_path": "raw/diagnostics/class_c_counterfactual/liberty/sram22_256x8m8w1_tt_025C_1v80.lib",
+      "diagnostic_copy_sha256": "84aa078b6d0fa292b33d7dfbec9ceaa26432a70e4ccdb1706c16be3f9705aa8e",
+      "only_intentional_difference": "library default_max_transition 0.04 ns -> 1.50 ns to exclude the inherited SRAM-output rule"
+    }
+  ]
+}

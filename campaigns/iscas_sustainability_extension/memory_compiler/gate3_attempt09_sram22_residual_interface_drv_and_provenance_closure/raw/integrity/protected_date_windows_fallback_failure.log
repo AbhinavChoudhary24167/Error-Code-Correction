@@ -1,0 +1,28 @@
+gate0-verify: repository
+gate0-verify: date2027_breadth_raw
+gate0-verify: date2027_breadth_raw complete
+gate0-verify: date2027_revision2_raw
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Abhinav\OneDrive\Desktop\ECC\Error-Code-Correction\campaigns\iscas_sustainability_extension\scripts\gate0_audit.py", line 946, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Abhinav\OneDrive\Desktop\ECC\Error-Code-Correction\campaigns\iscas_sustainability_extension\scripts\gate0_audit.py", line 921, in main
+    result = verify_integrity(manifest, set(args.verify_scope) if args.verify_scope else None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abhinav\OneDrive\Desktop\ECC\Error-Code-Correction\campaigns\iscas_sustainability_extension\scripts\gate0_audit.py", line 428, in verify_integrity
+    completed = subprocess.run(
+                ^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <lambda>
+  File "D:\Python\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "D:\Python\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NotADirectoryError: [WinError 267] The directory name is invalid

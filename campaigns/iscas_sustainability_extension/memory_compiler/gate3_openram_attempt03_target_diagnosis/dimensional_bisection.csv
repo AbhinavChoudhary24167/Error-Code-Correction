@@ -1,0 +1,6 @@
+target,execution_status,word_size,num_words,words_per_row,rows_including_spares,total_physical_rows,total_physical_columns,spare_rows,spare_columns,logical_address_width,emitted_data_indices,emitted_address_indices,drc_count,lvs_status,characterization_status,emitted_views,exit_code,reason
+control_16x8,RUN_CONTROL_FAIL,8,16,1,17,18,10,1,1,4,0..8,0..4,2140,FAIL,FAIL,"GDS:UNQUALIFIED;SPICE:UNQUALIFIED;LEF:UNQUALIFIED;Liberty:UNAVAILABLE;Verilog:UNAVAILABLE",1,"Stock-compatible control failed; bisection gate closed"
+256x8,NOT_RUN_CONTROL_FAIL,8,256,,,,,,,,,NOT_RUN,NOT_RUN,NONE,,"Prohibited because control did not pass"
+256x64,NOT_RUN_CONTROL_FAIL,64,256,,,,,,,,,NOT_RUN,NOT_RUN,NONE,,"Prohibited because control did not pass"
+256x72,NOT_RUN_CONTROL_FAIL,72,256,2,129,130,146,1,1,8,0..72,0..8,223312,PRIOR_ATTEMPT02_FAIL,PRIOR_ATTEMPT02_FAIL,"PRIOR_ATTEMPT02_EVIDENCE_ONLY",1,"Not rerun; prior result shown only for context"
+

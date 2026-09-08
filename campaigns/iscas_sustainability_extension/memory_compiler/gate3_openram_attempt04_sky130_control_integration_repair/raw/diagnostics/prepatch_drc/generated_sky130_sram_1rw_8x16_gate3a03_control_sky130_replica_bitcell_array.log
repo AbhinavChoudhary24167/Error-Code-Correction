@@ -1,0 +1,73 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Processing timestamp mismatches: sky130_fd_bd_sram__sram_sp_cell_opt1, sky130_fd_bd_sram__sram_sp_cell_opt1a, sky130_fd_bd_sram__sram_sp_wlstrap, sky130_fd_bd_sram__sram_sp_wlstrapa, sky130_fd_bd_sram__sram_sp_wlstrap_p, sky130_fd_bd_sram__sram_sp_colenda_cent, sky130_fd_bd_sram__sram_sp_colenda_p_cent, sky130_fd_bd_sram__sram_sp_colenda, sky130_fd_bd_sram__sram_sp_colend_cent, sky130_fd_bd_sram__sram_sp_colend_p_cent, sky130_fd_bd_sram__sram_sp_colend, sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy, sky130_fd_bd_sram__openram_sp_cell_opt1_replica, sky130_fd_bd_sram__openram_sp_cell_opt1a_replica, sky130_fd_bd_sram__sram_sp_corner, sky130_fd_bd_sram__openram_sp_rowend_replica, sky130_fd_bd_sram__openram_sp_rowenda_replica, sky130_fd_bd_sram__sram_sp_cornera, sky130_fd_bd_sram__sram_sp_cornerb, sky130_fd_bd_sram__sram_sp_rowend, sky130_fd_bd_sram__sram_sp_rowenda.
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Local interconnect spacing < 0.17um (li.3)",900
+"Diffusion width < 0.15um (diff/tap.1)",45
+"Local interconnect width < 0.17um (li.1)",270
+"Metal1 spacing < 0.14um (met1.2)",8
+"Can't overlap those layers",16
+"Deep N-well width < 3um (dnwell.2)",90
+"Core local interconnect width < 0.14um (li.c1)",495
+"Deep N-well spacing < 6.3um (dnwell.3)",231
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",270
+"poly spacing to diffusion tap < 0.055um (poly.5)",495
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",1080
+"Deep N-well spacing to N-well < 4.5um (nwell.7)",764
+"poly spacing to Diffusion < 0.075um (poly.4)",90
+"Core local interconnect spacing < 0.14um (li.c2)",1080
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",540
+"N-diffusion contact width < 0.17um (licon.1)",315
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",270
+"mcon.width < 0.17um (mcon.1)",225
+"Local interconnect minimum area < 0.0561um^2 (li.6)",900
+__RULE_CSV_END__
+RULE_TOTAL=8084
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_fd_bd_sram__sram_sp_cornera",5
+"sky130_fd_bd_sram__sram_sp_colend_cent",7
+"sky130_fd_bd_sram__sram_sp_rowend",7
+"sky130_fd_bd_sram__sram_sp_cornerb",5
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column",252
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array",34
+"sky130_fd_bd_sram__sram_sp_rowenda",7
+"sky130_fd_bd_sram__openram_sp_rowend_replica",7
+"sky130_fd_bd_sram__sram_sp_colenda_cent",7
+"sky130_fd_bd_sram__sram_sp_cell_opt1",8
+"sky130_fd_bd_sram__sram_sp_wlstrapa",13
+"sky130_fd_bd_sram__sram_sp_colend_p_cent",8
+"sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",8
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array",117
+"sky130_fd_bd_sram__sram_sp_colend",7
+"sky130_fd_bd_sram__sram_sp_colenda",7
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0",65
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array_0",117
+"sky130_fd_bd_sram__sram_sp_corner",5
+"sky130_fd_bd_sram__sram_sp_wlstrapa_p",58
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array",65
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array",380
+"sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",8
+"sky130_fd_bd_sram__sram_sp_colenda_p_cent",8
+"sky130_fd_bd_sram__openram_sp_rowenda_replica",7
+"sky130_fd_bd_sram__sram_sp_wlstrap",13
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array",360
+"sky130_fd_bd_sram__sram_sp_cell_opt1a",8
+"sky130_fd_bd_sram__sram_sp_wlstrap_p",12
+"sky130_fd_bd_sram__openram_sp_cell_opt1_replica",8
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=1613

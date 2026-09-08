@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "campaign": "gate3_attempt07_sram22_matched_physical_closure",
+  "backend": "SRAM22_PREGENERATED_SKY130_MACROS",
+  "sram22_upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+  "platform": "sky130hd",
+  "standard_cell_library": "sky130_fd_sc_hd",
+  "pvt": {
+    "process": "TT",
+    "voltage_v": 1.8,
+    "temperature_c": 25,
+    "liberty_corner": "TT_025C_1V80"
+  },
+  "rc_corner": {
+    "name": "sky130hd_nominal",
+    "source": "/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl",
+    "extraction_corner": "X"
+  },
+  "common_clock": {
+    "name": "core_clk",
+    "period_ns": 10.0,
+    "frequency_mhz": 100.0,
+    "uncertainty_ns": 0.1
+  },
+  "io": {
+    "input_delay_ns": 0.5,
+    "output_delay_ns": 0.5,
+    "output_load_pf": 0.02,
+    "placement": "all external signal pins on top edge",
+    "methodology": "role-equivalent constraints; architecture-specific port names only"
+  },
+  "timing_drv": {
+    "design_max_transition_ns": 0.6,
+    "liberty_pin_transition_and_capacitance_limits": "enforced without override",
+    "timing_derates": "none added",
+    "unconstrained_endpoints_allowed": 0
+  },
+  "floorplan_policy": {
+    "target_placement_density": 0.3,
+    "macro_halo_um": [20.0, 20.0],
+    "macro_blockage_halo_um": 20.0,
+    "io_margin_policy": "top-edge pin placement with approximately 10 um core margin",
+    "pdn_margin_policy": "identical macro-grid 2 um PDN halo and common stripe geometry",
+    "routing_channel_policy": "macro signal-pin faces point into an internal channel; nominal E0 inter-macro channel 59.97 um",
+    "generation_algorithm": "explicit rectangular die/core dimensions selected from the same density, halo, channel, and margin rules",
+    "U0": {
+      "requested_die_um": [1000.0, 470.0],
+      "requested_core_bbox_um": [10.0, 10.0, 990.0, 460.0],
+      "realized_core_bbox_um": [10.12, 10.88, 989.92, 459.68]
+    },
+    "E0": {
+      "requested_die_um": [1000.0, 650.0],
+      "requested_core_bbox_um": [10.0, 10.0, 990.0, 640.0],
+      "realized_core_bbox_um": [10.12, 10.88, 989.92, 639.2]
+    }
+  },
+  "macro_placement_policy": {
+    "data_macro_both_designs": {
+      "location_um": [30.36, 31.23],
+      "orientation": "MX"
+    },
+    "E0_ecc_macro": {
+      "location_um": [30.36, 382.84],
+      "orientation": "R0"
+    }
+  },
+  "pdn": {
+    "followpin_layer": "met1",
+    "vertical_stripe_layer": "met4",
+    "horizontal_stripe_layer": "met5",
+    "macro_connection_layers": ["met2", "met4"],
+    "common_tcl": "openroad/pdn_sram22.tcl"
+  },
+  "routing_layers": ["met1", "met2", "met3", "met4", "met5"],
+  "implementation": {
+    "synthesis": "ORFS Yosys default sky130hd strategy",
+    "global_placement": "ORFS timing-driven global placement",
+    "resizer": "common symmetric database carry-forward at placement; published constraints retained; CTS/post-CTS repair remains enabled",
+    "legalization": "ORFS detailed placement",
+    "cts": "ORFS TritonCTS default sky130hd strategy",
+    "global_route": "ORFS FastRoute",
+    "detailed_route": "ORFS TritonRoute",
+    "router_seed_policy": [11, 13, 17, 19, 23]
+  },
+  "asymmetric_tuning": false,
+  "per_seed_tuning": false,
+  "macro_internal_modification": false,
+  "sram_drc_waiver": false
+}

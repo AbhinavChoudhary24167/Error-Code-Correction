@@ -1,0 +1,28 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed19/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+3. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+4. Executing Liberty frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+5. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v
+6. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/unprotected_sram_256x64_sram22.sv
+7. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+8. Executing HIERARCHY pass (managing design hierarchy).
+9. Executing AST frontend in derive mode using pre-parsed AST for module `\u0_sram22_top'.
+9.1. Analyzing design hierarchy..
+9.2. Analyzing design hierarchy..
+Warning: Selection "sram22_256x64m4w8" did not match any module.
+10. Executing HIERARCHY pass (managing design hierarchy).
+10.1. Analyzing design hierarchy..
+10.2. Analyzing design hierarchy..
+11. Executing OPT_CLEAN pass (remove unused cells and wires).
+12. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: db0f4ca89e, time: 0.69s, user: 0.28s, system: 0.15s, MEM: 56.34 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 77% 6x read_liberty (0 sec), 9% 2x write_rtlil (0 sec), ...
+Elapsed time: 0:00.71[h:]min:sec. CPU time: user 0.31 sys 0.18 (69%). Peak memory: 60356KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          0             58 77a2e797d485b2c31a30

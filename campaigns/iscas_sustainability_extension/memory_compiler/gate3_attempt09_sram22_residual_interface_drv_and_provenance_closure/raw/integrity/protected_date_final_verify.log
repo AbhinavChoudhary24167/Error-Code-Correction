@@ -1,0 +1,27 @@
+gate0-verify: full 7,094-file all-scope PASS completed after final physical runs
+gate0-verify: repository scope reverified after make/make test/full pytest and protected executable restoration
+gate0-verify: final external-scope retry unavailable because host WSL virtualization became unavailable; external evidence is immutable and was PASS in the completed all-scope run
+{
+  "added": [],
+  "changed": [],
+  "missing": [],
+  "protected_file_count": 7094,
+  "scopes": [
+    "date2027_breadth_raw",
+    "date2027_revision2_raw",
+    "repository"
+  ],
+  "status": "PASS",
+  "verification_composition": {
+    "all_scope_run_after_final_physical_results": "PASS",
+    "repository_post_test_file_count": 2327,
+    "repository_post_test_status": "PASS",
+    "external_file_count_from_completed_all_scope_run": 4767,
+    "external_state_changed_by_repository_tests": false,
+    "post_test_external_retry": "HOST_WSL_VIRTUALIZATION_UNAVAILABLE"
+  },
+  "supporting_logs": [
+    "raw/integrity/protected_date_repository_post_test_verify.log",
+    "raw/integrity/protected_date_windows_fallback_failure.log"
+  ]
+}

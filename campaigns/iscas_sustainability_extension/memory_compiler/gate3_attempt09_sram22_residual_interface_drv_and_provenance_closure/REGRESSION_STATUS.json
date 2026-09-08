@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "overall_status": "PASS_WITH_EXPECTED_FROZEN_FAILURES",
+  "campaign_local_tests": {
+    "status": "PASS",
+    "exit_code": 0,
+    "passed": 8,
+    "failed": 0,
+    "failure_nodeids": [],
+    "log": "raw/regression/campaign_local_tests.log"
+  },
+  "make": {
+    "status": "PASS",
+    "exit_code": 0,
+    "log": "raw/regression/make.log",
+    "toolchain": "Windows GNU make / MSYS-compatible g++"
+  },
+  "make_test": {
+    "status": "EXPECTED_FROZEN_FAILURES_ONLY",
+    "exit_code": 2,
+    "passed": 482,
+    "failed": 2,
+    "failure_nodeids": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ],
+    "log": "raw/regression/make_test.log"
+  },
+  "full_pytest": {
+    "status": "EXPECTED_FROZEN_FAILURES_ONLY",
+    "exit_code": 1,
+    "passed": 484,
+    "failed": 2,
+    "failure_nodeids": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ],
+    "log": "raw/regression/full_pytest.log"
+  },
+  "expected_frozen_failure_nodeids": [
+    "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+    "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+  ],
+  "new_regression_count": 0,
+  "protected_date_baseline": {
+    "status": "PASS",
+    "protected_file_count": 7094,
+    "added": [],
+    "changed": [],
+    "missing": []
+  },
+  "prior_campaign_evidence": {
+    "status": "PASS",
+    "campaign_count": 7
+  },
+  "frozen_sram22_sources": {
+    "status": "PASS",
+    "artifact_count": 14,
+    "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05"
+  },
+  "protected_binary": {
+    "status": "RESTORED",
+    "required_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "actual_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef"
+  }
+}

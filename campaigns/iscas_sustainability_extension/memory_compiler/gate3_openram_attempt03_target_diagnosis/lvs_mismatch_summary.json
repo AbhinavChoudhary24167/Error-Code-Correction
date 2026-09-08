@@ -1,0 +1,51 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "source_evidence": "preserved Gate-3 attempt02 Netgen report and generated SPICE; control Netgen result",
+  "attempt02_counts": {
+    "schematic_devices": 154542,
+    "extracted_devices": 154542,
+    "device_count_delta": 0,
+    "schematic_nets": 40403,
+    "extracted_compared_nets": 40987,
+    "extracted_net_excess": 584,
+    "disconnected_top_level_pins": 1
+  },
+  "mismatch_layers": [
+    {
+      "id": "top_repair_pin_scalar_vector_mismatch",
+      "hierarchy": "top macro to Xspare_wen_dff0",
+      "schematic_or_top_token": "spare_wen0",
+      "internal_token": "spare_wen0[0]",
+      "source_declaration": "compiler/modules/sram_1bank.py:sram_1bank.add_pins, lines 54-95",
+      "source_connection": "compiler/modules/sram_1bank.py:sram_1bank.create_spare_wen_dff, lines 650-668",
+      "effect": "one disconnected scalar top-level repair pin",
+      "classification": "D_SPARE_REPAIR_CONFIGURATION_ERROR"
+    },
+    {
+      "id": "replicated_primitive_extraction_connectivity_partition",
+      "hierarchy": "sky130_capped_replica_bitcell_array / sky130_fd_bd_sram__sram_sp_colend and sky130_fd_bd_sram__sram_sp_colenda",
+      "schematic_net_examples": [
+        "m2_0_4#",
+        "m2_0_236#"
+      ],
+      "extracted_net_examples": [
+        "proxym2_0_4#",
+        "proxym2_0_236#"
+      ],
+      "replication_count_derivation": "2 extra connectivity partitions * (146 colend instances + 146 colenda instances) = 584",
+      "effect": "584 extra compared extracted nets with unchanged device count",
+      "classification": "F_PDK_VERIFICATION_INTEGRATION_PROBLEM"
+    }
+  ],
+  "additional_report_observation": {
+    "hierarchy": "replica bitcell primitives",
+    "observation": "nine-versus-eight node positions and differently paired wordline/internal connections",
+    "interpretation": "primitive connectivity mismatch propagates through the repeated array"
+  },
+  "single_fanout_error": false,
+  "device_generation_failure_supported": false,
+  "connectivity_failure_supported": true,
+  "control_lvs": "FAIL",
+  "lvs_status": "FAIL"
+}
+

@@ -1,0 +1,91 @@
+{
+  "all_layers": {
+    "115/42": 2,
+    "115/43": 2,
+    "22/21": 2,
+    "64/18": 1,
+    "65/20": 2,
+    "65/44": 1,
+    "66/20": 4,
+    "66/44": 6,
+    "67/20": 5,
+    "67/44": 5,
+    "68/20": 6,
+    "68/44": 3,
+    "69/20": 1,
+    "81/2": 1,
+    "93/44": 2,
+    "94/20": 1,
+    "95/20": 1
+  },
+  "byte_size": 3608,
+  "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.gds",
+  "record_counts": {
+    "0x00": 1,
+    "0x01": 1,
+    "0x02": 1,
+    "0x03": 1,
+    "0x04": 1,
+    "0x0f": 1,
+    "0x10": 46,
+    "0x1a": 1,
+    "0x1c": 1,
+    "BGNSTR": 2,
+    "BOUNDARY": 44,
+    "DATATYPE": 45,
+    "ENDEL": 46,
+    "ENDSTR": 2,
+    "LAYER": 45,
+    "PATH": 1,
+    "SNAME": 1,
+    "SREF": 1,
+    "STRNAME": 2
+  },
+  "root_structures": [
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce"
+  ],
+  "sha256": "b78d4a4d000e25724f1e1898ad34e021535b1bd2b3e2b2e41f9805efd1f0eae4",
+  "structure_count": 2,
+  "structures": {
+    "sky130_fd_bd_sram__sram_l1m1": {
+      "elements": {
+        "BOUNDARY": 3
+      },
+      "layers": {
+        "67/20": 1,
+        "67/44": 1,
+        "68/20": 1
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": {
+      "elements": {
+        "BOUNDARY": 41,
+        "PATH": 1,
+        "SREF": 1
+      },
+      "layers": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "64/18": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 4,
+        "66/44": 6,
+        "67/20": 4,
+        "67/44": 4,
+        "68/20": 5,
+        "68/44": 3,
+        "69/20": 1,
+        "81/2": 1,
+        "93/44": 2,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_l1m1": 1
+      }
+    }
+  }
+}

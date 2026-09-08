@@ -1,0 +1,36 @@
+diff --git a/original/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag b/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag
+index 880d4cd..ca9a512 100644
+--- a/original/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag
++++ b/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag
+@@ -6,16 +6,6 @@ timestamp 1614044810
+ rect 144 0 240 316
+ << pwell >>
+ rect 2 34 12 46
+-<< locali >>
+-rect 38 301 66 316
+-rect 67 299 101 316
+-rect 0 141 17 175
+-rect 223 141 240 175
+-rect 38 0 66 15
+-rect 139 0 173 17
+-<< obsli1 >>
+-rect 107 182 141 212
+-rect 107 104 141 134
+ << metal1 >>
+ rect 0 185 14 316
+ rect 60 287 108 316
+diff --git a/original/sky130_fd_bd_sram__sram_sp_cell_opt1.sp b/patched/sky130_fd_bd_sram__sram_sp_cell_opt1.sp
+index 623c9ea..773a7a6 100644
+--- a/original/sky130_fd_bd_sram__sram_sp_cell_opt1.sp
++++ b/patched/sky130_fd_bd_sram__sram_sp_cell_opt1.sp
+@@ -4,8 +4,8 @@
+ X0 Q_bar WL BR VNB sky130_fd_pr__special_nfet_pass w=0.14 l=0.15
+ X1 Q Q_bar VGND VNB sky130_fd_pr__special_nfet_latch w=0.21 l=0.15
+ X2 BL WL Q VNB sky130_fd_pr__special_nfet_pass w=0.14 l=0.15
+-*X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass w=0.07 l=0.095
+-*X4 Q_bar WL Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.07 l=0.095
++*X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
++*X4 Q_bar WL Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
+ X5 VPWR Q Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.14 l=0.15
+ X6 Q Q_bar VPWR VPB sky130_fd_pr__special_pfet_pass w=0.14 l=0.15
+ X7 VGND Q Q_bar VNB sky130_fd_pr__special_nfet_latch w=0.21 l=0.15

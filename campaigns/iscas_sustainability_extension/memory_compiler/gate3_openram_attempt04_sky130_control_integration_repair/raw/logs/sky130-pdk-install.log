@@ -1,0 +1,38 @@
+Cloning skywater PDK...
+Cloning into '/attempt/pdk/skywater-pdk'...
+Note: switching to 'f70d8ca46961ff92719d8870a18a076370b85f6c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at f70d8ca Merge pull request #346 from QuantamHD/add_reram
+Submodule 'libraries/sky130_fd_pr/latest' (https://github.com/google/skywater-pdk-libs-sky130_fd_pr.git) registered for path 'libraries/sky130_fd_pr/latest'
+Submodule 'libraries/sky130_fd_sc_hd/latest' (https://github.com/google/skywater-pdk-libs-sky130_fd_sc_hd.git) registered for path 'libraries/sky130_fd_sc_hd/latest'
+Cloning into '/attempt/pdk/skywater-pdk/libraries/sky130_fd_pr/latest'...
+Cloning into '/attempt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest'...
+Submodule path 'libraries/sky130_fd_pr/latest': checked out 'f62031a1be9aefe902d6d54cddd6f59b57627436'
+Submodule path 'libraries/sky130_fd_sc_hd/latest': checked out 'ac7fb61f06e6470b94e8afdf7c25268f62fbd7b1'
+Installing SKY130 via volare...
+volare enable --pdk sky130 e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066 
+Version e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066 not found locally, attempting 
+to download…
+Downloading common.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_io.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_pr.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_sc_hd.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_sc_hvl.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_ml_xx_hd.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_sram_macros.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Version e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066 enabled for the sky130 PDK.

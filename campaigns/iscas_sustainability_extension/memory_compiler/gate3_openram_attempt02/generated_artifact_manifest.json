@@ -1,0 +1,188 @@
+{
+  "attempt_id": "gate3_openram_attempt02",
+  "run_id": "run04",
+  "algorithm": "sha256",
+  "generated_at": "2026-08-30T17:10:56.7920904+05:30",
+  "evidence_root": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure",
+  "common_provenance": {
+    "openram_version": "1.2.48",
+    "openram_commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "macro_organization": "256x72 logical, 1RW, 1 bank, words_per_row=2, one spare row, one spare column",
+    "pdk": "SKY130A",
+    "technology_plugin": "sky130",
+    "corner": "TT",
+    "voltage_v": 1.8,
+    "temperature_c": 25
+  },
+  "view_availability": {
+    "gds": "AVAILABLE_UNQUALIFIED",
+    "spice": "AVAILABLE_UNQUALIFIED",
+    "lef": "UNAVAILABLE",
+    "liberty": "UNAVAILABLE",
+    "verilog": "UNAVAILABLE"
+  },
+  "qualified_macro_views": 0,
+  "macro_artifacts_admitted": 0,
+  "artifacts": [
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.gds",
+      "byte_size": 19641466,
+      "sha256": "820ed565c0657a5391c88863acfc8f1cb830303b29b8050029f4b3e0441d40f6",
+      "artifact_type": "GDS",
+      "qualification": "UNQUALIFIED_DRC_AND_LVS_FAILED",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical; physical repair interface present",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.sp",
+      "byte_size": 3676761,
+      "sha256": "03934a79ab8467090a8ce9b95cde56f0f1be1bd76d58da510bd3860375224efb",
+      "artifact_type": "SPICE",
+      "qualification": "UNQUALIFIED_LVS_AND_CHARACTERIZATION_FAILED",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical; top-level din0[0:72]/dout0[0:72] repair interface",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/functional_stim.sp",
+      "byte_size": 1085627,
+      "sha256": "996e32cf94078d3f36f84c84fedb241ffcc43ad9ab9f86d810342ec33f37d316",
+      "artifact_type": "CHARACTERIZATION_STIMULUS_INTERMEDIATE",
+      "qualification": "FAILED_BEFORE_SIMULATION_RESULTS",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/functional_meas.sp",
+      "byte_size": 435097,
+      "sha256": "0093394fd67779831c6e0cb5c2018c71934030efc4bcdf3a29c1a2ce0f881dc3",
+      "artifact_type": "CHARACTERIZATION_MEASUREMENT_DECK_INTERMEDIATE",
+      "qualification": "FAILED_BEFORE_SIMULATION_RESULTS",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.drc.out",
+      "byte_size": 2182,
+      "sha256": "6aa7fd84892f6a225783730fe5818d0a382c01a1d4a4ce8c4ed4e1e7b03a3bc6",
+      "artifact_type": "DRC_REPORT",
+      "qualification": "FAIL_223312_VIOLATIONS",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.lvs.out",
+      "byte_size": 93519,
+      "sha256": "2954efbe3bddb8a587e571d67a948dcd78e1f60e759bb813e293f6b535c65bdc",
+      "artifact_type": "LVS_STDOUT",
+      "qualification": "FAIL_NETLISTS_DO_NOT_MATCH",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.lvs.report",
+      "byte_size": 10452274,
+      "sha256": "a3a80bbb67fb0a1f11e912583626c215e55aa7d83e7c9491867bd76d1bf1eedc",
+      "artifact_type": "LVS_DETAIL_REPORT",
+      "qualification": "FAIL_NETLISTS_DO_NOT_MATCH",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.lvs.json",
+      "byte_size": 4836378,
+      "sha256": "dff22374289a4d6620771bc1111d2523b8012a6229193e92cb17c75e5e8162fc",
+      "artifact_type": "LVS_MACHINE_REPORT",
+      "qualification": "FAIL_NETLISTS_DO_NOT_MATCH",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/sky130_sram_1rw_72x256_gate3a02.log",
+      "byte_size": 13350339,
+      "sha256": "b9335aba50313f3b7c880d738ed4eb9410edb992f88525bdf3e63f5f4a93c955",
+      "artifact_type": "OPENRAM_COMPILER_LOG",
+      "qualification": "COMPLETE_FAILURE_EVIDENCE",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/openram_256x72_run04.log",
+      "byte_size": 12042745,
+      "sha256": "d4e57e2862930ba24edc02b7efb63c58702c61a750d15584df2b90e2510a82a8",
+      "artifact_type": "CONTAINER_STDOUT_LOG",
+      "qualification": "COMPLETE_FAILURE_EVIDENCE",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    },
+    {
+      "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure/openram_256x72_config.py",
+      "byte_size": 1732,
+      "sha256": "f8cfa843bfdc0427a6e35e620db180e2d222bd8239025eafd388379a33243fe0",
+      "artifact_type": "CONFIGURATION",
+      "qualification": "REPRODUCIBILITY_INPUT",
+      "openram_version": "1.2.48",
+      "macro_organization": "256x72 logical",
+      "pdk": "SKY130A",
+      "corner": "TT",
+      "voltage_v": 1.8,
+      "temperature_c": 25
+    }
+  ],
+  "missing_required_views": [
+    {
+      "view": "LEF",
+      "status": "UNAVAILABLE",
+      "reason": "OpenRAM aborted during SPICE characterization before LEF emission."
+    },
+    {
+      "view": "Liberty",
+      "status": "UNAVAILABLE",
+      "reason": "SPICE characterization aborted before any timing or power table was produced."
+    },
+    {
+      "view": "Verilog",
+      "status": "UNAVAILABLE",
+      "reason": "OpenRAM aborted before behavioral Verilog emission."
+    }
+  ]
+}

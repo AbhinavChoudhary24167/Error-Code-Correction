@@ -1,0 +1,34 @@
+{
+  "check": "post_gate1_protected_baseline_integrity",
+  "status": "PASS",
+  "checked_date": "2026-08-29",
+  "verifier": "campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify",
+  "scopes": [
+    {
+      "name": "repository",
+      "protected_file_count": 2327,
+      "added": [],
+      "changed": [],
+      "missing": [],
+      "status": "PASS"
+    },
+    {
+      "name": "date2027_breadth_raw",
+      "protected_file_count": 2401,
+      "added": [],
+      "changed": [],
+      "missing": [],
+      "status": "PASS"
+    },
+    {
+      "name": "date2027_revision2_raw",
+      "protected_file_count": 2366,
+      "added": [],
+      "changed": [],
+      "missing": [],
+      "status": "PASS"
+    }
+  ],
+  "protected_file_count_total": 7094,
+  "conclusion": "Gate 1 introduced no addition, removal, or content change in any protected DATE scope."
+}

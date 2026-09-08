@@ -1,0 +1,215 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[WARNING ORD-2056] The following 1 liberty cell(s) do not have LEF masters and will be marked as dont-use:
+  sram22_256x8m8w1
+RSTB_EXTRACTED_BEGIN design=u0 target=u_data/rstb driver=hold151
+hold151/A ^ 0.163767353:0.163767353 v 0.103794731:0.103794731
+hold151/X ^ 0.097932801:0.463225096 v 0.059161503:0.234050676
+u_data/rstb ^ 0.130894080:0.619147718 v 0.079395398:0.315126836
+Net net151
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00-0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ hold151/X output (sky130_fd_sc_hd__buf_16) (300, 336)
+
+Load pins
+ u_data/rstb input (sram22_256x64m4w8) 0.08-0.45 (291, 323)
+
+RSTB_DRIVER_LOCATION_DBU 293480 334560 orientation=MX
+RSTB_DRIVER_PIN_XY_DBU 1 299856 336149
+RSTB_MACRO_PIN_XY_DBU 1 290760 322710
+RSTB_EXTRACTED_END
+RSTB_LOCAL_BEGIN target=u_data/rstb cell=sky130_fd_sc_hd__clkinv_16 stages=2
+RSTB_IDEALIZED_BEFORE_LEGALIZATION
+rstb10_first/A ^ 0.065335996:0.065335996 v 0.041021593:0.041021593
+rstb10_final/A ^ 0.036843695:0.036843695 v 0.034954190:0.034954190
+rstb10_final/Y ^ 0.059355751:0.297734946 v 0.057909127:0.290247500
+u_data/rstb ^ 0.079237945:0.397579819 v 0.077307880:0.387585402
+RSTB_FINAL_PIN_XY_DBU 1 299295 321277
+RSTB_MACRO_PIN_XY_DBU 1 290760 322710
+Net rstb10_out
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00-0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ rstb10_final/Y output (sky130_fd_sc_hd__clkinv_16) (299, 321)
+
+Load pins
+ u_data/rstb input (sram22_256x64m4w8) 0.08-0.45 (291, 323)
+
+RSTB_LEGALIZED_PLACEMENT
+[WARNING DPL-0037] Use remove_fillers before detailed placement.
+[INFO DPL-0006] Core area: 439734.24 um^2
+[INFO DPL-0007] Movable instances area: 228009.93 um^2
+[INFO DPL-0008] Fixed instances area within core: 205226.64 um^2
+[INFO DPL-0009] Utilization: 98.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 31215 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |        107 |        11 |        96
+        1 |         82 |        10 |        72
+        2 |        107 |        11 |        96
+        3 |        107 |        11 |        96
+        4 |        107 |        11 |        96
+        5 |         58 |        10 |        48
+        6 |         58 |        10 |        48
+        7 |         58 |        10 |        48
+        8 |         58 |        10 |        48
+[WARNING DPL-0700] Negotiation phase 1: violations stuck at 58 for 3 consecutive iterations.
+Using old diamond search for 10 remaining illegal cells.
+diamond recovery: recovered 2/10 stuck cells.
+Negotiation phase 2: isolation point active, 1000 iterations.
+      400 |         92 |        14 |        78
+      410 |        102 |        16 |        86
+      420 |         69 |        12 |        57
+      430 |        107 |        14 |        93
+      440 |        103 |        24 |        79
+      450 |         95 |        17 |        78
+      460 |        118 |        26 |        92
+      470 |        100 |        22 |        78
+      480 |         96 |        17 |        79
+      490 |         93 |        20 |        73
+      500 |        103 |        22 |        81
+      510 |        106 |        18 |        88
+      520 |         97 |        19 |        78
+      530 |         95 |        17 |        78
+      540 |        103 |        20 |        83
+      550 |         79 |        16 |        63
+      560 |         90 |        17 |        73
+      570 |         81 |        15 |        66
+      580 |         90 |        22 |        68
+      590 |        115 |        21 |        94
+      600 |        105 |        18 |        87
+      610 |        125 |        24 |       101
+      620 |        120 |        22 |        98
+      630 |        106 |        22 |        84
+      640 |        113 |        19 |        94
+      650 |        123 |        19 |       104
+      660 |        115 |        19 |        96
+      670 |        118 |        22 |        96
+      680 |        117 |        26 |        91
+      690 |        132 |        30 |       102
+      700 |        118 |        23 |        95
+      710 |        137 |        26 |       111
+      720 |        117 |        20 |        97
+      730 |        106 |        18 |        88
+      740 |        110 |        21 |        89
+      750 |        115 |        21 |        94
+      760 |        122 |        24 |        98
+      770 |        125 |        25 |       100
+      780 |        103 |        19 |        84
+      790 |        118 |        22 |        96
+      800 |        106 |        20 |        86
+      810 |        105 |        17 |        88
+      820 |        125 |        19 |       106
+      830 |        130 |        20 |       110
+      840 |         99 |        18 |        81
+      850 |        107 |        20 |        87
+      860 |        102 |        21 |        81
+      870 |        114 |        20 |        94
+      880 |        111 |        26 |        85
+      890 |        113 |        26 |        87
+      900 |        114 |        22 |        92
+      910 |        110 |        20 |        90
+      920 |        132 |        25 |       107
+      930 |        129 |        26 |       103
+      940 |        122 |        22 |       100
+      950 |        118 |        18 |       100
+      960 |        134 |        28 |       106
+      970 |        128 |        26 |       102
+      980 |        128 |        24 |       104
+      990 |        141 |        29 |       112
+     1000 |        137 |        28 |       109
+     1010 |        134 |        28 |       106
+     1020 |        133 |        22 |       111
+     1030 |        131 |        23 |       108
+     1040 |        126 |        22 |       104
+     1050 |        139 |        30 |       109
+     1060 |        119 |        19 |       100
+     1070 |        132 |        24 |       108
+     1080 |        142 |        26 |       116
+     1090 |        141 |        29 |       112
+     1100 |        127 |        21 |       106
+     1110 |        127 |        22 |       105
+     1120 |        114 |        19 |        95
+     1130 |        117 |        22 |        95
+     1140 |        124 |        22 |       102
+     1150 |        115 |        21 |        94
+     1160 |        119 |        19 |       100
+     1170 |        114 |        22 |        92
+     1180 |        121 |        21 |       100
+     1190 |        119 |        19 |       100
+     1200 |        110 |        18 |        92
+     1210 |        110 |        18 |        92
+     1220 |        123 |        21 |       102
+     1230 |        120 |        20 |       100
+     1240 |        137 |        23 |       114
+     1250 |        127 |        27 |       100
+     1260 |        113 |        22 |        91
+     1270 |        118 |        24 |        94
+     1280 |        120 |        25 |        95
+     1290 |        128 |        22 |       106
+     1300 |        130 |        27 |       103
+     1310 |        121 |        20 |       101
+     1320 |        121 |        22 |        99
+     1330 |        119 |        23 |        96
+     1340 |        120 |        26 |        94
+     1350 |        131 |        23 |       108
+     1360 |        121 |        23 |        98
+     1370 |        130 |        28 |       102
+     1380 |        126 |        22 |       104
+     1390 |        135 |        32 |       103
+     1399 |        158 |        33 |       125
+[WARNING DPL-0701] NegotiationLegalizer did not fully converge. Violations remain: 33
+[INFO DPL-0500] Runtime: 26.56s
+Placement Analysis
+---------------------------------
+total displacement       2621.4 u
+average displacement        0.1 u
+max displacement           69.9 u
+original HPWL           22230.2 u
+legalized HPWL          22324.3 u
+delta HPWL                    0 %
+
+[WARNING DPL-0005] Overlap check failed (19).
+ FILLER_120_415 (sky130_fd_sc_hd__fill_8) overlaps FILLER_116_421 (sky130_fd_sc_hd__fill_8)
+ FILLER_120_423 (sky130_fd_sc_hd__fill_8) overlaps FILLER_116_421 (sky130_fd_sc_hd__fill_8)
+ FILLER_121_469 (sky130_fd_sc_hd__fill_8) overlaps FILLER_121_461 (sky130_fd_sc_hd__fill_8)
+ FILLER_125_477 (sky130_fd_sc_hd__fill_2) overlaps FILLER_123_481 (sky130_fd_sc_hd__fill_8)
+ FILLER_125_479 (sky130_fd_sc_hd__fill_1) overlaps FILLER_123_481 (sky130_fd_sc_hd__fill_8)
+ FILLER_126_407 (sky130_fd_sc_hd__fill_8) overlaps FILLER_125_421 (sky130_fd_sc_hd__fill_8)
+ FILLER_126_415 (sky130_fd_sc_hd__fill_8) overlaps FILLER_125_421 (sky130_fd_sc_hd__fill_8)
+ FILLER_129_657 (sky130_fd_sc_hd__fill_2) overlaps FILLER_125_657 (sky130_fd_sc_hd__fill_2)
+ FILLER_129_659 (sky130_fd_sc_hd__fill_1) overlaps FILLER_125_657 (sky130_fd_sc_hd__fill_2)
+ FILLER_133_489 (sky130_fd_sc_hd__fill_8) overlaps FILLER_131_481 (sky130_fd_sc_hd__fill_8)
+ FILLER_137_541 (sky130_fd_sc_hd__fill_8) overlaps FILLER_133_537 (sky130_fd_sc_hd__fill_2)
+ FILLER_151_461 (sky130_fd_sc_hd__fill_8) overlaps FILLER_146_467 (sky130_fd_sc_hd__fill_8)
+ FILLER_151_469 (sky130_fd_sc_hd__fill_8) overlaps FILLER_146_467 (sky130_fd_sc_hd__fill_8)
+ FILLER_156_663 (sky130_fd_sc_hd__fill_8) overlaps FILLER_153_669 (sky130_fd_sc_hd__fill_8)
+ FILLER_160_559 (sky130_fd_sc_hd__fill_8) overlaps FILLER_160_551 (sky130_fd_sc_hd__fill_8)
+ FILLER_160_567 (sky130_fd_sc_hd__fill_2) overlaps FILLER_157_565 (sky130_fd_sc_hd__fill_8)
+ FILLER_160_569 (sky130_fd_sc_hd__fill_1) overlaps FILLER_157_565 (sky130_fd_sc_hd__fill_8)
+ FILLER_162_527 (sky130_fd_sc_hd__fill_8) overlaps FILLER_161_541 (sky130_fd_sc_hd__fill_8)
+ output106 (sky130_fd_sc_hd__clkdlybuf4s50_1) overlaps FILLER_149_709 (sky130_fd_sc_hd__fill_8)
+[ERROR DPL-0033] detailed placement checks failed during check placement.
+Error: rstb_local_placement.tcl, 39 DPL-0033

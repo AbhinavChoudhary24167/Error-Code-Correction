@@ -1,0 +1,70 @@
+{
+  "assertions": {
+    "campaign_tests_passed": true,
+    "full_pytest_has_exact_historical_failures": true,
+    "make_passed": true,
+    "make_test_has_exact_historical_failures": true,
+    "protected_executable_restored": true
+  },
+  "classification": "EXPECTED_FROZEN_VALIDATOR_FAILURES_ONLY",
+  "commands": [
+    {
+      "command": "make",
+      "exit_code": 0,
+      "log": "integrity/regression/make.log",
+      "log_sha256": "ac8c327bf6d8adc1ab513bcfc22ec5fe04dd46813536e8cea148eea7ec01db7a",
+      "passed": true
+    },
+    {
+      "command": "make test",
+      "exit_code": 2,
+      "failed_tests": 2,
+      "failure_disposition": "EXPECTED_FROZEN_WORKING_TREE_SCOPE_VALIDATORS",
+      "failure_node_ids": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+      ],
+      "log": "integrity/regression/make_test.log",
+      "log_sha256": "780e26aa90b208edbdf0b3bf935b0b16d45087753cf75b716e47f5ac4e4cab26",
+      "passed": false,
+      "passed_tests": 482
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "exit_code": 1,
+      "failed_tests": 2,
+      "failure_disposition": "EXPECTED_FROZEN_WORKING_TREE_SCOPE_VALIDATORS",
+      "failure_node_ids": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+      ],
+      "log": "integrity/regression/python3_pytest.log",
+      "log_sha256": "4588364e0909630b91245fd7b437092140d0cf5640122b8cf52f4379de9e0b15",
+      "passed": false,
+      "passed_tests": 484
+    },
+    {
+      "command": "python -m pytest -q campaigns/.../gate3_attempt10.../tests",
+      "exit_code": 0,
+      "failed_tests": 0,
+      "log": "integrity/regression/campaign_pytest.log",
+      "log_sha256": "73ff3120f813be593733c1784436407b582fd098457a46fcd67089f03934e124",
+      "passed": true,
+      "passed_tests": 28
+    }
+  ],
+  "expected_historical_failures": [
+    "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+    "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+  ],
+  "failure_cause": "The frozen DATE validators reject the already-untracked campaigns/iscas_sustainability_extension scope. They do not report a functional product regression.",
+  "no_new_regression": true,
+  "protected_executable": {
+    "path": "PracticalSRAMSimulator.exe",
+    "restored_to_exact_baseline": true,
+    "sha256_after_make": "1a918c47b192959a3ecd874daeeab1e53c8512ee0497b49a8c9144c4ee8d27a0",
+    "sha256_after_restore": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "sha256_before": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef"
+  },
+  "schema_version": 1
+}

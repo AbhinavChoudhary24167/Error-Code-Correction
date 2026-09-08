@@ -1,0 +1,59 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+"sky130_fd_bd_sram__openram_dp_cell" has a zero timestamp; it should be written out
+    to establish a correct timestamp.
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Diffusion width < 0.15um (diff/tap.1)",15
+"Local interconnect spacing < 0.17um (li.3)",25
+"P-tap minimum area < 0.07011um^2 (psd.10b)",8
+"Local interconnect width < 0.17um (li.1)",31
+"N-Diffusion spacing to N-well < 0.34um (diff/tap.9)",41
+"poly contact width        < 0.17um (licon.1)",11
+"P-diffusion contact width < 0.17um (licon.1)",5
+"Diffusion contact to SRAM gate < 0.04um (licon.11)",6
+"Metal1 overlap of local interconnect contact < 0.03um (met1.4)",12
+"Metal1 overlap of local interconnect contact < 0.06um in one direction (met1.5)",4
+"poly width < 0.15um (poly.1a)",5
+"P-tap overlap of P-tap contact < 0.12um in one direction (licon.7)",72
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",5
+"P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",6
+"P-diffusion overlap of P-diffusion contact < 0.06um in one direction (licon.5c)",12
+"nFET cannot abut P-diffusion (diff/tap.3)",14
+"poly overhang of SRAM core transistor < 0.11um (poly.8)",20
+"poly overlap of poly contact < 0.08um in one direction (licon.8a)",8
+"poly contact spacing to diffusion < 0.19um (licon.14)",20
+"poly spacing to diffusion tap < 0.055um (poly.5)",18
+"poly spacing to Diffusion < 0.075um (poly.4)",64
+"N-tap contact width     < 0.17um (licon.1)",4
+"Core local interconnect spacing < 0.14um (li.c2)",8
+"N-tap overlap of N-tap contact < 0.12um in one direction (licon.7)",4
+"N-Diffusion overhang of nFET < 0.25um (poly.7)",4
+"Diffusion spacing < 0.27um (diff/tap.3)",18
+"N-Transistor in SRAM core width < 0.21um (diff/tap.2)",12
+"N-diffusion contact width < 0.17um (licon.1)",16
+"poly spacing < 0.21um (poly.2)",9
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",27
+"N-diffusion overlap of N-diffusion contact < 0.06um in one direction (licon.5c)",4
+"N-well overlap of N-tap < 0.18um (diff/tap.10)",9
+"poly overlap of poly contact < 0.05um (licon.8)",25
+__RULE_CSV_END__
+RULE_TOTAL=542
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_fd_bd_sram__openram_dp_cell",168
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=168

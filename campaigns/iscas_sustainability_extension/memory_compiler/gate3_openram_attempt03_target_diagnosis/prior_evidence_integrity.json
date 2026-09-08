@@ -1,0 +1,40 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "timestamp": "2026-08-30T17:57:31.6505341+05:30",
+  "algorithm": "sha256",
+  "status": "PASS",
+  "repository_manifest": {
+    "path": "../GATE2_GATE3_EVIDENCE_MANIFEST.json",
+    "checked_files": 22,
+    "changed": [],
+    "missing": []
+  },
+  "attempt01": {
+    "preserved_record": "../GATE3_INFRASTRUCTURE_INCIDENT.md",
+    "expected_sha256": "76bce8942b510ccfba921b74bd4d470e1f0a24b6b6c093756960f65cb44db72b",
+    "actual_sha256": "76bce8942b510ccfba921b74bd4d470e1f0a24b6b6c093756960f65cb44db72b",
+    "status": "PASS"
+  },
+  "attempt02_local": {
+    "path": "../gate3_openram_attempt02",
+    "file_count": 17,
+    "all_files_covered_by_repository_manifest": true,
+    "status": "PASS"
+  },
+  "attempt02_external_run04": {
+    "manifest": "../gate3_openram_attempt02/generated_artifact_manifest.json",
+    "evidence_root": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/evidence/run04_failure",
+    "checked_files": 11,
+    "size_mismatches": [],
+    "hash_mismatches": [],
+    "status": "PASS"
+  },
+  "attempt02_external_tree_pre_attempt03": {
+    "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02",
+    "file_count": 36548,
+    "byte_size": 5430332296,
+    "tree_hash_method": "SHA-256 over each sorted relative UTF-8 path, NUL, raw file SHA-256 digest, newline",
+    "tree_sha256": "f0dc7607d459831124aed3b767195535d24542ce0a24e62595f8dae7ec20c2b6",
+    "status": "BASELINE_CAPTURED_FOR_FINAL_RECHECK"
+  }
+}

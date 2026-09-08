@@ -1,0 +1,5525 @@
+{
+  "algorithm": "sha256",
+  "campaign": "campaign",
+  "cells": [
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_colend",
+      "category": "column_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_colend",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_colend": {
+          "elements": {
+            "BOUNDARY": 38,
+            "TEXT": 8
+          },
+          "layers": {
+            "122/16": 1,
+            "22/21": 1,
+            "33/43": 1,
+            "64/16": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "64/5": 1,
+            "64/59": 1,
+            "65/20": 1,
+            "65/44": 2,
+            "66/20": 2,
+            "66/44": 6,
+            "66/83": 1,
+            "67/20": 3,
+            "67/44": 1,
+            "68/16": 4,
+            "68/20": 4,
+            "68/44": 2,
+            "68/5": 4,
+            "69/20": 4,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "122/16": 1,
+        "22/21": 1,
+        "33/43": 1,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 1,
+        "65/44": 2,
+        "66/20": 2,
+        "66/44": 6,
+        "66/83": 1,
+        "67/20": 3,
+        "67/44": 1,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_colend"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colend",
+          "pins": [
+            "bl",
+            "br",
+            "vdd",
+            "gnd",
+            "vpb",
+            "vnb",
+            "gate"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 1,
+        "33/43": 1,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3162,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_colend.gds",
+          "sha256": "f52991ef2d156af4ec61bf605bdb2a2bcf95d8c2ca60ba3a318e4ba0cc1f750b"
+        },
+        "lvs_spice": {
+          "byte_size": 230,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_colend.sp",
+          "sha256": "f088f201b296e426ca494c5b304be741b039154676d896caa1e68c2e89b5e8f3"
+        },
+        "mag": {
+          "byte_size": 1992,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_colend.mag",
+          "sha256": "b634943ba8460009503f8a3346fff7d4b3b2598475a79761b78c590a3f5ca308"
+        },
+        "maglef": {
+          "byte_size": 2369,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_colend.mag",
+          "sha256": "3bff142bbd0831341a906feea4fec45fc6dd3325f3ca66fd16ec904d4ff66e2b"
+        },
+        "spice": {
+          "byte_size": 232,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_colend.sp",
+          "sha256": "eca7647cb71590e2bf67295b61484ccfbd9e713b772438fdaa02eb6b81b0a8d9"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colend",
+          "pins": [
+            "bl",
+            "br",
+            "vdd",
+            "gnd",
+            "vpb",
+            "vnb",
+            "gate"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 1,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "bl",
+        "br",
+        "vdd",
+        "gnd",
+        "vpb",
+        "vnb",
+        "gate"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 699,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.lvs.calibre.spice",
+          "sha256": "053ddcc33a263d4afe7e77e3e1b12d437e051f09f48c888aa631d6c8edb684b4"
+        },
+        "gds": {
+          "byte_size": 3162,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.gds",
+          "sha256": "f52991ef2d156af4ec61bf605bdb2a2bcf95d8c2ca60ba3a318e4ba0cc1f750b"
+        },
+        "gds_pins": {
+          "byte_size": 18,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.gds.pins",
+          "sha256": "a6d741a2588f1108ecd912978f48afaf6a9ffa7d59de4017abf899e738e0e4d6"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 699,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.lvs.klayout.spice",
+          "sha256": "7586eed56159a021155d9e5a1876a4c04af9d5501bc880e102bbff32da73463e"
+        },
+        "lvs_spice": {
+          "byte_size": 230,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.lvs.spice",
+          "sha256": "f088f201b296e426ca494c5b304be741b039154676d896caa1e68c2e89b5e8f3"
+        },
+        "mag": {
+          "byte_size": 1992,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.mag",
+          "sha256": "b634943ba8460009503f8a3346fff7d4b3b2598475a79761b78c590a3f5ca308"
+        },
+        "magic_lef": {
+          "byte_size": 2316,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.magic.lef",
+          "sha256": "91d13d71b6bcdef07fb8c3562dafe1aa4bb65ba03b7804c2c4151c1ad6b0c277"
+        },
+        "maglef": {
+          "byte_size": 2369,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.maglef",
+          "sha256": "3bff142bbd0831341a906feea4fec45fc6dd3325f3ca66fd16ec904d4ff66e2b"
+        },
+        "spice": {
+          "byte_size": 232,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend/sky130_fd_bd_sram__sram_sp_colend.spice",
+          "sha256": "eca7647cb71590e2bf67295b61484ccfbd9e713b772438fdaa02eb6b81b0a8d9"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_colenda",
+      "category": "column_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_colenda",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_colenda": {
+          "elements": {
+            "BOUNDARY": 45,
+            "TEXT": 8
+          },
+          "layers": {
+            "122/16": 1,
+            "22/21": 1,
+            "33/43": 1,
+            "64/16": 1,
+            "64/18": 1,
+            "64/20": 2,
+            "64/5": 1,
+            "64/59": 1,
+            "65/20": 1,
+            "65/44": 2,
+            "66/20": 2,
+            "66/44": 6,
+            "66/5": 1,
+            "66/83": 1,
+            "67/20": 3,
+            "67/44": 1,
+            "68/16": 4,
+            "68/20": 8,
+            "68/44": 2,
+            "68/5": 4,
+            "69/20": 4,
+            "81/2": 1,
+            "92/44": 2,
+            "93/44": 1,
+            "94/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "122/16": 1,
+        "22/21": 1,
+        "33/43": 1,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 2,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 1,
+        "65/44": 2,
+        "66/20": 2,
+        "66/44": 6,
+        "66/5": 1,
+        "66/83": 1,
+        "67/20": 3,
+        "67/44": 1,
+        "68/16": 4,
+        "68/20": 8,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 2,
+        "93/44": 1,
+        "94/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_colenda"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colenda",
+          "pins": [
+            "bl",
+            "br",
+            "vdd",
+            "gnd",
+            "vpb",
+            "vnb",
+            "gate"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 1,
+        "33/43": 1,
+        "92/44": 2
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3568,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_colenda.gds",
+          "sha256": "6b7b7f4836bca4cf56ea3e283bd78901a70b97f4acd97d3b4bda960f7ca5a4be"
+        },
+        "lvs_spice": {
+          "byte_size": 233,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_colenda.sp",
+          "sha256": "578e81abd9b2445c664092e2322be84dece837e0e7f2f5494cbd0c774d50f77a"
+        },
+        "mag": {
+          "byte_size": 1931,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_colenda.mag",
+          "sha256": "c2f098dc17289915b0ff37c8b95aed78dc2373ae695f861c1596ba87aacd0f70"
+        },
+        "maglef": {
+          "byte_size": 2369,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_colenda.mag",
+          "sha256": "f38fee3963cc5f0e60470ce01779b8cebaa57ebc622ae042107ff895aeb936fb"
+        },
+        "spice": {
+          "byte_size": 235,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_colenda.sp",
+          "sha256": "c322e480344f0e547235fa433a8d619b9ca7dcbec85fb39895dfaaa59a71bf1c"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colenda",
+          "pins": [
+            "bl",
+            "br",
+            "vdd",
+            "gnd",
+            "vpb",
+            "vnb",
+            "gate"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 2,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "bl",
+        "br",
+        "vdd",
+        "gnd",
+        "vpb",
+        "vnb",
+        "gate"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 700,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.lvs.calibre.spice",
+          "sha256": "5a11699fbb4443089167fc9275ed1efc53ed7bca9a4bcc1756561873c843242a"
+        },
+        "gds": {
+          "byte_size": 3568,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.gds",
+          "sha256": "6b7b7f4836bca4cf56ea3e283bd78901a70b97f4acd97d3b4bda960f7ca5a4be"
+        },
+        "gds_pins": {
+          "byte_size": 18,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.gds.pins",
+          "sha256": "a6d741a2588f1108ecd912978f48afaf6a9ffa7d59de4017abf899e738e0e4d6"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 700,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.lvs.klayout.spice",
+          "sha256": "873695e2651e8dae2ee9a158d0d1dc86aac34946e20720ca62b8b5feefaaf5db"
+        },
+        "lvs_spice": {
+          "byte_size": 233,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.lvs.spice",
+          "sha256": "578e81abd9b2445c664092e2322be84dece837e0e7f2f5494cbd0c774d50f77a"
+        },
+        "mag": {
+          "byte_size": 1931,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.mag",
+          "sha256": "c2f098dc17289915b0ff37c8b95aed78dc2373ae695f861c1596ba87aacd0f70"
+        },
+        "magic_lef": {
+          "byte_size": 2319,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.magic.lef",
+          "sha256": "b92787d512a8ae95cf67dd3f26fb0b52dc08d34a79e36679c94fd92da1b48e65"
+        },
+        "maglef": {
+          "byte_size": 2369,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.maglef",
+          "sha256": "f38fee3963cc5f0e60470ce01779b8cebaa57ebc622ae042107ff895aeb936fb"
+        },
+        "spice": {
+          "byte_size": 235,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda/sky130_fd_bd_sram__sram_sp_colenda.spice",
+          "sha256": "c322e480344f0e547235fa433a8d619b9ca7dcbec85fb39895dfaaa59a71bf1c"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_corner",
+      "category": "corner",
+      "cell": "sky130_fd_bd_sram__sram_sp_corner",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_corner": {
+          "elements": {
+            "BOUNDARY": 4,
+            "SREF": 3,
+            "TEXT": 3
+          },
+          "layers": {
+            "68/16": 3,
+            "68/5": 3,
+            "81/2": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_corner_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_corner_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_corner_p1m_serif": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_corner_ce": {
+          "elements": {
+            "BOUNDARY": 22
+          },
+          "layers": {
+            "64/18": 1,
+            "64/20": 1,
+            "65/44": 1,
+            "66/20": 2,
+            "66/44": 5,
+            "67/20": 2,
+            "67/44": 4,
+            "68/20": 3,
+            "92/44": 1,
+            "93/44": 1,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_corner_met2": {
+          "elements": {
+            "BOUNDARY": 7
+          },
+          "layers": {
+            "68/44": 3,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_corner_p1m_serif": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "33/43": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "65/44": 1,
+        "66/20": 2,
+        "66/44": 5,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 3,
+        "68/20": 3,
+        "68/44": 3,
+        "68/5": 3,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_corner"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3086,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_corner.gds",
+          "sha256": "85a0fe1aded77c71a88426bba14f56dc5d8de0e765574189a96f5219a394c0f4"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2473,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_corner.mag",
+          "sha256": "f8cd52f11ef2b603c1fb5e1cd7d2f371a330f77a3a0ea04a37f6c03025007637"
+        },
+        "maglef": {
+          "byte_size": 3422,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_corner.mag",
+          "sha256": "eff49f68b5aff8baa6d246d25d9b79c3bf084cf754cb5c295f9afdcf4d5897c0"
+        },
+        "spice": {
+          "byte_size": 150,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_corner.sp",
+          "sha256": "66138dbfa5910df146d9eed8e2f0c54dbe2972f406c1a6b6e089e0324bd3fa5f"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_corner",
+          "pins": [
+            "VPWR",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 3,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3086,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.gds",
+          "sha256": "85a0fe1aded77c71a88426bba14f56dc5d8de0e765574189a96f5219a394c0f4"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.gds.pins",
+          "sha256": "e9c2f27962f521c5223e31abce49ba3124c82565e7c1b97e15a2695ced95a6b2"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2473,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.mag",
+          "sha256": "f8cd52f11ef2b603c1fb5e1cd7d2f371a330f77a3a0ea04a37f6c03025007637"
+        },
+        "magic_lef": {
+          "byte_size": 2733,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.magic.lef",
+          "sha256": "e0c126464192bea72097d84b51d1048af06cb982dca1aaf1c1984ebeb8f4c80c"
+        },
+        "maglef": {
+          "byte_size": 3422,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.maglef",
+          "sha256": "eff49f68b5aff8baa6d246d25d9b79c3bf084cf754cb5c295f9afdcf4d5897c0"
+        },
+        "spice": {
+          "byte_size": 150,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_corner/sky130_fd_bd_sram__sram_sp_corner.spice",
+          "sha256": "66138dbfa5910df146d9eed8e2f0c54dbe2972f406c1a6b6e089e0324bd3fa5f"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_cornera",
+      "category": "corner",
+      "cell": "sky130_fd_bd_sram__sram_sp_cornera",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_corner_ce": {
+          "elements": {
+            "BOUNDARY": 22
+          },
+          "layers": {
+            "64/18": 1,
+            "64/20": 1,
+            "65/44": 1,
+            "66/20": 2,
+            "66/44": 5,
+            "67/20": 2,
+            "67/44": 4,
+            "68/20": 3,
+            "92/44": 1,
+            "93/44": 1,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_corner_met2": {
+          "elements": {
+            "BOUNDARY": 7
+          },
+          "layers": {
+            "68/44": 3,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cornera": {
+          "elements": {
+            "BOUNDARY": 5,
+            "SREF": 3,
+            "TEXT": 3
+          },
+          "layers": {
+            "68/16": 3,
+            "68/5": 3,
+            "81/2": 1,
+            "92/44": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_corner_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_corner_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "33/43": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "65/44": 1,
+        "66/20": 2,
+        "66/44": 5,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 3,
+        "68/20": 3,
+        "68/44": 3,
+        "68/5": 3,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 2,
+        "93/44": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_cornera"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 2
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3150,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_cornera.gds",
+          "sha256": "06b1d64d53cb500eaad19aff54603a54b9cb01788d9a08678dbaded8431af6bf"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2473,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_cornera.mag",
+          "sha256": "2d6daf10f72463252d6a2f1a28f6d138da44dfd5485c6de54b7b1a04340ea7e1"
+        },
+        "maglef": {
+          "byte_size": 3422,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_cornera.mag",
+          "sha256": "db1bf180a6fbebd74ef751ae95b50ef884ceff74146327281b278449fb5db825"
+        },
+        "spice": {
+          "byte_size": 153,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_cornera.sp",
+          "sha256": "66492936e3ef61b8efc9796637d5263a75e4ee2c927d3e4aa33373729ff7b084"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_cornera",
+          "pins": [
+            "VPWR",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 3,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3150,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.gds",
+          "sha256": "06b1d64d53cb500eaad19aff54603a54b9cb01788d9a08678dbaded8431af6bf"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.gds.pins",
+          "sha256": "25c3ece07b63e13578ded7e66adf6b5bcae853f00e98daf1e5a6b3b4a8f198dd"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2473,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.mag",
+          "sha256": "2d6daf10f72463252d6a2f1a28f6d138da44dfd5485c6de54b7b1a04340ea7e1"
+        },
+        "magic_lef": {
+          "byte_size": 2736,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.magic.lef",
+          "sha256": "7bf7d8eec25136abb24a19dcbbc18abb53489dbf67203361dd4f09c6abbad88c"
+        },
+        "maglef": {
+          "byte_size": 3422,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.maglef",
+          "sha256": "db1bf180a6fbebd74ef751ae95b50ef884ceff74146327281b278449fb5db825"
+        },
+        "spice": {
+          "byte_size": 153,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.spice",
+          "sha256": "66492936e3ef61b8efc9796637d5263a75e4ee2c927d3e4aa33373729ff7b084"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_cornerb",
+      "category": "corner",
+      "cell": "sky130_fd_bd_sram__sram_sp_cornerb",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_corner_ce": {
+          "elements": {
+            "BOUNDARY": 22
+          },
+          "layers": {
+            "64/18": 1,
+            "64/20": 1,
+            "65/44": 1,
+            "66/20": 2,
+            "66/44": 5,
+            "67/20": 2,
+            "67/44": 4,
+            "68/20": 3,
+            "92/44": 1,
+            "93/44": 1,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_corner_met2_b": {
+          "elements": {
+            "BOUNDARY": 7
+          },
+          "layers": {
+            "68/44": 3,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_corner_p1m_serif": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "33/43": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cornerb": {
+          "elements": {
+            "BOUNDARY": 4,
+            "SREF": 3,
+            "TEXT": 3
+          },
+          "layers": {
+            "68/16": 3,
+            "68/5": 3,
+            "81/2": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_corner_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_corner_met2_b": 1,
+            "sky130_fd_bd_sram__sram_sp_corner_p1m_serif": 1
+          }
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "65/44": 1,
+        "66/20": 2,
+        "66/44": 5,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 3,
+        "68/20": 3,
+        "68/44": 3,
+        "68/5": 3,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_cornerb"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3090,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_cornerb.gds",
+          "sha256": "0afb9b63128e70dcf6b7cbfbf3aa3593931ad9f27dc8a03ca32a399782975392"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2473,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_cornerb.mag",
+          "sha256": "fa35aa3d52e4ad42eb65700b3cd7977c630433956206b3cf8af85d6b08512217"
+        },
+        "maglef": {
+          "byte_size": 3422,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_cornerb.mag",
+          "sha256": "1f53f5febb07f78597f2f03a621b0049eb5e6245eb9903c121d1d59df13b3419"
+        },
+        "spice": {
+          "byte_size": 152,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_cornerb.sp",
+          "sha256": "ba04c8d0e7b8830e8e4b248afd388504fd0521ae7e0561a594e36cd6e8e579d3"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_cornerb",
+          "pins": [
+            "VPWR",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 3,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3090,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.gds",
+          "sha256": "0afb9b63128e70dcf6b7cbfbf3aa3593931ad9f27dc8a03ca32a399782975392"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.gds.pins",
+          "sha256": "e9c2f27962f521c5223e31abce49ba3124c82565e7c1b97e15a2695ced95a6b2"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2473,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.mag",
+          "sha256": "fa35aa3d52e4ad42eb65700b3cd7977c630433956206b3cf8af85d6b08512217"
+        },
+        "magic_lef": {
+          "byte_size": 2736,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.magic.lef",
+          "sha256": "901df4a13a02292be0116080f907dad1e3dc7d2f7f7669087039f979ecc65346"
+        },
+        "maglef": {
+          "byte_size": 3422,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.maglef",
+          "sha256": "1f53f5febb07f78597f2f03a621b0049eb5e6245eb9903c121d1d59df13b3419"
+        },
+        "spice": {
+          "byte_size": 152,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cornerb/sky130_fd_bd_sram__sram_sp_cornerb.spice",
+          "sha256": "ba04c8d0e7b8830e8e4b248afd388504fd0521ae7e0561a594e36cd6e8e579d3"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_cell_opt1",
+      "category": "bitcell",
+      "cell": "sky130_fd_bd_sram__sram_sp_cell_opt1",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_cell": {
+          "elements": {
+            "BOUNDARY": 39,
+            "SREF": 1,
+            "TEXT": 8
+          },
+          "layers": {
+            "115/43": 2,
+            "22/21": 7,
+            "64/20": 1,
+            "65/20": 2,
+            "66/20": 4,
+            "66/44": 10,
+            "66/83": 8,
+            "67/20": 6,
+            "67/44": 1,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_fom_serifs": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_addpoly": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "66/20": 2
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "33/43": 2
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "22/22": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "22/22": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serifs": {
+          "elements": {
+            "SREF": 4
+          },
+          "layers": {},
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos": 2,
+            "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos": 2
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_met2": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "69/20": 3
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_metopt1": {
+          "elements": {
+            "BOUNDARY": 8
+          },
+          "layers": {
+            "67/44": 4,
+            "68/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_opt1": {
+          "elements": {
+            "BOUNDARY": 8,
+            "SREF": 5,
+            "TEXT": 7
+          },
+          "layers": {
+            "122/16": 1,
+            "64/16": 1,
+            "64/5": 1,
+            "64/59": 1,
+            "66/16": 2,
+            "66/5": 1,
+            "68/16": 4,
+            "68/5": 4
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_opt1_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_via": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_opt1_ce": {
+          "elements": {
+            "BOUNDARY": 1,
+            "SREF": 3
+          },
+          "layers": {
+            "64/18": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_addpoly": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_metopt1": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_p1_serif": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "33/43": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_p1_serifs": {
+          "elements": {
+            "SREF": 4
+          },
+          "layers": {},
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_p1_serif": 4
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing": {
+          "elements": {
+            "BOUNDARY": 4,
+            "SREF": 1
+          },
+          "layers": {
+            "33/43": 4
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_p1_serifs": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_via": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "68/44": 2
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/43": 2,
+        "122/16": 1,
+        "22/21": 7,
+        "22/22": 2,
+        "33/43": 7,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 2,
+        "66/16": 2,
+        "66/20": 6,
+        "66/44": 10,
+        "66/5": 1,
+        "66/83": 8,
+        "67/20": 6,
+        "67/44": 5,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 3,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_cell_opt1"
+      ],
+      "gds_structure_count": 14,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_cell_opt1",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 7,
+        "33/43": 7,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 8486,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.gds",
+          "sha256": "f04078c44cfba5e5fdb29dab87aafdf9096606ede08ac05227d6fd786849963c"
+        },
+        "lvs_spice": {
+          "byte_size": 708,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+          "sha256": "2164e8fe683e76f729eb1853fb431425e4d7c70ac531f802c07470afb8b331b6"
+        },
+        "mag": {
+          "byte_size": 3713,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+          "sha256": "94b47ae1e4f7f0760d9d8468e0d64de5ccfb6f15f808dd23831626252ba84560"
+        },
+        "maglef": {
+          "byte_size": 2313,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+          "sha256": "f7caf8d4c0eec194b9a64c56223f48d971acb35bb6a509f346eb930071582163"
+        },
+        "spice": {
+          "byte_size": 694,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+          "sha256": "06d9a60f321394645457bbb0d3c1eca4f9f858d2818d62ecf1df855820dd5418"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_cell_opt1",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 4,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "BL",
+        "BR",
+        "VGND",
+        "VPWR",
+        "VPB",
+        "VNB",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 1095,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.lvs.calibre.spice",
+          "sha256": "6ccafb82f95ab878d457fe17ca4bcf979a55e24980a250e6183c3995c8f6c5aa"
+        },
+        "gds": {
+          "byte_size": 8486,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.gds",
+          "sha256": "f04078c44cfba5e5fdb29dab87aafdf9096606ede08ac05227d6fd786849963c"
+        },
+        "gds_pins": {
+          "byte_size": 27,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.gds.pins",
+          "sha256": "eb5f40c7881493b014af3099d0850a3ed3c6da577278869a75d8630f7235df77"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1293,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.lvs.klayout.spice",
+          "sha256": "22ea3a13da67d054aea4d99f9c9e8faab9317b226905b3247118069e8a0ebc0b"
+        },
+        "lvs_spice": {
+          "byte_size": 708,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.lvs.spice",
+          "sha256": "2164e8fe683e76f729eb1853fb431425e4d7c70ac531f802c07470afb8b331b6"
+        },
+        "mag": {
+          "byte_size": 3713,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.mag",
+          "sha256": "94b47ae1e4f7f0760d9d8468e0d64de5ccfb6f15f808dd23831626252ba84560"
+        },
+        "magic_lef": {
+          "byte_size": 2570,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.magic.lef",
+          "sha256": "230a505899cf2e37dc93babec45fe945e3e4a671cd998fdd53906219df3e457a"
+        },
+        "maglef": {
+          "byte_size": 2313,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.maglef",
+          "sha256": "f7caf8d4c0eec194b9a64c56223f48d971acb35bb6a509f346eb930071582163"
+        },
+        "spice": {
+          "byte_size": 694,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1/sky130_fd_bd_sram__sram_sp_cell_opt1.spice",
+          "sha256": "06d9a60f321394645457bbb0d3c1eca4f9f858d2818d62ecf1df855820dd5418"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_cell_opt1a",
+      "category": "bitcell",
+      "cell": "sky130_fd_bd_sram__sram_sp_cell_opt1a",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_cell": {
+          "elements": {
+            "BOUNDARY": 39,
+            "SREF": 1,
+            "TEXT": 8
+          },
+          "layers": {
+            "115/43": 2,
+            "22/21": 7,
+            "64/20": 1,
+            "65/20": 2,
+            "66/20": 4,
+            "66/44": 10,
+            "66/83": 8,
+            "67/20": 6,
+            "67/44": 1,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_fom_serifs": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_addpoly": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "66/20": 2
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "33/43": 2
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "22/22": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "22/22": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serifs": {
+          "elements": {
+            "SREF": 4
+          },
+          "layers": {},
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos": 2,
+            "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos": 2
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_met2": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "69/20": 3
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_metopt1": {
+          "elements": {
+            "BOUNDARY": 8
+          },
+          "layers": {
+            "67/44": 4,
+            "68/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_opt1_ce": {
+          "elements": {
+            "BOUNDARY": 1,
+            "SREF": 3
+          },
+          "layers": {
+            "64/18": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_addpoly": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_metopt1": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_opt1a": {
+          "elements": {
+            "BOUNDARY": 8,
+            "SREF": 5,
+            "TEXT": 7
+          },
+          "layers": {
+            "122/16": 1,
+            "64/16": 1,
+            "64/5": 1,
+            "64/59": 1,
+            "66/16": 2,
+            "66/5": 1,
+            "68/16": 4,
+            "68/5": 4
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_opt1_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing": 1,
+            "sky130_fd_bd_sram__sram_sp_cell_via": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_p1_serif": {
+          "elements": {
+            "BOUNDARY": 1
+          },
+          "layers": {
+            "33/43": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_p1_serifs": {
+          "elements": {
+            "SREF": 4
+          },
+          "layers": {},
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_p1_serif": 4
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing": {
+          "elements": {
+            "BOUNDARY": 4,
+            "SREF": 1
+          },
+          "layers": {
+            "33/43": 4
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_cell_p1_serifs": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_cell_via": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "68/44": 2
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/43": 2,
+        "122/16": 1,
+        "22/21": 7,
+        "22/22": 2,
+        "33/43": 7,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 2,
+        "66/16": 2,
+        "66/20": 6,
+        "66/44": 10,
+        "66/5": 1,
+        "66/83": 8,
+        "67/20": 6,
+        "67/44": 5,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 3,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_cell_opt1a"
+      ],
+      "gds_structure_count": 14,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_cell_opt1a",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 7,
+        "33/43": 7,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 8490,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.gds",
+          "sha256": "a3bad41c3053a6805477259c120635ead83877c6cb280c7b761fcf297a934f46"
+        },
+        "lvs_spice": {
+          "byte_size": 709,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp",
+          "sha256": "e17619d42f527b3bfc33b40f57c1a25b8790292253fe6f68c2d7d345b98a93f0"
+        },
+        "mag": {
+          "byte_size": 3711,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+          "sha256": "a456e658b9c9415787219df7611cbdc1f8fcfc39a0183e5b729f001ae6b5f8e7"
+        },
+        "maglef": {
+          "byte_size": 2313,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+          "sha256": "2adcfc82573296f0e628c1eeea9247b764699a944fe3865c0de090bd7dd3ccc5"
+        },
+        "spice": {
+          "byte_size": 696,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp",
+          "sha256": "1172a847e4990d8468f403d424a4244d271e1ce7575bff0da9841e22795084f7"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_cell_opt1a",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 4,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "BL",
+        "BR",
+        "VGND",
+        "VPWR",
+        "VPB",
+        "VNB",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 1096,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.lvs.calibre.spice",
+          "sha256": "cc289033845470338660097db1241317b992b2dc049cdad676a2de52c30357a0"
+        },
+        "gds": {
+          "byte_size": 8490,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.gds",
+          "sha256": "a3bad41c3053a6805477259c120635ead83877c6cb280c7b761fcf297a934f46"
+        },
+        "gds_pins": {
+          "byte_size": 27,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.gds.pins",
+          "sha256": "eb5f40c7881493b014af3099d0850a3ed3c6da577278869a75d8630f7235df77"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1294,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.lvs.klayout.spice",
+          "sha256": "7d9a4136a3832c6cf695475937a3d7e26c8959d570d56ff355e70bde6dbbb6dc"
+        },
+        "lvs_spice": {
+          "byte_size": 709,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.lvs.spice",
+          "sha256": "e17619d42f527b3bfc33b40f57c1a25b8790292253fe6f68c2d7d345b98a93f0"
+        },
+        "mag": {
+          "byte_size": 3711,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.mag",
+          "sha256": "a456e658b9c9415787219df7611cbdc1f8fcfc39a0183e5b729f001ae6b5f8e7"
+        },
+        "magic_lef": {
+          "byte_size": 2573,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.magic.lef",
+          "sha256": "0a2133ef7c8c4bb56cbaae62c96457df51e178449d6a695161b7fadb853b0a31"
+        },
+        "maglef": {
+          "byte_size": 2313,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.maglef",
+          "sha256": "2adcfc82573296f0e628c1eeea9247b764699a944fe3865c0de090bd7dd3ccc5"
+        },
+        "spice": {
+          "byte_size": 696,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.spice",
+          "sha256": "1172a847e4990d8468f403d424a4244d271e1ce7575bff0da9841e22795084f7"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_cell_opt1_replica",
+      "category": "replica_bitcell",
+      "cell": "sky130_fd_bd_sram__openram_sp_cell_opt1_replica",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_cell_opt1_replica": {
+          "elements": {
+            "BOUNDARY": 77,
+            "TEXT": 15
+          },
+          "layers": {
+            "115/43": 2,
+            "122/16": 1,
+            "22/21": 7,
+            "22/22": 4,
+            "33/43": 10,
+            "64/16": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "64/5": 1,
+            "64/59": 1,
+            "65/20": 2,
+            "66/16": 2,
+            "66/20": 6,
+            "66/44": 10,
+            "66/5": 1,
+            "66/83": 8,
+            "67/20": 6,
+            "67/44": 5,
+            "68/16": 4,
+            "68/20": 4,
+            "68/44": 2,
+            "68/5": 4,
+            "69/20": 3,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/43": 2,
+        "122/16": 1,
+        "22/21": 7,
+        "22/22": 4,
+        "33/43": 10,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 2,
+        "66/16": 2,
+        "66/20": 6,
+        "66/44": 10,
+        "66/5": 1,
+        "66/83": 8,
+        "67/20": 6,
+        "67/44": 5,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 3,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_cell_opt1_replica"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_cell_opt1_replica",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 7,
+        "33/43": 10,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 6476,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.gds",
+          "sha256": "0dbe99c423ee6b502b4d0a7402ca7668593deedf5081ba9a6427ff0feda6263a"
+        },
+        "lvs_spice": {
+          "byte_size": 1017,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp",
+          "sha256": "86d76d052da050307971fa3babfe52a5a2f0f493c5d5b2c54e10672e17d92182"
+        },
+        "mag": {
+          "byte_size": 3745,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.mag",
+          "sha256": "2473df7fa23f4c3a4284e93e45f615acc115f791c39465901217272c2befafde"
+        },
+        "maglef": {
+          "byte_size": 2755,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.mag",
+          "sha256": "4e4a2844e43b46b8f4124b3e657e4f091386c823c8983a82b4ee4bb1483063d1"
+        },
+        "spice": {
+          "byte_size": 1045,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp",
+          "sha256": "4226792fec8a536135edd409b3f32938e245655894737b9bb309cae609a9cc87"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_cell_opt1_replica",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 5,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "BL",
+        "BR",
+        "VGND",
+        "VPWR",
+        "VPB",
+        "VNB",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 723,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.lvs.calibre.spice",
+          "sha256": "ba1da747d78e7a17674ecf67b734ba8e26f77fa9584798e93f6af4cf3c19e641"
+        },
+        "gds": {
+          "byte_size": 6476,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.gds",
+          "sha256": "0dbe99c423ee6b502b4d0a7402ca7668593deedf5081ba9a6427ff0feda6263a"
+        },
+        "gds_pins": {
+          "byte_size": 27,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.gds.pins",
+          "sha256": "eb5f40c7881493b014af3099d0850a3ed3c6da577278869a75d8630f7235df77"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1302,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.lvs.klayout.spice",
+          "sha256": "3c09b1f226b84c93970dcb685a619ad8270f3b4268567200a1a512d20ae42554"
+        },
+        "lvs_spice": {
+          "byte_size": 1017,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.lvs.spice",
+          "sha256": "86d76d052da050307971fa3babfe52a5a2f0f493c5d5b2c54e10672e17d92182"
+        },
+        "mag": {
+          "byte_size": 3745,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.mag",
+          "sha256": "2473df7fa23f4c3a4284e93e45f615acc115f791c39465901217272c2befafde"
+        },
+        "magic_lef": {
+          "byte_size": 2681,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.magic.lef",
+          "sha256": "99d47976cccb2efbd3469e3f60745cff66738452ae29e846324f903ee181b1cf"
+        },
+        "maglef": {
+          "byte_size": 2755,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.maglef",
+          "sha256": "4e4a2844e43b46b8f4124b3e657e4f091386c823c8983a82b4ee4bb1483063d1"
+        },
+        "spice": {
+          "byte_size": 1045,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1_replica/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.spice",
+          "sha256": "4226792fec8a536135edd409b3f32938e245655894737b9bb309cae609a9cc87"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",
+      "category": "replica_bitcell",
+      "cell": "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica": {
+          "elements": {
+            "BOUNDARY": 77,
+            "TEXT": 15
+          },
+          "layers": {
+            "115/43": 2,
+            "122/16": 1,
+            "22/21": 7,
+            "22/22": 4,
+            "33/43": 10,
+            "64/16": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "64/5": 1,
+            "64/59": 1,
+            "65/20": 2,
+            "66/16": 2,
+            "66/20": 6,
+            "66/44": 10,
+            "66/5": 1,
+            "66/83": 8,
+            "67/20": 6,
+            "67/44": 5,
+            "68/16": 4,
+            "68/20": 4,
+            "68/44": 2,
+            "68/5": 4,
+            "69/20": 3,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/43": 2,
+        "122/16": 1,
+        "22/21": 7,
+        "22/22": 4,
+        "33/43": 10,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 2,
+        "66/16": 2,
+        "66/20": 6,
+        "66/44": 10,
+        "66/5": 1,
+        "66/83": 8,
+        "67/20": 6,
+        "67/44": 5,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 3,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 7,
+        "33/43": 10,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 6476,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.gds",
+          "sha256": "941caf3c8708ca45f55f2ca7184d6bbce86b957903748cf9f02afb12a837417b"
+        },
+        "lvs_spice": {
+          "byte_size": 1019,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp",
+          "sha256": "91de9e91ebc0d1853cb620d4f605fa693dca176438d7aca64cfa57826264250a"
+        },
+        "mag": {
+          "byte_size": 3743,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.mag",
+          "sha256": "e62e1c3483b40c03c46b23918673249fc7dd4e5dfb89c18813b1747a0d031ea1"
+        },
+        "maglef": {
+          "byte_size": 2755,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.mag",
+          "sha256": "4aed413cc03f3096cd14b9557a3695ca649c4301dd820258b63cf3e669d9d376"
+        },
+        "spice": {
+          "byte_size": 1047,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp",
+          "sha256": "3c4cbf80de9b48cc9447269024d1cee18ef89f00ff6b551be5a6dd9c5f4f67b3"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 5,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "BL",
+        "BR",
+        "VGND",
+        "VPWR",
+        "VPB",
+        "VNB",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 724,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.lvs.calibre.spice",
+          "sha256": "17b82ae36dac72123c598427e1cdc9cdecef35a4ec2d9b82f823c10e10342c68"
+        },
+        "gds": {
+          "byte_size": 6476,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.gds",
+          "sha256": "941caf3c8708ca45f55f2ca7184d6bbce86b957903748cf9f02afb12a837417b"
+        },
+        "gds_pins": {
+          "byte_size": 27,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.gds.pins",
+          "sha256": "eb5f40c7881493b014af3099d0850a3ed3c6da577278869a75d8630f7235df77"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1303,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.lvs.klayout.spice",
+          "sha256": "a7a8a46deaf04d31f03aaa751e4deb4d3a377451742d42de7df5099a3b6292d6"
+        },
+        "lvs_spice": {
+          "byte_size": 1019,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.lvs.spice",
+          "sha256": "91de9e91ebc0d1853cb620d4f605fa693dca176438d7aca64cfa57826264250a"
+        },
+        "mag": {
+          "byte_size": 3743,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.mag",
+          "sha256": "e62e1c3483b40c03c46b23918673249fc7dd4e5dfb89c18813b1747a0d031ea1"
+        },
+        "magic_lef": {
+          "byte_size": 2684,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.magic.lef",
+          "sha256": "1930979714e2cafee55b7dfb4727593a209db0bc38e82b8ef641f3902bee63fb"
+        },
+        "maglef": {
+          "byte_size": 2755,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.maglef",
+          "sha256": "4aed413cc03f3096cd14b9557a3695ca649c4301dd820258b63cf3e669d9d376"
+        },
+        "spice": {
+          "byte_size": 1047,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_replica/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.spice",
+          "sha256": "3c4cbf80de9b48cc9447269024d1cee18ef89f00ff6b551be5a6dd9c5f4f67b3"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",
+      "category": "dummy_bitcell",
+      "cell": "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy": {
+          "elements": {
+            "BOUNDARY": 73,
+            "TEXT": 15
+          },
+          "layers": {
+            "115/43": 2,
+            "122/16": 1,
+            "22/21": 7,
+            "22/22": 4,
+            "33/43": 10,
+            "64/16": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "64/5": 1,
+            "64/59": 1,
+            "65/20": 2,
+            "66/16": 2,
+            "66/20": 6,
+            "66/44": 6,
+            "66/5": 1,
+            "66/83": 8,
+            "67/20": 6,
+            "67/44": 5,
+            "68/16": 4,
+            "68/20": 4,
+            "68/44": 2,
+            "68/5": 4,
+            "69/20": 3,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/43": 2,
+        "122/16": 1,
+        "22/21": 7,
+        "22/22": 4,
+        "33/43": 10,
+        "64/16": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "65/20": 2,
+        "66/16": 2,
+        "66/20": 6,
+        "66/44": 6,
+        "66/5": 1,
+        "66/83": 8,
+        "67/20": 6,
+        "67/44": 5,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 4,
+        "69/20": 3,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 7,
+        "33/43": 10,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 6268,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.gds",
+          "sha256": "29c919c82cda98d73fb549d15d261fb30bc89e5e72810f23db5ce2bc32a3add0"
+        },
+        "lvs_spice": {
+          "byte_size": 741,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp",
+          "sha256": "224bb6318c201c7c901ecdefd630c81de2037ad2f9a33f1056ed7a9cff645265"
+        },
+        "mag": {
+          "byte_size": 3249,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.mag",
+          "sha256": "896e5a41b86bccc7c8e847834499d0f65a466df86cb6d0b80860a36c0b3f6b26"
+        },
+        "maglef": {
+          "byte_size": 3084,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.mag",
+          "sha256": "a9bda682dc0a2957fe345b5742ff7ae9ae96e9edd05907b8334a967c8573df62"
+        },
+        "spice": {
+          "byte_size": 728,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp",
+          "sha256": "3edffa587b10fc20c57cd474536b606d6444ec0e0ca180bffe9ea831d7698f16"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",
+          "pins": [
+            "BL",
+            "BR",
+            "VGND",
+            "VPWR",
+            "VPB",
+            "VNB",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 6,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "BL",
+        "BR",
+        "VGND",
+        "VPWR",
+        "VPB",
+        "VNB",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 722,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.lvs.calibre.spice",
+          "sha256": "25edb47b8570b3b1bad9237849aa6f01054e0ebbdeec62f5163b30c2826ecae9"
+        },
+        "gds": {
+          "byte_size": 6268,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.gds",
+          "sha256": "29c919c82cda98d73fb549d15d261fb30bc89e5e72810f23db5ce2bc32a3add0"
+        },
+        "gds_pins": {
+          "byte_size": 27,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.gds.pins",
+          "sha256": "eb5f40c7881493b014af3099d0850a3ed3c6da577278869a75d8630f7235df77"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1305,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.lvs.klayout.spice",
+          "sha256": "730b95f65cb86d01da4b1392061b01f65f15202e0ff4c8dd0c661e0d8a122498"
+        },
+        "lvs_spice": {
+          "byte_size": 741,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.lvs.spice",
+          "sha256": "224bb6318c201c7c901ecdefd630c81de2037ad2f9a33f1056ed7a9cff645265"
+        },
+        "mag": {
+          "byte_size": 3249,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.mag",
+          "sha256": "896e5a41b86bccc7c8e847834499d0f65a466df86cb6d0b80860a36c0b3f6b26"
+        },
+        "magic_lef": {
+          "byte_size": 2590,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.magic.lef",
+          "sha256": "666e89c4570a4c10fcba46b21273022317b3fe991e6d52e83393ba3bde072271"
+        },
+        "maglef": {
+          "byte_size": 3084,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.maglef",
+          "sha256": "a9bda682dc0a2957fe345b5742ff7ae9ae96e9edd05907b8334a967c8573df62"
+        },
+        "spice": {
+          "byte_size": 728,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_cell_opt1a_dummy/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.spice",
+          "sha256": "3edffa587b10fc20c57cd474536b606d6444ec0e0ca180bffe9ea831d7698f16"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_colend_cent",
+      "category": "column_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_colend_cent",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_colend_cent": {
+          "elements": {
+            "BOUNDARY": 39,
+            "TEXT": 4
+          },
+          "layers": {
+            "33/43": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 9,
+            "67/20": 2,
+            "67/44": 4,
+            "68/16": 4,
+            "68/20": 4,
+            "68/44": 4,
+            "68/5": 4,
+            "69/20": 4,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 9,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 4,
+        "68/5": 4,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_colend_cent"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3020,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_colend_cent.gds",
+          "sha256": "b0e0648e96677e689657b9c673f17e884c152f711e04ff2112ef9521034320dc"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2888,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_colend_cent.mag",
+          "sha256": "6929fe8e1d5afd2843c9b4bfb437566904b1ba779bde2d844da87442e46270b3"
+        },
+        "maglef": {
+          "byte_size": 3871,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_colend_cent.mag",
+          "sha256": "1ccd9a0061dbe876bfe55f9a592c88c5618eb1a67807a8a9bc40ca6824e5334e"
+        },
+        "spice": {
+          "byte_size": 160,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_colend_cent.sp",
+          "sha256": "f95c4956216a463bf0ec2e5a814e179f84795336e0e13454ee565051569a4335"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colend_cent",
+          "pins": [
+            "VPWR",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3020,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.gds",
+          "sha256": "b0e0648e96677e689657b9c673f17e884c152f711e04ff2112ef9521034320dc"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.gds.pins",
+          "sha256": "e9c2f27962f521c5223e31abce49ba3124c82565e7c1b97e15a2695ced95a6b2"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2888,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.mag",
+          "sha256": "6929fe8e1d5afd2843c9b4bfb437566904b1ba779bde2d844da87442e46270b3"
+        },
+        "magic_lef": {
+          "byte_size": 2937,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.magic.lef",
+          "sha256": "01339018c1d205754d8e6e02903b51d3d7c5f19445be2c060b3f7f73095c842e"
+        },
+        "maglef": {
+          "byte_size": 3871,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.maglef",
+          "sha256": "1ccd9a0061dbe876bfe55f9a592c88c5618eb1a67807a8a9bc40ca6824e5334e"
+        },
+        "spice": {
+          "byte_size": 160,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_cent/sky130_fd_bd_sram__sram_sp_colend_cent.spice",
+          "sha256": "f95c4956216a463bf0ec2e5a814e179f84795336e0e13454ee565051569a4335"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_colend_p_cent",
+      "category": "column_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_colend_p_cent",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_colend_p_cent": {
+          "elements": {
+            "BOUNDARY": 35,
+            "TEXT": 4
+          },
+          "layers": {
+            "33/43": 1,
+            "64/18": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 4,
+            "67/20": 2,
+            "67/44": 4,
+            "68/16": 4,
+            "68/20": 7,
+            "68/44": 4,
+            "68/5": 4,
+            "69/20": 4,
+            "81/2": 1,
+            "94/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 4,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 4,
+        "68/20": 7,
+        "68/44": 4,
+        "68/5": 4,
+        "69/20": 4,
+        "81/2": 1,
+        "94/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_colend_p_cent"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 2798,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_colend_p_cent.gds",
+          "sha256": "5300be217783814f65be28940832a14abfa64ae9ed2ed1a7568b26c19a26845f"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2671,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_colend_p_cent.mag",
+          "sha256": "b016081ecb26124cd6adebb6df33b0252794c5406e6c313aafe06a453834beef"
+        },
+        "maglef": {
+          "byte_size": 4344,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_colend_p_cent.mag",
+          "sha256": "2bbba4d1b4aee2bcabfc21a66c8d5dfbeb394b371611af5a73b0922c32f7c9b5"
+        },
+        "spice": {
+          "byte_size": 164,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_colend_p_cent.sp",
+          "sha256": "479616c2a4bf234b33f4b9f3ab72d2452af23d760b0d9d0c441a2bf3cf76373d"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colend_p_cent",
+          "pins": [
+            "VGND",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VGND",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 2798,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.gds",
+          "sha256": "5300be217783814f65be28940832a14abfa64ae9ed2ed1a7568b26c19a26845f"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.gds.pins",
+          "sha256": "bdf9637c8707a79084ae850194747a74fa6416afd211b782d4e716e068e9597b"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2671,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.mag",
+          "sha256": "b016081ecb26124cd6adebb6df33b0252794c5406e6c313aafe06a453834beef"
+        },
+        "magic_lef": {
+          "byte_size": 3316,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.magic.lef",
+          "sha256": "7ec675e367ab1e5c724affba56469bca29d93f6522d2ba8183dba14f7adbe7da"
+        },
+        "maglef": {
+          "byte_size": 4344,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.maglef",
+          "sha256": "2bbba4d1b4aee2bcabfc21a66c8d5dfbeb394b371611af5a73b0922c32f7c9b5"
+        },
+        "spice": {
+          "byte_size": 164,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colend_p_cent/sky130_fd_bd_sram__sram_sp_colend_p_cent.spice",
+          "sha256": "479616c2a4bf234b33f4b9f3ab72d2452af23d760b0d9d0c441a2bf3cf76373d"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_colenda_cent",
+      "category": "column_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_colenda_cent",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_colenda_cent": {
+          "elements": {
+            "BOUNDARY": 40,
+            "TEXT": 4
+          },
+          "layers": {
+            "33/43": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 9,
+            "67/20": 2,
+            "67/44": 4,
+            "68/16": 4,
+            "68/20": 4,
+            "68/44": 4,
+            "68/5": 4,
+            "69/20": 4,
+            "81/2": 1,
+            "92/44": 2,
+            "93/44": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "64/20": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 9,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 4,
+        "68/20": 4,
+        "68/44": 4,
+        "68/5": 4,
+        "69/20": 4,
+        "81/2": 1,
+        "92/44": 2,
+        "93/44": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_colenda_cent"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 2
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3086,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_colenda_cent.gds",
+          "sha256": "acb1c42eab4f2bd9c59d90fdd0537de2eb47f0e895c6adfd499261329f21a1c0"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2888,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_colenda_cent.mag",
+          "sha256": "169b928cd41564199acb833cc0570d097ac7b526d8bbf54e33c40aa85d551151"
+        },
+        "maglef": {
+          "byte_size": 3871,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_colenda_cent.mag",
+          "sha256": "165c2bcf5c71248e73195e1e8abdaffd98fa0e355d617b8cf2def10e088e612a"
+        },
+        "spice": {
+          "byte_size": 162,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_colenda_cent.sp",
+          "sha256": "6698f49e69b1f3fc6d89bf2dead4424a6c4e08e36c699faf4c2915e438f899ee"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colenda_cent",
+          "pins": [
+            "VPWR",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3086,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.gds",
+          "sha256": "acb1c42eab4f2bd9c59d90fdd0537de2eb47f0e895c6adfd499261329f21a1c0"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.gds.pins",
+          "sha256": "17afcd51b06d59cf77e121f8144813865c27d7aa2ebeaf4678a1b5bd27e2bf19"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2888,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.mag",
+          "sha256": "169b928cd41564199acb833cc0570d097ac7b526d8bbf54e33c40aa85d551151"
+        },
+        "magic_lef": {
+          "byte_size": 2940,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.magic.lef",
+          "sha256": "b9a8092c65ef7aa4e5568e9ddefccb12f6651dfbef844b5cfc6dfc1440738003"
+        },
+        "maglef": {
+          "byte_size": 3871,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.maglef",
+          "sha256": "165c2bcf5c71248e73195e1e8abdaffd98fa0e355d617b8cf2def10e088e612a"
+        },
+        "spice": {
+          "byte_size": 162,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_cent/sky130_fd_bd_sram__sram_sp_colenda_cent.spice",
+          "sha256": "6698f49e69b1f3fc6d89bf2dead4424a6c4e08e36c699faf4c2915e438f899ee"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_colenda_p_cent",
+      "category": "column_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_colenda_p_cent",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_colenda_p_cent": {
+          "elements": {
+            "BOUNDARY": 35,
+            "TEXT": 4
+          },
+          "layers": {
+            "33/43": 1,
+            "64/18": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 4,
+            "67/20": 2,
+            "67/44": 4,
+            "68/16": 4,
+            "68/20": 7,
+            "68/44": 4,
+            "68/5": 4,
+            "69/20": 4,
+            "81/2": 1,
+            "94/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "33/43": 1,
+        "64/18": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 4,
+        "67/20": 2,
+        "67/44": 4,
+        "68/16": 4,
+        "68/20": 7,
+        "68/44": 4,
+        "68/5": 4,
+        "69/20": 4,
+        "81/2": 1,
+        "94/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_colenda_p_cent"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 1,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 2838,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_colenda_p_cent.gds",
+          "sha256": "60e81fc6e416d464f59efd2c8135da70d278bf25b0e0898838828c04a6cc0296"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2570,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_colenda_p_cent.mag",
+          "sha256": "12d47abfb839e1b11c117fdccad2c41629e285b20327ce4f527dc34f04d03b05"
+        },
+        "maglef": {
+          "byte_size": 4344,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_colenda_p_cent.mag",
+          "sha256": "85c73e42340ee4ea85d54eda4d4e8d0e7988086890d41418268ec3888d9e9e8c"
+        },
+        "spice": {
+          "byte_size": 166,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_colenda_p_cent.sp",
+          "sha256": "15b36a67ba58a2c7ac873dbfed08a6fc0858c6e20c6973adc0e63d72885e022b"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_colenda_p_cent",
+          "pins": [
+            "VGND",
+            "VPB",
+            "VNB"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VGND",
+        "VPB",
+        "VNB"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 2838,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.gds",
+          "sha256": "60e81fc6e416d464f59efd2c8135da70d278bf25b0e0898838828c04a6cc0296"
+        },
+        "gds_pins": {
+          "byte_size": 13,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.gds.pins",
+          "sha256": "bdf9637c8707a79084ae850194747a74fa6416afd211b782d4e716e068e9597b"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2570,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.mag",
+          "sha256": "12d47abfb839e1b11c117fdccad2c41629e285b20327ce4f527dc34f04d03b05"
+        },
+        "magic_lef": {
+          "byte_size": 3319,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.magic.lef",
+          "sha256": "ab1556d540364a06580e3cc4bea8f1fde85895f86e476f33cc0988d088e7a6f7"
+        },
+        "maglef": {
+          "byte_size": 4344,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.maglef",
+          "sha256": "85c73e42340ee4ea85d54eda4d4e8d0e7988086890d41418268ec3888d9e9e8c"
+        },
+        "spice": {
+          "byte_size": 166,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_colenda_p_cent/sky130_fd_bd_sram__sram_sp_colenda_p_cent.spice",
+          "sha256": "15b36a67ba58a2c7ac873dbfed08a6fc0858c6e20c6973adc0e63d72885e022b"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_rowend",
+      "category": "row_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_rowend",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_rowend": {
+          "elements": {
+            "BOUNDARY": 1,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 1,
+            "68/5": 1,
+            "69/5": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_rowend_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_rowend_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_ce": {
+          "elements": {
+            "BOUNDARY": 30
+          },
+          "layers": {
+            "115/42": 1,
+            "115/43": 1,
+            "22/21": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 5,
+            "67/20": 3,
+            "67/44": 4,
+            "68/20": 4,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_met2": {
+          "elements": {
+            "BOUNDARY": 6
+          },
+          "layers": {
+            "68/44": 2,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "33/43": 3
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 1,
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 3,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 5,
+        "67/20": 3,
+        "67/44": 4,
+        "68/16": 1,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 1,
+        "69/20": 4,
+        "69/5": 1,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_rowend"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 3,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3578,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_rowend.gds",
+          "sha256": "e0254a90d32150d5ced596814a0748def7ead4b8bac9b6df9b664b1130152be4"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2147,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_rowend.mag",
+          "sha256": "b83710f99cc37355dc86ba17b1b62294273738a55dc5d8036e903b16e60e0546"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_rowend.mag",
+          "sha256": "bfec32557b90321f9c4d90d43dfeaef481c68d5bc54e1f8bcf9256c5444a63d1"
+        },
+        "spice": {
+          "byte_size": 145,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_rowend.sp",
+          "sha256": "bd7af92cbc14e6deac7fa4f748ead84f22f40af5c5f2efe28a2e6ddbb7e789f4"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_rowend",
+          "pins": [
+            "VPWR",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3578,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.gds",
+          "sha256": "e0254a90d32150d5ced596814a0748def7ead4b8bac9b6df9b664b1130152be4"
+        },
+        "gds_pins": {
+          "byte_size": 8,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.gds.pins",
+          "sha256": "52e001364d5ab7faf348008717daba735e0a1cbffb6f63fc862bffaa43e708d3"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2147,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.mag",
+          "sha256": "b83710f99cc37355dc86ba17b1b62294273738a55dc5d8036e903b16e60e0546"
+        },
+        "magic_lef": {
+          "byte_size": 2322,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.magic.lef",
+          "sha256": "df0e13208c9faec8eafbda1e3ffcd8fe07650a5f2541da1579503c8c19d0d9a5"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.maglef",
+          "sha256": "bfec32557b90321f9c4d90d43dfeaef481c68d5bc54e1f8bcf9256c5444a63d1"
+        },
+        "spice": {
+          "byte_size": 145,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowend/sky130_fd_bd_sram__sram_sp_rowend.spice",
+          "sha256": "bd7af92cbc14e6deac7fa4f748ead84f22f40af5c5f2efe28a2e6ddbb7e789f4"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_rowenda",
+      "category": "row_end",
+      "cell": "sky130_fd_bd_sram__sram_sp_rowenda",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_rowend_ce": {
+          "elements": {
+            "BOUNDARY": 30
+          },
+          "layers": {
+            "115/42": 1,
+            "115/43": 1,
+            "22/21": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 5,
+            "67/20": 3,
+            "67/44": 4,
+            "68/20": 4,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_met2": {
+          "elements": {
+            "BOUNDARY": 6
+          },
+          "layers": {
+            "68/44": 2,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowenda": {
+          "elements": {
+            "BOUNDARY": 1,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 1,
+            "68/5": 1,
+            "69/5": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_rowend_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_rowend_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "33/43": 2
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 1,
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 2,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 5,
+        "67/20": 3,
+        "67/44": 4,
+        "68/16": 1,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 1,
+        "69/20": 4,
+        "69/5": 1,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_rowenda"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 2,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3514,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_rowenda.gds",
+          "sha256": "c085d806dc991f2b7110599aa8bd2153ef25b95045a1c926faa8be703a8ecc58"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2147,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_rowenda.mag",
+          "sha256": "b714ca611b0a54268d0da81da8f2d438fe5e190feeb2804b706676d68cdde8a3"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_rowenda.mag",
+          "sha256": "d1c5b88e7fe9ef2a1ee8cc2e007d7b7fb6d1b0941f2c33070c6c115c279a38aa"
+        },
+        "spice": {
+          "byte_size": 147,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_rowenda.sp",
+          "sha256": "f936cd4ec4033cdafc4e94de9debbb54abe34dc544f99ccb8aac94334bca4bf7"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_rowenda",
+          "pins": [
+            "VPWR",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3514,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.gds",
+          "sha256": "c085d806dc991f2b7110599aa8bd2153ef25b95045a1c926faa8be703a8ecc58"
+        },
+        "gds_pins": {
+          "byte_size": 8,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.gds.pins",
+          "sha256": "52e001364d5ab7faf348008717daba735e0a1cbffb6f63fc862bffaa43e708d3"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2147,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.mag",
+          "sha256": "b714ca611b0a54268d0da81da8f2d438fe5e190feeb2804b706676d68cdde8a3"
+        },
+        "magic_lef": {
+          "byte_size": 2325,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.magic.lef",
+          "sha256": "d8b595d9c676888ee48475940a857956372579cd42b9bb492aacef10ab775130"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.maglef",
+          "sha256": "d1c5b88e7fe9ef2a1ee8cc2e007d7b7fb6d1b0941f2c33070c6c115c279a38aa"
+        },
+        "spice": {
+          "byte_size": 147,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_rowenda/sky130_fd_bd_sram__sram_sp_rowenda.spice",
+          "sha256": "f936cd4ec4033cdafc4e94de9debbb54abe34dc544f99ccb8aac94334bca4bf7"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_rowend_replica",
+      "category": "row_end_replica",
+      "cell": "sky130_fd_bd_sram__openram_sp_rowend_replica",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_rowend_replica": {
+          "elements": {
+            "BOUNDARY": 1,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 1,
+            "68/5": 1,
+            "69/5": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_rowend_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz": 1,
+            "sky130_fd_bd_sram__sram_sp_rowend_replica_ce": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_met2": {
+          "elements": {
+            "BOUNDARY": 6
+          },
+          "layers": {
+            "68/44": 2,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "33/43": 3
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_replica_ce": {
+          "elements": {
+            "BOUNDARY": 30
+          },
+          "layers": {
+            "115/42": 1,
+            "115/43": 1,
+            "22/21": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 5,
+            "67/20": 3,
+            "67/44": 4,
+            "68/20": 4,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 1,
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 3,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 5,
+        "67/20": 3,
+        "67/44": 4,
+        "68/16": 1,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 1,
+        "69/20": 4,
+        "69/5": 1,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_rowend_replica"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 3,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3564,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_rowend_replica.gds",
+          "sha256": "5afe0b4557f34e8c778093d4fa4580b3364a7ea0636a3d44841e1474e493a214"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 687,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_rowend_replica.mag",
+          "sha256": "d3ac0e3bb81d850b39ff8082ff69c09358760147ef61bcda6f11c31749687d24"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_rowend_replica.mag",
+          "sha256": "ac3f4947c1068a47d0b2caecde48bdebbdfe231648c0c81c78bc3215eec8bcb6"
+        },
+        "spice": {
+          "byte_size": 167,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_rowend_replica.sp",
+          "sha256": "7c126a02fd8195144560f7c892671cbc4c27a464ce3e3432b37eff5732d9cc2a"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_rowend_replica",
+          "pins": [
+            "VPWR",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3564,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.gds",
+          "sha256": "5afe0b4557f34e8c778093d4fa4580b3364a7ea0636a3d44841e1474e493a214"
+        },
+        "gds_pins": null,
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 687,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.mag",
+          "sha256": "d3ac0e3bb81d850b39ff8082ff69c09358760147ef61bcda6f11c31749687d24"
+        },
+        "magic_lef": {
+          "byte_size": 2370,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.magic.lef",
+          "sha256": "391940ebd910e705ae0f7b987a339170987d69e02ac8c2590775b9f1c6dbf1f4"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.maglef",
+          "sha256": "ac3f4947c1068a47d0b2caecde48bdebbdfe231648c0c81c78bc3215eec8bcb6"
+        },
+        "spice": {
+          "byte_size": 167,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowend_replica/sky130_fd_bd_sram__openram_sp_rowend_replica.spice",
+          "sha256": "7c126a02fd8195144560f7c892671cbc4c27a464ce3e3432b37eff5732d9cc2a"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_rowenda_replica",
+      "category": "row_end_replica",
+      "cell": "sky130_fd_bd_sram__openram_sp_rowenda_replica",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_rowenda_replica": {
+          "elements": {
+            "BOUNDARY": 1,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 1,
+            "68/5": 1,
+            "69/5": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_rowend_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_rowend_replica_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_met2": {
+          "elements": {
+            "BOUNDARY": 6
+          },
+          "layers": {
+            "68/44": 2,
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowend_replica_ce": {
+          "elements": {
+            "BOUNDARY": 30
+          },
+          "layers": {
+            "115/42": 1,
+            "115/43": 1,
+            "22/21": 1,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 1,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 5,
+            "67/20": 3,
+            "67/44": 4,
+            "68/20": 4,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 2
+          },
+          "layers": {
+            "33/43": 2
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 1,
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 2,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 1,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 5,
+        "67/20": 3,
+        "67/44": 4,
+        "68/16": 1,
+        "68/20": 4,
+        "68/44": 2,
+        "68/5": 1,
+        "69/20": 4,
+        "69/5": 1,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_rowenda_replica"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 1,
+        "22/21": 1,
+        "33/43": 2,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3502,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_rowenda_replica.gds",
+          "sha256": "a841e900db1219977d427a6962426fc5625d8ba421f9e7c81bf6f04f6ac542f3"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 859,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_rowenda_replica.mag",
+          "sha256": "7b74474e132d100b844d7aca3c0ebe0fd2af09aa5a75d84770b4555a791eb783"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_rowenda_replica.mag",
+          "sha256": "9e8cd882b72aad0a334b29b8508130d7e1738b8476f1900e415ede0f8b945c49"
+        },
+        "spice": {
+          "byte_size": 169,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_rowenda_replica.sp",
+          "sha256": "54937c8ac43bc83a061d3b85c92184c9077de1fbdeff9d578163b3d05f6b147c"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_rowenda_replica",
+          "pins": [
+            "VPWR",
+            "WL"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR",
+        "WL"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3502,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.gds",
+          "sha256": "a841e900db1219977d427a6962426fc5625d8ba421f9e7c81bf6f04f6ac542f3"
+        },
+        "gds_pins": null,
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 859,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.mag",
+          "sha256": "7b74474e132d100b844d7aca3c0ebe0fd2af09aa5a75d84770b4555a791eb783"
+        },
+        "magic_lef": {
+          "byte_size": 2358,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.magic.lef",
+          "sha256": "217c619bf37dae4eb65d227a9ce840b8635af6f7f5e6c835de307574fc1ab8d8"
+        },
+        "maglef": {
+          "byte_size": 2034,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.maglef",
+          "sha256": "9e8cd882b72aad0a334b29b8508130d7e1738b8476f1900e415ede0f8b945c49"
+        },
+        "spice": {
+          "byte_size": 169,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_rowenda_replica/sky130_fd_bd_sram__openram_sp_rowenda_replica.spice",
+          "sha256": "54937c8ac43bc83a061d3b85c92184c9077de1fbdeff9d578163b3d05f6b147c"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_wlstrap",
+      "category": "wordline_strap",
+      "cell": "sky130_fd_bd_sram__sram_sp_wlstrap",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_wlstrap": {
+          "elements": {
+            "BOUNDARY": 2,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 2,
+            "68/5": 2
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_wlstrap_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrap_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_ce": {
+          "elements": {
+            "BOUNDARY": 42
+          },
+          "layers": {
+            "115/42": 2,
+            "115/43": 2,
+            "22/21": 2,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 2,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 6,
+            "67/20": 4,
+            "67/44": 5,
+            "68/20": 5,
+            "68/44": 3,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 2,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_met2": {
+          "elements": {
+            "BOUNDARY": 4
+          },
+          "layers": {
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 4
+          },
+          "layers": {
+            "33/43": 4
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 4,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 6,
+        "67/20": 4,
+        "67/44": 5,
+        "68/16": 2,
+        "68/20": 5,
+        "68/44": 3,
+        "68/5": 2,
+        "69/20": 4,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 2,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_wlstrap"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 4,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 4560,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_wlstrap.gds",
+          "sha256": "95aa3029ac791592cbd710b344992f4b348f6515b9ddcd65e10fe1badc8f424a"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2740,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_wlstrap.mag",
+          "sha256": "07ee2b67a9b5758c9922fe171390e5203fc01fe36c8993e17268273a1ba59b89"
+        },
+        "maglef": {
+          "byte_size": 2148,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_wlstrap.mag",
+          "sha256": "4917f41928e0911538d96f87864eb8b5f14a3f9624555443a3e7a2e839fcdaaf"
+        },
+        "spice": {
+          "byte_size": 144,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_wlstrap.sp",
+          "sha256": "776c0d71aa89c008db514a9d4058934c9e103944be6ddc89a7e0797c362112a7"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_wlstrap",
+          "pins": [
+            "VPWR"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 4560,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.gds",
+          "sha256": "95aa3029ac791592cbd710b344992f4b348f6515b9ddcd65e10fe1badc8f424a"
+        },
+        "gds_pins": {
+          "byte_size": 5,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.gds.pins",
+          "sha256": "4541cd70fe0675aee416efdbdc2a8be0943cb5890c47686fb1d61196bbfaec40"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2740,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.mag",
+          "sha256": "07ee2b67a9b5758c9922fe171390e5203fc01fe36c8993e17268273a1ba59b89"
+        },
+        "magic_lef": {
+          "byte_size": 2693,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.magic.lef",
+          "sha256": "52eef4aefa1893b5e9e875fe88f23487fb7d287b11473df9fe81576dce084ac6"
+        },
+        "maglef": {
+          "byte_size": 2148,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.maglef",
+          "sha256": "4917f41928e0911538d96f87864eb8b5f14a3f9624555443a3e7a2e839fcdaaf"
+        },
+        "spice": {
+          "byte_size": 144,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap/sky130_fd_bd_sram__sram_sp_wlstrap.spice",
+          "sha256": "776c0d71aa89c008db514a9d4058934c9e103944be6ddc89a7e0797c362112a7"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_wlstrapa",
+      "category": "wordline_strap",
+      "cell": "sky130_fd_bd_sram__sram_sp_wlstrapa",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_wlstrap_ce": {
+          "elements": {
+            "BOUNDARY": 42
+          },
+          "layers": {
+            "115/42": 2,
+            "115/43": 2,
+            "22/21": 2,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 2,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 6,
+            "67/20": 4,
+            "67/44": 5,
+            "68/20": 5,
+            "68/44": 3,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 2,
+            "95/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_met2": {
+          "elements": {
+            "BOUNDARY": 4
+          },
+          "layers": {
+            "69/20": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrapa": {
+          "elements": {
+            "BOUNDARY": 2,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 2,
+            "68/5": 2
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_wlstrap_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrap_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "33/43": 3
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 3,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 6,
+        "67/20": 4,
+        "67/44": 5,
+        "68/16": 2,
+        "68/20": 5,
+        "68/44": 3,
+        "68/5": 2,
+        "69/20": 4,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 2,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_wlstrapa"
+      ],
+      "gds_structure_count": 4,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 3,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 4504,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_wlstrapa.gds",
+          "sha256": "bd273f150f8c3cc608204f7899dfe74e0432f53d0d2956bc3512e682907728bf"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2740,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_wlstrapa.mag",
+          "sha256": "3ef8335f055deac650fed4eaef4d89155c5d03e764195e400f35f0a432663552"
+        },
+        "maglef": {
+          "byte_size": 2148,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_wlstrapa.mag",
+          "sha256": "76d809fce74333494701ad3c18b7cdb1eada972ff74b9e485d6299874ab18da7"
+        },
+        "spice": {
+          "byte_size": 146,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_wlstrapa.sp",
+          "sha256": "05f126b8affff4d8184f24fbda55919d77db11bd64d17f401360002b13fc7eb1"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_wlstrapa",
+          "pins": [
+            "VPWR"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VPWR"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 4504,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.gds",
+          "sha256": "bd273f150f8c3cc608204f7899dfe74e0432f53d0d2956bc3512e682907728bf"
+        },
+        "gds_pins": {
+          "byte_size": 5,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.gds.pins",
+          "sha256": "4541cd70fe0675aee416efdbdc2a8be0943cb5890c47686fb1d61196bbfaec40"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2740,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.mag",
+          "sha256": "3ef8335f055deac650fed4eaef4d89155c5d03e764195e400f35f0a432663552"
+        },
+        "magic_lef": {
+          "byte_size": 2696,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.magic.lef",
+          "sha256": "3cf7d5b37db875d829e8bc6ec5411dfa5871fce7c20e344a142d1d1f5bbba3d6"
+        },
+        "maglef": {
+          "byte_size": 2148,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.maglef",
+          "sha256": "76d809fce74333494701ad3c18b7cdb1eada972ff74b9e485d6299874ab18da7"
+        },
+        "spice": {
+          "byte_size": 146,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa/sky130_fd_bd_sram__sram_sp_wlstrapa.spice",
+          "sha256": "05f126b8affff4d8184f24fbda55919d77db11bd64d17f401360002b13fc7eb1"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_wlstrap_p",
+      "category": "wordline_strap",
+      "cell": "sky130_fd_bd_sram__sram_sp_wlstrap_p",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_l1m1": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "67/20": 1,
+            "67/44": 1,
+            "68/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p": {
+          "elements": {
+            "BOUNDARY": 2,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 2,
+            "68/5": 2
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 4
+          },
+          "layers": {
+            "33/43": 4
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": {
+          "elements": {
+            "BOUNDARY": 41,
+            "PATH": 1,
+            "SREF": 1
+          },
+          "layers": {
+            "115/42": 2,
+            "115/43": 2,
+            "22/21": 2,
+            "64/18": 1,
+            "65/20": 2,
+            "65/44": 1,
+            "66/20": 4,
+            "66/44": 6,
+            "67/20": 4,
+            "67/44": 4,
+            "68/20": 5,
+            "68/44": 3,
+            "69/20": 1,
+            "81/2": 1,
+            "93/44": 2,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_l1m1": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "69/20": 3
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 4,
+        "64/18": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 4,
+        "66/44": 6,
+        "67/20": 5,
+        "67/44": 5,
+        "68/16": 2,
+        "68/20": 6,
+        "68/44": 3,
+        "68/5": 2,
+        "69/20": 4,
+        "81/2": 1,
+        "93/44": 2,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p"
+      ],
+      "gds_structure_count": 5,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 4,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 4738,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p.gds",
+          "sha256": "474ccf792a9c1e625356a9b976c4b37747546eaeeccd14e976ac4fc11617f578"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2777,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p.mag",
+          "sha256": "405a1316d9bbdc0f660c10ec7ba238df988443077804ee62169a98f4fe384e40"
+        },
+        "maglef": {
+          "byte_size": 1973,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p.mag",
+          "sha256": "5ecc2a6e63fef68c9e2aeafdd430701a8005277cdf398fa6c67c2cea73f56e58"
+        },
+        "spice": {
+          "byte_size": 148,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p.sp",
+          "sha256": "5d6c1c5391e7933691a5e63938681135d78a915e3eff17ad4792ae4e17e1c98f"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_wlstrap_p",
+          "pins": [
+            "VGND"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VGND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 4738,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.gds",
+          "sha256": "474ccf792a9c1e625356a9b976c4b37747546eaeeccd14e976ac4fc11617f578"
+        },
+        "gds_pins": {
+          "byte_size": 5,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.gds.pins",
+          "sha256": "48c7df19b10f0030072f5ca7714a4c4d8084bba1be3cc18bcf7b72738a002877"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2777,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.mag",
+          "sha256": "405a1316d9bbdc0f660c10ec7ba238df988443077804ee62169a98f4fe384e40"
+        },
+        "magic_lef": {
+          "byte_size": 2642,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.magic.lef",
+          "sha256": "91c144dd59b112ddab29af82994de004c3db1cdd4b3b070c9a10b9e72e94c61d"
+        },
+        "maglef": {
+          "byte_size": 1973,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.maglef",
+          "sha256": "5ecc2a6e63fef68c9e2aeafdd430701a8005277cdf398fa6c67c2cea73f56e58"
+        },
+        "spice": {
+          "byte_size": 148,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.spice",
+          "sha256": "5d6c1c5391e7933691a5e63938681135d78a915e3eff17ad4792ae4e17e1c98f"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_wlstrapa_p",
+      "category": "wordline_strap",
+      "cell": "sky130_fd_bd_sram__sram_sp_wlstrapa_p",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_l1m1": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "67/20": 1,
+            "67/44": 1,
+            "68/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": {
+          "elements": {
+            "BOUNDARY": 41,
+            "PATH": 1,
+            "SREF": 1
+          },
+          "layers": {
+            "115/42": 2,
+            "115/43": 2,
+            "22/21": 2,
+            "64/18": 1,
+            "65/20": 2,
+            "65/44": 1,
+            "66/20": 4,
+            "66/44": 6,
+            "67/20": 4,
+            "67/44": 4,
+            "68/20": 5,
+            "68/44": 3,
+            "69/20": 1,
+            "81/2": 1,
+            "93/44": 2,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_l1m1": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "69/20": 3
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrapa_p": {
+          "elements": {
+            "BOUNDARY": 2,
+            "SREF": 3,
+            "TEXT": 2
+          },
+          "layers": {
+            "68/16": 2,
+            "68/5": 2
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2": 1,
+            "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz": 1
+          }
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "33/43": 3
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 3,
+        "64/18": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 4,
+        "66/44": 6,
+        "67/20": 5,
+        "67/44": 5,
+        "68/16": 2,
+        "68/20": 6,
+        "68/44": 3,
+        "68/5": 2,
+        "69/20": 4,
+        "81/2": 1,
+        "93/44": 2,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_wlstrapa_p"
+      ],
+      "gds_structure_count": 5,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 3,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 4648,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_wlstrapa_p.gds",
+          "sha256": "425e1d31e15ea19ae59333b4a4fce73c01c6c041d7c406791359d8d37e81b744"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2777,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_wlstrapa_p.mag",
+          "sha256": "405a1316d9bbdc0f660c10ec7ba238df988443077804ee62169a98f4fe384e40"
+        },
+        "maglef": {
+          "byte_size": 1973,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_wlstrapa_p.mag",
+          "sha256": "5ecc2a6e63fef68c9e2aeafdd430701a8005277cdf398fa6c67c2cea73f56e58"
+        },
+        "spice": {
+          "byte_size": 150,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_wlstrapa_p.sp",
+          "sha256": "9fdfdcd4c409c3950e825193916bcf67a188f8a8ddd7f3fcb4a43ce7ce00090c"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_wlstrapa_p",
+          "pins": [
+            "VGND"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "VGND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 4648,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.gds",
+          "sha256": "425e1d31e15ea19ae59333b4a4fce73c01c6c041d7c406791359d8d37e81b744"
+        },
+        "gds_pins": {
+          "byte_size": 5,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.gds.pins",
+          "sha256": "48c7df19b10f0030072f5ca7714a4c4d8084bba1be3cc18bcf7b72738a002877"
+        },
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2777,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.mag",
+          "sha256": "405a1316d9bbdc0f660c10ec7ba238df988443077804ee62169a98f4fe384e40"
+        },
+        "magic_lef": {
+          "byte_size": 2642,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.magic.lef",
+          "sha256": "91c144dd59b112ddab29af82994de004c3db1cdd4b3b070c9a10b9e72e94c61d"
+        },
+        "maglef": {
+          "byte_size": 1973,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.maglef",
+          "sha256": "5ecc2a6e63fef68c9e2aeafdd430701a8005277cdf398fa6c67c2cea73f56e58"
+        },
+        "spice": {
+          "byte_size": 150,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrapa_p/sky130_fd_bd_sram__sram_sp_wlstrapa_p.spice",
+          "sha256": "9fdfdcd4c409c3950e825193916bcf67a188f8a8ddd7f3fcb4a43ce7ce00090c"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_wlstrap_ce",
+      "category": "wordline_strap_helper",
+      "cell": "sky130_fd_bd_sram__sram_sp_wlstrap_ce",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_sp_wlstrap_ce": {
+          "elements": {
+            "BOUNDARY": 42
+          },
+          "layers": {
+            "115/42": 2,
+            "115/43": 2,
+            "22/21": 2,
+            "64/18": 1,
+            "64/20": 1,
+            "65/20": 2,
+            "65/44": 1,
+            "66/20": 1,
+            "66/44": 6,
+            "67/20": 4,
+            "67/44": 5,
+            "68/20": 5,
+            "68/44": 3,
+            "78/44": 1,
+            "81/2": 1,
+            "92/44": 1,
+            "93/44": 1,
+            "94/20": 2,
+            "95/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "64/18": 1,
+        "64/20": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 1,
+        "66/44": 6,
+        "67/20": 4,
+        "67/44": 5,
+        "68/20": 5,
+        "68/44": 3,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 2,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_wlstrap_ce"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 0,
+        "92/44": 1
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3374,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_wlstrap_ce.gds",
+          "sha256": "da0fcab289780a41d586ef4657e818eec37d9be9c3a46b7b26dff53682199574"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2458,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_wlstrap_ce.mag",
+          "sha256": "54796ddd93e032e1aa3ee0ba028f5720cbe2b4535d4fef4bf5970bee010fb5ec"
+        },
+        "maglef": {
+          "byte_size": 1164,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_wlstrap_ce.mag",
+          "sha256": "e31ab915b51f7ed17596e8b446eb840d16bbf7b1bed01f57693f2916f98aff0a"
+        },
+        "spice": {
+          "byte_size": 145,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_wlstrap_ce.sp",
+          "sha256": "b566d6fbbc04f43365cc69695a7839e0f8bb7a79eae4bb52bf9e2c5c24657880"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_wlstrap_ce",
+          "pins": []
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3374,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.gds",
+          "sha256": "da0fcab289780a41d586ef4657e818eec37d9be9c3a46b7b26dff53682199574"
+        },
+        "gds_pins": null,
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2458,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.mag",
+          "sha256": "54796ddd93e032e1aa3ee0ba028f5720cbe2b4535d4fef4bf5970bee010fb5ec"
+        },
+        "magic_lef": {
+          "byte_size": 2552,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.magic.lef",
+          "sha256": "a74f2885ad028e6b1265849d53fb6f70fc54e9866e8dd6a7279c7da9da29dcda"
+        },
+        "maglef": {
+          "byte_size": 1164,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.maglef",
+          "sha256": "e31ab915b51f7ed17596e8b446eb840d16bbf7b1bed01f57693f2916f98aff0a"
+        },
+        "spice": {
+          "byte_size": 145,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_ce/sky130_fd_bd_sram__sram_sp_wlstrap_ce.spice",
+          "sha256": "b566d6fbbc04f43365cc69695a7839e0f8bb7a79eae4bb52bf9e2c5c24657880"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce",
+      "category": "wordline_strap_helper",
+      "cell": "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__sram_l1m1": {
+          "elements": {
+            "BOUNDARY": 3
+          },
+          "layers": {
+            "67/20": 1,
+            "67/44": 1,
+            "68/20": 1
+          },
+          "references": {}
+        },
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": {
+          "elements": {
+            "BOUNDARY": 41,
+            "PATH": 1,
+            "SREF": 1
+          },
+          "layers": {
+            "115/42": 2,
+            "115/43": 2,
+            "22/21": 2,
+            "64/18": 1,
+            "65/20": 2,
+            "65/44": 1,
+            "66/20": 4,
+            "66/44": 6,
+            "67/20": 4,
+            "67/44": 4,
+            "68/20": 5,
+            "68/44": 3,
+            "69/20": 1,
+            "81/2": 1,
+            "93/44": 2,
+            "94/20": 1,
+            "95/20": 1
+          },
+          "references": {
+            "sky130_fd_bd_sram__sram_l1m1": 1
+          }
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "64/18": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 4,
+        "66/44": 6,
+        "67/20": 5,
+        "67/44": 5,
+        "68/20": 6,
+        "68/44": 3,
+        "69/20": 1,
+        "81/2": 1,
+        "93/44": 2,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce"
+      ],
+      "gds_structure_count": 2,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [],
+      "observed_add_mask_layers": {
+        "115/43": 2,
+        "22/21": 2,
+        "33/43": 0,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 3608,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.gds",
+          "sha256": "b78d4a4d000e25724f1e1898ad34e021535b1bd2b3e2b2e41f9805efd1f0eae4"
+        },
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2583,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.mag",
+          "sha256": "2a7357f81d3c6a1f9c83c4fbdfef28ef7b9a727ddf2ccbba3dc44122cb5e88a9"
+        },
+        "maglef": {
+          "byte_size": 945,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.mag",
+          "sha256": "bc0855b0e324aff3cedbd237eff2c2215e2d8481cf1472a0d37e52fd42638a5e"
+        },
+        "spice": {
+          "byte_size": 149,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.sp",
+          "sha256": "5b9646f0655dc5ccd00636b2e2dbd44aeb45201748e92a40e32b50bd8a2a8a65"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce",
+          "pins": []
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": null,
+        "gds": {
+          "byte_size": 3608,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.gds",
+          "sha256": "b78d4a4d000e25724f1e1898ad34e021535b1bd2b3e2b2e41f9805efd1f0eae4"
+        },
+        "gds_pins": null,
+        "klayout_lvs_spice": null,
+        "lvs_spice": null,
+        "mag": {
+          "byte_size": 2583,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.mag",
+          "sha256": "2a7357f81d3c6a1f9c83c4fbdfef28ef7b9a727ddf2ccbba3dc44122cb5e88a9"
+        },
+        "magic_lef": {
+          "byte_size": 2500,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.magic.lef",
+          "sha256": "7c03436af378c41d9617c5a0ca924c5553fe2942c17fe89349ced461927cf19d"
+        },
+        "maglef": {
+          "byte_size": 945,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.maglef",
+          "sha256": "bc0855b0e324aff3cedbd237eff2c2215e2d8481cf1472a0d37e52fd42638a5e"
+        },
+        "spice": {
+          "byte_size": 149,
+          "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p_ce/sky130_fd_bd_sram__sram_sp_wlstrap_p_ce.spice",
+          "sha256": "5b9646f0655dc5ccd00636b2e2dbd44aeb45201748e92a40e32b50bd8a2a8a65"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "VIEW_NOT_AVAILABLE_ON_BOTH_SIDES",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "BYTE_IDENTICAL"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sense_amp",
+      "category": "support_leaf",
+      "cell": "sky130_fd_bd_sram__openram_sense_amp",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sense_amp": {
+          "elements": {
+            "BOUNDARY": 165,
+            "TEXT": 8
+          },
+          "layers": {
+            "235/4": 1,
+            "64/20": 1,
+            "65/20": 7,
+            "65/44": 3,
+            "66/20": 29,
+            "66/44": 61,
+            "67/20": 29,
+            "67/44": 8,
+            "68/20": 12,
+            "68/5": 8,
+            "93/44": 4,
+            "94/20": 5,
+            "95/20": 5
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "235/4": 1,
+        "64/20": 1,
+        "65/20": 7,
+        "65/44": 3,
+        "66/20": 29,
+        "66/44": 61,
+        "67/20": 29,
+        "67/44": 8,
+        "68/20": 12,
+        "68/5": 8,
+        "93/44": 4,
+        "94/20": 5,
+        "95/20": 5
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sense_amp"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sense_amp",
+          "pins": [
+            "BL",
+            "BR",
+            "DOUT",
+            "EN",
+            "VDD",
+            "GND"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 0,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 11044,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sense_amp.gds",
+          "sha256": "710a59d07b9b40454ff861a49d4fb47894445d47da322376c877bf2e3d9b5470"
+        },
+        "lvs_spice": {
+          "byte_size": 1482,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sense_amp.sp",
+          "sha256": "70d8fdf07b15fe120199bb45908f4b4b9216881376b388d4198cc69b38e5c3d8"
+        },
+        "mag": {
+          "byte_size": 10495,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sense_amp.mag",
+          "sha256": "f3677a27fdc86a3aa6f65ff9c5b34382e54f944aa7f58564e9800dcc31466df8"
+        },
+        "maglef": {
+          "byte_size": 2600,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sense_amp.mag",
+          "sha256": "40b6fe1545cff148cb45ccdc6278f0afa2195b9feff7477c1005c2a77970a25d"
+        },
+        "spice": {
+          "byte_size": 1428,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sense_amp.sp",
+          "sha256": "8057c5cda026d23f29fe00b077d9869812967632fffe6ffcc3e9db0439f633ae"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sense_amp",
+          "pins": [
+            "BL",
+            "BR",
+            "DOUT",
+            "EN",
+            "GND",
+            "VDD"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "BL",
+        "BR",
+        "DOUT",
+        "EN",
+        "VDD",
+        "GND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 1374,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.lvs.calibre.spice",
+          "sha256": "75ab0655866ba44e6cf045f8ced8a09ea11d1b7df5cf07691f0c05b2827ff18f"
+        },
+        "gds": {
+          "byte_size": 11044,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.gds",
+          "sha256": "710a59d07b9b40454ff861a49d4fb47894445d47da322376c877bf2e3d9b5470"
+        },
+        "gds_pins": {
+          "byte_size": 22,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.gds.pins",
+          "sha256": "5d182ad2cfc8199dcc2e737b9db728deddb26f59d7e5fd68c9ef7d725959940e"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1545,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.lvs.klayout.spice",
+          "sha256": "640985b863378c924f97f88d0cf944bcdc90ebb33f012c6de16bd2617253bf7e"
+        },
+        "lvs_spice": {
+          "byte_size": 1482,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.lvs.spice",
+          "sha256": "70d8fdf07b15fe120199bb45908f4b4b9216881376b388d4198cc69b38e5c3d8"
+        },
+        "mag": {
+          "byte_size": 10495,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.mag",
+          "sha256": "f3677a27fdc86a3aa6f65ff9c5b34382e54f944aa7f58564e9800dcc31466df8"
+        },
+        "magic_lef": {
+          "byte_size": 4253,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.magic.lef",
+          "sha256": "4940c7cbb3414f4c4f2d53344ead9be76c8132b4ecf761fcdf92f22d0b563e19"
+        },
+        "maglef": {
+          "byte_size": 2600,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.maglef",
+          "sha256": "40b6fe1545cff148cb45ccdc6278f0afa2195b9feff7477c1005c2a77970a25d"
+        },
+        "spice": {
+          "byte_size": 1387,
+          "path": "sky130_fd_bd_sram/cells/openram_sense_amp/sky130_fd_bd_sram__openram_sense_amp.spice",
+          "sha256": "d336032aaa321c6b815e2b5858aa25fa8cc000bf30751771d10629afd5102e0a"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "DIFFERENT"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_write_driver",
+      "category": "support_leaf",
+      "cell": "sky130_fd_bd_sram__openram_write_driver",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_write_driver": {
+          "elements": {
+            "BOUNDARY": 171,
+            "TEXT": 8
+          },
+          "layers": {
+            "235/4": 1,
+            "64/20": 2,
+            "65/20": 8,
+            "65/44": 4,
+            "66/20": 31,
+            "66/44": 39,
+            "67/20": 45,
+            "67/44": 8,
+            "68/16": 8,
+            "68/20": 14,
+            "81/4": 1,
+            "93/44": 7,
+            "94/20": 5,
+            "95/20": 6
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "235/4": 1,
+        "64/20": 2,
+        "65/20": 8,
+        "65/44": 4,
+        "66/20": 31,
+        "66/44": 39,
+        "67/20": 45,
+        "67/44": 8,
+        "68/16": 8,
+        "68/20": 14,
+        "81/4": 1,
+        "93/44": 7,
+        "94/20": 5,
+        "95/20": 6
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_write_driver"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_write_driver",
+          "pins": [
+            "DIN",
+            "BL",
+            "BR",
+            "EN",
+            "VDD",
+            "GND"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 0,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 11436,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_write_driver.gds",
+          "sha256": "d08c664af58d8737a9a5a35b26e62a47d71aff09c8aa305be456e3fd9186e909"
+        },
+        "lvs_spice": {
+          "byte_size": 2453,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_write_driver.sp",
+          "sha256": "4922b51a55103d26add25c524fcd0f11196b6aae6609118e2ba0d3c65963d309"
+        },
+        "mag": {
+          "byte_size": 9158,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_write_driver.mag",
+          "sha256": "2899ab94709349de57ee348d70abf3a6e35bcd76dfbca5fda5cd0cd1db8571db"
+        },
+        "maglef": {
+          "byte_size": 3301,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_write_driver.mag",
+          "sha256": "6e670a10442512f0a54d8553456f881091cc433fd06c4ec62241f8cb92d7095c"
+        },
+        "spice": {
+          "byte_size": 2357,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_write_driver.sp",
+          "sha256": "bda77b54e75113ae12d6d0228d176a17704df0c3943ef8e90f4a3a913b045299"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_write_driver",
+          "pins": [
+            "BL",
+            "BR",
+            "DIN",
+            "EN",
+            "GND",
+            "VDD"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "DIN",
+        "BL",
+        "BR",
+        "EN",
+        "VDD",
+        "GND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 2261,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.lvs.calibre.spice",
+          "sha256": "961ce634f1bfdac580ebe1ce52d96da01aefc50073ef1690c412802ce6074526"
+        },
+        "gds": {
+          "byte_size": 11436,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.gds",
+          "sha256": "d08c664af58d8737a9a5a35b26e62a47d71aff09c8aa305be456e3fd9186e909"
+        },
+        "gds_pins": {
+          "byte_size": 21,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.gds.pins",
+          "sha256": "e4965fad5dbc3b4a8f4e7b1bfc4891e6909cecf32b23de7315e561a10761a799"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 2565,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.lvs.klayout.spice",
+          "sha256": "df66974f4fee2bbd1293545878eec8ef0ae152c0caded0b10be76474e41a2180"
+        },
+        "lvs_spice": {
+          "byte_size": 2453,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.lvs.spice",
+          "sha256": "4922b51a55103d26add25c524fcd0f11196b6aae6609118e2ba0d3c65963d309"
+        },
+        "mag": {
+          "byte_size": 9158,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.mag",
+          "sha256": "2899ab94709349de57ee348d70abf3a6e35bcd76dfbca5fda5cd0cd1db8571db"
+        },
+        "magic_lef": {
+          "byte_size": 5227,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.magic.lef",
+          "sha256": "558ed8597db74947662dcc2a700d1d79c803c3ea0d7e74dc925af493074181e9"
+        },
+        "maglef": {
+          "byte_size": 3301,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.maglef",
+          "sha256": "6e670a10442512f0a54d8553456f881091cc433fd06c4ec62241f8cb92d7095c"
+        },
+        "spice": {
+          "byte_size": 1886,
+          "path": "sky130_fd_bd_sram/cells/openram_write_driver/sky130_fd_bd_sram__openram_write_driver.spice",
+          "sha256": "898f9e8cb837a722f037f0a9573fc96b6e53eb3155ec8e71fb030b703ba5f62c"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "DIFFERENT"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_dff",
+      "category": "support_leaf",
+      "cell": "sky130_fd_bd_sram__openram_dff",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_dff": {
+          "elements": {
+            "BOUNDARY": 293,
+            "TEXT": 6
+          },
+          "layers": {
+            "235/4": 1,
+            "64/20": 1,
+            "65/20": 4,
+            "65/44": 6,
+            "66/20": 42,
+            "66/44": 99,
+            "67/20": 47,
+            "67/44": 18,
+            "67/5": 2,
+            "68/20": 34,
+            "68/44": 4,
+            "69/20": 7,
+            "69/5": 4,
+            "81/4": 1,
+            "93/44": 3,
+            "94/20": 3,
+            "95/20": 23
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "235/4": 1,
+        "64/20": 1,
+        "65/20": 4,
+        "65/44": 6,
+        "66/20": 42,
+        "66/44": 99,
+        "67/20": 47,
+        "67/44": 18,
+        "67/5": 2,
+        "68/20": 34,
+        "68/44": 4,
+        "69/20": 7,
+        "69/5": 4,
+        "81/4": 1,
+        "93/44": 3,
+        "94/20": 3,
+        "95/20": 23
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_dff"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_dff",
+          "pins": [
+            "D",
+            "Q",
+            "CLK",
+            "VDD",
+            "GND"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 0,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 19178,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_dff.gds",
+          "sha256": "2db3a01d663797686c2cc69aa3ebe420f1138330cf50fa24595cbea95fa33dcd"
+        },
+        "lvs_spice": {
+          "byte_size": 2362,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_dff.sp",
+          "sha256": "bb75447873ec3de81d732f7609ac554574f52cdd643f1b97e27c7462db0d3d03"
+        },
+        "mag": {
+          "byte_size": 18790,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_dff.mag",
+          "sha256": "1d7c89e4c7e8286ffd416a794e5a0686043b9d159bd0375e3420c188b6889974"
+        },
+        "maglef": {
+          "byte_size": 2395,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_dff.mag",
+          "sha256": "415741bda30af5ec458d1400f7e1914aaccc94fac623453a0044c3142826cbba"
+        },
+        "spice": {
+          "byte_size": 2230,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_dff.sp",
+          "sha256": "5231c2918cb3874dcda813aff0770d61f9bc022475185c8e5ba6d4391245e222"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_dff",
+          "pins": [
+            "CLK",
+            "D",
+            "Q",
+            "Q_N"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "D",
+        "Q",
+        "CLK",
+        "VDD",
+        "GND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 2098,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.lvs.calibre.spice",
+          "sha256": "5e485750c5345ba104f3ca1bf18c2cfdd978812c0833548249607e32b787080e"
+        },
+        "gds": {
+          "byte_size": 19178,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.gds",
+          "sha256": "2db3a01d663797686c2cc69aa3ebe420f1138330cf50fa24595cbea95fa33dcd"
+        },
+        "gds_pins": {
+          "byte_size": 20,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.gds.pins",
+          "sha256": "9be3c1d336c464a55efd799b34a1a627d449cb52629af12a8d70755d450da018"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 2516,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.lvs.klayout.spice",
+          "sha256": "c8b60f28cad49a1de3d65165fc7a91d966c88ad034d09e5714be940d30f88bed"
+        },
+        "lvs_spice": {
+          "byte_size": 2362,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.lvs.spice",
+          "sha256": "bb75447873ec3de81d732f7609ac554574f52cdd643f1b97e27c7462db0d3d03"
+        },
+        "mag": {
+          "byte_size": 18790,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.mag",
+          "sha256": "1d7c89e4c7e8286ffd416a794e5a0686043b9d159bd0375e3420c188b6889974"
+        },
+        "magic_lef": {
+          "byte_size": 6845,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.magic.lef",
+          "sha256": "de924c16cd52bcccf3ce594eb81a034e1d47823b1d7d4c8470e55ae8372a7c05"
+        },
+        "maglef": {
+          "byte_size": 2395,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.maglef",
+          "sha256": "415741bda30af5ec458d1400f7e1914aaccc94fac623453a0044c3142826cbba"
+        },
+        "spice": {
+          "byte_size": 2272,
+          "path": "sky130_fd_bd_sram/cells/openram_dff/sky130_fd_bd_sram__openram_dff.spice",
+          "sha256": "0b9d25f3875850294296091c5c0be422474efa7842ee7e69f177806d52fdd8f9"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "DIFFERENT"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_nand2_dec",
+      "category": "support_leaf",
+      "cell": "sky130_fd_bd_sram__openram_sp_nand2_dec",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_nand2_dec": {
+          "elements": {
+            "BOUNDARY": 56,
+            "TEXT": 7
+          },
+          "layers": {
+            "235/4": 1,
+            "64/20": 1,
+            "65/20": 2,
+            "65/44": 2,
+            "66/20": 8,
+            "66/44": 9,
+            "67/20": 13,
+            "67/44": 4,
+            "67/5": 3,
+            "68/20": 9,
+            "68/5": 6,
+            "93/44": 2,
+            "94/20": 2,
+            "95/20": 1
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "235/4": 1,
+        "64/20": 1,
+        "65/20": 2,
+        "65/44": 2,
+        "66/20": 8,
+        "66/44": 9,
+        "67/20": 13,
+        "67/44": 4,
+        "67/5": 3,
+        "68/20": 9,
+        "68/5": 6,
+        "93/44": 2,
+        "94/20": 2,
+        "95/20": 1
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_nand2_dec"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_nand2_dec",
+          "pins": [
+            "A",
+            "B",
+            "Z",
+            "VDD",
+            "GND"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 0,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 4036,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_nand2_dec.gds",
+          "sha256": "31f9c746a5e293c3c2e8445971d37a0ff513b8e1296ec2855370897d932d3358"
+        },
+        "lvs_spice": {
+          "byte_size": 1120,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_nand2_dec.sp",
+          "sha256": "73a31e0ebdbc84ab1b1d2aa6a62c020ce290fa82dd6b7f5ccfe93b198f37668c"
+        },
+        "mag": {
+          "byte_size": 2773,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_nand2_dec.mag",
+          "sha256": "c8f0976a05dea8dea01b97cd2722baf70ddf0536191be3a1a7561afc15576c77"
+        },
+        "maglef": {
+          "byte_size": 2656,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_nand2_dec.mag",
+          "sha256": "207090d751748d327462291360b5a0ea3904ce8022bbe1f4731c02f5f5a325fe"
+        },
+        "spice": {
+          "byte_size": 1096,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_nand2_dec.sp",
+          "sha256": "a806b5af7d93f644522cdb41be30133f2c41638dd41193ded510ed38b6e5c225"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_nand2_dec",
+          "pins": [
+            "A",
+            "B",
+            "Z",
+            "VDD",
+            "GND"
+          ]
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "A",
+        "B",
+        "Z",
+        "VDD",
+        "GND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 1072,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.lvs.calibre.spice",
+          "sha256": "74c8b3ab15ce172f4448dbd475d36dcabacaf53ca4c8c629185e216decff75ab"
+        },
+        "gds": {
+          "byte_size": 4036,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.gds",
+          "sha256": "31f9c746a5e293c3c2e8445971d37a0ff513b8e1296ec2855370897d932d3358"
+        },
+        "gds_pins": {
+          "byte_size": 14,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.gds.pins",
+          "sha256": "08ea80d68f272142ed024180657721a923b1379654576497508565b37dbe2d81"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1147,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.lvs.klayout.spice",
+          "sha256": "5fa07dd2dd0c2b847fe9e124d45bbeaf63ad603ba31933c0183d31d4ec77e1fb"
+        },
+        "lvs_spice": {
+          "byte_size": 1120,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.lvs.spice",
+          "sha256": "73a31e0ebdbc84ab1b1d2aa6a62c020ce290fa82dd6b7f5ccfe93b198f37668c"
+        },
+        "mag": {
+          "byte_size": 2773,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.mag",
+          "sha256": "c8f0976a05dea8dea01b97cd2722baf70ddf0536191be3a1a7561afc15576c77"
+        },
+        "magic_lef": {
+          "byte_size": 1969,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.magic.lef",
+          "sha256": "e8ba4ca7ccb36ac078546fa8b66191107848e2c0a99e2325dd88022d5102d225"
+        },
+        "maglef": {
+          "byte_size": 2656,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.maglef",
+          "sha256": "207090d751748d327462291360b5a0ea3904ce8022bbe1f4731c02f5f5a325fe"
+        },
+        "spice": {
+          "byte_size": 391,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand2_dec/sky130_fd_bd_sram__openram_sp_nand2_dec.spice",
+          "sha256": "c6b0e1df8a3b1cbdc4e081badf73aa8f7be1b9beaa20141e0a4a0e00efec2d11"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "DIFFERENT"
+      }
+    },
+    {
+      "canonical_cell_name": "sky130_fd_bd_sram__openram_sp_nand3_dec",
+      "category": "support_leaf",
+      "cell": "sky130_fd_bd_sram__openram_sp_nand3_dec",
+      "gds_hierarchy": {
+        "sky130_fd_bd_sram__openram_sp_nand3_dec": {
+          "elements": {
+            "BOUNDARY": 88,
+            "TEXT": 11
+          },
+          "layers": {
+            "235/4": 1,
+            "64/20": 1,
+            "65/20": 3,
+            "65/44": 2,
+            "66/20": 12,
+            "66/44": 14,
+            "67/20": 15,
+            "67/44": 6,
+            "67/5": 4,
+            "68/20": 9,
+            "68/44": 2,
+            "68/5": 9,
+            "69/20": 4,
+            "93/44": 2,
+            "94/20": 3,
+            "95/20": 12
+          },
+          "references": {}
+        }
+      },
+      "gds_layer_datatype_counts": {
+        "235/4": 1,
+        "64/20": 1,
+        "65/20": 3,
+        "65/44": 2,
+        "66/20": 12,
+        "66/44": 14,
+        "67/20": 15,
+        "67/44": 6,
+        "67/5": 4,
+        "68/20": 9,
+        "68/44": 2,
+        "68/5": 9,
+        "69/20": 4,
+        "93/44": 2,
+        "94/20": 3,
+        "95/20": 12
+      },
+      "gds_root_structures": [
+        "sky130_fd_bd_sram__openram_sp_nand3_dec"
+      ],
+      "gds_structure_count": 1,
+      "layout_origin": "imported_vendor_hard_cell",
+      "lvs_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_nand3_dec",
+          "pins": [
+            "A",
+            "B",
+            "C",
+            "Z",
+            "VDD",
+            "GND"
+          ]
+        }
+      ],
+      "observed_add_mask_layers": {
+        "115/43": 0,
+        "22/21": 0,
+        "33/43": 0,
+        "92/44": 0
+      },
+      "openram_wrapper_views": {
+        "gds": {
+          "byte_size": 6290,
+          "path": "OpenRAM/technology/sky130/gds_lib/sky130_fd_bd_sram__openram_sp_nand3_dec.gds",
+          "sha256": "5c223bb4d20f53a3d02e98a357ab8b7a7f3839d9394220de4bab8fda9c375ddd"
+        },
+        "lvs_spice": {
+          "byte_size": 1264,
+          "path": "OpenRAM/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_nand3_dec.sp",
+          "sha256": "f9bfdc3b686723aa0665b674d6b9c16d90806a0aff725de8919459d70151c510"
+        },
+        "mag": {
+          "byte_size": 4719,
+          "path": "OpenRAM/technology/sky130/mag_lib/sky130_fd_bd_sram__openram_sp_nand3_dec.mag",
+          "sha256": "2509419751b1ba962e61ca4325877afaecea0825e6f120d7d23ed414bf5e6461"
+        },
+        "maglef": {
+          "byte_size": 3933,
+          "path": "OpenRAM/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_nand3_dec.mag",
+          "sha256": "2b7f9193f4e8f4c33a235f5e345a4594fb63d36022e06b8c2c3db9319bcff93f"
+        },
+        "spice": {
+          "byte_size": 1228,
+          "path": "OpenRAM/technology/sky130/sp_lib/sky130_fd_bd_sram__openram_sp_nand3_dec.sp",
+          "sha256": "d4a0a2f507a9be2ec930375c80a03cc028dbe5138c5f397968176843324ed752"
+        }
+      },
+      "ordinary_spice_subcircuits": [
+        {
+          "name": "sky130_fd_bd_sram__openram_sp_nand3_dec",
+          "pins": []
+        }
+      ],
+      "package_origin": "pinned sky130_fd_bd_sram build-space library",
+      "priority": 7,
+      "required_by_unchanged_16x8_control": true,
+      "schematic_pin_list": [
+        "A",
+        "B",
+        "C",
+        "Z",
+        "VDD",
+        "GND"
+      ],
+      "source_repository": "VLSIDA/sky130_fd_bd_sram",
+      "source_repository_commit": "dd64256961317205343a3fd446908b42bafba388",
+      "vendor_views": {
+        "calibre_lvs_spice": {
+          "byte_size": 1192,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.lvs.calibre.spice",
+          "sha256": "28ccbf5b971f6abd7e668d47c57eb4dcca3ceeac0051baad05e1baf4aaadc2a4"
+        },
+        "gds": {
+          "byte_size": 6290,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.gds",
+          "sha256": "5c223bb4d20f53a3d02e98a357ab8b7a7f3839d9394220de4bab8fda9c375ddd"
+        },
+        "gds_pins": {
+          "byte_size": 16,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.gds.pins",
+          "sha256": "f9c0036fe95752f084695971b6ac6c056c6d70dd9875f46df30cbc765f7eeb2a"
+        },
+        "klayout_lvs_spice": {
+          "byte_size": 1305,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.lvs.klayout.spice",
+          "sha256": "1bba920037bf43d27a1356a219b18d71f49482833339b4e7c7ab324209a7e195"
+        },
+        "lvs_spice": {
+          "byte_size": 1264,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.lvs.spice",
+          "sha256": "f9bfdc3b686723aa0665b674d6b9c16d90806a0aff725de8919459d70151c510"
+        },
+        "mag": {
+          "byte_size": 4719,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.mag",
+          "sha256": "2509419751b1ba962e61ca4325877afaecea0825e6f120d7d23ed414bf5e6461"
+        },
+        "magic_lef": {
+          "byte_size": 2359,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.magic.lef",
+          "sha256": "bb8513aa9380fa286ecf7bb614d10e83ff8b9b7fb4eefb59005a96d9954ce24d"
+        },
+        "maglef": {
+          "byte_size": 3933,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.maglef",
+          "sha256": "2b7f9193f4e8f4c33a235f5e345a4594fb63d36022e06b8c2c3db9319bcff93f"
+        },
+        "spice": {
+          "byte_size": 499,
+          "path": "sky130_fd_bd_sram/cells/openram_sp_nand3_dec/sky130_fd_bd_sram__openram_sp_nand3_dec.spice",
+          "sha256": "2a092fdf69a4863487050f245e026de96dd9b9f0125bd3ea2931c08ae7d70ebd"
+        }
+      },
+      "wrapper_vs_vendor": {
+        "gds": "BYTE_IDENTICAL",
+        "lvs_spice": "BYTE_IDENTICAL",
+        "mag": "BYTE_IDENTICAL",
+        "maglef": "BYTE_IDENTICAL",
+        "spice": "DIFFERENT"
+      }
+    }
+  ],
+  "inventory_policy": "read-only; no source view modified in place",
+  "openram_commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+  "required_imported_cell_count": 29,
+  "sky130_fd_bd_sram_commit": "dd64256961317205343a3fd446908b42bafba388"
+}

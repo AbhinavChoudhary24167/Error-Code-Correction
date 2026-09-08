@@ -1,0 +1,44 @@
+{
+  "commands": [
+    {
+      "name": "campaign_local_tests",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q",
+        "C:\\Users\\Abhinav\\OneDrive\\Desktop\\ECC\\Error-Code-Correction\\campaigns\\iscas_sustainability_extension\\memory_compiler\\gate3_attempt07_sram22_matched_physical_closure\\tests"
+      ],
+      "exit_code": 0,
+      "log": "raw/regression/campaign_local_tests.log"
+    },
+    {
+      "name": "make",
+      "command": [
+        "make"
+      ],
+      "exit_code": 0,
+      "log": "raw/regression/make.log"
+    },
+    {
+      "name": "make_test",
+      "command": [
+        "make",
+        "test"
+      ],
+      "exit_code": 2,
+      "log": "raw/regression/make_test.log"
+    },
+    {
+      "name": "full_pytest",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 1,
+      "log": "raw/regression/full_pytest.log"
+    }
+  ]
+}

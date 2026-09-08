@@ -1,0 +1,45 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt07_sram22_matched_physical_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+read_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt07_sram22_matched_physical_closure/raw/openroad/work/results/sky130hd/attempt07_u0/seed23/2_floorplan.odb
+read_sdc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt07_sram22_matched_physical_closure/raw/openroad/work/results/sky130hd/attempt07_u0/seed23/2_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+global_placement -skip_io -density 0.3 -pad_left 0 -pad_right 0 -random_seed 23
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 989.920 459.680 ) um
+[INFO GPL-0016] Core area:                  439734.240 um^2
+[INFO GPL-0036] Movable instances area:          0.000 um^2
+[INFO GPL-0037] Total instances area:       206789.578 um^2
+[INFO GPL-0035] Pin density area adjust:         0.000 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:              3384
+[INFO GPL-0007] Movable instances:                   0
+[INFO GPL-0008] Fixed instances:                  3166
+[INFO GPL-0009] Dummy instances:                   218
+[INFO GPL-0010] Number of nets:                    148
+[INFO GPL-0011] Number of pins:                    148
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 1000.000 470.000 ) um
+[INFO GPL-0013] Placement BBox: ( 10.120 10.880 ) ( 989.920 459.680 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                439734.240 um^2
+[INFO GPL-0017] Fixed instances area:       211784.368 um^2
+[INFO GPL-0018] Movable instances area:          0.000 um^2
+[INFO GPL-0019] Utilization:                     0.000 %
+[INFO GPL-0020] Standard cells area:             0.000 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[WARNING GPL-0123] No placeable instances in the top-level region. Removing it.
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 0	Region center = 0
+[WARNING GPL-0136] No placeable instances - skipping placement.
+Design area 205227 um^2 47% utilization.
+write_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt07_sram22_matched_physical_closure/raw/openroad/work/results/sky130hd/attempt07_u0/seed23/3_1_place_gp_skip_io.odb
+Elapsed time: 0:01.76[h:]min:sec. CPU time: user 0.85 sys 0.20 (59%). Peak memory: 128968KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_1_place_gp_skip_io      .odb            1            125 cfbb17f2164306408325

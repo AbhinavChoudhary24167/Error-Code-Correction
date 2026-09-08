@@ -1,0 +1,105 @@
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp	2026-08-31 03:13:33.354307822 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp	2026-08-31 03:13:33.381682154 +0000
+@@ -4,8 +4,8 @@
+ X0 ll WL BR VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+ X1 ul Q_bar_float VGND VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+ X2 BL WL ul VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+-X3 ur WL ur VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
+-X4 lr WL lr VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
++X3 ur WL ur VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
++X4 lr WL lr VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
+ X5 VPWR Q_float lr VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X6 ur Q_bar_float VPWR VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X7 VGND Q_float ll VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp	2026-08-31 03:13:33.358338049 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp	2026-08-31 03:13:33.384673293 +0000
+@@ -4,8 +4,8 @@
+ X0 VPWR WL BR VNB sky130_fd_pr__special_nfet_pass ad=4.375e+10p pd=920000u as=1.68e+10p ps=520000u w=0.14u l=0.15u
+ X1 Q VPWR VGND VNB sky130_fd_pr__special_nfet_latch ad=1.56e+11p pd=2.38e+06u as=8.08e+10p ps=1.28e+06u w=0.21u l=0.15u
+ X2 BL WL Q VNB sky130_fd_pr__special_nfet_pass ad=1.68e+10p pd=520000u as=4.25e+10p ps=920000u w=0.14u l=0.15u
+-X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass ad=3.5e+10p pd=780000u as=0p ps=0u w=0.07u l=0.095u
+-X4 VPWR WL VPWR VPB sky130_fd_pr__special_pfet_pass ad=9.72e+10p pd=1.86e+06u as=0p ps=0u w=0.07u l=0.095u
++X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass ad=3.5e+10p pd=780000u as=0p ps=0u w=0.14u l=25n
++X4 VPWR WL VPWR VPB sky130_fd_pr__special_pfet_pass ad=9.72e+10p pd=1.86e+06u as=0p ps=0u w=0.14u l=25n
+ X5 VPWR Q VPWR VPB sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+ X6 Q VPWR VPWR VPB sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+ X7 VGND Q VPWR VNB sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp	2026-08-31 03:13:33.361396440 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp	2026-08-31 03:13:33.388042958 +0000
+@@ -4,8 +4,8 @@
+ X0 ll WL BR VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+ X1 ul Q_bar_float VGND VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+ X2 BL WL ul VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+-X3 ur WL ur VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
+-X4 lr WL lr VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
++X3 ur WL ur VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
++X4 lr WL lr VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
+ X5 VPWR Q_float lr VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X6 ur Q_bar_float VPWR VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X7 VGND Q_float ll VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp	2026-08-31 03:13:33.363808500 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp	2026-08-31 03:13:33.390624193 +0000
+@@ -4,8 +4,8 @@
+ X0 VPWR WL BR VNB sky130_fd_pr__special_nfet_pass ad=4.375e+10p pd=920000u as=1.68e+10p ps=520000u w=0.14u l=0.15u
+ X1 Q VPWR VGND VNB sky130_fd_pr__special_nfet_latch ad=1.56e+11p pd=2.38e+06u as=8.08e+10p ps=1.28e+06u w=0.21u l=0.15u
+ X2 BL WL Q VNB sky130_fd_pr__special_nfet_pass ad=1.68e+10p pd=520000u as=4.25e+10p ps=920000u w=0.14u l=0.15u
+-X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass ad=3.5e+10p pd=780000u as=0p ps=0u w=0.07u l=0.095u
+-X4 VPWR WL VPWR VPB sky130_fd_pr__special_pfet_pass ad=9.72e+10p pd=1.86e+06u as=0p ps=0u w=0.07u l=0.095u
++X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass ad=3.5e+10p pd=780000u as=0p ps=0u w=0.14u l=25n
++X4 VPWR WL VPWR VPB sky130_fd_pr__special_pfet_pass ad=9.72e+10p pd=1.86e+06u as=0p ps=0u w=0.14u l=25n
+ X5 VPWR Q VPWR VPB sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+ X6 Q VPWR VPWR VPB sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+ X7 VGND Q VPWR VNB sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_cell_opt1.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_cell_opt1.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_cell_opt1.sp	2026-08-31 03:13:33.367319248 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_cell_opt1.sp	2026-08-31 03:13:33.393360947 +0000
+@@ -4,8 +4,8 @@
+ X0 Q_bar WL BR VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+ X1 Q Q_bar VGND VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+ X2 BL WL Q VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+-X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
+-X4 Q_bar WL Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
++X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
++X4 Q_bar WL Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
+ X5 VPWR Q Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X6 Q Q_bar VPWR VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X7 VGND Q Q_bar VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp	2026-08-31 03:13:33.371390508 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp	2026-08-31 03:13:33.396492150 +0000
+@@ -4,8 +4,8 @@
+ X0 Q_bar WL BR VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+ X1 Q Q_bar VGND VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+ X2 BL WL Q VNB sky130_fd_pr__special_nfet_pass w=0.14u l=0.15u
+-X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
+-X4 Q_bar WL Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.07u l=0.095u
++X3 Q WL Q VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
++X4 Q_bar WL Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.14u l=25n
+ X5 VPWR Q Q_bar VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X6 Q Q_bar VPWR VPB sky130_fd_pr__special_pfet_pass w=0.14u l=0.15u
+ X7 VGND Q Q_bar VNB sky130_fd_pr__special_nfet_latch w=0.21u l=0.15u
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_colend.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_colend.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_colend.sp	2026-08-31 03:13:33.374585054 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_colend.sp	2026-08-31 03:13:33.399287487 +0000
+@@ -1,5 +1,5 @@
+ * NGSPICE file created from sky130_fd_bd_sram__sram_sp_colend.ext - technology: sky130A
+ 
+ .subckt sky130_fd_bd_sram__sram_sp_colend bl br vdd gnd vpb vnb gate
+-X0 br gate br vnb sky130_fd_pr__special_nfet_pass w=0.07u l=0.21u
++X0 br gate br vnb sky130_fd_pr__special_nfet_pass w=0.14u l=0.14u
+ .ends
+diff -ur /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_colenda.sp /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_colenda.sp
+--- /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/original/sky130_fd_bd_sram__sram_sp_colenda.sp	2026-08-31 03:13:33.377757383 +0000
++++ /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/patches/p1_selected/patched/sky130_fd_bd_sram__sram_sp_colenda.sp	2026-08-31 03:13:33.402867690 +0000
+@@ -1,6 +1,6 @@
+ * NGSPICE file created from sky130_fd_bd_sram__sram_sp_colenda.ext - technology: sky130A
+ 
+ .subckt sky130_fd_bd_sram__sram_sp_colenda bl br vdd gnd vpb vnb gate
+-X0 br gate br vnb sky130_fd_pr__special_nfet_pass w=0.07u l=0.21u
++X0 br gate br vnb sky130_fd_pr__special_nfet_pass w=0.14u l=0.14u
+ .ends
+ 

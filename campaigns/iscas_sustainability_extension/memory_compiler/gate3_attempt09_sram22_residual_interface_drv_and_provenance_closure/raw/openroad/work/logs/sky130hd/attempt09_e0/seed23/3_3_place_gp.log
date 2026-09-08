@@ -1,0 +1,355 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib
+read_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed23/3_2_place_iop.odb
+read_sdc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed23/2_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+[INFO RSZ-0026] Removed 17 buffers.
+Perform port buffering...
+[INFO RSZ-0027] Inserted 75 sky130_fd_sc_hd__clkdlybuf4s50_1 input buffers.
+[INFO RSZ-0028] Inserted 66 sky130_fd_sc_hd__clkdlybuf4s50_1 output buffers.
+global_placement -density 0.3 -pad_left 0 -pad_right 0 -routability_driven -random_seed 23 -timing_driven -force_center_initial_place -min_phi_coef 0.95 -max_phi_coef 1.05
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 989.920 639.200 ) um
+[INFO GPL-0016] Core area:                  615627.936 um^2
+[INFO GPL-0036] Movable instances area:       6067.069 um^2
+[INFO GPL-0037] Total instances area:       274627.139 um^2
+[INFO GPL-0035] Pin density area adjust:       322.050 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:              5798
+[INFO GPL-0007] Movable instances:                 671
+[INFO GPL-0008] Fixed instances:                  4740
+[INFO GPL-0009] Dummy instances:                   387
+[INFO GPL-0010] Number of nets:                    819
+[INFO GPL-0011] Number of pins:                   2359
+[INFO GPL-0012] Die BBox:       (  0.000  0.000 ) ( 1000.000 650.000 ) um
+[INFO GPL-0013] Placement BBox: ( 10.120 10.880 ) ( 989.920 639.200 ) um
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                615627.936 um^2
+[INFO GPL-0017] Fixed instances area:       275330.314 um^2
+[INFO GPL-0018] Movable instances area:       6389.119 um^2
+[INFO GPL-0019] Utilization:                     1.878 %
+[INFO GPL-0020] Standard cells area:          6389.119 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 671	Region center = 0
+[InitialPlace]  Iter: 1 conjugate gradient residual: 0.00000166 HPWL: 223992318
+[InitialPlace]  Iter: 2 conjugate gradient residual: 0.00000011 HPWL: 224269077
+[InitialPlace]  Iter: 3 conjugate gradient residual: 0.00000010 HPWL: 223013565
+[InitialPlace]  Iter: 4 conjugate gradient residual: 0.00000010 HPWL: 221154833
+[InitialPlace]  Iter: 5 conjugate gradient residual: 0.00000011 HPWL: 219501141
+[INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
+[INFO GPL-0023] Placement target density:       0.3000
+[INFO GPL-0024] Movable insts average area:      9.522 um^2
+[INFO GPL-0025] Ideal bin area:                 31.739 um^2
+[INFO GPL-0026] Ideal bin count:                 19396
+[INFO GPL-0027] Total bin area:             615627.936 um^2
+[INFO GPL-0028] Bin count (X, Y):         128 ,    128
+[INFO GPL-0029] Bin size (W * H):       7.655 *  4.909 um
+[INFO GPL-0030] Number of bins:                  16384
+[INFO GPL-0084] ---- Execute Nesterov Global Placement.
+[INFO GPL-0031] HPWL: Half-Perimeter Wirelength
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+        0 |   0.8417 |  7.499565e+04 |   +0.00% |  7.22e-15 |      
+[INFO GPL-0100] Timing-driven iteration 1/2, virtual: false.
+[INFO GPL-0101]    Iter: 3, overflow: 0.589, keep resizer changes at: 1, HPWL: 80895037
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |       835
+    final |     +0.7% |     127 |     230 |           211 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 219 slew violations.
+[INFO RSZ-0039] Resized 127 instances.
+[INFO RSZ-0038] Inserted 230 buffers in 211 nets.
+   Iter   |    Area   | Removed | Inserted |   Pins
+          |           | Buffers | Buffers  | Remaining
+-------------------------------------------------------
+        0 |     +0.0% |       0 |        0 |       727
+       72 |     +0.0% |       1 |        4 |       655
+      144 |     +0.0% |       1 |       16 |       583
+      216 |     +0.1% |       2 |       28 |       511
+      288 |     +0.1% |       6 |       35 |       439
+      360 |     +0.1% |      20 |       60 |       367
+      432 |     +0.1% |      21 |       61 |       295
+      504 |     +0.1% |      21 |       66 |       223
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[7] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[6] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[5] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[4] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[3] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[2] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[1] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[0] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[9] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[8] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[7] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[6] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[63] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[62] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[61] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[60] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[5] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[59] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[58] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[57] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[56] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[55] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[54] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[53] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[52] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[51] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[50] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[4] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[49] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[48] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[47] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[46] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[45] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[44] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[43] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[42] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[41] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[40] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[3] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[39] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[38] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[37] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[36] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[35] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[34] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[33] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[32] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[31] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[30] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[2] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[29] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[28] after 1 rounds of buffering (no solution meets design rules)
+      576 |     +0.1% |      21 |       68 |       151
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[27] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[26] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[25] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[24] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[23] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[22] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[21] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[20] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[1] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[19] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[18] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[17] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[16] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[15] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[14] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[13] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[12] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[11] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[10] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[0] after 1 rounds of buffering (no solution meets design rules)
+      648 |     +0.1% |      21 |       70 |        79
+[WARNING RSZ-2009] Skipping buffering because no valid buffering solution satisfying the design rules can be found for net connected to pin input90/X.
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin input90/X after 1 rounds of buffering (no solution meets design rules)
+      720 |     +0.1% |      98 |      138 |         7
+    final |     +0.1% |     105 |      145 |         0
+-------------------------------------------------------
+[INFO GPL-0106] Timing-driven: worst slack 1.5324972e-09
+[INFO GPL-0107] Timing-driven: repair_design delta area: 1997.911 um^2 (+31.27%)
+[INFO GPL-0108] Timing-driven: repair_design, gpl delta gcells: 270 (+40.24%)
+[INFO GPL-0109] Timing-driven: repair_design, gcells created: 375, deleted: 105
+[INFO GPL-0110] Timing-driven: new target density: 0.30587107
+[INFO GPL-0038] Routability snapshot saved at iter = 3
+        2 |   0.5891 |  8.199393e+04 |          |           |      
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+       10 |   0.4836 |  7.884630e+04 |   +5.13% |  1.17e-14 |      
+       20 |   0.4873 |  7.669420e+04 |   -2.73% |  1.91e-14 |      
+       30 |   0.4773 |  7.619049e+04 |   -0.66% |  3.12e-14 |      
+       40 |   0.4849 |  7.621530e+04 |   +0.03% |  5.08e-14 |      
+       50 |   0.4771 |  7.609545e+04 |   -0.16% |  8.27e-14 |      
+       60 |   0.4755 |  7.601828e+04 |   -0.10% |  1.35e-13 |      
+       70 |   0.4676 |  7.612988e+04 |   +0.15% |  2.19e-13 |      
+       80 |   0.4597 |  7.607959e+04 |   -0.07% |  3.57e-13 |      
+       90 |   0.4644 |  7.603677e+04 |   -0.06% |  5.82e-13 |      
+      100 |   0.4658 |  7.614005e+04 |   +0.14% |  9.48e-13 |      
+      110 |   0.4675 |  7.616166e+04 |   +0.03% |  1.54e-12 |      
+      120 |   0.4618 |  7.614470e+04 |   -0.02% |  2.52e-12 |      
+      130 |   0.4598 |  7.607355e+04 |   -0.09% |  4.10e-12 |      
+      140 |   0.4640 |  7.599968e+04 |   -0.10% |  6.67e-12 |      
+      150 |   0.4697 |  7.621619e+04 |   +0.28% |  1.09e-11 |      
+      160 |   0.4678 |  7.610739e+04 |   -0.14% |  1.77e-11 |      
+      170 |   0.4699 |  7.620989e+04 |   +0.13% |  2.88e-11 |      
+      180 |   0.4684 |  7.625971e+04 |   +0.07% |  4.70e-11 |      
+      190 |   0.4647 |  7.644777e+04 |   +0.25% |  7.65e-11 |      
+      200 |   0.4615 |  7.759290e+04 |   +1.50% |  1.25e-10 |      
+      210 |   0.4360 |  7.958239e+04 |   +2.56% |  2.03e-10 |      
+      220 |   0.4259 |  8.149167e+04 |   +2.40% |  3.31e-10 |      
+      230 |   0.4158 |  8.327476e+04 |   +2.19% |  5.38e-10 |      
+      240 |   0.4272 |  8.268855e+04 |   -0.70% |  8.76e-10 |      
+      250 |   0.4231 |  8.339073e+04 |   +0.85% |  1.43e-09 |      
+      260 |   0.3915 |  8.270355e+04 |   -0.82% |  2.32e-09 |      
+      270 |   0.3904 |  8.173559e+04 |   -1.17% |  3.78e-09 |      
+      280 |   0.3678 |  8.115130e+04 |   -0.71% |  6.16e-09 |      
+      290 |   0.3316 |  7.944865e+04 |   -2.10% |  9.74e-09 |      
+      300 |   0.3128 |  7.849021e+04 |   -1.21% |  1.43e-08 |      
+[INFO GPL-0040] Routability iteration: 1
+[INFO GPL-0041] Total routing overflow: 2.4207
+[INFO GPL-0042] Number of overflowed tiles: 16 (0.12%)
+[INFO GPL-0043] Average top 0.5% routing congestion: 0.9759
+[INFO GPL-0044] Average top 1.0% routing congestion: 0.9420
+[INFO GPL-0045] Average top 2.0% routing congestion: 0.9029
+[INFO GPL-0046] Average top 5.0% routing congestion: 0.8677
+[INFO GPL-0047] Routability iteration weighted routing congestion: 0.9589
+[INFO GPL-0050] Weighted routing congestion is lower than target routing congestion(1.0100), end routability optimization.
+[INFO GPL-0090] Routability finished. Target routing congestion achieved succesfully.
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+      310 |   0.2760 |  7.793717e+04 |   -0.70% |  2.11e-08 |      
+      320 |   0.2517 |  7.750984e+04 |   -0.55% |  3.11e-08 |      
+      330 |   0.2140 |  7.689037e+04 |   -0.80% |  4.59e-08 |      
+[INFO GPL-0100] Timing-driven iteration 2/2, virtual: false.
+[INFO GPL-0101]    Iter: 339, overflow: 0.192, keep resizer changes at: 1, HPWL: 77075764
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      1105
+    final |     +0.3% |      10 |      99 |            86 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 86 slew violations.
+[INFO RSZ-0039] Resized 10 instances.
+[INFO RSZ-0038] Inserted 99 buffers in 86 nets.
+   Iter   |    Area   | Removed | Inserted |   Pins
+          |           | Buffers | Buffers  | Remaining
+-------------------------------------------------------
+        0 |     +0.0% |       0 |        0 |       727
+       72 |     +0.0% |       5 |       10 |       655
+      144 |     +0.1% |      20 |       38 |       583
+      216 |     +0.1% |      32 |       52 |       511
+      288 |     +0.1% |      39 |       62 |       439
+      360 |     +0.1% |      67 |       96 |       367
+      432 |     +0.1% |      68 |      100 |       295
+      504 |     +0.1% |      73 |      103 |       223
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[7] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[6] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[5] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[4] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[3] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[2] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[1] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_ecc/dout[0] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[9] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[8] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[7] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[6] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[63] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[62] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[61] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[60] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[5] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[59] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[58] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[57] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[56] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[55] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[54] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[53] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[52] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[51] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[50] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[4] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[49] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[48] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[47] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[46] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[45] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[44] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[43] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[42] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[41] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[40] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[3] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[39] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[38] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[37] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[36] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[35] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[34] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[33] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[32] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[31] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[30] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[2] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[29] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[28] after 1 rounds of buffering (no solution meets design rules)
+      576 |     +0.1% |      75 |      105 |       151
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[27] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[26] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[25] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[24] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[23] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[22] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[21] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[20] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[1] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[19] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[18] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[17] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[16] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[15] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[14] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[13] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[12] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[11] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[10] after 1 rounds of buffering (no solution meets design rules)
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin u_protected_memory.u_data/dout[0] after 1 rounds of buffering (no solution meets design rules)
+      648 |     +0.1% |      77 |      105 |        79
+[WARNING RSZ-2009] Skipping buffering because no valid buffering solution satisfying the design rules can be found for net connected to pin input90/X.
+[WARNING RSZ-2005] cannot find a viable buffering solution on pin input90/X after 1 rounds of buffering (no solution meets design rules)
+      720 |     +0.1% |     145 |      182 |         7
+    final |     +0.1% |     152 |      189 |         0
+-------------------------------------------------------
+[INFO GPL-0106] Timing-driven: worst slack 3.8965475e-10
+[INFO GPL-0107] Timing-driven: repair_design delta area: 1066.064 um^2 (+12.71%)
+[INFO GPL-0108] Timing-driven: repair_design, gpl delta gcells: 136 (+14.45%)
+[INFO GPL-0109] Timing-driven: repair_design, gcells created: 288, deleted: 152
+[INFO GPL-0110] Timing-driven: new target density: 0.3090038
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+      340 |   0.2281 |  7.777629e+04 |   +1.15% |  6.75e-08 |      
+      350 |   0.1629 |  7.891004e+04 |   +1.46% |  9.95e-08 |      
+      360 |   0.1386 |  7.822633e+04 |   -0.87% |  1.47e-07 |      
+      370 |   0.1219 |  7.792561e+04 |   -0.38% |  2.16e-07 |      
+      380 |   0.1017 |  7.764739e+04 |   -0.36% |  3.18e-07 |      
+      382 |   0.0997 |  7.767945e+04 |          |  3.57e-07 |      
+---------------------------------------------------------------
+[INFO GPL-1001] Global placement finished at iteration 382
+[INFO GPL-1017] Routability mode iteration count: 302
+[INFO GPL-1005] Routability final weighted congestion: 0.9173
+[INFO GPL-1002] Placed Cell Area             9453.0937
+[INFO GPL-1003] Available Free Area         340297.6224
+[INFO GPL-1004] Minimum Feasible Density        0.0200 (cell_area / free_area)
+[INFO GPL-1006]   Suggested Target Densities:
+[INFO GPL-1007]     - For 90% usage of free space: 0.0309
+[INFO GPL-1008]     - For 80% usage of free space: 0.0347
+[INFO GPL-1009]     - For 50% usage of free space: 0.0556
+[INFO GPL-1011] Original area (um^2): 6389.12
+[INFO GPL-1012] Total routability artificial inflation: 0.00 (+0.00%)
+[INFO GPL-1013] Total timing-driven delta area: 3063.97 (+47.96%)
+[INFO GPL-1014] Final placement area: 9453.09 (+47.96%)
+estimate_parasitics -placement
+Report metrics stage 3, global place...
+
+==========================================================================
+global place report_design_area
+--------------------------------------------------------------------------
+Design area 275426 um^2 45% utilization.
+write_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed23/3_3_place_gp.odb
+Elapsed time: 0:06.91[h:]min:sec. CPU time: user 10.67 sys 0.84 (166%). Peak memory: 290180KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_3_place_gp              .odb            6            283 02adc678ba1d665beaf5

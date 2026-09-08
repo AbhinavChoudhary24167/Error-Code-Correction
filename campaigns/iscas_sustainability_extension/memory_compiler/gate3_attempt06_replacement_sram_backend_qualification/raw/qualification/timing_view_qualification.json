@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "macros": {
+    "sram22_256x64m4w8": {
+      "corner_count": 3,
+      "corners": [
+        {
+          "path": "sram22_256x64m4w8_ff_n40C_1v95.lib",
+          "library_name": "sram22_256x64m4w8",
+          "cell_name": "sram22_256x64m4w8",
+          "generator_claim": "Liberate MX 23.1.3.126.isr3 from Cadence Design Systems, Inc. on Thu Nov 21 16:34:38 2024",
+          "operating_condition": "PVT_1P95V_-40C",
+          "nom_process": 1.0,
+          "nom_temperature_c": -40.0,
+          "nom_voltage_v": 1.95,
+          "units": {
+            "time_unit": "1ns",
+            "voltage_unit": "1V",
+            "current_unit": "1mA",
+            "leakage_power_unit": "1nW",
+            "pulling_resistance_unit": "1kohm",
+            "capacitive_load_unit": [
+              "1",
+              "pf"
+            ]
+          },
+          "area_um2": 201267.0,
+          "cell_leakage_power": 0.0,
+          "memory_address_width": 8,
+          "memory_word_width": 64,
+          "buses": {
+            "addr": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "wmask": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "din": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "dout": {
+              "present": true,
+              "direction": "OUTPUT"
+            }
+          },
+          "bus_widths": {
+            "wmask": 8,
+            "addr": 8,
+            "din": 64,
+            "dout": 64
+          },
+          "clock_declared": true,
+          "timing_type_counts": {
+            "hold_rising": 6,
+            "setup_rising": 6,
+            "min_pulse_width": 1,
+            "minimum_period": 1,
+            "rising_edge": 1
+          },
+          "related_pin_count": 15,
+          "cell_rise_tables": 1,
+          "cell_fall_tables": 1,
+          "rise_constraint_tables": 14,
+          "fall_constraint_tables": 14,
+          "internal_power_groups": 8,
+          "rise_power_tables": 8,
+          "fall_power_tables": 8,
+          "leakage_power_groups": 0,
+          "expected_dimensions_match": true
+        },
+        {
+          "path": "sram22_256x64m4w8_ss_100C_1v60.lib",
+          "library_name": "sram22_256x64m4w8",
+          "cell_name": "sram22_256x64m4w8",
+          "generator_claim": "Liberate MX 23.1.3.126.isr3 from Cadence Design Systems, Inc. on Thu Nov 21 16:30:48 2024",
+          "operating_condition": "PVT_1P6V_100C",
+          "nom_process": 1.0,
+          "nom_temperature_c": 100.0,
+          "nom_voltage_v": 1.6,
+          "units": {
+            "time_unit": "1ns",
+            "voltage_unit": "1V",
+            "current_unit": "1mA",
+            "leakage_power_unit": "1nW",
+            "pulling_resistance_unit": "1kohm",
+            "capacitive_load_unit": [
+              "1",
+              "pf"
+            ]
+          },
+          "area_um2": 201267.0,
+          "cell_leakage_power": 0.0,
+          "memory_address_width": 8,
+          "memory_word_width": 64,
+          "buses": {
+            "addr": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "wmask": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "din": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "dout": {
+              "present": true,
+              "direction": "OUTPUT"
+            }
+          },
+          "bus_widths": {
+            "wmask": 8,
+            "addr": 8,
+            "din": 64,
+            "dout": 64
+          },
+          "clock_declared": true,
+          "timing_type_counts": {
+            "hold_rising": 6,
+            "setup_rising": 6,
+            "min_pulse_width": 1,
+            "minimum_period": 1,
+            "rising_edge": 1
+          },
+          "related_pin_count": 15,
+          "cell_rise_tables": 1,
+          "cell_fall_tables": 1,
+          "rise_constraint_tables": 14,
+          "fall_constraint_tables": 14,
+          "internal_power_groups": 8,
+          "rise_power_tables": 8,
+          "fall_power_tables": 8,
+          "leakage_power_groups": 0,
+          "expected_dimensions_match": true
+        },
+        {
+          "path": "sram22_256x64m4w8_tt_025C_1v80.lib",
+          "library_name": "sram22_256x64m4w8",
+          "cell_name": "sram22_256x64m4w8",
+          "generator_claim": "Liberate MX 23.1.3.126.isr3 from Cadence Design Systems, Inc. on Thu Nov 21 16:33:05 2024",
+          "operating_condition": "PVT_1P8V_25C",
+          "nom_process": 1.0,
+          "nom_temperature_c": 25.0,
+          "nom_voltage_v": 1.8,
+          "units": {
+            "time_unit": "1ns",
+            "voltage_unit": "1V",
+            "current_unit": "1mA",
+            "leakage_power_unit": "1nW",
+            "pulling_resistance_unit": "1kohm",
+            "capacitive_load_unit": [
+              "1",
+              "pf"
+            ]
+          },
+          "area_um2": 201267.0,
+          "cell_leakage_power": 641.966,
+          "memory_address_width": 8,
+          "memory_word_width": 64,
+          "buses": {
+            "addr": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "wmask": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "din": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "dout": {
+              "present": true,
+              "direction": "OUTPUT"
+            }
+          },
+          "bus_widths": {
+            "wmask": 8,
+            "addr": 8,
+            "din": 64,
+            "dout": 64
+          },
+          "clock_declared": true,
+          "timing_type_counts": {
+            "hold_rising": 6,
+            "setup_rising": 6,
+            "min_pulse_width": 1,
+            "minimum_period": 1,
+            "rising_edge": 1
+          },
+          "related_pin_count": 15,
+          "cell_rise_tables": 1,
+          "cell_fall_tables": 1,
+          "rise_constraint_tables": 14,
+          "fall_constraint_tables": 14,
+          "internal_power_groups": 8,
+          "rise_power_tables": 8,
+          "fall_power_tables": 8,
+          "leakage_power_groups": 10,
+          "expected_dimensions_match": true
+        }
+      ],
+      "tt_area_matches_lef_with_reported_integer_rounding": true,
+      "all_dimensions_match": true,
+      "all_have_clock_timing": true,
+      "all_have_power_tables": true,
+      "evidence_level": "UPSTREAM_CADENCE_LIBERATE_MX_CHARACTERIZATION_NOT_INDEPENDENTLY_REPRODUCED"
+    },
+    "sram22_256x8m8w1": {
+      "corner_count": 3,
+      "corners": [
+        {
+          "path": "sram22_256x8m8w1_ff_n40C_1v95.lib",
+          "library_name": "sram22_256x8m8w1",
+          "cell_name": "sram22_256x8m8w1",
+          "generator_claim": "Liberate MX 23.1.3.126.isr3 from Cadence Design Systems, Inc. on Thu Nov 21 11:52:40 2024",
+          "operating_condition": "PVT_1P95V_-40C",
+          "nom_process": 1.0,
+          "nom_temperature_c": -40.0,
+          "nom_voltage_v": 1.95,
+          "units": {
+            "time_unit": "1ns",
+            "voltage_unit": "1V",
+            "current_unit": "1mA",
+            "leakage_power_unit": "1nW",
+            "pulling_resistance_unit": "1kohm",
+            "capacitive_load_unit": [
+              "1",
+              "pf"
+            ]
+          },
+          "area_um2": 59065.0,
+          "cell_leakage_power": 0.0,
+          "memory_address_width": 8,
+          "memory_word_width": 8,
+          "buses": {
+            "addr": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "wmask": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "din": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "dout": {
+              "present": true,
+              "direction": "OUTPUT"
+            }
+          },
+          "bus_widths": {
+            "wmask": 8,
+            "addr": 8,
+            "din": 8,
+            "dout": 8
+          },
+          "clock_declared": true,
+          "timing_type_counts": {
+            "hold_rising": 6,
+            "setup_rising": 6,
+            "min_pulse_width": 1,
+            "minimum_period": 1,
+            "rising_edge": 1
+          },
+          "related_pin_count": 15,
+          "cell_rise_tables": 1,
+          "cell_fall_tables": 1,
+          "rise_constraint_tables": 14,
+          "fall_constraint_tables": 14,
+          "internal_power_groups": 8,
+          "rise_power_tables": 8,
+          "fall_power_tables": 8,
+          "leakage_power_groups": 0,
+          "expected_dimensions_match": true
+        },
+        {
+          "path": "sram22_256x8m8w1_ss_100C_1v60.lib",
+          "library_name": "sram22_256x8m8w1",
+          "cell_name": "sram22_256x8m8w1",
+          "generator_claim": "Liberate MX 23.1.3.126.isr3 from Cadence Design Systems, Inc. on Thu Nov 21 11:53:43 2024",
+          "operating_condition": "PVT_1P6V_100C",
+          "nom_process": 1.0,
+          "nom_temperature_c": 100.0,
+          "nom_voltage_v": 1.6,
+          "units": {
+            "time_unit": "1ns",
+            "voltage_unit": "1V",
+            "current_unit": "1mA",
+            "leakage_power_unit": "1nW",
+            "pulling_resistance_unit": "1kohm",
+            "capacitive_load_unit": [
+              "1",
+              "pf"
+            ]
+          },
+          "area_um2": 59065.0,
+          "cell_leakage_power": 0.0,
+          "memory_address_width": 8,
+          "memory_word_width": 8,
+          "buses": {
+            "addr": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "wmask": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "din": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "dout": {
+              "present": true,
+              "direction": "OUTPUT"
+            }
+          },
+          "bus_widths": {
+            "wmask": 8,
+            "addr": 8,
+            "din": 8,
+            "dout": 8
+          },
+          "clock_declared": true,
+          "timing_type_counts": {
+            "hold_rising": 6,
+            "setup_rising": 6,
+            "min_pulse_width": 1,
+            "minimum_period": 1,
+            "rising_edge": 1
+          },
+          "related_pin_count": 15,
+          "cell_rise_tables": 1,
+          "cell_fall_tables": 1,
+          "rise_constraint_tables": 14,
+          "fall_constraint_tables": 14,
+          "internal_power_groups": 8,
+          "rise_power_tables": 8,
+          "fall_power_tables": 8,
+          "leakage_power_groups": 0,
+          "expected_dimensions_match": true
+        },
+        {
+          "path": "sram22_256x8m8w1_tt_025C_1v80.lib",
+          "library_name": "sram22_256x8m8w1",
+          "cell_name": "sram22_256x8m8w1",
+          "generator_claim": "Liberate MX 23.1.3.126.isr3 from Cadence Design Systems, Inc. on Thu Nov 21 11:52:03 2024",
+          "operating_condition": "PVT_1P8V_25C",
+          "nom_process": 1.0,
+          "nom_temperature_c": 25.0,
+          "nom_voltage_v": 1.8,
+          "units": {
+            "time_unit": "1ns",
+            "voltage_unit": "1V",
+            "current_unit": "1mA",
+            "leakage_power_unit": "1nW",
+            "pulling_resistance_unit": "1kohm",
+            "capacitive_load_unit": [
+              "1",
+              "pf"
+            ]
+          },
+          "area_um2": 59065.0,
+          "cell_leakage_power": 88.6693,
+          "memory_address_width": 8,
+          "memory_word_width": 8,
+          "buses": {
+            "addr": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "wmask": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "din": {
+              "present": true,
+              "direction": "INPUT"
+            },
+            "dout": {
+              "present": true,
+              "direction": "OUTPUT"
+            }
+          },
+          "bus_widths": {
+            "wmask": 8,
+            "addr": 8,
+            "din": 8,
+            "dout": 8
+          },
+          "clock_declared": true,
+          "timing_type_counts": {
+            "hold_rising": 6,
+            "setup_rising": 6,
+            "min_pulse_width": 1,
+            "minimum_period": 1,
+            "rising_edge": 1
+          },
+          "related_pin_count": 15,
+          "cell_rise_tables": 1,
+          "cell_fall_tables": 1,
+          "rise_constraint_tables": 14,
+          "fall_constraint_tables": 14,
+          "internal_power_groups": 8,
+          "rise_power_tables": 8,
+          "fall_power_tables": 8,
+          "leakage_power_groups": 10,
+          "expected_dimensions_match": true
+        }
+      ],
+      "tt_area_matches_lef_with_reported_integer_rounding": true,
+      "all_dimensions_match": true,
+      "all_have_clock_timing": true,
+      "all_have_power_tables": true,
+      "evidence_level": "UPSTREAM_CADENCE_LIBERATE_MX_CHARACTERIZATION_NOT_INDEPENDENTLY_REPRODUCED"
+    }
+  },
+  "overall_result": "QUALIFIED_WITH_PROVENANCE_LIMITATION"
+}

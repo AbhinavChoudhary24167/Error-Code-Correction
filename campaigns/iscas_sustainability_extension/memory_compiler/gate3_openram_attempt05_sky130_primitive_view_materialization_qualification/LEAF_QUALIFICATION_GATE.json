@@ -1,0 +1,21 @@
+{
+  "campaign": "gate3_openram_attempt05_sky130_primitive_view_materialization_qualification",
+  "gate": "REQUIRED_IMPORTED_SRAM_LEAF_QUALIFICATION",
+  "result": "FAIL",
+  "required_cell_count": 29,
+  "qualified_cell_count": 2,
+  "unqualified_cell_count": 27,
+  "qualified_identity_source_views": [
+    "sky130_fd_bd_sram__openram_sp_nand2_dec",
+    "sky130_fd_bd_sram__openram_sp_nand3_dec"
+  ],
+  "criteria": {
+    "source_identified": true,
+    "evidence_supported_transformation_provenance_for_every_required_cell": false,
+    "drc_zero_for_every_required_cell": false,
+    "lvs_pass_for_every_required_cell": false,
+    "topology_verified_for_every_required_cell": false
+  },
+  "full_16x8_control_authorized": false,
+  "reason": "Required column-end, corner/end, bitcell, replica, dummy, and support views remain unqualified, and no evidence-supported add-mask transformation exists."
+}

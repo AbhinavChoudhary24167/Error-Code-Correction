@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "campaign": "iscas_sustainability_extension",
+  "baseline_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+  "branch": "codex/ecc-lifecycle-sustainability",
+  "gate": 0,
+  "name": "baseline audit",
+  "status": "PASS",
+  "protected_file_count": 7094,
+  "result_record_count": 40,
+  "numerical_reconstruction_check_count": 13,
+  "numerical_reconstruction_failures": 0,
+  "protected_date_files_changed": 0,
+  "next_authorized_gate": 1,
+  "later_gates_status": "NOT_STARTED",
+  "validation": {
+    "focused_gate0_pytest": "PASS: 5 passed",
+    "make": "PASS",
+    "make_test": "CONDITIONAL: 482 passed, 2 frozen-scope-guard failures",
+    "repository_pytest": "CONDITIONAL: 483 passed, 2 frozen-scope-guard failures, 1 paging-file incident",
+    "isolated_golden_cli_retry": "PASS: 1 passed",
+    "baseline_integrity": "PASS: 7094/7094 protected files; zero changed, missing, or added"
+  },
+  "evidence": [
+    "campaigns/iscas_sustainability_extension/00_BASELINE_AUDIT.md",
+    "campaigns/iscas_sustainability_extension/baseline_results.csv",
+    "campaigns/iscas_sustainability_extension/baseline_provenance.json",
+    "campaigns/iscas_sustainability_extension/baseline_integrity_manifest.json",
+    "campaigns/iscas_sustainability_extension/GATE0_INTEGRITY_CHECK.json"
+  ],
+  "limitations": [
+    "W1/W2 input VCDs exist but qualified post-route power exists only for W0/no-error traffic.",
+    "No compiled SRAM macro or SRAM LEF/GDS/Liberty/SPICE view is present.",
+    "Existing logical intra-word placement candidates are not physical cross-codeword interleaving.",
+    "The current BCH hardware identity misses 10 ns for all five seeds.",
+    "Windows C: free space is insufficient for future raw physical artifacts; use a write-once WSL evidence root."
+  ]
+}

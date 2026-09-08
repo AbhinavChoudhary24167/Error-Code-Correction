@@ -1,0 +1,28 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1448064821
+<< checkpaint >>
+rect -1271 -1260 1520 1576
+<< metal1 >>
+rect 0 0 14 15
+<< via1 >>
+rect -11 205 26 257
+rect 104 30 156 82
+<< metal2 >>
+rect 26 205 260 257
+rect 0 127 260 171
+rect 0 82 260 93
+rect 0 59 104 82
+rect 156 59 260 82
+rect 104 24 156 30
+use sky130_fd_bd_sram__sram_sp_rowend_replica_ce  sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0
+timestamp 1448064821
+transform 1 0 0 0 1 0
+box 0 0 260 316
+<< labels >>
+rlabel metal1 s 0 0 14 15 4 VPWR
+port 1 nsew
+rlabel metal2 s 25 76 25 76 4 WL
+port 2 nsew
+<< end >>

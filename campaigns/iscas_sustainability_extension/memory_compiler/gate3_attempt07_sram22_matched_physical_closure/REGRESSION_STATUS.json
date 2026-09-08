@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "campaign": "gate3_attempt07_sram22_matched_physical_closure",
+  "campaign_local_tests": {
+    "command": "python3 -m pytest -q campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt07_sram22_matched_physical_closure/tests",
+    "exit_code": 0,
+    "passed": 7,
+    "failed": 0,
+    "status": "PASS",
+    "log": "raw/regression/campaign_local_tests.log"
+  },
+  "make": {
+    "command": "make",
+    "exit_code": 0,
+    "status": "PASS",
+    "relinked_protected_binary": true,
+    "log": "raw/regression/make.log"
+  },
+  "make_test": {
+    "command": "make test",
+    "exit_code": 2,
+    "passed": 482,
+    "failed": 2,
+    "warnings": 3,
+    "status": "EXPECTED_FROZEN_FAILURES_ONLY",
+    "log": "raw/regression/make_test.log"
+  },
+  "full_pytest": {
+    "command": "python3 -m pytest -q",
+    "exit_code": 1,
+    "passed": 484,
+    "failed": 2,
+    "status": "EXPECTED_FROZEN_FAILURES_ONLY",
+    "log": "raw/regression/full_pytest.log"
+  },
+  "frozen_failures": [
+    "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+    "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+  ],
+  "frozen_failure_reason": "legacy Gate03/Gate03e working-tree scope validators reject the already-existing untracked campaigns/iscas_sustainability_extension tree; the same two failures were frozen in Attempt05 and Attempt06",
+  "new_regression_count": 0,
+  "protected_binary": {
+    "path": "PracticalSRAMSimulator.exe",
+    "relinked_sha256": "e49f5d860b2cdc860c73cf5427523ba175ec0f2735a4c8a9f591dfb1952309c7",
+    "restored_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "status": "PASS_EXACT_PROTECTED_BYTES_RESTORED"
+  },
+  "protected_date_baseline": {
+    "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify (inside Attempt04-Recovery WSL)",
+    "protected_file_count": 7094,
+    "added": [],
+    "changed": [],
+    "missing": [],
+    "status": "PASS",
+    "log": "raw/integrity/protected_date_final_verify.log"
+  },
+  "prior_campaign_repository_evidence": {
+    "status": "PASS",
+    "attempt01_attempt02_files": 22,
+    "attempt03_files": 25,
+    "attempt04_files": 349,
+    "attempt05_files": 868,
+    "attempt06_files": 265,
+    "log": "raw/integrity/prior_campaign_repository_verification.json"
+  },
+  "overall": "NO_NEW_REGRESSIONS"
+}

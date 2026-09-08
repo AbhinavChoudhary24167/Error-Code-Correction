@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "scope": "canonical final-route seed 11 after Attempt09 common repairs",
+  "count": 2,
+  "per_design_count": {
+    "U0": 1,
+    "E0": 1
+  },
+  "records": [
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/rstb",
+      "net": "net151",
+      "driver": "hold151/X",
+      "driver_cell": "sky130_fd_sc_hd__buf_16",
+      "driver_strength_suffix": "16",
+      "driver_pin": "X",
+      "receivers": [
+        "u_data/rstb"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00213879,
+      "estimated_parasitic_wire_length_um": 19.09,
+      "route_layers": {
+        "met1": 6.85,
+        "met2": 12.24
+      },
+      "rise_transition_ns_min_max_analysis": [
+        0.13089408,
+        0.619147718
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.079395398,
+        0.315126836
+      ],
+      "transition_value_ns": 0.619147718,
+      "limiting_transition": "rise",
+      "maximum_permitted_transition_ns": 0.351,
+      "violation_magnitude_ns": 0.268147718,
+      "requirement": "explicit SRAM22 input-pin max_transition and characterization-axis ceiling",
+      "classification": "B",
+      "timing_path_impact": "asynchronous SRAM reset-control interface; closure impact is evaluated by whole-design setup/hold STA",
+      "status": "VIOLATING",
+      "original_attempt08": {
+        "record_id": "U0-S11-001",
+        "design": "U0",
+        "seed": 11,
+        "violating_object": "u_data/rstb",
+        "net": "net151",
+        "driver": "hold151/X",
+        "driver_cell": "sky130_fd_sc_hd__buf_16",
+        "driver_pin": "X",
+        "receivers": [
+          "u_data/rstb"
+        ],
+        "receiver_pins": [
+          "rstb"
+        ],
+        "transition_value_ns": 0.619147718,
+        "maximum_permitted_transition_ns": 0.351,
+        "violation_magnitude_ns": 0.268147718,
+        "rise_transition_ns_min_max_analysis": [
+          0.13089408,
+          0.619147718
+        ],
+        "fall_transition_ns_min_max_analysis": [
+          0.079395398,
+          0.315126836
+        ],
+        "limiting_transition": "rise",
+        "fanout": 1,
+        "capacitance_pf": 0.00213879,
+        "capacitance_kind": "extracted SPEF D_NET parasitic; SPEF PIN_CAP NONE",
+        "estimated_parasitic_wire_length_um": 19.09,
+        "route_layers": {
+          "met1": 6.85,
+          "met2": 12.24
+        },
+        "driver_type": "standard cell",
+        "sink_types": [
+          "SRAM22 macro input"
+        ],
+        "source_of_max_transition_requirement": "SRAM22 Liberty",
+        "liberty_file_cell_pin_or_sdc": "sram22_256x64m4w8_tt_025C_1v80.lib:sram22_256x64m4w8:rstb:max_transition",
+        "requirement_origin": "SRAM22 Liberty",
+        "requirement_semantics": "EXPLICIT_MAX_TRANSITION_DESIGN_RULE_AND_CHARACTERIZATION_RANGE_LIMIT",
+        "primary_class": "B",
+        "class_description": "SRAM macro input transition",
+        "reported_table_values": {
+          "violating_object": "u_data/rstb",
+          "reported_transition_value_ns": 0.62,
+          "reported_maximum_permitted_transition_ns": 0.35,
+          "reported_slack_ns": -0.27
+        }
+      }
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/rstb",
+      "net": "net823",
+      "driver": "hold824/X",
+      "driver_cell": "sky130_fd_sc_hd__buf_16",
+      "driver_strength_suffix": "16",
+      "driver_pin": "X",
+      "receivers": [
+        "u_protected_memory.u_data/rstb"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00111857,
+      "estimated_parasitic_wire_length_um": 10.67,
+      "route_layers": {
+        "met1": 2.51,
+        "met2": 8.16
+      },
+      "rise_transition_ns_min_max_analysis": [
+        0.128012031,
+        0.615635812
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.078381017,
+        0.313051611
+      ],
+      "transition_value_ns": 0.615635812,
+      "limiting_transition": "rise",
+      "maximum_permitted_transition_ns": 0.351,
+      "violation_magnitude_ns": 0.264635812,
+      "requirement": "explicit SRAM22 input-pin max_transition and characterization-axis ceiling",
+      "classification": "B",
+      "timing_path_impact": "asynchronous SRAM reset-control interface; closure impact is evaluated by whole-design setup/hold STA",
+      "status": "VIOLATING",
+      "original_attempt08": {
+        "record_id": "E0-S11-013",
+        "design": "E0",
+        "seed": 11,
+        "violating_object": "u_protected_memory.u_data/rstb",
+        "net": "net823",
+        "driver": "hold824/X",
+        "driver_cell": "sky130_fd_sc_hd__buf_16",
+        "driver_pin": "X",
+        "receivers": [
+          "u_protected_memory.u_data/rstb"
+        ],
+        "receiver_pins": [
+          "rstb"
+        ],
+        "transition_value_ns": 0.615880728,
+        "maximum_permitted_transition_ns": 0.351,
+        "violation_magnitude_ns": 0.264880728,
+        "rise_transition_ns_min_max_analysis": [
+          0.12821357,
+          0.615880728
+        ],
+        "fall_transition_ns_min_max_analysis": [
+          0.078488767,
+          0.31330058
+        ],
+        "limiting_transition": "rise",
+        "fanout": 1,
+        "capacitance_pf": 0.00127043,
+        "capacitance_kind": "extracted SPEF D_NET parasitic; SPEF PIN_CAP NONE",
+        "estimated_parasitic_wire_length_um": 11.59,
+        "route_layers": {
+          "met1": 3.43,
+          "met2": 8.16
+        },
+        "driver_type": "standard cell",
+        "sink_types": [
+          "SRAM22 macro input"
+        ],
+        "source_of_max_transition_requirement": "SRAM22 Liberty",
+        "liberty_file_cell_pin_or_sdc": "sram22_256x64m4w8_tt_025C_1v80.lib:sram22_256x64m4w8:rstb:max_transition",
+        "requirement_origin": "SRAM22 Liberty",
+        "requirement_semantics": "EXPLICIT_MAX_TRANSITION_DESIGN_RULE_AND_CHARACTERIZATION_RANGE_LIMIT",
+        "primary_class": "B",
+        "class_description": "SRAM macro input transition",
+        "reported_table_values": {
+          "violating_object": "u_protected_memory.u_data/rstb",
+          "reported_transition_value_ns": 0.62,
+          "reported_maximum_permitted_transition_ns": 0.35,
+          "reported_slack_ns": -0.26
+        }
+      }
+    }
+  ],
+  "closed_target_records": [
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/clk",
+      "net": "clk",
+      "driver": "clk",
+      "driver_cell": "PRIMARY_IO",
+      "driver_strength_suffix": "IO",
+      "driver_pin": "clk",
+      "receivers": [
+        "u_data/clk"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0178053,
+      "estimated_parasitic_wire_length_um": 1521.03,
+      "route_layers": {
+        "met1": 0.68,
+        "met2": 1.19,
+        "met3": 1374.32,
+        "met4": 144.84
+      },
+      "rise_transition_ns_min_max_analysis": [
+        0.008755483,
+        0.042701319
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.008758387,
+        0.041777581
+      ],
+      "transition_value_ns": 0.042701319,
+      "limiting_transition": "rise",
+      "maximum_permitted_transition_ns": 0.351,
+      "violation_magnitude_ns": -0.308298681,
+      "requirement": "explicit SRAM22 input-pin max_transition and characterization-axis ceiling",
+      "classification": "E",
+      "timing_path_impact": "propagated SRAM clock-tree endpoint; repair preserves polarity and is evaluated by whole-design setup/hold STA",
+      "status": "CLOSED",
+      "original_attempt08": null
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/clk",
+      "net": "attempt09_data_clk_out",
+      "driver": "attempt09_data_clk_stage2/Y",
+      "driver_cell": "sky130_fd_sc_hd__clkinv_16",
+      "driver_strength_suffix": "16",
+      "driver_pin": "Y",
+      "receivers": [
+        "u_protected_memory.u_data/clk"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00338304,
+      "estimated_parasitic_wire_length_um": 34.0,
+      "route_layers": {
+        "met1": 9.52,
+        "met2": 24.48
+      },
+      "rise_transition_ns_min_max_analysis": [
+        0.072625421,
+        0.325266629
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.071099281,
+        0.31528452
+      ],
+      "transition_value_ns": 0.325266629,
+      "limiting_transition": "rise",
+      "maximum_permitted_transition_ns": 0.351,
+      "violation_magnitude_ns": -0.025733371,
+      "requirement": "explicit SRAM22 input-pin max_transition and characterization-axis ceiling",
+      "classification": "E",
+      "timing_path_impact": "propagated SRAM clock-tree endpoint; repair preserves polarity and is evaluated by whole-design setup/hold STA",
+      "status": "CLOSED",
+      "original_attempt08": {
+        "record_id": "E0-S11-050",
+        "design": "E0",
+        "seed": 11,
+        "violating_object": "u_protected_memory.u_data/clk",
+        "net": "clknet_1_1__leaf_clk",
+        "driver": "clkbuf_1_1__f_clk/X",
+        "driver_cell": "sky130_fd_sc_hd__clkbuf_16",
+        "driver_pin": "X",
+        "receivers": [
+          "u_protected_memory.u_data/clk"
+        ],
+        "receiver_pins": [
+          "clk"
+        ],
+        "transition_value_ns": 0.511382282,
+        "maximum_permitted_transition_ns": 0.351,
+        "violation_magnitude_ns": 0.160382282,
+        "rise_transition_ns_min_max_analysis": [
+          0.123228177,
+          0.511382282
+        ],
+        "fall_transition_ns_min_max_analysis": [
+          0.091029324,
+          0.321298182
+        ],
+        "limiting_transition": "rise",
+        "fanout": 1,
+        "capacitance_pf": 0.00726447,
+        "capacitance_kind": "extracted SPEF D_NET parasitic; SPEF PIN_CAP NONE",
+        "estimated_parasitic_wire_length_um": 64.28,
+        "route_layers": {
+          "met1": 42.18,
+          "met2": 22.1
+        },
+        "driver_type": "clock cell",
+        "sink_types": [
+          "clock pin"
+        ],
+        "source_of_max_transition_requirement": "SRAM22 Liberty",
+        "liberty_file_cell_pin_or_sdc": "sram22_256x64m4w8_tt_025C_1v80.lib:sram22_256x64m4w8:clk:max_transition",
+        "requirement_origin": "SRAM22 Liberty",
+        "requirement_semantics": "EXPLICIT_MAX_TRANSITION_DESIGN_RULE_AND_CHARACTERIZATION_RANGE_LIMIT",
+        "primary_class": "E",
+        "class_description": "clock network transition at immutable SRAM clock input",
+        "reported_table_values": {
+          "violating_object": "u_protected_memory.u_data/clk",
+          "reported_transition_value_ns": 0.51,
+          "reported_maximum_permitted_transition_ns": 0.35,
+          "reported_slack_ns": -0.16
+        }
+      }
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/rstb",
+      "net": "attempt09_ecc_rstb_out",
+      "driver": "attempt09_ecc_rstb_stage2/Y",
+      "driver_cell": "sky130_fd_sc_hd__inv_16",
+      "driver_strength_suffix": "16",
+      "driver_pin": "Y",
+      "receivers": [
+        "u_protected_memory.u_ecc/rstb"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0016349,
+      "estimated_parasitic_wire_length_um": 8.95,
+      "route_layers": {
+        "met1": 4.19,
+        "met2": 4.76
+      },
+      "rise_transition_ns_min_max_analysis": [
+        0.11084675,
+        0.307288498
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.051558197,
+        0.136523083
+      ],
+      "transition_value_ns": 0.307288498,
+      "limiting_transition": "rise",
+      "maximum_permitted_transition_ns": 0.351,
+      "violation_magnitude_ns": -0.043711502,
+      "requirement": "explicit SRAM22 input-pin max_transition and characterization-axis ceiling",
+      "classification": "B",
+      "timing_path_impact": "asynchronous SRAM reset-control interface; closure impact is evaluated by whole-design setup/hold STA",
+      "status": "CLOSED",
+      "original_attempt08": {
+        "record_id": "E0-S11-080",
+        "design": "E0",
+        "seed": 11,
+        "violating_object": "u_protected_memory.u_ecc/rstb",
+        "net": "net633",
+        "driver": "wire634/X",
+        "driver_cell": "sky130_fd_sc_hd__buf_16",
+        "driver_pin": "X",
+        "receivers": [
+          "u_protected_memory.u_ecc/rstb"
+        ],
+        "receiver_pins": [
+          "rstb"
+        ],
+        "transition_value_ns": 0.358998388,
+        "maximum_permitted_transition_ns": 0.351,
+        "violation_magnitude_ns": 0.007998388,
+        "rise_transition_ns_min_max_analysis": [
+          0.133325517,
+          0.358998388
+        ],
+        "fall_transition_ns_min_max_analysis": [
+          0.079960093,
+          0.189256653
+        ],
+        "limiting_transition": "rise",
+        "fanout": 1,
+        "capacitance_pf": 0.00059392,
+        "capacitance_kind": "extracted SPEF D_NET parasitic; SPEF PIN_CAP NONE",
+        "estimated_parasitic_wire_length_um": 4.03,
+        "route_layers": {
+          "met1": 1.31,
+          "met2": 2.72
+        },
+        "driver_type": "standard cell",
+        "sink_types": [
+          "SRAM22 macro input"
+        ],
+        "source_of_max_transition_requirement": "SRAM22 Liberty",
+        "liberty_file_cell_pin_or_sdc": "sram22_256x8m8w1_tt_025C_1v80.lib:sram22_256x8m8w1:rstb:max_transition",
+        "requirement_origin": "SRAM22 Liberty",
+        "requirement_semantics": "EXPLICIT_MAX_TRANSITION_DESIGN_RULE_AND_CHARACTERIZATION_RANGE_LIMIT",
+        "primary_class": "B",
+        "class_description": "SRAM macro input transition",
+        "reported_table_values": {
+          "violating_object": "u_protected_memory.u_ecc/rstb",
+          "reported_transition_value_ns": 0.36,
+          "reported_maximum_permitted_transition_ns": 0.35,
+          "reported_slack_ns": -0.01
+        }
+      }
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/clk",
+      "net": "attempt09_ecc_clk_out",
+      "driver": "attempt09_ecc_clk_stage2/Y",
+      "driver_cell": "sky130_fd_sc_hd__clkinv_16",
+      "driver_strength_suffix": "16",
+      "driver_pin": "Y",
+      "receivers": [
+        "u_protected_memory.u_ecc/clk"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00233505,
+      "estimated_parasitic_wire_length_um": 19.31,
+      "route_layers": {
+        "met1": 2.99,
+        "met2": 16.32
+      },
+      "rise_transition_ns_min_max_analysis": [
+        0.067243189,
+        0.135259956
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.065388873,
+        0.131921217
+      ],
+      "transition_value_ns": 0.135259956,
+      "limiting_transition": "rise",
+      "maximum_permitted_transition_ns": 0.351,
+      "violation_magnitude_ns": -0.215740044,
+      "requirement": "explicit SRAM22 input-pin max_transition and characterization-axis ceiling",
+      "classification": "E",
+      "timing_path_impact": "propagated SRAM clock-tree endpoint; repair preserves polarity and is evaluated by whole-design setup/hold STA",
+      "status": "CLOSED",
+      "original_attempt08": null
+    }
+  ],
+  "notes": {
+    "capacitance": "SPEF D_NET parasitic capacitance in pF; SPEF declares PIN_CAP NONE, so Liberty receiver pin capacitance is not invented.",
+    "wire_length": "Manhattan sum of routed DEF segments excluding via vertical distance, in um."
+  }
+}

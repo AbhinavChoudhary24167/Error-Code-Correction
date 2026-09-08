@@ -1,0 +1,114 @@
+{
+  "gate": 3,
+  "name": "sram_macro_generation_and_characterization",
+  "status": "FAIL",
+  "status_detail": "OPENRAM_256X72_PHYSICAL_VERIFICATION_INTERFACE_AND_CHARACTERIZATION_FAILED",
+  "attempt": "gate3_openram_attempt02",
+  "attempt_date": "2026-08-30",
+  "evidence_origin": "SUSTAINABILITY_EXTENSION",
+  "dependencies": {
+    "gate2": "CONDITIONAL_PASS",
+    "wsl_distribution": "Ubuntu-24.04",
+    "external_evidence_root": "/var/lib/green-ecc-iscas-sustainability/",
+    "required_primary_compiler": "OpenRAM 1.2.48"
+  },
+  "planned_macro": {
+    "num_words": 256,
+    "payload_bits": 64,
+    "check_bits": 8,
+    "stored_word_bits": 72,
+    "ports": "1rw",
+    "banks": 1
+  },
+  "attempt_history": [
+    {
+      "attempt": "attempt01_toolchain_setup",
+      "attempt_date": "2026-08-29",
+      "status": "NOT_ASSESSABLE",
+      "status_detail": "INFRASTRUCTURE_BLOCKED_STORAGE_UNSAFE",
+      "classification": "INFRASTRUCTURE_STORAGE_FAILURE_ONLY",
+      "scientific_measurements_produced": 0,
+      "macro_artifacts_admitted": 0,
+      "evidence": "GATE3_INFRASTRUCTURE_INCIDENT.md",
+      "observations": [
+        "Docker pull failed against a read-only container store.",
+        "WSL returned E_UNEXPECTED.",
+        "Windows C: reached zero free bytes."
+      ]
+    },
+    {
+      "attempt": "gate3_openram_attempt02",
+      "attempt_date": "2026-08-30",
+      "status": "FAIL",
+      "status_detail": "OPENRAM_256X72_PHYSICAL_VERIFICATION_INTERFACE_AND_CHARACTERIZATION_FAILED",
+      "classification": "SCIENTIFIC_TOOL_TARGET_RESULT",
+      "infrastructure_status": "PASS",
+      "scientific_measurements_produced": 0,
+      "generated_macro_views": 2,
+      "qualified_macro_views": 0,
+      "macro_artifacts_admitted": 0,
+      "evidence": "gate3_openram_attempt02/GATE3_ATTEMPT02_STATUS.json",
+      "observations": [
+        "OpenRAM v1.2.48 completed layout and generated unqualified GDS and SPICE views for the unchanged 256x72 target.",
+        "Magic reported 223,312 DRC violations.",
+        "Netgen reported a top-level LVS mismatch with one disconnected pin.",
+        "SPICE characterization aborted because a bl alias was absent from timing paths.",
+        "LEF, Liberty, and Verilog were not emitted.",
+        "The SPICE top-level exposes a repair-augmented 73-bit data interface and nine address-related pins."
+      ]
+    }
+  ],
+  "pre_stage_storage": {
+    "filesystem": "/dev/sdd",
+    "filesystem_type": "ext4",
+    "backing_drive": "F:",
+    "size_bytes": 1081101176832,
+    "used_bytes": 48347492352,
+    "available_bytes": 977761329152,
+    "use_percent": 5,
+    "status": "PASS"
+  },
+  "compiler_result": {
+    "compiler": "OpenRAM 1.2.48",
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "pdk": "SKY130A",
+    "corner": "TT",
+    "voltage_v": 1.8,
+    "temperature_c": 25,
+    "process_exit_code": 1,
+    "drc": "FAIL",
+    "lvs": "FAIL",
+    "spice_characterization": "FAIL",
+    "view_consistency": "FAIL",
+    "openroad_opensta_compatibility": "NOT_ASSESSABLE"
+  },
+  "scientific_measurements_produced": 0,
+  "macro_artifacts_admitted": 0,
+  "downstream_numeric_propagation_allowed": false,
+  "gate4_authorized": false,
+  "protected_integrity": {
+    "status": "PASS",
+    "protected_file_count": 7094,
+    "changed": [],
+    "missing": [],
+    "added": []
+  },
+  "stop_reason": "Attempt02 is a genuine OpenRAM target failure: required physical verification and characterization failed and the required integration views were not produced. This supersedes attempt01's infrastructure-only NOT_ASSESSABLE state without deleting it.",
+  "recovery_requirement": "A future, separately namespaced attempt must produce a DRC/LVS-clean 256x72 macro with a frozen 72-bit logical interface and usable LEF/GDS/Liberty/Verilog/SPICE views before Gate 4 can start.",
+  "outputs": [
+    "GATE3_STATUS.json",
+    "GATE3_INFRASTRUCTURE_INCIDENT.md",
+    "gate3_openram_attempt02/STORAGE_PREFLIGHT.md",
+    "gate3_openram_attempt02/storage_preflight.json",
+    "gate3_openram_attempt02/environment_manifest.json",
+    "gate3_openram_attempt02/openram_installation.md",
+    "gate3_openram_attempt02/openram_config.json",
+    "gate3_openram_attempt02/command_manifest.json",
+    "gate3_openram_attempt02/generated_artifact_manifest.json",
+    "gate3_openram_attempt02/view_consistency.json",
+    "gate3_openram_attempt02/characterization_boundary.md",
+    "gate3_openram_attempt02/openroad_compatibility.md",
+    "gate3_openram_attempt02/execution.log",
+    "gate3_openram_attempt02/GATE3_ATTEMPT02_STATUS.json"
+  ]
+}

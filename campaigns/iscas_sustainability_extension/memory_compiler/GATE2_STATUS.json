@@ -1,0 +1,33 @@
+{
+  "gate": 2,
+  "name": "memory_compiler_survey_and_openram_qualification",
+  "status": "CONDITIONAL_PASS",
+  "accessed_date": "2026-08-29",
+  "evidence_origin": "SUSTAINABILITY_EXTENSION",
+  "primary_candidate": {
+    "name": "OpenRAM",
+    "version": "1.2.48",
+    "listed_commit": "b6a6f12",
+    "disposition": "SELECT_PRIMARY_FOR_GATE3"
+  },
+  "independent_candidate": {
+    "name": "SRAM22",
+    "version": "0.2.0",
+    "disposition": "RETAIN_AS_INDEPENDENT_CONDITION_NOT_DIRECT_RANKING"
+  },
+  "gate3_first_attempt": {
+    "payload_bits": 64,
+    "check_bits": 8,
+    "stored_word_bits": 72,
+    "num_words": 256,
+    "ports": "1rw",
+    "banks": 1,
+    "mux_policy": "compiler_selected_then_frozen"
+  },
+  "numerical_cross_compiler_comparison_admitted": false,
+  "reason": "OpenRAM is viable for bounded SKY130 qualification, but no independent candidate has yet matched the frozen DATE PDK/library/corner/characterization identity.",
+  "outputs": [
+    "03_MEMORY_COMPILER_SURVEY.md",
+    "memory_compiler_matrix.csv"
+  ]
+}

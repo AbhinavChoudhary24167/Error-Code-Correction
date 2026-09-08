@@ -1,0 +1,51 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "classification": "DIAGNOSTIC_ONLY_CONTROL_FAIL",
+  "macro_artifacts_admitted": 0,
+  "qualified_macro_views": 0,
+  "source_changes": [],
+  "local_inputs_and_instrumentation": [
+    {
+      "path": "configs/control_8x16_config.py",
+      "classification": "upstream configuration",
+      "sha256": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6"
+    },
+    {
+      "path": "diagnostics/drc_diagnostic.tcl",
+      "classification": "diagnostic instrumentation",
+      "sha256": "7db084df0694a47d675e253c3970511af6811cf98b5f168f54f9ebb7d8d137aa"
+    }
+  ],
+  "control_external_namespace": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt03_target_diagnosis/",
+  "control_output_namespace": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt03_target_diagnosis/output/control_8x16/",
+  "control_process_exit_code": 1,
+  "view_availability": {
+    "gds": "AVAILABLE_UNQUALIFIED",
+    "spice": "AVAILABLE_UNQUALIFIED",
+    "lef": "AVAILABLE_UNQUALIFIED",
+    "liberty": "UNAVAILABLE",
+    "verilog": "UNAVAILABLE"
+  },
+  "qualification": {
+    "drc": "FAIL_2140",
+    "lvs": "FAIL",
+    "bitline_lookup": "PASS",
+    "liberty_characterization": "FAIL_UNBOUND_NOM_CORNER"
+  },
+  "external_artifact_hashes": {
+    "status": "BLOCKED_WSL_SERVICE_VHDX_ACCESS_AT_CLOSEOUT",
+    "reason": "The control evidence was generated in the isolated external attempt03 namespace, but Windows denied WSL service access before archival hashing/copy-out.",
+    "fabricated_or_inferred_hashes": false
+  },
+  "preserved_attempt02_external_namespace": {
+    "path": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/",
+    "mount_policy_during_attempt03": "read_only",
+    "pre_attempt03_tree_sha256": "f0dc7607d459831124aed3b767195535d24542ce0a24e62595f8dae7ec20c2b6",
+    "pre_attempt03_file_count": 36548,
+    "pre_attempt03_bytes": 5430332296,
+    "final_rehash": "BLOCKED_WSL_SERVICE_VHDX_ACCESS"
+  },
+  "scientific_admission": "NONE",
+  "gate3_status_changed": false,
+  "gate4_started": false
+}

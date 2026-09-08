@@ -1,0 +1,85 @@
+{
+  "attempt_id": "gate3_openram_attempt02",
+  "timestamp": "2026-08-29T20:15:39.0648668+05:30",
+  "status": "PASS",
+  "before_relocation": {
+    "c_free_bytes": 89395200,
+    "f_free_bytes": 195841818624,
+    "wsl_vhdx_path": "C:/Users/Abhinav/AppData/Local/wsl/{a5848298-28a1-4b03-aec8-731a9306cef8}/ext4.vhdx",
+    "wsl_vhdx_size_bytes": 23702011904
+  },
+  "backup": {
+    "path": "F:/green-ecc-iscas-sustainability-temp/wsl-backup/Ubuntu-24.04-pre-move-20260829.vhdx",
+    "size_bytes": 23702011904,
+    "sha256": "bb17b4515fe1c5e4fff9a33850fc024c692e6411ce2d10d613e58334195c7c62",
+    "verified_before_move": true
+  },
+  "relocation": {
+    "method": "wsl --manage Ubuntu-24.04 --move",
+    "destination": "F:/green-ecc-iscas-sustainability-temp/wsl-relocated/Ubuntu-24.04",
+    "unregister_used": false,
+    "status": "PASS"
+  },
+  "after_relocation": {
+    "c_free_bytes": 23953571840,
+    "f_free_bytes_windows": 148437794816,
+    "f_free_bytes_wsl": 148404240384,
+    "wsl_root_free_bytes": 1004231122944,
+    "wsl_root_device": "/dev/sdd",
+    "wsl_root_filesystem": "ext4",
+    "wsl_root_read_write": true,
+    "wsl_vhdx_path": "F:/green-ecc-iscas-sustainability-temp/wsl-relocated/Ubuntu-24.04/ext4.vhdx",
+    "wsl_vhdx_size_bytes": 23702011904,
+    "docker_root": "/var/lib/docker",
+    "container_content_root": "/var/lib/containerd",
+    "docker_driver": "overlayfs",
+    "docker_version": "29.7.2",
+    "protected_evidence_root_readable": true,
+    "protected_manifest_status": "PASS",
+    "protected_file_count": 7094
+  },
+  "budget": {
+    "expected_approximate_requirement_gib": 50,
+    "c_minimum_free_gib": 15,
+    "f_minimum_free_gib": 80,
+    "wsl_root_minimum_free_gib": 80
+  },
+  "heavy_work_location": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02",
+  "windows_staging_root": "F:/green-ecc-iscas-sustainability-temp",
+  "runtime_event": {
+    "phase": "initial_container_image_pull",
+    "classification": "C_DRIVE_PAGEFILE_PRESSURE_BELOW_FAIL_CLOSED_THRESHOLD",
+    "c_free_bytes_below_15_gib_observed": true,
+    "minimum_observed_c_free_bytes_exact": null,
+    "observation_quality": "The threshold crossing was observed interactively; an exact byte snapshot was not retained, so no value is inferred.",
+    "heavy_artifact_write_to_c_observed": false,
+    "response": [
+      "Stopped before OpenRAM compilation.",
+      "Set WSL2 memory to 4 GiB and processors to 4.",
+      "Placed the 8 GiB WSL swap VHDX on F:.",
+      "Limited Docker to one concurrent download and upload.",
+      "Restarted WSL and Docker, then re-ran the storage checks."
+    ],
+    "mitigation_files": [
+      "wslconfig_attempt02.ini",
+      "docker_daemon_attempt02.json"
+    ],
+    "status": "MITIGATED"
+  },
+  "final_observation": {
+    "timestamp": "2026-08-30T17:10:56.7920904+05:30",
+    "c_free_bytes": 20330397696,
+    "f_free_bytes_windows": 122574663680,
+    "wsl_root_free_bytes": 977761329152,
+    "wsl_root_size_bytes": 1081101176832,
+    "wsl_root_used_bytes": 48347492352,
+    "wsl_root_filesystem": "ext4",
+    "wsl_root_read_write": true,
+    "relocated_vhdx_size_bytes": 49565138944,
+    "attempt_namespace_bytes": 5414290927,
+    "docker_images_reported_size": "27.69GB",
+    "docker_containers": 0,
+    "thresholds_satisfied": true
+  },
+  "fail_closed": true
+}

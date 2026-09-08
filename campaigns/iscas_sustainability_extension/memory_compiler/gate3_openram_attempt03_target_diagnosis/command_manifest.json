@@ -1,0 +1,111 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "generated_at": "2026-08-30T17:57:31.6505341+05:30",
+  "record_policy": "Exact commands are appended as phases execute; diagnostic reads never alter prior evidence.",
+  "commands": [
+    {
+      "id": "local_prior_evidence_hash_check",
+      "classification": "diagnostic instrumentation",
+      "status": "PASS",
+      "result": "22 of 22 repository manifest entries matched"
+    },
+    {
+      "id": "protected_date_verify_pre_attempt03",
+      "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify",
+      "classification": "diagnostic instrumentation",
+      "status": "PASS",
+      "result": "7094 protected files; changed=[], missing=[], added=[]"
+    },
+    {
+      "id": "external_run04_hash_check",
+      "classification": "diagnostic instrumentation",
+      "status": "PASS",
+      "result": "11 of 11 external artifacts matched byte size and SHA-256"
+    },
+    {
+      "id": "external_attempt02_tree_fingerprint",
+      "classification": "diagnostic instrumentation",
+      "status": "PASS",
+      "result": "36548 files; 5430332296 bytes; f0dc7607d459831124aed3b767195535d24542ce0a24e62595f8dae7ec20c2b6"
+    },
+    {
+      "id": "control_configuration",
+      "input": "configs/control_8x16_config.py",
+      "input_sha256": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6",
+      "classification": "upstream configuration",
+      "source_modified": false,
+      "qualification_disabled": false,
+      "status": "PASS"
+    },
+    {
+      "id": "control_openram_full_flow",
+      "container_entrypoint": "python3 /attempt/source/OpenRAM/openram.py /attempt/config/control_8x16_config.py",
+      "mount_policy": "OpenRAM source and attempt02 PDK read-only; attempt03 config read-only; attempt03 output/work read-write",
+      "classification": "upstream configuration",
+      "status": "CONTROL_FAIL",
+      "exit_code": 1,
+      "result": "Magic DRC 2140; Netgen LVS FAIL; bitline lookup PASS; Liberty corner selection FAIL"
+    },
+    {
+      "id": "magic_drc_hierarchical_diagnostic",
+      "input": "diagnostics/drc_diagnostic.tcl",
+      "input_sha256": "7db084df0694a47d675e253c3970511af6811cf98b5f168f54f9ebb7d8d137aa",
+      "classification": "diagnostic instrumentation",
+      "verification_deck_modified": false,
+      "status": "PASS",
+      "result": "Captured rule and per-cell histograms for preserved attempt02 GDS and attempt03 control GDS"
+    },
+    {
+      "id": "dimensional_bisection",
+      "classification": "diagnostic decision",
+      "status": "NOT_RUN_CONTROL_FAIL",
+      "result": "Campaign rule prohibits bisection after control failure"
+    },
+    {
+      "id": "external_attempt02_final_tree_fingerprint",
+      "classification": "diagnostic instrumentation",
+      "status": "BLOCKED",
+      "result": "Windows WSL service/VHDX access failure prevented the required final read-only rehash; no attempt02 write mount was used"
+    },
+    {
+      "id": "campaign_local_tests",
+      "command": "python3 -m pytest -q campaigns/iscas_sustainability_extension/tests",
+      "classification": "verification",
+      "status": "PASS",
+      "result": "21 passed"
+    },
+    {
+      "id": "make",
+      "command": "make",
+      "classification": "verification",
+      "status": "PASS"
+    },
+    {
+      "id": "make_test",
+      "command": "make test",
+      "classification": "verification",
+      "status": "EXPECTED_BASELINE_FAILURES_ONLY",
+      "result": "482 passed; same two frozen historical allowlist-validator failures"
+    },
+    {
+      "id": "full_pytest",
+      "command": "python3 -m pytest -q",
+      "classification": "verification",
+      "status": "EXPECTED_BASELINE_FAILURES_ONLY",
+      "result": "484 passed; same two frozen historical allowlist-validator failures"
+    },
+    {
+      "id": "protected_repository_scope_final",
+      "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify --verify-scope repository",
+      "classification": "diagnostic instrumentation",
+      "status": "PASS",
+      "result": "2327 protected repository files; changed=[], missing=[], added=[]"
+    },
+    {
+      "id": "local_gate2_gate3_evidence_final",
+      "classification": "diagnostic instrumentation",
+      "status": "PASS",
+      "result": "22 of 22 preserved repository evidence files matched GATE2_GATE3_EVIDENCE_MANIFEST.json"
+    }
+  ]
+}

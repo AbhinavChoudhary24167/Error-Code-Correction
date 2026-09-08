@@ -1,0 +1,75 @@
+{
+  "phase": "P0_PREPATCH",
+  "control": "unchanged_stock_compatible_16x8",
+  "configuration_sha256": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6",
+  "openram_exit_code": 1,
+  "drc": {
+    "status": "FAIL",
+    "error_tiles": 2140,
+    "rule_occurrences": 7145,
+    "rule_histogram": {
+      "li.3": 900,
+      "diff/tap.1": 47,
+      "li.1": 289,
+      "nwell.2a": 3,
+      "met1.2": 8,
+      "illegal_overlap": 27,
+      "li.c1": 535,
+      "li.5": 291,
+      "poly.5": 495,
+      "via.1a_plus_2_via.4a": 1080,
+      "nwell.7": 2,
+      "poly.4": 90,
+      "li.c2": 1080,
+      "via.5a_minus_via.4a": 540,
+      "licon.1": 352,
+      "licon.5a": 281,
+      "mcon.1": 225,
+      "li.6": 900
+    }
+  },
+  "lvs": {
+    "status": "FAIL",
+    "top": {
+      "extracted_devices": 1802,
+      "schematic_devices": 1802,
+      "extracted_nets": 658,
+      "schematic_nets": 698
+    },
+    "bank": {
+      "extracted_devices": 1786,
+      "schematic_devices": 1786,
+      "extracted_nets": 643,
+      "schematic_nets": 665
+    },
+    "first_leaf_view_evidence": [
+      "colend/colenda expose disconnected bl/vdd/gnd/vpb and extra extracted proxy pins m2_0_4# and m2_0_236#",
+      "replica bitcell leaf has 8/8 devices but 9 extracted versus 8 schematic nets and a split WL",
+      "main bitcell leaf has 8/8 devices but 10 extracted versus 9 schematic nets and a split WL"
+    ],
+    "additional_smallest_generated_mismatch": "pnand2_0: 4/4 devices, 7 extracted versus 6 schematic nets; well/bulk partition"
+  },
+  "generated_hierarchy": {
+    "bank_error_tiles": 383,
+    "capped_replica_bitcell_array_error_tiles": 380,
+    "replica_bitcell_array_error_tiles": 380,
+    "bitcell_array_error_tiles": 360,
+    "replica_column_error_tiles": 252,
+    "dummy_array_error_tiles": 34,
+    "row_cap_array_error_tiles_each": 117,
+    "col_cap_array_error_tiles_each": 65,
+    "generated_precharge_error_tiles": 3,
+    "generated_port_data_error_tiles": 3,
+    "generated_write_mask_array_error_tiles": 3
+  },
+  "artifacts": {
+    "openram_log": "raw/logs/prepatch_control.log",
+    "gds": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.gds",
+    "schematic_spice": "raw/runs/prepatch/output_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.sp",
+    "extracted_spice": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.spice",
+    "extraction": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.ext",
+    "drc_report": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.drc.out",
+    "lvs_report": "raw/runs/prepatch/work_control_8x16/sky130_sram_1rw_8x16_gate3a03_control.lvs.report",
+    "primitive_diagnostics": "raw/diagnostics/prepatch_drc"
+  }
+}

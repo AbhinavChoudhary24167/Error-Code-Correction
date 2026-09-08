@@ -1,0 +1,465 @@
+
+==========================================================================
+finish report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+finish report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+finish report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 0.15
+
+==========================================================================
+finish report_clock_min_period
+--------------------------------------------------------------------------
+core_clk period_min = 9.85 fmax = 101.49
+
+==========================================================================
+finish report_clock_skew
+--------------------------------------------------------------------------
+Clock core_clk
+No launch/capture paths found.
+
+
+==========================================================================
+finish report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: payload_in[52] (input port clocked by core_clk)
+Endpoint: u_protected_memory.u_data
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.50    0.50 ^ input external delay
+     1    0.00    0.00    0.00    0.50 ^ payload_in[52] (in)
+                                         payload_in[52] (net)
+                  0.00    0.00    0.50 ^ input73/A (sky130_fd_sc_hd__buf_2)
+     1    0.00    0.03    0.08    0.58 ^ input73/X (sky130_fd_sc_hd__buf_2)
+                                         net72 (net)
+                  0.03    0.00    0.58 ^ place764/A (sky130_fd_sc_hd__buf_4)
+     2    0.05    0.14    0.17    0.75 ^ place764/X (sky130_fd_sc_hd__buf_4)
+                                         net763 (net)
+                  0.18    0.01    0.76 ^ u_protected_memory.u_data/din[52] (sram22_256x64m4w8)
+                                  0.76   data arrival time
+
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.05    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.02    0.04    0.11    0.11 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_0_clk (net)
+                  0.04    0.00    0.11 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     1    0.37    0.38    0.34    0.46 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_1_1__leaf_clk (net)
+                  0.51    0.03    0.49 ^ u_protected_memory.u_data/clk (sram22_256x64m4w8)
+                          0.10    0.59   clock uncertainty
+                          0.00    0.59   clock reconvergence pessimism
+                          0.17    0.76   library hold time
+                                  0.76   data required time
+-----------------------------------------------------------------------------
+                                  0.76   data required time
+                                 -0.76   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (VIOLATED)
+
+
+
+==========================================================================
+finish report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: u_protected_memory.u_data
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: detected_uncorrectable (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.05    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.02    0.04    0.11    0.11 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_0_clk (net)
+                  0.04    0.00    0.11 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     1    0.37    0.38    0.34    0.46 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_1_1__leaf_clk (net)
+                  0.51    0.03    0.49 ^ u_protected_memory.u_data/clk (sram22_256x64m4w8)
+     2    0.03    0.25    3.47    3.97 ^ u_protected_memory.u_data/dout[56] (sram22_256x64m4w8)
+                                         u_protected_memory.data_dout[56] (net)
+                  0.19    0.00    3.97 ^ max_cap561/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     2    0.01    0.10    0.55    4.52 ^ max_cap561/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net560 (net)
+                  0.10    0.00    4.52 ^ max_cap560/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.05    0.49    5.01 ^ max_cap560/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net559 (net)
+                  0.05    0.00    5.01 ^ max_cap202/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.06    0.48    5.49 ^ max_cap202/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net201 (net)
+                  0.06    0.00    5.49 ^ _496_/C (sky130_fd_sc_hd__xnor3_1)
+     3    0.02    0.13    0.29    5.78 v _496_/X (sky130_fd_sc_hd__xnor3_1)
+                                         _038_ (net)
+                  0.13    0.00    5.78 v _567_/A (sky130_fd_sc_hd__xnor2_1)
+     1    0.01    0.19    0.24    6.02 ^ _567_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _109_ (net)
+                  0.19    0.00    6.02 ^ _570_/B (sky130_fd_sc_hd__xnor3_2)
+     2    0.03    0.15    0.47    6.49 v _570_/X (sky130_fd_sc_hd__xnor3_2)
+                                         _112_ (net)
+                  0.15    0.00    6.49 v _575_/B (sky130_fd_sc_hd__xnor2_4)
+     6    0.04    0.31    0.32    6.81 ^ _575_/Y (sky130_fd_sc_hd__xnor2_4)
+                                         _117_ (net)
+                  0.31    0.00    6.82 ^ place722/A (sky130_fd_sc_hd__buf_4)
+     4    0.03    0.09    0.22    7.03 ^ place722/X (sky130_fd_sc_hd__buf_4)
+                                         net721 (net)
+                  0.09    0.00    7.03 ^ _602_/C (sky130_fd_sc_hd__nor4_4)
+     5    0.02    0.11    0.06    7.10 v _602_/Y (sky130_fd_sc_hd__nor4_4)
+                                         _141_ (net)
+                  0.11    0.00    7.10 v place707/A (sky130_fd_sc_hd__buf_4)
+     8    0.03    0.06    0.19    7.29 v place707/X (sky130_fd_sc_hd__buf_4)
+                                         net706 (net)
+                  0.06    0.00    7.30 v _831_/B2 (sky130_fd_sc_hd__a22oi_1)
+     1    0.00    0.18    0.18    7.48 ^ _831_/Y (sky130_fd_sc_hd__a22oi_1)
+                                         _310_ (net)
+                  0.18    0.00    7.48 ^ _834_/A2 (sky130_fd_sc_hd__o22ai_1)
+     1    0.01    0.09    0.12    7.60 v _834_/Y (sky130_fd_sc_hd__o22ai_1)
+                                         _313_ (net)
+                  0.09    0.00    7.60 v _848_/A (sky130_fd_sc_hd__nor4_2)
+     1    0.01    0.30    0.36    7.96 ^ _848_/Y (sky130_fd_sc_hd__nor4_2)
+                                         _327_ (net)
+                  0.30    0.00    7.96 ^ _849_/B1 (sky130_fd_sc_hd__o21ai_2)
+     2    0.01    0.10    0.14    8.10 v _849_/Y (sky130_fd_sc_hd__o21ai_2)
+                                         _328_ (net)
+                  0.10    0.00    8.10 v _851_/B1 (sky130_fd_sc_hd__a211oi_4)
+     1    0.03    0.37    0.38    8.48 ^ _851_/Y (sky130_fd_sc_hd__a211oi_4)
+                                         net92 (net)
+                  0.37    0.00    8.48 ^ place634/A (sky130_fd_sc_hd__buf_4)
+     1    0.00    0.03    0.17    8.66 ^ place634/X (sky130_fd_sc_hd__buf_4)
+                                         net633 (net)
+                  0.03    0.00    8.66 ^ output93/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.02    0.22    0.59    9.25 ^ output93/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         detected_uncorrectable (net)
+                  0.22    0.00    9.25 ^ detected_uncorrectable (out)
+                                  9.25   data arrival time
+
+                         10.00   10.00   clock core_clk (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -0.50    9.40   output external delay
+                                  9.40   data required time
+-----------------------------------------------------------------------------
+                                  9.40   data required time
+                                 -9.25   data arrival time
+-----------------------------------------------------------------------------
+                                  0.15   slack (MET)
+
+
+
+==========================================================================
+finish report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: u_protected_memory.u_data
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: detected_uncorrectable (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.05    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.02    0.04    0.11    0.11 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_0_clk (net)
+                  0.04    0.00    0.11 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     1    0.37    0.38    0.34    0.46 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_1_1__leaf_clk (net)
+                  0.51    0.03    0.49 ^ u_protected_memory.u_data/clk (sram22_256x64m4w8)
+     2    0.03    0.25    3.47    3.97 ^ u_protected_memory.u_data/dout[56] (sram22_256x64m4w8)
+                                         u_protected_memory.data_dout[56] (net)
+                  0.19    0.00    3.97 ^ max_cap561/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     2    0.01    0.10    0.55    4.52 ^ max_cap561/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net560 (net)
+                  0.10    0.00    4.52 ^ max_cap560/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.05    0.49    5.01 ^ max_cap560/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net559 (net)
+                  0.05    0.00    5.01 ^ max_cap202/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.06    0.48    5.49 ^ max_cap202/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net201 (net)
+                  0.06    0.00    5.49 ^ _496_/C (sky130_fd_sc_hd__xnor3_1)
+     3    0.02    0.13    0.29    5.78 v _496_/X (sky130_fd_sc_hd__xnor3_1)
+                                         _038_ (net)
+                  0.13    0.00    5.78 v _567_/A (sky130_fd_sc_hd__xnor2_1)
+     1    0.01    0.19    0.24    6.02 ^ _567_/Y (sky130_fd_sc_hd__xnor2_1)
+                                         _109_ (net)
+                  0.19    0.00    6.02 ^ _570_/B (sky130_fd_sc_hd__xnor3_2)
+     2    0.03    0.15    0.47    6.49 v _570_/X (sky130_fd_sc_hd__xnor3_2)
+                                         _112_ (net)
+                  0.15    0.00    6.49 v _575_/B (sky130_fd_sc_hd__xnor2_4)
+     6    0.04    0.31    0.32    6.81 ^ _575_/Y (sky130_fd_sc_hd__xnor2_4)
+                                         _117_ (net)
+                  0.31    0.00    6.82 ^ place722/A (sky130_fd_sc_hd__buf_4)
+     4    0.03    0.09    0.22    7.03 ^ place722/X (sky130_fd_sc_hd__buf_4)
+                                         net721 (net)
+                  0.09    0.00    7.03 ^ _602_/C (sky130_fd_sc_hd__nor4_4)
+     5    0.02    0.11    0.06    7.10 v _602_/Y (sky130_fd_sc_hd__nor4_4)
+                                         _141_ (net)
+                  0.11    0.00    7.10 v place707/A (sky130_fd_sc_hd__buf_4)
+     8    0.03    0.06    0.19    7.29 v place707/X (sky130_fd_sc_hd__buf_4)
+                                         net706 (net)
+                  0.06    0.00    7.30 v _831_/B2 (sky130_fd_sc_hd__a22oi_1)
+     1    0.00    0.18    0.18    7.48 ^ _831_/Y (sky130_fd_sc_hd__a22oi_1)
+                                         _310_ (net)
+                  0.18    0.00    7.48 ^ _834_/A2 (sky130_fd_sc_hd__o22ai_1)
+     1    0.01    0.09    0.12    7.60 v _834_/Y (sky130_fd_sc_hd__o22ai_1)
+                                         _313_ (net)
+                  0.09    0.00    7.60 v _848_/A (sky130_fd_sc_hd__nor4_2)
+     1    0.01    0.30    0.36    7.96 ^ _848_/Y (sky130_fd_sc_hd__nor4_2)
+                                         _327_ (net)
+                  0.30    0.00    7.96 ^ _849_/B1 (sky130_fd_sc_hd__o21ai_2)
+     2    0.01    0.10    0.14    8.10 v _849_/Y (sky130_fd_sc_hd__o21ai_2)
+                                         _328_ (net)
+                  0.10    0.00    8.10 v _851_/B1 (sky130_fd_sc_hd__a211oi_4)
+     1    0.03    0.37    0.38    8.48 ^ _851_/Y (sky130_fd_sc_hd__a211oi_4)
+                                         net92 (net)
+                  0.37    0.00    8.48 ^ place634/A (sky130_fd_sc_hd__buf_4)
+     1    0.00    0.03    0.17    8.66 ^ place634/X (sky130_fd_sc_hd__buf_4)
+                                         net633 (net)
+                  0.03    0.00    8.66 ^ output93/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.02    0.22    0.59    9.25 ^ output93/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         detected_uncorrectable (net)
+                  0.22    0.00    9.25 ^ detected_uncorrectable (out)
+                                  9.25   data arrival time
+
+                         10.00   10.00   clock core_clk (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                         -0.10    9.90   clock uncertainty
+                          0.00    9.90   clock reconvergence pessimism
+                         -0.50    9.40   output external delay
+                                  9.40   data required time
+-----------------------------------------------------------------------------
+                                  9.40   data required time
+                                 -9.25   data arrival time
+-----------------------------------------------------------------------------
+                                  0.15   slack (MET)
+
+
+
+==========================================================================
+finish report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+u_protected_memory.u_ecc/dout[4]        0.04    0.42   -0.38 (VIOLATED)
+u_protected_memory.u_ecc/dout[1]        0.04    0.38   -0.34 (VIOLATED)
+u_protected_memory.u_ecc/dout[5]        0.04    0.37   -0.33 (VIOLATED)
+u_protected_memory.u_data/dout[61]      0.04    0.36   -0.32 (VIOLATED)
+u_protected_memory.u_data/dout[3]       0.04    0.36   -0.32 (VIOLATED)
+u_protected_memory.u_ecc/dout[2]        0.04    0.35   -0.31 (VIOLATED)
+u_protected_memory.u_data/dout[60]      0.04    0.34   -0.30 (VIOLATED)
+u_protected_memory.u_ecc/dout[3]        0.04    0.34   -0.30 (VIOLATED)
+u_protected_memory.u_data/dout[2]       0.04    0.33   -0.29 (VIOLATED)
+u_protected_memory.u_data/dout[57]      0.04    0.32   -0.28 (VIOLATED)
+u_protected_memory.u_data/dout[59]      0.04    0.31   -0.27 (VIOLATED)
+u_protected_memory.u_data/rstb          0.35    0.62   -0.26 (VIOLATED)
+u_protected_memory.u_ecc/dout[7]        0.04    0.30   -0.26 (VIOLATED)
+u_protected_memory.u_data/dout[6]       0.04    0.30   -0.26 (VIOLATED)
+u_protected_memory.u_data/dout[47]      0.04    0.30   -0.26 (VIOLATED)
+u_protected_memory.u_data/dout[17]      0.04    0.30   -0.26 (VIOLATED)
+u_protected_memory.u_data/dout[33]      0.04    0.30   -0.26 (VIOLATED)
+u_protected_memory.u_data/dout[19]      0.04    0.29   -0.25 (VIOLATED)
+u_protected_memory.u_data/dout[5]       0.04    0.29   -0.25 (VIOLATED)
+u_protected_memory.u_ecc/dout[6]        0.04    0.29   -0.25 (VIOLATED)
+u_protected_memory.u_data/dout[63]      0.04    0.29   -0.25 (VIOLATED)
+u_protected_memory.u_data/dout[54]      0.04    0.28   -0.24 (VIOLATED)
+u_protected_memory.u_data/dout[10]      0.04    0.27   -0.23 (VIOLATED)
+u_protected_memory.u_data/dout[58]      0.04    0.27   -0.23 (VIOLATED)
+u_protected_memory.u_data/dout[62]      0.04    0.27   -0.23 (VIOLATED)
+u_protected_memory.u_data/dout[8]       0.04    0.27   -0.23 (VIOLATED)
+u_protected_memory.u_data/dout[16]      0.04    0.26   -0.22 (VIOLATED)
+u_protected_memory.u_data/dout[56]      0.04    0.25   -0.21 (VIOLATED)
+u_protected_memory.u_data/dout[7]       0.04    0.25   -0.21 (VIOLATED)
+u_protected_memory.u_ecc/dout[0]        0.04    0.24   -0.20 (VIOLATED)
+u_protected_memory.u_data/dout[52]      0.04    0.24   -0.20 (VIOLATED)
+u_protected_memory.u_data/dout[14]      0.04    0.24   -0.20 (VIOLATED)
+u_protected_memory.u_data/dout[36]      0.04    0.24   -0.20 (VIOLATED)
+u_protected_memory.u_data/dout[31]      0.04    0.23   -0.19 (VIOLATED)
+u_protected_memory.u_data/dout[12]      0.04    0.23   -0.19 (VIOLATED)
+u_protected_memory.u_data/dout[34]      0.04    0.22   -0.18 (VIOLATED)
+u_protected_memory.u_data/dout[18]      0.04    0.22   -0.18 (VIOLATED)
+u_protected_memory.u_data/dout[40]      0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[51]      0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[30]      0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[23]      0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[35]      0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[9]       0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[39]      0.04    0.21   -0.17 (VIOLATED)
+u_protected_memory.u_data/dout[13]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[55]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[29]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[25]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[53]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/clk           0.35    0.51   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[32]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[42]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[21]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[15]      0.04    0.20   -0.16 (VIOLATED)
+u_protected_memory.u_data/dout[44]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[1]       0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[43]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[49]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[27]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[41]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[26]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[24]      0.04    0.19   -0.15 (VIOLATED)
+u_protected_memory.u_data/dout[0]       0.04    0.18   -0.14 (VIOLATED)
+u_protected_memory.u_data/dout[22]      0.04    0.18   -0.14 (VIOLATED)
+u_protected_memory.u_data/dout[50]      0.04    0.18   -0.14 (VIOLATED)
+u_protected_memory.u_data/dout[11]      0.04    0.17   -0.13 (VIOLATED)
+u_protected_memory.u_data/dout[45]      0.04    0.17   -0.13 (VIOLATED)
+u_protected_memory.u_data/dout[28]      0.04    0.17   -0.13 (VIOLATED)
+u_protected_memory.u_data/dout[48]      0.04    0.17   -0.13 (VIOLATED)
+u_protected_memory.u_data/dout[4]       0.04    0.17   -0.13 (VIOLATED)
+u_protected_memory.u_data/dout[46]      0.04    0.16   -0.12 (VIOLATED)
+u_protected_memory.u_data/dout[37]      0.04    0.16   -0.12 (VIOLATED)
+u_protected_memory.u_data/dout[38]      0.04    0.16   -0.12 (VIOLATED)
+u_protected_memory.u_data/dout[20]      0.04    0.16   -0.12 (VIOLATED)
+u_protected_memory.u_data/din[56]       0.35    0.45   -0.09 (VIOLATED)
+u_protected_memory.u_data/din[57]       0.35    0.36   -0.01 (VIOLATED)
+u_protected_memory.u_ecc/rstb           0.35    0.36   -0.01 (VIOLATED)
+
+
+==========================================================================
+finish max_slew_check_slack
+--------------------------------------------------------------------------
+-0.38079211115837097
+
+==========================================================================
+finish max_slew_check_limit
+--------------------------------------------------------------------------
+0.03999999910593033
+
+==========================================================================
+finish max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-9.5198
+
+==========================================================================
+finish max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.021380551159381866
+
+==========================================================================
+finish max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.02930700220167637
+
+==========================================================================
+finish max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.7295
+
+==========================================================================
+finish max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 77
+
+==========================================================================
+finish max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+finish max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+finish setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+finish hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 2
+
+==========================================================================
+finish report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+finish report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+finish critical path target clock latency max path
+--------------------------------------------------------------------------
+0.2839
+
+==========================================================================
+finish critical path target clock latency min path
+--------------------------------------------------------------------------
+0.4934
+
+==========================================================================
+finish critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+finish critical path delay
+--------------------------------------------------------------------------
+9.2536
+
+==========================================================================
+finish critical path slack
+--------------------------------------------------------------------------
+0.1464
+
+==========================================================================
+finish slack div critical path delay
+--------------------------------------------------------------------------
+1.582087
+
+==========================================================================
+finish report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          2.43e-04   3.84e-04   3.67e-09   6.27e-04  31.9%
+Clock                  6.11e-05   1.89e-04   4.86e-11   2.50e-04  12.7%
+Macro                  1.09e-03   0.00e+00   7.31e-07   1.09e-03  55.4%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.39e-03   5.73e-04   7.34e-07   1.97e-03 100.0%
+                          70.8%      29.2%       0.0%

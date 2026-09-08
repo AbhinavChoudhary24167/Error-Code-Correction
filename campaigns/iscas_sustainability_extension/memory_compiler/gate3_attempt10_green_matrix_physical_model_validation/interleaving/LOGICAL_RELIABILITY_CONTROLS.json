@@ -1,0 +1,358 @@
+{
+  "persistent_fault_scrub_controls": {
+    "E0": {
+      "none": [
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "1",
+          "outcome": "CORRECTED",
+          "payload_matches": true,
+          "scrub_writeback": false,
+          "step": 1,
+          "stored_after_scrub": 1217567094394046893551
+        },
+        {
+          "correction_flag": false,
+          "due_flag": true,
+          "injected_mask_hex": "2",
+          "outcome": "DUE",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 2,
+          "stored_after_scrub": null
+        },
+        {
+          "correction_flag": false,
+          "due_flag": true,
+          "injected_mask_hex": "0",
+          "outcome": "DUE",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 3,
+          "stored_after_scrub": null
+        },
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "4",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 4,
+          "stored_after_scrub": 1236013838467756445160
+        }
+      ],
+      "periodic": [
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "1",
+          "outcome": "CORRECTED",
+          "payload_matches": true,
+          "scrub_writeback": false,
+          "step": 1,
+          "stored_after_scrub": 1217567094394046893551
+        },
+        {
+          "correction_flag": false,
+          "due_flag": true,
+          "injected_mask_hex": "2",
+          "outcome": "DUE",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 2,
+          "stored_after_scrub": null
+        },
+        {
+          "correction_flag": false,
+          "due_flag": true,
+          "injected_mask_hex": "0",
+          "outcome": "DUE",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 3,
+          "stored_after_scrub": null
+        },
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "4",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": true,
+          "step": 4,
+          "stored_after_scrub": 1236013838467756445160
+        }
+      ],
+      "scrub_on_correct": [
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "1",
+          "outcome": "CORRECTED",
+          "payload_matches": true,
+          "scrub_writeback": true,
+          "step": 1,
+          "stored_after_scrub": 1217567094394046893551
+        },
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "2",
+          "outcome": "CORRECTED",
+          "payload_matches": true,
+          "scrub_writeback": true,
+          "step": 2,
+          "stored_after_scrub": 1217567094394046893551
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "0",
+          "outcome": "NO_ERROR",
+          "payload_matches": true,
+          "scrub_writeback": false,
+          "step": 3,
+          "stored_after_scrub": 1217567094394046893551
+        },
+        {
+          "correction_flag": true,
+          "due_flag": false,
+          "injected_mask_hex": "4",
+          "outcome": "CORRECTED",
+          "payload_matches": true,
+          "scrub_writeback": true,
+          "step": 4,
+          "stored_after_scrub": 1217567094394046893551
+        }
+      ]
+    },
+    "U0": {
+      "none": [
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "1",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 1,
+          "stored_after_scrub": 81985529216486894
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "2",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 2,
+          "stored_after_scrub": 81985529216486892
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "0",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 3,
+          "stored_after_scrub": 81985529216486892
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "4",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 4,
+          "stored_after_scrub": 81985529216486888
+        }
+      ],
+      "periodic": [
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "1",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 1,
+          "stored_after_scrub": 81985529216486894
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "2",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 2,
+          "stored_after_scrub": 81985529216486892
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "0",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 3,
+          "stored_after_scrub": 81985529216486892
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "4",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 4,
+          "stored_after_scrub": 81985529216486888
+        }
+      ],
+      "scrub_on_correct": [
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "1",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 1,
+          "stored_after_scrub": 81985529216486894
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "2",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 2,
+          "stored_after_scrub": 81985529216486892
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "0",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 3,
+          "stored_after_scrub": 81985529216486892
+        },
+        {
+          "correction_flag": false,
+          "due_flag": false,
+          "injected_mask_hex": "4",
+          "outcome": "SDC",
+          "payload_matches": false,
+          "scrub_writeback": false,
+          "step": 4,
+          "stored_after_scrub": 81985529216486888
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "architecture_id": "U0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "SBU_ALL_COORDINATES",
+      "outcome_counts": {
+        "SDC": 64
+      },
+      "pattern_count": 64,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "U0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "DBU_ALL_PAIRS",
+      "outcome_counts": {
+        "SDC": 2016
+      },
+      "pattern_count": 2016,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "U0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "LOGICAL_CONSECUTIVE_3",
+      "outcome_counts": {
+        "SDC": 62
+      },
+      "pattern_count": 62,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "U0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "LOGICAL_CONSECUTIVE_4",
+      "outcome_counts": {
+        "SDC": 61
+      },
+      "pattern_count": 61,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "E0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "SBU_ALL_COORDINATES",
+      "outcome_counts": {
+        "CORRECTED": 72
+      },
+      "pattern_count": 72,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "E0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "DBU_ALL_PAIRS",
+      "outcome_counts": {
+        "DUE": 2556
+      },
+      "pattern_count": 2556,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "E0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "LOGICAL_CONSECUTIVE_3",
+      "outcome_counts": {
+        "DUE": 24,
+        "SDC": 46
+      },
+      "pattern_count": 70,
+      "physical_coverage": "NOT_QUALIFIED"
+    },
+    {
+      "architecture_id": "E0",
+      "coverage_denominator": "enumerated logical patterns only, not physical upset events or time",
+      "evidence_level": "EXACT_FUNCTIONAL_LOGICAL_COORDINATE_CONTROL",
+      "fault_domain": "LOGICAL_CONSECUTIVE_4",
+      "outcome_counts": {
+        "DUE": 63,
+        "SDC": 6
+      },
+      "pattern_count": 69,
+      "physical_coverage": "NOT_QUALIFIED"
+    }
+  ],
+  "scrub_scope": "functional simulator controls; no scrubbing RTL/control energy is added to U0/E0",
+  "source_provenance": {
+    "green_ecc_phy/adapters.py": "ef481134ceed07698851dc1cacf6bf3618b882ffb58a1bc0e00af9bffeaafedc",
+    "green_ecc_phy/contracts.py": "5062ec64b1e9d5f8458e3c5534b0acd585db9526c015d4dc813c5eff1a8167f1",
+    "green_ecc_physical_simulation/registry/codes/hsiao-secded-72-64-v1.json": "3a107aa324767839bb098b36b72f576562bade35534b04f94c6d5eaa7f5e1e3c"
+  }
+}

@@ -1,0 +1,42 @@
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Using ABC speed script.
+Extracting clock period from SDC file: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed13/clock_period.txt
+Setting clock period to 10.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+3. Executing Liberty frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib
+4. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+5. Executing Liberty frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+6. Executing Liberty frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib
+7. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/hsiao_secded_72_64_v1_encoder.sv
+8. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/hsiao_secded_72_64_v1_syndrome.sv
+9. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/hsiao_secded_72_64_v2_algorithmic_decoder.sv
+10. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v
+11. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v
+12. Executing Verilog-2005 frontend: /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/rtl/ecc_sram_256x72_sram22.sv
+13. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+14. Executing HIERARCHY pass (managing design hierarchy).
+15. Executing AST frontend in derive mode using pre-parsed AST for module `\e0_sram22_top'.
+15.1. Analyzing design hierarchy..
+15.2. Executing AST frontend in derive mode using pre-parsed AST for module `\ecc_sram_256x72_sram22'.
+15.3. Analyzing design hierarchy..
+15.4. Executing AST frontend in derive mode using pre-parsed AST for module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+15.5. Executing AST frontend in derive mode using pre-parsed AST for module `\hsiao_secded_72_64_v1_encoder'.
+15.6. Analyzing design hierarchy..
+15.7. Executing AST frontend in derive mode using pre-parsed AST for module `\hsiao_secded_72_64_v1_syndrome'.
+15.8. Analyzing design hierarchy..
+15.9. Analyzing design hierarchy..
+Warning: Selection "sram22_256x64m4w8" did not match any module.
+Warning: Selection "sram22_256x8m8w1" did not match any module.
+16. Executing HIERARCHY pass (managing design hierarchy).
+16.1. Analyzing design hierarchy..
+16.2. Analyzing design hierarchy..
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+18. Executing RTLIL backend.
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 25fb9f1327, time: 0.79s, user: 0.29s, system: 0.11s, MEM: 56.61 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 63% 8x read_liberty (0 sec), 13% 2x write_rtlil (0 sec), ...
+Elapsed time: 0:00.82[h:]min:sec. CPU time: user 0.32 sys 0.13 (55%). Peak memory: 60816KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          0             59 0b4f2f27ab5367f95082

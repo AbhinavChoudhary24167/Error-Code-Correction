@@ -1,0 +1,84 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "analysis_type": "read_only_source_derivation",
+  "openram": {
+    "version": "1.2.48",
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab"
+  },
+  "input": {
+    "configuration": "gate3_openram_attempt02/openram_256x72_config.py",
+    "configuration_sha256": "f8cfa843bfdc0427a6e35e620db180e2d222bd8239025eafd388379a33243fe0",
+    "word_size": 72,
+    "num_words": 256,
+    "num_banks": 1,
+    "words_per_row": 2,
+    "num_spare_rows": 1,
+    "num_spare_cols": 1,
+    "num_rw_ports": 1
+  },
+  "derivation": {
+    "num_words_per_bank": "256 / 1 = 256",
+    "num_bits_per_bank": "72 * 256 = 18432",
+    "regular_data_columns": "2 * 72 = 144",
+    "logical_rows_before_spares": "256 / 2 = 128",
+    "num_rows_used_for_addressing": "128 + 1 spare row = 129",
+    "physical_rows": "129 + 1 single-port replica/dummy row = 130",
+    "physical_columns": "144 + 1 replica-bitline column + 1 spare column = 146",
+    "row_addr_size": "ceil(log2(129)) = 8",
+    "col_addr_size": "int(log2(2)) = 1",
+    "bank_addr_size": "8 + 1 = 9",
+    "top_level_data_width": "72 + 1 spare column = 73"
+  },
+  "technology_constraints": {
+    "array_row_multiple": 2,
+    "array_col_multiple": 2,
+    "physical_rows_divisible": true,
+    "physical_columns_divisible": true
+  },
+  "source_trace": [
+    {
+      "path": "compiler/sram.py",
+      "class": "sram",
+      "function": "__init__",
+      "lines": "23-33",
+      "effect": "passes configured OpenRAM options into sram_config"
+    },
+    {
+      "path": "compiler/sram_config.py",
+      "class": "sram_config",
+      "function": "__init__",
+      "lines": "17-29",
+      "effect": "records word, bank, port, and spare parameters"
+    },
+    {
+      "path": "compiler/sram_config.py",
+      "class": "sram_config",
+      "function": "compute_sizes/recompute_sizes",
+      "lines": "85-100,118-137",
+      "effect": "uses explicit words_per_row and derives rows, columns, and address widths"
+    },
+    {
+      "path": "compiler/sram_config.py",
+      "class": "sram_config",
+      "function": "recompute_sizes",
+      "lines": "143-149",
+      "effect": "checks physical row/column multiples including replica/dummy and spare structures"
+    },
+    {
+      "path": "technology/sky130/tech/tech.py",
+      "class": null,
+      "function": null,
+      "lines": "234-235",
+      "effect": "declares two-row and two-column array quanta"
+    }
+  ],
+  "result": {
+    "logical_words": 256,
+    "logical_stored_bits_per_word": 72,
+    "emitted_data_indices": "0..72",
+    "emitted_address_indices": "0..8",
+    "repair_control": "spare_wen0",
+    "frozen_plain_256x72_interface_matched": false
+  }
+}
+

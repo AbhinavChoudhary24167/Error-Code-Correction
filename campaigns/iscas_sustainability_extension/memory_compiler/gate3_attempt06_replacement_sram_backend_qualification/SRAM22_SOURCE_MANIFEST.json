@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "upstream_url": "https://github.com/ucb-substrate/sram22_sky130_macros",
+  "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+  "retrieval_date": "2026-08-31",
+  "license": "BSD-3-Clause",
+  "source_checkout_policy": "detached exact commit; sparse checkout of only the two required macro directories plus repository-root files",
+  "configuration_file": {
+    "available_in_macro_repository": false,
+    "result": "ABSENT_UPSTREAM",
+    "parameters_encoded_by_names": {
+      "sram22_256x64m4w8": {
+        "num_words": 256,
+        "data_width": 64,
+        "mux_ratio": 4,
+        "write_size": 8
+      },
+      "sram22_256x8m8w1": {
+        "num_words": 256,
+        "data_width": 8,
+        "mux_ratio": 8,
+        "write_size": 1
+      }
+    }
+  },
+  "readme_claims": {
+    "generator": "SRAM22 developed at UC Berkeley",
+    "use_at_own_risk": true,
+    "both_required_macros_reported_taped_out": true,
+    "reported_test_condition": "VDD=1.8 V, clock=25 MHz",
+    "reported_behavior": "behaved correctly in silicon measurements"
+  },
+  "artifacts": [
+    {
+      "path": ".gitignore",
+      "byte_size": 143,
+      "sha256": "ea5fe24f83e80549c3c6e875be1ff3d15017e3b80d8410f59c6a0f73072a8fc8",
+      "role": "repository_support"
+    },
+    {
+      "path": "copy.sh",
+      "byte_size": 1674,
+      "sha256": "90b0a8df4e03205870c7105cfdcf1d24d0949fe57214fc3bbad775a1d7d424f7",
+      "role": "repository_support"
+    },
+    {
+      "path": "LICENSE",
+      "byte_size": 1523,
+      "sha256": "9222ee3785107b85fc54b218a445d1466fa43a651fc7e2a1acfadf0030ffff8e",
+      "role": "repository_support"
+    },
+    {
+      "path": "README.md",
+      "byte_size": 1131,
+      "sha256": "c2aea4a1413259ff7de9128fd99421c45b0c2ba269c3c54019e0f347aff118c1",
+      "role": "repository_support"
+    },
+    {
+      "path": "sram22.spice",
+      "byte_size": 97504506,
+      "sha256": "cc6bba3601b771d604ae49c20b9fc25ea1cbad7ac132dbeecf3b530ed19dd593",
+      "role": "repository_support"
+    },
+    {
+      "path": "sram22.spice.gz",
+      "byte_size": 4938949,
+      "sha256": "338f451932d3e6a41411590b0c8602e2f002808acb922205d89cfc3c6de7f2c4",
+      "role": "repository_support"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8.gds.gz",
+      "byte_size": 6455100,
+      "sha256": "6f54a4ac22de3aa493dcdd298a5fb6176fa24bb0fed9b65090c154db4dc384a1",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8.lef",
+      "byte_size": 125962,
+      "sha256": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8.spice",
+      "byte_size": 1853804,
+      "sha256": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8.v",
+      "byte_size": 1712,
+      "sha256": "c8cc1f37c13865b410010870b684d82b39272189c937f32e59701829d205471d",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8_ff_n40C_1v95.lib",
+      "byte_size": 81241,
+      "sha256": "b1aecf549a589b285f2238dcba19654e3324da90232e98fa6bb5cee5a7f17a75",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8_ss_100C_1v60.lib",
+      "byte_size": 80669,
+      "sha256": "afd1ebdc2d793eebe326e11b13c2c0d5644ff15900eb880580068dadea4e7e64",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib",
+      "byte_size": 81787,
+      "sha256": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1.gds.gz",
+      "byte_size": 1526895,
+      "sha256": "0cb381ffde01c813b61b708ea1b1edb41e6d49a0851955352dc02978c80c00a5",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1.lef",
+      "byte_size": 69254,
+      "sha256": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1.spice",
+      "byte_size": 305115,
+      "sha256": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1.v",
+      "byte_size": 1683,
+      "sha256": "06d28e0f9df736734666d1f881102a84824208db14f09af8bf17de54aaffdba0",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1_ff_n40C_1v95.lib",
+      "byte_size": 50952,
+      "sha256": "4d3a565198706fb0803b660af817ce53dc2f5868cf10d507c07da790fcc0fbb9",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1_ss_100C_1v60.lib",
+      "byte_size": 50323,
+      "sha256": "9dde364de6decf0107e31422cb4c6073abd8a6265377098414d5193eb202a94b",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib",
+      "byte_size": 51793,
+      "sha256": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec",
+      "role": "macro_source_artifact"
+    },
+    {
+      "path": "unzip.sh",
+      "byte_size": 141,
+      "sha256": "d62b2a774faf699101728991b3e5813b86b72d9f14cd571d9cac7a5d0744618f",
+      "role": "repository_support"
+    },
+    {
+      "path": "zip.sh",
+      "byte_size": 85,
+      "sha256": "9155d8965297753a1450bb5dda7ab3d6d2631f0ce161de9629b2e956d16701fa",
+      "role": "repository_support"
+    }
+  ]
+}

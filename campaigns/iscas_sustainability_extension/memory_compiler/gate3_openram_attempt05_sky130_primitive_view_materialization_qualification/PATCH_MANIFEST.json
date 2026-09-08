@@ -1,0 +1,27 @@
+{
+  "campaign": "gate3_openram_attempt05_sky130_primitive_view_materialization_qualification",
+  "repository_product_code_patches": [],
+  "openram_source_patches": [],
+  "pdk_source_patches": [],
+  "vendor_view_patches": [],
+  "geometry_transformations": [],
+  "materialization_tool_created": false,
+  "campaign_local_diagnostic_tooling": [
+    {"path": "diagnostics/drc_leaf.tcl", "sha256": "aca598cc5b9a259bf8dd862a5237a13bd4136c7f169455cda76298003ae29736", "role": "unwaived standalone DRC"},
+    {"path": "diagnostics/extract_leaf.tcl", "sha256": "1071579a20b38650dd4381f49706aa3fb3369b57096a3f96455077d0cf40ef2f", "role": "blackbox-off standalone extraction"},
+    {"path": "diagnostics/gds_normal_leaf.tcl", "sha256": "8e0b957c104e8c652045c421d0ccb7df1115178b6d951af48e2bcbd36ec8d8ae", "role": "direct vendor GDS import, DRC, and extraction using normal sky130A"},
+    {"path": "scripts/gds_inventory.py", "sha256": "6c5f675d1a898defe697e9090cf926c8890efcc9d925b4d31cf5c74b2dae8e70", "role": "read-only GDS structure/layer inventory"},
+    {"path": "scripts/build_source_inventory.py", "sha256": "31dc57db12acabea0b4c006deadb2358299ad9a9693a5a523ca7bf93bf1b197e", "role": "immutable source-view inventory builder"},
+    {"path": "scripts/run_leaf_prequalification.sh", "sha256": "1afce9870ef76ee093b72e3e8f9e8d607b7d31fca40342c871f7fc7e8558a8dc", "role": "MAGLEF/full-MAG DRC and MAGLEF extraction/LVS driver"},
+    {"path": "scripts/run_gds_prequalification.sh", "sha256": "be28ebe91886551a11f3a50f654d38d171b71abd1e74b2c54c21245c77000112", "role": "direct-GDS normal-tech qualification driver"},
+    {"path": "scripts/run_mag_lvs_prequalification.sh", "sha256": "0ee1b374cf9ccbbd7f36f91f8bf6569933844500b372b7f5b6f5cb92da7ae793", "role": "full vendor MAG extraction/LVS diagnostic driver"},
+    {"path": "scripts/run_generated_pnand2_diagnosis.sh", "sha256": "77627781ffabf1d0ae11be78263f81dd991beba81343e2d6b9f3e6ee5bc658ff", "role": "independent generated pnand2 reproduction"},
+    {"path": "scripts/summarize_leaf_prequalification.py", "sha256": "7fcc82de7ed7a28f4dde909d6a23c20b07bdf1839e4b012439deacb8e4e18e6c", "role": "deterministic evidence matrix builder"},
+    {"path": "scripts/verify_prior_repository_evidence.py", "sha256": "ab5877861022e8c7ff3fd508d3f1b4663b48e156ccfae4c70e11dce559252c5c", "role": "fresh prior repository-manifest verifier"},
+    {"path": "scripts/build_evidence_manifest.py", "sha256": "7eafefb153a05495603612bc6e105d9b05c4effda096b806b0841259e69f3705", "role": "non-self-referential campaign evidence manifest builder"},
+    {"path": "scripts/leaf_cells.json", "sha256": "93d76e82b45da81071492b5aff442ac18b610166e69b1f0d1e25ef297384ae5a", "role": "29-cell required-leaf manifest"},
+    {"path": "tests/test_attempt05_artifacts.py", "sha256": "7ce1f049048475b895fb2dba0709f389b9919702bafcfc0788f1baed2e093acf", "role": "campaign artifact validation"}
+  ],
+  "source_views_modified_in_place": false,
+  "previous_campaigns_modified": false
+}

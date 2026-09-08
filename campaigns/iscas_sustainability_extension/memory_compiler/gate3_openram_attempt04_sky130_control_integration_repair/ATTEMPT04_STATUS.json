@@ -1,0 +1,83 @@
+{
+  "campaign_name": "gate3_openram_attempt04_sky130_control_integration_repair",
+  "timestamp": "2026-08-31T09:26:39.5305824+05:30",
+  "git_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+  "branch": "codex/ecc-lifecycle-sustainability",
+  "environment_versions": {
+    "windows": "10.0.26200.0",
+    "wsl_distribution": "Attempt04-Recovery / Ubuntu 24.04.4 LTS",
+    "wsl_kernel": "6.18.33.2-microsoft-standard-WSL2",
+    "docker_client_server": "29.7.2 / 29.7.2",
+    "openram": "1.2.48 @ b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "open_pdks": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "sky130_fd_bd_sram": "dd64256961317205343a3fd446908b42bafba388",
+    "magic": "8.3.311",
+    "netgen": "1.5.221",
+    "ngspice": "36",
+    "python": "3.8.10"
+  },
+  "control_configuration_hash": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6",
+  "control_configuration_byte_identical": true,
+  "prepatch_drc_count": 2140,
+  "postpatch_drc_count": 2140,
+  "prepatch_lvs_result": "FAIL",
+  "postpatch_lvs_result": "FAIL",
+  "prepatch_lvs_counts": {
+    "extracted_devices": 1802,
+    "schematic_devices": 1802,
+    "extracted_nets": 658,
+    "schematic_nets": 698
+  },
+  "postpatch_lvs_counts": {
+    "extracted_devices": 1802,
+    "schematic_devices": 1802,
+    "extracted_nets": 658,
+    "schematic_nets": 698
+  },
+  "identified_smallest_failing_primitive_hierarchy": "Imported SRAM leaf views: one-device colend/colenda already expose disconnected/proxy pins; eight-device main/replica bitcells have split-WL net mismatches. The smallest additional generated mismatch is four-device pnand2_0.",
+  "drc_root_cause": "Pinned sky130_fd_bd_sram build-space/add-mask GDS layers (CLI1MADD, CNTMADD, CP1MADD, NCM) are not materialized by the normal pinned sky130A Magic technology; OpenRAM maglef substitution hides most internal geometry but the abstracts themselves violate repeated LI/licon/mcon/via/poly/well rules.",
+  "lvs_root_cause": "Primitive-view connectivity partitions: extra colend/colenda proxy M2 pins, split bitcell WL nets, and a generated NAND well/bulk partition. Device totals match; exact upstream parameter normalization does not change the mismatch.",
+  "files_modified": [
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_colend.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1/technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_colenda.sp",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p2/technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag",
+    "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p2/technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.sp"
+  ],
+  "patch_hashes": {
+    "p1_unified_diff": "884d6b5640d092506ddb8797e3b8e1cf0f633a7503359f8645abf2e9b323dce2",
+    "p2_unified_diff": "f385f7592ce4b0107ca488c6b104fd2c3d3bc00103c531ff95bfac8c4e70d5f5"
+  },
+  "generated_evidence_hashes": {
+    "final_gds": "4f109f5cd70053027f57c24b7fe1d2455d43f8165b521ad5995dff62d347dadf",
+    "final_lvs_schematic_spice": "8866afcb05c6ee61899809c2050a23b769b558c84956f54ad43599ec27a81fad",
+    "final_drc_report": "e8b024177152dc6dac04ba962c594fbcac787a75a5e7f7a707763a430eda8a88",
+    "final_lvs_report": "d4b794d0a6e4848c192e336ceb43eff11cb89d22f5ce0f7726e6263fa27284b9",
+    "final_extraction": "fdf140153ebc1423265bfe0f5e8f19153fa3540dfc7323d6e6595d8316d4a295",
+    "final_openram_log": "461c278ed695ae1567c6a652a68d2483b6120736fc1bba12426576b40c3be1fb"
+  },
+  "waivers_disabling_masking_or_black_boxing_used": false,
+  "protected_baseline_result": "PASS_7094_UNCHANGED",
+  "protected_binary_result": "PASS_RESTORED_99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+  "campaign_test_result": "PASS_5",
+  "make_result": "PASS",
+  "make_test_result": "EXPECTED_FROZEN_BASELINE_2_FAILURES_482_PASSED",
+  "full_pytest_result": "EXPECTED_FROZEN_BASELINE_2_FAILURES_484_PASSED",
+  "new_regression_count": 0,
+  "unavailable_verification_checks": [
+    "Current external Attempt02 tree rehash: original Ubuntu-24.04 VHDX attach fails with ERROR_SHARING_VIOLATION and verified recovery VHDX predates that tree.",
+    "Current external Attempt03 artifact rehash: original Ubuntu-24.04 VHDX attach fails with ERROR_SHARING_VIOLATION and verified recovery VHDX predates that tree."
+  ],
+  "final_classification": "CONTROL_INTEGRATION_REPAIR_FAIL",
+  "gate3_state": "FAIL",
+  "gate3_modified": false,
+  "gate4_state": "NOT_STARTED_UNAUTHORIZED",
+  "qualified_macro_views": 0,
+  "macro_artifacts_admitted": 0,
+  "next_recommendation": "Do not run 256x8. Request a separate SRAM primitive-library/view-materialization qualification campaign that composes vendor add masks into the normal SKY130 electrical layers and proves leaf DRC/LVS before any macro-size bisection."
+}

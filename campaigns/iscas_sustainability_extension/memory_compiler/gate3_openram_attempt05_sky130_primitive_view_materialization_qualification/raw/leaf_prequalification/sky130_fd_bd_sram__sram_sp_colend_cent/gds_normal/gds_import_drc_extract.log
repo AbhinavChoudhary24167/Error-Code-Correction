@@ -1,0 +1,44 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "sky130_fd_bd_sram__sram_sp_colend_cent".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend_cent" (byte position 1604): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend_cent" (byte position 2436): Unknown layer/datatype in boundary, layer=33 type=43
+Writing 'sky130_fd_bd_sram__sram_sp_colend_cent'
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Local interconnect spacing < 0.17um (li.3)",14
+"Local interconnect width < 0.17um (li.1)",2
+"Deep N-well width < 3um (dnwell.2)",1
+"Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4)",4
+"poly spacing to diffusion tap < 0.055um (poly.5)",1
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",19
+"Metal1 width < 0.14um (met1.1)",19
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",6
+"N-well overlap of N-tap < 0.18um (diff/tap.10)",38
+__RULE_CSV_END__
+RULE_TOTAL=104
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=29
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Extraction style is now "ngspice(si)"
+Processing sky130_fd_bd_sram__sram_sp_colend_cent
+Extracting sky130_fd_bd_sram__sram_sp_colend_cent into sky130_fd_bd_sram__sram_sp_colend_cent.ext:
+Finished extract
+exttospice finished.
+Finished ext2spice

@@ -1,0 +1,36 @@
+{
+  "final_phase": "P2_COMPLETE_EXACT_UPSTREAM_LVS_FIX",
+  "control_configuration_sha256": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6",
+  "configuration_byte_identical": true,
+  "openram_exit_code": 1,
+  "drc": {
+    "status": "FAIL",
+    "prepatch_error_tiles": 2140,
+    "p1_error_tiles": 2140,
+    "postpatch_error_tiles": 2140,
+    "material_reduction": false
+  },
+  "lvs": {
+    "prepatch": "FAIL",
+    "p1": "FAIL",
+    "postpatch": "FAIL",
+    "postpatch_extracted_devices": 1802,
+    "postpatch_schematic_devices": 1802,
+    "postpatch_extracted_nets": 658,
+    "postpatch_schematic_nets": 698,
+    "p1_and_p2_report_sha256": "d4b794d0a6e4848c192e336ceb43eff11cb89d22f5ce0f7726e6263fa27284b9",
+    "material_reduction": false
+  },
+  "qualification_controls": {
+    "drc_disabled": false,
+    "lvs_disabled": false,
+    "waivers_used": false,
+    "black_box_masking_used": false,
+    "verification_deck_modified": false,
+    "pdk_modified": false,
+    "target_downsized_or_simplified": false,
+    "unrelated_memory_replacement": false
+  },
+  "out_of_scope_observation": "Each run later reached the pre-existing nom_corner characterization exception; it was not investigated or repaired.",
+  "classification": "CONTROL_INTEGRATION_REPAIR_FAIL"
+}

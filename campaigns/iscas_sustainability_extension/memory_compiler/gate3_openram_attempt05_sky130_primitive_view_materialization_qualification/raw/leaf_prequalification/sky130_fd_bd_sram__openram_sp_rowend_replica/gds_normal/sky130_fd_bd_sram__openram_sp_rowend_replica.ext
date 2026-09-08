@@ -1,0 +1,33 @@
+timestamp 1448064821
+version 8.3
+tech sky130A
+style ngspice(si)
+scale 1000 1 0.5
+resistclasses 4400000 2200000 950000 3050000 120000 197000 114000 191000 120000 197000 114000 191000 48200 319800 2000000 48200 48200 12800 125 125 47 47 29 5
+use sky130_fd_bd_sram__sram_sp_rowend_replica_ce sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0 1 0 0 0 1 0
+port "VPWR" 1 0 0 14 15 m1
+port "WL" 2 25 76 25 76 m2
+node "m2_0_127#" 1 24.8699 0 127 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 11440 608 0 0 0 0 0 0 0 0
+node "VPWR" 0 9.58748 0 0 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 210 58 0 0 0 0 0 0 0 0 0 0
+node "WL" 1 124.15 25 76 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2704 208 10660 658 0 0 0 0 0 0 0 0
+node "m1_n11_205#" 1 109.047 -11 205 v 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1924 178 14092 646 0 0 0 0 0 0 0 0
+substrate "VSUBS" 0 0 -1073741817 -1073741817 space 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "m2_0_127#" "m1_n11_205#" 138.363
+cap "WL" "m2_0_127#" 138.868
+cap "m2_0_127#" "VPWR" 0.0290824
+cap "WL" "m1_n11_205#" 0.715311
+cap "VPWR" "m1_n11_205#" 3.88349
+cap "WL" "VPWR" 0.0898747
+cap "WL" "m2_0_127#" 2.15661
+cap "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/dw_0_0#" "WL" 10.794
+cap "WL" "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/m1_158_122#" 5.44014
+cap "WL" "VPWR" 6.23388
+cap "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/dw_0_0#" "m2_0_127#" 12.3197
+cap "m2_0_127#" "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/m1_158_122#" 7.97005
+cap "VPWR" "m2_0_127#" 3.30934
+cap "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/dw_0_0#" "VPWR" 9.99789
+cap "VPWR" "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/m1_158_122#" 10.2989
+merge "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/VSUBS" "VSUBS" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+merge "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/a_0_24#" "WL" -56.2104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2704 -208 0 0 0 0 0 0 0 0 0 0
+merge "sky130_fd_bd_sram__sram_sp_rowend_replica_ce_0/a_0_142#" "VPWR" -47.3375 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1562 -214 0 0 0 0 0 0 0 0 0 0
+merge "VPWR" "m1_n11_205#"

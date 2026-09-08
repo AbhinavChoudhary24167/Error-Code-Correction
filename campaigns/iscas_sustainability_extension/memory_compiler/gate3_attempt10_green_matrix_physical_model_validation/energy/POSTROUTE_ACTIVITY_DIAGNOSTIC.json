@@ -1,0 +1,89 @@
+{
+  "frozen_docker_image": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+  "initial_scope_diagnostic": "tb.dut annotated zero pins. Its U0 reports are retained one directory above slash_scope; accepted OpenSTA hierarchy separator is tb/dut.",
+  "interpretation": "Power values remain incomplete activity estimates, not qualified read/write/access energy. Default/inferred activity influences unmatched pins. These rows are excluded from GREEN energy/carbon scoring.",
+  "mount_policy": "entire repository read-only at /work; Attempt10 energy only writable at /output; Docker network disabled",
+  "rows": [
+    {
+      "annotated_pin_count": 296,
+      "annotated_pin_fraction": 0.4868421052631579,
+      "annotation_scope": "tb/dut",
+      "architecture_id": "U0",
+      "blockers": [
+        "unannotated gate pins and synthesis-name mismatch",
+        "no mapped glitch-aware gate simulation",
+        "no independent read/write-conditioned macro power validation",
+        "encoder/decoder/control power partition unavailable"
+      ],
+      "energy_access_j": "NOT_QUALIFIED",
+      "energy_evidence_level": "NOT_QUALIFIED",
+      "five_seed_robustness": "NOT_RUN_FOR_ACTIVITY_POWER",
+      "liberty_model": "UPSTREAM_ORIGINAL",
+      "power_evidence_level": "PARTIALLY_RTL_ACTIVITY_ANNOTATED_POSTROUTE_TOOL_ESTIMATE",
+      "power_internal_w": 0.001787801971659,
+      "power_leakage_w": 6.420754630199e-07,
+      "power_switching_w": 0.0001047224795911,
+      "power_total_w": 0.001893166452646,
+      "seed": 11,
+      "sensitivity_liberty_models": "NOT_RUN_FOR_ACTIVITY_POWER",
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/liberty/sram22_256x64m4w8_tt_025C_1v80.lib": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed11/6_final.odb": "1a263502ae81073f6cfafceb41ba7c717378f57e1b1ba4039e129fdc8b047f99",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed11/6_final.sdc": "83b9951d04766eeb85d673794aefe8a3b540af1686222a1a5017cb62e27a31ad",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed11/6_final.spef": "b823352c5ddc373e77a28d9936d2bc911047028a097f3a34b4083f4c254144a7",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed11/6_final.v": "90db8ba99880047f277844cef511ea59a9072f0c0ec89101342a14f37f9bfb31",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/U0/slash_scope/annotated.rpt": "e871811d0e639f987c27d4f4c108c67755ecd22d77a07e19d8e9209ca885b0f1",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/U0/slash_scope/annotation.rpt": "5e8bb945eb76c0e43d3cdabd58222c24e4f9b791351df7f10f39c049369f5269",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/U0/slash_scope/macros.power.rpt": "4db455da0caaea03dd27ed7e923f9fd1720452a3ae25562f5d0160fbe8fc4da9",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/U0/slash_scope/power.rpt": "b13393ad3d4ac52ffdda89ea9bc09124032b18f91a3aa2fa5cf4b17c4888b59d",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/U0/slash_scope/unannotated.rpt": "08143ec30284263baf043f668aac4ef6f965f371efe0c26deeb60c15bb199c9e",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/raw/read_dominant/U0/activity.vcd": "a09fed258ee5e5fbe3859629f69ef57ffb59cea05053ea4611c1f95d1c7298c0",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/traces/read_dominant.json": "d414d57ee0438a1610b4435dd8b61422d00ba6eb98ac960f7c11f411a178f4be"
+      },
+      "unannotated_pin_count": 312,
+      "workload_id": "read_dominant"
+    },
+    {
+      "annotated_pin_count": 142,
+      "annotated_pin_fraction": 0.043451652386780906,
+      "annotation_scope": "tb/dut",
+      "architecture_id": "E0",
+      "blockers": [
+        "unannotated gate pins and synthesis-name mismatch",
+        "no mapped glitch-aware gate simulation",
+        "no independent read/write-conditioned macro power validation",
+        "encoder/decoder/control power partition unavailable"
+      ],
+      "energy_access_j": "NOT_QUALIFIED",
+      "energy_evidence_level": "NOT_QUALIFIED",
+      "five_seed_robustness": "NOT_RUN_FOR_ACTIVITY_POWER",
+      "liberty_model": "UPSTREAM_ORIGINAL",
+      "power_evidence_level": "PARTIALLY_RTL_ACTIVITY_ANNOTATED_POSTROUTE_TOOL_ESTIMATE",
+      "power_internal_w": 0.003337531816214,
+      "power_leakage_w": 7.34514458145e-07,
+      "power_switching_w": 0.002157593378797,
+      "power_total_w": 0.005495859775692,
+      "seed": 11,
+      "sensitivity_liberty_models": "NOT_RUN_FOR_ACTIVITY_POWER",
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/liberty/sram22_256x64m4w8_tt_025C_1v80.lib": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/liberty/sram22_256x8m8w1_tt_025C_1v80.lib": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/6_final.odb": "0331bd0c05c8fd41e5be525d375b87b113124f5cf339ef15cc63084c3789ee3d",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/6_final.sdc": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/6_final.spef": "d7e1f773af7e13217f9d9647e1fea541922efda3e5d8e595331e193392fef9fc",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/6_final.v": "fb2aa6861d2f2203a3e1d622ed68d85d0658228d9621419453c98c4fe071605e",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/E0/slash_scope/annotated.rpt": "1f2385a7cd04112615036596697b65a116735aed53c72fed4fceac31253cc4fb",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/E0/slash_scope/annotation.rpt": "8d800484acfdee12ea28185cb3bdb39f8cfdc18d8ed7e2242349f462bed16c97",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/E0/slash_scope/macros.power.rpt": "5ea49a48dbb462298506685482646afee9a60be2d519bab8545d58bb25e00025",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/E0/slash_scope/power.rpt": "dcd2c761a9b2167ffc1ed0eda1c14d748fb07e5e47da9987c337b7176fd94938",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/E0/slash_scope/unannotated.rpt": "c312498e2354e896ac245f7803c44138be2cf5b1e9091b3818caa53954e5f7c8",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/raw/read_dominant/E0/activity.vcd": "da0025a410d64c1269ecbd5ff84776ca43ceafafdd2bde924d4b1d5217eaf67b",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/traces/read_dominant.json": "d414d57ee0438a1610b4435dd8b61422d00ba6eb98ac960f7c11f411a178f4be"
+      },
+      "unannotated_pin_count": 3126,
+      "workload_id": "read_dominant"
+    }
+  ],
+  "schema_version": 1,
+  "tool_version": "OpenROAD 26Q3-1080-gab6fd26351"
+}

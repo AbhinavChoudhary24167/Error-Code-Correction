@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "campaign_local_tests": {
+    "command": "python3 -m pytest -q campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/tests",
+    "exit_code": 0,
+    "passed": 6,
+    "failed": 0,
+    "result": "PASS",
+    "log": "raw/regression/campaign_local_tests.log"
+  },
+  "make": {
+    "command": "make",
+    "exit_code": 0,
+    "result": "PASS",
+    "log": "raw/regression/make.log"
+  },
+  "make_test": {
+    "command": "make test",
+    "exit_code": 2,
+    "passed": 482,
+    "failed": 2,
+    "result": "EXPECTED_FROZEN_BASELINE",
+    "failed_tests": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ],
+    "reason": "Both validators reject the already-known untracked sustainability campaign tree; these are the exact two Attempt05 frozen failure identities.",
+    "log": "raw/regression/make_test.log"
+  },
+  "full_pytest": {
+    "command": "python3 -m pytest -q",
+    "exit_code": 1,
+    "passed": 484,
+    "failed": 2,
+    "result": "EXPECTED_FROZEN_BASELINE",
+    "failed_tests": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ],
+    "log": "raw/regression/full_pytest.log"
+  },
+  "new_regression_count": 0,
+  "protected_binary": {
+    "path": "PracticalSRAMSimulator.exe",
+    "make_relinked_sha256": "f7f1f20397682a612cc1ea413967544d637d9c9d9b630621b6e97f4fdb7f3c90",
+    "restored_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "expected_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "result": "PASS_EXACT_BASELINE_BYTES"
+  },
+  "protected_date": {
+    "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify (inside Attempt04-Recovery WSL)",
+    "protected_file_count": 7094,
+    "changed": 0,
+    "missing": 0,
+    "added": 0,
+    "result": "PASS",
+    "log": "raw/integrity/protected_date_final_verify.log"
+  },
+  "prior_campaign_repository_evidence": {
+    "attempt01_attempt02_files": 22,
+    "attempt03_files": 25,
+    "attempt04_files": 349,
+    "attempt05_files": 868,
+    "result": "PASS",
+    "evidence": "raw/integrity/prior_campaign_repository_verification.json"
+  }
+}
+

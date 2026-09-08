@@ -1,0 +1,3802 @@
+{
+  "schema_version": 1,
+  "scope": "canonical final-route seed 11",
+  "count": 136,
+  "per_design_count": {
+    "U0": 64,
+    "E0": 72
+  },
+  "characterized_domain": {
+    "input_transition_ns": [
+      0.002,
+      0.351
+    ],
+    "output_capacitance_pf": [
+      0.007,
+      0.52
+    ]
+  },
+  "load_measurement_caveat": "Extracted SPEF D_NET capacitance is a reproducible parasitic-only lower-bound because PIN_CAP NONE; no receiver Liberty cap is invented.",
+  "statistics": {
+    "U0": {
+      "transition_ns": {
+        "minimum": 0.142093554,
+        "median": 0.150615707,
+        "maximum": 0.159002692
+      },
+      "transition_to_0p04_ratio": {
+        "minimum": 3.5523388500000004,
+        "median": 3.765392675,
+        "maximum": 3.9750673
+      },
+      "extracted_parasitic_capacitance_pf": {
+        "minimum": 0.00605414,
+        "median": 0.007657895,
+        "maximum": 0.00923835
+      },
+      "loads_below_characterized_minimum": 22,
+      "loads_within_characterized_domain": 42,
+      "loads_above_characterized_maximum": 0
+    },
+    "E0": {
+      "transition_ns": {
+        "minimum": 0.154129431,
+        "median": 0.2164129765,
+        "maximum": 0.428883314
+      },
+      "transition_to_0p04_ratio": {
+        "minimum": 3.8532357750000004,
+        "median": 5.4103244125,
+        "maximum": 10.72208285
+      },
+      "extracted_parasitic_capacitance_pf": {
+        "minimum": 0.00608528,
+        "median": 0.01653835,
+        "maximum": 0.0522396
+      },
+      "loads_below_characterized_minimum": 4,
+      "loads_within_characterized_domain": 68,
+      "loads_above_characterized_maximum": 0
+    }
+  },
+  "records": [
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[63]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net143",
+      "receivers": [
+        "output143/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00739208,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0560114285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01421553846153846,
+      "estimated_parasitic_wire_length_um": 1127.58,
+      "rise_transition_ns_min_max_analysis": [
+        0.149212271,
+        0.149204835
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.088673286,
+        0.088683687
+      ],
+      "transition_value_ns": 0.149212271,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.7303067750000003
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[62]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net142",
+      "receivers": [
+        "output142/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00776934,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1099057142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01494103846153846,
+      "estimated_parasitic_wire_length_um": 1082.67,
+      "rise_transition_ns_min_max_analysis": [
+        0.151214659,
+        0.151207387
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089746445,
+        0.089753293
+      ],
+      "transition_value_ns": 0.151214659,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.780366475
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[61]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net141",
+      "receivers": [
+        "output141/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00811774,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1596771428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.015611038461538461,
+      "estimated_parasitic_wire_length_um": 1115.52,
+      "rise_transition_ns_min_max_analysis": [
+        0.153065279,
+        0.153057531
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.090736426,
+        0.090739958
+      ],
+      "transition_value_ns": 0.153065279,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8266319749999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[60]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net140",
+      "receivers": [
+        "output140/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00681337,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9733385714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013102634615384615,
+      "estimated_parasitic_wire_length_um": 60.76,
+      "rise_transition_ns_min_max_analysis": [
+        0.14612928,
+        0.146121666
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087029152,
+        0.08704558
+      ],
+      "transition_value_ns": 0.14612928,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.653232
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[59]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net138",
+      "receivers": [
+        "output138/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00651247,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9303528571428572,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01252398076923077,
+      "estimated_parasitic_wire_length_um": 64.4,
+      "rise_transition_ns_min_max_analysis": [
+        0.144530848,
+        0.144523099
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086172171,
+        0.086191386
+      ],
+      "transition_value_ns": 0.144530848,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6132712
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[58]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net137",
+      "receivers": [
+        "output137/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00663671,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9481014285714285,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012762903846153846,
+      "estimated_parasitic_wire_length_um": 61.52,
+      "rise_transition_ns_min_max_analysis": [
+        0.145191044,
+        0.145183355
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086525768,
+        0.08654432
+      ],
+      "transition_value_ns": 0.145191044,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6297760999999995
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[57]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net136",
+      "receivers": [
+        "output136/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00849199,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2131414285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016330749999999998,
+      "estimated_parasitic_wire_length_um": 60.66,
+      "rise_transition_ns_min_max_analysis": [
+        0.155050665,
+        0.155043066
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091799639,
+        0.091800876
+      ],
+      "transition_value_ns": 0.155050665,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.876266625
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[56]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net135",
+      "receivers": [
+        "output135/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00877098,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2529971428571427,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016867269230769227,
+      "estimated_parasitic_wire_length_um": 69.74,
+      "rise_transition_ns_min_max_analysis": [
+        0.156522542,
+        0.156515688
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.092593439,
+        0.092592143
+      ],
+      "transition_value_ns": 0.156522542,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.9130635499999995
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[55]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net134",
+      "receivers": [
+        "output134/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0073755,
+      "extracted_load_vs_characterized_minimum_0p007": 1.053642857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014183653846153846,
+      "estimated_parasitic_wire_length_um": 1057.31,
+      "rise_transition_ns_min_max_analysis": [
+        0.149120614,
+        0.149113178
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.088627279,
+        0.088637874
+      ],
+      "transition_value_ns": 0.149120614,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.72801535
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[54]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net133",
+      "receivers": [
+        "output133/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00767117,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0958814285714285,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01475225,
+      "estimated_parasitic_wire_length_um": 1031.74,
+      "rise_transition_ns_min_max_analysis": [
+        0.150692835,
+        0.150684953
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089467384,
+        0.089475155
+      ],
+      "transition_value_ns": 0.150692835,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.767320875
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[53]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net132",
+      "receivers": [
+        "output132/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00691765,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9882357142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013303173076923077,
+      "estimated_parasitic_wire_length_um": 61.6,
+      "rise_transition_ns_min_max_analysis": [
+        0.146690831,
+        0.146683246
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087323576,
+        0.087338962
+      ],
+      "transition_value_ns": 0.146690831,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.667270775
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[52]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net131",
+      "receivers": [
+        "output131/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00880574,
+      "extracted_load_vs_characterized_minimum_0p007": 1.257962857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016934115384615384,
+      "estimated_parasitic_wire_length_um": 61.98,
+      "rise_transition_ns_min_max_analysis": [
+        0.156710237,
+        0.156703398
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.092692263,
+        0.092689976
+      ],
+      "transition_value_ns": 0.156710237,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.917755925
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[51]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net130",
+      "receivers": [
+        "output130/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00764462,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0920885714285715,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014701192307692307,
+      "estimated_parasitic_wire_length_um": 60.22,
+      "rise_transition_ns_min_max_analysis": [
+        0.150538579,
+        0.150531292
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089395694,
+        0.089404449
+      ],
+      "transition_value_ns": 0.150538579,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.763464475
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[50]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net129",
+      "receivers": [
+        "output129/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00643528,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9193257142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01237553846153846,
+      "estimated_parasitic_wire_length_um": 63.8,
+      "rise_transition_ns_min_max_analysis": [
+        0.14412047,
+        0.144112691
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.085952215,
+        0.085971668
+      ],
+      "transition_value_ns": 0.14412047,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.60301175
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[49]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net127",
+      "receivers": [
+        "output127/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0068767,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9823857142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013224423076923076,
+      "estimated_parasitic_wire_length_um": 1001.5,
+      "rise_transition_ns_min_max_analysis": [
+        0.146472067,
+        0.146464452
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087207422,
+        0.087222695
+      ],
+      "transition_value_ns": 0.146472067,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6618016750000004
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[48]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net126",
+      "receivers": [
+        "output126/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00851485,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2164071428571428,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016374711538461536,
+      "estimated_parasitic_wire_length_um": 1951.23,
+      "rise_transition_ns_min_max_analysis": [
+        0.155163512,
+        0.155155927
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091866635,
+        0.091867141
+      ],
+      "transition_value_ns": 0.155163512,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8790878
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[47]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net125",
+      "receivers": [
+        "output125/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00653706,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9338657142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01257126923076923,
+      "estimated_parasitic_wire_length_um": 58.74,
+      "rise_transition_ns_min_max_analysis": [
+        0.144667834,
+        0.144659594
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086239636,
+        0.086258568
+      ],
+      "transition_value_ns": 0.144667834,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6166958499999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[46]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net124",
+      "receivers": [
+        "output124/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00708354,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0119342857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013622192307692307,
+      "estimated_parasitic_wire_length_um": 61.98,
+      "rise_transition_ns_min_max_analysis": [
+        0.147571161,
+        0.147563636
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087796152,
+        0.087809995
+      ],
+      "transition_value_ns": 0.147571161,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6892790250000003
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[45]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net123",
+      "receivers": [
+        "output123/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00741861,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0598014285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014266557692307691,
+      "estimated_parasitic_wire_length_um": 61.18,
+      "rise_transition_ns_min_max_analysis": [
+        0.149351269,
+        0.149343878
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.088749237,
+        0.088759407
+      ],
+      "transition_value_ns": 0.149351269,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.733781725
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[44]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net122",
+      "receivers": [
+        "output122/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00689399,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9848557142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013257673076923077,
+      "estimated_parasitic_wire_length_um": 61.68,
+      "rise_transition_ns_min_max_analysis": [
+        0.146565124,
+        0.146557495
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087256193,
+        0.087271273
+      ],
+      "transition_value_ns": 0.146565124,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6641280999999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[43]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net121",
+      "receivers": [
+        "output121/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00801031,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1443299999999998,
+      "extracted_load_vs_characterized_maximum_0p52": 0.015404442307692306,
+      "estimated_parasitic_wire_length_um": 61.1,
+      "rise_transition_ns_min_max_analysis": [
+        0.152492732,
+        0.152485549
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.090431541,
+        0.090436116
+      ],
+      "transition_value_ns": 0.152492732,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8123183
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[42]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net120",
+      "receivers": [
+        "output120/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00605414,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8648771428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.011642576923076924,
+      "estimated_parasitic_wire_length_um": 61.44,
+      "rise_transition_ns_min_max_analysis": [
+        0.142093554,
+        0.142085627
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.084865183,
+        0.084888637
+      ],
+      "transition_value_ns": 0.142093554,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.5523388500000004
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[41]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net119",
+      "receivers": [
+        "output119/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00654312,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9347314285714287,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012582923076923077,
+      "estimated_parasitic_wire_length_um": 63.96,
+      "rise_transition_ns_min_max_analysis": [
+        0.144694015,
+        0.144686297
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086259402,
+        0.086278334
+      ],
+      "transition_value_ns": 0.144694015,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.617350375
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[40]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net118",
+      "receivers": [
+        "output118/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00854531,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2207585714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01643328846153846,
+      "estimated_parasitic_wire_length_um": 62.12,
+      "rise_transition_ns_min_max_analysis": [
+        0.155325159,
+        0.155318201
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091953166,
+        0.091953367
+      ],
+      "transition_value_ns": 0.155325159,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8831289749999995
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[39]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net116",
+      "receivers": [
+        "output116/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00914602,
+      "extracted_load_vs_characterized_minimum_0p007": 1.3065742857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.0175885,
+      "estimated_parasitic_wire_length_um": 940.63,
+      "rise_transition_ns_min_max_analysis": [
+        0.158518627,
+        0.158511922
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.09365803,
+        0.093653135
+      ],
+      "transition_value_ns": 0.158518627,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.962965675
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[38]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net115",
+      "receivers": [
+        "output115/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00745168,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0645257142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014330153846153845,
+      "estimated_parasitic_wire_length_um": 60.1,
+      "rise_transition_ns_min_max_analysis": [
+        0.149529204,
+        0.149521247
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.088842116,
+        0.088852488
+      ],
+      "transition_value_ns": 0.149529204,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.7382301
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[37]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net114",
+      "receivers": [
+        "output114/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00686839,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9811985714285715,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013208442307692308,
+      "estimated_parasitic_wire_length_um": 58.84,
+      "rise_transition_ns_min_max_analysis": [
+        0.146428719,
+        0.14642109
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087183438,
+        0.087199286
+      ],
+      "transition_value_ns": 0.146428719,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6607179750000003
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[36]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net113",
+      "receivers": [
+        "output113/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.008025,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1464285714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.015432692307692305,
+      "estimated_parasitic_wire_length_um": 922.33,
+      "rise_transition_ns_min_max_analysis": [
+        0.152570412,
+        0.152563259
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.09047351,
+        0.090478547
+      ],
+      "transition_value_ns": 0.152570412,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8142602999999995
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[35]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net112",
+      "receivers": [
+        "output112/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00699318,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9990257142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013448423076923077,
+      "estimated_parasitic_wire_length_um": 914.92,
+      "rise_transition_ns_min_max_analysis": [
+        0.147093847,
+        0.147086263
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087538086,
+        0.087552227
+      ],
+      "transition_value_ns": 0.147093847,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.677346175
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[34]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net111",
+      "receivers": [
+        "output111/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00605483,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8649757142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.011643903846153845,
+      "estimated_parasitic_wire_length_um": 60.94,
+      "rise_transition_ns_min_max_analysis": [
+        0.142096564,
+        0.142088637
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.084866986,
+        0.084890895
+      ],
+      "transition_value_ns": 0.142096564,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.5524141
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[33]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net110",
+      "receivers": [
+        "output110/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00665974,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9513914285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012807192307692308,
+      "estimated_parasitic_wire_length_um": 60.78,
+      "rise_transition_ns_min_max_analysis": [
+        0.145310774,
+        0.1453031
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086592548,
+        0.086610913
+      ],
+      "transition_value_ns": 0.145310774,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6327693500000002
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[32]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net109",
+      "receivers": [
+        "output109/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00910164,
+      "extracted_load_vs_characterized_minimum_0p007": 1.3002342857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.017503153846153845,
+      "estimated_parasitic_wire_length_um": 63.92,
+      "rise_transition_ns_min_max_analysis": [
+        0.15828155,
+        0.158274159
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.093532734,
+        0.093527623
+      ],
+      "transition_value_ns": 0.15828155,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.9570387499999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[31]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net108",
+      "receivers": [
+        "output108/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00810097,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1572814285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.015578788461538462,
+      "estimated_parasitic_wire_length_um": 891.37,
+      "rise_transition_ns_min_max_analysis": [
+        0.152975991,
+        0.152968854
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.090688854,
+        0.090693139
+      ],
+      "transition_value_ns": 0.152975991,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8243997750000003
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[30]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net107",
+      "receivers": [
+        "output107/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00884817,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2640242857142858,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01701571153846154,
+      "estimated_parasitic_wire_length_um": 62.98,
+      "rise_transition_ns_min_max_analysis": [
+        0.156940281,
+        0.156933442
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.0928123,
+        0.092808917
+      ],
+      "transition_value_ns": 0.156940281,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.9235070249999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[29]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net105",
+      "receivers": [
+        "output105/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00741268,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0589542857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014255153846153844,
+      "estimated_parasitic_wire_length_um": 878.63,
+      "rise_transition_ns_min_max_analysis": [
+        0.149322227,
+        0.149314806
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.088731743,
+        0.08874248
+      ],
+      "transition_value_ns": 0.149322227,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.733055675
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[28]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net104",
+      "receivers": [
+        "output104/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00778754,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1125057142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01497603846153846,
+      "estimated_parasitic_wire_length_um": 892.23,
+      "rise_transition_ns_min_max_analysis": [
+        0.151310354,
+        0.151303083
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089798264,
+        0.089804947
+      ],
+      "transition_value_ns": 0.151310354,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.78275885
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[27]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net103",
+      "receivers": [
+        "output103/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00839567,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1993814285714284,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016145519230769227,
+      "estimated_parasitic_wire_length_um": 62.88,
+      "rise_transition_ns_min_max_analysis": [
+        0.154540285,
+        0.154533252
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091525763,
+        0.091527887
+      ],
+      "transition_value_ns": 0.154540285,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.863507125
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[26]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net102",
+      "receivers": [
+        "output102/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00858676,
+      "extracted_load_vs_characterized_minimum_0p007": 1.22668,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016513,
+      "estimated_parasitic_wire_length_um": 62.54,
+      "rise_transition_ns_min_max_analysis": [
+        0.155552179,
+        0.155545235
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.092069678,
+        0.09206941
+      ],
+      "transition_value_ns": 0.155552179,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.888804475
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[25]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net101",
+      "receivers": [
+        "output101/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00629344,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8990628571428572,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01210276923076923,
+      "estimated_parasitic_wire_length_um": 63.58,
+      "rise_transition_ns_min_max_analysis": [
+        0.143366307,
+        0.143358484
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.085547373,
+        0.085568607
+      ],
+      "transition_value_ns": 0.143366307,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.5841576749999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[24]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net100",
+      "receivers": [
+        "output100/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00658117,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9401671428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012656096153846153,
+      "estimated_parasitic_wire_length_um": 61.4,
+      "rise_transition_ns_min_max_analysis": [
+        0.144893229,
+        0.14488551
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086369194,
+        0.086387806
+      ],
+      "transition_value_ns": 0.144893229,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6223307250000003
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[23]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net99",
+      "receivers": [
+        "output99/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00662825,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9468928571428571,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012746634615384615,
+      "estimated_parasitic_wire_length_um": 61.92,
+      "rise_transition_ns_min_max_analysis": [
+        0.145146236,
+        0.145138025
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086502165,
+        0.086520307
+      ],
+      "transition_value_ns": 0.145146236,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6286559
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[22]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net98",
+      "receivers": [
+        "output98/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0081442,
+      "extracted_load_vs_characterized_minimum_0p007": 1.163457142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.015661923076923077,
+      "estimated_parasitic_wire_length_um": 62.1,
+      "rise_transition_ns_min_max_analysis": [
+        0.15320307,
+        0.153195947
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.09081167,
+        0.090816177
+      ],
+      "transition_value_ns": 0.15320307,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.83007675
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[21]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net97",
+      "receivers": [
+        "output97/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00793364,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1333771428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.015257,
+      "estimated_parasitic_wire_length_um": 64.52,
+      "rise_transition_ns_min_max_analysis": [
+        0.152088046,
+        0.152080804
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.09021309,
+        0.090218365
+      ],
+      "transition_value_ns": 0.152088046,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.80220115
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[20]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net96",
+      "receivers": [
+        "output96/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00659138,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9416257142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012675730769230769,
+      "estimated_parasitic_wire_length_um": 818.37,
+      "rise_transition_ns_min_max_analysis": [
+        0.144955948,
+        0.144948214
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086394772,
+        0.086413205
+      ],
+      "transition_value_ns": 0.144955948,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6238987
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[19]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net94",
+      "receivers": [
+        "output94/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00818608,
+      "extracted_load_vs_characterized_minimum_0p007": 1.16944,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01574246153846154,
+      "estimated_parasitic_wire_length_um": 869.31,
+      "rise_transition_ns_min_max_analysis": [
+        0.153427333,
+        0.15342024
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.090930857,
+        0.090934344
+      ],
+      "transition_value_ns": 0.153427333,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8356833249999998
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[18]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net93",
+      "receivers": [
+        "output93/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00891805,
+      "extracted_load_vs_characterized_minimum_0p007": 1.274007142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.017150096153846155,
+      "estimated_parasitic_wire_length_um": 812.29,
+      "rise_transition_ns_min_max_analysis": [
+        0.157301381,
+        0.157294586
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.09301129,
+        0.093008637
+      ],
+      "transition_value_ns": 0.157301381,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.932534525
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[17]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net92",
+      "receivers": [
+        "output92/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00841155,
+      "extracted_load_vs_characterized_minimum_0p007": 1.20165,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01617605769230769,
+      "estimated_parasitic_wire_length_um": 1569.2,
+      "rise_transition_ns_min_max_analysis": [
+        0.154619619,
+        0.154612601
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.0915723,
+        0.091573112
+      ],
+      "transition_value_ns": 0.154619619,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.865490475
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[16]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net91",
+      "receivers": [
+        "output91/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00843156,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2045085714285713,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01621453846153846,
+      "estimated_parasitic_wire_length_um": 796.17,
+      "rise_transition_ns_min_max_analysis": [
+        0.154725388,
+        0.154717773
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091629319,
+        0.091630556
+      ],
+      "transition_value_ns": 0.154725388,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8681346999999997
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[15]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net90",
+      "receivers": [
+        "output90/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00629992,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8999885714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012115230769230769,
+      "estimated_parasitic_wire_length_um": 60.96,
+      "rise_transition_ns_min_max_analysis": [
+        0.143398568,
+        0.143390745
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.085567228,
+        0.085588425
+      ],
+      "transition_value_ns": 0.143398568,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.5849642
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[14]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net89",
+      "receivers": [
+        "output89/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00744896,
+      "extracted_load_vs_characterized_minimum_0p007": 1.064137142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014324923076923077,
+      "estimated_parasitic_wire_length_um": 814.55,
+      "rise_transition_ns_min_max_analysis": [
+        0.14951393,
+        0.149506539
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.088835098,
+        0.088845506
+      ],
+      "transition_value_ns": 0.14951393,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.73784825
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[13]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net88",
+      "receivers": [
+        "output88/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00779843,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1140614285714285,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01499698076923077,
+      "estimated_parasitic_wire_length_um": 784.1,
+      "rise_transition_ns_min_max_analysis": [
+        0.151369438,
+        0.151362181
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089828961,
+        0.089836098
+      ],
+      "transition_value_ns": 0.151369438,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.78423595
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[12]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net87",
+      "receivers": [
+        "output87/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00862599,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2322842857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016588442307692308,
+      "estimated_parasitic_wire_length_um": 61.52,
+      "rise_transition_ns_min_max_analysis": [
+        0.155758351,
+        0.155751437
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.092181429,
+        0.0921802
+      ],
+      "transition_value_ns": 0.155758351,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8939587749999998
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[11]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net86",
+      "receivers": [
+        "output86/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00760138,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0859114285714284,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01461803846153846,
+      "estimated_parasitic_wire_length_um": 60.66,
+      "rise_transition_ns_min_max_analysis": [
+        0.150322407,
+        0.150314495
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089269012,
+        0.089278005
+      ],
+      "transition_value_ns": 0.150322407,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.758060175
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[10]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net85",
+      "receivers": [
+        "output85/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00848393,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2119900000000001,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01631525,
+      "estimated_parasitic_wire_length_um": 1516.72,
+      "rise_transition_ns_min_max_analysis": [
+        0.15500775,
+        0.155000761
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091777347,
+        0.091777422
+      ],
+      "transition_value_ns": 0.15500775,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8751937499999998
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[9]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net147",
+      "receivers": [
+        "output147/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00904521,
+      "extracted_load_vs_characterized_minimum_0p007": 1.292172857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.017394634615384614,
+      "estimated_parasitic_wire_length_um": 61.16,
+      "rise_transition_ns_min_max_analysis": [
+        0.157975614,
+        0.157968193
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.093373075,
+        0.09336859
+      ],
+      "transition_value_ns": 0.157975614,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.9493903499999994
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[8]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net146",
+      "receivers": [
+        "output146/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00658046,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9400657142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012654730769230769,
+      "estimated_parasitic_wire_length_um": 61.04,
+      "rise_transition_ns_min_max_analysis": [
+        0.144890681,
+        0.144882977
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086366601,
+        0.086385205
+      ],
+      "transition_value_ns": 0.144890681,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6222670249999998
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[7]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net145",
+      "receivers": [
+        "output145/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00659008,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9414399999999999,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012673230769230768,
+      "estimated_parasitic_wire_length_um": 60.68,
+      "rise_transition_ns_min_max_analysis": [
+        0.14494054,
+        0.14493233
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.086394258,
+        0.086413272
+      ],
+      "transition_value_ns": 0.14494054,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.6235135
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[6]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net144",
+      "receivers": [
+        "output144/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00607045,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8672071428571428,
+      "extracted_load_vs_characterized_maximum_0p52": 0.011673942307692307,
+      "estimated_parasitic_wire_length_um": 61.72,
+      "rise_transition_ns_min_max_analysis": [
+        0.1421801,
+        0.142172188
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.084911801,
+        0.084935106
+      ],
+      "transition_value_ns": 0.1421801,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.5545025
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[5]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net139",
+      "receivers": [
+        "output139/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00917478,
+      "extracted_load_vs_characterized_minimum_0p007": 1.3106828571428573,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01764380769230769,
+      "estimated_parasitic_wire_length_um": 732.38,
+      "rise_transition_ns_min_max_analysis": [
+        0.158671081,
+        0.158664376
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.093740426,
+        0.093734615
+      ],
+      "transition_value_ns": 0.158671081,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.966777025
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[4]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net128",
+      "receivers": [
+        "output128/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00768408,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0977257142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.014777076923076922,
+      "estimated_parasitic_wire_length_um": 728.07,
+      "rise_transition_ns_min_max_analysis": [
+        0.150762513,
+        0.150755197
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.089503832,
+        0.089511484
+      ],
+      "transition_value_ns": 0.150762513,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.769062825
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[3]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net117",
+      "receivers": [
+        "output117/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00923835,
+      "extracted_load_vs_characterized_minimum_0p007": 1.3197642857142855,
+      "extracted_load_vs_characterized_maximum_0p52": 0.017766057692307692,
+      "estimated_parasitic_wire_length_um": 738.15,
+      "rise_transition_ns_min_max_analysis": [
+        0.159002692,
+        0.158996031
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.093921386,
+        0.093914382
+      ],
+      "transition_value_ns": 0.159002692,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.9750673
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[2]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net106",
+      "receivers": [
+        "output106/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00713081,
+      "extracted_load_vs_characterized_minimum_0p007": 1.0186871428571427,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013713096153846152,
+      "estimated_parasitic_wire_length_um": 713.62,
+      "rise_transition_ns_min_max_analysis": [
+        0.147821367,
+        0.14781332
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.087931149,
+        0.087944053
+      ],
+      "transition_value_ns": 0.147821367,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.695534175
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[1]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net95",
+      "receivers": [
+        "output95/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.00786591,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1237014285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01512675,
+      "estimated_parasitic_wire_length_um": 728.83,
+      "rise_transition_ns_min_max_analysis": [
+        0.15172638,
+        0.151719153
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.090021119,
+        0.090027057
+      ],
+      "transition_value_ns": 0.15172638,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.7931595
+    },
+    {
+      "design": "U0",
+      "seed": 11,
+      "object": "u_data/dout[0]",
+      "macro": "sram22_256x64m4w8",
+      "net": "net84",
+      "receivers": [
+        "output84/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0085788,
+      "extracted_load_vs_characterized_minimum_0p007": 1.225542857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.016497692307692307,
+      "estimated_parasitic_wire_length_um": 55.96,
+      "rise_transition_ns_min_max_analysis": [
+        0.155505329,
+        0.155497789
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.092047758,
+        0.092047006
+      ],
+      "transition_value_ns": 0.155505329,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.887633225
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[63]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[63]",
+      "receivers": [
+        "max_cap548/A",
+        "_497_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0315806,
+      "extracted_load_vs_characterized_minimum_0p007": 4.511514285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.06073192307692307,
+      "estimated_parasitic_wire_length_um": 199.82,
+      "rise_transition_ns_min_max_analysis": [
+        0.316236883,
+        0.316234291
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.181609973,
+        0.181603447
+      ],
+      "transition_value_ns": 0.316236883,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 7.905922075
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[62]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[62]",
+      "receivers": [
+        "max_cap550/A",
+        "max_cap188/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0321548,
+      "extracted_load_vs_characterized_minimum_0p007": 4.5935428571428565,
+      "extracted_load_vs_characterized_maximum_0p52": 0.06183615384615384,
+      "estimated_parasitic_wire_length_um": 2120.27,
+      "rise_transition_ns_min_max_analysis": [
+        0.304106027,
+        0.30410111
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.17454125,
+        0.174534783
+      ],
+      "transition_value_ns": 0.304106027,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 7.602650675
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[61]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[61]",
+      "receivers": [
+        "max_cap552/A",
+        "_572_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0259832,
+      "extracted_load_vs_characterized_minimum_0p007": 3.7118857142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.04996769230769231,
+      "estimated_parasitic_wire_length_um": 181.9,
+      "rise_transition_ns_min_max_analysis": [
+        0.279650599,
+        0.27965048
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.163049906,
+        0.163032725
+      ],
+      "transition_value_ns": 0.279650599,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.991264975
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[60]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[60]",
+      "receivers": [
+        "max_cap553/A",
+        "max_cap193/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0271301,
+      "extracted_load_vs_characterized_minimum_0p007": 3.8757285714285716,
+      "extracted_load_vs_characterized_maximum_0p52": 0.05217326923076923,
+      "estimated_parasitic_wire_length_um": 186.5,
+      "rise_transition_ns_min_max_analysis": [
+        0.271900117,
+        0.271905929
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.158848599,
+        0.158826977
+      ],
+      "transition_value_ns": 0.271905929,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.797648225
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[59]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[59]",
+      "receivers": [
+        "max_cap557/A",
+        "max_cap197/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0258089,
+      "extracted_load_vs_characterized_minimum_0p007": 3.686985714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.049632499999999996,
+      "estimated_parasitic_wire_length_um": 186.68,
+      "rise_transition_ns_min_max_analysis": [
+        0.265157133,
+        0.26516068
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.154535666,
+        0.15451546
+      ],
+      "transition_value_ns": 0.26516068,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.629016999999999
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[58]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[58]",
+      "receivers": [
+        "max_cap559/A",
+        "max_cap198/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.028231,
+      "extracted_load_vs_characterized_minimum_0p007": 4.0329999999999995,
+      "extracted_load_vs_characterized_maximum_0p52": 0.054290384615384615,
+      "estimated_parasitic_wire_length_um": 188.63,
+      "rise_transition_ns_min_max_analysis": [
+        0.27733925,
+        0.27733916
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.161342308,
+        0.161322802
+      ],
+      "transition_value_ns": 0.27733925,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.93348125
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[57]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[57]",
+      "receivers": [
+        "max_cap560/A",
+        "max_cap201/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0175586,
+      "extracted_load_vs_characterized_minimum_0p007": 2.5083714285714285,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03376653846153846,
+      "estimated_parasitic_wire_length_um": 120.64,
+      "rise_transition_ns_min_max_analysis": [
+        0.215635002,
+        0.215631872
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.125305697,
+        0.12529476
+      ],
+      "transition_value_ns": 0.215635002,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.39087505
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[56]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[56]",
+      "receivers": [
+        "max_cap562/A",
+        "max_cap202/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0303053,
+      "extracted_load_vs_characterized_minimum_0p007": 4.329328571428571,
+      "extracted_load_vs_characterized_maximum_0p52": 0.058279423076923076,
+      "estimated_parasitic_wire_length_um": 166.54,
+      "rise_transition_ns_min_max_analysis": [
+        0.293593526,
+        0.293591201
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.168888122,
+        0.168884277
+      ],
+      "transition_value_ns": 0.293593526,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 7.339838149999999
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[55]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[55]",
+      "receivers": [
+        "max_cap564/A",
+        "max_cap205/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0175008,
+      "extracted_load_vs_characterized_minimum_0p007": 2.5001142857142855,
+      "extracted_load_vs_characterized_maximum_0p52": 0.033655384615384615,
+      "estimated_parasitic_wire_length_um": 107.78,
+      "rise_transition_ns_min_max_analysis": [
+        0.215853095,
+        0.215848699
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.125264212,
+        0.125252038
+      ],
+      "transition_value_ns": 0.215853095,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.396327374999999
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[54]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[54]",
+      "receivers": [
+        "max_cap566/A",
+        "max_cap207/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.026947,
+      "extracted_load_vs_characterized_minimum_0p007": 3.849571428571428,
+      "extracted_load_vs_characterized_maximum_0p52": 0.05182115384615384,
+      "estimated_parasitic_wire_length_um": 1136.6,
+      "rise_transition_ns_min_max_analysis": [
+        0.271348,
+        0.271351725
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.157757506,
+        0.157736599
+      ],
+      "transition_value_ns": 0.271351725,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.783793125
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[53]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[53]",
+      "receivers": [
+        "max_cap568/A",
+        "_537_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0158859,
+      "extracted_load_vs_characterized_minimum_0p007": 2.269414285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.030549807692307696,
+      "estimated_parasitic_wire_length_um": 108.0,
+      "rise_transition_ns_min_max_analysis": [
+        0.219054475,
+        0.219051316
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.128646508,
+        0.128632843
+      ],
+      "transition_value_ns": 0.219054475,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.476361875
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[52]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[52]",
+      "receivers": [
+        "max_cap570/A",
+        "_551_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0165454,
+      "extracted_load_vs_characterized_minimum_0p007": 2.363628571428571,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03181807692307692,
+      "estimated_parasitic_wire_length_um": 1083.03,
+      "rise_transition_ns_min_max_analysis": [
+        0.223635241,
+        0.223630697
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.129560173,
+        0.129548028
+      ],
+      "transition_value_ns": 0.223635241,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.590881025
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[51]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[51]",
+      "receivers": [
+        "max_cap572/A",
+        "max_cap213/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0159848,
+      "extracted_load_vs_characterized_minimum_0p007": 2.2835428571428573,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03074,
+      "estimated_parasitic_wire_length_um": 105.5,
+      "rise_transition_ns_min_max_analysis": [
+        0.207135633,
+        0.207132593
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.120102264,
+        0.120091468
+      ],
+      "transition_value_ns": 0.207135633,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.178390825
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[50]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[50]",
+      "receivers": [
+        "max_cap573/A",
+        "max_cap215/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0121099,
+      "extracted_load_vs_characterized_minimum_0p007": 1.7299857142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02328826923076923,
+      "estimated_parasitic_wire_length_um": 82.9,
+      "rise_transition_ns_min_max_analysis": [
+        0.186150149,
+        0.186147362
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.108228579,
+        0.108233929
+      ],
+      "transition_value_ns": 0.186150149,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.653753725
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[49]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[49]",
+      "receivers": [
+        "max_cap575/A",
+        "max_cap219/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0136575,
+      "extracted_load_vs_characterized_minimum_0p007": 1.9510714285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.026264423076923074,
+      "estimated_parasitic_wire_length_um": 1018.9,
+      "rise_transition_ns_min_max_analysis": [
+        0.194487303,
+        0.194484428
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.112718455,
+        0.112723209
+      ],
+      "transition_value_ns": 0.194487303,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.862182575
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[48]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[48]",
+      "receivers": [
+        "max_cap576/A",
+        "max_cap221/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.00849474,
+      "extracted_load_vs_characterized_minimum_0p007": 1.2135342857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01633603846153846,
+      "estimated_parasitic_wire_length_um": 66.42,
+      "rise_transition_ns_min_max_analysis": [
+        0.167309165,
+        0.167306647
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.097842105,
+        0.097833298
+      ],
+      "transition_value_ns": 0.167309165,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.182729125
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[47]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[47]",
+      "receivers": [
+        "max_cap578/A",
+        "max_cap577/A",
+        "max_cap222/A"
+      ],
+      "fanout": 3,
+      "extracted_spef_parasitic_capacitance_pf": 0.0149361,
+      "extracted_load_vs_characterized_minimum_0p007": 2.1337285714285716,
+      "extracted_load_vs_characterized_maximum_0p52": 0.028723269230769233,
+      "estimated_parasitic_wire_length_um": 110.7,
+      "rise_transition_ns_min_max_analysis": [
+        0.213685974,
+        0.213682875
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.123856515,
+        0.123845786
+      ],
+      "transition_value_ns": 0.213685974,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.34214935
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[46]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[46]",
+      "receivers": [
+        "max_cap579/A",
+        "max_cap225/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0106985,
+      "extracted_load_vs_characterized_minimum_0p007": 1.5283571428571427,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02057403846153846,
+      "estimated_parasitic_wire_length_um": 71.68,
+      "rise_transition_ns_min_max_analysis": [
+        0.179220214,
+        0.179217488
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.104334168,
+        0.104338378
+      ],
+      "transition_value_ns": 0.179220214,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.48050535
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[45]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[45]",
+      "receivers": [
+        "max_cap581/A",
+        "_474_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.00608528,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8693257142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.011702461538461538,
+      "estimated_parasitic_wire_length_um": 44.02,
+      "rise_transition_ns_min_max_analysis": [
+        0.15600805,
+        0.156016231
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.091519848,
+        0.091482334
+      ],
+      "transition_value_ns": 0.156016231,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.900405775
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[44]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[44]",
+      "receivers": [
+        "max_cap582/A",
+        "max_cap229/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.00863434,
+      "extracted_load_vs_characterized_minimum_0p007": 1.233477142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.0166045,
+      "estimated_parasitic_wire_length_um": 69.24,
+      "rise_transition_ns_min_max_analysis": [
+        0.168270841,
+        0.168268278
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.098410286,
+        0.09840744
+      ],
+      "transition_value_ns": 0.168270841,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.206771025
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[43]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[43]",
+      "receivers": [
+        "max_cap584/A",
+        "_561_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0106824,
+      "extracted_load_vs_characterized_minimum_0p007": 1.5260571428571428,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02054307692307692,
+      "estimated_parasitic_wire_length_um": 70.3,
+      "rise_transition_ns_min_max_analysis": [
+        0.191980347,
+        0.191977516
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.110903211,
+        0.110907875
+      ],
+      "transition_value_ns": 0.191980347,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.799508675
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[42]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[42]",
+      "receivers": [
+        "max_cap586/A",
+        "max_cap232/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0136377,
+      "extracted_load_vs_characterized_minimum_0p007": 1.9482428571428572,
+      "extracted_load_vs_characterized_maximum_0p52": 0.026226346153846156,
+      "estimated_parasitic_wire_length_um": 92.24,
+      "rise_transition_ns_min_max_analysis": [
+        0.194990426,
+        0.19498755
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.112834267,
+        0.112839028
+      ],
+      "transition_value_ns": 0.194990426,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.87476065
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[41]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[41]",
+      "receivers": [
+        "max_cap588/A",
+        "_473_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0065752,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9393142857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.012644615384615384,
+      "estimated_parasitic_wire_length_um": 55.8,
+      "rise_transition_ns_min_max_analysis": [
+        0.169274986,
+        0.169271663
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.098812424,
+        0.098813452
+      ],
+      "transition_value_ns": 0.169274986,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.23187465
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[40]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[40]",
+      "receivers": [
+        "max_cap589/A",
+        "max_cap237/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0116647,
+      "extracted_load_vs_characterized_minimum_0p007": 1.6663857142857144,
+      "extracted_load_vs_characterized_maximum_0p52": 0.022432115384615384,
+      "estimated_parasitic_wire_length_um": 1000.75,
+      "rise_transition_ns_min_max_analysis": [
+        0.183897868,
+        0.183895111
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.107015111,
+        0.107019529
+      ],
+      "transition_value_ns": 0.183897868,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.5974467
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[39]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[39]",
+      "receivers": [
+        "max_cap592/A",
+        "max_cap239/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0203419,
+      "extracted_load_vs_characterized_minimum_0p007": 2.905985714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03911903846153846,
+      "estimated_parasitic_wire_length_um": 131.48,
+      "rise_transition_ns_min_max_analysis": [
+        0.231550455,
+        0.231555179
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.134861678,
+        0.134847701
+      ],
+      "transition_value_ns": 0.231555179,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.788879475
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[38]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[38]",
+      "receivers": [
+        "max_cap593/A",
+        "max_cap242/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.00979882,
+      "extracted_load_vs_characterized_minimum_0p007": 1.3998314285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.018843884615384613,
+      "estimated_parasitic_wire_length_um": 965.01,
+      "rise_transition_ns_min_max_analysis": [
+        0.173786461,
+        0.173783019
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.101561658,
+        0.101565652
+      ],
+      "transition_value_ns": 0.173786461,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.344661525
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[37]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[37]",
+      "receivers": [
+        "max_cap594/A",
+        "max_cap244/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0106925,
+      "extracted_load_vs_characterized_minimum_0p007": 1.5275,
+      "extracted_load_vs_characterized_maximum_0p52": 0.0205625,
+      "estimated_parasitic_wire_length_um": 62.22,
+      "rise_transition_ns_min_max_analysis": [
+        0.178596884,
+        0.178594187
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.104155101,
+        0.104160145
+      ],
+      "transition_value_ns": 0.178596884,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.4649221
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[36]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[36]",
+      "receivers": [
+        "max_cap595/A",
+        "max_cap246/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0178154,
+      "extracted_load_vs_characterized_minimum_0p007": 2.5450571428571425,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03426038461538461,
+      "estimated_parasitic_wire_length_um": 1859.65,
+      "rise_transition_ns_min_max_analysis": [
+        0.216972858,
+        0.216969728
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.126289442,
+        0.126278147
+      ],
+      "transition_value_ns": 0.216972858,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.42432145
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[35]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[35]",
+      "receivers": [
+        "max_cap596/A",
+        "max_cap248/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0209783,
+      "extracted_load_vs_characterized_minimum_0p007": 2.9968999999999997,
+      "extracted_load_vs_characterized_maximum_0p52": 0.040342884615384614,
+      "estimated_parasitic_wire_length_um": 123.98,
+      "rise_transition_ns_min_max_analysis": [
+        0.235859722,
+        0.235862032
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.13749446,
+        0.137479633
+      ],
+      "transition_value_ns": 0.235862032,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.8965508
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[34]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[34]",
+      "receivers": [
+        "max_cap597/A",
+        "_546_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0167082,
+      "extracted_load_vs_characterized_minimum_0p007": 2.386885714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.032131153846153844,
+      "estimated_parasitic_wire_length_um": 967.04,
+      "rise_transition_ns_min_max_analysis": [
+        0.223676383,
+        0.223673165
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.13071619,
+        0.130703554
+      ],
+      "transition_value_ns": 0.223676383,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.591909575
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[33]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[33]",
+      "receivers": [
+        "max_cap598/A",
+        "max_cap252/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0310994,
+      "extracted_load_vs_characterized_minimum_0p007": 4.442771428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.05980653846153846,
+      "estimated_parasitic_wire_length_um": 1036.9,
+      "rise_transition_ns_min_max_analysis": [
+        0.297817916,
+        0.297815591
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.171347335,
+        0.171340689
+      ],
+      "transition_value_ns": 0.297817916,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 7.4454479000000005
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[32]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[32]",
+      "receivers": [
+        "max_cap599/A",
+        "max_cap254/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0147089,
+      "extracted_load_vs_characterized_minimum_0p007": 2.1012714285714287,
+      "extracted_load_vs_characterized_maximum_0p52": 0.028286346153846155,
+      "estimated_parasitic_wire_length_um": 96.7,
+      "rise_transition_ns_min_max_analysis": [
+        0.2008356,
+        0.200832635
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.115991659,
+        0.115997747
+      ],
+      "transition_value_ns": 0.2008356,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.02089
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[31]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[31]",
+      "receivers": [
+        "max_cap600/A",
+        "_481_/C"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0158339,
+      "extracted_load_vs_characterized_minimum_0p007": 2.2619857142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.030449807692307693,
+      "estimated_parasitic_wire_length_um": 109.38,
+      "rise_transition_ns_min_max_analysis": [
+        0.213681191,
+        0.213678092
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.124758013,
+        0.124745637
+      ],
+      "transition_value_ns": 0.213681191,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.342029774999999
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[30]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[30]",
+      "receivers": [
+        "max_cap602/A",
+        "_471_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.015378,
+      "extracted_load_vs_characterized_minimum_0p007": 2.1968571428571426,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02957307692307692,
+      "estimated_parasitic_wire_length_um": 976.75,
+      "rise_transition_ns_min_max_analysis": [
+        0.205488041,
+        0.205485031
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.118676186,
+        0.118655391
+      ],
+      "transition_value_ns": 0.205488041,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.137201025
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[29]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[29]",
+      "receivers": [
+        "max_cap604/A",
+        "max_cap262/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.019713,
+      "extracted_load_vs_characterized_minimum_0p007": 2.8161428571428573,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03790961538461539,
+      "estimated_parasitic_wire_length_um": 940.25,
+      "rise_transition_ns_min_max_analysis": [
+        0.228030428,
+        0.228043288
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.132989064,
+        0.132975936
+      ],
+      "transition_value_ns": 0.228043288,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.7010822
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[28]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[28]",
+      "receivers": [
+        "max_cap605/A",
+        "max_cap264/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.00612491,
+      "extracted_load_vs_characterized_minimum_0p007": 0.8749871428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.011778673076923075,
+      "estimated_parasitic_wire_length_um": 46.44,
+      "rise_transition_ns_min_max_analysis": [
+        0.154122174,
+        0.154129431
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.090841226,
+        0.090802297
+      ],
+      "transition_value_ns": 0.154129431,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 3.8532357750000004
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[27]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[27]",
+      "receivers": [
+        "max_cap607/A",
+        "max_cap266/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.010624,
+      "extracted_load_vs_characterized_minimum_0p007": 1.5177142857142856,
+      "extracted_load_vs_characterized_maximum_0p52": 0.020430769230769228,
+      "estimated_parasitic_wire_length_um": 919.93,
+      "rise_transition_ns_min_max_analysis": [
+        0.178856984,
+        0.178854302
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.104142502,
+        0.104146697
+      ],
+      "transition_value_ns": 0.178856984,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.4714246
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[26]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[26]",
+      "receivers": [
+        "max_cap608/A",
+        "_467_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0149201,
+      "extracted_load_vs_characterized_minimum_0p007": 2.131442857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.0286925,
+      "estimated_parasitic_wire_length_um": 94.04,
+      "rise_transition_ns_min_max_analysis": [
+        0.21424453,
+        0.214241415
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.124123156,
+        0.124112554
+      ],
+      "transition_value_ns": 0.21424453,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.35611325
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[25]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[25]",
+      "receivers": [
+        "max_cap610/A",
+        "_527_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0151608,
+      "extracted_load_vs_characterized_minimum_0p007": 2.1658285714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.029155384615384614,
+      "estimated_parasitic_wire_length_um": 90.08,
+      "rise_transition_ns_min_max_analysis": [
+        0.215385064,
+        0.215381935
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.125442058,
+        0.125429824
+      ],
+      "transition_value_ns": 0.215385064,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.3846266
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[24]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[24]",
+      "receivers": [
+        "max_cap611/A",
+        "_494_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0135353,
+      "extracted_load_vs_characterized_minimum_0p007": 1.9336142857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.026029423076923075,
+      "estimated_parasitic_wire_length_um": 868.99,
+      "rise_transition_ns_min_max_analysis": [
+        0.195543706,
+        0.195540816
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.113127314,
+        0.113132156
+      ],
+      "transition_value_ns": 0.195543706,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.8885926500000005
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[23]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[23]",
+      "receivers": [
+        "max_cap612/A",
+        "max_cap272/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0157455,
+      "extracted_load_vs_characterized_minimum_0p007": 2.249357142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03027980769230769,
+      "estimated_parasitic_wire_length_um": 98.17,
+      "rise_transition_ns_min_max_analysis": [
+        0.206456408,
+        0.206453398
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.119417101,
+        0.119406529
+      ],
+      "transition_value_ns": 0.206456408,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.1614102
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[22]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[22]",
+      "receivers": [
+        "max_cap613/A",
+        "max_cap274/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.010276,
+      "extracted_load_vs_characterized_minimum_0p007": 1.468,
+      "extracted_load_vs_characterized_maximum_0p52": 0.019761538461538462,
+      "estimated_parasitic_wire_length_um": 75.28,
+      "rise_transition_ns_min_max_analysis": [
+        0.176297843,
+        0.176295191
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.102923438,
+        0.102928281
+      ],
+      "transition_value_ns": 0.176297843,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.407446075
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[21]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[21]",
+      "receivers": [
+        "max_cap614/A",
+        "max_cap276/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0118716,
+      "extracted_load_vs_characterized_minimum_0p007": 1.695942857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02283,
+      "estimated_parasitic_wire_length_um": 77.16,
+      "rise_transition_ns_min_max_analysis": [
+        0.184961602,
+        0.184958845
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.107586034,
+        0.107590489
+      ],
+      "transition_value_ns": 0.184961602,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.62404005
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[20]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[20]",
+      "receivers": [
+        "max_cap615/A",
+        "max_cap278/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0081531,
+      "extracted_load_vs_characterized_minimum_0p007": 1.1647285714285713,
+      "extracted_load_vs_characterized_maximum_0p52": 0.01567903846153846,
+      "estimated_parasitic_wire_length_um": 818.12,
+      "rise_transition_ns_min_max_analysis": [
+        0.165501162,
+        0.165500939
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.096783757,
+        0.096763581
+      ],
+      "transition_value_ns": 0.165501162,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.13752905
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[19]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[19]",
+      "receivers": [
+        "max_cap617/A",
+        "max_cap282/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0267538,
+      "extracted_load_vs_characterized_minimum_0p007": 3.8219714285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.051449615384615385,
+      "estimated_parasitic_wire_length_um": 176.28,
+      "rise_transition_ns_min_max_analysis": [
+        0.270495921,
+        0.270499766
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.158043861,
+        0.158022061
+      ],
+      "transition_value_ns": 0.270499766,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.762494149999999
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[18]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[18]",
+      "receivers": [
+        "max_cap618/A",
+        "_515_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0165313,
+      "extracted_load_vs_characterized_minimum_0p007": 2.3616142857142854,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03179096153846153,
+      "estimated_parasitic_wire_length_um": 108.66,
+      "rise_transition_ns_min_max_analysis": [
+        0.223533586,
+        0.22355485
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.130987778,
+        0.13097477
+      ],
+      "transition_value_ns": 0.22355485,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.5888712499999995
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[17]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[17]",
+      "receivers": [
+        "max_cap619/A",
+        "max_cap286/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0296009,
+      "extracted_load_vs_characterized_minimum_0p007": 4.2287,
+      "extracted_load_vs_characterized_maximum_0p52": 0.05692480769230769,
+      "estimated_parasitic_wire_length_um": 173.08,
+      "rise_transition_ns_min_max_analysis": [
+        0.28866452,
+        0.288662225
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.165851295,
+        0.165841982
+      ],
+      "transition_value_ns": 0.28866452,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 7.216613
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[16]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[16]",
+      "receivers": [
+        "max_cap620/A",
+        "max_cap287/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0352795,
+      "extracted_load_vs_characterized_minimum_0p007": 5.039928571428571,
+      "extracted_load_vs_characterized_maximum_0p52": 0.0678451923076923,
+      "estimated_parasitic_wire_length_um": 212.04,
+      "rise_transition_ns_min_max_analysis": [
+        0.323980808,
+        0.323972315
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.18570216,
+        0.185695708
+      ],
+      "transition_value_ns": 0.323980808,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.0995202
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[15]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[15]",
+      "receivers": [
+        "max_cap621/A",
+        "max_cap289/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0141134,
+      "extracted_load_vs_characterized_minimum_0p007": 2.0162,
+      "extracted_load_vs_characterized_maximum_0p52": 0.027141153846153846,
+      "estimated_parasitic_wire_length_um": 822.35,
+      "rise_transition_ns_min_max_analysis": [
+        0.197563216,
+        0.197559208
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.114222296,
+        0.114228226
+      ],
+      "transition_value_ns": 0.197563216,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.9390804
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[14]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[14]",
+      "receivers": [
+        "max_cap623/A",
+        "max_cap291/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0184999,
+      "extracted_load_vs_characterized_minimum_0p007": 2.642842857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03557673076923077,
+      "estimated_parasitic_wire_length_um": 124.96,
+      "rise_transition_ns_min_max_analysis": [
+        0.218606353,
+        0.218603194
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.127484053,
+        0.127469897
+      ],
+      "transition_value_ns": 0.218606353,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.465158825
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[13]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[13]",
+      "receivers": [
+        "max_cap625/A",
+        "_462_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0144224,
+      "extracted_load_vs_characterized_minimum_0p007": 2.060342857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.027735384615384613,
+      "estimated_parasitic_wire_length_um": 851.88,
+      "rise_transition_ns_min_max_analysis": [
+        0.211537719,
+        0.211534634
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.122513354,
+        0.122501999
+      ],
+      "transition_value_ns": 0.211537719,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.288442975000001
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[12]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[12]",
+      "receivers": [
+        "max_cap627/A",
+        "max_cap295/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0180285,
+      "extracted_load_vs_characterized_minimum_0p007": 2.5755,
+      "extracted_load_vs_characterized_maximum_0p52": 0.034670192307692305,
+      "estimated_parasitic_wire_length_um": 846.51,
+      "rise_transition_ns_min_max_analysis": [
+        0.21868296,
+        0.218679786
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.127301753,
+        0.127290174
+      ],
+      "transition_value_ns": 0.21868296,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.467074
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[11]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[11]",
+      "receivers": [
+        "max_cap628/A",
+        "max_cap297/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0113875,
+      "extracted_load_vs_characterized_minimum_0p007": 1.6267857142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02189903846153846,
+      "estimated_parasitic_wire_length_um": 73.7,
+      "rise_transition_ns_min_max_analysis": [
+        0.182329744,
+        0.182326987
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.106167205,
+        0.106173322
+      ],
+      "transition_value_ns": 0.182329744,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.5582436
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[10]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[10]",
+      "receivers": [
+        "max_cap630/A",
+        "max_cap299/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0245132,
+      "extracted_load_vs_characterized_minimum_0p007": 3.5018857142857143,
+      "extracted_load_vs_characterized_maximum_0p52": 0.04714076923076923,
+      "estimated_parasitic_wire_length_um": 148.38,
+      "rise_transition_ns_min_max_analysis": [
+        0.256706119,
+        0.256709248
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.149290651,
+        0.149270386
+      ],
+      "transition_value_ns": 0.256709248,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.4177311999999995
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[9]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[9]",
+      "receivers": [
+        "max_cap543/A",
+        "max_cap180/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0194584,
+      "extracted_load_vs_characterized_minimum_0p007": 2.779771428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.03742,
+      "estimated_parasitic_wire_length_um": 116.18,
+      "rise_transition_ns_min_max_analysis": [
+        0.223697588,
+        0.223694384
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.130693257,
+        0.130677849
+      ],
+      "transition_value_ns": 0.223697588,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.5924397
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[8]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[8]",
+      "receivers": [
+        "max_cap545/A",
+        "max_cap182/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0248011,
+      "extracted_load_vs_characterized_minimum_0p007": 3.5430142857142854,
+      "extracted_load_vs_characterized_maximum_0p52": 0.04769442307692307,
+      "estimated_parasitic_wire_length_um": 159.16,
+      "rise_transition_ns_min_max_analysis": [
+        0.257461756,
+        0.257464945
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.149937823,
+        0.149919093
+      ],
+      "transition_value_ns": 0.257464945,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.436623625
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[7]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[7]",
+      "receivers": [
+        "max_cap546/A",
+        "_461_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0150802,
+      "extracted_load_vs_characterized_minimum_0p007": 2.154314285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.029000384615384615,
+      "estimated_parasitic_wire_length_um": 106.76,
+      "rise_transition_ns_min_max_analysis": [
+        0.215703651,
+        0.215699285
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.125383601,
+        0.125371411
+      ],
+      "transition_value_ns": 0.215703651,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.392591275
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[6]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[6]",
+      "receivers": [
+        "max_cap547/A",
+        "max_cap185/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0412835,
+      "extracted_load_vs_characterized_minimum_0p007": 5.897642857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.07939134615384615,
+      "estimated_parasitic_wire_length_um": 245.38,
+      "rise_transition_ns_min_max_analysis": [
+        0.35808596,
+        0.35808295
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.205512837,
+        0.205506429
+      ],
+      "transition_value_ns": 0.35808596,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.952148999999999
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[5]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[5]",
+      "receivers": [
+        "max_cap555/A",
+        "max_cap195/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0255801,
+      "extracted_load_vs_characterized_minimum_0p007": 3.6543,
+      "extracted_load_vs_characterized_maximum_0p52": 0.0491925,
+      "estimated_parasitic_wire_length_um": 974.61,
+      "rise_transition_ns_min_max_analysis": [
+        0.262536973,
+        0.2625404
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.152965322,
+        0.152943283
+      ],
+      "transition_value_ns": 0.2625404,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 6.56351
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[4]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[4]",
+      "receivers": [
+        "max_cap574/A",
+        "_459_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.00681021,
+      "extracted_load_vs_characterized_minimum_0p007": 0.9728871428571428,
+      "extracted_load_vs_characterized_maximum_0p52": 0.013096557692307692,
+      "estimated_parasitic_wire_length_um": 719.11,
+      "rise_transition_ns_min_max_analysis": [
+        0.17128779,
+        0.171284392
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.099763684,
+        0.099768288
+      ],
+      "transition_value_ns": 0.17128779,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 4.2821947499999995
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[3]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[3]",
+      "receivers": [
+        "max_cap590/A",
+        "max_cap238/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0403396,
+      "extracted_load_vs_characterized_minimum_0p007": 5.7628,
+      "extracted_load_vs_characterized_maximum_0p52": 0.07757615384615385,
+      "estimated_parasitic_wire_length_um": 237.16,
+      "rise_transition_ns_min_max_analysis": [
+        0.354698688,
+        0.354688644
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.20354405,
+        0.203537598
+      ],
+      "transition_value_ns": 0.354698688,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.8674672
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[2]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[2]",
+      "receivers": [
+        "max_cap603/A",
+        "max_cap260/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.037149,
+      "extracted_load_vs_characterized_minimum_0p007": 5.307,
+      "extracted_load_vs_characterized_maximum_0p52": 0.07144038461538461,
+      "estimated_parasitic_wire_length_um": 210.62,
+      "rise_transition_ns_min_max_analysis": [
+        0.335085511,
+        0.33508268
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.192366987,
+        0.192356706
+      ],
+      "transition_value_ns": 0.335085511,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.377137775
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[1]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[1]",
+      "receivers": [
+        "max_cap616/A",
+        "_459_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0134276,
+      "extracted_load_vs_characterized_minimum_0p007": 1.9182285714285714,
+      "extracted_load_vs_characterized_maximum_0p52": 0.02582230769230769,
+      "estimated_parasitic_wire_length_um": 91.56,
+      "rise_transition_ns_min_max_analysis": [
+        0.204020336,
+        0.204017341
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.118350595,
+        0.118333086
+      ],
+      "transition_value_ns": 0.204020336,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.1005084
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_data/dout[0]",
+      "macro": "sram22_256x64m4w8",
+      "net": "u_protected_memory.data_dout[0]",
+      "receivers": [
+        "max_cap631/A",
+        "_458_/A"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.012594,
+      "extracted_load_vs_characterized_minimum_0p007": 1.799142857142857,
+      "extracted_load_vs_characterized_maximum_0p52": 0.024219230769230767,
+      "estimated_parasitic_wire_length_um": 84.24,
+      "rise_transition_ns_min_max_analysis": [
+        0.201946333,
+        0.201942235
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.116236746,
+        0.116241775
+      ],
+      "transition_value_ns": 0.201946333,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.048658325
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[7]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[7]",
+      "receivers": [
+        "_555_/B"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0522396,
+      "extracted_load_vs_characterized_minimum_0p007": 7.4628,
+      "extracted_load_vs_characterized_maximum_0p52": 0.10046076923076923,
+      "estimated_parasitic_wire_length_um": 283.85,
+      "rise_transition_ns_min_max_analysis": [
+        0.42887786,
+        0.428883314
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.249232858,
+        0.249222651
+      ],
+      "transition_value_ns": 0.428883314,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 10.72208285
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[6]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[6]",
+      "receivers": [
+        "_543_/B"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0388812,
+      "extracted_load_vs_characterized_minimum_0p007": 5.554457142857142,
+      "extracted_load_vs_characterized_maximum_0p52": 0.07477153846153846,
+      "estimated_parasitic_wire_length_um": 219.83,
+      "rise_transition_ns_min_max_analysis": [
+        0.347053677,
+        0.347049624
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.202215612,
+        0.202213883
+      ],
+      "transition_value_ns": 0.347053677,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.676341925
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[5]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[5]",
+      "receivers": [
+        "wire542/A"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0457686,
+      "extracted_load_vs_characterized_minimum_0p007": 6.538371428571429,
+      "extracted_load_vs_characterized_maximum_0p52": 0.08801653846153845,
+      "estimated_parasitic_wire_length_um": 298.81,
+      "rise_transition_ns_min_max_analysis": [
+        0.371354371,
+        0.371354192
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.21389553,
+        0.213896573
+      ],
+      "transition_value_ns": 0.371354371,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 9.283859275000001
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[4]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[4]",
+      "receivers": [
+        "_568_/B"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0464702,
+      "extracted_load_vs_characterized_minimum_0p007": 6.6386,
+      "extracted_load_vs_characterized_maximum_0p52": 0.08936576923076923,
+      "estimated_parasitic_wire_length_um": 287.55,
+      "rise_transition_ns_min_max_analysis": [
+        0.389901996,
+        0.389897645
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.223882571,
+        0.223876998
+      ],
+      "transition_value_ns": 0.389901996,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 9.7475499
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[3]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[3]",
+      "receivers": [
+        "_526_/B"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0362111,
+      "extracted_load_vs_characterized_minimum_0p007": 5.173014285714286,
+      "extracted_load_vs_characterized_maximum_0p52": 0.06963673076923077,
+      "estimated_parasitic_wire_length_um": 194.51,
+      "rise_transition_ns_min_max_analysis": [
+        0.330741763,
+        0.33073771
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.193053365,
+        0.19305326
+      ],
+      "transition_value_ns": 0.330741763,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.268544075000001
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[2]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[2]",
+      "receivers": [
+        "_507_/B"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0458284,
+      "extracted_load_vs_characterized_minimum_0p007": 6.546914285714285,
+      "extracted_load_vs_characterized_maximum_0p52": 0.08813153846153846,
+      "estimated_parasitic_wire_length_um": 278.39,
+      "rise_transition_ns_min_max_analysis": [
+        0.387286097,
+        0.387281746
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.223163769,
+        0.22315827
+      ],
+      "transition_value_ns": 0.387286097,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 9.682152425
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[1]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[1]",
+      "receivers": [
+        "ANTENNA_25/DIODE",
+        "_483_/B"
+      ],
+      "fanout": 2,
+      "extracted_spef_parasitic_capacitance_pf": 0.0378701,
+      "extracted_load_vs_characterized_minimum_0p007": 5.410014285714285,
+      "extracted_load_vs_characterized_maximum_0p52": 0.07282711538461538,
+      "estimated_parasitic_wire_length_um": 286.09,
+      "rise_transition_ns_min_max_analysis": [
+        0.346464604,
+        0.346464097
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.201790869,
+        0.2017892
+      ],
+      "transition_value_ns": 0.346464604,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 8.6616151
+    },
+    {
+      "design": "E0",
+      "seed": 11,
+      "object": "u_protected_memory.u_ecc/dout[0]",
+      "macro": "sram22_256x8m8w1",
+      "net": "u_protected_memory.ecc_dout[0]",
+      "receivers": [
+        "_458_/B"
+      ],
+      "fanout": 1,
+      "extracted_spef_parasitic_capacitance_pf": 0.0160407,
+      "extracted_load_vs_characterized_minimum_0p007": 2.2915285714285716,
+      "extracted_load_vs_characterized_maximum_0p52": 0.030847500000000003,
+      "estimated_parasitic_wire_length_um": 146.93,
+      "rise_transition_ns_min_max_analysis": [
+        0.205188438,
+        0.205191344
+      ],
+      "fall_transition_ns_min_max_analysis": [
+        0.121221326,
+        0.121224962
+      ],
+      "transition_value_ns": 0.205191344,
+      "limiting_transition": "rise",
+      "inherited_max_transition_ns": 0.04,
+      "transition_to_inherited_limit_ratio": 5.1297836
+    }
+  ]
+}

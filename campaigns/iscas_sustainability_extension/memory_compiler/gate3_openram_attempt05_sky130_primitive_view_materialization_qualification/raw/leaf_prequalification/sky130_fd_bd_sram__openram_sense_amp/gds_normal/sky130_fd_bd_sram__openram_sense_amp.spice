@@ -1,0 +1,14 @@
+* NGSPICE file created from sky130_fd_bd_sram__openram_sense_amp.ext - technology: sky130A
+
+.subckt sky130_fd_bd_sram__openram_sense_amp DOUT BL BR EN VDD_uq0 GND_uq0 VDD
+X0 VDD_uq0 a_154_1598# DOUT VDD sky130_fd_pr__pfet_01v8 ad=0.3402p pd=3.06u as=0.3654p ps=3.1u w=1.26u l=0.15u
+X1 a_154_1598# a_96_1989# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.8802p pd=7.6u as=0.3654p ps=3.1u w=1.26u l=0.15u
+X2 GND_uq0 EN a_184_1989# GND_uq0 sky130_fd_pr__nfet_01v8 ad=0.3705p pd=3.74u as=0.377p ps=3.76u w=0.65u l=0.15u
+X3 a_154_1598# a_96_1989# a_184_1989# GND_uq0 sky130_fd_pr__nfet_01v8 ad=0.1885p pd=1.88u as=0p ps=0u w=0.65u l=0.15u
+X4 BL EN a_96_1989# VDD sky130_fd_pr__pfet_01v8 ad=0.54p pd=4.54u as=0.8802p ps=7.6u w=2u l=0.15u
+X5 VDD a_154_1598# a_96_1989# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.26u l=0.15u
+X6 a_154_1598# EN BR VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0.54p ps=4.54u w=2u l=0.15u
+X7 a_184_1989# a_154_1598# a_96_1989# GND_uq0 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1885p ps=1.88u w=0.65u l=0.15u
+X8 GND_uq0 a_154_1598# DOUT GND_uq0 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1885p ps=1.88u w=0.65u l=0.15u
+.ends
+

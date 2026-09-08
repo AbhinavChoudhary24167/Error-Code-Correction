@@ -1,0 +1,131 @@
+{
+  "all_layers": {
+    "115/42": 2,
+    "115/43": 2,
+    "22/21": 2,
+    "33/43": 4,
+    "64/18": 1,
+    "65/20": 2,
+    "65/44": 1,
+    "66/20": 4,
+    "66/44": 6,
+    "67/20": 5,
+    "67/44": 5,
+    "68/16": 2,
+    "68/20": 6,
+    "68/44": 3,
+    "68/5": 2,
+    "69/20": 4,
+    "81/2": 1,
+    "93/44": 2,
+    "94/20": 1,
+    "95/20": 1
+  },
+  "byte_size": 4738,
+  "path": "sky130_fd_bd_sram/cells/sram_sp_wlstrap_p/sky130_fd_bd_sram__sram_sp_wlstrap_p.gds",
+  "record_counts": {
+    "0x00": 1,
+    "0x01": 1,
+    "0x02": 1,
+    "0x03": 1,
+    "0x04": 1,
+    "0x0f": 1,
+    "0x10": 60,
+    "0x19": 2,
+    "0x1a": 6,
+    "0x1c": 3,
+    "BGNSTR": 5,
+    "BOUNDARY": 53,
+    "DATATYPE": 54,
+    "ENDEL": 60,
+    "ENDSTR": 5,
+    "LAYER": 56,
+    "PATH": 1,
+    "SNAME": 4,
+    "SREF": 4,
+    "STRNAME": 5,
+    "TEXT": 2,
+    "TEXTTYPE": 2
+  },
+  "root_structures": [
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p"
+  ],
+  "sha256": "474ccf792a9c1e625356a9b976c4b37747546eaeeccd14e976ac4fc11617f578",
+  "structure_count": 5,
+  "structures": {
+    "sky130_fd_bd_sram__sram_l1m1": {
+      "elements": {
+        "BOUNDARY": 3
+      },
+      "layers": {
+        "67/20": 1,
+        "67/44": 1,
+        "68/20": 1
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p": {
+      "elements": {
+        "BOUNDARY": 2,
+        "SREF": 3,
+        "TEXT": 2
+      },
+      "layers": {
+        "68/16": 2,
+        "68/5": 2
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz": 1,
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": 1,
+        "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz": {
+      "elements": {
+        "BOUNDARY": 4
+      },
+      "layers": {
+        "33/43": 4
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce": {
+      "elements": {
+        "BOUNDARY": 41,
+        "PATH": 1,
+        "SREF": 1
+      },
+      "layers": {
+        "115/42": 2,
+        "115/43": 2,
+        "22/21": 2,
+        "64/18": 1,
+        "65/20": 2,
+        "65/44": 1,
+        "66/20": 4,
+        "66/44": 6,
+        "67/20": 4,
+        "67/44": 4,
+        "68/20": 5,
+        "68/44": 3,
+        "69/20": 1,
+        "81/2": 1,
+        "93/44": 2,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_l1m1": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2": {
+      "elements": {
+        "BOUNDARY": 3
+      },
+      "layers": {
+        "69/20": 3
+      },
+      "references": {}
+    }
+  }
+}

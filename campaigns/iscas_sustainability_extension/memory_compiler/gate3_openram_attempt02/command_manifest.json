@@ -1,0 +1,78 @@
+{
+  "attempt_id": "gate3_openram_attempt02",
+  "generated_at": "2026-08-30T17:10:56.7920904+05:30",
+  "record_policy": "Commands are exact where retained by process state or logs. Reconstructed setup commands are explicitly labelled and are not presented as byte-for-byte shell history.",
+  "commands": [
+    {
+      "id": "wsl_backup",
+      "command": "wsl --export Ubuntu-24.04 F:\\green-ecc-iscas-sustainability-temp\\wsl-backup\\Ubuntu-24.04-pre-move-20260829.vhdx --format vhd",
+      "record_quality": "exact",
+      "status": "PASS"
+    },
+    {
+      "id": "wsl_relocation",
+      "command": "wsl --manage Ubuntu-24.04 --move F:\\green-ecc-iscas-sustainability-temp\\wsl-relocated\\Ubuntu-24.04",
+      "record_quality": "exact",
+      "status": "PASS",
+      "unregister_used": false
+    },
+    {
+      "id": "container_pull",
+      "command": "docker pull vlsida/openram-ubuntu:latest",
+      "record_quality": "exact",
+      "status": "PASS_AFTER_STORAGE_MITIGATION",
+      "resolved_digest": "sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c"
+    },
+    {
+      "id": "openram_checkout",
+      "command": "git clone --branch v1.2.48 https://github.com/VLSIDA/OpenRAM.git /attempt/source/OpenRAM",
+      "record_quality": "reconstructed_from_checkout",
+      "status": "PASS",
+      "verified_tag": "v1.2.48",
+      "verified_commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab"
+    },
+    {
+      "id": "run01",
+      "command": "python3 sram_compiler.py -v /attempt/config/openram_256x72_config.py",
+      "record_quality": "compiler_command_exact; launcher_wrapper_not_retained",
+      "status": "FAIL",
+      "classification": "LAUNCHER_CONDA_BOOTSTRAP_AND_UNPINNED_ENVIRONMENT",
+      "evidence": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/logs/openram_256x72_launcher_bootstrap_failure.log"
+    },
+    {
+      "id": "run02",
+      "command": "python3 sram_compiler.py -v /attempt/config/openram_256x72_config.py",
+      "record_quality": "compiler_command_exact",
+      "status": "FAIL",
+      "classification": "SKY130_COLUMN_GEOMETRY_CONSTRAINT_145_NOT_DIVISIBLE_BY_2",
+      "evidence": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/logs/openram_256x72_run02.log"
+    },
+    {
+      "id": "run03",
+      "command": "python3 sram_compiler.py -v /attempt/config/openram_256x72_config.py",
+      "record_quality": "compiler_command_exact",
+      "status": "FAIL",
+      "classification": "SKY130_ROW_GEOMETRY_CONSTRAINT_129_NOT_DIVISIBLE_BY_2",
+      "evidence": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/logs/openram_256x72_run03.log"
+    },
+    {
+      "id": "run04",
+      "command": "docker run --rm -v /var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02:/attempt --workdir /attempt/source/OpenRAM --entrypoint bash vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c -lc 'set -euo pipefail; . /attempt/venv/bin/activate; export OPENRAM_HOME=/attempt/source/OpenRAM/compiler; export OPENRAM_TECH=/attempt/source/OpenRAM/technology; export PYTHONPATH=/attempt/source/OpenRAM/compiler:/attempt/source/OpenRAM/technology/sky130:/attempt/source/OpenRAM/technology/sky130/custom; export PDK_ROOT=/attempt/pdk; export VOLARE_HOME=/attempt/pdk/volare; export SPICE_MODEL_DIR=/attempt/pdk/sky130A/libs.tech/ngspice; export OPENRAM_TMP=/attempt/work/openram_tmp_256x72; python3 sram_compiler.py -v /attempt/config/openram_256x72_config.py 2>&1 | tee /attempt/logs/openram_256x72_run04.log'",
+      "record_quality": "exact_from_live_process",
+      "start_container_local": "2026-08-29T11:49:33.575782",
+      "end_container_local": "2026-08-30T03:51:21.162564",
+      "exit_code": 1,
+      "status": "FAIL",
+      "classification": "DRC_LVS_AND_SPICE_CHARACTERIZATION_FAILURE"
+    },
+    {
+      "id": "run04_gds_inspection",
+      "command": "magic -dnull -noconsole < inspect_gds.tcl",
+      "record_quality": "exact_inner_command",
+      "container_digest": "sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+      "pdk_root": "/attempt/pdk/volare/sky130/versions/e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+      "status": "PASS_WITH_GDS_LAYER_DIAGNOSTICS",
+      "result": "top=sky130_sram_1rw_72x256_gate3a02; bbox_magic_units=0,0,112460,62239; bbox_um=562.300x311.195"
+    }
+  ]
+}

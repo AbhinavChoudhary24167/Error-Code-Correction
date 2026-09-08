@@ -1,0 +1,110 @@
+[
+  {
+   "pins": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ], [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "1",
+        "2",
+        "3",
+        "4"
+      ], [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+   ]
+  },
+  {
+   "name": [
+      "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0",
+      "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0"
+   ],
+   "devices": [
+       [
+         ["sky130_fd_pr__nfet_01v8", 2],
+         ["sky130_fd_pr__pfet_01v8", 2 ]
+       ], [
+         ["sky130_fd_pr__nfet_01v8", 2 ],
+         ["sky130_fd_pr__pfet_01v8", 2 ]
+       ]
+   ],
+   "nets": [
+    8,
+    6
+   ],
+   "badnets": [
+      [
+        [
+          [
+            "VSUBS",
+            [
+              [ "sky130_fd_pr__nfet_01v8", "4", 2 ]
+            ]
+          ],
+          [
+            "vdd",
+            [
+              [ "sky130_fd_pr__pfet_01v8", "1|3", 2 ]
+            ]
+          ],
+          [
+            "w_n36_679#",
+            [
+              [ "sky130_fd_pr__pfet_01v8", "4", 2 ]
+            ]
+          ],
+          [
+            "gnd",
+            [
+              [ "sky130_fd_pr__nfet_01v8", "1|3", 1 ]
+            ]
+          ]
+        ], [
+          [
+            "gnd",
+            [
+              [ "sky130_fd_pr__nfet_01v8", "4", 2 ],
+              [ "sky130_fd_pr__nfet_01v8", "1|3", 1 ]
+            ]
+          ],
+          [
+            "vdd",
+            [
+              [ "sky130_fd_pr__pfet_01v8", "1|3", 2 ],
+              [ "sky130_fd_pr__pfet_01v8", "4", 2 ]
+            ]
+          ],
+          [
+            "(no matching net)",
+            [
+              [ "", "", 0 ]
+            ]
+          ],
+          [
+            "(no matching net)",
+            [
+              [ "", "", 0 ]
+            ]
+          ]
+        ]
+      ]
+   ],
+   "badelements": [
+   ]
+  }
+]
