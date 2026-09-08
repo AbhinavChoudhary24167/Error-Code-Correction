@@ -1,0 +1,43 @@
+{
+  "campaign": "green_v3_2_matched_openram_orfs_validation",
+  "campaign_commit": "UNSEALED_WORKTREE",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "generated_on": "2026-09-08",
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "records": [
+    {
+      "cause": "The fresh WSL parent directories were not writable by the pinned image's unprivileged user.",
+      "compact_log": "openram/failed_attempts/01_namespace_permission/openram_256x72_fresh.log.gz",
+      "evidence": "openram/failed_attempts/01_namespace_permission/OPENRAM_FRESH_RUN.json",
+      "experiment": "fresh_openram_namespace_preflight",
+      "failed_run_count": 1,
+      "scientifically_justified_repair": "Only fresh output/work/log directory modes were made writable; source, configuration, image, and PDK remained unchanged.",
+      "status": "FAIL_REPAIRED_ENVIRONMENT"
+    },
+    {
+      "cause": "ORFS SYNTH_MEMORY_MAX_BITS=4096 rejected a 256x73 combinational ROM inferred from the explicit Hsiao syndrome case table.",
+      "compact_logs": "reports/failed_attempts/hsiao_initial_synth_memory_guard/",
+      "evidence": "manifests/PHYSICAL_RUN_RECORDS_INITIAL_HSIAO_FAILURE.json",
+      "experiment": "initial_hsiao_orfs_matrix",
+      "failed_run_count": 10,
+      "scientifically_justified_repair": "Threshold raised to 20000 for Hsiao so memory_map can lower the unchanged case table to gates.",
+      "status": "FAIL_REPAIRED_CONFIGURATION_INTEGRATION"
+    },
+    {
+      "cause": "Adjacent payload-bit pair 4/5 is not corrected under the declared supported-mask contract.",
+      "evidence": "FUNCTIONAL_VALIDATION_SEC_DAEC.json",
+      "experiment": "sec_daec_functional_validation",
+      "failed_run_count": 1,
+      "status": "FAILED_EXCLUDED"
+    },
+    {
+      "cause": "FRESH_OPENRAM_REGENERATION_PARTIAL_RUNTIME_CUTOFF",
+      "evidence": "openram/OPENRAM_FRESH_RUN.json",
+      "experiment": "fresh_openram_regeneration",
+      "status": "TIMEOUT"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

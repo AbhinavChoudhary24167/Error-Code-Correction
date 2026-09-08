@@ -1,0 +1,13 @@
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module secdaec_decoder declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secdaec/secdaec_codec.sv:23
+       :   -- module secdaec_encoder declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secdaec/secdaec_codec.sv:10
+       :   -- module secded_decoder declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv:55
+       :   -- module secded_encoder declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv:12
+       :   -- package ecc_pkg declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include/ecc_pkg.sv:12
+/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv:77: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secdaec/secdaec_codec.sv:76: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secdaec/secdaec_codec.sv:76: sorry: constant selects in always_* processes are not currently supported (all bits will be included).

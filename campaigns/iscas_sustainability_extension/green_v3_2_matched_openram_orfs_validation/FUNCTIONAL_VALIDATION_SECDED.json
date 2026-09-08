@@ -1,0 +1,75 @@
+{
+  "architecture_id": "SECDED",
+  "campaign_commit": "UNSEALED_WORKTREE",
+  "commands": [
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-s",
+      "tb_secded_exhaustive_masks",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/secded_codec.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/scripts/gate03r/rtl/secded_characterization_tops.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_secded_exhaustive_masks.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/secded_codec.vvp"
+    ],
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-DTEST_SECDED",
+      "-s",
+      "tb_memory_smoke",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/secded_memory.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/scripts/gate03r/rtl/secded_characterization_tops.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_memory_smoke.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/secded_memory.vvp"
+    ]
+  ],
+  "declared_check_counts": {
+    "double_masks": 10224,
+    "memory_round_trips": 4,
+    "payloads": 4,
+    "single_masks": 288
+  },
+  "fresh_execution": true,
+  "log_sha256": {
+    "logs/functional/secded_codec_compile.log": "3d8ead974cf2ac4064cd8bd3c599b82acf3a4b5194838455148025952768fbf5",
+    "logs/functional/secded_codec_run.log": "9930d38e9ef9d0e1e7e13def8aede90f7be09e7a9f2e888838c5ffd973114ad2",
+    "logs/functional/secded_memory_compile.log": "c4a6bc076cacbcdd039514995cc4f5541cf9e77d3a206b20b5e489a96d4cd7fe",
+    "logs/functional/secded_memory_run.log": "b15e0326f9fd00b8fad4b6dc524babd314763225b48bfe39f38aff3e0174b756"
+  },
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "process_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "schema_version": 1,
+  "scope_limit": "All weight-1 correction and weight-2 detection masks are enumerated over four deterministic payloads; frozen exact evidence supplies the unrestricted linear-code result.",
+  "source_sha256": {
+    "campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv": "a5335c81eb209d4f2c5c140b2fb16431e1ebd4713e17ab26f9b1c7fddaf8ba01",
+    "scripts/gate03r/rtl/secded_characterization_tops.sv": "560bc8092ba759f7dd3412a106d86a30a7498d88285298c721be2d5ef4dc440b"
+  },
+  "status": "REGRESSION_VALIDATED",
+  "tool": {
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  }
+}

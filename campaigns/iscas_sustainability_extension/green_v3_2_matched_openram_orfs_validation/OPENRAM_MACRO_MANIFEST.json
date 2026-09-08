@@ -1,0 +1,87 @@
+{
+  "campaign": "green_v3_2_matched_openram_orfs_validation",
+  "campaign_commit": "UNSEALED_WORKTREE",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "fresh_openram_artifacts": [
+    {
+      "bytes": 34950,
+      "path": "/var/lib/green-ecc-v32-matched-openram-orfs-validation/openram_fresh/output/sky130_sram_1rw_72x256_green_v32_matched/sky130_sram_1rw_72x256_green_v32_matched.log",
+      "role": "openram_log",
+      "sha256": "6cac43c8a7997d86d986d6f4d2459ed78cfd7a847c02b5dd56e5a48ac574e242"
+    }
+  ],
+  "generated_on": "2026-09-08",
+  "inherited_macro_artifacts": [
+    {
+      "area_um2": 201266.5968,
+      "classification": "INHERITED_SRAM22_ARTIFACT_NOT_FRESH_OPENRAM_OUTPUT",
+      "height_um": 291.64,
+      "macro_id": "sram22_256x64m4w8",
+      "num_words": 256,
+      "qualification_limit": "Macro-internal foundry signoff DRC and independent LVS are not established by this campaign.",
+      "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+      "views": {
+        "gds": {
+          "bytes": 37327068,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/derived_gds/sram22_256x64m4w8.gds",
+          "sha256": "b6d5e63d819133c617e96eaa12123b66a6b771ecbdaeb153b87f868d0e94abd5"
+        },
+        "lef": {
+          "bytes": 125962,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef",
+          "sha256": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353"
+        },
+        "liberty": {
+          "bytes": 81787,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib",
+          "sha256": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb"
+        },
+        "verilog": {
+          "bytes": 1712,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v",
+          "sha256": "c8cc1f37c13865b410010870b684d82b39272189c937f32e59701829d205471d"
+        }
+      },
+      "width_um": 690.12,
+      "word_size_bits": 64
+    },
+    {
+      "area_um2": 59064.96960000001,
+      "classification": "INHERITED_SRAM22_ARTIFACT_NOT_FRESH_OPENRAM_OUTPUT",
+      "height_um": 225.68,
+      "macro_id": "sram22_256x8m8w1",
+      "num_words": 256,
+      "qualification_limit": "Macro-internal foundry signoff DRC and independent LVS are not established by this campaign.",
+      "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+      "views": {
+        "gds": {
+          "bytes": 9429370,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/derived_gds/sram22_256x8m8w1.gds",
+          "sha256": "c27dfdc1e047efdc996dda3447aea42c8dc8ef5d44c8a74d3d3fdca4bd571743"
+        },
+        "lef": {
+          "bytes": 69254,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef",
+          "sha256": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0"
+        },
+        "liberty": {
+          "bytes": 51793,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib",
+          "sha256": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec"
+        },
+        "verilog": {
+          "bytes": 1683,
+          "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v",
+          "sha256": "06d28e0f9df736734666d1f881102a84824208db14f09af8bf17de54aaffdba0"
+        }
+      },
+      "width_um": 261.72,
+      "word_size_bits": 8
+    }
+  ],
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "schema_version": "1.0.0",
+  "substitution_policy": "Inherited SRAM22 views are never labelled as fresh OpenRAM output."
+}
