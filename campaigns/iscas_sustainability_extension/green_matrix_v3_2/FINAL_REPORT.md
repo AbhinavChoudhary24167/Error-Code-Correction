@@ -2,7 +2,7 @@
 
 Schema version: `3.2.0`
 
-Campaign commit: `UNCOMMITTED_VALIDATION_BUILD`
+Campaign commit: `29f20b196e04c713f88fd1a93440a2ff47986f06`
 
 Parent campaign commit: `1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7`
 
