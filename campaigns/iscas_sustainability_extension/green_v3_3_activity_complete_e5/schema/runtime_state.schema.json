@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.invalid/schemas/v3.3-runtime-state.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "budget_scope",
+    "campaign_budget_seconds",
+    "campaign_start_time_utc",
+    "hard_deadline_utc",
+    "per_run_timeout_seconds",
+    "status",
+    "jobs"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "budget_scope": {"const": "ENTIRE_CAMPAIGN"},
+    "campaign_budget_seconds": {"type": "integer", "minimum": 1, "maximum": 54000},
+    "campaign_start_time_utc": {"type": "string", "format": "date-time"},
+    "hard_deadline_utc": {"type": "string", "format": "date-time"},
+    "per_run_timeout_seconds": {"type": "null"},
+    "status": {"type": "string"},
+    "jobs": {"type": "object"}
+  },
+  "additionalProperties": true
+}
