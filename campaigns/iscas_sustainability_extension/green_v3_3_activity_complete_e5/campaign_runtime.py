@@ -39,7 +39,17 @@ def _atomic_json(path: Path, payload: Mapping[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    os.replace(temporary, path)
+    for attempt in range(10):
+        try:
+            os.replace(temporary, path)
+            return
+        except PermissionError:
+            # OneDrive/antivirus can briefly hold the destination on Windows.
+            # Retrying preserves atomic replacement without weakening the
+            # persisted-deadline guarantee.
+            if attempt == 9:
+                raise
+            time.sleep(0.05 * (attempt + 1))
 
 
 def sha256(path: Path) -> str:
@@ -190,7 +200,16 @@ def write_progress(
     completed = sum(status in {"COMPLETED", "COMPLETED_REUSED"} for status in statuses)
     failed = sum(status == "TOOL_FAILURE" for status in statuses)
     cutoff = sum(status == CUTOFF_STATUS for status in statuses)
-    latest = next(reversed(jobs.values()), {}) if jobs else {}
+    completed_records = [
+        record for record in jobs.values()
+        if record.get("status") in {"COMPLETED", "COMPLETED_REUSED"}
+    ]
+    latest = completed_records[-1] if completed_records else {}
+    try:
+        disk = shutil.disk_usage(path.parent)
+        disk_line = f"- Disk usage: `{disk.used}/{disk.total} bytes used; {disk.free} bytes free`"
+    except OSError:
+        disk_line = "- Disk usage: `UNAVAILABLE`"
     lines = [
         "# GREEN v3.3 campaign progress",
         "",
@@ -204,6 +223,7 @@ def write_progress(
         f"- Completed/planned: `{completed}/{planned_count}`",
         f"- Tool failures: `{failed}`",
         f"- Runtime cutoffs: `{cutoff}`",
+        disk_line,
         f"- Most recent artifact: `{latest.get('completion_artifact', 'NONE')}`",
         "- Stall assessment: `NO_AUTOMATIC_STALL_EVIDENCE`",
         "",
@@ -211,6 +231,65 @@ def write_progress(
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_scientific_checkpoint(
+    directory: Path,
+    *,
+    state: Mapping[str, Any],
+    deadline: CampaignDeadline,
+    now: float,
+    current_job: str | None,
+) -> Path:
+    """Write the substantive hourly checkpoint without inventing stage results."""
+
+    jobs = list(state.get("jobs", {}).values())
+    completed = [row for row in jobs if row.get("status") in {"COMPLETED", "COMPLETED_REUSED"}]
+    payload = {
+        "schema_version": 1,
+        "timestamp_utc": _iso(now),
+        "campaign_start_time_utc": _iso(deadline.start_timestamp),
+        "hard_deadline_utc": _iso(deadline.deadline_timestamp),
+        "elapsed_seconds": max(0.0, now - deadline.start_timestamp),
+        "remaining_seconds": deadline.remaining_seconds(now),
+        "current_experiment": current_job,
+        "completed_experiments": [row.get("job_id") for row in completed],
+        "completed_architecture_clock_seed": [
+            {
+                "architecture_id": row.get("architecture_id"),
+                "clock_period_ns": row.get("clock_period_ns"),
+                "seed": row.get("seed"),
+            }
+            for row in completed
+            if row.get("architecture_id") is not None
+        ],
+        "stage_counts": {
+            "synthesis": sum(bool(row.get("synthesis_complete")) for row in completed),
+            "placement": sum(bool(row.get("placement_complete")) for row in completed),
+            "routing": sum(bool(row.get("routing_complete")) for row in completed),
+            "gds": sum(bool(row.get("gds_complete")) for row in completed),
+            "timing_closed": sum(bool(row.get("timing_closed")) for row in completed),
+            "activity": sum(bool(row.get("activity_complete")) for row in completed),
+            "power": sum(bool(row.get("power_complete")) for row in completed),
+            "e5_qualified": sum(bool(row.get("e5_qualified")) for row in completed),
+        },
+        "status_counts": {
+            status: sum(row.get("status") == status for row in jobs)
+            for status in sorted({str(row.get("status")) for row in jobs})
+        },
+        "new_failure": next(
+            (row.get("job_id") for row in reversed(jobs) if row.get("status") == "TOOL_FAILURE"), None
+        ),
+        "current_blocker": None,
+        "scientifically_on_track": not any(row.get("status") == "TOOL_FAILURE" for row in jobs),
+        "estimated_remaining_queue_count": max(0, int(state.get("planned_job_count", 0)) - len(completed)),
+        "completion_promise": None,
+    }
+    directory.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.fromtimestamp(now, tz=timezone.utc).strftime("%Y%m%d_%H%M%S")
+    output = directory / f"progress_{stamp}.json"
+    _atomic_json(output, payload)
+    return output
 
 
 class CampaignController:
@@ -314,6 +393,13 @@ class CampaignController:
                 "hard_deadline_utc": _iso(deadline.deadline_timestamp),
                 "log_path": str(log_path),
             }
+            for metadata_key in (
+                "architecture_id", "clock_period_ns", "seed", "operation_class",
+                "synthesis_complete", "placement_complete", "routing_complete", "gds_complete",
+                "timing_closed", "activity_complete", "power_complete", "e5_qualified",
+            ):
+                if metadata_key in job:
+                    record[metadata_key] = job[metadata_key]
             state["jobs"][job_id] = record
             self._save(state)
 
@@ -362,6 +448,13 @@ class CampaignController:
                         last_heartbeat = now
                     if now - last_checkpoint >= self.checkpoint_seconds:
                         state["last_scientific_checkpoint_utc"] = _iso(now)
+                        write_scientific_checkpoint(
+                            self.progress_path.parent / "progress",
+                            state=state,
+                            deadline=deadline,
+                            now=now,
+                            current_job=job_id,
+                        )
                         self._save(state)
                         last_checkpoint = now
                     time.sleep(min(self.poll_seconds, max(0.01, deadline.remaining_seconds(now))))

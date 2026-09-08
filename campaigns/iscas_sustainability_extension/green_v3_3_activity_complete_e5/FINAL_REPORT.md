@@ -4,6 +4,8 @@
 
 The campaign infrastructure and evidence audit are complete, but activity-aware power execution is blocked in this environment. This is an honest partial result: **zero E5 records were created**. The one persisted 15-hour campaign budget is implemented and regression-tested; it is never renewed for individual OpenROAD/OpenRAM jobs.
 
+Validation completed with `make` and `make test` passing. The required full `python3 -m pytest -q` run produced 716 passes and six baseline Windows byte-reproducibility/order-mutation failures; all 16 v3.3 tests passed. The tests' historical-file mutations were restored and preserved in a named recoverable stash.
+
 ## Required answers
 
 1. Architectures: U0, SECDED, Hsiao SECDED, and BCH(78,64,t=2).

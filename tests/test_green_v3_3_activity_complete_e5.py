@@ -215,6 +215,26 @@ def test_no_vectorless_power_is_promoted_to_e5() -> None:
     assert matrix["global_winner"] == "NO_GLOBAL_WINNER_QUALIFIED"
 
 
+def test_campaign_hash_manifest_covers_all_immutable_artifacts() -> None:
+    manifest_path = CAMPAIGN / "hashes/CAMPAIGN_ARTIFACTS.sha256"
+    recorded: dict[str, str] = {}
+    for line in manifest_path.read_text(encoding="utf-8").splitlines():
+        digest, relative = line.split("  ", 1)
+        recorded[relative] = digest
+    expected = {
+        path.relative_to(CAMPAIGN).as_posix(): path
+        for path in CAMPAIGN.rglob("*")
+        if path.is_file()
+        and path != manifest_path
+        and "__pycache__" not in path.parts
+        and path.name != "RUNTIME_STATE.json"
+        and "logs" not in path.parts
+        and "progress" not in path.parts
+    }
+    assert set(recorded) == set(expected)
+    assert all(recorded[relative] == sha256(path) for relative, path in expected.items())
+
+
 def test_parent_v32_tree_is_unchanged() -> None:
     result = subprocess.run(
         ["git", "diff", "--exit-code", PARENT_SEAL, "--", FROZEN_V32],
@@ -237,6 +257,8 @@ def test_builder_is_deterministic() -> None:
         "E5_MATCHED_SEED_DELTAS.csv",
         "SRAM_MACRO_POWER_QUALIFICATION.json",
         "FINAL_REPORT.md",
+        "VALIDATION_RESULTS.json",
+        "hashes/CAMPAIGN_ARTIFACTS.sha256",
     ]
     before = {name: sha256(CAMPAIGN / name) for name in outputs}
     subprocess.run(
