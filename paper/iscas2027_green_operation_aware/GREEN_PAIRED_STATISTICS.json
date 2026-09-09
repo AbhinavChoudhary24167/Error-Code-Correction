@@ -1,0 +1,1173 @@
+{
+  "bootstrap_policy": "paired resampling of seed-level differences; deterministic percentile interval",
+  "component_decomposition_audit": {
+    "causal_status": "ASSOCIATION_ONLY; the experiment did not isolate a gate-level causal mechanism",
+    "internal_delta_higher_for_hsiao_count": 5,
+    "leakage_delta_higher_for_hsiao_count": 5,
+    "matched_seed_count": 5,
+    "net_energy_lower_for_hsiao_count": 3,
+    "operation": "READ_CLEAN",
+    "supported_statement": "The component-level decomposition is consistent with lower Hsiao switching contribution being offset, and in two seeds exceeded, by higher Hsiao internal contribution.",
+    "switching_delta_lower_for_hsiao_count": 5
+  },
+  "evidence_seal": "8cf245ac6ac8cb9b010c073d439f04eb204d48a1",
+  "metrics": {
+    "clean_read_dynamic_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 9.800272527799935,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -15.638151671400006,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 2933832358
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 1.4712568374498938,
+        "mean_sign_retained_count": 4,
+        "means": [
+          {
+            "mean": -8.115050149800137,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 1.4712568374498938,
+            "omitted_seed": 13
+          },
+          {
+            "mean": -1.5977711883501233,
+            "omitted_seed": 17
+          },
+          {
+            "mean": -6.639776984074995,
+            "omitted_seed": 19
+          },
+          {
+            "mean": -0.5316396710251459,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": -8.115050149800137,
+        "omission_count": 5
+      },
+      "maximum": 17.047219443400042,
+      "mean": -3.082596231160102,
+      "median": -9.021896402400015,
+      "minimum": -21.298008505600084,
+      "n": 5,
+      "negative_count": 3,
+      "positive_count": 2,
+      "same_sign_as_mean_count": 3,
+      "sample_standard_deviation": 16.423007020894016,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "uW",
+      "values": [
+        17.047219443400042,
+        -21.298008505600084,
+        -9.021896402400015,
+        11.146126780499474,
+        -13.286422471699925
+      ],
+      "zero_count": 0
+    },
+    "clean_read_internal_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 31.350878998399978,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 21.38754352960003,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 2050479533
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 27.396483346749946,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 23.211294319749975,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 25.851244572749984,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 25.95264231774997,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 27.042173315000063,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 27.396483346749946,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 23.211294319749975,
+        "omission_count": 5
+      },
+      "maximum": 36.608660593000046,
+      "mean": 25.890767574399987,
+      "median": 25.643268601000056,
+      "minimum": 19.867904485000153,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 6.565937142708277,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "uW",
+      "values": [
+        36.608660593000046,
+        26.048859581,
+        25.643268601000056,
+        21.285144611999687,
+        19.867904485000153
+      ],
+      "zero_count": 0
+    },
+    "clean_read_leakage_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.00011040128810000521,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 5.678657539993437e-05,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 3003010407
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 9.195844085000195e-05,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 6.961897722497243e-05,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 9.048051194998593e-05,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 8.107292612500173e-05,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 9.195844085000195e-05,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 8.159872774996713e-05,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 6.961897722497243e-05,
+        "omission_count": 5
+      },
+      "maximum": 0.00013625367500003945,
+      "mean": 8.294591677998583e-05,
+      "median": 8.833467290006065e-05,
+      "minimum": 4.6895820499921394e-05,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 3.582881771243087e-05,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "uW",
+      "values": [
+        0.00013625367500003945,
+        5.2807536099985427e-05,
+        9.043787939992226e-05,
+        4.6895820499921394e-05,
+        8.833467290006065e-05
+      ],
+      "zero_count": 0
+    },
+    "clean_read_switching_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": -17.5805878825201,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -39.43567862734005,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 1549598865
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": -24.379987735300038,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": -31.326344469550055,
+            "omitted_seed": 11
+          },
+          {
+            "mean": -24.379987735300038,
+            "omitted_seed": 13
+          },
+          {
+            "mean": -27.55041350610004,
+            "omitted_seed": 17
+          },
+          {
+            "mean": -33.681950299075034,
+            "omitted_seed": 19
+          },
+          {
+            "mean": -27.928123017775064,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": -33.681950299075034,
+        "omission_count": 5
+      },
+      "maximum": -10.139017831500103,
+      "mean": -28.973363805560044,
+      "median": -33.15432695669997,
+      "minimum": -47.34686808660008,
+      "n": 5,
+      "negative_count": 5,
+      "positive_count": 0,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 14.411623691179644,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "uW",
+      "values": [
+        -19.561441149600004,
+        -47.34686808660008,
+        -34.66516500340007,
+        -10.139017831500103,
+        -33.15432695669997
+      ],
+      "zero_count": 0
+    },
+    "e4_internal_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": -0.15200199999999994,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -0.15411199999999997,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 2932806310
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": -0.152235,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": -0.15301250000000002,
+            "omitted_seed": 11
+          },
+          {
+            "mean": -0.15313000000000002,
+            "omitted_seed": 13
+          },
+          {
+            "mean": -0.152235,
+            "omitted_seed": 17
+          },
+          {
+            "mean": -0.15291999999999997,
+            "omitted_seed": 19
+          },
+          {
+            "mean": -0.15294249999999998,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": -0.15313000000000002,
+        "omission_count": 5
+      },
+      "maximum": -0.15171999999999994,
+      "mean": -0.152848,
+      "median": -0.15247000000000005,
+      "minimum": -0.15529999999999994,
+      "n": 5,
+      "negative_count": 5,
+      "positive_count": 0,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 0.0014092089979843092,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "mW",
+      "values": [
+        -0.15218999999999996,
+        -0.15171999999999994,
+        -0.15529999999999994,
+        -0.15256000000000014,
+        -0.15247000000000005
+      ],
+      "zero_count": 0
+    },
+    "e4_leakage_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 1.812000000000043e-07,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 1.2600000000000523e-07,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 1282233571
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 1.6325000000000644e-07,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 1.422500000000091e-07,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 1.6325000000000644e-07,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 1.477500000000021e-07,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 1.6125000000000417e-07,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 1.53500000000002e-07,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 1.422500000000091e-07,
+        "omission_count": 5
+      },
+      "maximum": 1.9899999999998742e-07,
+      "mean": 1.5360000000000476e-07,
+      "median": 1.540000000000158e-07,
+      "minimum": 1.1499999999999805e-07,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 3.547957158703902e-08,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "mW",
+      "values": [
+        1.9899999999998742e-07,
+        1.1499999999999805e-07,
+        1.7700000000001542e-07,
+        1.2300000000000712e-07,
+        1.540000000000158e-07
+      ],
+      "zero_count": 0
+    },
+    "e4_switching_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": -0.142699,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -0.1779856,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 3513634605
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": -0.15737924999999997,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": -0.16986225,
+            "omitted_seed": 11
+          },
+          {
+            "mean": -0.15737924999999997,
+            "omitted_seed": 13
+          },
+          {
+            "mean": -0.15841925,
+            "omitted_seed": 17
+          },
+          {
+            "mean": -0.15791949999999996,
+            "omitted_seed": 19
+          },
+          {
+            "mean": -0.16561874999999998,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": -0.16986225,
+        "omission_count": 5
+      },
+      "maximum": -0.12974999999999998,
+      "mean": -0.16183979999999998,
+      "median": -0.1755219999999999,
+      "minimum": -0.179682,
+      "n": 5,
+      "negative_count": 5,
+      "positive_count": 0,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 0.022414779749085203,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "mW",
+      "values": [
+        -0.12974999999999998,
+        -0.179682,
+        -0.1755219999999999,
+        -0.17752100000000004,
+        -0.146724
+      ],
+      "zero_count": 0
+    },
+    "e4_total_power": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": -0.2951670143999999,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -0.3309056586,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 3817481399
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": -0.31050908675,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": -0.32287460775000004,
+            "omitted_seed": 11
+          },
+          {
+            "mean": -0.31050908675,
+            "omitted_seed": 13
+          },
+          {
+            "mean": -0.31065410225000006,
+            "omitted_seed": 17
+          },
+          {
+            "mean": -0.31083933874999997,
+            "omitted_seed": 19
+          },
+          {
+            "mean": -0.3185610965,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": -0.32287460775000004,
+        "omission_count": 5
+      },
+      "maximum": -0.28193980099999993,
+      "mean": -0.3146876464,
+      "median": -0.3300808770000002,
+      "minimum": -0.331401885,
+      "n": 5,
+      "negative_count": 5,
+      "positive_count": 0,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 0.022853381609839716,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "mW",
+      "values": [
+        -0.28193980099999993,
+        -0.331401885,
+        -0.33082182299999985,
+        -0.3300808770000002,
+        -0.29919384600000004
+      ],
+      "zero_count": 0
+    },
+    "energy_idle": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.05569548346834227,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -0.016860466246178367,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 3044804364
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "hsiao_lower_count": 1,
+      "leave_one_seed_out": {
+        "maximum_mean": 0.03503160170710633,
+        "mean_sign_retained_count": 4,
+        "means": [
+          {
+            "mean": 0.019295224774776853,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 0.03503160170710633,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 0.002771766958028995,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 0.019333462735981334,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 0.002771766958028995,
+        "omission_count": 4
+      },
+      "maximum": 0.06811675530180653,
+      "mean": 0.019108014043973377,
+      "median": 0.01848902490975623,
+      "minimum": -0.028662748945425472,
+      "n": 4,
+      "negative_count": 1,
+      "positive_count": 3,
+      "same_sign_as_mean_count": 3,
+      "sample_standard_deviation": 0.03951655936018326,
+      "seeds": [
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "pJ/operation",
+      "values": [
+        0.01854638185156295,
+        -0.028662748945425472,
+        0.06811675530180653,
+        0.018431667967949508
+      ],
+      "zero_count": 0
+    },
+    "energy_read_clean": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.09804089113308974,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": -0.1564417880176429,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 628858276
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "hsiao_lower_count": 3,
+      "leave_one_seed_out": {
+        "maximum_mean": 0.014718315469521046,
+        "mean_sign_retained_count": 4,
+        "means": [
+          {
+            "mean": -0.08118190976096079,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 0.014718315469521046,
+            "omitted_seed": 13
+          },
+          {
+            "mean": -0.015983662022515034,
+            "omitted_seed": 17
+          },
+          {
+            "mean": -0.06642341531765665,
+            "omitted_seed": 19
+          },
+          {
+            "mean": -0.005318764578650267,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": -0.08118190976096079,
+        "omission_count": 5
+      },
+      "maximum": 0.17053820283358148,
+      "mean": -0.030837887242052338,
+      "median": -0.09025478812020156,
+      "minimum": -0.21306269808834588,
+      "n": 5,
+      "negative_count": 3,
+      "positive_count": 2,
+      "same_sign_as_mean_count": 3,
+      "sample_standard_deviation": 0.16429353786055556,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "pJ/operation",
+      "values": [
+        0.17053820283358148,
+        -0.21306269808834588,
+        -0.09025478812020156,
+        0.11150422506036489,
+        -0.13291437789566063
+      ],
+      "zero_count": 0
+    },
+    "energy_read_double_bit_error_detect": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.33216203045703596,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 0.054848376749236524,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 2519212379
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "hsiao_lower_count": 0,
+      "leave_one_seed_out": {
+        "maximum_mean": 0.234428013523375,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 0.14050703953101526,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 0.234428013523375,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 0.20715056575342242,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 0.15302016981642683,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 0.23242022939144175,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 0.14050703953101526,
+        "omission_count": 5
+      },
+      "maximum": 0.40549785989162024,
+      "mean": 0.19350520360313625,
+      "median": 0.13892375500199158,
+      "minimum": 0.029813963922181278,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 0.17689652193088926,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "pJ/operation",
+      "values": [
+        0.40549785989162024,
+        0.029813963922181278,
+        0.13892375500199158,
+        0.3554453387499739,
+        0.037845100449914244
+      ],
+      "zero_count": 0
+    },
+    "energy_read_single_bit_error_correct": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.4482906808381819,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 0.17070870144459194,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 790822865
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "hsiao_lower_count": 0,
+      "leave_one_seed_out": {
+        "maximum_mean": 0.3498010662519388,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 0.2565363488447114,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 0.3478561709513636,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 0.32567271842132367,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 0.26763215123759726,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 0.3498010662519388,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 0.2565363488447114,
+        "omission_count": 5
+      },
+      "maximum": 0.5213530603280893,
+      "mean": 0.3094996911413869,
+      "median": 0.24480758202164002,
+      "minimum": 0.14829419069917954,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 0.17793250085852644,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "pJ/operation",
+      "values": [
+        0.5213530603280893,
+        0.1560737719014803,
+        0.24480758202164002,
+        0.4769698507565456,
+        0.14829419069917954
+      ],
+      "zero_count": 0
+    },
+    "energy_write_clean": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.13838803534321403,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 0.08905291269593192,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 3486261241
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "hsiao_lower_count": 0,
+      "leave_one_seed_out": {
+        "maximum_mean": 0.1365883278319727,
+        "mean_sign_retained_count": 4,
+        "means": [
+          {
+            "mean": 0.1365883278319727,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 0.11442506183671848,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 0.11513469629277161,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 0.1165795865759864,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 0.11442506183671848,
+        "omission_count": 4
+      },
+      "maximum": 0.13945248702729374,
+      "mean": 0.1206819181343623,
+      "median": 0.13515624823431216,
+      "minimum": 0.07296268904153111,
+      "n": 4,
+      "negative_count": 0,
+      "positive_count": 4,
+      "same_sign_as_mean_count": 4,
+      "sample_standard_deviation": 0.03192630175445944,
+      "seeds": [
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "pJ/operation",
+      "values": [
+        0.07296268904153111,
+        0.13945248702729374,
+        0.13732358365913436,
+        0.13298891280948996
+      ],
+      "zero_count": 0
+    },
+    "setup_wns": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 0.41492080000000003,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 0.045377200000000006,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 1011896774
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 0.3295405,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 0.21820900000000004,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 0.3295405,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 0.27760225000000005,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 0.20012725000000003,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 0.192979,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 0.192979,
+        "omission_count": 5
+      },
+      "maximum": 0.44654200000000005,
+      "mean": 0.24369160000000004,
+      "median": 0.34562200000000004,
+      "minimum": -0.09970400000000001,
+      "n": 5,
+      "negative_count": 1,
+      "positive_count": 4,
+      "same_sign_as_mean_count": 4,
+      "sample_standard_deviation": 0.23357182284749162,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "ns",
+      "values": [
+        0.34562200000000004,
+        -0.09970400000000001,
+        0.10804900000000006,
+        0.417949,
+        0.44654200000000005
+      ],
+      "zero_count": 0
+    },
+    "standard_cell_area": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 280.2400000000001,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 187.1400000000005,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 1223119585
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 260.22500000000036,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 222.37500000000045,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 260.22500000000036,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 242.70000000000027,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 226.75000000000045,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 233.95000000000027,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 222.37500000000045,
+        "omission_count": 5
+      },
+      "maximum": 296.5,
+      "mean": 237.20000000000036,
+      "median": 250.20000000000073,
+      "minimum": 145.10000000000036,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 59.99820830658179,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "um^2",
+      "values": [
+        296.5,
+        145.10000000000036,
+        215.20000000000073,
+        279.0,
+        250.20000000000073
+      ],
+      "zero_count": 0
+    },
+    "total_instance_area": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 280.4,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 187.6,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 3242533175
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 260.5,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 222.75,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 260.5,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 243.0,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 227.25,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 234.5,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 222.75,
+        "omission_count": 5
+      },
+      "maximum": 297.0,
+      "mean": 237.6,
+      "median": 250.0,
+      "minimum": 146.0,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 59.69338321790783,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "um^2",
+      "values": [
+        297.0,
+        146.0,
+        216.0,
+        279.0,
+        250.0
+      ],
+      "zero_count": 0
+    },
+    "via_count": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 505.2,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 436.4,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 2609163911
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 479.5,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 449.25,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 470.5,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 479.5,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 474.0,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 465.75,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 449.25,
+        "omission_count": 5
+      },
+      "maximum": 542.0,
+      "mean": 467.8,
+      "median": 457.0,
+      "minimum": 421.0,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 46.08361964950236,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "count",
+      "values": [
+        542.0,
+        457.0,
+        421.0,
+        443.0,
+        476.0
+      ],
+      "zero_count": 0
+    },
+    "wirelength": {
+      "bootstrap_mean_95_percentile_interval": {
+        "high": 3692.4,
+        "interpretation": "descriptive sensitivity interval; the placement seeds are not a population sample",
+        "low": 1860.0,
+        "method": "paired nonparametric percentile bootstrap",
+        "replicates": 50000,
+        "rng_seed": 424869512
+      },
+      "delta_definition": "Hsiao minus SECDED",
+      "leave_one_seed_out": {
+        "maximum_mean": 3548.0,
+        "mean_sign_retained_count": 5,
+        "means": [
+          {
+            "mean": 2868.0,
+            "omitted_seed": 11
+          },
+          {
+            "mean": 2823.5,
+            "omitted_seed": 13
+          },
+          {
+            "mean": 2937.25,
+            "omitted_seed": 17
+          },
+          {
+            "mean": 2787.25,
+            "omitted_seed": 19
+          },
+          {
+            "mean": 3548.0,
+            "omitted_seed": 23
+          }
+        ],
+        "minimum_mean": 2787.25,
+        "omission_count": 5
+      },
+      "maximum": 3815.0,
+      "mean": 2992.8,
+      "median": 3492.0,
+      "minimum": 772.0,
+      "n": 5,
+      "negative_count": 0,
+      "positive_count": 5,
+      "same_sign_as_mean_count": 5,
+      "sample_standard_deviation": 1261.4613351189168,
+      "seeds": [
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "unit": "um",
+      "values": [
+        3492.0,
+        3670.0,
+        3215.0,
+        3815.0,
+        772.0
+      ],
+      "zero_count": 0
+    }
+  },
+  "multiple_inference_claim": "NONE",
+  "ordering_summary": {
+    "denominators_are_not_interchangeable": true,
+    "e4_comparison_count": 5,
+    "e4_hsiao_lower": 5,
+    "e4_unit_of_replication": "matched physical seed",
+    "e5_comparison_count": 23,
+    "e5_hsiao_lower": 4,
+    "e5_unit_of_replication": "matched operation-by-seed cell"
+  },
+  "sample_design": "matched placement seeds; descriptive implementation replications",
+  "schema_version": 1
+}

@@ -1,0 +1,195 @@
+{
+  "admitted_architectures": [
+    "SECDED",
+    "HSIAO_SECDED"
+  ],
+  "blocked_fronts": [
+    "whole-memory energy",
+    "physical FIT",
+    "Qcrit",
+    "absolute lifecycle carbon"
+  ],
+  "clean_read_area_timing_energy": {
+    "front": [
+      "HSIAO_SECDED",
+      "SECDED"
+    ],
+    "objectives": {
+      "area_um2": "minimize",
+      "clean_read_energy_pj_per_operation": "minimize",
+      "setup_wns_ns": "maximize"
+    },
+    "points": {
+      "HSIAO_SECDED": {
+        "area_um2": 274217.4,
+        "clean_read_energy_pj_per_operation": 12.528475161166698,
+        "setup_wns_ns": 0.6774434
+      },
+      "SECDED": {
+        "area_um2": 273979.8,
+        "clean_read_energy_pj_per_operation": 12.55931304840875,
+        "setup_wns_ns": 0.4337518
+      }
+    },
+    "qualification": "jointly qualified at 10 ns across five matched seeds; architecture means shown"
+  },
+  "declared_endpoint_fronts": [
+    {
+      "area_energy_front": [
+        "SECDED"
+      ],
+      "area_timing_energy_front": [
+        "HSIAO_SECDED",
+        "SECDED"
+      ],
+      "points": {
+        "HSIAO_SECDED": {
+          "area_um2": 274217.4,
+          "energy_pj_per_operation": 3.369757191250966,
+          "setup_wns_ns": 0.6774434
+        },
+        "SECDED": {
+          "area_um2": 273979.8,
+          "energy_pj_per_operation": 3.350649177206993,
+          "setup_wns_ns": 0.4337518
+        }
+      },
+      "probabilities": {
+        "p_C": 0.0,
+        "p_D": 0.0,
+        "p_I": 1.0,
+        "p_R": 0.0,
+        "p_W": 0.0
+      },
+      "scenario_id": "IDLE_ENDPOINT"
+    },
+    {
+      "area_energy_front": [
+        "HSIAO_SECDED",
+        "SECDED"
+      ],
+      "area_timing_energy_front": [
+        "HSIAO_SECDED",
+        "SECDED"
+      ],
+      "points": {
+        "HSIAO_SECDED": {
+          "area_um2": 274217.4,
+          "energy_pj_per_operation": 12.528475161166698,
+          "setup_wns_ns": 0.6774434
+        },
+        "SECDED": {
+          "area_um2": 273979.8,
+          "energy_pj_per_operation": 12.55931304840875,
+          "setup_wns_ns": 0.4337518
+        }
+      },
+      "probabilities": {
+        "p_C": 0.0,
+        "p_D": 0.0,
+        "p_I": 0.0,
+        "p_R": 1.0,
+        "p_W": 0.0
+      },
+      "scenario_id": "READ_CLEAN_ENDPOINT"
+    },
+    {
+      "area_energy_front": [
+        "SECDED"
+      ],
+      "area_timing_energy_front": [
+        "HSIAO_SECDED",
+        "SECDED"
+      ],
+      "points": {
+        "HSIAO_SECDED": {
+          "area_um2": 274217.4,
+          "energy_pj_per_operation": 11.38284914077338,
+          "setup_wns_ns": 0.6774434
+        },
+        "SECDED": {
+          "area_um2": 273979.8,
+          "energy_pj_per_operation": 11.262167222639018,
+          "setup_wns_ns": 0.4337518
+        }
+      },
+      "probabilities": {
+        "p_C": 0.0,
+        "p_D": 0.0,
+        "p_I": 0.0,
+        "p_R": 0.0,
+        "p_W": 1.0
+      },
+      "scenario_id": "WRITE_CLEAN_ENDPOINT"
+    },
+    {
+      "area_energy_front": [
+        "SECDED"
+      ],
+      "area_timing_energy_front": [
+        "HSIAO_SECDED",
+        "SECDED"
+      ],
+      "points": {
+        "HSIAO_SECDED": {
+          "area_um2": 274217.4,
+          "energy_pj_per_operation": 13.747841595800326,
+          "setup_wns_ns": 0.6774434
+        },
+        "SECDED": {
+          "area_um2": 273979.8,
+          "energy_pj_per_operation": 13.43834190465894,
+          "setup_wns_ns": 0.4337518
+        }
+      },
+      "probabilities": {
+        "p_C": 1.0,
+        "p_D": 0.0,
+        "p_I": 0.0,
+        "p_R": 0.0,
+        "p_W": 0.0
+      },
+      "scenario_id": "READ_SINGLE_BIT_ERROR_CORRECT_ENDPOINT"
+    },
+    {
+      "area_energy_front": [
+        "SECDED"
+      ],
+      "area_timing_energy_front": [
+        "HSIAO_SECDED",
+        "SECDED"
+      ],
+      "points": {
+        "HSIAO_SECDED": {
+          "area_um2": 274217.4,
+          "energy_pj_per_operation": 13.629384195340378,
+          "setup_wns_ns": 0.6774434
+        },
+        "SECDED": {
+          "area_um2": 273979.8,
+          "energy_pj_per_operation": 13.435878991737242,
+          "setup_wns_ns": 0.4337518
+        }
+      },
+      "probabilities": {
+        "p_C": 0.0,
+        "p_D": 1.0,
+        "p_I": 0.0,
+        "p_R": 0.0,
+        "p_W": 0.0
+      },
+      "scenario_id": "READ_DOUBLE_BIT_ERROR_DETECT_ENDPOINT"
+    }
+  ],
+  "evidence_seal": "8cf245ac6ac8cb9b010c073d439f04eb204d48a1",
+  "excluded_architectures": {
+    "BCH_78_64_T2": "0/5 timing-feasible seeds at 10 ns and lacks E5",
+    "U0": "fails the mandatory SECDED reliability requirement and lacks E5"
+  },
+  "global_winner": "NO_GLOBAL_WINNER_QUALIFIED",
+  "hard_constraints": {
+    "reliability": "validated SECDED correction/detection semantics required",
+    "timing": "setup WNS >= 0 ns at 10 ns required"
+  },
+  "schema_version": 1
+}
