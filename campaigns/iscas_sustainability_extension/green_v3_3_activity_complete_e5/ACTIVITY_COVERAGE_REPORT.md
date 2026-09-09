@@ -1,5 +1,7 @@
-# Activity coverage report
+# Activity annotation coverage
 
-No VCD or SAIF has been generated in v3.3, so explicit annotation coverage is unavailable rather than zero. The deterministic workload specifications are complete, but they are not activity evidence. No RTL trace is described as post-route activity and no vectorless fallback is promoted to E5.
+Forty-six operation records passed the logic-only E5 gates. Functional-logic exact annotation coverage ranges from `99.298390%` to `99.356061%`; combinational coverage is at least `99.235547%` and sequential coverage is at least `100.000000%`. Each qualified record identified all 72 SRAM-output root candidates.
 
-The admission gate requires activity source/hash, measurement window, operation count, sequential/combinational/macro coverage, final-netlist hash, SPEF hash, clock/PVT/seed, and macro scope. Current classification: `E5_BLOCKED_NO_ACTIVITY_POWER_RUN`.
+The activity boundary is zero-delay simulation of the final routed gate netlist, recorded as VCD, with the final SPEF loaded for power analysis. Native `read_vcd` resolved top ports; exact scalar routed-net activity supplemented leaf pins. For macro-output-driven cones, a power-process-only OpenDB adapter made the VCD-measured SRAM outputs timing-graph roots. The original ODB was not modified.
+
+SRAM macro-interface coverage is reported separately and macro-internal state activity remains unavailable. Therefore the admitted quantity is ECC-logic energy excluding macro internal energy, never unrestricted whole-memory energy.

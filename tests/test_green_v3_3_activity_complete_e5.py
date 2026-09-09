@@ -174,8 +174,10 @@ def test_workloads_are_complete_deterministic_and_semantically_matched() -> None
         assert row["exact_operation_count"] == 256
         assert row["warm_up_cycles"] == 16
         assert row["activity_end_timestamp_ns"] > row["activity_begin_timestamp_ns"]
-        assert row["activity_sha256"] is None
+        assert row["activity_sha256"] is None or len(row["activity_sha256"]) == 64
         assert len(row["workload_sha256"]) == 64
+    qualified = [row for row in records if row["activity_sha256"] is not None]
+    assert len(qualified) == 46
     clean_read_hashes = {row["workload_sha256"] for row in records if row["operation_class"] == "READ_CLEAN"}
     clean_write_hashes = {row["workload_sha256"] for row in records if row["operation_class"] == "WRITE_CLEAN"}
     assert len(clean_read_hashes) == 1
@@ -204,14 +206,18 @@ def test_macro_audit_blocks_unrestricted_whole_memory_e5() -> None:
     assert all(row["observed_construct_counts"]["internal_power_groups"] > 0 for row in audit["macro_records"])
 
 
-def test_no_vectorless_power_is_promoted_to_e5() -> None:
+def test_only_qualified_activity_power_is_promoted_to_e5() -> None:
     status = load("CAMPAIGN_STATUS.json")
     statistics = load("E5_OPERATION_STATISTICS.json")
     matrix = load("GREEN_V3_3_ADDITIVE_MATRIX.json")
-    assert status["evidence_added"]["E5"] == 0
-    assert status["E5_status"] == "E5_BLOCKED_NO_ACTIVITY_POWER_RUN"
-    assert statistics["record_count"] == 0
-    assert matrix["new_evidence_counts"]["E5"] == 0
+    assert status["evidence_added"]["E5"] == 46
+    assert status["E5_status"] == "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE"
+    assert status["ecc_logic_e5_qualified"] is True
+    assert status["whole_memory_e5_qualified"] is False
+    assert statistics["qualified_measurement_count"] == 46
+    assert statistics["record_count"] == 10
+    assert {row["count"] for row in statistics["records"]} == {4, 5}
+    assert matrix["new_evidence_counts"]["E5"] == 46
     assert matrix["global_winner"] == "NO_GLOBAL_WINNER_QUALIFIED"
 
 

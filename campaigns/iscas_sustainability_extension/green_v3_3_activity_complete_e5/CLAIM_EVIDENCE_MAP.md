@@ -2,13 +2,13 @@
 
 | Claim | Evidence | Status |
 |---|---|---|
-| The physical population contains 40 matched routed/GDS runs | Frozen v3.2 `RUN_MANIFEST.json`, hash pinned in this campaign | Supported (inherited E4) |
-| U0, SECDED, and Hsiao are setup-feasible at 10 ns | `TIMING_FEASIBILITY.json`, five seeds each | Supported |
-| Only U0 is setup-feasible at 5 ns | `TIMING_FEASIBILITY.json`, five seeds each | Supported |
-| Workloads are deterministic and semantically matched | `WORKLOAD_MANIFEST.json` | Supported as infrastructure only |
-| Activity-aware operation energy is E5 | No qualifying activity/power record | Forbidden |
-| Whole-memory E5 energy is qualified | `SRAM_MACRO_POWER_QUALIFICATION.json` | Forbidden |
-| Hsiao retains lower operation energy than SECDED | No E5 energy measurements | Unresolved |
-| BCH is equal-performance at 10 ns | Negative WNS for 5/5 seeds | Forbidden |
-| Physical FIT/Qcrit/interleaver benefit/absolute lifecycle carbon | Required evidence absent | Forbidden |
-| A global winner exists | Mandatory dimensions remain blocked | `NO_GLOBAL_WINNER_QUALIFIED` |
+| One global 15-hour budget governed every run | `RUNTIME_STATE.json`, `RUN_MANIFEST.json` | Supported |
+| Ten fresh routed runs completed and were timing-feasible at 10 ns | ten `fresh_runs/*/RESULT.json` files | Supported |
+| 46 ECC-logic operation records meet E5 logic-only gates | `RUN_MANIFEST.json`, per-operation `E5_RECORD.json` files | Supported |
+| Five matched seed pairs cover all read classes | `E5_MATCHED_SEED_DELTAS.json` | Supported |
+| Four matched seed pairs cover all five operation classes | `E5_MATCHED_SEED_DELTAS.json` | Supported |
+| Hsiao retained the E4 lower-power tendency | Hsiao lower in 4/23 E5 comparisons | Rejected for this sample |
+| Whole-memory operation energy is E5 | `SRAM_MACRO_POWER_QUALIFICATION.json` | Forbidden |
+| U0 or BCH has v3.3 E5 evidence | no canonical E5 records | Not established |
+| Physical FIT/Qcrit/interleaver benefit/absolute lifecycle carbon | required evidence absent | Forbidden |
+| A global winner exists | mandatory dimensions remain blocked | `NO_GLOBAL_WINNER_QUALIFIED` |

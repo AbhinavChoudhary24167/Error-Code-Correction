@@ -1,19 +1,35 @@
 {
-  "E5_status": "E5_BLOCKED_NO_ACTIVITY_POWER_RUN",
+  "E5_status": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
   "Qcrit": "BLOCKED",
   "SKY130_manufacturing_lifecycle_carbon": "BLOCKED",
-  "activity_annotation_coverage": null,
-  "activity_format": null,
+  "activity_annotation_coverage": {
+    "aggregate_maximum": 0.9049640757674723,
+    "aggregate_minimum": 0.8886583679114799,
+    "combinational_minimum": 0.9923554706163402,
+    "functional_logic_maximum": 0.993560606060606,
+    "functional_logic_minimum": 0.9929839042509286,
+    "macro_internal_activity_coverage": null,
+    "macro_output_roots_required_and_annotated": 72,
+    "qualified_record_count": 46,
+    "sequential_minimum": 1.0
+  },
+  "activity_boundary": "POST_ROUTE_GATE_ACTIVITY_ZERO_DELAY_ROUTED_NETLIST",
+  "activity_format": "VCD",
   "campaign": "green_v3_3_activity_complete_e5",
-  "classification": "GREEN_V3_3_ACTIVITY_WORKLOAD_AND_GLOBAL_RUNTIME_INFRASTRUCTURE_COMPLETE_INHERITED_MATCHED_PHYSICAL_POPULATION_E5_BLOCKED_NO_ACTIVITY_POWER_RUN_MACRO_ENERGY_INCOMPLETE_ABSOLUTE_RELIABILITY_AND_LIFECYCLE_BLOCKED",
-  "ecc_logic_e5_qualified": false,
+  "classification": "GREEN_V3_3_ACTIVITY_COMPLETE_POST_ROUTE_E5_LOGIC_QUALIFIED_MULTI_ARCH_MATCHED_SEED_PHYSICAL_VALIDATION_COMPLETE_MACRO_ENERGY_PARTIAL_ABSOLUTE_RELIABILITY_AND_LIFECYCLE_BLOCKED",
+  "e5_executed_architectures": [
+    "SECDED",
+    "HSIAO_SECDED"
+  ],
+  "ecc_logic_e5_qualified": true,
   "evidence_added": {
     "E3": 0,
     "E4": 0,
-    "E5": 0
+    "E5": 46
   },
   "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
-  "fresh_physical_run_count": 0,
+  "fresh_physical_run_count": 10,
+  "fresh_timing_feasible_run_count": 10,
   "generated_on": "2026-09-09",
   "global_winner": "NO_GLOBAL_WINNER_QUALIFIED",
   "included_architectures": [
@@ -25,6 +41,12 @@
   "inherited_physical_run_count": 40,
   "interleaver_reliability": "BLOCKED",
   "macro_power_qualification": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
+  "matched_seed_summary": {
+    "complete_five_operation_seed_pairs": 4,
+    "hsiao_lower_energy_comparisons": 4,
+    "matched_operation_comparisons": 23,
+    "read_operation_seed_pairs": 5
+  },
   "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
   "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
   "parent_matched_campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
@@ -32,18 +54,23 @@
   "parent_physical_population_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
   "physical_SDC_DUE_FIT": "BLOCKED",
   "physical_logical_topology": "BLOCKED",
-  "post_route_activity_generated": false,
-  "qualified_e5_pareto_status": "BLOCKED",
+  "post_route_activity_generated": true,
+  "qualified_e5_pareto_status": "PARTIAL_TWO_ARCHITECTURE_LOGIC_ONLY_NO_GLOBAL_WINNER",
   "qualified_sustainability_pareto_status": "BLOCKED",
   "runtime_budget": {
-    "campaign_started": false,
+    "campaign_end_time_utc": "2026-09-09T04:08:47.880193Z",
+    "campaign_start_time_utc": "2026-09-08T21:30:53.296930Z",
+    "campaign_started": true,
+    "consumed_wall_clock_seconds": 23874.583263,
     "deadline_hit": false,
+    "hard_deadline_utc": "2026-09-09T12:30:53.296930Z",
     "hours": 15,
     "per_run_timeout_seconds": null,
     "scope": "ENTIRE_CAMPAIGN",
     "seconds": 54000
   },
   "schema_version": "1.0.0",
+  "scientific_success_level": "LEVEL_B_STRONG",
   "timing_feasible_10ns": [
     "U0",
     "SECDED",

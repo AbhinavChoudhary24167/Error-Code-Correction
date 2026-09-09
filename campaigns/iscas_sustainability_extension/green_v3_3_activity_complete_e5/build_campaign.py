@@ -293,6 +293,20 @@ def matched_deltas(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def build(repo: Path) -> None:
     campaign = repo / CAMPAIGN_REL
+    executed_sources = [
+        campaign / "fresh_runs" / f"{architecture}_clk10p0ns_seed{seed}" / "RESULT.json"
+        for architecture in ("secded", "hsiao_secded")
+        for seed in (13, 17, 19, 23)
+    ]
+    remediation_sources = [
+        campaign / "fresh_runs" / f"{architecture}_clk10p0ns_seed11" / "ACTIVITY_REMEDIATION06_RESULT.json"
+        for architecture in ("secded", "hsiao_secded")
+    ]
+    if all(path.exists() for path in executed_sources + remediation_sources):
+        from finalize_executed_campaign import finalize
+
+        finalize(repo)
+        return
     parent = repo / PARENT_REL
     physical_payload = json.loads((parent / "PHYSICAL_RUN_RESULTS.json").read_text(encoding="utf-8"))
     physical_records: list[dict[str, Any]] = physical_payload["records"]
