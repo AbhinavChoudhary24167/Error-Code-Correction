@@ -1,0 +1,133 @@
+{
+  "activity": {
+    "activity_generation_boundary": "POST_ROUTE_GATE_ACTIVITY_ZERO_DELAY_ROUTED_NETLIST",
+    "compressed_preserved_path": "campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/operations/READ_CLEAN/READ_CLEAN.vcd.gz",
+    "coverage": {
+      "aggregate_coverage_fraction": 0.9939480242079032,
+      "annotated_pin_count": 2792,
+      "by_cell_class": {
+        "clock": {
+          "annotated_pin_count": 313,
+          "coverage_fraction": 0.9968152866242038,
+          "unannotated_pin_count": 1
+        },
+        "combinational": {
+          "annotated_pin_count": 2081,
+          "coverage_fraction": 0.9923700524558894,
+          "unannotated_pin_count": 16
+        },
+        "macro_interface": {
+          "annotated_pin_count": 184,
+          "coverage_fraction": 1.0,
+          "unannotated_pin_count": 0
+        },
+        "sequential": {
+          "annotated_pin_count": 18,
+          "coverage_fraction": 1.0,
+          "unannotated_pin_count": 0
+        },
+        "top_port_or_unknown": {
+          "annotated_pin_count": 196,
+          "coverage_fraction": 1.0,
+          "unannotated_pin_count": 0
+        }
+      },
+      "functional_logic_annotated_pin_count": 2412,
+      "functional_logic_coverage_fraction": 0.993001235076163,
+      "functional_logic_unannotated_pin_count": 17,
+      "macro_activity_boundary": "INTERFACE_PINS_ANNOTATED_INTERNAL_STATE_ACTIVITY_ABSENT",
+      "macro_internal_activity_coverage": null,
+      "physical_only_pins_excluded_from_functional_logic_coverage": true,
+      "unannotated_pin_count": 17
+    },
+    "dut_hierarchy": "tb/dut",
+    "explicit_routed_net_annotation": {
+      "emitted_net_count": 1083,
+      "sha256": "57b81043f9f6c0a73f4f9d192eb11897f1f2ece3678fc9ec848f7837f31ccd0a",
+      "skipped_net_names": []
+    },
+    "external_raw_path": "/var/lib/green-ecc-v33-activity-complete-e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/activity/READ_CLEAN.vcd",
+    "format": "VCD",
+    "native_read_vcd_annotation_outcome": "TOP_PORT_ONLY; supplemented by exact scalar routed-net annotations",
+    "sha256": "0c4b196de33bc88135f59fd26b67caae612b00771ae75f6dc61cef44a2241545",
+    "simulation_tool": "Icarus Verilog"
+  },
+  "architecture_id": "SECDED",
+  "clock_period_ns": 10.0,
+  "codeword_vector_sha256": "b3a159daf2ff4a8e270efa435cc49601b5b9bbb46b966545d9f3ee983484c7d7",
+  "ecc_logic_e5_qualified": true,
+  "evidence_level": "E5",
+  "exact_operation_count": 256,
+  "fault_injection_manifest": {
+    "injection_count": 0,
+    "injections": [],
+    "path": "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/workloads/codewords_read_clean.hex",
+    "sha256": "b3a159daf2ff4a8e270efa435cc49601b5b9bbb46b966545d9f3ee983484c7d7"
+  },
+  "measured_cycles": 256,
+  "measurement_begin_ns": 176.0,
+  "measurement_duration_seconds": 2.561e-06,
+  "measurement_end_ns": 2737.0,
+  "operation_class": "READ_CLEAN",
+  "parasitics": {
+    "format": "SPEF",
+    "loaded_by_openroad": true,
+    "sha256": "dce5b608fa2d0d26be605a4e0779c9cf775eca52eb3d6eb14219999a88c67456"
+  },
+  "payload_vector_sha256": "bb3cd27a43f9009a2c89d768db17b51c121afaf39ed8fe29f2b6f46098513480",
+  "physical_seed": 11,
+  "power": {
+    "ecc_logic_energy_j_per_operation": 1.3562143923993426e-10,
+    "ecc_logic_excluding_macro_w": {
+      "internal_w": 0.005408221855759,
+      "leakage_w": 3.30510374619994e-09,
+      "switching_w": 0.008148623630404,
+      "total_w": 0.013556848280134
+    },
+    "macro_reported_partial_w": {
+      "internal_w": 0.002183851320297,
+      "leakage_w": 7.306775842153e-07,
+      "switching_w": 0.0,
+      "total_w": 0.002184581942856
+    },
+    "report_sha256": "3899935746be6f7082fd2f43ada7199d4846d5144ca840cb317067394225143f",
+    "whole_design_including_partial_macro_w": {
+      "internal_w": 0.007592073176056,
+      "leakage_w": 7.339826879615e-07,
+      "switching_w": 0.008148623630404,
+      "total_w": 0.01574143022299
+    },
+    "whole_memory_energy_blocker": "SRAM_MACRO_INTERNAL_ENERGY_INCOMPLETE",
+    "whole_memory_energy_j_per_operation": null
+  },
+  "pvt": {
+    "corner": "tt_025C_1v80",
+    "platform": "sky130hd",
+    "temperature_c": 25,
+    "voltage_v": 1.8
+  },
+  "qualification": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
+  "qualification_thresholds": {
+    "functional_logic_annotation_coverage_minimum": 0.95
+  },
+  "record_id": "secded_clk10p0ns_seed11_read_clean_explicit_routed_activity",
+  "routed_netlist_sha256": "71e2460c21db9796c0cf5bfb097e3ee55e6d41d5c81f6d98336d793907e489d5",
+  "schema_version": 1,
+  "timing_feasible": true,
+  "warm_up_cycles": 16,
+  "whole_memory_e5_qualified": false,
+  "workload": {
+    "address_sequence": "address[i]=(19+73*i) mod 256",
+    "error_injection_sequence": "none",
+    "exact_operation_count": 256,
+    "injected_logical_bits_per_operation": 0,
+    "measured_cycles": 256,
+    "payload_generator_exact_definition": "iterative unsigned 64-bit xorshift: x^=x>>12; x^=x<<25; x^=x>>27; output=x*2685821657736338717 modulo 2^64",
+    "payload_pattern_generator": "xorshift64star(seed=3301,index=i)",
+    "rng_seed": 3301,
+    "schema_version": 1,
+    "semantic_operation_class": "READ_CLEAN",
+    "warm_up_cycles": 16
+  },
+  "workload_sha256": "73ff21ef0b0227828bdadbd680694aaa23fff3281391038c984172d2761e8668"
+}

@@ -1,0 +1,3221 @@
+{
+  "activity": {
+    "activity_generation_boundary": "POST_ROUTE_GATE_ACTIVITY_ZERO_DELAY_ROUTED_NETLIST",
+    "compressed_preserved_path": "campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/operations/READ_DOUBLE_BIT_ERROR_DETECT/READ_DOUBLE_BIT_ERROR_DETECT.vcd.gz",
+    "coverage": {
+      "aggregate_coverage_fraction": 0.8892745574453315,
+      "annotated_pin_count": 2562,
+      "annotation_source_counts": {
+        "user": 2420,
+        "vcd": 142
+      },
+      "by_cell_class": {
+        "clock": {
+          "annotated_pin_count": 313,
+          "coverage_fraction": 0.9968152866242038,
+          "unannotated_pin_count": 1
+        },
+        "combinational": {
+          "annotated_pin_count": 2081,
+          "coverage_fraction": 0.9923700524558894,
+          "unannotated_pin_count": 16
+        },
+        "macro_interface": {
+          "annotated_pin_count": 8,
+          "coverage_fraction": 0.043478260869565216,
+          "unannotated_pin_count": 176
+        },
+        "sequential": {
+          "annotated_pin_count": 18,
+          "coverage_fraction": 1.0,
+          "unannotated_pin_count": 0
+        },
+        "top_port_or_unknown": {
+          "annotated_pin_count": 142,
+          "coverage_fraction": 0.5298507462686567,
+          "unannotated_pin_count": 126
+        }
+      },
+      "exact_activity_sources": [
+        "clock",
+        "constant",
+        "user",
+        "vcd"
+      ],
+      "functional_logic_annotated_pin_count": 2412,
+      "functional_logic_coverage_fraction": 0.993001235076163,
+      "functional_logic_unannotated_pin_count": 17,
+      "inexact_propagated_or_default_functional_pin_count": 0,
+      "macro_activity_boundary": "INTERFACE_PINS_ANNOTATED_INTERNAL_STATE_ACTIVITY_ABSENT",
+      "macro_internal_activity_coverage": null,
+      "physical_only_pins_excluded_from_functional_logic_coverage": true,
+      "unannotated_pin_count": 319
+    },
+    "dut_hierarchy": "tb/dut",
+    "explicit_routed_net_annotation": {
+      "emitted_net_count": 1083,
+      "macro_output_activity_root_candidate_count": 72,
+      "mapped_pin_reference_count": 2420,
+      "opensta_density_input_unit": "transitions_per_nanosecond",
+      "sha256": "510d7b43ec8edd5d5ce17e6bd6437886a2fc7d2621022d0d3e5c85302d21571f",
+      "skipped_net_names": [],
+      "source_density_unit": "transitions_per_second"
+    },
+    "external_raw_path": "/var/lib/green-ecc-v33-activity-complete-e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/activity/READ_DOUBLE_BIT_ERROR_DETECT.vcd",
+    "format": "VCD",
+    "native_read_vcd_annotation_outcome": "TOP_PORT_ONLY; supplemented by exact scalar routed-net annotations",
+    "sha256": "05cf0d060e8c21ee92b8501c6078d4d547df4eed8403bc9cc4319a6c6240165f",
+    "simulation_tool": "Icarus Verilog"
+  },
+  "architecture_id": "SECDED",
+  "clock_period_ns": 10.0,
+  "codeword_vector_sha256": "377ee58da988c9e790d2a7d94ebad9f7c815955405a0f1fa89a8b46b61162b2e",
+  "ecc_logic_e5_qualified": true,
+  "evidence_level": "E5",
+  "exact_operation_count": 256,
+  "fault_injection_manifest": {
+    "injection_count": 256,
+    "injections": [
+      {
+        "logical_address": 19,
+        "operation_index": 0,
+        "payload_bits": [
+          3,
+          10
+        ],
+        "physical_codeword_coordinates": [
+          6,
+          14
+        ]
+      },
+      {
+        "logical_address": 92,
+        "operation_index": 1,
+        "payload_bits": [
+          10,
+          17
+        ],
+        "physical_codeword_coordinates": [
+          14,
+          22
+        ]
+      },
+      {
+        "logical_address": 165,
+        "operation_index": 2,
+        "payload_bits": [
+          17,
+          24
+        ],
+        "physical_codeword_coordinates": [
+          22,
+          29
+        ]
+      },
+      {
+        "logical_address": 238,
+        "operation_index": 3,
+        "payload_bits": [
+          24,
+          31
+        ],
+        "physical_codeword_coordinates": [
+          29,
+          37
+        ]
+      },
+      {
+        "logical_address": 55,
+        "operation_index": 4,
+        "payload_bits": [
+          31,
+          38
+        ],
+        "physical_codeword_coordinates": [
+          37,
+          44
+        ]
+      },
+      {
+        "logical_address": 128,
+        "operation_index": 5,
+        "payload_bits": [
+          38,
+          45
+        ],
+        "physical_codeword_coordinates": [
+          44,
+          51
+        ]
+      },
+      {
+        "logical_address": 201,
+        "operation_index": 6,
+        "payload_bits": [
+          45,
+          52
+        ],
+        "physical_codeword_coordinates": [
+          51,
+          58
+        ]
+      },
+      {
+        "logical_address": 18,
+        "operation_index": 7,
+        "payload_bits": [
+          52,
+          59
+        ],
+        "physical_codeword_coordinates": [
+          58,
+          66
+        ]
+      },
+      {
+        "logical_address": 91,
+        "operation_index": 8,
+        "payload_bits": [
+          59,
+          2
+        ],
+        "physical_codeword_coordinates": [
+          66,
+          5
+        ]
+      },
+      {
+        "logical_address": 164,
+        "operation_index": 9,
+        "payload_bits": [
+          2,
+          9
+        ],
+        "physical_codeword_coordinates": [
+          5,
+          13
+        ]
+      },
+      {
+        "logical_address": 237,
+        "operation_index": 10,
+        "payload_bits": [
+          9,
+          16
+        ],
+        "physical_codeword_coordinates": [
+          13,
+          21
+        ]
+      },
+      {
+        "logical_address": 54,
+        "operation_index": 11,
+        "payload_bits": [
+          16,
+          23
+        ],
+        "physical_codeword_coordinates": [
+          21,
+          28
+        ]
+      },
+      {
+        "logical_address": 127,
+        "operation_index": 12,
+        "payload_bits": [
+          23,
+          30
+        ],
+        "physical_codeword_coordinates": [
+          28,
+          36
+        ]
+      },
+      {
+        "logical_address": 200,
+        "operation_index": 13,
+        "payload_bits": [
+          30,
+          37
+        ],
+        "physical_codeword_coordinates": [
+          36,
+          43
+        ]
+      },
+      {
+        "logical_address": 17,
+        "operation_index": 14,
+        "payload_bits": [
+          37,
+          44
+        ],
+        "physical_codeword_coordinates": [
+          43,
+          50
+        ]
+      },
+      {
+        "logical_address": 90,
+        "operation_index": 15,
+        "payload_bits": [
+          44,
+          51
+        ],
+        "physical_codeword_coordinates": [
+          50,
+          57
+        ]
+      },
+      {
+        "logical_address": 163,
+        "operation_index": 16,
+        "payload_bits": [
+          51,
+          58
+        ],
+        "physical_codeword_coordinates": [
+          57,
+          65
+        ]
+      },
+      {
+        "logical_address": 236,
+        "operation_index": 17,
+        "payload_bits": [
+          58,
+          1
+        ],
+        "physical_codeword_coordinates": [
+          65,
+          4
+        ]
+      },
+      {
+        "logical_address": 53,
+        "operation_index": 18,
+        "payload_bits": [
+          1,
+          8
+        ],
+        "physical_codeword_coordinates": [
+          4,
+          12
+        ]
+      },
+      {
+        "logical_address": 126,
+        "operation_index": 19,
+        "payload_bits": [
+          8,
+          15
+        ],
+        "physical_codeword_coordinates": [
+          12,
+          20
+        ]
+      },
+      {
+        "logical_address": 199,
+        "operation_index": 20,
+        "payload_bits": [
+          15,
+          22
+        ],
+        "physical_codeword_coordinates": [
+          20,
+          27
+        ]
+      },
+      {
+        "logical_address": 16,
+        "operation_index": 21,
+        "payload_bits": [
+          22,
+          29
+        ],
+        "physical_codeword_coordinates": [
+          27,
+          35
+        ]
+      },
+      {
+        "logical_address": 89,
+        "operation_index": 22,
+        "payload_bits": [
+          29,
+          36
+        ],
+        "physical_codeword_coordinates": [
+          35,
+          42
+        ]
+      },
+      {
+        "logical_address": 162,
+        "operation_index": 23,
+        "payload_bits": [
+          36,
+          43
+        ],
+        "physical_codeword_coordinates": [
+          42,
+          49
+        ]
+      },
+      {
+        "logical_address": 235,
+        "operation_index": 24,
+        "payload_bits": [
+          43,
+          50
+        ],
+        "physical_codeword_coordinates": [
+          49,
+          56
+        ]
+      },
+      {
+        "logical_address": 52,
+        "operation_index": 25,
+        "payload_bits": [
+          50,
+          57
+        ],
+        "physical_codeword_coordinates": [
+          56,
+          64
+        ]
+      },
+      {
+        "logical_address": 125,
+        "operation_index": 26,
+        "payload_bits": [
+          57,
+          0
+        ],
+        "physical_codeword_coordinates": [
+          64,
+          2
+        ]
+      },
+      {
+        "logical_address": 198,
+        "operation_index": 27,
+        "payload_bits": [
+          0,
+          7
+        ],
+        "physical_codeword_coordinates": [
+          2,
+          11
+        ]
+      },
+      {
+        "logical_address": 15,
+        "operation_index": 28,
+        "payload_bits": [
+          7,
+          14
+        ],
+        "physical_codeword_coordinates": [
+          11,
+          19
+        ]
+      },
+      {
+        "logical_address": 88,
+        "operation_index": 29,
+        "payload_bits": [
+          14,
+          21
+        ],
+        "physical_codeword_coordinates": [
+          19,
+          26
+        ]
+      },
+      {
+        "logical_address": 161,
+        "operation_index": 30,
+        "payload_bits": [
+          21,
+          28
+        ],
+        "physical_codeword_coordinates": [
+          26,
+          34
+        ]
+      },
+      {
+        "logical_address": 234,
+        "operation_index": 31,
+        "payload_bits": [
+          28,
+          35
+        ],
+        "physical_codeword_coordinates": [
+          34,
+          41
+        ]
+      },
+      {
+        "logical_address": 51,
+        "operation_index": 32,
+        "payload_bits": [
+          35,
+          42
+        ],
+        "physical_codeword_coordinates": [
+          41,
+          48
+        ]
+      },
+      {
+        "logical_address": 124,
+        "operation_index": 33,
+        "payload_bits": [
+          42,
+          49
+        ],
+        "physical_codeword_coordinates": [
+          48,
+          55
+        ]
+      },
+      {
+        "logical_address": 197,
+        "operation_index": 34,
+        "payload_bits": [
+          49,
+          56
+        ],
+        "physical_codeword_coordinates": [
+          55,
+          62
+        ]
+      },
+      {
+        "logical_address": 14,
+        "operation_index": 35,
+        "payload_bits": [
+          56,
+          63
+        ],
+        "physical_codeword_coordinates": [
+          62,
+          70
+        ]
+      },
+      {
+        "logical_address": 87,
+        "operation_index": 36,
+        "payload_bits": [
+          63,
+          6
+        ],
+        "physical_codeword_coordinates": [
+          70,
+          10
+        ]
+      },
+      {
+        "logical_address": 160,
+        "operation_index": 37,
+        "payload_bits": [
+          6,
+          13
+        ],
+        "physical_codeword_coordinates": [
+          10,
+          18
+        ]
+      },
+      {
+        "logical_address": 233,
+        "operation_index": 38,
+        "payload_bits": [
+          13,
+          20
+        ],
+        "physical_codeword_coordinates": [
+          18,
+          25
+        ]
+      },
+      {
+        "logical_address": 50,
+        "operation_index": 39,
+        "payload_bits": [
+          20,
+          27
+        ],
+        "physical_codeword_coordinates": [
+          25,
+          33
+        ]
+      },
+      {
+        "logical_address": 123,
+        "operation_index": 40,
+        "payload_bits": [
+          27,
+          34
+        ],
+        "physical_codeword_coordinates": [
+          33,
+          40
+        ]
+      },
+      {
+        "logical_address": 196,
+        "operation_index": 41,
+        "payload_bits": [
+          34,
+          41
+        ],
+        "physical_codeword_coordinates": [
+          40,
+          47
+        ]
+      },
+      {
+        "logical_address": 13,
+        "operation_index": 42,
+        "payload_bits": [
+          41,
+          48
+        ],
+        "physical_codeword_coordinates": [
+          47,
+          54
+        ]
+      },
+      {
+        "logical_address": 86,
+        "operation_index": 43,
+        "payload_bits": [
+          48,
+          55
+        ],
+        "physical_codeword_coordinates": [
+          54,
+          61
+        ]
+      },
+      {
+        "logical_address": 159,
+        "operation_index": 44,
+        "payload_bits": [
+          55,
+          62
+        ],
+        "physical_codeword_coordinates": [
+          61,
+          69
+        ]
+      },
+      {
+        "logical_address": 232,
+        "operation_index": 45,
+        "payload_bits": [
+          62,
+          5
+        ],
+        "physical_codeword_coordinates": [
+          69,
+          9
+        ]
+      },
+      {
+        "logical_address": 49,
+        "operation_index": 46,
+        "payload_bits": [
+          5,
+          12
+        ],
+        "physical_codeword_coordinates": [
+          9,
+          17
+        ]
+      },
+      {
+        "logical_address": 122,
+        "operation_index": 47,
+        "payload_bits": [
+          12,
+          19
+        ],
+        "physical_codeword_coordinates": [
+          17,
+          24
+        ]
+      },
+      {
+        "logical_address": 195,
+        "operation_index": 48,
+        "payload_bits": [
+          19,
+          26
+        ],
+        "physical_codeword_coordinates": [
+          24,
+          32
+        ]
+      },
+      {
+        "logical_address": 12,
+        "operation_index": 49,
+        "payload_bits": [
+          26,
+          33
+        ],
+        "physical_codeword_coordinates": [
+          32,
+          39
+        ]
+      },
+      {
+        "logical_address": 85,
+        "operation_index": 50,
+        "payload_bits": [
+          33,
+          40
+        ],
+        "physical_codeword_coordinates": [
+          39,
+          46
+        ]
+      },
+      {
+        "logical_address": 158,
+        "operation_index": 51,
+        "payload_bits": [
+          40,
+          47
+        ],
+        "physical_codeword_coordinates": [
+          46,
+          53
+        ]
+      },
+      {
+        "logical_address": 231,
+        "operation_index": 52,
+        "payload_bits": [
+          47,
+          54
+        ],
+        "physical_codeword_coordinates": [
+          53,
+          60
+        ]
+      },
+      {
+        "logical_address": 48,
+        "operation_index": 53,
+        "payload_bits": [
+          54,
+          61
+        ],
+        "physical_codeword_coordinates": [
+          60,
+          68
+        ]
+      },
+      {
+        "logical_address": 121,
+        "operation_index": 54,
+        "payload_bits": [
+          61,
+          4
+        ],
+        "physical_codeword_coordinates": [
+          68,
+          8
+        ]
+      },
+      {
+        "logical_address": 194,
+        "operation_index": 55,
+        "payload_bits": [
+          4,
+          11
+        ],
+        "physical_codeword_coordinates": [
+          8,
+          16
+        ]
+      },
+      {
+        "logical_address": 11,
+        "operation_index": 56,
+        "payload_bits": [
+          11,
+          18
+        ],
+        "physical_codeword_coordinates": [
+          16,
+          23
+        ]
+      },
+      {
+        "logical_address": 84,
+        "operation_index": 57,
+        "payload_bits": [
+          18,
+          25
+        ],
+        "physical_codeword_coordinates": [
+          23,
+          30
+        ]
+      },
+      {
+        "logical_address": 157,
+        "operation_index": 58,
+        "payload_bits": [
+          25,
+          32
+        ],
+        "physical_codeword_coordinates": [
+          30,
+          38
+        ]
+      },
+      {
+        "logical_address": 230,
+        "operation_index": 59,
+        "payload_bits": [
+          32,
+          39
+        ],
+        "physical_codeword_coordinates": [
+          38,
+          45
+        ]
+      },
+      {
+        "logical_address": 47,
+        "operation_index": 60,
+        "payload_bits": [
+          39,
+          46
+        ],
+        "physical_codeword_coordinates": [
+          45,
+          52
+        ]
+      },
+      {
+        "logical_address": 120,
+        "operation_index": 61,
+        "payload_bits": [
+          46,
+          53
+        ],
+        "physical_codeword_coordinates": [
+          52,
+          59
+        ]
+      },
+      {
+        "logical_address": 193,
+        "operation_index": 62,
+        "payload_bits": [
+          53,
+          60
+        ],
+        "physical_codeword_coordinates": [
+          59,
+          67
+        ]
+      },
+      {
+        "logical_address": 10,
+        "operation_index": 63,
+        "payload_bits": [
+          60,
+          3
+        ],
+        "physical_codeword_coordinates": [
+          67,
+          6
+        ]
+      },
+      {
+        "logical_address": 83,
+        "operation_index": 64,
+        "payload_bits": [
+          3,
+          10
+        ],
+        "physical_codeword_coordinates": [
+          6,
+          14
+        ]
+      },
+      {
+        "logical_address": 156,
+        "operation_index": 65,
+        "payload_bits": [
+          10,
+          17
+        ],
+        "physical_codeword_coordinates": [
+          14,
+          22
+        ]
+      },
+      {
+        "logical_address": 229,
+        "operation_index": 66,
+        "payload_bits": [
+          17,
+          24
+        ],
+        "physical_codeword_coordinates": [
+          22,
+          29
+        ]
+      },
+      {
+        "logical_address": 46,
+        "operation_index": 67,
+        "payload_bits": [
+          24,
+          31
+        ],
+        "physical_codeword_coordinates": [
+          29,
+          37
+        ]
+      },
+      {
+        "logical_address": 119,
+        "operation_index": 68,
+        "payload_bits": [
+          31,
+          38
+        ],
+        "physical_codeword_coordinates": [
+          37,
+          44
+        ]
+      },
+      {
+        "logical_address": 192,
+        "operation_index": 69,
+        "payload_bits": [
+          38,
+          45
+        ],
+        "physical_codeword_coordinates": [
+          44,
+          51
+        ]
+      },
+      {
+        "logical_address": 9,
+        "operation_index": 70,
+        "payload_bits": [
+          45,
+          52
+        ],
+        "physical_codeword_coordinates": [
+          51,
+          58
+        ]
+      },
+      {
+        "logical_address": 82,
+        "operation_index": 71,
+        "payload_bits": [
+          52,
+          59
+        ],
+        "physical_codeword_coordinates": [
+          58,
+          66
+        ]
+      },
+      {
+        "logical_address": 155,
+        "operation_index": 72,
+        "payload_bits": [
+          59,
+          2
+        ],
+        "physical_codeword_coordinates": [
+          66,
+          5
+        ]
+      },
+      {
+        "logical_address": 228,
+        "operation_index": 73,
+        "payload_bits": [
+          2,
+          9
+        ],
+        "physical_codeword_coordinates": [
+          5,
+          13
+        ]
+      },
+      {
+        "logical_address": 45,
+        "operation_index": 74,
+        "payload_bits": [
+          9,
+          16
+        ],
+        "physical_codeword_coordinates": [
+          13,
+          21
+        ]
+      },
+      {
+        "logical_address": 118,
+        "operation_index": 75,
+        "payload_bits": [
+          16,
+          23
+        ],
+        "physical_codeword_coordinates": [
+          21,
+          28
+        ]
+      },
+      {
+        "logical_address": 191,
+        "operation_index": 76,
+        "payload_bits": [
+          23,
+          30
+        ],
+        "physical_codeword_coordinates": [
+          28,
+          36
+        ]
+      },
+      {
+        "logical_address": 8,
+        "operation_index": 77,
+        "payload_bits": [
+          30,
+          37
+        ],
+        "physical_codeword_coordinates": [
+          36,
+          43
+        ]
+      },
+      {
+        "logical_address": 81,
+        "operation_index": 78,
+        "payload_bits": [
+          37,
+          44
+        ],
+        "physical_codeword_coordinates": [
+          43,
+          50
+        ]
+      },
+      {
+        "logical_address": 154,
+        "operation_index": 79,
+        "payload_bits": [
+          44,
+          51
+        ],
+        "physical_codeword_coordinates": [
+          50,
+          57
+        ]
+      },
+      {
+        "logical_address": 227,
+        "operation_index": 80,
+        "payload_bits": [
+          51,
+          58
+        ],
+        "physical_codeword_coordinates": [
+          57,
+          65
+        ]
+      },
+      {
+        "logical_address": 44,
+        "operation_index": 81,
+        "payload_bits": [
+          58,
+          1
+        ],
+        "physical_codeword_coordinates": [
+          65,
+          4
+        ]
+      },
+      {
+        "logical_address": 117,
+        "operation_index": 82,
+        "payload_bits": [
+          1,
+          8
+        ],
+        "physical_codeword_coordinates": [
+          4,
+          12
+        ]
+      },
+      {
+        "logical_address": 190,
+        "operation_index": 83,
+        "payload_bits": [
+          8,
+          15
+        ],
+        "physical_codeword_coordinates": [
+          12,
+          20
+        ]
+      },
+      {
+        "logical_address": 7,
+        "operation_index": 84,
+        "payload_bits": [
+          15,
+          22
+        ],
+        "physical_codeword_coordinates": [
+          20,
+          27
+        ]
+      },
+      {
+        "logical_address": 80,
+        "operation_index": 85,
+        "payload_bits": [
+          22,
+          29
+        ],
+        "physical_codeword_coordinates": [
+          27,
+          35
+        ]
+      },
+      {
+        "logical_address": 153,
+        "operation_index": 86,
+        "payload_bits": [
+          29,
+          36
+        ],
+        "physical_codeword_coordinates": [
+          35,
+          42
+        ]
+      },
+      {
+        "logical_address": 226,
+        "operation_index": 87,
+        "payload_bits": [
+          36,
+          43
+        ],
+        "physical_codeword_coordinates": [
+          42,
+          49
+        ]
+      },
+      {
+        "logical_address": 43,
+        "operation_index": 88,
+        "payload_bits": [
+          43,
+          50
+        ],
+        "physical_codeword_coordinates": [
+          49,
+          56
+        ]
+      },
+      {
+        "logical_address": 116,
+        "operation_index": 89,
+        "payload_bits": [
+          50,
+          57
+        ],
+        "physical_codeword_coordinates": [
+          56,
+          64
+        ]
+      },
+      {
+        "logical_address": 189,
+        "operation_index": 90,
+        "payload_bits": [
+          57,
+          0
+        ],
+        "physical_codeword_coordinates": [
+          64,
+          2
+        ]
+      },
+      {
+        "logical_address": 6,
+        "operation_index": 91,
+        "payload_bits": [
+          0,
+          7
+        ],
+        "physical_codeword_coordinates": [
+          2,
+          11
+        ]
+      },
+      {
+        "logical_address": 79,
+        "operation_index": 92,
+        "payload_bits": [
+          7,
+          14
+        ],
+        "physical_codeword_coordinates": [
+          11,
+          19
+        ]
+      },
+      {
+        "logical_address": 152,
+        "operation_index": 93,
+        "payload_bits": [
+          14,
+          21
+        ],
+        "physical_codeword_coordinates": [
+          19,
+          26
+        ]
+      },
+      {
+        "logical_address": 225,
+        "operation_index": 94,
+        "payload_bits": [
+          21,
+          28
+        ],
+        "physical_codeword_coordinates": [
+          26,
+          34
+        ]
+      },
+      {
+        "logical_address": 42,
+        "operation_index": 95,
+        "payload_bits": [
+          28,
+          35
+        ],
+        "physical_codeword_coordinates": [
+          34,
+          41
+        ]
+      },
+      {
+        "logical_address": 115,
+        "operation_index": 96,
+        "payload_bits": [
+          35,
+          42
+        ],
+        "physical_codeword_coordinates": [
+          41,
+          48
+        ]
+      },
+      {
+        "logical_address": 188,
+        "operation_index": 97,
+        "payload_bits": [
+          42,
+          49
+        ],
+        "physical_codeword_coordinates": [
+          48,
+          55
+        ]
+      },
+      {
+        "logical_address": 5,
+        "operation_index": 98,
+        "payload_bits": [
+          49,
+          56
+        ],
+        "physical_codeword_coordinates": [
+          55,
+          62
+        ]
+      },
+      {
+        "logical_address": 78,
+        "operation_index": 99,
+        "payload_bits": [
+          56,
+          63
+        ],
+        "physical_codeword_coordinates": [
+          62,
+          70
+        ]
+      },
+      {
+        "logical_address": 151,
+        "operation_index": 100,
+        "payload_bits": [
+          63,
+          6
+        ],
+        "physical_codeword_coordinates": [
+          70,
+          10
+        ]
+      },
+      {
+        "logical_address": 224,
+        "operation_index": 101,
+        "payload_bits": [
+          6,
+          13
+        ],
+        "physical_codeword_coordinates": [
+          10,
+          18
+        ]
+      },
+      {
+        "logical_address": 41,
+        "operation_index": 102,
+        "payload_bits": [
+          13,
+          20
+        ],
+        "physical_codeword_coordinates": [
+          18,
+          25
+        ]
+      },
+      {
+        "logical_address": 114,
+        "operation_index": 103,
+        "payload_bits": [
+          20,
+          27
+        ],
+        "physical_codeword_coordinates": [
+          25,
+          33
+        ]
+      },
+      {
+        "logical_address": 187,
+        "operation_index": 104,
+        "payload_bits": [
+          27,
+          34
+        ],
+        "physical_codeword_coordinates": [
+          33,
+          40
+        ]
+      },
+      {
+        "logical_address": 4,
+        "operation_index": 105,
+        "payload_bits": [
+          34,
+          41
+        ],
+        "physical_codeword_coordinates": [
+          40,
+          47
+        ]
+      },
+      {
+        "logical_address": 77,
+        "operation_index": 106,
+        "payload_bits": [
+          41,
+          48
+        ],
+        "physical_codeword_coordinates": [
+          47,
+          54
+        ]
+      },
+      {
+        "logical_address": 150,
+        "operation_index": 107,
+        "payload_bits": [
+          48,
+          55
+        ],
+        "physical_codeword_coordinates": [
+          54,
+          61
+        ]
+      },
+      {
+        "logical_address": 223,
+        "operation_index": 108,
+        "payload_bits": [
+          55,
+          62
+        ],
+        "physical_codeword_coordinates": [
+          61,
+          69
+        ]
+      },
+      {
+        "logical_address": 40,
+        "operation_index": 109,
+        "payload_bits": [
+          62,
+          5
+        ],
+        "physical_codeword_coordinates": [
+          69,
+          9
+        ]
+      },
+      {
+        "logical_address": 113,
+        "operation_index": 110,
+        "payload_bits": [
+          5,
+          12
+        ],
+        "physical_codeword_coordinates": [
+          9,
+          17
+        ]
+      },
+      {
+        "logical_address": 186,
+        "operation_index": 111,
+        "payload_bits": [
+          12,
+          19
+        ],
+        "physical_codeword_coordinates": [
+          17,
+          24
+        ]
+      },
+      {
+        "logical_address": 3,
+        "operation_index": 112,
+        "payload_bits": [
+          19,
+          26
+        ],
+        "physical_codeword_coordinates": [
+          24,
+          32
+        ]
+      },
+      {
+        "logical_address": 76,
+        "operation_index": 113,
+        "payload_bits": [
+          26,
+          33
+        ],
+        "physical_codeword_coordinates": [
+          32,
+          39
+        ]
+      },
+      {
+        "logical_address": 149,
+        "operation_index": 114,
+        "payload_bits": [
+          33,
+          40
+        ],
+        "physical_codeword_coordinates": [
+          39,
+          46
+        ]
+      },
+      {
+        "logical_address": 222,
+        "operation_index": 115,
+        "payload_bits": [
+          40,
+          47
+        ],
+        "physical_codeword_coordinates": [
+          46,
+          53
+        ]
+      },
+      {
+        "logical_address": 39,
+        "operation_index": 116,
+        "payload_bits": [
+          47,
+          54
+        ],
+        "physical_codeword_coordinates": [
+          53,
+          60
+        ]
+      },
+      {
+        "logical_address": 112,
+        "operation_index": 117,
+        "payload_bits": [
+          54,
+          61
+        ],
+        "physical_codeword_coordinates": [
+          60,
+          68
+        ]
+      },
+      {
+        "logical_address": 185,
+        "operation_index": 118,
+        "payload_bits": [
+          61,
+          4
+        ],
+        "physical_codeword_coordinates": [
+          68,
+          8
+        ]
+      },
+      {
+        "logical_address": 2,
+        "operation_index": 119,
+        "payload_bits": [
+          4,
+          11
+        ],
+        "physical_codeword_coordinates": [
+          8,
+          16
+        ]
+      },
+      {
+        "logical_address": 75,
+        "operation_index": 120,
+        "payload_bits": [
+          11,
+          18
+        ],
+        "physical_codeword_coordinates": [
+          16,
+          23
+        ]
+      },
+      {
+        "logical_address": 148,
+        "operation_index": 121,
+        "payload_bits": [
+          18,
+          25
+        ],
+        "physical_codeword_coordinates": [
+          23,
+          30
+        ]
+      },
+      {
+        "logical_address": 221,
+        "operation_index": 122,
+        "payload_bits": [
+          25,
+          32
+        ],
+        "physical_codeword_coordinates": [
+          30,
+          38
+        ]
+      },
+      {
+        "logical_address": 38,
+        "operation_index": 123,
+        "payload_bits": [
+          32,
+          39
+        ],
+        "physical_codeword_coordinates": [
+          38,
+          45
+        ]
+      },
+      {
+        "logical_address": 111,
+        "operation_index": 124,
+        "payload_bits": [
+          39,
+          46
+        ],
+        "physical_codeword_coordinates": [
+          45,
+          52
+        ]
+      },
+      {
+        "logical_address": 184,
+        "operation_index": 125,
+        "payload_bits": [
+          46,
+          53
+        ],
+        "physical_codeword_coordinates": [
+          52,
+          59
+        ]
+      },
+      {
+        "logical_address": 1,
+        "operation_index": 126,
+        "payload_bits": [
+          53,
+          60
+        ],
+        "physical_codeword_coordinates": [
+          59,
+          67
+        ]
+      },
+      {
+        "logical_address": 74,
+        "operation_index": 127,
+        "payload_bits": [
+          60,
+          3
+        ],
+        "physical_codeword_coordinates": [
+          67,
+          6
+        ]
+      },
+      {
+        "logical_address": 147,
+        "operation_index": 128,
+        "payload_bits": [
+          3,
+          10
+        ],
+        "physical_codeword_coordinates": [
+          6,
+          14
+        ]
+      },
+      {
+        "logical_address": 220,
+        "operation_index": 129,
+        "payload_bits": [
+          10,
+          17
+        ],
+        "physical_codeword_coordinates": [
+          14,
+          22
+        ]
+      },
+      {
+        "logical_address": 37,
+        "operation_index": 130,
+        "payload_bits": [
+          17,
+          24
+        ],
+        "physical_codeword_coordinates": [
+          22,
+          29
+        ]
+      },
+      {
+        "logical_address": 110,
+        "operation_index": 131,
+        "payload_bits": [
+          24,
+          31
+        ],
+        "physical_codeword_coordinates": [
+          29,
+          37
+        ]
+      },
+      {
+        "logical_address": 183,
+        "operation_index": 132,
+        "payload_bits": [
+          31,
+          38
+        ],
+        "physical_codeword_coordinates": [
+          37,
+          44
+        ]
+      },
+      {
+        "logical_address": 0,
+        "operation_index": 133,
+        "payload_bits": [
+          38,
+          45
+        ],
+        "physical_codeword_coordinates": [
+          44,
+          51
+        ]
+      },
+      {
+        "logical_address": 73,
+        "operation_index": 134,
+        "payload_bits": [
+          45,
+          52
+        ],
+        "physical_codeword_coordinates": [
+          51,
+          58
+        ]
+      },
+      {
+        "logical_address": 146,
+        "operation_index": 135,
+        "payload_bits": [
+          52,
+          59
+        ],
+        "physical_codeword_coordinates": [
+          58,
+          66
+        ]
+      },
+      {
+        "logical_address": 219,
+        "operation_index": 136,
+        "payload_bits": [
+          59,
+          2
+        ],
+        "physical_codeword_coordinates": [
+          66,
+          5
+        ]
+      },
+      {
+        "logical_address": 36,
+        "operation_index": 137,
+        "payload_bits": [
+          2,
+          9
+        ],
+        "physical_codeword_coordinates": [
+          5,
+          13
+        ]
+      },
+      {
+        "logical_address": 109,
+        "operation_index": 138,
+        "payload_bits": [
+          9,
+          16
+        ],
+        "physical_codeword_coordinates": [
+          13,
+          21
+        ]
+      },
+      {
+        "logical_address": 182,
+        "operation_index": 139,
+        "payload_bits": [
+          16,
+          23
+        ],
+        "physical_codeword_coordinates": [
+          21,
+          28
+        ]
+      },
+      {
+        "logical_address": 255,
+        "operation_index": 140,
+        "payload_bits": [
+          23,
+          30
+        ],
+        "physical_codeword_coordinates": [
+          28,
+          36
+        ]
+      },
+      {
+        "logical_address": 72,
+        "operation_index": 141,
+        "payload_bits": [
+          30,
+          37
+        ],
+        "physical_codeword_coordinates": [
+          36,
+          43
+        ]
+      },
+      {
+        "logical_address": 145,
+        "operation_index": 142,
+        "payload_bits": [
+          37,
+          44
+        ],
+        "physical_codeword_coordinates": [
+          43,
+          50
+        ]
+      },
+      {
+        "logical_address": 218,
+        "operation_index": 143,
+        "payload_bits": [
+          44,
+          51
+        ],
+        "physical_codeword_coordinates": [
+          50,
+          57
+        ]
+      },
+      {
+        "logical_address": 35,
+        "operation_index": 144,
+        "payload_bits": [
+          51,
+          58
+        ],
+        "physical_codeword_coordinates": [
+          57,
+          65
+        ]
+      },
+      {
+        "logical_address": 108,
+        "operation_index": 145,
+        "payload_bits": [
+          58,
+          1
+        ],
+        "physical_codeword_coordinates": [
+          65,
+          4
+        ]
+      },
+      {
+        "logical_address": 181,
+        "operation_index": 146,
+        "payload_bits": [
+          1,
+          8
+        ],
+        "physical_codeword_coordinates": [
+          4,
+          12
+        ]
+      },
+      {
+        "logical_address": 254,
+        "operation_index": 147,
+        "payload_bits": [
+          8,
+          15
+        ],
+        "physical_codeword_coordinates": [
+          12,
+          20
+        ]
+      },
+      {
+        "logical_address": 71,
+        "operation_index": 148,
+        "payload_bits": [
+          15,
+          22
+        ],
+        "physical_codeword_coordinates": [
+          20,
+          27
+        ]
+      },
+      {
+        "logical_address": 144,
+        "operation_index": 149,
+        "payload_bits": [
+          22,
+          29
+        ],
+        "physical_codeword_coordinates": [
+          27,
+          35
+        ]
+      },
+      {
+        "logical_address": 217,
+        "operation_index": 150,
+        "payload_bits": [
+          29,
+          36
+        ],
+        "physical_codeword_coordinates": [
+          35,
+          42
+        ]
+      },
+      {
+        "logical_address": 34,
+        "operation_index": 151,
+        "payload_bits": [
+          36,
+          43
+        ],
+        "physical_codeword_coordinates": [
+          42,
+          49
+        ]
+      },
+      {
+        "logical_address": 107,
+        "operation_index": 152,
+        "payload_bits": [
+          43,
+          50
+        ],
+        "physical_codeword_coordinates": [
+          49,
+          56
+        ]
+      },
+      {
+        "logical_address": 180,
+        "operation_index": 153,
+        "payload_bits": [
+          50,
+          57
+        ],
+        "physical_codeword_coordinates": [
+          56,
+          64
+        ]
+      },
+      {
+        "logical_address": 253,
+        "operation_index": 154,
+        "payload_bits": [
+          57,
+          0
+        ],
+        "physical_codeword_coordinates": [
+          64,
+          2
+        ]
+      },
+      {
+        "logical_address": 70,
+        "operation_index": 155,
+        "payload_bits": [
+          0,
+          7
+        ],
+        "physical_codeword_coordinates": [
+          2,
+          11
+        ]
+      },
+      {
+        "logical_address": 143,
+        "operation_index": 156,
+        "payload_bits": [
+          7,
+          14
+        ],
+        "physical_codeword_coordinates": [
+          11,
+          19
+        ]
+      },
+      {
+        "logical_address": 216,
+        "operation_index": 157,
+        "payload_bits": [
+          14,
+          21
+        ],
+        "physical_codeword_coordinates": [
+          19,
+          26
+        ]
+      },
+      {
+        "logical_address": 33,
+        "operation_index": 158,
+        "payload_bits": [
+          21,
+          28
+        ],
+        "physical_codeword_coordinates": [
+          26,
+          34
+        ]
+      },
+      {
+        "logical_address": 106,
+        "operation_index": 159,
+        "payload_bits": [
+          28,
+          35
+        ],
+        "physical_codeword_coordinates": [
+          34,
+          41
+        ]
+      },
+      {
+        "logical_address": 179,
+        "operation_index": 160,
+        "payload_bits": [
+          35,
+          42
+        ],
+        "physical_codeword_coordinates": [
+          41,
+          48
+        ]
+      },
+      {
+        "logical_address": 252,
+        "operation_index": 161,
+        "payload_bits": [
+          42,
+          49
+        ],
+        "physical_codeword_coordinates": [
+          48,
+          55
+        ]
+      },
+      {
+        "logical_address": 69,
+        "operation_index": 162,
+        "payload_bits": [
+          49,
+          56
+        ],
+        "physical_codeword_coordinates": [
+          55,
+          62
+        ]
+      },
+      {
+        "logical_address": 142,
+        "operation_index": 163,
+        "payload_bits": [
+          56,
+          63
+        ],
+        "physical_codeword_coordinates": [
+          62,
+          70
+        ]
+      },
+      {
+        "logical_address": 215,
+        "operation_index": 164,
+        "payload_bits": [
+          63,
+          6
+        ],
+        "physical_codeword_coordinates": [
+          70,
+          10
+        ]
+      },
+      {
+        "logical_address": 32,
+        "operation_index": 165,
+        "payload_bits": [
+          6,
+          13
+        ],
+        "physical_codeword_coordinates": [
+          10,
+          18
+        ]
+      },
+      {
+        "logical_address": 105,
+        "operation_index": 166,
+        "payload_bits": [
+          13,
+          20
+        ],
+        "physical_codeword_coordinates": [
+          18,
+          25
+        ]
+      },
+      {
+        "logical_address": 178,
+        "operation_index": 167,
+        "payload_bits": [
+          20,
+          27
+        ],
+        "physical_codeword_coordinates": [
+          25,
+          33
+        ]
+      },
+      {
+        "logical_address": 251,
+        "operation_index": 168,
+        "payload_bits": [
+          27,
+          34
+        ],
+        "physical_codeword_coordinates": [
+          33,
+          40
+        ]
+      },
+      {
+        "logical_address": 68,
+        "operation_index": 169,
+        "payload_bits": [
+          34,
+          41
+        ],
+        "physical_codeword_coordinates": [
+          40,
+          47
+        ]
+      },
+      {
+        "logical_address": 141,
+        "operation_index": 170,
+        "payload_bits": [
+          41,
+          48
+        ],
+        "physical_codeword_coordinates": [
+          47,
+          54
+        ]
+      },
+      {
+        "logical_address": 214,
+        "operation_index": 171,
+        "payload_bits": [
+          48,
+          55
+        ],
+        "physical_codeword_coordinates": [
+          54,
+          61
+        ]
+      },
+      {
+        "logical_address": 31,
+        "operation_index": 172,
+        "payload_bits": [
+          55,
+          62
+        ],
+        "physical_codeword_coordinates": [
+          61,
+          69
+        ]
+      },
+      {
+        "logical_address": 104,
+        "operation_index": 173,
+        "payload_bits": [
+          62,
+          5
+        ],
+        "physical_codeword_coordinates": [
+          69,
+          9
+        ]
+      },
+      {
+        "logical_address": 177,
+        "operation_index": 174,
+        "payload_bits": [
+          5,
+          12
+        ],
+        "physical_codeword_coordinates": [
+          9,
+          17
+        ]
+      },
+      {
+        "logical_address": 250,
+        "operation_index": 175,
+        "payload_bits": [
+          12,
+          19
+        ],
+        "physical_codeword_coordinates": [
+          17,
+          24
+        ]
+      },
+      {
+        "logical_address": 67,
+        "operation_index": 176,
+        "payload_bits": [
+          19,
+          26
+        ],
+        "physical_codeword_coordinates": [
+          24,
+          32
+        ]
+      },
+      {
+        "logical_address": 140,
+        "operation_index": 177,
+        "payload_bits": [
+          26,
+          33
+        ],
+        "physical_codeword_coordinates": [
+          32,
+          39
+        ]
+      },
+      {
+        "logical_address": 213,
+        "operation_index": 178,
+        "payload_bits": [
+          33,
+          40
+        ],
+        "physical_codeword_coordinates": [
+          39,
+          46
+        ]
+      },
+      {
+        "logical_address": 30,
+        "operation_index": 179,
+        "payload_bits": [
+          40,
+          47
+        ],
+        "physical_codeword_coordinates": [
+          46,
+          53
+        ]
+      },
+      {
+        "logical_address": 103,
+        "operation_index": 180,
+        "payload_bits": [
+          47,
+          54
+        ],
+        "physical_codeword_coordinates": [
+          53,
+          60
+        ]
+      },
+      {
+        "logical_address": 176,
+        "operation_index": 181,
+        "payload_bits": [
+          54,
+          61
+        ],
+        "physical_codeword_coordinates": [
+          60,
+          68
+        ]
+      },
+      {
+        "logical_address": 249,
+        "operation_index": 182,
+        "payload_bits": [
+          61,
+          4
+        ],
+        "physical_codeword_coordinates": [
+          68,
+          8
+        ]
+      },
+      {
+        "logical_address": 66,
+        "operation_index": 183,
+        "payload_bits": [
+          4,
+          11
+        ],
+        "physical_codeword_coordinates": [
+          8,
+          16
+        ]
+      },
+      {
+        "logical_address": 139,
+        "operation_index": 184,
+        "payload_bits": [
+          11,
+          18
+        ],
+        "physical_codeword_coordinates": [
+          16,
+          23
+        ]
+      },
+      {
+        "logical_address": 212,
+        "operation_index": 185,
+        "payload_bits": [
+          18,
+          25
+        ],
+        "physical_codeword_coordinates": [
+          23,
+          30
+        ]
+      },
+      {
+        "logical_address": 29,
+        "operation_index": 186,
+        "payload_bits": [
+          25,
+          32
+        ],
+        "physical_codeword_coordinates": [
+          30,
+          38
+        ]
+      },
+      {
+        "logical_address": 102,
+        "operation_index": 187,
+        "payload_bits": [
+          32,
+          39
+        ],
+        "physical_codeword_coordinates": [
+          38,
+          45
+        ]
+      },
+      {
+        "logical_address": 175,
+        "operation_index": 188,
+        "payload_bits": [
+          39,
+          46
+        ],
+        "physical_codeword_coordinates": [
+          45,
+          52
+        ]
+      },
+      {
+        "logical_address": 248,
+        "operation_index": 189,
+        "payload_bits": [
+          46,
+          53
+        ],
+        "physical_codeword_coordinates": [
+          52,
+          59
+        ]
+      },
+      {
+        "logical_address": 65,
+        "operation_index": 190,
+        "payload_bits": [
+          53,
+          60
+        ],
+        "physical_codeword_coordinates": [
+          59,
+          67
+        ]
+      },
+      {
+        "logical_address": 138,
+        "operation_index": 191,
+        "payload_bits": [
+          60,
+          3
+        ],
+        "physical_codeword_coordinates": [
+          67,
+          6
+        ]
+      },
+      {
+        "logical_address": 211,
+        "operation_index": 192,
+        "payload_bits": [
+          3,
+          10
+        ],
+        "physical_codeword_coordinates": [
+          6,
+          14
+        ]
+      },
+      {
+        "logical_address": 28,
+        "operation_index": 193,
+        "payload_bits": [
+          10,
+          17
+        ],
+        "physical_codeword_coordinates": [
+          14,
+          22
+        ]
+      },
+      {
+        "logical_address": 101,
+        "operation_index": 194,
+        "payload_bits": [
+          17,
+          24
+        ],
+        "physical_codeword_coordinates": [
+          22,
+          29
+        ]
+      },
+      {
+        "logical_address": 174,
+        "operation_index": 195,
+        "payload_bits": [
+          24,
+          31
+        ],
+        "physical_codeword_coordinates": [
+          29,
+          37
+        ]
+      },
+      {
+        "logical_address": 247,
+        "operation_index": 196,
+        "payload_bits": [
+          31,
+          38
+        ],
+        "physical_codeword_coordinates": [
+          37,
+          44
+        ]
+      },
+      {
+        "logical_address": 64,
+        "operation_index": 197,
+        "payload_bits": [
+          38,
+          45
+        ],
+        "physical_codeword_coordinates": [
+          44,
+          51
+        ]
+      },
+      {
+        "logical_address": 137,
+        "operation_index": 198,
+        "payload_bits": [
+          45,
+          52
+        ],
+        "physical_codeword_coordinates": [
+          51,
+          58
+        ]
+      },
+      {
+        "logical_address": 210,
+        "operation_index": 199,
+        "payload_bits": [
+          52,
+          59
+        ],
+        "physical_codeword_coordinates": [
+          58,
+          66
+        ]
+      },
+      {
+        "logical_address": 27,
+        "operation_index": 200,
+        "payload_bits": [
+          59,
+          2
+        ],
+        "physical_codeword_coordinates": [
+          66,
+          5
+        ]
+      },
+      {
+        "logical_address": 100,
+        "operation_index": 201,
+        "payload_bits": [
+          2,
+          9
+        ],
+        "physical_codeword_coordinates": [
+          5,
+          13
+        ]
+      },
+      {
+        "logical_address": 173,
+        "operation_index": 202,
+        "payload_bits": [
+          9,
+          16
+        ],
+        "physical_codeword_coordinates": [
+          13,
+          21
+        ]
+      },
+      {
+        "logical_address": 246,
+        "operation_index": 203,
+        "payload_bits": [
+          16,
+          23
+        ],
+        "physical_codeword_coordinates": [
+          21,
+          28
+        ]
+      },
+      {
+        "logical_address": 63,
+        "operation_index": 204,
+        "payload_bits": [
+          23,
+          30
+        ],
+        "physical_codeword_coordinates": [
+          28,
+          36
+        ]
+      },
+      {
+        "logical_address": 136,
+        "operation_index": 205,
+        "payload_bits": [
+          30,
+          37
+        ],
+        "physical_codeword_coordinates": [
+          36,
+          43
+        ]
+      },
+      {
+        "logical_address": 209,
+        "operation_index": 206,
+        "payload_bits": [
+          37,
+          44
+        ],
+        "physical_codeword_coordinates": [
+          43,
+          50
+        ]
+      },
+      {
+        "logical_address": 26,
+        "operation_index": 207,
+        "payload_bits": [
+          44,
+          51
+        ],
+        "physical_codeword_coordinates": [
+          50,
+          57
+        ]
+      },
+      {
+        "logical_address": 99,
+        "operation_index": 208,
+        "payload_bits": [
+          51,
+          58
+        ],
+        "physical_codeword_coordinates": [
+          57,
+          65
+        ]
+      },
+      {
+        "logical_address": 172,
+        "operation_index": 209,
+        "payload_bits": [
+          58,
+          1
+        ],
+        "physical_codeword_coordinates": [
+          65,
+          4
+        ]
+      },
+      {
+        "logical_address": 245,
+        "operation_index": 210,
+        "payload_bits": [
+          1,
+          8
+        ],
+        "physical_codeword_coordinates": [
+          4,
+          12
+        ]
+      },
+      {
+        "logical_address": 62,
+        "operation_index": 211,
+        "payload_bits": [
+          8,
+          15
+        ],
+        "physical_codeword_coordinates": [
+          12,
+          20
+        ]
+      },
+      {
+        "logical_address": 135,
+        "operation_index": 212,
+        "payload_bits": [
+          15,
+          22
+        ],
+        "physical_codeword_coordinates": [
+          20,
+          27
+        ]
+      },
+      {
+        "logical_address": 208,
+        "operation_index": 213,
+        "payload_bits": [
+          22,
+          29
+        ],
+        "physical_codeword_coordinates": [
+          27,
+          35
+        ]
+      },
+      {
+        "logical_address": 25,
+        "operation_index": 214,
+        "payload_bits": [
+          29,
+          36
+        ],
+        "physical_codeword_coordinates": [
+          35,
+          42
+        ]
+      },
+      {
+        "logical_address": 98,
+        "operation_index": 215,
+        "payload_bits": [
+          36,
+          43
+        ],
+        "physical_codeword_coordinates": [
+          42,
+          49
+        ]
+      },
+      {
+        "logical_address": 171,
+        "operation_index": 216,
+        "payload_bits": [
+          43,
+          50
+        ],
+        "physical_codeword_coordinates": [
+          49,
+          56
+        ]
+      },
+      {
+        "logical_address": 244,
+        "operation_index": 217,
+        "payload_bits": [
+          50,
+          57
+        ],
+        "physical_codeword_coordinates": [
+          56,
+          64
+        ]
+      },
+      {
+        "logical_address": 61,
+        "operation_index": 218,
+        "payload_bits": [
+          57,
+          0
+        ],
+        "physical_codeword_coordinates": [
+          64,
+          2
+        ]
+      },
+      {
+        "logical_address": 134,
+        "operation_index": 219,
+        "payload_bits": [
+          0,
+          7
+        ],
+        "physical_codeword_coordinates": [
+          2,
+          11
+        ]
+      },
+      {
+        "logical_address": 207,
+        "operation_index": 220,
+        "payload_bits": [
+          7,
+          14
+        ],
+        "physical_codeword_coordinates": [
+          11,
+          19
+        ]
+      },
+      {
+        "logical_address": 24,
+        "operation_index": 221,
+        "payload_bits": [
+          14,
+          21
+        ],
+        "physical_codeword_coordinates": [
+          19,
+          26
+        ]
+      },
+      {
+        "logical_address": 97,
+        "operation_index": 222,
+        "payload_bits": [
+          21,
+          28
+        ],
+        "physical_codeword_coordinates": [
+          26,
+          34
+        ]
+      },
+      {
+        "logical_address": 170,
+        "operation_index": 223,
+        "payload_bits": [
+          28,
+          35
+        ],
+        "physical_codeword_coordinates": [
+          34,
+          41
+        ]
+      },
+      {
+        "logical_address": 243,
+        "operation_index": 224,
+        "payload_bits": [
+          35,
+          42
+        ],
+        "physical_codeword_coordinates": [
+          41,
+          48
+        ]
+      },
+      {
+        "logical_address": 60,
+        "operation_index": 225,
+        "payload_bits": [
+          42,
+          49
+        ],
+        "physical_codeword_coordinates": [
+          48,
+          55
+        ]
+      },
+      {
+        "logical_address": 133,
+        "operation_index": 226,
+        "payload_bits": [
+          49,
+          56
+        ],
+        "physical_codeword_coordinates": [
+          55,
+          62
+        ]
+      },
+      {
+        "logical_address": 206,
+        "operation_index": 227,
+        "payload_bits": [
+          56,
+          63
+        ],
+        "physical_codeword_coordinates": [
+          62,
+          70
+        ]
+      },
+      {
+        "logical_address": 23,
+        "operation_index": 228,
+        "payload_bits": [
+          63,
+          6
+        ],
+        "physical_codeword_coordinates": [
+          70,
+          10
+        ]
+      },
+      {
+        "logical_address": 96,
+        "operation_index": 229,
+        "payload_bits": [
+          6,
+          13
+        ],
+        "physical_codeword_coordinates": [
+          10,
+          18
+        ]
+      },
+      {
+        "logical_address": 169,
+        "operation_index": 230,
+        "payload_bits": [
+          13,
+          20
+        ],
+        "physical_codeword_coordinates": [
+          18,
+          25
+        ]
+      },
+      {
+        "logical_address": 242,
+        "operation_index": 231,
+        "payload_bits": [
+          20,
+          27
+        ],
+        "physical_codeword_coordinates": [
+          25,
+          33
+        ]
+      },
+      {
+        "logical_address": 59,
+        "operation_index": 232,
+        "payload_bits": [
+          27,
+          34
+        ],
+        "physical_codeword_coordinates": [
+          33,
+          40
+        ]
+      },
+      {
+        "logical_address": 132,
+        "operation_index": 233,
+        "payload_bits": [
+          34,
+          41
+        ],
+        "physical_codeword_coordinates": [
+          40,
+          47
+        ]
+      },
+      {
+        "logical_address": 205,
+        "operation_index": 234,
+        "payload_bits": [
+          41,
+          48
+        ],
+        "physical_codeword_coordinates": [
+          47,
+          54
+        ]
+      },
+      {
+        "logical_address": 22,
+        "operation_index": 235,
+        "payload_bits": [
+          48,
+          55
+        ],
+        "physical_codeword_coordinates": [
+          54,
+          61
+        ]
+      },
+      {
+        "logical_address": 95,
+        "operation_index": 236,
+        "payload_bits": [
+          55,
+          62
+        ],
+        "physical_codeword_coordinates": [
+          61,
+          69
+        ]
+      },
+      {
+        "logical_address": 168,
+        "operation_index": 237,
+        "payload_bits": [
+          62,
+          5
+        ],
+        "physical_codeword_coordinates": [
+          69,
+          9
+        ]
+      },
+      {
+        "logical_address": 241,
+        "operation_index": 238,
+        "payload_bits": [
+          5,
+          12
+        ],
+        "physical_codeword_coordinates": [
+          9,
+          17
+        ]
+      },
+      {
+        "logical_address": 58,
+        "operation_index": 239,
+        "payload_bits": [
+          12,
+          19
+        ],
+        "physical_codeword_coordinates": [
+          17,
+          24
+        ]
+      },
+      {
+        "logical_address": 131,
+        "operation_index": 240,
+        "payload_bits": [
+          19,
+          26
+        ],
+        "physical_codeword_coordinates": [
+          24,
+          32
+        ]
+      },
+      {
+        "logical_address": 204,
+        "operation_index": 241,
+        "payload_bits": [
+          26,
+          33
+        ],
+        "physical_codeword_coordinates": [
+          32,
+          39
+        ]
+      },
+      {
+        "logical_address": 21,
+        "operation_index": 242,
+        "payload_bits": [
+          33,
+          40
+        ],
+        "physical_codeword_coordinates": [
+          39,
+          46
+        ]
+      },
+      {
+        "logical_address": 94,
+        "operation_index": 243,
+        "payload_bits": [
+          40,
+          47
+        ],
+        "physical_codeword_coordinates": [
+          46,
+          53
+        ]
+      },
+      {
+        "logical_address": 167,
+        "operation_index": 244,
+        "payload_bits": [
+          47,
+          54
+        ],
+        "physical_codeword_coordinates": [
+          53,
+          60
+        ]
+      },
+      {
+        "logical_address": 240,
+        "operation_index": 245,
+        "payload_bits": [
+          54,
+          61
+        ],
+        "physical_codeword_coordinates": [
+          60,
+          68
+        ]
+      },
+      {
+        "logical_address": 57,
+        "operation_index": 246,
+        "payload_bits": [
+          61,
+          4
+        ],
+        "physical_codeword_coordinates": [
+          68,
+          8
+        ]
+      },
+      {
+        "logical_address": 130,
+        "operation_index": 247,
+        "payload_bits": [
+          4,
+          11
+        ],
+        "physical_codeword_coordinates": [
+          8,
+          16
+        ]
+      },
+      {
+        "logical_address": 203,
+        "operation_index": 248,
+        "payload_bits": [
+          11,
+          18
+        ],
+        "physical_codeword_coordinates": [
+          16,
+          23
+        ]
+      },
+      {
+        "logical_address": 20,
+        "operation_index": 249,
+        "payload_bits": [
+          18,
+          25
+        ],
+        "physical_codeword_coordinates": [
+          23,
+          30
+        ]
+      },
+      {
+        "logical_address": 93,
+        "operation_index": 250,
+        "payload_bits": [
+          25,
+          32
+        ],
+        "physical_codeword_coordinates": [
+          30,
+          38
+        ]
+      },
+      {
+        "logical_address": 166,
+        "operation_index": 251,
+        "payload_bits": [
+          32,
+          39
+        ],
+        "physical_codeword_coordinates": [
+          38,
+          45
+        ]
+      },
+      {
+        "logical_address": 239,
+        "operation_index": 252,
+        "payload_bits": [
+          39,
+          46
+        ],
+        "physical_codeword_coordinates": [
+          45,
+          52
+        ]
+      },
+      {
+        "logical_address": 56,
+        "operation_index": 253,
+        "payload_bits": [
+          46,
+          53
+        ],
+        "physical_codeword_coordinates": [
+          52,
+          59
+        ]
+      },
+      {
+        "logical_address": 129,
+        "operation_index": 254,
+        "payload_bits": [
+          53,
+          60
+        ],
+        "physical_codeword_coordinates": [
+          59,
+          67
+        ]
+      },
+      {
+        "logical_address": 202,
+        "operation_index": 255,
+        "payload_bits": [
+          60,
+          3
+        ],
+        "physical_codeword_coordinates": [
+          67,
+          6
+        ]
+      }
+    ],
+    "path": "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/workloads/codewords_read_double_bit_error_detect.hex",
+    "sha256": "377ee58da988c9e790d2a7d94ebad9f7c815955405a0f1fa89a8b46b61162b2e"
+  },
+  "measured_cycles": 256,
+  "measurement_begin_ns": 176.0,
+  "measurement_duration_seconds": 2.561e-06,
+  "measurement_end_ns": 2737.0,
+  "operation_class": "READ_DOUBLE_BIT_ERROR_DETECT",
+  "parasitics": {
+    "format": "SPEF",
+    "loaded_by_openroad": true,
+    "sha256": "dce5b608fa2d0d26be605a4e0779c9cf775eca52eb3d6eb14219999a88c67456"
+  },
+  "payload_vector_sha256": "bb3cd27a43f9009a2c89d768db17b51c121afaf39ed8fe29f2b6f46098513480",
+  "physical_seed": 11,
+  "power": {
+    "ecc_logic_energy_j_per_operation": 1.3479484709031452e-11,
+    "ecc_logic_excluding_macro_w": {
+      "internal_w": 0.0005084751173850001,
+      "leakage_w": 3.613592980399897e-09,
+      "switching_w": 0.0008389432914555,
+      "total_w": 0.0013474221341319998
+    },
+    "macro_reported_partial_w": {
+      "internal_w": 0.002183851320297,
+      "leakage_w": 7.306775842153e-07,
+      "switching_w": 0.0,
+      "total_w": 0.002184581942856
+    },
+    "report_sha256": "a1d133176462a12eeff151afb725ca72f71555642b40503aab74f29619637a21",
+    "whole_design_including_partial_macro_w": {
+      "internal_w": 0.002692326437682,
+      "leakage_w": 7.342911771957e-07,
+      "switching_w": 0.0008389432914555,
+      "total_w": 0.003532004076988
+    },
+    "whole_memory_energy_blocker": "SRAM_MACRO_INTERNAL_ENERGY_INCOMPLETE",
+    "whole_memory_energy_j_per_operation": null
+  },
+  "pvt": {
+    "corner": "tt_025C_1v80",
+    "platform": "sky130hd",
+    "temperature_c": 25,
+    "voltage_v": 1.8
+  },
+  "qualification": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
+  "qualification_thresholds": {
+    "functional_logic_annotation_coverage_minimum": 0.95
+  },
+  "record_id": "secded_clk10p0ns_seed11_read_double_bit_error_detect_explicit_routed_activity",
+  "routed_netlist_sha256": "71e2460c21db9796c0cf5bfb097e3ee55e6d41d5c81f6d98336d793907e489d5",
+  "schema_version": 1,
+  "timing_feasible": true,
+  "warm_up_cycles": 16,
+  "whole_memory_e5_qualified": false,
+  "workload": {
+    "address_sequence": "address[i]=(19+73*i) mod 256",
+    "error_injection_sequence": "payload_bit_0=(7*i+3) mod 64; payload_bit_1=(payload_bit_0+7) mod 64",
+    "exact_operation_count": 256,
+    "injected_logical_bits_per_operation": 2,
+    "measured_cycles": 256,
+    "payload_generator_exact_definition": "iterative unsigned 64-bit xorshift: x^=x>>12; x^=x<<25; x^=x>>27; output=x*2685821657736338717 modulo 2^64",
+    "payload_pattern_generator": "xorshift64star(seed=3301,index=i)",
+    "rng_seed": 3301,
+    "schema_version": 1,
+    "semantic_operation_class": "READ_TWO_PAYLOAD_BIT_ERROR",
+    "warm_up_cycles": 16
+  },
+  "workload_sha256": "66683e4bca31bec1567a94d153ccb55cc0b38a96463a44ec9ba6ea877c0cf5b9"
+}

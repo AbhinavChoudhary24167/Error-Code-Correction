@@ -1,0 +1,148 @@
+{
+  "activity": {
+    "activity_generation_boundary": "POST_ROUTE_GATE_ACTIVITY_ZERO_DELAY_ROUTED_NETLIST",
+    "compressed_preserved_path": "campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/operations/WRITE_CLEAN/WRITE_CLEAN.vcd.gz",
+    "coverage": {
+      "aggregate_coverage_fraction": 0.3262755987504339,
+      "annotated_pin_count": 940,
+      "annotation_source_counts": {
+        "user": 798,
+        "vcd": 142
+      },
+      "by_cell_class": {
+        "clock": {
+          "annotated_pin_count": 11,
+          "coverage_fraction": 0.03503184713375796,
+          "unannotated_pin_count": 303
+        },
+        "combinational": {
+          "annotated_pin_count": 765,
+          "coverage_fraction": 0.3648068669527897,
+          "unannotated_pin_count": 1332
+        },
+        "macro_interface": {
+          "annotated_pin_count": 8,
+          "coverage_fraction": 0.043478260869565216,
+          "unannotated_pin_count": 176
+        },
+        "sequential": {
+          "annotated_pin_count": 14,
+          "coverage_fraction": 0.7777777777777778,
+          "unannotated_pin_count": 4
+        },
+        "top_port_or_unknown": {
+          "annotated_pin_count": 142,
+          "coverage_fraction": 0.5298507462686567,
+          "unannotated_pin_count": 126
+        }
+      },
+      "exact_activity_sources": [
+        "clock",
+        "constant",
+        "user",
+        "vcd"
+      ],
+      "functional_logic_annotated_pin_count": 790,
+      "functional_logic_coverage_fraction": 0.32523672293124745,
+      "functional_logic_unannotated_pin_count": 1639,
+      "inexact_propagated_or_default_functional_pin_count": 0,
+      "macro_activity_boundary": "INTERFACE_PINS_ANNOTATED_INTERNAL_STATE_ACTIVITY_ABSENT",
+      "macro_internal_activity_coverage": null,
+      "physical_only_pins_excluded_from_functional_logic_coverage": true,
+      "unannotated_pin_count": 1941
+    },
+    "dut_hierarchy": "tb/dut",
+    "explicit_routed_net_annotation": {
+      "emitted_net_count": 410,
+      "macro_output_activity_root_candidate_count": 0,
+      "mapped_pin_reference_count": 798,
+      "opensta_density_input_unit": "transitions_per_nanosecond",
+      "sha256": "2f33ecd17bdedf630d1a451cb735f28c44f216eb94b0a51bf41b9847b54f85be",
+      "skipped_net_names": [],
+      "source_density_unit": "transitions_per_second"
+    },
+    "external_raw_path": "/var/lib/green-ecc-v33-activity-complete-e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/activity/WRITE_CLEAN.vcd",
+    "format": "VCD",
+    "native_read_vcd_annotation_outcome": "TOP_PORT_ONLY; supplemented by exact scalar routed-net annotations",
+    "sha256": "d5fa66235711a0e2de72ead37d549a4c09ffd42c568270a885ffba024aa3a60a",
+    "simulation_tool": "Icarus Verilog"
+  },
+  "architecture_id": "SECDED",
+  "clock_period_ns": 10.0,
+  "codeword_vector_sha256": "b3a159daf2ff4a8e270efa435cc49601b5b9bbb46b966545d9f3ee983484c7d7",
+  "ecc_logic_e5_qualified": false,
+  "evidence_level": "E4_DIAGNOSTIC",
+  "exact_operation_count": 256,
+  "fault_injection_manifest": {
+    "injection_count": 0,
+    "injections": [],
+    "path": "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/secded_clk10p0ns_seed11/attempt01/workloads/codewords_write_clean.hex",
+    "sha256": "b3a159daf2ff4a8e270efa435cc49601b5b9bbb46b966545d9f3ee983484c7d7"
+  },
+  "measured_cycles": 256,
+  "measurement_begin_ns": 176.0,
+  "measurement_duration_seconds": 2.561e-06,
+  "measurement_end_ns": 2737.0,
+  "operation_class": "WRITE_CLEAN",
+  "parasitics": {
+    "format": "SPEF",
+    "loaded_by_openroad": true,
+    "sha256": "dce5b608fa2d0d26be605a4e0779c9cf775eca52eb3d6eb14219999a88c67456"
+  },
+  "payload_vector_sha256": "bb3cd27a43f9009a2c89d768db17b51c121afaf39ed8fe29f2b6f46098513480",
+  "physical_seed": 11,
+  "power": {
+    "ecc_logic_energy_j_per_operation": 2.8929904772439273e-11,
+    "ecc_logic_excluding_macro_w": {
+      "internal_w": 0.0010057677282021,
+      "leakage_w": 3.4389699976999405e-09,
+      "switching_w": 0.001886089565232,
+      "total_w": 0.0028918608441017
+    },
+    "macro_reported_partial_w": {
+      "internal_w": 0.0008983185980469,
+      "leakage_w": 7.306775842153e-07,
+      "switching_w": 0.0,
+      "total_w": 0.0008990492788143
+    },
+    "report_sha256": "5acf54ca0cd325201a142ae98811fa288e878003f9788950936211da3e52a9d4",
+    "whole_design_including_partial_macro_w": {
+      "internal_w": 0.001904086326249,
+      "leakage_w": 7.34116554213e-07,
+      "switching_w": 0.001886089565232,
+      "total_w": 0.003790910122916
+    },
+    "whole_memory_energy_blocker": "SRAM_MACRO_INTERNAL_ENERGY_INCOMPLETE",
+    "whole_memory_energy_j_per_operation": null
+  },
+  "pvt": {
+    "corner": "tt_025C_1v80",
+    "platform": "sky130hd",
+    "temperature_c": 25,
+    "voltage_v": 1.8
+  },
+  "qualification": "E5_BLOCKED_ACTIVITY_COVERAGE_OR_TIMING",
+  "qualification_thresholds": {
+    "functional_logic_annotation_coverage_minimum": 0.95
+  },
+  "record_id": "secded_clk10p0ns_seed11_write_clean_explicit_routed_activity",
+  "routed_netlist_sha256": "71e2460c21db9796c0cf5bfb097e3ee55e6d41d5c81f6d98336d793907e489d5",
+  "schema_version": 1,
+  "timing_feasible": true,
+  "warm_up_cycles": 16,
+  "whole_memory_e5_qualified": false,
+  "workload": {
+    "address_sequence": "address[i]=(19+73*i) mod 256",
+    "error_injection_sequence": "none",
+    "exact_operation_count": 256,
+    "injected_logical_bits_per_operation": 0,
+    "measured_cycles": 256,
+    "payload_generator_exact_definition": "iterative unsigned 64-bit xorshift: x^=x>>12; x^=x<<25; x^=x>>27; output=x*2685821657736338717 modulo 2^64",
+    "payload_pattern_generator": "xorshift64star(seed=3301,index=i)",
+    "rng_seed": 3301,
+    "schema_version": 1,
+    "semantic_operation_class": "WRITE_CLEAN",
+    "warm_up_cycles": 16
+  },
+  "workload_sha256": "513c1776aaf7e638dd1ec00f1b737281aa09aeada7f0d6f65020194c8c5e9e68"
+}
