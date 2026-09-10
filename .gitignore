@@ -6,6 +6,8 @@ BCHvsHamming
 Hamming32bit1Gb
 Hamming64bit128Gb
 SATDemo
+PracticalSRAMSimulator
+PracticalSRAMSimulator.exe
 build/
 batch_results.csv
 comparison_results.csv
@@ -52,3 +54,19 @@ tests/fixtures/tmp/
 tests/fixtures/pytest_tmp/
 tests/unit/SecDaec64_test.exe
 py_tmp_base/
+
+# Repository-local transient outputs. Research evidence belongs under
+# campaigns/, results/, or reports/ and is intentionally not covered here.
+tmp/
+tests/fixtures/runtime_ml_feature_pack/
+
+# LaTeX intermediates for manuscript sources (PDFs and authored sources remain
+# eligible for version control).
+/paper/**/main.aux
+/paper/**/main.bbl
+/paper/**/main.blg
+/paper/**/main.log
+/paper/**/main.out
+/paper/**/main.fls
+/paper/**/main.fdb_latexmk
+/paper/**/main.synctex.gz

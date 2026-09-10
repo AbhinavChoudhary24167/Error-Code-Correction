@@ -34,16 +34,57 @@ PracticalSRAMSimulator: PracticalSRAMSimulator.o
 
 ifeq ($(OS),Windows_NT)
 RM := cmd /C del /Q
+CLEAN_BINARIES := $(addsuffix .exe,$(BINARIES))
+CLEAN_TEST_BINARY := tests/unit/SecDaec64_test.exe
 else
 RM := rm -f
+CLEAN_BINARIES := $(BINARIES)
+CLEAN_TEST_BINARY := tests/unit/SecDaec64_test
 endif
 
 clean:
-	$(RM) $(BINARIES) $(OBJ) $(DEP) tests/unit/SecDaec64_test tests/unit/SecDaec64_test.d
+	$(RM) $(CLEAN_BINARIES) $(OBJ) $(DEP) $(CLEAN_TEST_BINARY) tests/unit/SecDaec64_test.d
 
 -include $(DEP)
 
-.PHONY: test clean gtest safeforge-decisive verify-ecc-math validate-ecc-math
+.PHONY: all help setup test smoke reviewer-smoke artifact-check docs-check reproduce lint clean clean-build gtest safeforge-decisive verify-ecc-math validate-ecc-math
+
+help:
+	@echo "GREEN-ECC-PHY reproducibility targets"
+	@echo "  make                 Build the C++17 simulators"
+	@echo "  make setup           Install Python dependencies into the active environment"
+	@echo "  make test            Build and run the established native/Python test contract"
+	@echo "  make reviewer-smoke  Run a small deterministic ECC and artifact-integrity check"
+	@echo "  make smoke           Alias for reviewer-smoke"
+	@echo "  make artifact-check  Validate canonical manifests, IDs, and local links"
+	@echo "  make docs-check      Validate documentation and artifact links without rebuilding"
+	@echo "  make reproduce       Rebuild the established registry study and documentation"
+	@echo "  make lint            Compile maintained Python entry points"
+	@echo "  make clean           Remove only local native build products"
+
+setup:
+	python -m pip install -r requirements.txt
+
+artifact-check:
+	python scripts/check_artifact.py
+
+docs-check:
+	python scripts/check_artifact.py --links-only
+
+reviewer-smoke: artifact-check
+	python eccsim.py ecc verify --implementation hsiao-generated-combinational-72-64-v1
+	python eccsim.py sram simulate --size-kb 64 --word-bits 8 --scheme sec-ded --iterations 100 --seed 17 --json
+	python -m pytest -q tests/python/test_artifact_integrity.py tests/python/test_sram_cli.py
+
+smoke: reviewer-smoke
+
+reproduce:
+	python scripts/build_documentation.py
+
+lint:
+	python -m compileall -q green_ecc_phy ml validation scripts/check_artifact.py
+
+clean-build: clean
 
 # Build and run C++ unit tests without relying on CMake or external gtest
 gtest: tests/unit/SecDaec64_test
