@@ -1,0 +1,25 @@
+{
+  "stages": [
+    "ECC semantics",
+    "hardware identity",
+    "routed physical identity",
+    "extracted parasitics",
+    "activity identity",
+    "qualified operation-level energy"
+  ],
+  "qualification_gates": [
+    "functional correctness",
+    "interface and seed identity",
+    "route completion and timing feasibility",
+    "final SPEF association",
+    "VCD association and activity coverage",
+    "256-operation normalization"
+  ],
+  "identity_keys": [
+    "architecture",
+    "seed",
+    "routed_netlist_sha256",
+    "spef_sha256",
+    "workload_sha256"
+  ]
+}

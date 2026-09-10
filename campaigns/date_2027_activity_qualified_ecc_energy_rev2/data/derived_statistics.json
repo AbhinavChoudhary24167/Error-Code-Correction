@@ -1,0 +1,75 @@
+{
+  "delta_definition": "Hsiao SECDED minus conventional SECDED",
+  "matched_physical_runs": 10,
+  "seeds_per_architecture": 5,
+  "activity_records": 46,
+  "matched_operation_seed_cells": 23,
+  "vectorless_hsiao_lower_count": 5,
+  "activity_hsiao_lower_count": 4,
+  "activity_coverage_min_percent": 99.29839,
+  "activity_coverage_max_percent": 99.356061,
+  "operation_statistics": [
+    {
+      "operation": "idle",
+      "label": "Idle",
+      "n": 4,
+      "mean_delta_pJ": 0.019108014,
+      "sample_sd_pJ": 0.03951655925652093,
+      "min_delta_pJ": -0.028662749,
+      "max_delta_pJ": 0.068116755,
+      "hsiao_lower_count": 1,
+      "conventional_lower_count": 3
+    },
+    {
+      "operation": "clean_write",
+      "label": "Write",
+      "n": 4,
+      "mean_delta_pJ": 0.12068191825,
+      "sample_sd_pJ": 0.031926301853507255,
+      "min_delta_pJ": 0.072962689,
+      "max_delta_pJ": 0.139452487,
+      "hsiao_lower_count": 0,
+      "conventional_lower_count": 4
+    },
+    {
+      "operation": "clean_read",
+      "label": "Clean read",
+      "n": 5,
+      "mean_delta_pJ": -0.030837887200000004,
+      "sample_sd_pJ": 0.16429353787931775,
+      "min_delta_pJ": -0.213062698,
+      "max_delta_pJ": 0.170538203,
+      "hsiao_lower_count": 3,
+      "conventional_lower_count": 2
+    },
+    {
+      "operation": "correction",
+      "label": "Correction",
+      "n": 5,
+      "mean_delta_pJ": 0.3094996912,
+      "sample_sd_pJ": 0.17793250073074637,
+      "min_delta_pJ": 0.148294191,
+      "max_delta_pJ": 0.52135306,
+      "hsiao_lower_count": 0,
+      "conventional_lower_count": 5
+    },
+    {
+      "operation": "detection",
+      "label": "Detection",
+      "n": 5,
+      "mean_delta_pJ": 0.1935052036,
+      "sample_sd_pJ": 0.1768965221017082,
+      "min_delta_pJ": 0.029813964,
+      "max_delta_pJ": 0.40549786,
+      "hsiao_lower_count": 0,
+      "conventional_lower_count": 5
+    }
+  ],
+  "physical_mean_deltas": {
+    "total_instance_area_um2": 237.6,
+    "standard_cell_area_um2": 237.20000000000036,
+    "wirelength_um": 2992.8,
+    "via_count": 467.8,
+    "setup_wns_ns": 0.2436916
+  }
+}

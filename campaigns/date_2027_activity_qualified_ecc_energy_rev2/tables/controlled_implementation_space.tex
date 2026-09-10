@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\caption{Controlled implementation space. Controls establish why hardware and condition are frozen before the main activity substitution. Effects are changed minus baseline, paired within seed.}
+\label{tab:implementation-controls}
+\centering\scriptsize\setlength{\tabcolsep}{2.7pt}
+\begin{tabular}{@{}p{1.55cm}p{2.05cm}p{2.55cm}p{1.3cm}p{4.65cm}p{2.05cm}@{}}
+\toprule
+Study & Change & Held fixed / qualification & Cond.; pairs & Main observed effect & Role here \\
+\midrule
+Temporal SECDED & combinational $\rightarrow$ pipelined & Same (72,64) transaction relation; exact alignment; II=1 & 10 ns; 5 & Area $+37.2\%$, timing $+46.6\%$, energy/op $-23.4\%$; directions 5/5; latency 1$\rightarrow$3 cycles & Hardware identity control \\
+Temporal SECDED & same RTL pair under tighter target & Same qualification and pair identities & 5 ns; 5 & Area $+36.7\%$, timing $+68.6\%$, energy/op $-19.3\%$; directions 5/5 & Condition control; not activity replication \\
+Structural Hsiao & flat $\rightarrow$ hierarchical decode & Same matrix, interface, latency=1, II=1; exact arbitrary-word and boundary proofs & 10 ns; 5 & Area $-0.564\%$, wire $+3.867\%$, vias $+3.918\%$, timing $+2.656\%$, energy $+1.328\%$ & Small mixed structural control \\
+BCH feasibility & stronger W1/W2-correcting realization & Named syndrome/Chien RTL; common physical target & 10 ns; 5 & Evaluated realization timing-feasible in 0/5 attempts & Categorical admission boundary \\
+Main activity study & conventional SECDED $\leftrightarrow$ Hsiao & Interface/reliability contract, 10-ns flow, matched physical identities & 10 ns; 5 & Vectorless favors Hsiao 5/5; operation-specific energy favors it 4/23 & Principal experiment \\
+\bottomrule
+\end{tabular}
+\end{table*}
