@@ -5,8 +5,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 import sys
+import tempfile
 from typing import Any, Mapping
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
@@ -23,11 +25,52 @@ from green_ecc_phy.matrices import conventional_extended_hamming, cyclic_systema
 
 def _write(path: Path, payload: Mapping[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    rendered = json.dumps(payload, indent=2, sort_keys=True) + "\n"
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp", text=True
+    )
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(rendered)
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def _hash_sources(root: Path, paths: list[str]) -> dict[str, str]:
-    return {path: scientific_file_sha256(root / path) for path in paths}
+    """Hash sources while retaining the frozen registry's migration identity.
+
+    The registry predates newline-independent scientific hashes.  Its migration
+    table binds each historical digest to the canonical LF-normalized content.
+    Re-emitting the bound legacy digest keeps frozen manifests byte-for-byte
+    reproducible while the loader still validates the current canonical bytes.
+    New or modified sources, which have no matching binding, use their current
+    canonical scientific hash.
+    """
+
+    migration_path = (
+        root
+        / "green_ecc_physical_simulation"
+        / "registry"
+        / "scientific_hash_migrations.json"
+    )
+    bindings: Mapping[str, Any] = {}
+    if migration_path.is_file():
+        migration = json.loads(migration_path.read_text(encoding="utf-8"))
+        raw_bindings = migration.get("bindings", {})
+        if isinstance(raw_bindings, dict):
+            bindings = raw_bindings
+
+    hashes: dict[str, str] = {}
+    for path in paths:
+        canonical = scientific_file_sha256(root / path)
+        binding = bindings.get(path)
+        if isinstance(binding, dict) and binding.get("canonical_sha256") == canonical:
+            hashes[path] = str(binding["legacy_sha256"])
+        else:
+            hashes[path] = canonical
+    return hashes
 
 
 def _finalize_code(root: Path, payload: dict[str, Any], matrix: Mapping[str, Any], sources: list[str]) -> dict[str, Any]:
@@ -180,7 +223,8 @@ def build(root: Path) -> None:
     for name, contents in rtl.items():
         path = generated_rtl / name
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(contents, encoding="utf-8")
+        with path.open("w", encoding="utf-8", newline="\n") as handle:
+            handle.write(contents)
 
     evidence = "reports/safeforge_hardware_validation/validation_summary.json"
     hsiao_code_sources = ["codeforge/gf2.py", "codeforge/artifacts.py", "reports/safeforge_decisive_72/code_and_evidence_audit.json"]
@@ -465,7 +509,12 @@ def build(root: Path) -> None:
         })
 
     hsiao_rtl_sources = [
-        str(path.relative_to(root)).replace("\\", "/") for path in sorted(generated_rtl.glob("*.sv"))
+        f"green_ecc_physical_simulation/rtl/hsiao_secded_72_64/{name}"
+        for name in (
+            "hsiao_secded_72_64_v1_decoder.sv",
+            "hsiao_secded_72_64_v1_encoder.sv",
+            "hsiao_secded_72_64_v1_syndrome.sv",
+        )
     ] + [evidence]
     implementations: list[dict[str, Any]] = []
     implementations.append(_implementation(
@@ -788,6 +837,14 @@ def build(root: Path) -> None:
         "schema_version": 1,
         "registry_id": "green-ecc-phy-builtin-v1",
         "scientific_source_hash_scheme": "scientific-content-sha256-v1",
+        "scientific_hash_migration": "scientific_hash_migrations.json",
+        "scientific_hash_migration_sha256": canonical_hash(
+            json.loads(
+                (registry_root / "scientific_hash_migrations.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+        ),
         "codes": [f"codes/{name}.json" for name in ["hsiao-secded-72-64-v1", "extended-hamming-secded-72-64-v1", "repository-cyclic-63-51-v1"] + [spec["code_id"] for spec in reference_bch_specs] + [item["code_id"] for item in archived_entries]],
         "implementations": [f"implementations/{item['implementation_id']}.json" for item in implementations],
         "architectures": [f"architectures/{item['architecture_id']}.json" for item in architectures],

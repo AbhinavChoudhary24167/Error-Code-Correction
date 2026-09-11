@@ -44,7 +44,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from green_ecc_phy.hashing import canonical_hash
+from green_ecc_phy.hashing import canonical_hash, scientific_file_sha256
 from green_ecc_phy.pareto_validation import (
     Objective,
     crowding_distance,
@@ -143,7 +143,17 @@ def sha256(path: Path) -> str:
 
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    rendered = json.dumps(payload, indent=2, sort_keys=True) + "\n"
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp", text=True
+    )
+    temporary = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(rendered)
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def write_csv(path: Path, rows: Sequence[Mapping[str, Any]]) -> None:
@@ -158,7 +168,9 @@ def write_csv(path: Path, rows: Sequence[Mapping[str, Any]]) -> None:
 def source_records(root: Path, paths: Iterable[Path | str]) -> list[dict[str, str]]:
     records = []
     for relative in sorted({Path(path).as_posix() for path in paths}):
-        records.append({"path": relative, "sha256": sha256(root / relative)})
+        records.append(
+            {"path": relative, "sha256": scientific_file_sha256(root / relative)}
+        )
     return records
 
 

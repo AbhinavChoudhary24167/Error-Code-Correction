@@ -38,7 +38,7 @@
   "implementation_id": "hsiao-generated-combinational-72-64-v1",
   "initiation_interval": 1,
   "license": "MIT repository code",
-  "manifest_sha256": "01687f667a0eb93a610d4f02cbb55d6c4ddfbf2369a7f42ebfe35f8e6dcfaa75",
+  "manifest_sha256": "c8cea4fddc7761f2ab28f0ba0f5dd99afcaec08068d12143faa28da203a2dabf",
   "metadata_requirements": {
     "bits_per_codeword": 0
   },
@@ -61,15 +61,13 @@
     "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv",
     "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv",
     "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
-    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv",
     "reports/safeforge_hardware_validation/validation_summary.json"
   ],
   "source_hashes": {
-    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv": "5f328ba2697e47d97a3623e472bb5b918712a40469aaec769816b3e573d0c752",
-    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "2c253e275a4f1319b60f0ef6868f77430e33da7d8a05345b8eda5e1f91ed6e09",
-    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "461ea991c29ca47fc38afe1dbb3ee309ce907c992c294ac8faedb1ba706c263a",
-    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
-    "reports/safeforge_hardware_validation/validation_summary.json": "e373e8d62030ab3b0798bdc2c74a0f7fe8bd21fe7d6d8cd45bfed057b9e5444a"
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_decoder.sv": "9f74648a861c0506bdd698ab53bb47f8f999eed2bdcc1f6e3c0cf548d9929bfb",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+    "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+    "reports/safeforge_hardware_validation/validation_summary.json": "31ca783b82b1a009138dbee6dd9424ff2bc76eb1d7d482d4371621c409fdcc88"
   },
   "source_provenance": [
     {
@@ -82,10 +80,6 @@
     },
     {
       "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv",
-      "role": "RTL/reference/evidence"
-    },
-    {
-      "path": "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv",
       "role": "RTL/reference/evidence"
     },
     {

@@ -16,7 +16,7 @@ if str(REPOSITORY_ROOT) not in sys.path:
 from codeforge.equivalence import weight_enumerators
 from green_ecc_phy.backends import CharacterizationStore, characterize_implementation
 from green_ecc_phy.comparison import build_comparison_views, select_physical
-from green_ecc_phy.hashing import canonical_hash, file_sha256
+from green_ecc_phy.hashing import canonical_hash, scientific_file_sha256
 from green_ecc_phy.registry import EccRegistry
 from green_ecc_phy.study import run_software_study
 from green_ecc_phy.verification import verify_implementation
@@ -197,15 +197,15 @@ def run(root: Path, outdir: Path) -> dict[str, Any]:
     _write(outdir / "framework_summary.json", summary)
 
     artifacts = {
-        path.relative_to(outdir).as_posix(): file_sha256(path)
+        path.relative_to(outdir).as_posix(): scientific_file_sha256(path)
         for path in sorted(outdir.rglob("*"))
         if path.is_file() and path.name != "manifest.json"
     }
     manifest: dict[str, Any] = {
         "schema_version": 1,
-        "registry_sha256": file_sha256(registry.registry_path),
-        "scenario_sha256": file_sha256(scenario_path),
-        "analytical_study_preregistration_sha256": file_sha256(study_config_path),
+        "registry_sha256": scientific_file_sha256(registry.registry_path),
+        "scenario_sha256": scientific_file_sha256(scenario_path),
+        "analytical_study_preregistration_sha256": scientific_file_sha256(study_config_path),
         "artifacts": artifacts,
         "reproduction_command": "python scripts/run_multi_ecc_framework_evaluation.py",
     }
