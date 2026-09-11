@@ -52,7 +52,7 @@ def run() -> None:
     with (HERE / "UNCERTAINTY_RESULTS.csv").open(
         "w", encoding="utf-8", newline=""
     ) as stream:
-        writer = csv.DictWriter(stream, fieldnames=result_fields)
+        writer = csv.DictWriter(stream, fieldnames=result_fields, lineterminator="\n")
         writer.writeheader()
         writer.writerow(
             {
@@ -80,6 +80,7 @@ def run() -> None:
                 "normalized_absolute_influence",
                 "evidence_label",
             ],
+            lineterminator="\n",
         )
         writer.writeheader()
         for rank, row in enumerate(sensitivity, start=1):
