@@ -1,0 +1,49 @@
+{
+  "campaign": "gate3_openram_attempt04_sky130_control_integration_repair",
+  "historical_baseline": {
+    "make_test": "2 failed, 482 passed",
+    "full_pytest": "2 failed, 484 passed",
+    "frozen_failures": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ]
+  },
+  "make": {
+    "command": "make",
+    "exit_code": 0,
+    "result": "PASS"
+  },
+  "make_test": {
+    "command": "make test",
+    "exit_code": 1,
+    "result": "EXPECTED_FROZEN_BASELINE",
+    "passed": 482,
+    "failed": 2,
+    "warnings": 3,
+    "duration_seconds": 385.90,
+    "failures_match_historical_baseline": true
+  },
+  "full_pytest": {
+    "command": "python3 -m pytest -q",
+    "exit_code": 1,
+    "result": "EXPECTED_FROZEN_BASELINE",
+    "passed": 484,
+    "failed": 2,
+    "duration_seconds": 405.65,
+    "failures_match_historical_baseline": true
+  },
+  "campaign_local": {
+    "command": "python3 -m pytest -q campaigns/iscas_sustainability_extension/memory_compiler/gate3_openram_attempt04_sky130_control_integration_repair/tests",
+    "result": "PASS_5"
+  },
+  "new_regression_count": 0,
+  "protected_binary": {
+    "path": "PracticalSRAMSimulator.exe",
+    "pre_make_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "post_make_relinked_sha256": "847fcfaaa3a0d741de50c84dcfde9d2ad76954539474ba47569558f0a6787fbd",
+    "restored_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "restoration": "PASS_EXACT_BASELINE_BYTES"
+  },
+  "test_fixture_cleanup": "Removed only eight directories created by these two regression runs; eight pre-existing untracked fixture directories were preserved.",
+  "final_tracked_git_diff": []
+}

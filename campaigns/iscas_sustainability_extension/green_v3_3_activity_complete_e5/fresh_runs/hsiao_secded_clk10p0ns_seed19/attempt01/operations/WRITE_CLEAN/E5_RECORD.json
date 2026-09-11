@@ -1,0 +1,157 @@
+{
+  "activity": {
+    "activity_generation_boundary": "POST_ROUTE_GATE_ACTIVITY_ZERO_DELAY_ROUTED_NETLIST",
+    "compressed_preserved_path": "campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/hsiao_secded_clk10p0ns_seed19/attempt01/operations/WRITE_CLEAN/WRITE_CLEAN.vcd.gz",
+    "coverage": {
+      "aggregate_coverage_fraction": 0.8983766233766234,
+      "annotated_pin_count": 2767,
+      "annotation_source_counts": {
+        "user": 2625,
+        "vcd": 142
+      },
+      "by_cell_class": {
+        "clock": {
+          "annotated_pin_count": 437,
+          "coverage_fraction": 0.997716894977169,
+          "unannotated_pin_count": 1
+        },
+        "combinational": {
+          "annotated_pin_count": 2162,
+          "coverage_fraction": 0.992653810835629,
+          "unannotated_pin_count": 16
+        },
+        "macro_interface": {
+          "annotated_pin_count": 8,
+          "coverage_fraction": 0.043478260869565216,
+          "unannotated_pin_count": 176
+        },
+        "sequential": {
+          "annotated_pin_count": 18,
+          "coverage_fraction": 1.0,
+          "unannotated_pin_count": 0
+        },
+        "top_port_or_unknown": {
+          "annotated_pin_count": 142,
+          "coverage_fraction": 0.5419847328244275,
+          "unannotated_pin_count": 120
+        }
+      },
+      "exact_activity_sources": [
+        "clock",
+        "constant",
+        "user",
+        "vcd"
+      ],
+      "functional_logic_annotated_pin_count": 2617,
+      "functional_logic_coverage_fraction": 0.9935459377372817,
+      "functional_logic_unannotated_pin_count": 17,
+      "inexact_propagated_or_default_functional_pin_count": 0,
+      "macro_activity_boundary": "INTERFACE_PINS_ANNOTATED_INTERNAL_STATE_ACTIVITY_ABSENT",
+      "macro_internal_activity_coverage": null,
+      "physical_only_pins_excluded_from_functional_logic_coverage": true,
+      "unannotated_pin_count": 313
+    },
+    "dut_hierarchy": "tb/dut",
+    "explicit_routed_net_annotation": {
+      "emitted_net_count": 1175,
+      "macro_output_activity_root_candidate_count": 72,
+      "mapped_pin_reference_count": 2625,
+      "opensta_density_input_unit": "transitions_per_nanosecond",
+      "sha256": "43c9c3e15a4f8767f992b0c0d04167a20fd7fb9924bce71ce483a05a797303d6",
+      "skipped_net_names": [],
+      "source_density_unit": "transitions_per_second"
+    },
+    "external_raw_path": "/var/lib/green-ecc-v33-activity-complete-e5/fresh_runs/hsiao_secded_clk10p0ns_seed19/attempt01/activity/WRITE_CLEAN.vcd",
+    "format": "VCD",
+    "macro_output_activity_root_adapter": {
+      "all_required_roots_annotated": true,
+      "annotated_root_count": 72,
+      "odb_mutation_scope": "IN_MEMORY_POWER_ANALYSIS_PROCESS_ONLY",
+      "original_odb_modified": false,
+      "purpose": "Seed VCD-measured SRAM outputs as OpenSTA activity roots for the logic-only boundary",
+      "required_root_count": 72
+    },
+    "sha256": "d78acc4eeb17ee79fbe17c5e351e7bb5def867ef1ad9aae58396e85dc82013ec",
+    "simulation_tool": "Icarus Verilog"
+  },
+  "architecture_id": "HSIAO_SECDED",
+  "clock_period_ns": 10.0,
+  "codeword_vector_sha256": "df65a858d258730a0d1722ec8d584bff5d8394da1a41814c8c5733a9c8db7917",
+  "ecc_logic_e5_qualified": true,
+  "evidence_level": "E5",
+  "exact_operation_count": 256,
+  "fault_injection_manifest": {
+    "injection_count": 0,
+    "injections": [],
+    "path": "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/hsiao_secded_clk10p0ns_seed19/attempt01/workloads/codewords_write_clean.hex",
+    "sha256": "df65a858d258730a0d1722ec8d584bff5d8394da1a41814c8c5733a9c8db7917"
+  },
+  "measured_cycles": 256,
+  "measurement_begin_ns": 186.0,
+  "measurement_duration_seconds": 2.561e-06,
+  "measurement_end_ns": 2747.0,
+  "operation_class": "WRITE_CLEAN",
+  "parasitics": {
+    "format": "SPEF",
+    "loaded_by_openroad": true,
+    "sha256": "1b5d40246b65e97bafaad1eaa3a8b864e5550729a46e4ac34aa4207173efc60d"
+  },
+  "payload_vector_sha256": "bb3cd27a43f9009a2c89d768db17b51c121afaf39ed8fe29f2b6f46098513480",
+  "physical_seed": 19,
+  "power": {
+    "ecc_logic_energy_j_per_operation": 1.1407716432358693e-11,
+    "ecc_logic_excluding_macro_w": {
+      "internal_w": 0.00035163306165510004,
+      "leakage_w": 3.5363427741999284e-09,
+      "switching_w": 0.0007886896491982,
+      "total_w": 0.0011403262033127001
+    },
+    "macro_reported_partial_w": {
+      "internal_w": 0.0008983185980469,
+      "leakage_w": 7.306775842153e-07,
+      "switching_w": 0.0,
+      "total_w": 0.0008990492788143
+    },
+    "report_sha256": "8792d40067cc45ac13abbb1e1617c9455eecf23c6bd837ab8d851daef7981f89",
+    "whole_design_including_partial_macro_w": {
+      "internal_w": 0.001249951659702,
+      "leakage_w": 7.342139269895e-07,
+      "switching_w": 0.0007886896491982,
+      "total_w": 0.002039375482127
+    },
+    "whole_memory_energy_blocker": "SRAM_MACRO_INTERNAL_ENERGY_INCOMPLETE",
+    "whole_memory_energy_j_per_operation": null
+  },
+  "pvt": {
+    "corner": "tt_025C_1v80",
+    "platform": "sky130hd",
+    "temperature_c": 25,
+    "voltage_v": 1.8
+  },
+  "qualification": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
+  "qualification_thresholds": {
+    "functional_logic_annotation_coverage_minimum": 0.95,
+    "required_macro_output_activity_roots": 72
+  },
+  "record_id": "hsiao_secded_clk10p0ns_seed19_write_clean",
+  "routed_netlist_sha256": "a71ddf504f336a346f04e37ef2b9a6698939a71400868cf9e832585236c62bc0",
+  "schema_version": 1,
+  "timing_feasible": true,
+  "warm_up_cycles": 16,
+  "whole_memory_e5_qualified": false,
+  "workload": {
+    "address_sequence": "address[i]=(19+73*i) mod 256",
+    "error_injection_sequence": "none",
+    "exact_operation_count": 256,
+    "injected_logical_bits_per_operation": 0,
+    "measured_cycles": 256,
+    "payload_generator_exact_definition": "iterative unsigned 64-bit xorshift: x^=x>>12; x^=x<<25; x^=x>>27; output=x*2685821657736338717 modulo 2^64",
+    "payload_pattern_generator": "xorshift64star(seed=3301,index=i)",
+    "pre_measurement_state_initialization": "one clean read of logical address 19 after reset and before the 16 warm-up cycles",
+    "rng_seed": 3301,
+    "schema_version": 1,
+    "semantic_operation_class": "WRITE_CLEAN",
+    "warm_up_cycles": 16
+  },
+  "workload_sha256": "ce6c3a5fa82cc67705a8ca11f33e86d1daa5f47bf2beeb00e330f54f145b751b"
+}

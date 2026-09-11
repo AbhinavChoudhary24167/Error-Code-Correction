@@ -1,0 +1,208 @@
+\documentclass[conference,10pt]{IEEEtran}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+\input{data/generated_claims.tex}
+
+\title{From ECC Semantics to Physical Outcomes: Implementation-Aware Energy Evaluation of Memory ECC}
+\author{\IEEEauthorblockN{Anonymous submission}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+An error-correcting-code (ECC) label specifies protection semantics, not a unique hardware or energy cost. We ask how semantics-preserving architecture changes alter implementation outcomes after correctness is qualified and physical identity is fixed. Our flow joins formal and functional evidence to RTL and transaction contracts, then to matched routed implementations and activity-based energy under a fixed no-error trace. For exact-equivalent combinational and pipelined SECDED (72,64) at 10~ns, pipelining changes area by \SecAreaMean\%, a post-route signed-slack-derived frequency estimate by \SecFreqMean\%, and energy/op by \SecEnergyMean\% across five matched seeds; request latency rises from one to three cycles while initiation interval remains one. For an exact-equivalent flat/hierarchical Hsiao pair that also holds latency, initiation interval, and architectural register count fixed, displacement is much smaller and mixed: area \HsAreaMean\%, timing \HsFreqMean\%, and energy \HsEnergyMean\%, with one timing-order reversal. Component accounting shows a \PowerSwitchingEffect\% switching-power change despite higher internal, sequential, and clock contributions, making switching the dominant numerical contributor to the temporal energy reduction without establishing per-net causality. Fresh 5~ns implementations preserve the temporal area/timing/energy directions but change their magnitudes. Qualified hardware and physical identities, rather than code labels, are therefore the proper units for implementation-aware energy claims.
+\end{abstract}
+
+\begin{IEEEkeywords}
+memory ECC, energy, SECDED, Hsiao, formal equivalence, physical design, activity-based power
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+A fully specified code identity fixes a payload/codeword mapping and protection semantics; a family label may fix only a guarantee class. Neither fixes the encoder or decoder architecture, pipeline placement, request latency, initiation interval (II), clock network, or switching behavior. Those choices define a hardware identity distinct from the code identity; synthesis, placement, routing, parasitics, constraints, seed, and activity define a further physical identity.
+
+This distinction matters when an area, timing, power, or energy value is attached to an ECC label. Correctness evidence cannot transfer a physical result between different RTLs, and similar post-route quality of results cannot establish semantic equality. A defensible energy comparison must instead name the transaction contract, routed implementation, activity trace, useful work, and feasibility gate that jointly produced it.
+
+Prior work separately establishes hardware-conscious ECC construction and low-power checkers~\cite{hsiao1970,ghosh2004,reviriego2013,tripathi2020}, architecture-sensitive multi-error correction~\cite{naseer2008,chen2004,wong2011,yoo2016,lagendijk2026}, equivalent-logic and synthesis exploration~\cite{mishchenko2006,hosny2020,neto2019,grosnit2022}, physical-flow optimization~\cite{kwon2019,ajayi2019,shalan2020}, formal equivalence~\cite{kuehlmann1997,kuehlmann2002}, and activity-based power estimation~\cite{najm1993,najm1994}. The experimental boundary between semantic equivalence and implementation identity is nevertheless often implicit when physical or energy costs are reported.
+
+We ask: after behavioral qualification, how much can semantics-preserving hardware changes alter physical and energy outcomes, and which trade directions remain consistent under matched physical-design perturbations and a tighter constraint? Three research questions organize the experiment. \emph{RQ1--temporal architecture:} does pipelining a fixed SECDED transaction relation yield a consistent area--latency--timing--energy trade-off across matched seeds? \emph{RQ2--structural architecture:} when latency, II, architectural register count, and transaction behavior are also fixed, how much does a distinct Hsiao decoder organization move? \emph{RQ3--accounting and condition:} which temporal directions persist at 5~ns, and which reported power components account numerically for the 10~ns energy ordering? A qualified BCH realization supplies a separate stronger-correction feasibility boundary; it is not an exact-equivalence comparison.
+
+This paper makes three contributions:
+\begin{enumerate}
+\item an identity-preserving formal-to-physical methodology joining behavioral qualification, transaction contract, physical feasibility, and activity-normalized energy;
+\item controlled exact-equivalence contrasts between a temporal SECDED transformation and a latency/II-preserving structural Hsiao transformation, showing that semantic equality neither removes physical displacement nor predicts its magnitude; and
+\item matched-seed and second-condition evidence for the temporal trade directions, together with component-level accounting that identifies switching reduction as the dominant numerical contributor to the estimated energy ordering.
+\end{enumerate}
+We propose neither a new ECC nor a universal code ranking, physical-design algorithm, equivalence method, or power engine.
+
+\section{Related Work}
+
+\subsection{ECC hardware architecture}
+
+Hsiao's odd-weight-column construction makes parity-check structure a hardware concern~\cite{hsiao1970}; later checkers and low-delay codes optimize switching, area, or delay~\cite{ghosh2004,reviriego2013}, while ASIC SECDED/DAEC studies expose guarantee-dependent costs~\cite{tripathi2020}. BCH and other double-error-correcting implementations vary with parallelism, Chien-search organization, and power management~\cite{naseer2008,chen2004,wong2011,yoo2016,das2019,lagendijk2026}. These results motivate our identity-scoped BCH language: one target miss cannot characterize a code family.
+
+Memory-level studies co-design ECC with STT-MRAM, adaptive granularity, GPU register files, DRAM protection, and reliability models~\cite{delbel2014,pajouhi2015,nair2016,wei2020,lee2022,yoon2011}. They answer device, storage, workload, or reliability questions outside our routed codec boundary. Conversely, their system conclusions require codec costs to be attached to the implementation that produced them. We therefore keep categorical guarantees separate from area/timing/energy and make no FIT, SER, or SRAM-macro claim.
+
+\subsection{Equivalent logic and implementation transformations}
+
+AIG rewriting and learned or Bayesian synthesis-sequence exploration show that equivalent representations and optimization recipes expose different area/delay opportunities~\cite{mishchenko2006,hosny2020,neto2019,grosnit2022}. Formal equivalence provides a behavioral boundary~\cite{kuehlmann1997,kuehlmann2002}, but proof obligations differ: arbitrary-word combinational equality is not the same statement as transaction equality after temporal alignment. We apply each at its proper boundary before accepting physical evidence.
+
+\subsection{Physical and power evaluation}
+
+Flow autotuning changes physical quality of results~\cite{kwon2019}, and OpenROAD/OpenLANE enable inspectable RTL-to-layout experiments~\cite{ajayi2019,shalan2020}. Transition-density and power-estimation work establishes why activity must be explicit~\cite{najm1993,najm1994}. Our contribution is a fail-closed, machine-auditable admissibility protocol: a physical or energy claim is legal only when semantic proof, transaction contract, frozen RTL identity, routed database/parasitics/activity, and feasibility predicates join. A failed proof, broken join, or missed target rejects the corresponding comparison instead of producing a number. No constituent technique is claimed as new. Aggregate power components support numerical accounting; they do not by themselves prove a glitch mechanism.
+
+The closest power-oriented precedent in this set compares trace-driven Hamming/Hsiao checkers~\cite{ghosh2004}. We do not claim to introduce activity-aware ECC analysis. Our narrower distinction is experimental identity: the same behavioral relation is proved at a named transaction boundary, each activity result is joined to its own routed database and parasitics, and paired physical perturbations are retained before aggregation. This lets energy be interpreted together with latency, timing eligibility, area, and routing rather than as an isolated estimator output.
+
+\section{Identity-Preserving Method}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figure01_identity_framework.pdf}
+\caption{Claims are admitted only after the correct evidence is joined. Correctness and PPA do not transfer across hardware identities; physical and activity collateral further define the evaluated identity.}
+\label{fig:identity}
+\end{figure}
+
+\subsection{Identity and behavioral qualification}
+
+Figure~\ref{fig:identity} separates three objects. \emph{Code identity} fixes mapping and protection semantics. \emph{Hardware identity} adds RTL sources, interface, architecture, latency, and II. \emph{Physical identity} adds technology/library/corner, constraints, flow configuration, physical seed, routed database, parasitics, and activity. PPA cannot qualify correctness, and correctness does not authorize PPA transfer.
+
+The combinational and pipelined extended-Hamming SECDED candidates implement the same systematic (72,64) transaction relation. Exact equivalence after a two-cycle response alignment establishes identical encoder/decoder responses. Both accept requests at II=1; their request latencies are one and three cycles.
+
+The Hsiao study holds the encoder, syndrome matrix, interface, status behavior, one-cycle latency, II=1, and architectural register count fixed. An unconstrained 72-bit miter proves equality of the flat and hierarchical decoders for every received word; registered-boundary temporal induction proves same-cycle behavior from the specified all-zero initialization under arbitrary reset, valid, payload, and received-word sequences. The common mapping has \MappedFlatCells\ versus \MappedHierCells\ cells, \MappedFlatRegs\ versus \MappedHierRegs\ registers, and \MappedFlatXor\ versus \MappedHierXor\ XOR/XNOR cells, with distinct histograms and graph signatures. The synthesis report exposes no usable combinational-depth path, so logic depth is not assessable rather than inferred.
+
+SECDED and Hsiao correct every weight-1 (W1) coordinate error and detect every W2 error in their qualified universes. The shortened BCH corrects W1/W2. Guarantee is a categorical admission constraint, not a scalar PPA objective.
+
+\input{tables/identity_matrix.tex}
+
+\subsection{Physical, timing, and energy contract}
+
+The pinned OpenROAD-flow-scripts (ORFS)/OpenROAD environment uses SKY130HD at TT, 1.80~V, and 25$^\circ$C. Common settings are 35\% core utilization, 0.55 placement density, 10~$\mu$m core margin, 0.05~pF output load, 10\% period-relative I/O delays, and one worker. This freezes a utilization/floorplan policy, not a common die outline, so wire and timing effects remain policy-conditioned. Global placement, routing, and general OpenROAD randomness use the same prospective seed set $\{\SeedList\}$ for every identity. Seeds are deterministic heuristic perturbations, not process samples or fabricated-chip replicas.
+
+For target period $T$ and signed worst setup slack $s_{\mathrm{setup}}$, we report
+\begin{equation}
+ f_{\mathrm{slack}}=\frac{1000}{T-s_{\mathrm{setup}}}\;\mathrm{MHz}.
+ \label{eq:fslack}
+\end{equation}
+This is a post-route signed-slack-derived frequency estimate, not measured or achieved $F_{\max}$. Target feasibility separately requires nonnegative setup slack, zero setup violations, hold closure, route completion, and zero final DRC. A route-complete timing failure remains eligible for reported physical quantities and the descriptive $f_{\mathrm{slack}}$ metric, but is ineligible for target-clock power and energy under the frozen contract.
+
+Power is estimated with OpenSTA from the final ODB/SDC/SPEF after propagating a deterministic primary-input VCD. Each trace contains 100,000 useful no-error operations at II=1. With trace time $t_{\mathrm{trace}}$ and useful-operation count $N_{\mathrm{useful}}$,
+\begin{equation}
+ E_{\mathrm{op}}=P_{\mathrm{total}}t_{\mathrm{trace}}/N_{\mathrm{useful}}.
+ \label{eq:energy}
+\end{equation}
+Raw power is therefore not interchangeable with energy across clock periods.
+
+The common primary-input VCD reuses a SplitMix64 payload sequence (seed \PayloadSeed) for every paired identity and seed. It contains \ResetCycles{} reset cycles, 100,000 valid no-error operations at saturated II=1, and \DrainCycles{} drain cycles; the drain exceeds the three-cycle pipeline latency, and all overhead remains in the common trace duration and energy denominator. The result does not cover idle or bursty service, clock-gating policy, or correction-heavy traffic.
+
+\subsection{Evidence joins and paired analysis}
+
+Every numerical row joins the frozen source inventory and transaction contract to target, library/corner, flow configuration, seed, final database, parasitics, and activity trace. Missing or timing-ineligible values remain unavailable. No seed is discarded, replaced, or individually tuned.
+
+The join also determines which comparisons are legal. The temporal 10~ns pair shares code, workload, target, flow, and seed but changes architecture and latency. The Hsiao pair additionally shares latency, II, architectural register count, and matrix while changing decoder organization. The 5~ns replication shares both SECDED RTL identities and the physical policy but changes the target and period-relative I/O delays. BCH changes semantics and hardware together and therefore supports only an identity-scoped boundary, not an exact-equivalence effect. Route completion alone never promotes a timing-ineligible power point.
+
+For metric $x$, pairing precedes aggregation:
+\begin{equation}
+ \Delta_s(x)=100\frac{x_{\mathrm{changed},s}-x_{\mathrm{baseline},s}}
+ {x_{\mathrm{baseline},s}}.
+ \label{eq:paired}
+\end{equation}
+We retain all five seed effects and report their mean, sample standard deviation, min--max envelope, and sign/order count descriptively. These are not confidence intervals or population statistics. Temporal SECDED changes state placement and latency; structural Hsiao changes decoder organization while holding transaction timing fixed; the 5~ns study changes target and period-relative I/O delays while holding RTL and the remaining physical contract fixed; BCH changes guarantee and hardware together.
+
+\section{Results}
+
+\subsection{RQ1: Temporal restructuring yields a large mixed trade-off}
+
+At 10~ns, pipeline relative to combinational SECDED changes standard-cell area by \SecAreaMean\% (\SecAreaMin--\SecAreaMax\%), detailed wire by \SecWireMean\%, $f_{\mathrm{slack}}$ by \SecFreqMean\% (\SecFreqMin--\SecFreqMax\%), and energy/op by \SecEnergyMean\% (\SecEnergyMin\% to \SecEnergyMax\%). All directions hold in 5/5 matched seeds. The pipeline exchanges higher area and three-cycle request latency for more timing margin and lower steady-stream energy; II remains one. With area, latency, timing, and energy admitted, neither identity dominates at any seed or in aggregate.
+
+Absolute means establish scale: area is \CombAreaAbs\ versus \PipeAreaAbs~$\mu$m$^2$, detailed wire \CombWireAbs\ versus \PipeWireAbs~$\mu$m, $f_{\mathrm{slack}}$ \CombFreqAbs{} versus \PipeFreqAbs~MHz, and energy \CombEnergyAbs{} versus \PipeEnergyAbs~pJ/op. Both identities satisfy every 10~ns feasibility gate in 5/5 runs. Descriptive spread is narrow for area (\SecAreaStd{} percentage points) and energy (\SecEnergyStd{} points), but larger for timing (\SecFreqStd{} points); its direction nevertheless remains fixed.
+
+The wire effect spans \SecWireMin--\SecWireMax\% with \SecWireStd{} percentage points of sample spread, while energy spans \SecEnergyMin\% to \SecEnergyMax\%. Thus no headline direction is created by averaging over a reversal. Timing has the widest normalized envelope, which identifies physical-trajectory sensitivity in magnitude without converting five deterministic runs into a population estimate.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.93\textwidth]{figure02_equivalent_effects.pdf}
+\caption{Changed relative to baseline for individual seeds (open markers), means (diamonds), and min--max ranges. The shared y-axis preserves the scientific contrast: temporal SECDED (pipeline vs. combinational) moves substantially; structural Hsiao (hierarchical vs. flat) moves modestly. Positive area/wire/energy is cost; positive timing is benefit.}
+\label{fig:effects}
+\end{figure*}
+
+\subsection{RQ2: Structural displacement is modest and mixed}
+
+Figure~\ref{fig:effects} intentionally does not magnify the Hsiao panel. Hierarchical relative to flat changes area by \HsAreaMean\%, cells by +\HsCellsMean\%, detailed wire by +\HsWireMean\%, vias by +\HsViasMean\%, $f_{\mathrm{slack}}$ by +\HsFreqMean\%, and energy/op by +\HsEnergyMean\%. Area is lower in 5/5 seeds; cells, wire, vias, and energy are higher in 5/5; timing is higher in 4/5 and reverses once.
+
+The envelopes retain that reversal: area spans \HsAreaMin{} to \HsAreaMax\%, wire +\HsWireMin{} to +\HsWireMax\%, timing \HsFreqMin{} to +\HsFreqMax\%, and energy +\HsEnergyMin{} to +\HsEnergyMax\%. The flat identity averages \HsiaoAreaAbs~$\mu$m$^2$, \HsiaoWireAbs~$\mu$m of wire, \HsiaoFreqAbs~MHz, and \HsiaoEnergyAbs~pJ/op; both identities are feasible in 5/5 runs. Exact behavior thus requires separate measurement, but structural difference does not imply a large physical effect.
+
+Mapped structure confirms that the physical comparison is not two labels for the same netlist. The hierarchical identity adds ten cells, preserves all 349 registers, removes seven XOR/XNOR cells, and changes both the cell-type histogram and a name-independent graph signature. The result is nevertheless small. This counterexample is important: a methodology that distinguishes implementation identities does not predict that every distinct RTL will produce a dramatic PPA shift.
+
+\input{tables/headline_results.tex}
+
+\subsection{RQ3a: Switching is the largest reported component difference}
+
+At 10~ns, combinational versus pipelined mean internal power is \CombInternalMw{} versus \PipeInternalMw~mW, switching is \CombSwitchingMw{} versus \PipeSwitchingMw~mW, leakage is \CombLeakageNw{} versus \PipeLeakageNw~nW, and total is \CombTotalMw{} versus \PipeTotalMw~mW. The paired absolute differences are +\PowerInternalDeltaMw~mW internal, \PowerSwitchingDeltaMw~mW switching, +\PowerLeakageDeltaNw~nW leakage, and \PowerTotalDeltaMw~mW total. Internal, switching, and leakage reconcile to total within the reported residual; switching is the largest top-level difference.
+
+Cell groups show the same accounting tension: combinational-group power changes by \PowerCombGroupEffect\%, while sequential and clock groups rise by +\PowerSeqGroupEffect\% and +\PowerClockGroupEffect\%. These totals identify numerical contributors, not a per-net causal mechanism. The available aggregate reports cannot distinguish glitch suppression from other changes in activity, capacitance, buffering, or placement.
+
+Several mechanisms remain compatible with the aggregates. Register insertion changes clock load and sequential internal activity; it also changes logic partitioning, placement, buffering, and the propagation of transitions through each stage. The evidence establishes that switching numerically outweighs the added internal and clock-related costs under this trace. Isolating which structural mechanism caused that switching change would require delay-aware per-net activity or controlled ablations that are not part of the frozen campaign.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.93\textwidth]{figure03_power_condition.pdf}
+\caption{(a) Mean paired 10~ns absolute power differences. Internal, switching, and leakage sum to total on the left; combinational, sequential, and clock groups sum to the same total on the right, within report residuals. (b) Fresh 10 and 5~ns implementations preserve temporal area/timing/energy directions while changing magnitudes; bars are individual-seed min--max ranges.}
+\label{fig:powercondition}
+\end{figure*}
+
+\subsection{RQ3b: A tighter target preserves direction, not magnitude}
+
+All ten fresh 5~ns implementations are route-complete, DRC-clean, hold-clean, setup-feasible, and power-eligible. Pipeline relative to combinational changes area by +\FiveAreaMean\%, cells +\FiveCellsMean\%, wire +\FiveWireMean\%, vias +\FiveViasMean\%, $f_{\mathrm{slack}}$ +\FiveFreqMean\%, and energy/op \FiveEnergyMean\%. Area, timing, power, and energy directions match the 10~ns result in all five seeds, while the energy reduction narrows from 23.4\% to 19.3\% and the timing effect grows.
+
+The 5~ns area effect spans +\FiveAreaMin{} to +\FiveAreaMax\%, timing +\FiveFreqMin{} to +\FiveFreqMax\%, and energy \FiveEnergyMin{} to \FiveEnergyMax\%. These envelopes again preserve every seed rather than selecting a favorable route. The replication supports direction stability only across the two evaluated constraints; it does not establish a continuous frequency trend.
+
+This is stronger than reevaluating (\ref{eq:fslack}) on the 10~ns routes: synthesis, buffering, placement, and routing are rerun under the 5~ns target. It is not DVFS because voltage, technology, corner, RTL, and workload remain fixed. Across the fresh 5~ns implementations, whose trace period is half the 10~ns period, total power changes by +\CombConditionPower\% for combinational and +\PipeConditionPower\% for pipelined; this is a condition-level comparison, not an isolated clock-period effect. Energy/op changes only \CombConditionEnergy\% and \PipeConditionEnergy\%; equal useful work keeps those quantities distinct.
+
+\subsection{Stronger correction defines a feasibility boundary}
+
+The qualified BCH (78,64,$t=2$) syndrome/Chien identity averages \BchArea~$\mu$m$^2$, \BchWire~$\mu$m of detailed wire, \BchFreq~MHz by the signed-slack estimate, \BchSlack~ns setup slack, and \BchSetupViolations{} setup violations per seed. It meets 10~ns in \BchFeasible{} runs. Its W1/W2-correction guarantee is stronger than SECDED/Hsiao, so it remains an experimental boundary despite missing the target. The result neither provides eligible target-clock energy nor implies that BCH is inherently slow or impractical.
+
+\section{Discussion and Limitations}
+
+The two exact-equivalence studies isolate different interventions. Temporal restructuring moves state through the datapath and jointly changes latency, logic per stage, routing, clock burden, and switching; the resulting displacement is large but cannot be decomposed into independent causes. Hsiao holds transaction boundaries and architectural register count fixed and changes only decoder organization; its sub-percent area and low-single-digit routing/timing/energy shifts are credible outcomes of that narrower intervention. Implementation identity is therefore a measurement requirement, not an effect-size predictor.
+
+Matched seeds answer whether an ordering depends on one deterministic placement/routing trajectory. They do not establish process robustness or a population probability. The one Hsiao timing reversal is consequently as important as the five consistent area and energy signs. Likewise, the 5~ns campaign establishes one controlled constraint replication: directions persist, magnitudes move, and neither fact implies portability across technologies or corners.
+
+The temporal comparison is non-dominated over the declared objectives. The pipeline improves timing and steady-stream energy but costs area and two request-latency cycles; a one-cycle service constraint may decide the choice before PPA optimization. Hsiao's smaller mixed shifts may matter near a design threshold or after replication across many instances, but the means do not define a universal structural preference. BCH first passes a stronger categorical guarantee and then exposes an implementation gap at the common target; no scalar PPA score can substitute a weaker code.
+
+These decision consequences differ. Temporal SECDED presents a genuine architectural choice because its latency and area costs accompany its energy and timing benefits at every seed. Structural Hsiao holds the categorical service contract fixed, so its low-single-digit effects matter chiefly near an implementation threshold or when the codec is replicated. The BCH point cannot enter either Pareto comparison: it changes the required guarantee and fails the target. Keeping these cases separate prevents ``better ECC'' from silently mixing semantics, latency, and physical eligibility.
+
+The reusable result is the evidence-admission protocol: qualify semantics and transactions, freeze hardware and physical identities, gate feasibility, join activity to the routed database, and compare matched perturbations before aggregation. The numerical results are limited to specific RTLs, one open 130-nm library, the principal TT condition, one flow/floorplan policy, two timing targets, and five heuristic seeds. Power is activity-based post-route estimation, not silicon measurement. We exclude SRAM-macro integration, PVT and IR-drop sweeps, clock-domain integration, physical fault adjacency, FIT/SER inference, and correction-heavy workload conclusions. Common policy controls confounding but does not prove architecture-specific floorplan optimality.
+
+Three alternative explanations bound transfer. A different synthesis or physical flow may absorb or amplify the Hsiao representation change. The temporal effect combines register insertion, retiming opportunity, clock distribution, buffering, and activity redistribution, so exact equivalence identifies the architecture change as a whole rather than one causal gate class. Finally, a macro-integrated memory may weight decoder latency, correction traffic, and physical adjacency differently from this steady streaming codec boundary. These qualifications limit numerical generalization; they do not weaken the joined evidence for the named identities.
+
+The evidence hierarchy also bounds what each result can support. Formal proofs establish combinational or aligned transaction equality over the declared interfaces, but say nothing about physical cost. Qualified routes and matched-seed effects establish implementation-specific PPA and estimated-energy orderings, but five deterministic seeds are not a sample of process variation. Power-component and cell-group totals reconcile the estimated energy difference numerically, but do not identify a unique per-net mechanism. The independent 5~ns builds test one target perturbation, while the infeasible BCH builds locate a boundary without yielding target-clock energy. No single layer can substitute for the others.
+
+This hierarchy changes how negative or mixed results should be read. The Hsiao timing reversal is retained because suppressing it would overstate route robustness; the BCH energy field is absent because assigning a target-clock value would violate the feasibility gate. Conversely, an exact proof is not dismissed merely because a physical effect is small. The admissible conclusion is the intersection of the established layers: a named semantic contract, a named hardware identity, a qualified physical identity, and a joined workload record.
+
+Reproduction should therefore be claim-oriented. A repeat study should preserve semantic and transaction qualification, predeclare the target and perturbations, retain failed and ineligible points, and regenerate paired claims from raw manifests. A different sign under another node, corner, or flow would define a new physical identity and be scientifically informative. A failed proof or broken route/power join would instead make the comparison unavailable.
+
+The artifact package operationalizes this rule. Each reported number has a claim identifier linked to its source artifact and hash, full-precision value, display value, units, and qualification status; the builder contains the selectors and arithmetic. Figures and tables consume generated claims rather than hand-entered values. Rebuilding the paper checks the frozen evidence-to-claim transformation without pretending to rerun costly physical experiments. Extending the study requires a new physical-identity record and provenance rows, not silent replacement of the admitted campaign.
+
+\section{Conclusion}
+
+ECC semantics do not uniquely determine hardware architecture or physical energy. Under qualified matched implementations and a fixed no-error steady-stream trace, temporal SECDED restructuring creates a large mixed area--latency--timing--estimated-energy trade-off, whereas latency/II-preserving Hsiao restructuring creates a much smaller mixed displacement with one timing reversal. Switching is the largest reported component difference behind the temporal energy reduction, and fresh 5~ns implementations preserve its directions with different magnitudes. One stronger-correction BCH identity misses the common target. Physical and energy conclusions should therefore be attached to qualified hardware and physical identities, not ECC labels.
+
+For design-space exploration, the practical order is categorical guarantee, transaction contract, implementation feasibility, and only then physical objectives. This staged filter prevents an attractive energy number from laundering a weaker code, a different latency, or an infeasible route into the same comparison. The present results demonstrate the filter on two exact-equivalence interventions, one fresh constraint replication, and one stronger-correction boundary. Broader technology, corner, memory-macro, and workload studies can extend the numerical envelope while preserving the same evidence discipline.
+
+\section*{Acknowledgment}
+Generative-AI disclosure: The authors used OpenAI Codex to assist with manuscript restructuring and language drafting in the Abstract, Introduction, Related Work, Discussion, and Conclusion, and with plotting and validation scripts. The authors checked all technical claims, calculations, citations, and final text against the cited literature and frozen repository evidence; the system was not used as an author or evidence source.
+
+\clearpage
+\IEEEtriggeratref{15}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

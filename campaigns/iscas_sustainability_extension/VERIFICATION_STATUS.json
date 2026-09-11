@@ -1,0 +1,65 @@
+{
+  "checked_date": "2026-08-30",
+  "gate3_result": "FAIL",
+  "commands": [
+    {
+      "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify",
+      "status": "PASS",
+      "result": "7094 protected files; zero changed, missing, or added"
+    },
+    {
+      "command": "python3 -c <parse every campaign JSON file>",
+      "status": "PASS",
+      "result": "22 JSON files parsed"
+    },
+    {
+      "command": "python3 -m pytest -q campaigns\\iscas_sustainability_extension\\tests",
+      "status": "PASS",
+      "result": "15 passed in 0.89s"
+    },
+    {
+      "command": "make",
+      "status": "PASS",
+      "result": "all configured C++ targets built"
+    },
+    {
+      "command": "make test",
+      "status": "EXPECTED_SCOPE_FAILURE",
+      "result": "2 failed, 482 passed, 3 warnings in 473.54s",
+      "failures": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+      ],
+      "classification": "Frozen historical Gate-03/03e candidate-scope validators reject the untracked campaigns/iscas_sustainability_extension path. They were not modified."
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "status": "EXPECTED_SCOPE_FAILURE",
+      "result": "2 failed, 484 passed in 506.82s",
+      "failures": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+      ],
+      "classification": "Same two frozen historical working-tree scope failures; no new functional or campaign-local failure."
+    }
+  ],
+  "post_test_cleanup": {
+    "PracticalSRAMSimulator.exe": "restored to pre-build SHA-256 99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "runtime_fixture_directories_removed": 8,
+    "cleanup_scope": "Only GUID-named tests/fixtures/runtime_ml_feature_pack directories created by the two required test runs were removed.",
+    "working_tree_after_cleanup": "Only campaigns/iscas_sustainability_extension remains untracked."
+  },
+  "host_storage": {
+    "c_free_bytes": 20330397696,
+    "f_free_bytes": 122574663680,
+    "wsl_root_free_bytes": 977761329152,
+    "classification": "SAFE"
+  },
+  "protected_baseline": {
+    "status": "PASS",
+    "protected_file_count": 7094,
+    "changed": [],
+    "missing": [],
+    "added": []
+  }
+}

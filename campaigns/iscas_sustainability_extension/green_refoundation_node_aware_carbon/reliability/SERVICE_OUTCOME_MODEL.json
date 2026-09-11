@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "functional_unit": "one correct payload-bit memory service delivered under the declared workload and service policy",
+  "outcomes": [
+    "SUCCESS_NORMAL",
+    "SUCCESS_CORRECTED",
+    "SUCCESS_AFTER_RETRY",
+    "DETECTED_FAILURE",
+    "SILENT_DATA_CORRUPTION",
+    "TIMEOUT_OR_SLA_FAILURE"
+  ],
+  "mutually_exclusive": true,
+  "service_success": "P(SUCCESS_NORMAL)+P(SUCCESS_CORRECTED)+P(SUCCESS_AFTER_RETRY)",
+  "forbidden_shortcut": "Q=1-SDC-DUE unless the experiment proves exhaustive mutually exclusive categories and defines recovered DUE semantics",
+  "sla_policy": "No threshold is invented. A declared threshold requires a latency observation.",
+  "energy_coupling": {
+    "correction_applied": "increments correction-energy events even if payload correctness later fails",
+    "retry_count": "increments retry-energy events",
+    "scrub_count": "separate policy input; no direct useful service"
+  }
+}

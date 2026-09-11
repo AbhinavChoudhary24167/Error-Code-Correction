@@ -1,0 +1,100 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1616746504
+<< checkpaint >>
+rect -1296 -1277 1674 2731
+<< nwell >>
+rect -36 679 414 1471
+<< pwell >>
+rect 28 25 330 225
+<< scnmos >>
+rect 114 51 144 199
+rect 214 51 244 199
+<< scpmos >>
+rect 114 1139 144 1363
+rect 214 1139 244 1363
+<< ndiff >>
+rect 54 142 114 199
+rect 54 108 62 142
+rect 96 108 114 142
+rect 54 51 114 108
+rect 144 51 214 199
+rect 244 142 304 199
+rect 244 108 262 142
+rect 296 108 304 142
+rect 244 51 304 108
+<< pdiff >>
+rect 54 1268 114 1363
+rect 54 1234 62 1268
+rect 96 1234 114 1268
+rect 54 1139 114 1234
+rect 144 1268 214 1363
+rect 144 1234 162 1268
+rect 196 1234 214 1268
+rect 144 1139 214 1234
+rect 244 1268 304 1363
+rect 244 1234 262 1268
+rect 296 1234 304 1268
+rect 244 1139 304 1234
+<< ndiffc >>
+rect 62 108 96 142
+rect 262 108 296 142
+<< pdiffc >>
+rect 62 1234 96 1268
+rect 162 1234 196 1268
+rect 262 1234 296 1268
+<< poly >>
+rect 114 1363 144 1389
+rect 214 1363 244 1389
+rect 114 303 144 1139
+rect 214 551 244 1139
+rect 196 535 262 551
+rect 196 501 212 535
+rect 246 501 262 535
+rect 196 485 262 501
+rect 96 287 162 303
+rect 96 253 112 287
+rect 146 253 162 287
+rect 96 237 162 253
+rect 114 199 144 237
+rect 214 199 244 485
+rect 114 25 144 51
+rect 214 25 244 51
+<< polycont >>
+rect 212 501 246 535
+rect 112 253 146 287
+<< locali >>
+rect 0 1397 378 1431
+rect 62 1268 96 1397
+rect 62 1218 96 1234
+rect 162 1268 196 1284
+rect 162 1168 196 1234
+rect 262 1268 296 1397
+rect 262 1218 296 1234
+rect 162 1134 364 1168
+rect 212 535 246 551
+rect 212 485 246 501
+rect 112 287 146 303
+rect 112 237 146 253
+rect 330 243 364 1134
+rect 262 209 364 243
+rect 62 142 96 158
+rect 62 17 96 108
+rect 262 142 296 209
+rect 262 92 296 108
+rect 0 -17 378 17
+<< labels >>
+rlabel locali s 347 1151 347 1151 4 Z
+port 1 nsew
+rlabel locali s 189 0 189 0 4 gnd
+port 2 nsew
+rlabel locali s 189 1414 189 1414 4 vdd
+port 3 nsew
+rlabel locali s 129 270 129 270 4 A
+port 4 nsew
+rlabel locali s 229 518 229 518 4 B
+port 5 nsew
+<< properties >>
+string FIXED_BBOX 0 0 378 1167
+<< end >>

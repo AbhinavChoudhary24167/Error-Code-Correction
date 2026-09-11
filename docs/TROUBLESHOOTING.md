@@ -1,65 +1,33 @@
 # Troubleshooting
 
-## Start with environment diagnostics
+## `doctor` reports a Windows C++ runtime mismatch
 
-```text
-python eccsim.py doctor --json
-```
+Multiple applications may provide `libstdc++-6.dll`. Put the `bin` directory belonging to the selected `g++` first on `PATH`, open a new shell, and rerun `python eccsim.py doctor --strict`. Do not copy DLLs into the repository.
 
-`doctor --strict` exits non-zero for required failures. On Windows, a compiler can be present while the runtime DLL resolves from another program; prepend the matching compiler runtime directory to `PATH`. If `python` and `python3` point to different interpreters, activate one virtual environment and use `python -m ...` consistently.
+## `python3 -m pytest` differs from `python -m pytest`
 
-## Catalogue/schema failures
+On Windows/MSYS2, those commands can select different interpreters. Compare `python --version`, `python3 --version`, and their executable paths. Install requirements into the interpreter required by the command, or activate one virtual environment consistently.
 
-| Message fragment | Cause | Resolution |
-|---|---|---|
-| `missing registry reference` | Path in registry JSON does not resolve | Make it relative to the registry file and confirm the file exists |
-| `schema error at ...` | Manifest violates the Draft 2020-12 schema | Fix the named field/type; do not weaken the schema |
-| `duplicate ..._id` | Two manifests own the same identity | Version/rename the genuinely distinct entity |
-| `broken manifest_sha256` | Manifest content changed after hashing | Regenerate the canonical manifest hash |
-| `broken matrix_sha256` | Matrix generator/content changed | Audit identity, then regenerate matrix and hash |
-| `broken source hash for ...` | Bound source/evidence changed | Re-run evidence and intentionally update the hash |
-| `G H^T != 0` or rank/shape failure | Invalid linear-code matrices | Correct matrix construction before verification |
-| `references unknown code_id` | Missing cross-reference | Add the code path or fix the implementation ID |
+## Native build output appears in Git status
 
-## Factory failures
+Current root binaries, `.exe`, `.o`, and `.d` files are ignored. Run `make clean`. Executables inside frozen campaign integrity directories may be historical evidence and must not be removed wholesale.
 
-Use exactly `module:callable` or `file.py::callable`. Relative file factories resolve from the manifest directory. Common errors are `plugin file does not exist`, `plugin attribute is not callable`, or `matrix generator must return G and H`. Import the module under the same activated environment and ensure the factory accepts the keyword arguments declared by the registry.
+## A documentation link or artifact check fails
 
-## Verification reports a negative result
+Run `python scripts/check_artifact.py` for the exact error. Fix the referenced path or contract. Do not weaken a guard merely to make a changed scientific claim pass.
 
-A command exit code of zero means the report was generated; it does not mean the candidate passed. Inspect:
+## Verification produces a counterexample
 
-- `verification_status` for the mandatory gate;
-- `capability_verification_status` for full/partial/rejected status;
-- `class_results[].passed`, exact fractions and `outcome_counts`;
-- `failed_patterns` and `capability_failures`;
-- evidence `present`, `hash_bound`, and declared status.
+Treat it as evidence. Preserve the inputs, implementation ID, mask, observed outcome, and report. Exclude the implementation only from uses whose functional gate failed; do not delete the record.
 
-Do not edit claims to make a negative result pass. Fix the implementation or narrow/version the declaration with scientific justification.
+## A physical run completed but timing failed
 
-## Characterization returns nulls
+This is a completed flow and a timing-infeasible implementation at that constraint. Do not call it timing closure or discard it. Inspect the campaign timing summary and matched controls.
 
-This is expected with `structural-yosys-local-v1`, `not-characterized-v1`, or unavailable physical backends. Read `evidence_level`, `backend_reason`, and `unsupported_fields`. Installing Yosys alone does not provide Liberty timing, PDK area, power, routing or memory macro energy.
+## OpenRAM output is incomplete
 
-## Physical selection has no winner
+The retained 256×72 attempt timed out after 10,800 seconds. Logs/geometry do not imply LEF, Liberty, SPICE, Verilog, DRC, LVS, or characterization. A new attempt needs a new output root and campaign record.
 
-The current expected output is `candidate_count: 0`, `winner: null`. Each record is rejected for non-physical evidence or a null objective. Do not substitute analytical energy or structural depth into the physical selector.
+## Hashes change on Windows
 
-## Figure/documentation check fails
-
-Regenerate in the documented order:
-
-```text
-python scripts/build_documentation.py
-python scripts/build_documentation.py --check
-```
-
-`stale:` means regenerated bytes differ. `figure manifest hash mismatch` means a source/data/output changed after generation. A broken Markdown link reports its document and target. Invalid JSON examples are also identified by file and block number.
-
-## Matplotlib/font differences
-
-Use the pinned repository environment where possible. The generator fixes the font family, ordering, SVG hash salt and metadata, but a substantially different Matplotlib/font backend can change bytes. The staleness check is intentionally strict because thesis artifacts should be reproducible in one declared environment.
-
-## `make test` versus `pytest`
-
-`make test` builds native binaries, runs the C++ unit executable and the Python suite. `python -m pytest -q` runs Python tests independently. Both are required. On Windows the Makefile uses platform-specific checks; ensure the same `g++` runtime is used to execute the generated `.exe` files.
+Campaign text uses LF attributes to prevent line-ending damage. Do not run bulk normalization over frozen evidence. Restore unintended changes, identify the exact byte source, and use a documented scientific-hash migration only when scientifically necessary.

@@ -1,0 +1,664 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+
+-- Running command `read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv /repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv /repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv /repo/campaigns/date_2027_breadth_remediation/formal/hsiao_boundary_exact_miter.sv; prep -top breadth_hsiao_boundary_exact_miter -flatten; memory_map; opt; sat -verify -seq 6 -tempinduct -set-init-zero -prove mismatch 0 -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_syndrome'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v2_algorithmic_decoder'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v3_hierarchical_decoder'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv
+Parsing SystemVerilog input from `/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv' to AST representation.
+Generating RTLIL representation for module `\gate04_rev2_hsiao_72_64'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv' to AST representation.
+Generating RTLIL representation for module `\breadth_hsiao_hierarchical_72_64'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/formal/hsiao_boundary_exact_miter.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/formal/hsiao_boundary_exact_miter.sv' to AST representation.
+Generating RTLIL representation for module `\breadth_hsiao_boundary_exact_miter'.
+Successfully finished Verilog frontend.
+
+8. Executing PREP pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \breadth_hsiao_boundary_exact_miter
+Used module:     \breadth_hsiao_hierarchical_72_64
+Used module:         \hsiao_secded_72_64_v3_hierarchical_decoder
+Used module:             \hsiao_secded_72_64_v1_syndrome
+Used module:         \hsiao_secded_72_64_v1_encoder
+Used module:     \gate04_rev2_hsiao_72_64
+Used module:         \hsiao_secded_72_64_v2_algorithmic_decoder
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \breadth_hsiao_boundary_exact_miter
+Used module:     \breadth_hsiao_hierarchical_72_64
+Used module:         \hsiao_secded_72_64_v3_hierarchical_decoder
+Used module:             \hsiao_secded_72_64_v1_syndrome
+Used module:         \hsiao_secded_72_64_v1_encoder
+Used module:     \gate04_rev2_hsiao_72_64
+Used module:         \hsiao_secded_72_64_v2_algorithmic_decoder
+Removed 0 unused modules.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602 in module breadth_hsiao_hierarchical_72_64.
+Marked 1 switch rules as full_case in process $proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599 in module gate04_rev2_hsiao_72_64.
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 22 redundant assignments.
+Promoted 0 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+     1/11: $0\dec_uncorrectable_o[0:0]
+     2/11: $0\dec_corrected_o[0:0]
+     3/11: $0\dec_detected_o[0:0]
+     4/11: $0\dec_codeword_echo_o[71:0]
+     5/11: $0\dec_data_o[63:0]
+     6/11: $0\dec_valid_o[0:0]
+     7/11: $0\enc_codeword_o[71:0]
+     8/11: $0\enc_valid_o[0:0]
+     9/11: $0\dec_codeword_q[71:0]
+    10/11: $0\enc_data_q[63:0]
+    11/11: $0\valid_q[0:0]
+Creating decoders for process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+     1/11: $0\dec_uncorrectable_o[0:0]
+     2/11: $0\dec_corrected_o[0:0]
+     3/11: $0\dec_detected_o[0:0]
+     4/11: $0\dec_codeword_echo_o[71:0]
+     5/11: $0\dec_data_o[63:0]
+     6/11: $0\dec_valid_o[0:0]
+     7/11: $0\enc_codeword_o[71:0]
+     8/11: $0\enc_valid_o[0:0]
+     9/11: $0\dec_codeword_q[71:0]
+    10/11: $0\enc_data_q[63:0]
+    11/11: $0\valid_q[0:0]
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\enc_valid_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$686' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\enc_codeword_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$687' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_valid_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$688' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_data_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$689' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_codeword_echo_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$690' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_detected_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$691' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_corrected_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$692' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_uncorrectable_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$693' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\valid_q' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$694' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\enc_data_q' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$695' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_codeword_q' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+  created $dff cell `$procdff$696' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\enc_valid_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$697' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\enc_codeword_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$698' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_valid_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$699' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_data_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$700' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_codeword_echo_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$701' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_detected_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$702' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_corrected_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$703' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_uncorrectable_o' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$704' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\valid_q' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$705' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\enc_data_q' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$706' with positive edge clock.
+Creating register for signal `\gate04_rev2_hsiao_72_64.\dec_codeword_q' using process `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+  created $dff cell `$procdff$707' with positive edge clock.
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+Removing empty process `breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$602'.
+Found and cleaned up 1 empty switch in `\gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+Removing empty process `gate04_rev2_hsiao_72_64.$proc$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:38$599'.
+Cleaned up 2 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+Optimizing module breadth_hsiao_hierarchical_72_64.
+<suppressed ~11 debug messages>
+Optimizing module gate04_rev2_hsiao_72_64.
+<suppressed ~11 debug messages>
+Optimizing module hsiao_secded_72_64_v3_hierarchical_decoder.
+<suppressed ~4 debug messages>
+Optimizing module hsiao_secded_72_64_v2_algorithmic_decoder.
+<suppressed ~2 debug messages>
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+Optimizing module hsiao_secded_72_64_v1_encoder.
+
+8.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module breadth_hsiao_hierarchical_72_64.
+Deleting now unused module gate04_rev2_hsiao_72_64.
+Deleting now unused module hsiao_secded_72_64_v3_hierarchical_decoder.
+Deleting now unused module hsiao_secded_72_64_v2_algorithmic_decoder.
+Deleting now unused module hsiao_secded_72_64_v1_syndrome.
+Deleting now unused module hsiao_secded_72_64_v1_encoder.
+<suppressed ~8 debug messages>
+
+8.4. Executing FUTURE pass.
+
+8.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+Removed 3 unused cells and 263 unused wires.
+<suppressed ~4 debug messages>
+
+8.7. Executing CHECK pass (checking for obvious problems).
+Checking module breadth_hsiao_boundary_exact_miter...
+Found and reported 0 problems.
+
+8.8. Executing OPT pass (performing simple optimizations).
+
+8.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+8.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1074 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1068 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+8.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_boundary_exact_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+8.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_boundary_exact_miter.
+Performed a total of 0 changes.
+
+8.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1068 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1063 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+8.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+8.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+8.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_boundary_exact_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+8.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_boundary_exact_miter.
+Performed a total of 0 changes.
+
+8.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1063 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Removed a total of 0 cells.
+
+8.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+
+8.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+8.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+8.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 5 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:22$409 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:23$410 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:24$411 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:25$412 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:26$413 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:27$414 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:28$415 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:29$416 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:30$417 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:31$418 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:32$419 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:33$420 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:34$421 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:35$422 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:36$423 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:37$424 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:38$425 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:39$426 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:40$427 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:41$428 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:42$429 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:43$430 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:44$431 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:45$432 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:46$433 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:47$434 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:48$435 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:49$436 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:50$437 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:51$438 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:52$439 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:53$440 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:54$441 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:55$442 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:56$443 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:78$465 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:79$466 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:80$467 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:81$468 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:82$469 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:83$470 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:84$471 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:85$472 ($eq).
+Removed top 7 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:86$473 ($eq).
+Removed top 6 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:87$474 ($eq).
+Removed top 5 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:88$475 ($eq).
+Removed top 4 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:89$476 ($eq).
+Removed top 3 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:90$477 ($eq).
+Removed top 2 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:91$478 ($eq).
+Removed top 1 bits (of 8) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$eq$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:92$479 ($eq).
+Removed top 8 bits (of 72) from port Y of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$487 ($xor).
+Removed top 8 bits (of 72) from port A of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$487 ($xor).
+Removed top 8 bits (of 72) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\baseline.\u_decoder.$xor$/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv:98$487 ($xor).
+Removed top 3 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:26$489 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:27$490 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:28$491 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:29$492 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:30$493 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:31$494 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:32$495 ($eq).
+Removed top 3 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:43$505 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:44$506 ($eq).
+Removed top 2 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:45$507 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:46$508 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:47$509 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:48$510 ($eq).
+Removed top 1 bits (of 4) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$eq$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:49$511 ($eq).
+Removed top 8 bits (of 72) from port Y of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$xor$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:137$598 ($xor).
+Removed top 8 bits (of 72) from port A of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$xor$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:137$598 ($xor).
+Removed top 8 bits (of 72) from port B of cell breadth_hsiao_boundary_exact_miter.$flatten\hierarchical.\u_decoder.$xor$/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv:137$598 ($xor).
+
+8.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+
+8.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.12. Executing OPT pass (performing simple optimizations).
+
+8.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+8.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1063 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Removed a total of 0 cells.
+
+8.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+
+8.12.4. Finished fast OPT passes.
+
+8.13. Executing SORT pass.
+
+8.14. Printing statistics.
+
+=== breadth_hsiao_boundary_exact_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      905 wires
+     4227 wire bits
+       88 public wires
+     2866 public wire bits
+        6 ports
+      140 port bits
+     1063 cells
+       72   $and
+       22   $dff
+      101   $eq
+        4   $logic_and
+        4   $logic_not
+        7   $logic_or
+       17   $mux
+        8   $ne
+        2   $or
+        2   $reduce_bool
+        2   $reduce_or
+        8   $scopeinfo
+      814   $xor
+
+8.15. Executing CHECK pass (checking for obvious problems).
+Checking module breadth_hsiao_boundary_exact_miter...
+Found and reported 0 problems.
+
+9. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1063 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1058 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1043 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1027 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 1011 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 995 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 979 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 963 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 947 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 931 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 915 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 899 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 883 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 867 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 851 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 835 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 819 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 803 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 787 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 771 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 755 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 739 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 724 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 710 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 697 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 685 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 673 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 662 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 654 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 651 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 650 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+<suppressed ~1239 debug messages>
+Removed a total of 413 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_boundary_exact_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_boundary_exact_miter.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 650 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 647 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 644 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\baseline.$procdff$707 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \dec_codeword_i, Q = \baseline.dec_codeword_q, rval = 72'000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\baseline.$procdff$706 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \enc_data_i, Q = \baseline.enc_data_q, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\baseline.$procdff$705 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \valid_i, Q = \baseline.valid_q, rval = 1'0).
+Adding SRST signal on $flatten\baseline.$procdff$704 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \baseline.dec_uncorrectable_d, Q = \baseline.dec_uncorrectable_o, rval = 1'0).
+Adding SRST signal on $flatten\baseline.$procdff$703 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \baseline.dec_corrected_d, Q = \baseline.dec_corrected_o, rval = 1'0).
+Adding SRST signal on $flatten\baseline.$procdff$702 ($dff) from module breadth_hsiao_boundary_exact_miter (D = $flatten\baseline.$or$/repo/scripts/revision2/rtl/rev2_hsiao_boundary.sv:60$601_Y, Q = \baseline.dec_detected_o, rval = 1'0).
+Adding SRST signal on $flatten\baseline.$procdff$700 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \baseline.dec_data_d, Q = \baseline.dec_data_o, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\hierarchical.$procdff$693 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \hierarchical.dec_uncorrectable_d, Q = \hierarchical.dec_uncorrectable_o, rval = 1'0).
+Adding SRST signal on $flatten\hierarchical.$procdff$692 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \hierarchical.dec_corrected_d, Q = \hierarchical.dec_corrected_o, rval = 1'0).
+Adding SRST signal on $flatten\hierarchical.$procdff$691 ($dff) from module breadth_hsiao_boundary_exact_miter (D = $flatten\hierarchical.$or$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:60$604_Y, Q = \hierarchical.dec_detected_o, rval = 1'0).
+Adding SRST signal on $flatten\hierarchical.$procdff$690 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \hierarchical.dec_codeword_q, Q = \hierarchical.dec_codeword_echo_o, rval = 72'000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\hierarchical.$procdff$689 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \hierarchical.dec_data_d, Q = \hierarchical.dec_data_o, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\hierarchical.$procdff$687 ($dff) from module breadth_hsiao_boundary_exact_miter (D = { \hierarchical.enc_codeword_d [71:64] \hierarchical.enc_data_q }, Q = \hierarchical.enc_codeword_o, rval = 72'000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\hierarchical.$procdff$686 ($dff) from module breadth_hsiao_boundary_exact_miter (D = \hierarchical.valid_q, Q = \hierarchical.enc_valid_o, rval = 1'0).
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+Removed 14 unused cells and 409 unused wires.
+<suppressed ~15 debug messages>
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+<suppressed ~7 debug messages>
+
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_boundary_exact_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_boundary_exact_miter.
+Performed a total of 0 changes.
+
+10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 623 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Removed a total of 0 cells.
+
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+Removed 204 unused cells and 224 unused wires.
+<suppressed ~231 debug messages>
+
+10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+10.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_boundary_exact_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_boundary_exact_miter.
+Performed a total of 0 changes.
+
+10.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_boundary_exact_miter'.
+Computing hashes of 419 cells of `\breadth_hsiao_boundary_exact_miter'.
+Finding duplicate cells in `\breadth_hsiao_boundary_exact_miter'.
+Removed a total of 0 cells.
+
+10.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_boundary_exact_miter..
+
+10.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_boundary_exact_miter.
+
+10.23. Finished fast OPT passes. (There is nothing left to do.)
+
+11. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+Final init constraint equation: { \hierarchical.dec_detected_o \hierarchical.dec_data_o \baseline.dec_data_o \baseline.dec_codeword_q \hierarchical.dec_uncorrectable_o \baseline.dec_uncorrectable_o \hierarchical.dec_corrected_o \baseline.dec_corrected_o \baseline.dec_detected_o } = 206'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \clk_i
+Import show expression: \dec_codeword_i
+Import show expression: \enc_data_i
+Import show expression: \rst_ni
+Import show expression: \valid_i
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 33781 variables and 93065 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 419 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \clk_i
+Import show expression: \dec_codeword_i
+Import show expression: \enc_data_i
+Import show expression: \rst_ni
+Import show expression: \valid_i
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 8801 variables and 23830 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 471ab13804, time: 0.81s, user: 0.66s, system: 0.11s, MEM: 56.60 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 61% 1x sat (0 sec), 9% 8x opt_clean (0 sec), ...

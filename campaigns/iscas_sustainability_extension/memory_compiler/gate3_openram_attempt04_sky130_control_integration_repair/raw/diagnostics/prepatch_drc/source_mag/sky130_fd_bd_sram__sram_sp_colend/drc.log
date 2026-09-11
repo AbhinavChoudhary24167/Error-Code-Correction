@@ -1,0 +1,48 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Diffusion width < 0.15um (diff/tap.1)",2
+"Local interconnect width < 0.17um (li.1)",9
+"N-well width < 0.84um (nwell.1)",5
+"Deep N-well width < 3um (dnwell.2)",1
+"Core local interconnect width < 0.14um (li.c1)",9
+"Metal1 overlap of local interconnect contact < 0.03um (met1.4)",1
+"Metal1 overlap of local interconnect contact < 0.06um in one direction (met1.5)",2
+"P-tap overlap of P-tap contact < 0.12um in one direction (licon.7)",8
+"Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4)",8
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",3
+"Deep N-well spacing to N-well < 4.5um (nwell.7)",1
+"Transistor width < 0.42um (diff/tap.2)",6
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",16
+"Metal1 width < 0.14um (met1.1)",11
+"Metal2 width < 0.14um (met2.1)",1
+"N-Diffusion overhang of nFET < 0.25um (poly.7)",1
+"N-tap overlap of N-tap contact < 0.12um in one direction (licon.7)",4
+"N-diffusion contact width < 0.17um (licon.1)",3
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",3
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",8
+"Diffusion contact to gate < 0.055um (licon.11)",1
+"poly overhang of transistor < 0.13um (poly.8)",3
+"P-tap contact width     < 0.17um (licon.1)",1
+"N-well overlap of N-tap < 0.18um (diff/tap.10)",41
+__RULE_CSV_END__
+RULE_TOTAL=148
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_fd_bd_sram__sram_sp_colend",37
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=37

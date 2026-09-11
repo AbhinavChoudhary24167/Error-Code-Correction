@@ -1,0 +1,28 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[WARNING ORD-2056] The following 1 liberty cell(s) do not have LEF masters and will be marked as dont-use:
+  sram22_256x8m8w1
+RSTB_EXTRACTED_BEGIN design=u0 target=u_data/rstb driver=hold151
+hold151/A ^ 0.163767353:0.163767353 v 0.103794731:0.103794731
+hold151/X ^ 0.097932801:0.463225096 v 0.059161503:0.234050676
+u_data/rstb ^ 0.130894080:0.619147718 v 0.079395398:0.315126836
+Net net151
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00-0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ hold151/X output (sky130_fd_sc_hd__buf_16) (300, 336)
+
+Load pins
+ u_data/rstb input (sram22_256x64m4w8) 0.08-0.45 (291, 323)
+
+RSTB_DRIVER_LOCATION_DBU 293480 334560 orientation=MX
+RSTB_DRIVER_PIN_XY_DBU 1 299856 336149
+RSTB_MACRO_PIN_XY_DBU 1 290760 322710
+RSTB_EXTRACTED_END

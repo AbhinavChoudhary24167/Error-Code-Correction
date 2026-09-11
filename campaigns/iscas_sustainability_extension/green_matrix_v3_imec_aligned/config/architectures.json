@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "architectures": [
+    {
+      "architecture_id": "U0",
+      "ecc_family": "UNPROTECTED",
+      "payload_bits": 64,
+      "codeword_bits": 64,
+      "parity_bits": 0,
+      "correction_capability_bits": 0,
+      "detection_capability_bits": 0,
+      "decoder_architecture": "NONE",
+      "pipeline_stages": 0,
+      "initiation_interval_cycles": 1,
+      "population_status": "SEED_EVIDENCE_AVAILABLE"
+    },
+    {
+      "architecture_id": "E0",
+      "ecc_family": "HSIAO_SECDED",
+      "payload_bits": 64,
+      "codeword_bits": 72,
+      "parity_bits": 8,
+      "correction_capability_bits": 1,
+      "detection_capability_bits": 2,
+      "decoder_architecture": "HSIAO_COMBINATIONAL",
+      "pipeline_stages": null,
+      "initiation_interval_cycles": null,
+      "population_status": "SEED_EVIDENCE_AVAILABLE"
+    },
+    {
+      "architecture_id": "E1",
+      "ecc_family": "EXTENDED_HAMMING_SECDED",
+      "payload_bits": 64,
+      "codeword_bits": 72,
+      "parity_bits": 8,
+      "correction_capability_bits": 1,
+      "detection_capability_bits": 2,
+      "decoder_architecture": "CONFIGURABLE",
+      "pipeline_stages": null,
+      "initiation_interval_cycles": null,
+      "population_status": "SCHEMA_ONLY_NO_CURRENT_OBSERVATIONS"
+    }
+  ],
+  "extension_contract": "Add DAEC, TAEC, BCH, SECDED variants, or custom codes as new records; no code change is required."
+}

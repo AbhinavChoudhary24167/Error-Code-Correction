@@ -1,0 +1,29 @@
+{
+  "fault_models": [
+    {
+      "fault_model_id": "F_LOGICAL_CONTROLS",
+      "probabilities": null,
+      "rate_semantics": "ENUMERATED_MASK_FREQUENCY_NOT_EVENT_RATE",
+      "status": "LOGICAL_CONTROL",
+      "topologies": [
+        "SBU_ALL_COORDINATES",
+        "DBU_ALL_PAIRS",
+        "LOGICAL_CONSECUTIVE_3",
+        "LOGICAL_CONSECUTIVE_4"
+      ]
+    },
+    {
+      "fault_model_id": "F_PHYSICAL_SPATIAL_FUTURE",
+      "probabilities": null,
+      "status": "SCHEMA_ONLY_REQUIRES_CALIBRATION",
+      "topologies": [
+        "SBU",
+        "DBU",
+        "MBU",
+        "BURST",
+        "SPATIAL_RADIUS"
+      ]
+    }
+  ],
+  "schema_version": 1
+}

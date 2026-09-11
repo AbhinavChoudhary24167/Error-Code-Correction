@@ -1,0 +1,27 @@
+* NGSPICE file created from sky130_fd_bd_sram__openram_dff.ext - technology: sky130A
+
+.subckt sky130_fd_bd_sram__openram_dff QN CLK D Q VDD GND
+X0 VDD a_28_102# a_389_712# VDD sky130_fd_pr__pfet_01v8 ad=3.315p pd=26.21u as=0.63p ps=6.42u w=3u l=0.15u
+X1 a_47_611# CLK a_197_712# VDD sky130_fd_pr__pfet_01v8 ad=1.35p pd=6.9u as=0.63p ps=6.42u w=3u l=0.15u
+X2 a_239_76# CLK VDD VDD sky130_fd_pr__pfet_01v8 ad=0.795p pd=6.53u as=0p ps=0u w=3u l=0.15u
+X3 a_197_712# D VDD VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X4 QN CLK a_547_102# GND sky130_fd_pr__nfet_01v8 ad=0.45p pd=2.9u as=0.21p ps=2.42u w=1u l=0.15u
+X5 GND Q a_739_102# GND sky130_fd_pr__nfet_01v8 ad=1.105p pd=10.21u as=0.21p ps=2.42u w=1u l=0.15u
+X6 Q QN GND GND sky130_fd_pr__nfet_01v8 ad=0.265p pd=2.53u as=0p ps=0u w=1u l=0.15u
+X7 a_389_712# a_239_76# a_47_611# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X8 VDD a_47_611# a_28_102# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0.795p ps=6.53u w=3u l=0.15u
+X9 a_547_712# a_28_102# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.63p pd=6.42u as=0p ps=0u w=3u l=0.15u
+X10 a_739_712# CLK QN VDD sky130_fd_pr__pfet_01v8 ad=0.63p pd=6.42u as=1.35p ps=6.9u w=3u l=0.15u
+X11 GND a_28_102# a_389_102# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.21p ps=2.42u w=1u l=0.15u
+X12 a_47_611# a_239_76# a_197_102# GND sky130_fd_pr__nfet_01v8 ad=0.45p pd=2.9u as=0.21p ps=2.42u w=1u l=0.15u
+X13 a_239_76# CLK GND GND sky130_fd_pr__nfet_01v8 ad=0.265p pd=2.53u as=0p ps=0u w=1u l=0.15u
+X14 a_197_102# D GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X15 a_389_102# CLK a_47_611# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X16 GND a_47_611# a_28_102# GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.265p ps=2.53u w=1u l=0.15u
+X17 a_547_102# a_28_102# GND GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X18 a_739_102# a_239_76# QN GND sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X19 VDD Q a_739_712# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X20 QN a_239_76# a_547_712# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X21 Q QN VDD VDD sky130_fd_pr__pfet_01v8 ad=0.795p pd=6.53u as=0p ps=0u w=3u l=0.15u
+.ends
+

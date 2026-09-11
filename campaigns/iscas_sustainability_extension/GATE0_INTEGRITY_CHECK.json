@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "gate": "GATE_0_BASELINE_AUDIT",
+  "status": "PASS",
+  "manifest": "campaigns/iscas_sustainability_extension/baseline_integrity_manifest.json",
+  "protected_file_count": 7094,
+  "scopes": {
+    "repository": {
+      "status": "PASS",
+      "file_count": 2327,
+      "method": "Python SHA-256 read of every protected baseline file",
+      "changed": [],
+      "missing": [],
+      "added": []
+    },
+    "date2027_revision2_raw": {
+      "status": "PASS",
+      "file_count": 2366,
+      "method": "GNU sha256sum --status against the qualified campaign manifest",
+      "changed": [],
+      "missing": [],
+      "added": []
+    },
+    "date2027_breadth_raw": {
+      "status": "PASS",
+      "file_count": 2401,
+      "method": "Python SHA-256 read of every protected baseline file",
+      "changed": [],
+      "missing": [],
+      "added": []
+    }
+  },
+  "execution_note": "Scopes were verified in separate processes because this host's WSL interop exited when both multi-gigabyte raw roots were hashed in one process. Every file was still verified; no scope was sampled."
+}
+

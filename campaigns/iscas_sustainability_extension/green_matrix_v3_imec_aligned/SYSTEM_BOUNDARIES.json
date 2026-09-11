@@ -1,0 +1,62 @@
+{
+  "boundaries": [
+    {
+      "boundary_id": "SB_MP_IMPLEMENTATION_ONLY",
+      "lifecycle_stage": "implementation observation",
+      "mask_nre": "NOT_APPLICABLE",
+      "packaging": "NOT_APPLICABLE",
+      "scope1": "NOT_APPLICABLE",
+      "scope2": "NOT_APPLICABLE",
+      "technology": "SKY130",
+      "upstream_scope3": "NOT_APPLICABLE",
+      "use_phase": "NOT_APPLICABLE"
+    },
+    {
+      "boundary_id": "SB_SKY130_CRADLE_TO_FAB_GATE_CANDIDATE",
+      "lifecycle_stage": "cradle-to-fab-gate candidate",
+      "mask_nre": "SEPARATE_UNAVAILABLE",
+      "packaging": "EXCLUDED_BY_BOUNDARY",
+      "scope1": "INCLUDED_BUT_UNAVAILABLE",
+      "scope2": "INCLUDED_BUT_UNAVAILABLE",
+      "technology": "SKY130",
+      "upstream_scope3": "INCLUDED_BUT_UNAVAILABLE",
+      "use_phase": "EXCLUDED_BY_BOUNDARY"
+    },
+    {
+      "boundary_id": "SB_CSCI_MEMORY_SERVICE_CANDIDATE",
+      "functional_unit": "one correct payload-bearing memory service under the declared workload and policy",
+      "lifecycle_stage": "allocated manufacturing plus use phase",
+      "mask_nre": "SEPARATE_PARAMETRIC_OR_EXCLUDED_BY_SCENARIO",
+      "packaging": "EXCLUDED_UNLESS_SCENARIO_OVERRIDES",
+      "scope1": "INCLUDED_BUT_UNAVAILABLE",
+      "scope2": "INCLUDED_BUT_UNAVAILABLE",
+      "technology": "SKY130",
+      "upstream_scope3": "DECLARED_COMPONENTS_ONLY_BUT_UNAVAILABLE",
+      "use_phase": "INCLUDED_BUT_ACTIVITY_ENERGY_UNAVAILABLE"
+    },
+    {
+      "boundary_id": "SB_IMEC_IEDM_2023_PUBLIC",
+      "lifecycle_stage": "cradle-to-fab-gate",
+      "mask_nre": "EXCLUDED",
+      "notes": "Generic virtual-fab modeling; not a foundry-specific inventory.",
+      "packaging": "EXCLUDED",
+      "scope1": "INCLUDED",
+      "scope2": "INCLUDED",
+      "technology": "N28_TO_A14_GENERIC_HVM",
+      "upstream_scope3": "PARTIAL",
+      "use_phase": "EXCLUDED"
+    },
+    {
+      "boundary_id": "SB_ACT_MATCHED_SYNTHETIC_VALIDATION",
+      "lifecycle_stage": "logic embodied equation only",
+      "mask_nre": "EXCLUDED",
+      "packaging": "EXCLUDED",
+      "scope1": "MATCHED_GAS_PER_AREA",
+      "scope2": "MATCHED_ELECTRICITY_PER_AREA",
+      "technology": "SYNTHETIC",
+      "upstream_scope3": "MATCHED_MATERIALS_PER_AREA",
+      "use_phase": "EXCLUDED"
+    }
+  ],
+  "schema_version": 1
+}

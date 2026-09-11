@@ -1,0 +1,38 @@
+2026-08-29T20:15:39+05:30 STORAGE_PREFLIGHT PASS after supported WSL relocation.
+2026-08-29T20:15:39+05:30 C free before relocation: 89395200 bytes; F free: 195841818624 bytes.
+2026-08-29T20:15:39+05:30 Exported verified VHD backup F:/green-ecc-iscas-sustainability-temp/wsl-backup/Ubuntu-24.04-pre-move-20260829.vhdx.
+2026-08-29T20:15:39+05:30 Backup SHA-256 bb17b4515fe1c5e4fff9a33850fc024c692e6411ce2d10d613e58334195c7c62.
+2026-08-29T20:15:39+05:30 Relocated Ubuntu-24.04 with wsl --manage --move; unregister was not used.
+2026-08-29T20:15:39+05:30 Verified relocated /dev/sdd ext4 read-write, Docker overlayfs, and protected 7094-file baseline PASS.
+2026-08-29 INITIAL_PULL C drive crossed the 15 GiB fail-closed threshold due Windows pagefile pressure; compilation did not start.
+2026-08-29 MITIGATION WSL limited to 4GB RAM/4 processors with 8GB swap on F; Docker concurrency limited to one download/upload.
+2026-08-29 IMAGE pinned vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c.
+2026-08-29 SOURCE pinned OpenRAM v1.2.48 commit b6a6f12642df6b84facc24a77f9a6f67a0d62dab.
+2026-08-29 PDK pinned SKY130A/open_pdks e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066 and recorded library commits.
+2026-08-29 RUN01 FAIL launcher attempted unpinned conda bootstrap; failure log preserved.
+2026-08-29 RUN02 FAIL total column count 145 violated the SKY130 two-column array quantum; failure log preserved.
+2026-08-29 RUN03 FAIL total row count 129 violated the SKY130 two-row array quantum; failure log preserved.
+2026-08-29T11:49:33.575782 CONTAINER_LOCAL RUN04 START OpenRAM 1.2.48 256x72, TT/1.8V/25C, DRC/LVS on, PEX off, SPICE characterization on.
+2026-08-29T12:19:23.678979 CONTAINER_LOCAL compiler geometry 547.34 x 296.235 um before perimeter supply routing.
+2026-08-29 RUN04 completed module generation, placement, signal routing, and supply routing.
+2026-08-29..2026-08-30 RUN04 Magic extraction remained CPU-active for approximately fourteen hours and completed.
+2026-08-30T03:30:09.780955 CONTAINER_LOCAL RUN04 DRC FAIL: 223312 Magic violations.
+2026-08-30T03:51:13.400176 CONTAINER_LOCAL RUN04 LVS FAIL: extracted and schematic netlists do not match.
+2026-08-30T03:51:13.414876 CONTAINER_LOCAL verification elapsed 52031.4 seconds; SRAM creation elapsed 57698.3 seconds.
+2026-08-30T03:51:21.162564 CONTAINER_LOCAL RUN04 CHARACTERIZATION FAIL: Could not find bl net in timing paths.
+2026-08-30 RUN04 process exit code 1; no Liberty, LEF, or Verilog emitted; no numerical characterization result admitted.
+2026-08-30 EVIDENCE copied decisive run04 inputs/outputs/logs non-destructively to evidence/run04_failure and removed write permission from the copies.
+2026-08-30 EVIDENCE hashed configuration, GDS, SPICE, DRC/LVS reports, stimuli, and logs with SHA-256.
+2026-08-30 GDS_INSPECTION pinned Magic/SKY130A read top sky130_sram_1rw_72x256_gate3a02 and box 0 0 112460 62239 = 562.300 x 311.195 um; unknown layer/datatype diagnostics retained.
+2026-08-30 INTERFACE generated SPICE header says 256 words/72 logical bits, but top interface exposes 73 data inputs, 73 data outputs, nine address-related pins, and spare_wen0.
+2026-08-30 OPENROAD_ENV pinned ORFS image f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e; OpenROAD 26Q3-1080-gab6fd26351; OpenSTA 3.1.0.
+2026-08-30 OPENROAD_COMPATIBILITY NOT_ASSESSABLE because generated LEF, Liberty, and Verilog views are absent.
+2026-08-30T17:10:56.7920904+05:30 FINAL_STORAGE safe: C free 20330397696; F free 122574663680; WSL root free 977761329152; attempt namespace 5414290927 bytes.
+2026-08-30 BASELINE_VERIFY PASS: 7094 protected files; zero changed, missing, or added.
+2026-08-30 JSON_VALIDATION PASS: 22 campaign JSON files parsed.
+2026-08-30 CAMPAIGN_TESTS PASS: 15 passed in 0.89 seconds.
+2026-08-30 MAKE PASS: all configured C++ targets built.
+2026-08-30 MAKE_TEST EXPECTED_SCOPE_FAILURE: 2 failed, 482 passed, 3 warnings in 473.54 seconds; only frozen Gate-03/03e scope validators failed.
+2026-08-30 FULL_PYTEST EXPECTED_SCOPE_FAILURE: 2 failed, 484 passed in 506.82 seconds; same two frozen scope validators, no new failure.
+2026-08-30 CLEANUP restored PracticalSRAMSimulator.exe to pre-build SHA-256 99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef and removed eight GUID-named runtime fixture directories created by the required test runs.
+2026-08-30 GATE3 FAIL; downstream numeric propagation disabled; Gate 4 not authorized and not started.

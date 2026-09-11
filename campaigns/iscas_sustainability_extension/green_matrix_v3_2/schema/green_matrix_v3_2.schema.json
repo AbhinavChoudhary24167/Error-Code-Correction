@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://green-ecc.invalid/schemas/green-matrix-v3.2.json",
+  "title": "GREEN Matrix v3.2 campaign matrices",
+  "oneOf": [
+    {"$ref": "#/$defs/evidence_matrix"},
+    {"$ref": "#/$defs/physical_matrix"},
+    {"$ref": "#/$defs/sustainability_matrix"}
+  ],
+  "$defs": {
+    "common": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "artifact_type",
+        "campaign_commit",
+        "parent_campaign_commit",
+        "generated_at",
+        "source_artifact_hashes"
+      ],
+      "properties": {
+        "schema_version": {"const": "3.2.0"},
+        "artifact_type": {"type": "string"},
+        "campaign_commit": {"type": "string", "minLength": 1},
+        "parent_campaign_commit": {
+          "const": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7"
+        },
+        "generated_at": {"const": "2026-09-08"},
+        "source_artifact_hashes": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "required": ["form", "detail"],
+      "properties": {
+        "form": {
+          "enum": [
+            "exact",
+            "measured_distribution",
+            "interval",
+            "literature_native",
+            "diagnostic",
+            "conditional",
+            "unknown",
+            "structurally_missing",
+            "blocked"
+          ]
+        },
+        "detail": {}
+      },
+      "additionalProperties": true
+    },
+    "evidence_record": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "metric_identifier",
+        "architecture",
+        "scenario",
+        "value",
+        "units",
+        "uncertainty",
+        "evidence_tier",
+        "evidence_source",
+        "measurement_boundary",
+        "provenance",
+        "technology_process",
+        "pvt",
+        "workload_activity",
+        "semantic_status",
+        "qualification_status",
+        "blocking_reason",
+        "permitted_downstream_uses",
+        "forbidden_downstream_uses",
+        "derived_from",
+        "compatibility"
+      ],
+      "properties": {
+        "record_id": {"type": "string", "minLength": 1},
+        "metric_identifier": {"type": "string", "minLength": 1},
+        "architecture": {"type": "string", "minLength": 1},
+        "scenario": {"type": "string", "minLength": 1},
+        "value": {"type": ["number", "string", "boolean", "null"]},
+        "units": {"type": "string", "minLength": 1},
+        "uncertainty": {"$ref": "#/$defs/uncertainty"},
+        "evidence_tier": {"enum": ["E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7"]},
+        "evidence_source": {"type": "object"},
+        "measurement_boundary": {"type": "string", "minLength": 1},
+        "provenance": {"type": "object"},
+        "technology_process": {"type": "object"},
+        "pvt": {},
+        "workload_activity": {"type": "object"},
+        "semantic_status": {
+          "enum": [
+            "MEASURED",
+            "DERIVED",
+            "ANALYTICAL",
+            "LITERATURE_NATIVE",
+            "CONDITIONAL",
+            "DIAGNOSTIC",
+            "SCENARIO_ASSUMPTION",
+            "STRUCTURALLY_MISSING",
+            "BLOCKED"
+          ]
+        },
+        "qualification_status": {"type": "string", "minLength": 1},
+        "blocking_reason": {"type": ["string", "array", "null"]},
+        "permitted_downstream_uses": {"type": "array", "items": {"type": "string"}},
+        "forbidden_downstream_uses": {"type": "array", "items": {"type": "string"}},
+        "derived_from": {"type": "array", "items": {"type": "string"}},
+        "compatibility": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "evidence_matrix": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "properties": {
+            "artifact_type": {"const": "EVIDENCE_MATRIX"},
+            "matrix_symbol": {"const": "M_E"},
+            "records": {"type": "array", "items": {"$ref": "#/$defs/evidence_record"}},
+            "row_count": {"type": "integer", "minimum": 1},
+            "new_row_count": {"type": "integer", "minimum": 1}
+          },
+          "required": ["matrix_symbol", "records", "row_count", "new_row_count"]
+        }
+      ]
+    },
+    "metric_cell": {
+      "type": "object",
+      "required": ["value", "units", "evidence_ids", "status"],
+      "properties": {
+        "value": {"type": ["number", "string", "null"]},
+        "units": {"type": "string", "minLength": 1},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "status": {"enum": ["QUALIFIED", "CONDITIONAL", "DIAGNOSTIC", "BLOCKED"]}
+      },
+      "additionalProperties": true
+    },
+    "physical_matrix": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "properties": {
+            "artifact_type": {"const": "PHYSICAL_MATRIX"},
+            "matrix_symbol": {"const": "M_P"},
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["architecture", "scenario", "interleaving", "metrics"],
+                "properties": {
+                  "architecture": {"enum": ["U0", "E0"]},
+                  "scenario": {"type": "string"},
+                  "interleaving": {"const": "I0"},
+                  "metrics": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {"$ref": "#/$defs/metric_cell"}
+                  }
+                }
+              }
+            },
+            "row_count": {"const": 2}
+          },
+          "required": ["matrix_symbol", "records", "row_count"]
+        }
+      ]
+    },
+    "sustainability_matrix": {
+      "allOf": [
+        {"$ref": "#/$defs/common"},
+        {
+          "type": "object",
+          "properties": {
+            "artifact_type": {"const": "SUSTAINABILITY_MATRIX"},
+            "matrix_symbol": {"const": "M_S"},
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["architecture", "scenario", "green_vector", "status", "blocking_set"],
+                "properties": {
+                  "architecture": {"enum": ["U0", "E0"]},
+                  "scenario": {"type": "string"},
+                  "green_vector": {"type": "object", "minProperties": 5},
+                  "status": {"enum": ["QUALIFIED", "CONDITIONAL", "DIAGNOSTIC", "BLOCKED"]},
+                  "blocking_set": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+                }
+              }
+            },
+            "row_count": {"const": 2}
+          },
+          "required": ["matrix_symbol", "records", "row_count"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "commands": [
+    {
+      "command": "python -m pytest -q tests/test_green_v3_3_activity_complete_e5.py",
+      "passed": 16,
+      "status": "PASS"
+    },
+    {
+      "command": "make",
+      "status": "PASS"
+    },
+    {
+      "command": "make test",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "duration_seconds": 564.65,
+      "failed": 8,
+      "failed_tests": [
+        "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+        "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator",
+        "tests/test_energy_accounting.py::test_attempt10_component_csv_is_byte_reproducible",
+        "tests/test_green_campaign_final_artifacts.py::test_final_hash_manifest_covers_every_nonself_artifact",
+        "tests/test_green_matrix_v3_1_physical_population.py::test_builder_is_byte_deterministic",
+        "tests/test_green_matrix_v3_2_evidence_aware.py::test_historical_hashes_are_preserved_and_v31_files_are_not_rewritten",
+        "tests/test_green_matrix_v3_2_evidence_aware.py::test_builder_is_byte_deterministic_and_hash_manifest_is_complete",
+        "tests/test_green_v3_2_matched_openram_orfs_validation.py::test_frozen_green_v32_tree_is_unchanged"
+      ],
+      "failure_scope": {
+        "campaign_regressions": 0,
+        "dirty_worktree_scope_guards": 2,
+        "known_windows_byte_hash_or_test_order_baseline": 6
+      },
+      "passed": 715,
+      "status": "BASELINE_AND_DIRTY_SCOPE_FAILURES"
+    },
+    {
+      "command": "git diff --quiet d59a6952 -- campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation",
+      "status": "PASS"
+    }
+  ],
+  "generated_on": "2026-09-09",
+  "mutations": {
+    "cleanup_or_restore_performed": false,
+    "tracked_non_campaign_files_modified": 36,
+    "tracked_mutation_groups": [
+      "PracticalSRAMSimulator.exe",
+      "campaigns/iscas_sustainability_extension/green_matrix_v3_2/ (19 files)",
+      "campaigns/iscas_sustainability_extension/green_matrix_v3_imec_aligned/ (3 files)",
+      "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/ (6 files)",
+      "campaigns/iscas_sustainability_extension/green_refoundation_node_aware_carbon/ (7 files)"
+    ],
+    "untracked_runtime_fixture_files": 30,
+    "untracked_runtime_fixture_root": "tests/fixtures/runtime_ml_feature_pack/",
+    "frozen_green_v3_2_matched_tree_modified": false,
+    "disposition": "PRESERVED_IN_WORKING_TREE_NOT_STAGED_NOT_RESTORED_NOT_DELETED"
+  },
+  "schema_version": 1,
+  "status": "CAMPAIGN_VALIDATION_PASS_WITH_REPOSITORY_BASELINE_AND_DIRTY_SCOPE_FAILURES"
+}

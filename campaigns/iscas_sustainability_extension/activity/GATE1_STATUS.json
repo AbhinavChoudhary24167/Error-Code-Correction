@@ -1,0 +1,56 @@
+{
+  "criteria": {
+    "CONDITIONAL_PASS": "complete comparable subset with explicit missing points and no imputation",
+    "FAIL": "missing or hash-invalid required physical/trace evidence, unequal useful work, or incomplete matched pairs",
+    "NOT_ASSESSABLE": "power tool or required frozen physical artifacts unavailable before any admissible point",
+    "PASS": "all 40 declared W1/W2 reports admitted, equal useful work, complete hashes, and all matched effects emitted"
+  },
+  "dependencies": {
+    "Gate 0": "PASS"
+  },
+  "evidence": {
+    "attempt01_preserved": true,
+    "attempt02_completed_points_not_rerun": true,
+    "attempt03_status": "PASS",
+    "joined_point_count": 60,
+    "matched_action_effect_count": 40,
+    "matched_architecture_effect_count": 30,
+    "new_point_count": 40,
+    "trace_duration_ps": 1000100000,
+    "useful_operations_per_trace": 100000
+  },
+  "gate": "Gate 1 - new W1/W2 post-route power on frozen DATE physical identities",
+  "inputs": {
+    "frozen_physical_run_count": 20,
+    "frozen_trace_count": 4,
+    "inherited_W0_point_count": 20,
+    "new_W1_W2_point_count": 40
+  },
+  "non_repetition_confirmed": {
+    "formal": false,
+    "new_operations": [
+      "W1 post-route power",
+      "W2 post-route power"
+    ],
+    "physical_design": false,
+    "synthesis": false,
+    "trace_generation": false,
+    "w0_power": false
+  },
+  "outputs": {
+    "GATE1_INTERPRETATION.json": "e21d9f7d6e1e946803df694734c00f95af917d446c584a2fe2247407ee67939a",
+    "GATE1_RAW_EVIDENCE_MANIFEST.json": "450043aae5b5d1dca3c5e69deae23622c25a9b458c7ca7f56fd5b7a6b862ec72",
+    "activity_action_effects.csv": "ba289ad01e2d829e2f8d2203118c0437baba5c068d128aa63f5f197dea6baac7",
+    "activity_architecture_effects.csv": "4c75b2cd948486f82eb8d47468fc589ea375f1de9f700f3f756990a76708dd43",
+    "activity_power_per_seed.csv": "4084bc41eeb62b82b9c9e337299362548f10ed61cfa68cee6f0fbb41889fe96d",
+    "activity_power_summary.csv": "3c437dc8f1118ce1673dd757924bd10202d9a9ca33a2fa63de6e014db514c56f"
+  },
+  "schema_version": 1,
+  "tests": {
+    "embedded_energy_reconstruction": "PASS",
+    "embedded_exact_matrix_join": "PASS",
+    "embedded_power_report_parse": "PASS",
+    "focused_pytest": "campaigns/iscas_sustainability_extension/tests/test_gate1_activity.py"
+  },
+  "verdict": "PASS"
+}

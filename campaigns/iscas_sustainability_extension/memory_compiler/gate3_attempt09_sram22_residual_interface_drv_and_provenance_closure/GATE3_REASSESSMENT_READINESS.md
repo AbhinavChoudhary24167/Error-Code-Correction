@@ -1,0 +1,5 @@
+# Gate-3 reassessment readiness
+
+Recommendation: `KEEP_GATE3_FAILED`. Attempt09 is `RESIDUAL_SRAM_INPUT_DRV_FAIL`: the canonical and multiseed pairs retain a genuine explicit 0.351 ns SRAM data-`rstb` violation. The Class-C contradiction is proven, but that does not waive Class B. Gate-3 reassessment is not started; historical Gate 3 remains `FAIL`; Gate 4 and carbon work remain not started.
+
+The evidence package establishes immutable SRAM22 hardened macros, upstream reported silicon functionality, previously frozen GDS/LEF/SPICE/Liberty/Verilog consistency and exhaustive SECDED functional validation, clean detailed routing and external integration DRC, clean canonical setup/hold, explicit Class-C provenance, and visible limitations. It does **not** establish clean external macro integration or zero genuine external DRVs. Macro-internal DRC remains `MACRO_INTERNAL_DRC_NOT_INDEPENDENTLY_SIGNOFF_QUALIFIED`, physical LVS remains `NOT_INDEPENDENTLY_REPRODUCED`, and Liberty remains independently unregenerated. Therefore the prerequisite for reassessment authorization is absent.

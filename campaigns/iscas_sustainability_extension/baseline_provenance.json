@@ -1,0 +1,619 @@
+{
+  "activity_evidence": {
+    "available_but_not_power_measured_classes": [
+      "single_error",
+      "double_error"
+    ],
+    "interpretation": "W1/W2 deterministic primary-input traces exist and are integrity protected, but qualified post-route power was run only for W0/no-error traffic.",
+    "post_route_power_measured_classes": [
+      "no_error"
+    ],
+    "trace_count": 9,
+    "traces": [
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 72,
+        "compressed_bytes": 3044590,
+        "compressed_sha256": "5777054292ef6b97af7f4924fb1f264fcbd030e598c32d7d12829b862e244998",
+        "family": "conventional_secded",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "conventional_secded-10ns-no_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "no_error",
+        "uncompressed_bytes": 18867668,
+        "uncompressed_sha256": "d75adf38ea67c7586a6ca35e2dda4cc21445745a1e4d6905d16687a9330769a7",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 72,
+        "compressed_bytes": 3134113,
+        "compressed_sha256": "ecf2c4904c42e3c2cc316ab3bd715d3660abda999c04d651bf20a9307f9433aa",
+        "family": "conventional_secded",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "conventional_secded-10ns-single_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "single_error",
+        "uncompressed_bytes": 18867668,
+        "uncompressed_sha256": "5fa56d3445f1e462640c325944f5b457075cd823f5891714a37d73e36699b992",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 72,
+        "compressed_bytes": 3194493,
+        "compressed_sha256": "7446926a04c35d4333297ab722a2af5bc0c11bb34751467b43edfaf47009e7a3",
+        "family": "conventional_secded",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "conventional_secded-10ns-double_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "double_error",
+        "uncompressed_bytes": 18867668,
+        "uncompressed_sha256": "d6ac1bd0e20c07b6c24e7c92a19cae8dc25dfefebb81d88ae35ebd7570a2aebd",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 72,
+        "compressed_bytes": 2585973,
+        "compressed_sha256": "0117c68c59ca87e85b4aa699eca26be1d20d83e26213030ee835cc4739542c99",
+        "family": "hsiao",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "hsiao-10ns-no_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "no_error",
+        "uncompressed_bytes": 18867668,
+        "uncompressed_sha256": "4d078b7afee9e03e0a41860135377b021f08755f9d02a01f6939afecc11678ce",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 72,
+        "compressed_bytes": 2780862,
+        "compressed_sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+        "family": "hsiao",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "hsiao-10ns-single_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "single_error",
+        "uncompressed_bytes": 18867668,
+        "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 72,
+        "compressed_bytes": 2926676,
+        "compressed_sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+        "family": "hsiao",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "hsiao-10ns-double_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "double_error",
+        "uncompressed_bytes": 18867668,
+        "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 78,
+        "compressed_bytes": 2710155,
+        "compressed_sha256": "84186d94f6f2afa346e15013a6d351eb824892f474e62c8df7dff8f1091e2ff2",
+        "family": "bch78",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "bch78-10ns-no_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "no_error",
+        "uncompressed_bytes": 19467680,
+        "uncompressed_sha256": "43a032a3fda6a3b91fd3cf5218cd88a77b9803b910ce372aaf6b87452e54cbd0",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 78,
+        "compressed_bytes": 2888746,
+        "compressed_sha256": "729225b2f7040445ccf9e6f20bb9bce070130a6bd3cb3f66ddedace2caf2cf7d",
+        "family": "bch78",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "bch78-10ns-single_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "single_error",
+        "uncompressed_bytes": 19467680,
+        "uncompressed_sha256": "55568947d20cfb216c63ffeef9afc8c6f0d6cb5ad70df15f9fbc875a63710d9d",
+        "useful_operations": 100000
+      },
+      {
+        "clock_period_ns": 10.0,
+        "codeword_width_bits": 78,
+        "compressed_bytes": 3020278,
+        "compressed_sha256": "7c3b2d62f3e51e612a69ed8bd2b5dc658628072b7697d1eab5ec8787254340b1",
+        "family": "bch78",
+        "fault_schedule_seed": 7085774586302733229,
+        "file": "bch78-10ns-double_error.vcd.gz",
+        "payload_seed": 104375203646206,
+        "position_mapping": "floor(q*N/2^64); second coordinate cyclically advanced only on equality",
+        "total_time_ps": 1000100000,
+        "trace_class": "double_error",
+        "uncompressed_bytes": 19467680,
+        "uncompressed_sha256": "6c22abbb86dc0bb51b45fd9f9dc30e499cc484bf4746fca5581657ad23598ca9",
+        "useful_operations": 100000
+      }
+    ],
+    "useful_operations_per_trace": 100000
+  },
+  "baseline": {
+    "branch": "codex/ecc-lifecycle-sustainability",
+    "final_date_revision3_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+    "physical_evidence_freeze_commit": "b51291442bbd04346dac939dea6ba7d532b9c5c4",
+    "protected_file_count": 7094,
+    "tracked_file_count": 2327
+  },
+  "evidence_sources": [
+    {
+      "bytes": 9532,
+      "path": "docs/date2027/revision2/results/REV2_RUN_RESULTS.csv",
+      "sha256": "01b2b6e3df3207d9612cbe2c9a6f8b49e366db63ebfedb6096a3c2e0b6f524e7"
+    },
+    {
+      "bytes": 7479,
+      "path": "docs/date2027/revision2/results/REV2_SECDED_PAIRED_SEED_EFFECTS.json",
+      "sha256": "a41cee57738daee3a527a2864c2eb1e69edbb2e9c0619c8a6351e01d09f198d2"
+    },
+    {
+      "bytes": 19983,
+      "path": "campaigns/date_2027_breadth_remediation/analysis/A_structural_pair_per_seed.csv",
+      "sha256": "b039f05b46a7edee923339d37391c6b96425b9908ebf1da885c10557ed94bf59"
+    },
+    {
+      "bytes": 22062,
+      "path": "campaigns/date_2027_breadth_remediation/analysis/B_power_components_per_seed.csv",
+      "sha256": "bac279eda4f144088622e50a2e9a19888b96200dd13b904e1ff9ca544a293103"
+    },
+    {
+      "bytes": 16368,
+      "path": "campaigns/date_2027_breadth_remediation/analysis/C_5ns_per_seed.csv",
+      "sha256": "bea86d41c607c26c3fba7902266e5b045f4884f3b7fbea48b43e9e549dcc8850"
+    },
+    {
+      "bytes": 67283,
+      "path": "campaigns/date_2027_breadth_remediation/analysis/A_structural_pair_summary.json",
+      "sha256": "3dbacec2671245aa503e9809ec32d9640493090b9dd05b2fa6a36d31912e5b7c"
+    },
+    {
+      "bytes": 33100,
+      "path": "campaigns/date_2027_breadth_remediation/analysis/B_power_components_summary.json",
+      "sha256": "0d3be7f35e38dd5f5a805f4298c27f43e6296b6c8e1c3491e0dcb1dbcd52e007"
+    },
+    {
+      "bytes": 82956,
+      "path": "campaigns/date_2027_breadth_remediation/analysis/C_5ns_summary.json",
+      "sha256": "8b58f75c85b45675db377bfc3a1d374656018396538ef8cfa4350486ce80d228"
+    },
+    {
+      "bytes": 6593,
+      "path": "docs/date2027/rigour_gate_03f/ACTIVITY_TRACE_MANIFEST.json",
+      "sha256": "5608b592deef797e5426430ce3b8ad83a0a5359ce452c87e4b54bfdaa9a9c9aa"
+    },
+    {
+      "bytes": 8082,
+      "path": "campaigns/date_2027_breadth_remediation/physical/contract_v1.json",
+      "sha256": "63d883f607de032e46e105667bb58763082bdadaf5dfb531dd780658718aae48"
+    },
+    {
+      "bytes": 4607,
+      "path": "paper/date2027_revision3/data/claim_registry.json",
+      "sha256": "8e6dc1b4ced84c734e0fb510c5c14b7f9372ebf71380a38ac1b226cc21b35757"
+    },
+    {
+      "bytes": 427,
+      "path": "campaigns/date_2027_breadth_remediation/FINAL_baseline_integrity_check.json",
+      "sha256": "d5c19327250d12d3a40c4f7ba0392bcd6bd90df4b09ded2b22a4a6784d9f5599"
+    }
+  ],
+  "gate": "GATE_0_BASELINE_AUDIT",
+  "integrity_manifest": "campaigns/iscas_sustainability_extension/baseline_integrity_manifest.json",
+  "physical_environment": {
+    "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "corner": "tt_025C_1v80",
+    "matched_seeds": [
+      11,
+      13,
+      17,
+      19,
+      23
+    ],
+    "openroad_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36",
+    "orfs_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+    "platform": "sky130hd",
+    "temperature_c": 25,
+    "voltage_v": 1.8
+  },
+  "reconstructed_effects": {
+    "hsiao_10ns_area_percent": {
+      "count": 5,
+      "formula": "(A_hsiao_hierarchical - A_hsiao_flat) / A_hsiao_flat * 100 percent",
+      "maximum": -0.24874711928888726,
+      "mean": -0.564121548629801,
+      "minimum": -0.877074548740219,
+      "sample_standard_deviation": 0.2453629827559297,
+      "values_by_seed": {
+        "11": -0.877074548740219,
+        "13": -0.7106508999144887,
+        "17": -0.24874711928888726,
+        "19": -0.4160512575149258,
+        "23": -0.5680839176904845
+      }
+    },
+    "hsiao_10ns_energy_percent": {
+      "count": 5,
+      "formula": "(A_hsiao_hierarchical - A_hsiao_flat) / A_hsiao_flat * 100 percent",
+      "maximum": 2.497265449835875,
+      "mean": 1.3283946898342067,
+      "minimum": 0.14389697279642558,
+      "sample_standard_deviation": 0.9102247148621481,
+      "values_by_seed": {
+        "11": 1.8906776906129092,
+        "13": 0.14389697279642558,
+        "17": 0.8561146098131285,
+        "19": 2.497265449835875,
+        "23": 1.254018726112696
+      }
+    },
+    "hsiao_10ns_timing_percent": {
+      "count": 5,
+      "formula": "(A_hsiao_hierarchical - A_hsiao_flat) / A_hsiao_flat * 100 percent",
+      "maximum": 13.105802687096945,
+      "mean": 2.655650760908512,
+      "minimum": -5.8868844835878935,
+      "sample_standard_deviation": 6.8288768308381895,
+      "values_by_seed": {
+        "11": -5.8868844835878935,
+        "13": 1.2023619694130587,
+        "17": 13.105802687096945,
+        "19": 1.3944664650047105,
+        "23": 3.4625071666157368
+      }
+    },
+    "secded_10ns_area_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": 37.756600211895176,
+      "mean": 37.201863692705786,
+      "minimum": 36.70222751433431,
+      "sample_standard_deviation": 0.4331327677096363,
+      "values_by_seed": {
+        "11": 36.70222751433431,
+        "13": 37.27411336475794,
+        "17": 36.83842375053395,
+        "19": 37.437953622007555,
+        "23": 37.756600211895176
+      }
+    },
+    "secded_10ns_energy_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": -22.518942930942384,
+      "mean": -23.419005222611922,
+      "minimum": -24.016027025898108,
+      "sample_standard_deviation": 0.5822030551792997,
+      "values_by_seed": {
+        "11": -24.016027025898108,
+        "13": -23.79867187892941,
+        "17": -23.52597096131095,
+        "19": -23.235413315978757,
+        "23": -22.518942930942384
+      }
+    },
+    "secded_10ns_internal_power_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": 7.623335476893141,
+      "mean": 6.772351805117499,
+      "minimum": 5.048397680031565,
+      "sample_standard_deviation": 1.0760063579307484,
+      "values_by_seed": {
+        "11": 5.048397680031565,
+        "13": 7.345870582525955,
+        "17": 6.392356842523585,
+        "19": 7.451798443613248,
+        "23": 7.623335476893141
+      }
+    },
+    "secded_10ns_leakage_power_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": 35.10935027546703,
+      "mean": 34.426793795511834,
+      "minimum": 33.81405138211617,
+      "sample_standard_deviation": 0.5028156761934497,
+      "values_by_seed": {
+        "11": 33.81405138211617,
+        "13": 34.48944738169024,
+        "17": 34.080150900076994,
+        "19": 34.640969038208716,
+        "23": 35.10935027546703
+      }
+    },
+    "secded_10ns_switching_power_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": -48.525033479362065,
+      "mean": -49.48133171156401,
+      "minimum": -50.23107725578758,
+      "sample_standard_deviation": 0.6282203757230579,
+      "values_by_seed": {
+        "11": -49.34282676568114,
+        "13": -50.23107725578758,
+        "17": -49.54591918673479,
+        "19": -49.76180187025449,
+        "23": -48.525033479362065
+      }
+    },
+    "secded_10ns_timing_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": 55.34267126552815,
+      "mean": 46.62935498217704,
+      "minimum": 42.11616956661049,
+      "sample_standard_deviation": 5.071721923703692,
+      "values_by_seed": {
+        "11": 45.910938089375065,
+        "13": 55.34267126552815,
+        "17": 44.992037607527074,
+        "19": 42.11616956661049,
+        "23": 44.78495838184442
+      }
+    },
+    "secded_10ns_total_power_percent": {
+      "count": 5,
+      "formula": "(secded_pipe - secded_comb) / secded_comb * 100 percent",
+      "maximum": -22.518942930942387,
+      "mean": -23.419005222611926,
+      "minimum": -24.01602702589812,
+      "sample_standard_deviation": 0.5822030551793002,
+      "values_by_seed": {
+        "11": -24.01602702589812,
+        "13": -23.798671878929408,
+        "17": -23.525970961310957,
+        "19": -23.235413315978764,
+        "23": -22.518942930942387
+      }
+    },
+    "secded_5ns_area_percent": {
+      "count": 5,
+      "formula": "(C_secded_pipe - C_secded_comb) / C_secded_comb * 100 percent",
+      "maximum": 37.532064553946434,
+      "mean": 36.721137579086886,
+      "minimum": 36.00970899682591,
+      "sample_standard_deviation": 0.5576395274689175,
+      "values_by_seed": {
+        "11": 36.51683586505582,
+        "13": 36.00970899682591,
+        "17": 36.645314582028924,
+        "19": 37.532064553946434,
+        "23": 36.90176389757736
+      }
+    },
+    "secded_5ns_energy_percent": {
+      "count": 5,
+      "formula": "(C_secded_pipe - C_secded_comb) / C_secded_comb * 100 percent",
+      "maximum": -18.02730854883753,
+      "mean": -19.336605982713372,
+      "minimum": -20.233868834150755,
+      "sample_standard_deviation": 0.8724916973889937,
+      "values_by_seed": {
+        "11": -20.233868834150755,
+        "13": -19.448705131770026,
+        "17": -19.97035040502853,
+        "19": -19.00279699378002,
+        "23": -18.02730854883753
+      }
+    },
+    "secded_5ns_timing_percent": {
+      "count": 5,
+      "formula": "(C_secded_pipe - C_secded_comb) / C_secded_comb * 100 percent",
+      "maximum": 75.87422073424153,
+      "mean": 68.6296531578486,
+      "minimum": 63.64336417667131,
+      "sample_standard_deviation": 5.216010692116833,
+      "values_by_seed": {
+        "11": 63.64336417667131,
+        "13": 75.87422073424153,
+        "17": 63.73196092932283,
+        "19": 68.53345184556986,
+        "23": 71.3652681034374
+      }
+    }
+  },
+  "reconstruction_checks": [
+    {
+      "claim": "secded_10ns_area_percent",
+      "prompt_absolute_error": 0.0018636927057826824,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 37.2,
+      "qualified_source_mean_percent": 37.201863692705786,
+      "reconstructed_mean_percent": 37.201863692705786,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_10ns_timing_percent",
+      "prompt_absolute_error": 0.0293549821770398,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 46.6,
+      "qualified_source_mean_percent": 46.62935498217704,
+      "reconstructed_mean_percent": 46.62935498217704,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_10ns_energy_percent",
+      "prompt_absolute_error": 0.0190052226119235,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": -23.4,
+      "qualified_source_mean_percent": -23.419005222611922,
+      "reconstructed_mean_percent": -23.419005222611922,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "hsiao_10ns_area_percent",
+      "prompt_absolute_error": 0.0001215486298010715,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": -0.564,
+      "qualified_source_mean_percent": -0.564121548629801,
+      "reconstructed_mean_percent": -0.564121548629801,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "hsiao_10ns_timing_percent",
+      "prompt_absolute_error": 0.0003492390914883181,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 2.656,
+      "qualified_source_mean_percent": 2.655650760908512,
+      "reconstructed_mean_percent": 2.655650760908512,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "hsiao_10ns_energy_percent",
+      "prompt_absolute_error": 0.0003946898342066518,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 1.328,
+      "qualified_source_mean_percent": 1.3283946898342067,
+      "reconstructed_mean_percent": 1.3283946898342067,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_5ns_area_percent",
+      "prompt_absolute_error": 0.02113757908688285,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 36.7,
+      "qualified_source_mean_percent": 36.721137579086886,
+      "reconstructed_mean_percent": 36.721137579086886,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_5ns_timing_percent",
+      "prompt_absolute_error": 0.029653157848599676,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 68.6,
+      "qualified_source_mean_percent": 68.6296531578486,
+      "reconstructed_mean_percent": 68.6296531578486,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_5ns_energy_percent",
+      "prompt_absolute_error": 0.03660598271337179,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": -19.3,
+      "qualified_source_mean_percent": -19.336605982713372,
+      "reconstructed_mean_percent": -19.336605982713372,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_10ns_internal_power_percent",
+      "prompt_absolute_error": 0.0023518051174997723,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 6.77,
+      "qualified_source_mean_percent": 6.772351805117499,
+      "reconstructed_mean_percent": 6.772351805117499,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_10ns_switching_power_percent",
+      "prompt_absolute_error": 0.0013317115640134602,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": -49.48,
+      "qualified_source_mean_percent": -49.48133171156401,
+      "reconstructed_mean_percent": -49.48133171156401,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_10ns_leakage_power_percent",
+      "prompt_absolute_error": 0.003206204488165554,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": 34.43,
+      "qualified_source_mean_percent": 34.426793795511834,
+      "reconstructed_mean_percent": 34.426793795511834,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    },
+    {
+      "claim": "secded_10ns_total_power_percent",
+      "prompt_absolute_error": 0.019005222611927053,
+      "prompt_approx_tolerance": 0.15,
+      "prompt_reported_approx_percent": -23.4,
+      "qualified_source_mean_percent": -23.419005222611926,
+      "reconstructed_mean_percent": -23.419005222611926,
+      "source_absolute_error": 0.0,
+      "source_tolerance": 1e-09,
+      "status": "PASS"
+    }
+  ],
+  "result_record_count": 40,
+  "schema_version": 1,
+  "sram_infrastructure": {
+    "ecc_array_wrappers": [
+      "asic/secded/sram_secded_top.sv",
+      "asic/secdaec/sram_secdaec_top.sv",
+      "asic/taec/sram_taec_top.sv",
+      "asic/bch/sram_bch_top.sv",
+      "asic/polar/sram_polar_64_32_top.sv",
+      "asic/polar/sram_polar_64_48_top.sv",
+      "asic/polar/sram_polar_128_96_top.sv",
+      "asic/rtl/sram/sram_wrappers.sv"
+    ],
+    "logical_intra_word_placement_candidates_present": true,
+    "logical_intra_word_placement_source": "codeforge/placement_policy.py",
+    "openram_installed": false,
+    "openram_repository_infrastructure": false,
+    "physical_cross_codeword_bit_interleaving_model_present": false,
+    "physical_to_logical_bit_mapping_present": false,
+    "qualification_note": "The existing even/odd placement library permutes logical columns within one codeword and uses a displacement proxy. It is not a macro-cell coordinate map and cannot model one physical burst becoming events in several codewords.",
+    "software_proxy": [
+      "PracticalSRAMSimulator.cpp",
+      "sram_workflow.py",
+      "sram_ecc_benchmark.py",
+      "ml/sram_advisory.py"
+    ],
+    "sram_macro_lef_gds_liberty_spice_views_present": false,
+    "synthesizable_array_model": "asic/common/sram_core.sv"
+  },
+  "status": "PASS"
+}

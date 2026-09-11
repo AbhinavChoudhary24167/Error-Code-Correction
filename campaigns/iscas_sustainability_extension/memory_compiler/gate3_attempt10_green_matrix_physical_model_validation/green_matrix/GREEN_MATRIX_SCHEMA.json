@@ -1,0 +1,974 @@
+{
+  "$id": "GREEN_MATRIX_SCHEMA.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Schema for GREEN_MATRIX_PHYSICAL.json. Missing scientific evidence uses explicit sentinels; numeric zero is never used as a missing value.",
+  "properties": {
+    "provenance": {
+      "type": "object"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "DBU_coverage": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "fraction"
+          },
+          "DUE_rate": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "events/access"
+          },
+          "EPC": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "J/corrected error"
+          },
+          "ESII": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "dimensionless"
+          },
+          "FIT": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "failures/1e9 device-hours"
+          },
+          "GREEN_score": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "dimensionless [0,100]"
+          },
+          "MBU_coverage": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "fraction"
+          },
+          "NESII": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "dimensionless [0,100]"
+          },
+          "SBU_coverage": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "fraction"
+          },
+          "SDC_rate": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "events/access"
+          },
+          "SER": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "errors/bit-hour"
+          },
+          "architecture_id": {
+            "enum": [
+              "U0",
+              "E0"
+            ]
+          },
+          "area_macro_um2": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "um2"
+          },
+          "area_standard_cell_um2": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "um2"
+          },
+          "area_total_um2": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "um2"
+          },
+          "bank_count": {
+            "type": "string"
+          },
+          "burst_coverage": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "fraction"
+          },
+          "class_c_provenance_status": {
+            "type": "string"
+          },
+          "code_rate": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "dimensionless"
+          },
+          "core_area_um2": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "um2"
+          },
+          "corrected_error_rate": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "events/access"
+          },
+          "ecc_family": {
+            "type": "string"
+          },
+          "ecc_parameters": {
+            "oneOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ]
+          },
+          "embodied_carbon_kgCO2e": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "kgCO2e/lifetime allocation"
+          },
+          "energy_access_j": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "J/access"
+          },
+          "energy_evidence_level": {
+            "type": "string"
+          },
+          "energy_qualification": {
+            "type": "string"
+          },
+          "energy_read_j": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "J/read"
+          },
+          "energy_write_j": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "J/write"
+          },
+          "evidence_quality": {
+            "type": "string"
+          },
+          "external_drv_status": {
+            "type": "string"
+          },
+          "frequency": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "MHz"
+          },
+          "gate3_status": {
+            "type": "string"
+          },
+          "hold_wns_ns": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "ns"
+          },
+          "interleaving_configuration": {
+            "type": "string"
+          },
+          "latency_ns": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "ns"
+          },
+          "liberty_model": {
+            "enum": [
+              "UPSTREAM_ORIGINAL",
+              "RESEARCH_CORRECTED_DIAGNOSTIC"
+            ]
+          },
+          "macro_count": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "macro"
+          },
+          "macro_depth": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "word"
+          },
+          "macro_internal_drc_status": {
+            "type": "string"
+          },
+          "macro_width": {
+            "oneOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ]
+          },
+          "max_frequency_estimate": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "MHz"
+          },
+          "memory_macro_configuration": {
+            "oneOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ]
+          },
+          "operational_carbon_kgCO2e": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "kgCO2e/lifetime"
+          },
+          "payload_bits": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "bit"
+          },
+          "physical_lvs_status": {
+            "type": "string"
+          },
+          "power_evidence_level": {
+            "type": "string"
+          },
+          "power_internal_w": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "W"
+          },
+          "power_leakage_w": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "W"
+          },
+          "power_qualification": {
+            "type": "string"
+          },
+          "power_switching_w": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "W"
+          },
+          "power_total_w": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "W"
+          },
+          "pvt": {
+            "type": "string"
+          },
+          "qualification_status": {
+            "type": "string"
+          },
+          "recovery_carbon_kgCO2e": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "kgCO2e/lifetime"
+          },
+          "redundancy_bits": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "bit"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "scrub_interval": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "s"
+          },
+          "scrub_policy": {
+            "type": "string"
+          },
+          "seed": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "seed identifier"
+          },
+          "setup_wns_ns": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "ns"
+          },
+          "source_artifact_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "source_provenance": {
+            "oneOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "array"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ]
+          },
+          "stored_bits": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "bit"
+          },
+          "technology": {
+            "type": "string"
+          },
+          "total_lifecycle_carbon_kgCO2e": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "kgCO2e/lifetime"
+          },
+          "uncorrectable_error_rate": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "events/access"
+          },
+          "utilization": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "fraction"
+          },
+          "via_count": {
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "via"
+          },
+          "wirelength_um": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "NOT_QUALIFIED",
+                  "NOT_MEASURED",
+                  "NOT_APPLICABLE",
+                  "PROVENANCE_LIMITED"
+                ]
+              }
+            ],
+            "x-unit": "um"
+          }
+        },
+        "required": [
+          "row_id",
+          "architecture_id",
+          "ecc_family",
+          "ecc_parameters",
+          "payload_bits",
+          "stored_bits",
+          "redundancy_bits",
+          "code_rate",
+          "memory_macro_configuration",
+          "macro_width",
+          "macro_depth",
+          "macro_count",
+          "bank_count",
+          "interleaving_configuration",
+          "technology",
+          "pvt",
+          "frequency",
+          "seed",
+          "liberty_model",
+          "area_standard_cell_um2",
+          "area_macro_um2",
+          "area_total_um2",
+          "core_area_um2",
+          "utilization",
+          "wirelength_um",
+          "via_count",
+          "setup_wns_ns",
+          "hold_wns_ns",
+          "max_frequency_estimate",
+          "latency_ns",
+          "power_internal_w",
+          "power_switching_w",
+          "power_leakage_w",
+          "power_total_w",
+          "power_evidence_level",
+          "energy_read_j",
+          "energy_write_j",
+          "energy_access_j",
+          "energy_evidence_level",
+          "SER",
+          "FIT",
+          "SDC_rate",
+          "DUE_rate",
+          "corrected_error_rate",
+          "uncorrectable_error_rate",
+          "SBU_coverage",
+          "DBU_coverage",
+          "MBU_coverage",
+          "burst_coverage",
+          "scrub_policy",
+          "scrub_interval",
+          "embodied_carbon_kgCO2e",
+          "operational_carbon_kgCO2e",
+          "recovery_carbon_kgCO2e",
+          "total_lifecycle_carbon_kgCO2e",
+          "EPC",
+          "ESII",
+          "NESII",
+          "GREEN_score",
+          "evidence_quality",
+          "qualification_status",
+          "source_provenance",
+          "source_artifact_sha256",
+          "gate3_status",
+          "external_drv_status",
+          "class_c_provenance_status",
+          "macro_internal_drc_status",
+          "physical_lvs_status",
+          "power_qualification",
+          "energy_qualification"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "rows"
+  ],
+  "title": "Attempt10 provenance-aware GREEN physical matrix",
+  "type": "object",
+  "x-claim-policy": "Only numeric values with a compatible qualified evidence field may enter carbon, normalization, or Pareto calculations.",
+  "x-missing-value-sentinels": [
+    "NOT_QUALIFIED",
+    "NOT_MEASURED",
+    "NOT_APPLICABLE",
+    "PROVENANCE_LIMITED"
+  ]
+}

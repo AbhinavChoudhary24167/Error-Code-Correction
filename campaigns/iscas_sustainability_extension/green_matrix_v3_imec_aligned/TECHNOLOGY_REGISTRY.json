@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "technologies": [
+    {
+      "manufacturing_inventory_status": "SKY130_MANUFACTURING_CARBON_NOT_QUALIFIED",
+      "metal_stack": "five-level metal stack documented by PDK",
+      "node_label": "SKY130 mature 180 nm-130 nm hybrid",
+      "process_route_id": "SKY130_ROUTE_UNCHARACTERIZED",
+      "prohibited_translation": "No advanced-node imec/ACT coefficient may be relabelled as SKY130.",
+      "source_ids": [
+        "SRC_SKYWATER_SKY130_PDK"
+      ],
+      "technology_id": "SKY130",
+      "wafer_diameter_mm": null,
+      "yield_model_id": null
+    },
+    {
+      "manufacturing_inventory_status": "TEXTUAL_ANCHOR_AND_TREND_ONLY",
+      "metal_stack": null,
+      "node_label": "N28 generic HVM public-evidence anchor",
+      "process_route_id": "IMEC_N28_PUBLIC_ROUTE",
+      "prohibited_translation": "Not transferable to SKY130 or a named foundry inventory.",
+      "source_ids": [
+        "SRC_IMEC_IEDM_2023"
+      ],
+      "technology_id": "IMEC_N28_PUBLIC_ANCHOR",
+      "wafer_diameter_mm": 300,
+      "yield_model_id": "IMEC_2023_DECLARED_MURPHY"
+    },
+    {
+      "manufacturing_inventory_status": "PROJECTED_TEXTUAL_ANCHOR_AND_TREND_ONLY",
+      "metal_stack": null,
+      "node_label": "A14 projected generic HVM public-evidence anchor",
+      "process_route_id": "IMEC_A14_PUBLIC_ROUTE",
+      "prohibited_translation": "Projected model output is not a measurement and is not transferable to SKY130.",
+      "source_ids": [
+        "SRC_IMEC_IEDM_2023"
+      ],
+      "technology_id": "IMEC_A14_PROJECTED_ANCHOR",
+      "wafer_diameter_mm": 300,
+      "yield_model_id": "IMEC_2023_DECLARED_MURPHY"
+    }
+  ]
+}

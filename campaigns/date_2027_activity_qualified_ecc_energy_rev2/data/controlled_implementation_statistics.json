@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "delta_conventions": {
+    "temporal": "pipelined minus combinational, divided by combinational, percent",
+    "structural": "hierarchical minus flat, divided by flat, percent",
+    "activity": "Hsiao minus conventional"
+  },
+  "seed_set": [
+    11,
+    13,
+    17,
+    19,
+    23
+  ],
+  "temporal_secded_10ns": {
+    "standard_cell_area_percent": {
+      "count": 5,
+      "maximum": 37.756600211895176,
+      "mean": 37.201863692705786,
+      "median": 37.27411336475794,
+      "minimum": 36.70222751433431,
+      "range": 1.054372697560865,
+      "sample_standard_deviation": 0.4331327677096363,
+      "values_by_seed": {
+        "11": 36.70222751433431,
+        "13": 37.27411336475794,
+        "17": 36.83842375053395,
+        "19": 37.437953622007555,
+        "23": 37.756600211895176
+      }
+    },
+    "signed_slack_frequency_metric_percent": {
+      "count": 5,
+      "maximum": 55.34267126552815,
+      "mean": 46.62935498217704,
+      "median": 44.992037607527074,
+      "minimum": 42.11616956661049,
+      "range": 13.226501698917666,
+      "sample_standard_deviation": 5.071721923703692,
+      "values_by_seed": {
+        "11": 45.910938089375065,
+        "13": 55.34267126552815,
+        "17": 44.992037607527074,
+        "19": 42.11616956661049,
+        "23": 44.78495838184442
+      }
+    },
+    "energy_per_operation_percent": {
+      "count": 5,
+      "maximum": -22.518942930942384,
+      "mean": -23.419005222611922,
+      "median": -23.52597096131095,
+      "minimum": -24.016027025898108,
+      "range": 1.4970840949557243,
+      "sample_standard_deviation": 0.5822030551792997,
+      "values_by_seed": {
+        "11": -24.016027025898108,
+        "13": -23.79867187892941,
+        "17": -23.52597096131095,
+        "19": -23.235413315978757,
+        "23": -22.518942930942384
+      }
+    },
+    "direction_preserved_count": 5,
+    "request_latency_cycles": {
+      "combinational": 1,
+      "pipelined": 3
+    },
+    "initiation_interval_cycles": {
+      "combinational": 1,
+      "pipelined": 1
+    }
+  },
+  "temporal_secded_5ns": {
+    "standard_cell_area_percent": {
+      "count": 5,
+      "maximum": 37.532064553946434,
+      "mean": 36.721137579086886,
+      "median": 36.645314582028924,
+      "minimum": 36.00970899682591,
+      "range": 1.5223555571205267,
+      "sample_standard_deviation": 0.5576395274689175,
+      "values_by_seed": {
+        "11": 36.51683586505582,
+        "13": 36.00970899682591,
+        "17": 36.645314582028924,
+        "19": 37.532064553946434,
+        "23": 36.90176389757736
+      }
+    },
+    "signed_slack_frequency_metric_percent": {
+      "count": 5,
+      "maximum": 75.87422073424153,
+      "mean": 68.6296531578486,
+      "median": 68.53345184556986,
+      "minimum": 63.64336417667131,
+      "range": 12.23085655757022,
+      "sample_standard_deviation": 5.216010692116833,
+      "values_by_seed": {
+        "11": 63.64336417667131,
+        "13": 75.87422073424153,
+        "17": 63.73196092932283,
+        "19": 68.53345184556986,
+        "23": 71.3652681034374
+      }
+    },
+    "energy_per_operation_percent": {
+      "count": 5,
+      "maximum": -18.02730854883753,
+      "mean": -19.336605982713372,
+      "median": -19.448705131770026,
+      "minimum": -20.233868834150755,
+      "range": 2.2065602853132233,
+      "sample_standard_deviation": 0.8724916973889937,
+      "values_by_seed": {
+        "11": -20.233868834150755,
+        "13": -19.448705131770026,
+        "17": -19.97035040502853,
+        "19": -19.00279699378002,
+        "23": -18.02730854883753
+      }
+    },
+    "direction_preserved_count": 5,
+    "request_latency_cycles": {
+      "combinational": 1,
+      "pipelined": 3
+    },
+    "initiation_interval_cycles": {
+      "combinational": 1,
+      "pipelined": 1
+    }
+  },
+  "structural_hsiao_10ns": {
+    "standard_cell_area_percent": {
+      "count": 5,
+      "maximum": -0.24874711928888726,
+      "mean": -0.564121548629801,
+      "median": -0.5680839176904845,
+      "minimum": -0.877074548740219,
+      "range": 0.6283274294513317,
+      "sample_standard_deviation": 0.2453629827559297,
+      "values_by_seed": {
+        "11": -0.877074548740219,
+        "13": -0.7106508999144887,
+        "17": -0.24874711928888726,
+        "19": -0.4160512575149258,
+        "23": -0.5680839176904845
+      }
+    },
+    "detailed_wire_percent": {
+      "count": 5,
+      "maximum": 8.30360561904186,
+      "mean": 3.8671516132920907,
+      "median": 2.9960281457287445,
+      "minimum": 1.7829364604523155,
+      "range": 6.520669158589545,
+      "sample_standard_deviation": 2.61689965085344,
+      "values_by_seed": {
+        "11": 3.995751758411318,
+        "13": 1.7829364604523155,
+        "17": 2.9960281457287445,
+        "19": 8.30360561904186,
+        "23": 2.257436082826213
+      }
+    },
+    "via_count_percent": {
+      "count": 5,
+      "maximum": 5.119134325252315,
+      "mean": 3.91816053945911,
+      "median": 3.391740957065273,
+      "minimum": 2.8679709105807643,
+      "range": 2.2511634146715505,
+      "sample_standard_deviation": 1.0653134380200402,
+      "values_by_seed": {
+        "11": 3.1986012547567624,
+        "13": 5.119134325252315,
+        "17": 3.391740957065273,
+        "19": 5.013355249640435,
+        "23": 2.8679709105807643
+      }
+    },
+    "signed_slack_frequency_metric_percent": {
+      "count": 5,
+      "maximum": 13.105802687096945,
+      "mean": 2.655650760908512,
+      "median": 1.3944664650047105,
+      "minimum": -5.8868844835878935,
+      "range": 18.99268717068484,
+      "sample_standard_deviation": 6.8288768308381895,
+      "values_by_seed": {
+        "11": -5.8868844835878935,
+        "13": 1.2023619694130587,
+        "17": 13.105802687096945,
+        "19": 1.3944664650047105,
+        "23": 3.4625071666157368
+      }
+    },
+    "energy_per_operation_percent": {
+      "count": 5,
+      "maximum": 2.497265449835875,
+      "mean": 1.3283946898342067,
+      "median": 1.254018726112696,
+      "minimum": 0.14389697279642558,
+      "range": 2.3533684770394494,
+      "sample_standard_deviation": 0.9102247148621481,
+      "values_by_seed": {
+        "11": 1.8906776906129092,
+        "13": 0.14389697279642558,
+        "17": 0.8561146098131285,
+        "19": 2.497265449835875,
+        "23": 1.254018726112696
+      }
+    },
+    "request_latency_cycles": 1,
+    "initiation_interval_cycles": 1
+  },
+  "bch_feasibility_10ns": {
+    "realization": "shortened BCH(78,64,t=2) syndrome/Chien RTL",
+    "timing_feasible_count": 0,
+    "attempt_count": 5
+  },
+  "formal_status": {
+    "temporal_secded": "PASS",
+    "structural_hsiao": "PASS"
+  },
+  "source_hashes": {
+    "docs/date2027/revision2/results/REV2_MANUSCRIPT_EVIDENCE.json": "724d1ba023c7a6f3d68324c21f9999af46104602a35f0b93ccd8f73bcfcd165b",
+    "docs/date2027/rigour_gate_03r/SECDED_PROOF_SUMMARY.json": "f63dc73401d616177edd5b5d2a84f8a1ab058234746571c5e02232e38e7f711a",
+    "docs/date2027/rigour_gate_03r/H2_ARCHITECTURE_CONTRACT.md": "03a92c1b94b00edbe457f4fbf5e965737fb100705d4c9220d14a5824167e1e94",
+    "campaigns/date_2027_breadth_remediation/analysis/A_structural_pair_summary.json": "afdabd15ba599c9cf9a1398a7cdeac0a05a5d7b392250cc0a0047b630c4ae543",
+    "campaigns/date_2027_breadth_remediation/formal/results/A_formal_qualification.json": "c148409c4d6bee13d53b854dc0183f580b80f2695a8fd54d37485d649baa6464",
+    "campaigns/date_2027_breadth_remediation/analysis/C_5ns_summary.json": "b7897c5d2e6e92f71825b1b5ed6ab97bd9bd22cdbe501e853530a2183f73fa15",
+    "campaigns/date_2027_breadth_remediation/synthesis/A_synthesis_structural_comparison.json": "e9a5d8d348a5a5ad56acad59ccc87a7db4402b6b1a0707cb031dba89334683ca",
+    "campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/E5_MATCHED_SEED_DELTAS.csv": "2e344e77ccd16623473b752a1d44b5e577a0d53bc1b8f683044d83a32048769c"
+  }
+}

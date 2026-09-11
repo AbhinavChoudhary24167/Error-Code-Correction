@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "service_policies": [
+    {
+      "corrected_response_credit": "CREDIT_IF_CORRECT_AND_WITHIN_SLA",
+      "due_credit": "NO_CREDIT_UNLESS_EXTERNAL_RECOVERY_IS_EXPLICITLY_IN_BOUNDARY",
+      "retry_credit": "CREDIT_ONLY_IF_FINAL_RESPONSE_IS_CORRECT_AND_WITHIN_SLA",
+      "retry_limit": 0,
+      "scrub_interval_s": null,
+      "sdc_credit": "NEVER",
+      "service_policy_id": "P0_NO_SCRUB_NO_RETRY",
+      "status": "DECLARED_SEED_POLICY"
+    }
+  ]
+}

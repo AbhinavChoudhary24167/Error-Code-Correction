@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "design": "U0",
+  "operation": "UNCHANGED_DATABASE_CARRY_FORWARD",
+  "source_stage": "3_3_place_gp",
+  "target_stage": "3_4_place_resized",
+  "source_path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_3_place_gp.odb",
+  "target_path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_4_place_resized.odb",
+  "source_sha256": "a1637cd2ab4f7e63cdda4d2ae9cbb44d3dbbb922c1c6ad3a6df72e1539178588",
+  "target_sha256": "a1637cd2ab4f7e63cdda4d2ae9cbb44d3dbbb922c1c6ad3a6df72e1539178588",
+  "bytes_identical": true,
+  "reason": "ORFS repair_design RSZ-0090: immutable SRAM22 rstb pin is 0.448 pF with 0.351 ns max_transition; pinned sky130hd best achievable is 0.467 ns",
+  "qualification_effect": "resize optimization not credited; CTS, routing, extraction, and final reports must run from the unchanged global-placement DB",
+  "created_utc": "2026-08-31T15:04:34.710577+00:00"
+}

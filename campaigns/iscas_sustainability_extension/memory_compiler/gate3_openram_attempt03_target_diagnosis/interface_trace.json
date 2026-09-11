@@ -1,0 +1,123 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "analysis_type": "read_only_source_call_and_data_flow",
+  "openram_commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+  "data_interface": {
+    "requested_word_size": 72,
+    "num_spare_cols": 1,
+    "emitted_width": 73,
+    "emitted_indices": "0..72",
+    "cause": "spare-column support",
+    "trace": [
+      {
+        "path": "compiler/modules/sram_1bank.py",
+        "class": "sram_1bank",
+        "function": "add_pins",
+        "lines": "54-95",
+        "variables": "word_size, num_spare_cols",
+        "derivation": "range(72 + 1)",
+        "final_pin": "din0[0..72], dout0[0..72]"
+      },
+      {
+        "path": "compiler/modules/sram_1bank.py",
+        "class": "sram_1bank",
+        "function": "route_escape_pins",
+        "lines": "338-362",
+        "variables": "word_size, num_spare_cols",
+        "derivation": "routes the same 73-bit interface",
+        "final_pin": "din0[0..72], dout0[0..72]"
+      },
+      {
+        "path": "compiler/modules/port_data.py",
+        "class": "port_data",
+        "function": "add_pins",
+        "lines": "116-146",
+        "variables": "word_size, num_spare_cols",
+        "derivation": "propagates regular plus spare data pins",
+        "final_pin": "bank data and spare-write interface"
+      },
+      {
+        "path": "compiler/base/verilog.py",
+        "class": "verilog",
+        "function": "verilog_write",
+        "lines": "81-83",
+        "variables": "word_size, num_spare_cols",
+        "derivation": "DATA_WIDTH = 72 + 1",
+        "final_pin": "73-bit behavioral data buses"
+      }
+    ]
+  },
+  "address_interface": {
+    "requested_num_words": 256,
+    "words_per_row": 2,
+    "logical_rows": 128,
+    "num_spare_rows": 1,
+    "rows_used_for_address_width": 129,
+    "row_addr_size": 8,
+    "col_addr_size": 1,
+    "bank_addr_size": 9,
+    "emitted_indices": "0..8",
+    "cause": "spare-row inclusion before address sizing plus one 2:1 column-mux select bit",
+    "trace": [
+      {
+        "path": "compiler/sram_config.py",
+        "class": "sram_config",
+        "function": "recompute_sizes",
+        "lines": "118-137",
+        "variables": "num_words_per_bank, words_per_row, num_spare_rows",
+        "derivation": "128 + 1 spare = 129 rows; ceil(log2(129)) + log2(2) = 8 + 1 = 9",
+        "final_pin": "addr0[0..8]"
+      },
+      {
+        "path": "compiler/modules/sram_1bank.py",
+        "class": "sram_1bank",
+        "function": "add_pins",
+        "lines": "54-95",
+        "variables": "bank_addr_size",
+        "derivation": "range(9)",
+        "final_pin": "addr0[0..8]"
+      },
+      {
+        "path": "compiler/base/verilog.py",
+        "class": "verilog",
+        "function": "verilog_write",
+        "lines": "81-83",
+        "variables": "bank_addr_size",
+        "derivation": "ADDR_WIDTH = 9",
+        "final_pin": "9-bit behavioral address bus"
+      }
+    ]
+  },
+  "repair_control": {
+    "pin": "spare_wen0",
+    "intended_function": "port-0 write enable for the one spare repair column; selects write of din0[72] into repair bit 72",
+    "top_level_declaration": {
+      "path": "compiler/modules/sram_1bank.py",
+      "class": "sram_1bank",
+      "function": "add_pins",
+      "lines": "54-95",
+      "form": "scalar spare_wen0"
+    },
+    "internal_connection": {
+      "path": "compiler/modules/sram_1bank.py",
+      "class": "sram_1bank",
+      "function": "create_spare_wen_dff",
+      "lines": "650-668",
+      "form": "spare_wen0[0]"
+    },
+    "behavioral_write": {
+      "path": "compiler/base/verilog.py",
+      "class": "verilog",
+      "function": "verilog_write",
+      "lines": "234-240",
+      "effect": "conditionally writes repair bit word_size + spare index"
+    },
+    "observed_defect": "scalar/vector name mismatch disconnects the scalar top-level pin in generated attempt02 SPICE/LVS"
+  },
+  "other_candidate_mechanisms": {
+    "replica_circuitry": "changes physical dimensions but does not directly widen the emitted logical buses",
+    "row_decoder_organization": "consumes the computed eight row bits but does not originate the extra bit",
+    "sky130_technology": "declares geometry multiples that motivated the spare settings; generic OpenRAM pin loops emit the extra pins"
+  },
+  "frozen_interface_consistency": "FAIL"
+}

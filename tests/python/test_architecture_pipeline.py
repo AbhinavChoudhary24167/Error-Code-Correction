@@ -12,6 +12,15 @@ REPO = Path(__file__).resolve().parents[2]
 
 
 def test_architecture_pipeline_emits_valid_deployable_configuration(tmp_path: Path) -> None:
+    expected_repository_dirty = bool(
+        subprocess.run(
+            ["git", "status", "--porcelain", "--untracked-files=no"],
+            cwd=REPO,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    )
     config_schema = json.loads(
         (REPO / "schemas" / "architecture-dse-config.schema.json").read_text(encoding="utf-8")
     )
@@ -69,7 +78,7 @@ def test_architecture_pipeline_emits_valid_deployable_configuration(tmp_path: Pa
     manifest = json.loads((outdir / "result_manifest.json").read_text(encoding="utf-8"))
     assert manifest["source_tree_sha256"]
     assert "architecture/pipeline.py" in manifest["source_files"]
-    assert manifest["repository_dirty"] is True
+    assert manifest["repository_dirty"] is expected_repository_dirty
     modes = json.loads(
         (outdir / "data" / "deployment_mode_comparison.json").read_text(encoding="utf-8")
     )

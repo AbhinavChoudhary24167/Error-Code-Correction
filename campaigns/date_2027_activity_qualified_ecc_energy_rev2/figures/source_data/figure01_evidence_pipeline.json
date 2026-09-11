@@ -1,0 +1,36 @@
+{
+  "stages": [
+    "ECC semantics",
+    "correctness qualification",
+    "hardware identity",
+    "temporal/structural identity",
+    "routed physical identity",
+    "timing feasibility",
+    "extracted parasitics",
+    "activity identity",
+    "operation-normalized energy"
+  ],
+  "qualification_gates": [
+    "declared functional boundary",
+    "proof or test relation specific to pair",
+    "RTL and interface identity",
+    "latency and initiation interval",
+    "flow, target, and seed",
+    "route completion and setup closure",
+    "final SPEF association",
+    "VCD association and activity coverage",
+    "256-operation normalization"
+  ],
+  "separate_dimensions": [
+    "temporal/structural hardware",
+    "implementation condition",
+    "activity condition"
+  ],
+  "identity_keys": [
+    "architecture",
+    "seed",
+    "routed_netlist_sha256",
+    "spef_sha256",
+    "workload_sha256"
+  ]
+}

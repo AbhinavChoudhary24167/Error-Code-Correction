@@ -1,0 +1,108 @@
+{
+  "all_layers": {
+    "33/43": 1,
+    "64/18": 1,
+    "64/20": 1,
+    "65/44": 1,
+    "66/20": 2,
+    "66/44": 5,
+    "67/20": 2,
+    "67/44": 4,
+    "68/16": 3,
+    "68/20": 3,
+    "68/44": 3,
+    "68/5": 3,
+    "69/20": 4,
+    "81/2": 1,
+    "92/44": 2,
+    "93/44": 1,
+    "95/20": 1
+  },
+  "byte_size": 3150,
+  "path": "sky130_fd_bd_sram/cells/sram_sp_cornera/sky130_fd_bd_sram__sram_sp_cornera.gds",
+  "record_counts": {
+    "0x00": 1,
+    "0x01": 1,
+    "0x02": 1,
+    "0x03": 1,
+    "0x04": 1,
+    "0x10": 41,
+    "0x19": 3,
+    "0x1a": 6,
+    "0x1c": 1,
+    "BGNSTR": 4,
+    "BOUNDARY": 35,
+    "DATATYPE": 35,
+    "ENDEL": 41,
+    "ENDSTR": 4,
+    "LAYER": 38,
+    "SNAME": 3,
+    "SREF": 3,
+    "STRNAME": 4,
+    "TEXT": 3,
+    "TEXTTYPE": 3
+  },
+  "root_structures": [
+    "sky130_fd_bd_sram__sram_sp_cornera"
+  ],
+  "sha256": "06b1d64d53cb500eaad19aff54603a54b9cb01788d9a08678dbaded8431af6bf",
+  "structure_count": 4,
+  "structures": {
+    "sky130_fd_bd_sram__sram_sp_corner_ce": {
+      "elements": {
+        "BOUNDARY": 22
+      },
+      "layers": {
+        "64/18": 1,
+        "64/20": 1,
+        "65/44": 1,
+        "66/20": 2,
+        "66/44": 5,
+        "67/20": 2,
+        "67/44": 4,
+        "68/20": 3,
+        "92/44": 1,
+        "93/44": 1,
+        "95/20": 1
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_corner_met2": {
+      "elements": {
+        "BOUNDARY": 7
+      },
+      "layers": {
+        "68/44": 3,
+        "69/20": 4
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cornera": {
+      "elements": {
+        "BOUNDARY": 5,
+        "SREF": 3,
+        "TEXT": 3
+      },
+      "layers": {
+        "68/16": 3,
+        "68/5": 3,
+        "81/2": 1,
+        "92/44": 1
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_corner_ce": 1,
+        "sky130_fd_bd_sram__sram_sp_corner_met2": 1,
+        "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif": {
+      "elements": {
+        "BOUNDARY": 1
+      },
+      "layers": {
+        "33/43": 1
+      },
+      "references": {}
+    }
+  }
+}

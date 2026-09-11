@@ -1,0 +1,1240 @@
+{
+  "columns": [
+    {
+      "name": "row_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "architecture_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "ecc_family",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "workload_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "functional_control_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "metric_version",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "functional_unit",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "service_success_probability_evidence",
+      "name": "service_success_probability",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "probability"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "service_success_probability_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "useful_service_bits_evidence",
+      "name": "useful_service_bits",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "correct_payload_bits"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "useful_service_bits_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "GSE_evidence",
+      "name": "GSE",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "correct_payload_bits_per_kgCO2e"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "GSE_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "GCI_evidence",
+      "name": "GCI",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_correct_payload_bit"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "GCI_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "GSE_relative_evidence",
+      "name": "GSE_relative",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "ratio_to_matched_U0"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "GSE_relative_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "technology_node",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "process_route",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "wafer_diameter_evidence",
+      "name": "wafer_diameter",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "mm"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "wafer_diameter_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "fab_grid",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "fab_CI_evidence",
+      "name": "fab_CI",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_kWh"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "fab_CI_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "process_maturity",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "wafer_carbon_evidence",
+      "name": "wafer_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_wafer"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "wafer_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "wafer_energy_evidence",
+      "name": "wafer_energy",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kWh_per_wafer"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "wafer_energy_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "scope1_carbon_evidence",
+      "name": "scope1_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_wafer"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "scope1_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "scope2_carbon_evidence",
+      "name": "scope2_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_wafer"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "scope2_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "upstream_carbon_evidence",
+      "name": "upstream_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_wafer"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "upstream_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "patterning_carbon_evidence",
+      "name": "patterning_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_wafer_diagnostic_subset"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "patterning_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "lithography_route",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "mask_layer_count_evidence",
+      "name": "mask_layer_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "mask_layer_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "multi_patterning_count_evidence",
+      "name": "multi_patterning_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "multi_patterning_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "maskset_NRE_evidence",
+      "name": "maskset_NRE",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_die"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "maskset_NRE_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "yield_evidence",
+      "name": "yield",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "fraction"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "yield_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "yield_model",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "defect_density_evidence",
+      "name": "defect_density",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "defects_per_cm2"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "defect_density_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "gross_dies_per_wafer_evidence",
+      "name": "gross_dies_per_wafer",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "expected_count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "gross_dies_per_wafer_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "good_dies_per_wafer_evidence",
+      "name": "good_dies_per_wafer",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "expected_count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "good_dies_per_wafer_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "die_embodied_carbon_evidence",
+      "name": "die_embodied_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_good_die"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "die_embodied_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "incremental_ECC_embodied_carbon_evidence",
+      "name": "incremental_ECC_embodied_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_good_die"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "incremental_ECC_embodied_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "operational_energy_evidence",
+      "name": "operational_energy",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "J_per_declared_service_horizon"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "operational_energy_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "operational_carbon_evidence",
+      "name": "operational_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_declared_service_horizon"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "operational_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "lifecycle_carbon_evidence",
+      "name": "lifecycle_carbon",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "kgCO2e_per_declared_service_horizon"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "lifecycle_carbon_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "interleaving_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "fault_topology_id",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "scrub_policy",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "SDC_evidence",
+      "name": "SDC",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "physical_event_probability"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "SDC_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "DUE_evidence",
+      "name": "DUE",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "physical_event_probability"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "DUE_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "corrected_evidence",
+      "name": "corrected",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "physical_event_probability"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "corrected_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "retry_evidence",
+      "name": "retry",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "physical_event_probability"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "retry_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "service_success_evidence",
+      "name": "service_success",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "physical_event_probability"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "service_success_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "latency_ns_evidence",
+      "name": "latency_ns",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "ns"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "latency_ns_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "observed_macro_area_um2_evidence",
+      "name": "observed_macro_area_um2",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "um2"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "observed_macro_area_um2_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "activity_coverage_fraction_evidence",
+      "name": "activity_coverage_fraction",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "fraction"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "activity_coverage_fraction_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "diagnostic_tool_power_w_evidence",
+      "name": "diagnostic_tool_power_w",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "W"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "diagnostic_tool_power_w_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_pattern_count_evidence",
+      "name": "logical_pattern_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_pattern_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_success_normal_count_evidence",
+      "name": "logical_success_normal_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_success_normal_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_success_corrected_count_evidence",
+      "name": "logical_success_corrected_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_success_corrected_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_success_after_retry_count_evidence",
+      "name": "logical_success_after_retry_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_success_after_retry_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_detected_failure_count_evidence",
+      "name": "logical_detected_failure_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_detected_failure_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_sdc_count_evidence",
+      "name": "logical_sdc_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_sdc_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_timeout_count_evidence",
+      "name": "logical_timeout_count",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "count"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_timeout_count_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_control_success_fraction_evidence",
+      "name": "logical_control_success_fraction",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "enumerated_mask_fraction_not_event_rate"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_control_success_fraction_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_control_due_fraction_evidence",
+      "name": "logical_control_due_fraction",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "enumerated_mask_fraction_not_event_rate"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_control_due_fraction_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_control_sdc_fraction_evidence",
+      "name": "logical_control_sdc_fraction",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "enumerated_mask_fraction_not_event_rate"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_control_sdc_fraction_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_control_corrected_fraction_evidence",
+      "name": "logical_control_corrected_fraction",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "enumerated_mask_fraction_not_event_rate"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_control_corrected_fraction_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "evidence_column": "logical_control_retry_fraction_evidence",
+      "name": "logical_control_retry_fraction",
+      "nullable": true,
+      "type": "number_or_empty",
+      "unit": "enumerated_mask_fraction_not_event_rate"
+    },
+    {
+      "allowed_values": [
+        "MEASURED",
+        "TOOL_ESTIMATE",
+        "SOURCE_CALIBRATED",
+        "DERIVED",
+        "PARAMETRIC",
+        "EXTRAPOLATED",
+        "BOUND",
+        "NOT_QUALIFIED",
+        "NOT_MEASURED"
+      ],
+      "name": "logical_control_retry_fraction_evidence",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "rate_semantics",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "evidence_tier",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "uncertainty_class",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "qualification_status",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "blocking_reasons",
+      "nullable": false,
+      "type": "string"
+    },
+    {
+      "name": "source_ids",
+      "nullable": false,
+      "type": "string"
+    }
+  ],
+  "evidence_classes": [
+    "MEASURED",
+    "TOOL_ESTIMATE",
+    "SOURCE_CALIBRATED",
+    "DERIVED",
+    "PARAMETRIC",
+    "EXTRAPOLATED",
+    "BOUND",
+    "NOT_QUALIFIED",
+    "NOT_MEASURED"
+  ],
+  "invariants": [
+    "Every populated numerical cell has a same-row evidence companion.",
+    "An empty numerical cell is never converted to zero.",
+    "Enumerated logical-mask fractions are not physical event probabilities.",
+    "GSE, GCI, and GSE_relative require qualified service and lifecycle carbon.",
+    "Patterning carbon is a diagnostic subset of Scope 2 and is not added twice."
+  ],
+  "metric_version": "GSE_GCI_V1",
+  "null_encoding": "empty CSV field",
+  "required_phase_x_fields": [
+    "metric_version",
+    "functional_unit",
+    "service_success_probability",
+    "useful_service_bits",
+    "GSE",
+    "GCI",
+    "GSE_relative",
+    "technology_node",
+    "process_route",
+    "wafer_diameter",
+    "fab_grid",
+    "fab_CI",
+    "process_maturity",
+    "wafer_carbon",
+    "wafer_energy",
+    "scope1_carbon",
+    "scope2_carbon",
+    "upstream_carbon",
+    "patterning_carbon",
+    "lithography_route",
+    "mask_layer_count",
+    "multi_patterning_count",
+    "maskset_NRE",
+    "maskset_NRE_evidence",
+    "yield",
+    "yield_model",
+    "defect_density",
+    "gross_dies_per_wafer",
+    "good_dies_per_wafer",
+    "die_embodied_carbon",
+    "incremental_ECC_embodied_carbon",
+    "operational_energy",
+    "operational_carbon",
+    "lifecycle_carbon",
+    "interleaving_id",
+    "fault_topology_id",
+    "scrub_policy",
+    "SDC",
+    "DUE",
+    "corrected",
+    "retry",
+    "service_success",
+    "evidence_tier",
+    "uncertainty_class",
+    "source_ids"
+  ],
+  "schema_version": 2
+}

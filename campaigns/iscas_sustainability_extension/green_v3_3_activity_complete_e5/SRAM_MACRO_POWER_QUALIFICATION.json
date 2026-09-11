@@ -1,0 +1,45 @@
+{
+  "corner": "tt_025C_1v80",
+  "generated_on": "2026-09-09",
+  "macro_records": [
+    {
+      "observed_construct_counts": {
+        "address_or_data_dependent_internal_power": 0,
+        "cell_leakage_power": 1,
+        "conditional_power_groups": 17,
+        "internal_power_groups": 8,
+        "memory_groups": 1,
+        "timing_groups": 15
+      },
+      "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib",
+      "sha256": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb"
+    },
+    {
+      "observed_construct_counts": {
+        "address_or_data_dependent_internal_power": 0,
+        "cell_leakage_power": 1,
+        "conditional_power_groups": 17,
+        "internal_power_groups": 8,
+        "memory_groups": 1,
+        "timing_groups": 15
+      },
+      "path": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib",
+      "sha256": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec"
+    }
+  ],
+  "qualification": "E5_LOGIC_ACTIVITY_QUALIFIED_MACRO_ENERGY_INCOMPLETE",
+  "qualification_note": "Leakage, timing, and CE/WE-conditioned clock-pin internal-power groups are present, but the audited views do not establish address/data/state-dependent macro-internal energy.",
+  "required_quantity_classification": {
+    "address_dependent_transitions": "ABSENT",
+    "clock_control_transitions": "PARTIAL",
+    "data_dependent_transitions": "ABSENT",
+    "internal_read_power": "PARTIAL",
+    "internal_write_power": "PARTIAL",
+    "leakage": "AVAILABLE",
+    "output_switching": "PARTIAL",
+    "read_write_timing_arcs": "AVAILABLE",
+    "state_dependent_internal_power": "PARTIAL"
+  },
+  "schema_version": 1,
+  "whole_memory_e5_qualified": false
+}

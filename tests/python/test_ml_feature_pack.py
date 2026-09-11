@@ -1,6 +1,7 @@
 import csv
 import json
 import math
+import tempfile
 import uuid
 from pathlib import Path
 
@@ -11,12 +12,18 @@ from ml.features import OPTIONAL_NUMERIC_FEATURES
 
 
 REPO = Path(__file__).resolve().parents[2]
-RUNTIME = REPO / "tests" / "fixtures" / "runtime_ml_feature_pack"
 
 
-def _new_base(tag: str) -> Path:
-    RUNTIME.mkdir(parents=True, exist_ok=True)
-    base = RUNTIME / f"{tag}_{uuid.uuid4().hex}"
+@pytest.fixture
+def runtime_root():
+    """Keep generated ML fixtures outside the repository working tree."""
+
+    with tempfile.TemporaryDirectory(prefix="green_ml_feature_pack_") as directory:
+        yield Path(directory)
+
+
+def _new_base(runtime_root: Path, tag: str) -> Path:
+    base = runtime_root / f"{tag}_{uuid.uuid4().hex}"
     base.mkdir(parents=True, exist_ok=False)
     return base
 
@@ -32,8 +39,8 @@ def _csv_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
-def test_feature_pack_core_has_no_optional_columns():
-    base = _new_base("core_pack")
+def test_feature_pack_core_has_no_optional_columns(runtime_root: Path):
+    base = _new_base(runtime_root, "core_pack")
     dataset_dir = base / "dataset"
 
     build_dataset(REPO / "reports" / "examples", dataset_dir, feature_pack="core")
@@ -46,8 +53,8 @@ def test_feature_pack_core_has_no_optional_columns():
     assert schema["disabled_features"] == []
 
 
-def test_feature_pack_tier_mapping_columns():
-    base = _new_base("tier_mapping")
+def test_feature_pack_tier_mapping_columns(runtime_root: Path):
+    base = _new_base(runtime_root, "tier_mapping")
     telemetry_dir = base / "telemetry"
     workload_dir = base / "workload"
 
@@ -66,8 +73,8 @@ def test_feature_pack_tier_mapping_columns():
     assert schema_workload["enabled_features"] == OPTIONAL_NUMERIC_FEATURES
 
 
-def test_enable_disable_precedence_disable_wins():
-    base = _new_base("enable_disable")
+def test_enable_disable_precedence_disable_wins(runtime_root: Path):
+    base = _new_base(runtime_root, "enable_disable")
     dataset_dir = base / "dataset"
 
     build_dataset(
@@ -86,8 +93,8 @@ def test_enable_disable_precedence_disable_wins():
     assert schema["disabled_features"] == ["ser_slope_vdd"]
 
 
-def test_unknown_optional_feature_rejected():
-    base = _new_base("unknown_feature")
+def test_unknown_optional_feature_rejected(runtime_root: Path):
+    base = _new_base(runtime_root, "unknown_feature")
     dataset_dir = base / "dataset"
 
     with pytest.raises(ValueError, match="Unknown optional feature"):
@@ -99,8 +106,8 @@ def test_unknown_optional_feature_rejected():
         )
 
 
-def test_optional_feature_fallback_values_are_deterministic():
-    base = _new_base("fallbacks")
+def test_optional_feature_fallback_values_are_deterministic(runtime_root: Path):
+    base = _new_base(runtime_root, "fallbacks")
     dataset_dir = base / "dataset"
 
     build_dataset(

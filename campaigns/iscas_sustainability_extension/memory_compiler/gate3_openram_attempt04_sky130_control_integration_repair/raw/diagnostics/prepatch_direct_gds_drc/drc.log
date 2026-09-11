@@ -1,0 +1,706 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: DEFAULT.DB
+Reading "sky130_sram_1rw_8x16_gate3a03_control".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_bank".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array".
+Reading "sky130_fd_bd_sram__sram_sp_cell_opt1".
+Reading "sky130_fd_bd_sram__sram_sp_cell_met2".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_met2
+Reading "sky130_fd_bd_sram__sram_sp_cell_opt1_ce".
+Reading "sky130_fd_bd_sram__sram_sp_cell".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell" (byte position 359912): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell" (byte position 360168): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell" (byte position 361064): Unknown layer/datatype in boundary, layer=115 type=43
+Reading "sky130_fd_bd_sram__sram_sp_cell_fom_serifs".
+Reading "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos" (byte position 357684): Unknown layer/datatype in boundary, layer=22 type=22
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos
+Reading "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos" (byte position 357830): Unknown layer/datatype in boundary, layer=22 type=22
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_fom_serifs
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell
+Reading "sky130_fd_bd_sram__sram_sp_cell_addpoly".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_addpoly
+Reading "sky130_fd_bd_sram__sram_sp_cell_metopt1".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_metopt1
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_opt1_ce
+Reading "sky130_fd_bd_sram__sram_sp_cell_via".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_via
+Reading "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing" (byte position 356130): Unknown layer/datatype in boundary, layer=33 type=43
+Reading "sky130_fd_bd_sram__sram_sp_cell_p1_serifs".
+Reading "sky130_fd_bd_sram__sram_sp_cell_p1_serif".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell_p1_serif" (byte position 355630): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_p1_serif
+Reading "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing" (byte position 355426): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing
+CIF file read warning: CIF style sky130(vendor): units rescaled by factor of 5 / 1
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__sram_sp_cell_opt1.
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_ce".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 367476): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 367924): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 368372): Unknown layer/datatype in boundary, layer=115 type=42
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 368564): Unknown layer/datatype in boundary, layer=115 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrap_ce
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_met2".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrap_met2
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz" (byte position 364894): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce" (byte position 372550): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce" (byte position 372966): Unknown layer/datatype in boundary, layer=115 type=42
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce" (byte position 373094): Unknown layer/datatype in boundary, layer=115 type=43
+Reading "sky130_fd_bd_sram__sram_l1m1".
+Saving contents of cell sky130_fd_bd_sram__sram_l1m1
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrap_p_ce
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrap_p_met2
+Reading "sky130_fd_bd_sram__sram_sp_cell_opt1a".
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__sram_sp_cell_opt1a.
+Reading "sky130_fd_bd_sram__sram_sp_wlstrapa".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz" (byte position 376746): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz
+Reading "sky130_fd_bd_sram__sram_sp_wlstrapa_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column".
+Reading "sky130_fd_bd_sram__sram_sp_colend".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend" (byte position 403448): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend" (byte position 403512): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend" (byte position 404184): Unknown layer/datatype in boundary, layer=33 type=43
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__sram_sp_colend.
+Reading "sky130_fd_bd_sram__sram_sp_colend_p_cent".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend_p_cent" (byte position 408324): Unknown layer/datatype in boundary, layer=33 type=43
+Reading "sky130_fd_bd_sram__openram_sp_cell_opt1_replica".
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1_replica" (byte position 409696): Unknown layer/datatype in boundary, layer=22 type=22
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1_replica" (byte position 409952): Unknown layer/datatype in boundary, layer=33 type=43
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1_replica" (byte position 412952): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1_replica" (byte position 413208): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1_replica" (byte position 414104): Unknown layer/datatype in boundary, layer=115 type=43
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__openram_sp_cell_opt1_replica.
+Reading "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica".
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica" (byte position 417208): Unknown layer/datatype in boundary, layer=22 type=22
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica" (byte position 417464): Unknown layer/datatype in boundary, layer=33 type=43
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica" (byte position 420056): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica" (byte position 420312): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica" (byte position 421208): Unknown layer/datatype in boundary, layer=115 type=43
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.
+Reading "sky130_fd_bd_sram__sram_sp_colenda".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colenda" (byte position 426130): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colenda" (byte position 426658): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colenda" (byte position 426882): Unknown layer/datatype in boundary, layer=33 type=43
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__sram_sp_colenda.
+Reading "sky130_fd_bd_sram__sram_sp_colenda_p_cent".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colenda_p_cent" (byte position 431384): Unknown layer/datatype in boundary, layer=33 type=43
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array".
+Reading "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy".
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy" (byte position 442634): Unknown layer/datatype in boundary, layer=22 type=22
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy" (byte position 442890): Unknown layer/datatype in boundary, layer=33 type=43
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy" (byte position 445250): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy" (byte position 445506): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy" (byte position 446402): Unknown layer/datatype in boundary, layer=115 type=43
+Moving label "" from nwell to dnwell in cell sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0".
+Reading "sky130_fd_bd_sram__sram_sp_colenda_cent".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colenda_cent" (byte position 463406): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colenda_cent" (byte position 463790): Unknown layer/datatype in boundary, layer=33 type=43
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array".
+Reading "sky130_fd_bd_sram__sram_sp_colend_cent".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend_cent" (byte position 478130): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend_cent" (byte position 478962): Unknown layer/datatype in boundary, layer=33 type=43
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array".
+Reading "sky130_fd_bd_sram__sram_sp_cornera".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cornera" (byte position 490468): Unknown layer/datatype in boundary, layer=92 type=44
+Reading "sky130_fd_bd_sram__sram_sp_corner_ce".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_corner_ce" (byte position 490078): Unknown layer/datatype in boundary, layer=92 type=44
+Reading "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif" (byte position 488694): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_cornera_p1m_serif
+Reading "sky130_fd_bd_sram__sram_sp_corner_met2".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_corner_met2
+Reading "sky130_fd_bd_sram__openram_sp_rowenda_replica".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_replica_ce".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_replica_ce" (byte position 492602): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_replica_ce" (byte position 493018): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_replica_ce" (byte position 493242): Unknown layer/datatype in boundary, layer=115 type=42
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_replica_ce" (byte position 493370): Unknown layer/datatype in boundary, layer=115 type=43
+Reading "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz" (byte position 493528): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz
+Reading "sky130_fd_bd_sram__sram_sp_rowend_met2".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_rowend_met2
+Reading "sky130_fd_bd_sram__openram_sp_rowend_replica".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz" (byte position 495000): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_rowend_p1m_siz
+Reading "sky130_fd_bd_sram__sram_sp_corner".
+Reading "sky130_fd_bd_sram__sram_sp_corner_p1m_serif".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_corner_p1m_serif" (byte position 496078): Unknown layer/datatype in boundary, layer=33 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_corner_p1m_serif
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array_0".
+Reading "sky130_fd_bd_sram__sram_sp_rowenda".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_ce".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_ce" (byte position 505920): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_ce" (byte position 506336): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_ce" (byte position 506560): Unknown layer/datatype in boundary, layer=115 type=42
+Error while reading cell "sky130_fd_bd_sram__sram_sp_rowend_ce" (byte position 506688): Unknown layer/datatype in boundary, layer=115 type=43
+Reading "sky130_fd_bd_sram__sram_sp_rowend".
+Reading "sky130_fd_bd_sram__sram_sp_cornerb".
+Reading "sky130_fd_bd_sram__sram_sp_corner_met2_b".
+Saving contents of cell sky130_fd_bd_sram__sram_sp_corner_met2_b
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_7".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_7
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_8".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_8
+Reading "sky130_sram_1rw_8x16_gate3a03_control_port_data".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_precharge_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_precharge_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w0_550_sli_dli".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_11".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_11
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w0_550_sli_dli
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_15".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_15
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_13".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_13
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_12".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_12
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_21".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_21
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_0" (byte position 548430): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_precharge_array" (byte position 545718): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_precharge_array boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sense_amp_array".
+Reading "sky130_fd_bd_sram__openram_sense_amp".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_write_driver_array".
+Reading "sky130_fd_bd_sram__openram_write_driver".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w1_120_sli_dli".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w1_120_sli_dli
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sli_dactive".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_10".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_10
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sli_dactive
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sactive_dli".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sactive_dli
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2" (byte position 624574): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2" (byte position 624574): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2" (byte position 624574): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w1_120_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w1_120_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_360_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_360_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_22".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_22
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_23".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_23
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv" (byte position 630648): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv" (byte position 630648): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv" (byte position 630648): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array" (byte position 620604): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_port_address".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode2x4".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_14".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_14
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec" (byte position 712384): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec" (byte position 712384): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec" (byte position 712384): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec" (byte position 712384): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_and2_dec".
+Reading "sky130_fd_bd_sram__openram_sp_nand2_dec".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_16".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_16
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_18".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_18
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_19".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_19
+Reading "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_and3_dec".
+Reading "sky130_fd_bd_sram__openram_sp_nand3_dec".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_20".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_20
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder" (byte position 700292): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_wordline_driver".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w3_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w3_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0" (byte position 784640): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0" (byte position 784640): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0" (byte position 784640): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0" (byte position 784640): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_and2_dec_0".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_port_address" (byte position 651518): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_port_address boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_port_address" (byte position 651518): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_port_address boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_port_address" (byte position 651518): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_port_address boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_port_address" (byte position 651518): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_port_address boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_0".
+Reading "sky130_fd_bd_sram__openram_dff".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m2_w1_260_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m2_w1_260_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m2_w0_740_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m2_w0_740_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_0" (byte position 840820): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_0" (byte position 840820): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_0" (byte position 840820): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_0 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m3_w1_680_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m3_w1_680_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m3_w1_680_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m3_w1_680_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_1" (byte position 845282): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_1 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_1" (byte position 845282): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_1 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_1" (byte position 845282): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_1 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array" (byte position 816106): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_4".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_4" (byte position 851868): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_4 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_4" (byte position 851868): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_4 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_4" (byte position 851868): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_4 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_5".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m2_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m2_w2_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m2_w1_260_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m2_w1_260_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_5" (byte position 853962): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_5 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_5" (byte position 853962): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_5 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_5" (byte position 853962): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_5 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_6".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m5_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m5_w2_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m5_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m5_w2_000_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_6" (byte position 858552): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_6 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_6" (byte position 858552): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_6 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_6" (byte position 858552): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_6 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_7".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m15_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m15_w2_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m15_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m15_w2_000_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_7" (byte position 865234): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_7 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_7" (byte position 865234): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_7 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_7" (byte position 865234): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_7 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_10".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_10" (byte position 875582): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_10 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_10" (byte position 875582): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_10 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_10" (byte position 875582): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_10 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand2_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0" (byte position 879560): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0" (byte position 879560): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2_0 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0" (byte position 879560): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2_0 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m7_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m7_w2_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m7_w1_680_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m7_w1_680_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_2" (byte position 882952): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_2 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_2" (byte position 882952): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_2 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_2" (byte position 882952): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_2 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_8".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m3_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m3_w2_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m3_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m3_w2_000_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_8" (byte position 891086): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_8 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_8" (byte position 891086): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_8 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_8" (byte position 891086): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_8 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand3".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand3".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sactive_dactive".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sactive_dactive
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand3" (byte position 898576): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand3 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand3" (byte position 898576): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand3 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand3" (byte position 898576): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand3 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_3".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_9".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m9_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_pmos_m9_w2_000_sli_dli_da_p
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m9_w2_000_sli_dli_da_p".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_nmos_m9_w2_000_sli_dli_da_p
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_9" (byte position 902844): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_9 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_9" (byte position 902844): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_9 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_9" (byte position 902844): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_9 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand3_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_4".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_delay_chain".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_11".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_11" (byte position 948000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_11 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_11" (byte position 948000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_11 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pinv_11" (byte position 948000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pinv_11 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_delay_chain" (byte position 946032): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_delay_chain boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand2_1".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2_1" (byte position 951034): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2_1 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2_1" (byte position 951034): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2_1 boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_pnand2_1" (byte position 951034): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_pnand2_1 boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_5".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_26".
+Saving contents of cell sky130_sram_1rw_8x16_gate3a03_control_contact_26
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw" (byte position 811876): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw" (byte position 811876): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff" (byte position 960724): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_wmask_dff".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_wmask_dff" (byte position 964398): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_wmask_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_wmask_dff" (byte position 964398): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_wmask_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_wmask_dff" (byte position 964398): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_wmask_dff boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_data_dff".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_data_dff" (byte position 972984): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_data_dff boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff".
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff" (byte position 975000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff" (byte position 975000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff" (byte position 975000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff boundary was redefined.
+Error while reading cell "sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff" (byte position 975000): Warning:  Cell sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff boundary was redefined.
+Reading "sky130_sram_1rw_8x16_gate3a03_control_cr_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_31".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_bank".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array".
+Reading "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing".
+Reading "sky130_fd_bd_sram__sram_sp_cell_p1_serif".
+Reading "sky130_fd_bd_sram__sram_sp_cell_p1_serifs".
+Reading "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing".
+Reading "sky130_fd_bd_sram__sram_sp_cell_via".
+Reading "sky130_fd_bd_sram__sram_sp_cell_metopt1".
+Reading "sky130_fd_bd_sram__sram_sp_cell_addpoly".
+Reading "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos".
+Reading "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos".
+Reading "sky130_fd_bd_sram__sram_sp_cell_fom_serifs".
+Reading "sky130_fd_bd_sram__sram_sp_cell".
+Reading "sky130_fd_bd_sram__sram_sp_cell_opt1_ce".
+Reading "sky130_fd_bd_sram__sram_sp_cell_met2".
+Reading "sky130_fd_bd_sram__sram_sp_cell_opt1".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p1m_siz".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_met2".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_ce".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p_met2".
+Reading "sky130_fd_bd_sram__sram_l1m1".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p_ce".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_p".
+Reading "sky130_fd_bd_sram__sram_sp_cell_opt1a".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrapa_p1m_siz".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrapa".
+Reading "sky130_fd_bd_sram__sram_sp_wlstrapa_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column".
+Reading "sky130_fd_bd_sram__sram_sp_colend".
+Reading "sky130_fd_bd_sram__sram_sp_colend_p_cent".
+Reading "sky130_fd_bd_sram__openram_sp_cell_opt1_replica".
+Reading "sky130_fd_bd_sram__openram_sp_cell_opt1a_replica".
+Reading "sky130_fd_bd_sram__sram_sp_colenda".
+Reading "sky130_fd_bd_sram__sram_sp_colenda_p_cent".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array".
+Reading "sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0".
+Reading "sky130_fd_bd_sram__sram_sp_colenda_cent".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array".
+Reading "sky130_fd_bd_sram__sram_sp_colend_cent".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array".
+Reading "sky130_fd_bd_sram__sram_sp_corner_met2".
+Reading "sky130_fd_bd_sram__sram_sp_cornera_p1m_serif".
+Reading "sky130_fd_bd_sram__sram_sp_corner_ce".
+Reading "sky130_fd_bd_sram__sram_sp_cornera".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_replica_ce".
+Reading "sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_met2".
+Reading "sky130_fd_bd_sram__openram_sp_rowenda_replica".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_p1m_siz".
+Reading "sky130_fd_bd_sram__openram_sp_rowend_replica".
+Reading "sky130_fd_bd_sram__sram_sp_corner_p1m_serif".
+Reading "sky130_fd_bd_sram__sram_sp_corner".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array_0".
+Reading "sky130_fd_bd_sram__sram_sp_rowend_ce".
+Reading "sky130_fd_bd_sram__sram_sp_rowenda".
+Reading "sky130_fd_bd_sram__sram_sp_rowend".
+Reading "sky130_fd_bd_sram__sram_sp_corner_met2_b".
+Reading "sky130_fd_bd_sram__sram_sp_cornerb".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_7".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_8".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_port_data".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_precharge_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_precharge_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w0_550_sli_dli".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_11".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_15".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_13".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_12".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_21".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_sense_amp_array".
+Reading "sky130_fd_bd_sram__openram_sense_amp".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_write_driver_array".
+Reading "sky130_fd_bd_sram__openram_write_driver".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w1_120_sli_dli".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sli_dactive".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_10".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sactive_dli".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w1_120_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_360_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_22".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_23".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_port_address".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode2x4".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_14".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_and2_dec".
+Reading "sky130_fd_bd_sram__openram_sp_nand2_dec".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_16".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_18".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_19".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_and3_dec".
+Reading "sky130_fd_bd_sram__openram_sp_nand3_dec".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_20".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_wordline_driver".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m1_w3_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_and2_dec_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_dff_buf_0".
+Reading "sky130_fd_bd_sram__openram_dff".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m2_w1_260_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m2_w0_740_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m3_w1_680_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m3_w1_680_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_4".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_5".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m2_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m2_w1_260_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_6".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m5_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m5_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_7".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m15_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m15_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_10".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand2_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand2_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m7_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m7_w1_680_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_2".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_8".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m3_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m3_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand3".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand3".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m1_w0_740_sactive_dactive".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_3".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_9".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pmos_m9_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_nmos_m9_w2_000_sli_dli_da_p".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pand3_0".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_4".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_delay_chain".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pinv_11".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pnand2_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_pdriver_5".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_26".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_wmask_dff".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_data_dff".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_cr_1".
+Reading "sky130_sram_1rw_8x16_gate3a03_control_contact_31".
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Local interconnect spacing < 0.17um (li.3)",3272
+"P-Transistor in SRAM core width < 0.14um (diff/tap.2)",702
+"Diffusion width < 0.15um (diff/tap.1)",3743
+"Local interconnect overlap of poly contact < 0.08um in one direction (li.5)",6111
+"Local interconnect width < 0.17um (li.1)",6757
+"Only 90 degree angles permitted on diff and tap (x.2)",342
+"N-well spacing < 1.27um (nwell.2a)",3
+"N-Diffusion spacing to N-well < 0.34um (diff/tap.9)",1522
+"This layer can't abut or partially overlap between subcells",14125
+"Metal1 spacing < 0.14um (met1.2)",8
+"N-well overlap of P-Diffusion < 0.18um (diff/tap.8)",5982
+"poly contact width        < 0.17um (licon.1)",360
+"P-diffusion contact width < 0.17um (licon.1)",2773
+"Diffusion contact to SRAM gate < 0.04um (licon.11)",513
+"Can't overlap those layers",123
+"Metal1 overlap of local interconnect contact < 0.06um in one direction (met1.5)",832
+"Metal1 overlap of local interconnect contact < 0.03um (met1.4)",160
+"P-tap overlap of P-tap contact < 0.12um in one direction (licon.7)",80
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",13030
+"poly overhang of SRAM core transistor < 0.11um (poly.8)",120
+"P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",1557
+"poly contact spacing to diffusion < 0.19um (licon.14)",4428
+"poly spacing to diffusion tap < 0.055um (poly.5)",2314
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",3641
+"Deep N-well spacing to N-well < 4.5um (nwell.7)",2
+"poly spacing to Diffusion < 0.075um (poly.4)",3240
+"Core local interconnect spacing < 0.14um (li.c2)",8136
+"N-tap overlap of N-tap contact < 0.12um in one direction (licon.7)",48
+"N-Transistor in SRAM core width < 0.21um (diff/tap.2)",1888
+"N-Diffusion overhang of nFET < 0.25um (poly.7)",360
+"poly contact spacing to P-diffusion < 0.235um (licon.9 + psdm.5a)",2279
+"N-diffusion contact width < 0.17um (licon.1)",4875
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",2967
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",2294
+"Local interconnect minimum area < 0.0561um^2 (li.6)",3420
+"N-diffusion overlap of N-diffusion contact < 0.06um in one direction (licon.5c)",342
+"poly overlap of poly contact < 0.05um (licon.8)",730
+"N-well overlap of N-tap < 0.18um (diff/tap.10)",536
+__RULE_CSV_END__
+RULE_TOTAL=103615
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_fd_bd_sram__sram_sp_colenda",38
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array",677
+"sky130_fd_bd_sram__sram_sp_cornera",21
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array",24324
+"sky130_fd_bd_sram__openram_sp_rowend_replica",38
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array",24324
+"sky130_fd_bd_sram__sram_sp_wlstrapa_p",60
+"sky130_fd_bd_sram__sram_sp_cornerb",21
+"sky130_sram_1rw_8x16_gate3a03_control",24395
+"sky130_fd_bd_sram__sram_sp_colend",39
+"sky130_fd_bd_sram__sram_sp_wlstrap",53
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array",908
+"sky130_sram_1rw_8x16_gate3a03_control_port_data",3
+"sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array",3
+"sky130_fd_bd_sram__sram_sp_wlstrapa",53
+"sky130_fd_bd_sram__sram_sp_rowend",38
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array",277
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0",275
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_row_cap_array_0",677
+"sky130_fd_bd_sram__sram_sp_cell_opt1a",126
+"sky130_sram_1rw_8x16_gate3a03_control_bank",21832
+"sky130_fd_bd_sram__sram_sp_rowend_replica_ce",28
+"sky130_fd_bd_sram__sram_sp_corner",21
+"sky130_fd_bd_sram__sram_sp_rowenda",38
+"sky130_fd_bd_sram__sram_sp_rowend_ce",28
+"sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",125
+"sky130_fd_bd_sram__openram_sp_cell_opt1_replica",125
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column",2583
+"sky130_fd_bd_sram__sram_sp_colenda_p_cent",32
+"sky130_fd_bd_sram__openram_sp_rowenda_replica",38
+"sky130_fd_bd_sram__sram_sp_corner_ce",14
+"sky130_sram_1rw_8x16_gate3a03_control_precharge_0",3
+"sky130_fd_bd_sram__sram_sp_cell_opt1",126
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array",19762
+"sky130_fd_bd_sram__sram_sp_colend_cent",29
+"sky130_fd_bd_sram__sram_sp_colenda_cent",29
+"sky130_fd_bd_sram__sram_sp_colend_p_cent",34
+"sky130_fd_bd_sram__sram_sp_wlstrap_p",60
+"sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy",100
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=121357

@@ -1,0 +1,12 @@
+work,activity_source,physical_stage,parasitic_identity,matched_architectures,operation_normalized,multiple_seeds,ordering_invariance_test,gap_relative_to_this_paper
+Najm 1993/1994,probabilistic theory,technology-independent,no,no,no,no,no,establishes activity sensitivity but not ECC or routed matched ordering
+Hsiao 1970,none,code construction,no,Hamming-family theory,no,no,no,defines code family without implementation energy
+Ghosh et al. 2004,application traces,checker implementation,not final-SPEF hash bound,optimized checker variants,trace-based power,not five paired physical seeds,no,closest activity-aware ECC power study but does not test estimator-induced Hamming/Hsiao ordering on identical routed states
+Reviriego et al. 2013,not central,logic design,no,code construction,no,no,no,low-delay ECC construction rather than activity-conditioned energy
+Naseer and Draper 2008,not central,RTL/logic,no,stronger code,no,no,no,reliability/parallel decoder focus
+Del Bel et al. 2014,system/model,device/circuit/architecture,no,ECC options,system metric,no,no,memory density and stronger ECC tradeoff
+Pajouhi et al. 2015,system/model,device/circuit/architecture,no,ECC options,system metric,no,no,reliability co-design rather than activity estimator validity
+Wei et al. 2020,workload-aware adaptation,architecture,no,adaptive modes,energy-aware,no,no,uses activity for adaptive ECC but does not isolate estimator substitution on fixed routes
+Lee et al. 2022,data-width-aware,architecture,no,adaptive modes,energy-aware,no,no,adaptive DRAM scheme rather than matched physical ranking
+OpenROAD/OpenLANE papers,benchmark flow,RTL-to-GDS,flow reproducibility,benchmarks,no,may use multiple designs,no,enables physical studies but does not supply the ECC experiment
+

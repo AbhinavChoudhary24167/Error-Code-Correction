@@ -1,0 +1,75 @@
+{
+  "architecture_id": "BCH_78_64_T2",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "commands": [
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-s",
+      "tb_bch_t2_exhaustive_masks",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/bch_78_64_t2_codec.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/bch/bch_78_64_t2_v1.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_bch_t2_exhaustive_masks.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/bch_78_64_t2_codec.vvp"
+    ],
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-DTEST_BCH",
+      "-s",
+      "tb_memory_smoke",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/bch_78_64_t2_memory.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/bch/bch_78_64_t2_v1.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_memory_smoke.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/bch_78_64_t2_memory.vvp"
+    ]
+  ],
+  "declared_check_counts": {
+    "double_masks": 12012,
+    "memory_round_trips": 4,
+    "payloads": 4,
+    "single_masks": 312
+  },
+  "fresh_execution": true,
+  "log_sha256": {
+    "logs/functional/bch_78_64_t2_codec_compile.log": "daff134cf154d3e7c2331fc7ba11e7c1806cae770349d6d6e6ecfd699c4353a9",
+    "logs/functional/bch_78_64_t2_codec_run.log": "b7ec742ef1975de9009413e840e38050cc4f97c1dbe3eb166252ca37010d52f3",
+    "logs/functional/bch_78_64_t2_memory_compile.log": "68e976393886d6c4c1fd7eb4622db3e410d5e2d1c0bb0d954ff048f82b38d9e5",
+    "logs/functional/bch_78_64_t2_memory_run.log": "b15e0326f9fd00b8fad4b6dc524babd314763225b48bfe39f38aff3e0174b756"
+  },
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "process_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "schema_version": 1,
+  "scope_limit": "All declared weight-1/2 correction masks are enumerated over four payloads; weight-3 behavior is outside the correction guarantee and remains inherited observation-only evidence.",
+  "source_sha256": {
+    "asic/rtl/bch/bch_78_64_t2_v1.sv": "2cc8b0dd23f3cce9a091ea418a2c2d4fff5f016361228a66e6c151a7c49360e7",
+    "campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv": "a5335c81eb209d4f2c5c140b2fb16431e1ebd4713e17ab26f9b1c7fddaf8ba01"
+  },
+  "status": "REGRESSION_VALIDATED",
+  "tool": {
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  }
+}

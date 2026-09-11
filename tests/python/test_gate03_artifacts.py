@@ -193,6 +193,10 @@ def test_gate01_gate02_immutable_authorized_scope_and_binary_verdict():
         "PracticalSRAMSimulator.exe",
         "drift.json",
         "tests/fixtures/runtime_ml_feature_pack/",
+        "campaigns/date_2027_breadth_remediation/",
+        "campaigns/date_2027_paper_revision3/",
+        "paper/date2027_revision3/",
+        "output/pdf/date2027_revision3.pdf",
     )
     for path in candidate_paths:
         path = path.replace("\\", "/")

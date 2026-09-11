@@ -1,0 +1,50 @@
+{
+  "records": [
+    {
+      "classification": "NATIVE_READ_VCD_TOP_PORT_ONLY",
+      "experiment": "seed11_native_read_vcd",
+      "partial_artifacts_preserved": [
+        "fresh_runs/secded_clk10p0ns_seed11/RESULT.json",
+        "fresh_runs/hsiao_secded_clk10p0ns_seed11/RESULT.json"
+      ],
+      "reason": "Native hierarchy matching annotated only 142 top ports; no internal leaf-pin activity was inferred.",
+      "status": "COMPLETED_E5_BLOCKED"
+    },
+    {
+      "classification": "SEMANTICALLY_NONRESPONSIVE_ACTIVITY_PROPAGATION",
+      "experiment": "seed11_activity_remediations_01_to_05",
+      "partial_artifacts_preserved": [
+        "fresh_runs/*seed11/ACTIVITY_REMEDIATION0[1-5]_RESULT.json"
+      ],
+      "reason": "Coverage-like counts alone did not make macro-output-driven logic responsive in OpenSTA power.",
+      "status": "SUPERSEDED_PRESERVED"
+    },
+    {
+      "classification": "WSL_PROCESS_LAUNCH_E_ACCESSDENIED",
+      "experiment": "seed11_literal_pin_activity_launches",
+      "partial_artifacts_preserved": [
+        "RUNTIME_STATE.json",
+        "logs/"
+      ],
+      "reason": "Two sandbox-blocked launches were retained; approved retries completed.",
+      "status": "TOOL_FAILURE_PRESERVED"
+    },
+    {
+      "classification": "X_STATE_MACRO_OUTPUT_ACTIVITY_INCOMPLETE",
+      "experiment": "seed11_idle_and_write_known_state",
+      "partial_artifacts_preserved": [
+        "fresh_runs/*seed11/ACTIVITY_REMEDIATION06_RESULT.json"
+      ],
+      "reason": "The first seed-11 GLS traces lacked the later clean-read state initializer.",
+      "status": "E5_BLOCKED_PRESERVED"
+    },
+    {
+      "classification": "LOWER_PRIORITY_QUEUE_NOT_EXECUTED",
+      "experiment": "U0_BCH_5NS_OPENRAM_AND_OPTIONAL_SENSITIVITY",
+      "partial_artifacts_preserved": [],
+      "reason": "The primary matched ECC population was completed first; continuation resumed only after the fixed deadline.",
+      "status": "NOT_LAUNCHED_BEFORE_PERSISTED_DEADLINE"
+    }
+  ],
+  "schema_version": 1
+}

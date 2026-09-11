@@ -1,0 +1,107 @@
+{
+  "campaign": "gate3_openram_attempt05_sky130_primitive_view_materialization_qualification",
+  "conclusion": "SEMANTICS_NOT_SUCCESSFULLY_ESTABLISHED_FOR_MATERIALIZATION",
+  "qualification_rule": "No geometry transform may use an AMBIGUOUS or UNKNOWN semantic mapping.",
+  "local_source_commits": {
+    "open_pdks_volare": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "skywater_pdk": "f70d8ca46961ff92719d8870a18a076370b85f6c",
+    "sky130_fd_bd_sram": "dd64256961317205343a3fd446908b42bafba388",
+    "openram": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab"
+  },
+  "layers": [
+    {
+      "requested_name": "CLI1MADD",
+      "official_local_pdk_name": "cli1m",
+      "gds_layer": 115,
+      "gds_datatype": 43,
+      "identification_confidence": "AUTHORITATIVELY_CONFIRMED",
+      "official_purpose": "mask add",
+      "category": "manufacturing mask-add augmentation",
+      "ordinary_family_candidates": {
+        "cli1m_mask": "56:0",
+        "cli1m_drawing": "115:44"
+      },
+      "ordinary_electrical_layer_modified": "UNKNOWN",
+      "composition_operation": "UNKNOWN",
+      "composition_order": "UNKNOWN",
+      "mapping_confidence": "UNKNOWN",
+      "normal_magic_understands": false,
+      "public_normal_magic_intentionally_ignores": "STRONGLY_SUPPORTED",
+      "reason": "The PDK identifies this as a mask-add record, but gives no boolean equation or electrical-view generation procedure. The GDS-only Magic technology preserves it as LIBLOCK-like data and expressly is not an extraction technology. A name resemblance to LI1 is not semantic proof."
+    },
+    {
+      "requested_name": "CNTMADD",
+      "official_local_pdk_name": "cfom",
+      "gds_layer": 22,
+      "gds_datatype": 21,
+      "identification_confidence": "AUTHORITATIVELY_CONFIRMED",
+      "official_purpose": "mask add",
+      "category": "manufacturing mask-add augmentation",
+      "ordinary_family_candidates": {
+        "cfom_mask": "23:0",
+        "cfom_drawing": "22:20"
+      },
+      "ordinary_electrical_layer_modified": "UNKNOWN",
+      "composition_operation": "UNKNOWN",
+      "composition_order": "UNKNOWN",
+      "mapping_confidence": "UNKNOWN",
+      "normal_magic_understands": false,
+      "public_normal_magic_intentionally_ignores": "STRONGLY_SUPPORTED",
+      "reason": "The installed Magic GDS-only technology calls 22/21 CNTMADD, while the pinned SkyWater GDS layer table calls the same record 'cfom, mask add'; the actual CNTM mask-add record is 26/21. This naming conflict and the absence of a transform equation make any contact or field-oxide mapping unsafe."
+    },
+    {
+      "requested_name": "CP1MADD",
+      "official_local_pdk_name": "cp1m",
+      "gds_layer": 33,
+      "gds_datatype": 43,
+      "identification_confidence": "AUTHORITATIVELY_CONFIRMED",
+      "official_purpose": "mask add",
+      "category": "manufacturing mask-add augmentation",
+      "ordinary_family_candidates": {
+        "cp1m_mask": "28:0"
+      },
+      "ordinary_electrical_layer_modified": "UNKNOWN",
+      "composition_operation": "UNKNOWN",
+      "composition_order": "UNKNOWN",
+      "mapping_confidence": "UNKNOWN",
+      "normal_magic_understands": false,
+      "public_normal_magic_intentionally_ignores": "STRONGLY_SUPPORTED",
+      "reason": "The PDK identifies a CP1M mask-add record but supplies no topology-preserving composition equation. The GDS-only Magic technology preserves it as POLYBLOCK-like data and cannot establish that it should be ORed into drawn poly."
+    },
+    {
+      "requested_name": "NCM",
+      "official_local_pdk_name": "ncm",
+      "gds_layer": 92,
+      "gds_datatype": 44,
+      "identification_confidence": "AUTHORITATIVELY_CONFIRMED",
+      "official_purpose": "N-core implant",
+      "category": "standalone drawn implant and device-classification geometry",
+      "ordinary_electrical_layer_modified": "NONE",
+      "composition_operation": "No materialization transform. The pinned LVS deck subtracts NCM regions while deriving standard/HVT/HV gate classes.",
+      "composition_order": "device derivation in LVS, not SRAM add-mask materialization",
+      "mapping_confidence": "AUTHORITATIVELY_CONFIRMED",
+      "normal_magic_understands": false,
+      "public_normal_magic_intentionally_ignores": "STRONGLY_SUPPORTED",
+      "reason": "SkyWater masks.csv, gds_layers.csv, the layer-description table, and design-rule assumption tables identify NCM as N-Core Implant. The pinned KLayout LVS deck reads 92/44 directly and uses it in gate classification. It is not an alias for LI, a contact, or poly."
+    }
+  ],
+  "sram_specific_materialization_procedure_found": false,
+  "search_scope": [
+    "pinned SkyWater PDK layer and rule documentation",
+    "pinned installed sky130A and sky130A-GDS Magic technologies",
+    "pinned OpenRAM SKY130 Magic/Python/KLayout technology collateral",
+    "pinned sky130_fd_bd_sram repository documentation and available history",
+    "public upstream open_pdks sky130gds.tech"
+  ],
+  "external_primary_sources": [
+    {
+      "url": "https://github.com/fossi-foundation/open-pdks/blob/main/sky130/magic/sky130gds.tech",
+      "use": "Confirms the vendor-GDS technology preserves layers without boolean transformation and is not suitable for extraction."
+    },
+    {
+      "url": "https://foss-eda-tools.googlesource.com/third_party/opencircuitdesign.com/open_pdks/%2B/refs/tags/1.0.210/sky130/magic/sky130gds.tech?autodive=0%2F%2F%2F%2F%2F%2F%2F",
+      "use": "Historical primary open_pdks GDS-only technology with the same isolated add-layer mappings and no electrical connectivity table."
+    }
+  ],
+  "transformation_authorized": false
+}

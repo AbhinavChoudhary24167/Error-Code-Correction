@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "generated_on": "2026-09-08",
+  "current_model_source_id": "SRC_IMEC_IEDM_2023",
+  "current_model_version": "imec.netzero v1.5.67",
+  "historical_model_source_id": "SRC_IMEC_PPACE_2020",
+  "wafer_diameter_mm": 300,
+  "current_system_boundary": {
+    "start": "raw-material and purchased-energy upstream processes included where inventoried",
+    "end": "IC fab gate",
+    "included": [
+      "fab equipment electricity",
+      "facility and utility electricity",
+      "unabated gaseous elementary flows",
+      "selected upstream chemicals, precursors, bulk gases, and bare silicon wafer",
+      "electricity transmission and distribution loss"
+    ],
+    "excluded": [
+      "wafer test",
+      "dicing",
+      "packaging",
+      "tool construction",
+      "fab infrastructure construction",
+      "fab waste treatment",
+      "Scope 3 Category 2 capital goods",
+      "upstream emissions of purchased electricity"
+    ],
+    "warning": "This is cradle-to-fab-gate with incomplete Scope 3, not full product lifecycle carbon."
+  },
+  "current_assumptions": {
+    "functional_die": "10x10 mm2",
+    "Murphy_die_yield": 0.86,
+    "line_yield": 0.9,
+    "defect_density_per_cm2": 0.15,
+    "facility_fraction_of_total_fab_electricity": 0.17,
+    "fab_grid_CI_kgCO2e_per_kWh": 0.454,
+    "gross_grid_loss_fraction": 0.047,
+    "abatement": "IPCC 2019 Tier 2c combustion",
+    "maturity": "utilization, idle time, downtime, efficiency, and throughput held constant across study nodes"
+  },
+  "numeric_admission": {
+    "accepted": "values explicitly printed in text or captions",
+    "rejected": "manual digitization of graph coordinates",
+    "intermediate_nodes": "not admitted because exact public text values were not recovered",
+    "live_public_app": "PUBLIC_ACCOUNT_REQUIRED; no authenticated outputs extracted"
+  },
+  "technology_translation": {
+    "SKY130": "NO_EXACT_WAFER_COEFFICIENT",
+    "advanced_nodes": "IMEC_CALIBRATED_ADVANCED_NODE only",
+    "rule": "No imec advanced-node coefficient is presented as measured SKY130 physical evidence."
+  },
+  "source_ids": [
+    "SRC_IMEC_NETZERO_PUBLIC_2023",
+    "SRC_IMEC_NETZERO_APP_2026",
+    "SRC_IMEC_PPACE_2020",
+    "SRC_IMEC_IEDM_2023",
+    "SRC_IMEC_LITHO_2024",
+    "SRC_IPCC_AR6_WGI_CH7_SM"
+  ],
+  "qualification": "PARTIAL_NUMERIC_CALIBRATION_TEXTUAL_ANCHORS_ONLY"
+}

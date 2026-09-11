@@ -1,0 +1,790 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+  "locally_verifiable_scope": "two macros, three published corners each, all output pins and all rise/fall plus retaining transition tables",
+  "file_count": 6,
+  "files": [
+    {
+      "file": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_ff_n40C_1v95.lib",
+      "sha256": "b1aecf549a589b285f2238dcba19654e3324da90232e98fa6bb5cee5a7f17a75",
+      "default_max_transition_ns": 0.04,
+      "threshold_percentages": {
+        "input_threshold_pct_fall": 50.0,
+        "input_threshold_pct_rise": 50.0,
+        "output_threshold_pct_fall": 50.0,
+        "output_threshold_pct_rise": 50.0,
+        "slew_lower_threshold_pct_fall": 10.0,
+        "slew_lower_threshold_pct_rise": 10.0,
+        "slew_upper_threshold_pct_fall": 90.0,
+        "slew_upper_threshold_pct_rise": 90.0
+      },
+      "output_pin_count": 64,
+      "output_pin_max_transition_override_count": 0,
+      "output_max_capacitance_values_pf": [
+        0.52
+      ],
+      "transition_table_count": 4,
+      "all_minimum_load_fastest_input_values_exceed_default": true,
+      "minimum_transition_table_value_ns": 0.057383,
+      "minimum_load_fastest_input_value_range_ns": [
+        0.057428,
+        0.106188
+      ],
+      "transition_tables": [
+        {
+          "pin_scope": "all dout bus members",
+          "table": "rise_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.106188,
+          "minimum_grid_value_ns": 0.106188,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "fall_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.059379,
+          "minimum_grid_value_ns": 0.059324,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_rise_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.102334,
+          "minimum_grid_value_ns": 0.102334,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_fall_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.057428,
+          "minimum_grid_value_ns": 0.057383,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        }
+      ]
+    },
+    {
+      "file": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_ss_100C_1v60.lib",
+      "sha256": "afd1ebdc2d793eebe326e11b13c2c0d5644ff15900eb880580068dadea4e7e64",
+      "default_max_transition_ns": 0.04,
+      "threshold_percentages": {
+        "input_threshold_pct_fall": 50.0,
+        "input_threshold_pct_rise": 50.0,
+        "output_threshold_pct_fall": 50.0,
+        "output_threshold_pct_rise": 50.0,
+        "slew_lower_threshold_pct_fall": 10.0,
+        "slew_lower_threshold_pct_rise": 10.0,
+        "slew_upper_threshold_pct_fall": 90.0,
+        "slew_upper_threshold_pct_rise": 90.0
+      },
+      "output_pin_count": 64,
+      "output_pin_max_transition_override_count": 0,
+      "output_max_capacitance_values_pf": [
+        0.52
+      ],
+      "transition_table_count": 4,
+      "all_minimum_load_fastest_input_values_exceed_default": true,
+      "minimum_transition_table_value_ns": 0.14844,
+      "minimum_load_fastest_input_value_range_ns": [
+        0.14844,
+        0.208403
+      ],
+      "transition_tables": [
+        {
+          "pin_scope": "all dout bus members",
+          "table": "rise_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.208403,
+          "minimum_grid_value_ns": 0.208342,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "fall_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.154193,
+          "minimum_grid_value_ns": 0.154193,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_rise_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.200983,
+          "minimum_grid_value_ns": 0.200975,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_fall_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.14844,
+          "minimum_grid_value_ns": 0.14844,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        }
+      ]
+    },
+    {
+      "file": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib",
+      "sha256": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb",
+      "default_max_transition_ns": 0.04,
+      "threshold_percentages": {
+        "input_threshold_pct_fall": 50.0,
+        "input_threshold_pct_rise": 50.0,
+        "output_threshold_pct_fall": 50.0,
+        "output_threshold_pct_rise": 50.0,
+        "slew_lower_threshold_pct_fall": 10.0,
+        "slew_lower_threshold_pct_rise": 10.0,
+        "slew_upper_threshold_pct_fall": 90.0,
+        "slew_upper_threshold_pct_rise": 90.0
+      },
+      "output_pin_count": 64,
+      "output_pin_max_transition_override_count": 0,
+      "output_max_capacitance_values_pf": [
+        0.52
+      ],
+      "transition_table_count": 4,
+      "all_minimum_load_fastest_input_values_exceed_default": true,
+      "minimum_transition_table_value_ns": 0.080573,
+      "minimum_load_fastest_input_value_range_ns": [
+        0.080607,
+        0.137135
+      ],
+      "transition_tables": [
+        {
+          "pin_scope": "all dout bus members",
+          "table": "rise_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.137135,
+          "minimum_grid_value_ns": 0.137126,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "fall_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.08331,
+          "minimum_grid_value_ns": 0.08331,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_rise_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.132183,
+          "minimum_grid_value_ns": 0.132163,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_fall_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.080607,
+          "minimum_grid_value_ns": 0.080573,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        }
+      ]
+    },
+    {
+      "file": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_ff_n40C_1v95.lib",
+      "sha256": "4d3a565198706fb0803b660af817ce53dc2f5868cf10d507c07da790fcc0fbb9",
+      "default_max_transition_ns": 0.04,
+      "threshold_percentages": {
+        "input_threshold_pct_fall": 50.0,
+        "input_threshold_pct_rise": 50.0,
+        "output_threshold_pct_fall": 50.0,
+        "output_threshold_pct_rise": 50.0,
+        "slew_lower_threshold_pct_fall": 10.0,
+        "slew_lower_threshold_pct_rise": 10.0,
+        "slew_upper_threshold_pct_fall": 90.0,
+        "slew_upper_threshold_pct_rise": 90.0
+      },
+      "output_pin_count": 8,
+      "output_pin_max_transition_override_count": 0,
+      "output_max_capacitance_values_pf": [
+        0.52
+      ],
+      "transition_table_count": 4,
+      "all_minimum_load_fastest_input_values_exceed_default": true,
+      "minimum_transition_table_value_ns": 0.05825,
+      "minimum_load_fastest_input_value_range_ns": [
+        0.058263,
+        0.103977
+      ],
+      "transition_tables": [
+        {
+          "pin_scope": "all dout bus members",
+          "table": "rise_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.103968,
+          "minimum_grid_value_ns": 0.103965,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "fall_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.058309,
+          "minimum_grid_value_ns": 0.05825,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_rise_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.103977,
+          "minimum_grid_value_ns": 0.103972,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_fall_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.058263,
+          "minimum_grid_value_ns": 0.058263,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        }
+      ]
+    },
+    {
+      "file": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_ss_100C_1v60.lib",
+      "sha256": "9dde364de6decf0107e31422cb4c6073abd8a6265377098414d5193eb202a94b",
+      "default_max_transition_ns": 0.04,
+      "threshold_percentages": {
+        "input_threshold_pct_fall": 50.0,
+        "input_threshold_pct_rise": 50.0,
+        "output_threshold_pct_fall": 50.0,
+        "output_threshold_pct_rise": 50.0,
+        "slew_lower_threshold_pct_fall": 10.0,
+        "slew_lower_threshold_pct_rise": 10.0,
+        "slew_upper_threshold_pct_fall": 90.0,
+        "slew_upper_threshold_pct_rise": 90.0
+      },
+      "output_pin_count": 8,
+      "output_pin_max_transition_override_count": 0,
+      "output_max_capacitance_values_pf": [
+        0.52
+      ],
+      "transition_table_count": 4,
+      "all_minimum_load_fastest_input_values_exceed_default": true,
+      "minimum_transition_table_value_ns": 0.151059,
+      "minimum_load_fastest_input_value_range_ns": [
+        0.15108,
+        0.204111
+      ],
+      "transition_tables": [
+        {
+          "pin_scope": "all dout bus members",
+          "table": "rise_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.204111,
+          "minimum_grid_value_ns": 0.20404,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "fall_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.151145,
+          "minimum_grid_value_ns": 0.151126,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_rise_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.204041,
+          "minimum_grid_value_ns": 0.20404,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_fall_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.15108,
+          "minimum_grid_value_ns": 0.151059,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        }
+      ]
+    },
+    {
+      "file": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib",
+      "sha256": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec",
+      "default_max_transition_ns": 0.04,
+      "threshold_percentages": {
+        "input_threshold_pct_fall": 50.0,
+        "input_threshold_pct_rise": 50.0,
+        "output_threshold_pct_fall": 50.0,
+        "output_threshold_pct_rise": 50.0,
+        "slew_lower_threshold_pct_fall": 10.0,
+        "slew_lower_threshold_pct_rise": 10.0,
+        "slew_upper_threshold_pct_fall": 90.0,
+        "slew_upper_threshold_pct_rise": 90.0
+      },
+      "output_pin_count": 8,
+      "output_pin_max_transition_override_count": 0,
+      "output_max_capacitance_values_pf": [
+        0.52
+      ],
+      "transition_table_count": 4,
+      "all_minimum_load_fastest_input_values_exceed_default": true,
+      "minimum_transition_table_value_ns": 0.081685,
+      "minimum_load_fastest_input_value_range_ns": [
+        0.081707,
+        0.13422
+      ],
+      "transition_tables": [
+        {
+          "pin_scope": "all dout bus members",
+          "table": "rise_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.13422,
+          "minimum_grid_value_ns": 0.134217,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "fall_transition",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.08171,
+          "minimum_grid_value_ns": 0.081706,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_rise_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.134217,
+          "minimum_grid_value_ns": 0.134217,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        },
+        {
+          "pin_scope": "all dout bus members",
+          "table": "retain_fall_slew",
+          "input_transition_axis_ns": [
+            0.002,
+            0.008,
+            0.03,
+            0.073,
+            0.138,
+            0.231,
+            0.351
+          ],
+          "output_capacitance_axis_pf": [
+            0.007,
+            0.013,
+            0.033,
+            0.065,
+            0.13,
+            0.26,
+            0.52
+          ],
+          "minimum_load_fastest_input_value_ns": 0.081707,
+          "minimum_grid_value_ns": 0.081685,
+          "minimum_load_fastest_input_exceeds_0p04": true
+        }
+      ]
+    }
+  ],
+  "global_findings": {
+    "all_six_views_default_max_transition_0p04": true,
+    "all_output_pins_lack_pin_level_override": true,
+    "all_output_transition_tables_exceed_0p04_at_min_load_fastest_input": true,
+    "view_count": 6,
+    "classification": "UPSTREAM_SRAM22_OUTPUT_MAX_TRANSITION_MODEL_INCONSISTENCY",
+    "canonical_disposition": "PROVENANCE_LIMITED_NOT_EXTERNAL_INTEGRATION_DRV"
+  }
+}

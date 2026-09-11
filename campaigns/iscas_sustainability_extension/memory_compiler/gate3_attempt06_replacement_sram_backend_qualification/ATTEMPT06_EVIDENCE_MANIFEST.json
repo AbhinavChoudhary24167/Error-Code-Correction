@@ -1,0 +1,1335 @@
+{
+  "schema_version": 1,
+  "campaign": "gate3_attempt06_replacement_sram_backend_qualification",
+  "algorithm": "sha256-raw-bytes",
+  "manifest_scope": "all campaign files except this manifest, nested Git metadata, and transient Python caches",
+  "file_count": 265,
+  "byte_count": 563942361,
+  "files": [
+    {
+      "path": "ATTEMPT06_STATUS.json",
+      "byte_size": 5019,
+      "sha256": "29f79410d036e2799e18bf8a4f76fe43acbbf7c7ddd665fc56cd2d583bf637fa"
+    },
+    {
+      "path": "ATTEMPT06_SUMMARY.md",
+      "byte_size": 1225,
+      "sha256": "bdf2c54615843b53df75d00a33993208c321bce7e4ae1276649bcd8d2b7ffb56"
+    },
+    {
+      "path": "BACKEND_CANDIDATE_SURVEY.json",
+      "byte_size": 5084,
+      "sha256": "3cca05b3990ed9f9c31c2fb23f69a7e683ddac344ca62f7d1d16ee6abd2d99a2"
+    },
+    {
+      "path": "BACKEND_CANDIDATE_SURVEY.md",
+      "byte_size": 1714,
+      "sha256": "df5f585423486823267b1be3d2a477096facf927128c9feeae0da818dfe4c7a1"
+    },
+    {
+      "path": "BACKEND_DECISION.md",
+      "byte_size": 1355,
+      "sha256": "5b7bad6b82f2e89fbdc04502157c7802a3bd3aeb9ad78257685c5cf72515481e"
+    },
+    {
+      "path": "BIT_INTERLEAVING_FEASIBILITY.md",
+      "byte_size": 1445,
+      "sha256": "60a36fb9b023e8a7a1ca951b72e6caacca056befd6a85ac754b6d33e1e3d5924"
+    },
+    {
+      "path": "ECC_256X72_COMPOSITION.md",
+      "byte_size": 1366,
+      "sha256": "16a70bd1d7446757532076816ccee59cc9d0664c5c3f75c8079979fe088fc96f"
+    },
+    {
+      "path": "ENVIRONMENT_MANIFEST.json",
+      "byte_size": 1341,
+      "sha256": "f736b690fc206bd51921db91768c253fb0af415bb1cd289a03989c14f4ad0614"
+    },
+    {
+      "path": "OPENROAD_INTEGRATION_STATUS.md",
+      "byte_size": 2735,
+      "sha256": "3cecaea50ae7124d8ab4eb6db3cd8ba6d0b38aea8d4a3ef4600924ece0931217"
+    },
+    {
+      "path": "REGRESSION_STATUS.json",
+      "byte_size": 2473,
+      "sha256": "a88d0a62e365647a4a4aba99fd1126db6249121efc8363a9a438b316bbf3cd11"
+    },
+    {
+      "path": "SRAM22_FUNCTIONAL_QUALIFICATION.md",
+      "byte_size": 989,
+      "sha256": "c1e9cb0ac5daff54811aded5345866eb82606732f80d8933080181cd040c7e5d"
+    },
+    {
+      "path": "SRAM22_INTERFACE_CROSSCHECK.md",
+      "byte_size": 1011,
+      "sha256": "2672ce1323ceb670f2cb6e9f04fb3a9b0e1e8cf64a5ca49fb611af0329b5581d"
+    },
+    {
+      "path": "SRAM22_PHYSICAL_VIEW_QUALIFICATION.md",
+      "byte_size": 2661,
+      "sha256": "e5ceabd130a9002f493292561cc7a18e1edded6f9cfb46480ec8ddc4a6dd2c51"
+    },
+    {
+      "path": "SRAM22_SOURCE_MANIFEST.json",
+      "byte_size": 5873,
+      "sha256": "56d7c731646dcfef4e84f19a898b61868f459197d54c859e93c524449bec0f63"
+    },
+    {
+      "path": "SRAM22_TIMING_VIEW_QUALIFICATION.md",
+      "byte_size": 1111,
+      "sha256": "4e495ab873b583d9814842239c5344f22ea2e850dedb26767acc5ef9ad87d61d"
+    },
+    {
+      "path": "openroad/e0/config.mk",
+      "byte_size": 1832,
+      "sha256": "cf40452ad99d6e5e72578aef0f03484c0955d840ba7336961bbe077876c63605"
+    },
+    {
+      "path": "openroad/e0/constraint.sdc",
+      "byte_size": 504,
+      "sha256": "c2c71558753e23ce5faba0e8dd50359a08335d6140470f9276b2a77e774e22fd"
+    },
+    {
+      "path": "openroad/pdn_sram22.tcl",
+      "byte_size": 1935,
+      "sha256": "65d0397b0e3335eac4a342312599017e96958a2a478fd1a5dc467ef342649000"
+    },
+    {
+      "path": "openroad/pre_resize_sram22.tcl",
+      "byte_size": 536,
+      "sha256": "041eab7c96d2335213ec430abe26fc2c1b7c64fbd558e622cbe1eb57a85eb64c"
+    },
+    {
+      "path": "openroad/u0/config.mk",
+      "byte_size": 1214,
+      "sha256": "e242759dbe6fc336129f659f70ea4c032622e86301cb65d6eb007314ebc29adf"
+    },
+    {
+      "path": "openroad/u0/constraint.sdc",
+      "byte_size": 493,
+      "sha256": "c4128409f65fd287c20c2fc53bb717ffbb5796fbe6c31ae4936e0c38bbd12bc8"
+    },
+    {
+      "path": "raw/derived_gds/sram22_256x64m4w8.gds",
+      "byte_size": 37327068,
+      "sha256": "b6d5e63d819133c617e96eaa12123b66a6b771ecbdaeb153b87f868d0e94abd5"
+    },
+    {
+      "path": "raw/derived_gds/sram22_256x8m8w1.gds",
+      "byte_size": 9429370,
+      "sha256": "c27dfdc1e047efdc996dda3447aea42c8dc8ef5d44c8a74d3d3fdca4bd571743"
+    },
+    {
+      "path": "raw/environment/git_version.txt",
+      "byte_size": 30,
+      "sha256": "ec68b554b1f92a9272ed735241ae799864df3d624139a3ac4cacf0847c62f5e8"
+    },
+    {
+      "path": "raw/environment/make_version.txt",
+      "byte_size": 16,
+      "sha256": "d17ee3b3440b74bd6f77ce249dd11d131a11717fe84d03aae3d33a581df68338"
+    },
+    {
+      "path": "raw/environment/python3_version.txt",
+      "byte_size": 15,
+      "sha256": "c873cc4038ba2e0e12a5c9c7c72d3432f046c839ce2e31163a4a246e400504a1"
+    },
+    {
+      "path": "raw/environment/python_version.txt",
+      "byte_size": 15,
+      "sha256": "46842d159a152a92332cb94b65d7fdb7277d850bf18d589704a0da9a646d195b"
+    },
+    {
+      "path": "raw/environment/wsl_environment.txt",
+      "byte_size": 768,
+      "sha256": "7afe77fc43718f2b69b771b03a3ade526518b231e79aecacd40b6a886d425bd0"
+    },
+    {
+      "path": "raw/functional/simulation.log",
+      "byte_size": 393,
+      "sha256": "11c457037d2e8b2729465ad5c8d6f0d27fffc9b297a58f56d1a0017a39362438"
+    },
+    {
+      "path": "raw/functional/tb_attempt06_sram22.vvp",
+      "byte_size": 213083,
+      "sha256": "4b70bed5257df40429ad3834ac50d6ca015d847ca27d60a5393482ea46b56118"
+    },
+    {
+      "path": "raw/integrity/git_branch.txt",
+      "byte_size": 36,
+      "sha256": "da70d82dd0c5d55dac9a2952815a926ffb98fbd7eb6862e43dc2f5107ee60266"
+    },
+    {
+      "path": "raw/integrity/git_commit.txt",
+      "byte_size": 42,
+      "sha256": "759d26add172f310b425adafdf1227bb9379de1f9870ee08a54d2546e3285375"
+    },
+    {
+      "path": "raw/integrity/git_status_before_regression.txt",
+      "byte_size": 767,
+      "sha256": "f18e1b074aa71e17d75b51dc4560a7f2951454b3f91b21941d8cb63af571621b"
+    },
+    {
+      "path": "raw/integrity/practical_sram_simulator_before_make.txt",
+      "byte_size": 202,
+      "sha256": "90a1655dd3cd275f8ffde48e0f77f2259a3640e1866fe6810fdaf286e8299e76"
+    },
+    {
+      "path": "raw/integrity/prior_campaign_repository_verification.json",
+      "byte_size": 1360,
+      "sha256": "6900585c2ae63ac2fed93986f434ae01a624a13c998f82ac29754517e8d62577"
+    },
+    {
+      "path": "raw/integrity/protected_date_final_verify.log",
+      "byte_size": 602,
+      "sha256": "5f615b5624fb2c4e201e659d2463c867a0b4a371a1c33991d14755ca8c0271c8"
+    },
+    {
+      "path": "raw/openroad/e0_driver.log",
+      "byte_size": 194154,
+      "sha256": "b4b9c543f67131dae5c40df9199a02881fec29f4ca5ab09e641d9547fbe1d119"
+    },
+    {
+      "path": "raw/openroad/integration_metrics.json",
+      "byte_size": 4309,
+      "sha256": "db726ba0bcf2c828eb60562d599487556dcade24e023c86a745f986104366054"
+    },
+    {
+      "path": "raw/openroad/u0_driver.log",
+      "byte_size": 419530,
+      "sha256": "d6ac94f3a1c946b301ed62f1e9d821b3b94bf3ae3afacb9f00af4e16165823eb"
+    },
+    {
+      "path": "raw/openroad/u0_resize_carry_forward.json",
+      "byte_size": 933,
+      "sha256": "27365fc34e254f1e10cd8ac4c5d1c5c7b397bd98d444a58ba7e88a93fa05fd1d"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/1_1_yosys_canonicalize.log",
+      "byte_size": 4236,
+      "sha256": "d7146beb07e60d01cefed0354a51891f7eee4436dcc67e81ce24f845bf0a837b"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/1_2_yosys.log",
+      "byte_size": 14608,
+      "sha256": "e46e8be6c1de260ff6f891064107e4e1d9c1a66e1117564c776e84a657501143"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/1_synth.json",
+      "byte_size": 752,
+      "sha256": "2d77ba20cf0fc239d05050f4d11d7800e8222593c1d685eb2fb39baad3cd5709"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/1_synth.log",
+      "byte_size": 2628,
+      "sha256": "359825c3e7b2b510e29a02342c2afb357505127f5ab225b760462b44304d827a"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_1_floorplan.json",
+      "byte_size": 1983,
+      "sha256": "39e597e544d211b68b11433169a9d016c35332952827b495ea0a30dd73378852"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_1_floorplan.log",
+      "byte_size": 4569,
+      "sha256": "8c6c7c070dc5920aacc173fb2323e3741caccef506f8ca8a1d5ad66eb99b930f"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_2_floorplan_macro.json",
+      "byte_size": 205,
+      "sha256": "6aade8a32569ae0489eb8915981ecbf3eef7119433daa1c60620a4cd84076b93"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_2_floorplan_macro.log",
+      "byte_size": 3103,
+      "sha256": "9a3044788ad7ecf0bcbee297896ca855ae340e21e3cffd0230f022f6345156e5"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_3_floorplan_tapcell.json",
+      "byte_size": 92,
+      "sha256": "457f4501d1c2410a68df754e723af496c401b9bf93c5a1544083a4514ac2db40"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_3_floorplan_tapcell.log",
+      "byte_size": 1918,
+      "sha256": "431514b9d1c76606226960743e1f8fd280897f3bd1f443e39100f90c3d67dc68"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_4_floorplan_pdn.json",
+      "byte_size": 209,
+      "sha256": "6b96d7950acbe3dc7215cce7c41f9d16871fa9532cdcb4271d792f026363fb49"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/2_4_floorplan_pdn.log",
+      "byte_size": 7096,
+      "sha256": "f1e5729175e2d02907f26ede569a4ab3dbe3597cb2ed38884b417ad7f78e3afb"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_1_place_gp_skip_io.json",
+      "byte_size": 92,
+      "sha256": "457f4501d1c2410a68df754e723af496c401b9bf93c5a1544083a4514ac2db40"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_1_place_gp_skip_io.log",
+      "byte_size": 7985,
+      "sha256": "a7b144384a27dbeb3798169b830f3d4559790d297830170101a242ccfde00276"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_2_place_iop.json",
+      "byte_size": 154,
+      "sha256": "c0888fbeedff683b53887648a9b6082bd3320dcd40eadbc6f91de9bf2b84c0da"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_2_place_iop.log",
+      "byte_size": 2203,
+      "sha256": "1e009070789b695c91df096de6ec0b1235309979f79ede0c0d728d3010cc6cfc"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_3_place_gp.json",
+      "byte_size": 1678,
+      "sha256": "7d8f5be2af9e8ccb1e1b1aa501d03af35d1e70c1d3626abc36c4be13c6ea126a"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_3_place_gp.log",
+      "byte_size": 37603,
+      "sha256": "6da7e36796afbd49b8f4cb1df24fad78f318cede6370cbc87254e0215abe37ca"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_4_place_resized.json",
+      "byte_size": 1934,
+      "sha256": "04fa278c2def70ac2b21540e0384b40c5af985737cc1ffded28a13c501795205"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_4_place_resized.log",
+      "byte_size": 11201,
+      "sha256": "6be804ef5f52a1bb1d282a2fe8eb6e0f24014f980619bbb79aee61ef1aa34b8c"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_5_place_dp.json",
+      "byte_size": 2555,
+      "sha256": "097a4fed0c031f0b30ac3eaa352dfff4d67a2938402f4eb93a11012f18d91414"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/3_5_place_dp.log",
+      "byte_size": 7555,
+      "sha256": "dded406c546bccf2519dfd17e3d5614e45a019bae9d9dc3b795ce99aa48271a2"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/4_1_cts.json",
+      "byte_size": 2576,
+      "sha256": "188df2644533568c14b6d936a6f9a51c38774c292d4192358dad898369613786"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/4_1_cts.log",
+      "byte_size": 8011,
+      "sha256": "a8a69a86779f5190c968bddd5cdc26cc271423dded276c1eb4ade5f22e8fad3f"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/5_1_grt.json",
+      "byte_size": 3653,
+      "sha256": "3d14cf85a4608b680534fddad76473087dd9f5494f4e29193badb281a71ba3e2"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/5_1_grt.log",
+      "byte_size": 22681,
+      "sha256": "3e23e2ba82bb3af08db141f633dd6265d8a7e417e5c5c5f282976824595efa22"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/5_2_route.json",
+      "byte_size": 3137,
+      "sha256": "19571bdd9b18ed4286366f770b90696f1add497fb5ddf379fde05053dc06d82b"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/5_2_route.log",
+      "byte_size": 42901,
+      "sha256": "30c4a00bdc44970c4daa930c1f1083538f0c947a59b9d73c9d25fb37da88f466"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/5_3_fillcell.json",
+      "byte_size": 118,
+      "sha256": "a3456fcc6e4094165cf946e287e77a86735b5668192d41bfb69d5d9fc3a5a072"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/5_3_fillcell.log",
+      "byte_size": 1900,
+      "sha256": "f43ae269fcac4cfc31213da7c743b7427c0e55fde2762096bf8aba20212d278e"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/6_1_fill.json",
+      "byte_size": 92,
+      "sha256": "457f4501d1c2410a68df754e723af496c401b9bf93c5a1544083a4514ac2db40"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/6_1_fill.log",
+      "byte_size": 1873,
+      "sha256": "550972d5061b9de7b69ead44a7f48fca4d8b50a2a24f48db621a3302a297e5fd"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/6_1_merge.log",
+      "byte_size": 633,
+      "sha256": "e0926b222c4ceea08e0e35b49d4db8aab3bc6134bcedf3b236271100bda02795"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/6_report.json",
+      "byte_size": 3511,
+      "sha256": "63720ce8801c111dbf24d65980c8df5d63846894c9ce654253b853c6873d2bbb"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_e0/base/6_report.log",
+      "byte_size": 4551,
+      "sha256": "a852baf3f2dea147418ef98e324ac6c0ea26247f6b3a02abde3a72b668de58af"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/1_1_yosys_canonicalize.log",
+      "byte_size": 2585,
+      "sha256": "e613ecc1df366a775a5dea220d391ac3a253b77d4d8e295b00171c55a8ba636c"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/1_2_yosys.log",
+      "byte_size": 13509,
+      "sha256": "1b77368eca985762e5e3e36e311d35787ac48d7d89e35199825d4cbc1104b584"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/1_synth.json",
+      "byte_size": 742,
+      "sha256": "9271feac2f379dce89b052f3362f7b376249bd8535652937b2f3db114b32947b"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/1_synth.log",
+      "byte_size": 2207,
+      "sha256": "ca6a33d5327e41eaa990a89ef2264c3cc9ea6b35d28af3130187463bacd592d0"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_1_floorplan.json",
+      "byte_size": 1957,
+      "sha256": "c0daad65268f6c2dfc2fb6e6e18b7b4616cb20238daaba305638d2a12fbf14dd"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_1_floorplan.log",
+      "byte_size": 4300,
+      "sha256": "c72eef944634ab9f0564bd65f9f39b53a16fa6301a64fc07181ca542f039e083"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_2_floorplan_macro.json",
+      "byte_size": 237,
+      "sha256": "dd7a6ca6700ce34b0d51174a59c91c6d7630279ee7c20eedd7f8c70c582efbdb"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_2_floorplan_macro.log",
+      "byte_size": 2795,
+      "sha256": "45332cd51d47cc6da1c4d0d16226a13df483a66c605388369390ce3644e7032e"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_3_floorplan_tapcell.json",
+      "byte_size": 92,
+      "sha256": "457f4501d1c2410a68df754e723af496c401b9bf93c5a1544083a4514ac2db40"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_3_floorplan_tapcell.log",
+      "byte_size": 1720,
+      "sha256": "98f523590b166fa73fbb6eb82a2fd8327163dbb4230bc8ec61647f3156e79e6b"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_4_floorplan_pdn.json",
+      "byte_size": 208,
+      "sha256": "6af28078d7215e016e9ab155fbfc596a5aecf72007a3370eda864fbf1c03de59"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/2_4_floorplan_pdn.log",
+      "byte_size": 3686,
+      "sha256": "3c3a94c877547cd60c11450aee20214f93d4ebbeec3b7ab77dc73e8a69bc11e1"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_1_place_gp_skip_io.json",
+      "byte_size": 168,
+      "sha256": "d5438192d5dc0bc4ea5974a6dec916b05b5c3480eea2ed0f89646812cc42a0c4"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_1_place_gp_skip_io.log",
+      "byte_size": 3319,
+      "sha256": "76c1e99d95fb5b78bd6d48d58428004547df5fe0d7da2bbd6ded1bf98204e5fe"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_2_place_iop.json",
+      "byte_size": 153,
+      "sha256": "ad11371604bda282c0d9794f2940678515c43564324c8a825795a09ba8c8c31c"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_2_place_iop.log",
+      "byte_size": 2004,
+      "sha256": "7e54869f0d371cae461394f87d625c1769d4ec4dde7c723f83fc4ea13c3f12de"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_3_place_gp.json",
+      "byte_size": 1731,
+      "sha256": "4cf21246fe14723b6aafa5ed9c34e5fdcee89cd53a5b3fd33994db70b87bfca3"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_3_place_gp.log",
+      "byte_size": 66614,
+      "sha256": "ef931f3d5bdde291b34f14a99b308fe89677c6d3fe9ec049b2c79be3f8b86bfe"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_4_place_resized.json",
+      "byte_size": 122,
+      "sha256": "6c3bc4cad6c540d212b5608d0155eec2a59863c5550143d86a687cce3df0d4ae"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_4_place_resized.log",
+      "byte_size": 2630,
+      "sha256": "c8dcea0278c042ac2dfe9bd2a40f8fec1277df9b6e5c402612aa5063f4774b14"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_5_place_dp.json",
+      "byte_size": 2552,
+      "sha256": "7083b595f2ef238ae4f7f189e3d64f17759f47768607a533a079a612a242aea0"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/3_5_place_dp.log",
+      "byte_size": 7305,
+      "sha256": "ab1409ec237eaf41057fa37ea2bb9061cd38e624289e24b48c04496cf18321a4"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/4_1_cts.json",
+      "byte_size": 2650,
+      "sha256": "124bafaac965503943aded1b9934464f3405594f515ef172a874d3675fde5e13"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/4_1_cts.log",
+      "byte_size": 6034,
+      "sha256": "92d7379875a28c60c01a9c192bfcfb1276e6100230251d060dc16d25c5954641"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/5_1_grt.json",
+      "byte_size": 9753,
+      "sha256": "779ae1470da7181f2472062dae526ce13207fa988e59e6e9e389517dc4527d40"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/5_1_grt.log",
+      "byte_size": 18834,
+      "sha256": "43a1f06d7d0d09ad09b28a0a474bc39fb9434818b35ea10273a665df76d1e967"
+    },
+    {
+      "path": "raw/openroad/work/logs/sky130hd/attempt06_u0/base/5_2_route.tmp.log",
+      "byte_size": 40134,
+      "sha256": "9dbce5d23ab7fd793de4a1a09ac047ff4bcd467eb93f125d07d7983ae2c91f14"
+    },
+    {
+      "path": "raw/openroad/work/objects/sky130hd/attempt06_e0/base/abc.constr",
+      "byte_size": 51,
+      "sha256": "9fcc3bf9da3c85a2d6355e3c4fbc7ceafa4a6fb3978907fb15bcffe00ff05348"
+    },
+    {
+      "path": "raw/openroad/work/objects/sky130hd/attempt06_e0/base/copyright.txt",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/openroad/work/objects/sky130hd/attempt06_e0/base/klayout.lyt",
+      "byte_size": 16041,
+      "sha256": "769acc332b1042ae0a7e44458c82d046ed857797205bf959d4f279a7b30f3d72"
+    },
+    {
+      "path": "raw/openroad/work/objects/sky130hd/attempt06_e0/base/klayout_tech.lef",
+      "byte_size": 18031,
+      "sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e"
+    },
+    {
+      "path": "raw/openroad/work/objects/sky130hd/attempt06_u0/base/abc.constr",
+      "byte_size": 51,
+      "sha256": "9fcc3bf9da3c85a2d6355e3c4fbc7ceafa4a6fb3978907fb15bcffe00ff05348"
+    },
+    {
+      "path": "raw/openroad/work/objects/sky130hd/attempt06_u0/base/copyright.txt",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/2_floorplan_final.rpt",
+      "byte_size": 11649,
+      "sha256": "931e4a16ea1bdd4b3a476fd5d5a917f9289989f4d7d909e4cda491344be98bc5"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/3_detailed_place.rpt",
+      "byte_size": 24799,
+      "sha256": "ef47337bb23de8d84c27942bc5bcf92d4e09e0687e856ade52b9ef94a8ce16b4"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/3_global_place.rpt",
+      "byte_size": 14416,
+      "sha256": "5ee260ed516bd46030787e6c46bc9947cdf70e22b79f48803a89cc22a221e8f3"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/3_resizer.rpt",
+      "byte_size": 25048,
+      "sha256": "5fda8b414e2f52a7baf4d910b79ebf6139cf02e2135ab49d30d6225edf2e86e1"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/4_cts_final.rpt",
+      "byte_size": 26281,
+      "sha256": "443e35e310c3236a051e4c473b2f99c29ad1e4c29207e55b0328318c2b3aa4b6"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/5_global_route.rpt",
+      "byte_size": 26391,
+      "sha256": "494168cb1273425ad3ff185024f9c99531db7b95fc6354d6bef611b0678b101a"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/5_route_drc.rpt",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/6_finish.rpt",
+      "byte_size": 26337,
+      "sha256": "ffdd34a12fb25d1ef3a4d912d67eed993864036b78f22a2daaf9c22e9c4ef13b"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/cts_default_core_clk.webp",
+      "byte_size": 10134,
+      "sha256": "b08270a8580f1fb2cebd2a6f987188302815ba8e9d8496f4b6cce92f7522e581"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/cts_default_core_clk_layout.webp",
+      "byte_size": 7918,
+      "sha256": "a6bd7e220b5618207e94ec84025304348cfabf5dfa8283e6b107ddefba301518"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/drt_antennas.log",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_all.webp",
+      "byte_size": 667554,
+      "sha256": "5d619a67d2a2b5d4dcb9a073cbf49fc242eaf7d48ae1a79ca82b28d15048b2fc"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_clocks.webp",
+      "byte_size": 7916,
+      "sha256": "1643afac134f1725e1e606fc7d9acaf303b3679e7f2af480ff269b5b0b1903ca"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_congestion.webp",
+      "byte_size": 195580,
+      "sha256": "eeb7ce4e1fae79968423da97f08338c47f822550ec72b8668a45bed6edeb6eff"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_ir_drop.webp",
+      "byte_size": 110210,
+      "sha256": "2104d04feb6af7311bc799276c90f9c8ac4803c74d0545e454ae6e7ac000e3bd"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_placement.webp",
+      "byte_size": 137442,
+      "sha256": "f03511a25e5a224d4351bec0397bc249c74e37084ef4c1e30d04818c928e1ef5"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_resizer.webp",
+      "byte_size": 39708,
+      "sha256": "48dc17409f95bab633c53861c1e803a64bab31d5e98ddd298fd8c1b2b757433a"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_routing.webp",
+      "byte_size": 592222,
+      "sha256": "637622bd24cb5661c005fdde94c1e4a0e6e59e4397d0d8be05f96adb4441a667"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/final_worst_path.webp",
+      "byte_size": 556358,
+      "sha256": "b0a6bc95d55bc5e081b9383ad21a1182cac7608a5c46bf8cfa21967bc699e26d"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/grt_antennas.log",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/synth_check.txt",
+      "byte_size": 123,
+      "sha256": "e8b20a80f675169e67205f3840d555005995a2b67562ae8acaa2d18b07962c88"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_e0/base/synth_stat.txt",
+      "byte_size": 4116,
+      "sha256": "cf96541c3c448aa8e9e6bfc7393d8262f0449269cff4bac8ab46557dce0ed1f2"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/2_floorplan_final.rpt",
+      "byte_size": 6822,
+      "sha256": "21c802e92d32d00f94c4d21ce5da1dca70e54278001a6329bbbde156d41e2d3b"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/3_detailed_place.rpt",
+      "byte_size": 19694,
+      "sha256": "3edc48d6405f1be47aba67919baa90cfad5dcf758090919fb1bce9b60eab3ebd"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/3_global_place.rpt",
+      "byte_size": 7889,
+      "sha256": "6a3924db16a92c4147ec9f5e8710e8b6e04c280b1b0707c3bbecd0761d80bfd4"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/4_cts_final.rpt",
+      "byte_size": 21306,
+      "sha256": "dac3e20b2092173345cf862d5dc68a7816c29b4f1ef81a14f04c1e5991ef1c09"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/5_global_route.rpt",
+      "byte_size": 46818,
+      "sha256": "39fb3a388e5748371c9d9812f443c49e158a7e188b3e0771f1df6dde875d59e8"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/5_route_drc.rpt-10.rpt",
+      "byte_size": 44820,
+      "sha256": "badc35fe50dbed5da40e968158bd4fe882ebccb85e2876e5c1dfc8c39b10f147"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/5_route_drc.rpt-15.rpt",
+      "byte_size": 17939,
+      "sha256": "8b9183c39b53c70d49296e8f627c1ec9650aed5cb346376ecadfaac6911f8f5e"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/5_route_drc.rpt-5.rpt",
+      "byte_size": 74679,
+      "sha256": "c0dd8108f8da2f2d1b5bba5cc628994a60ed76a3ea1d6446952ad11d4c1c3e62"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/congestion-5.rpt",
+      "byte_size": 10112,
+      "sha256": "e551b9a36747b87f2bb26ed792cdd1616dee3d1e03fda08a4daf229baaf009b6"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/grt_antennas.log",
+      "byte_size": 14460,
+      "sha256": "b8b00204bd9f3319ea2155d7656ad4313daaa6af394f43ed6638cf24a5b4e5a6"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/synth_check.txt",
+      "byte_size": 123,
+      "sha256": "fbfbabcf913efc229a7c11915f1f3e8487e3a53d931ebd618be2cd0991c97281"
+    },
+    {
+      "path": "raw/openroad/work/reports/sky130hd/attempt06_u0/base/synth_stat.txt",
+      "byte_size": 1005,
+      "sha256": "f2325fd09eb682f40ae7ea4cf6f14b4abcb72dc91fb8e3aa39c20a3dab389d43"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/1_1_yosys_canonicalize.rtlil",
+      "byte_size": 1504556,
+      "sha256": "99c8df27f74bb22372b96a83c9723e9c4158ce5e0fc517fa07d583526e80b4ad"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/1_2_yosys.sdc",
+      "byte_size": 504,
+      "sha256": "c2c71558753e23ce5faba0e8dd50359a08335d6140470f9276b2a77e774e22fd"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/1_2_yosys.v",
+      "byte_size": 89148,
+      "sha256": "6306bcce7d60ac947273a64c7ac2273a9d4cee2c8d43617427f103354e62439f"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/1_synth.odb",
+      "byte_size": 2356768,
+      "sha256": "85080b67c19074d746643c5e3c08516539f532ed7ebb7f5a6b3bbd194a6a3829"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/1_synth.sdc",
+      "byte_size": 17867,
+      "sha256": "3cd990a6c001f49ebfb78eb66539cb3dbfbee2d6c5140f6e26f1ac5857c414fc"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_1_floorplan.odb",
+      "byte_size": 2386346,
+      "sha256": "7205349b1ccdcd694d53cf42cbb03287d1d354e920115c07bd75d843dabd3850"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_1_floorplan.sdc",
+      "byte_size": 17867,
+      "sha256": "3cd990a6c001f49ebfb78eb66539cb3dbfbee2d6c5140f6e26f1ac5857c414fc"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_2_floorplan_macro.odb",
+      "byte_size": 2387570,
+      "sha256": "533cfc75cd762f76e66289b3d510f8136d3a87abc65ff61df7e62d8748cf749a"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_2_floorplan_macro.tcl",
+      "byte_size": 185,
+      "sha256": "80eb770d8fc9f5f77bdc79f753e76f347a607539c411ac653eebc0dbb6878d26"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_3_floorplan_tapcell.odb",
+      "byte_size": 3934211,
+      "sha256": "235d3a8eda80ea81185b8ceb87ee5cb81dfe62673755708977a67d8f62cfb38b"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_4_floorplan_pdn.odb",
+      "byte_size": 6283621,
+      "sha256": "9c76c0b68059da049ee762ec2f47760170869b5d7b4368b7f74968aaf224ec86"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_floorplan.odb",
+      "byte_size": 6283621,
+      "sha256": "9c76c0b68059da049ee762ec2f47760170869b5d7b4368b7f74968aaf224ec86"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/2_floorplan.sdc",
+      "byte_size": 17867,
+      "sha256": "3cd990a6c001f49ebfb78eb66539cb3dbfbee2d6c5140f6e26f1ac5857c414fc"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_1_place_gp_skip_io.odb",
+      "byte_size": 6283621,
+      "sha256": "48625ccbc3752a0201c2b2a9d566db5f76a9bde702b6d357116a94ccd87277bc"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_2_place_iop.odb",
+      "byte_size": 6291589,
+      "sha256": "eaeecd3bbfa3a9da8298a854c9007fd6037fd8a8b64af531fe34bcb58e799c05"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_2_place_iop.tcl",
+      "byte_size": 13729,
+      "sha256": "29fed81e1b5c27e9147c3d14c0e5cd367c56793cc296f3cc6c2794b78cfc8b6e"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_3_place_gp.odb",
+      "byte_size": 6533487,
+      "sha256": "f60d7173731b724362bfe858d061b830e27ca1fd236d5f155483b7cea97399a7"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_4_place_resized.odb",
+      "byte_size": 6562505,
+      "sha256": "8204eb7cf41d1f873295436a16185d9d6959e34c8be5c87858e57c0b545bf8bf"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_5_place_dp.odb",
+      "byte_size": 6562505,
+      "sha256": "252ce3f2889b4d7d70cf54a66425b59ce13ba290e5c962cc8fc316252167e229"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_place.odb",
+      "byte_size": 6562505,
+      "sha256": "252ce3f2889b4d7d70cf54a66425b59ce13ba290e5c962cc8fc316252167e229"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/3_place.sdc",
+      "byte_size": 17867,
+      "sha256": "3cd990a6c001f49ebfb78eb66539cb3dbfbee2d6c5140f6e26f1ac5857c414fc"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/4_1_cts.odb",
+      "byte_size": 6582042,
+      "sha256": "7c1d86da04070ac84a8c5fc39e3bcf26d4cc603406184c0b7c79c79793028635"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/4_cts.odb",
+      "byte_size": 6582042,
+      "sha256": "7c1d86da04070ac84a8c5fc39e3bcf26d4cc603406184c0b7c79c79793028635"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/4_cts.sdc",
+      "byte_size": 17912,
+      "sha256": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/5_1_grt.odb",
+      "byte_size": 7885535,
+      "sha256": "f03e50dc62ddfa4b0bb8c46fa3814dda000d886e89ee958c2ec215eb12f85c2d"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/5_1_grt.sdc",
+      "byte_size": 17912,
+      "sha256": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/5_2_route.odb",
+      "byte_size": 8271336,
+      "sha256": "db37445ed033dad954bb63017de7fdb98b4a93616f852d6a1d108d7c4da7897b"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/5_3_fillcell.odb",
+      "byte_size": 26445773,
+      "sha256": "65715f8c32f71c56559b50940aa42ea60ee84543d3de70b0b47c3ac95484cb7c"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/5_route.odb",
+      "byte_size": 26445773,
+      "sha256": "65715f8c32f71c56559b50940aa42ea60ee84543d3de70b0b47c3ac95484cb7c"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/5_route.sdc",
+      "byte_size": 17912,
+      "sha256": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_1_fill.odb",
+      "byte_size": 26445773,
+      "sha256": "65715f8c32f71c56559b50940aa42ea60ee84543d3de70b0b47c3ac95484cb7c"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_1_fill.sdc",
+      "byte_size": 17912,
+      "sha256": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_1_merged.gds",
+      "byte_size": 55064438,
+      "sha256": "e44caee9c5f55e88d32d99cfa0f5f9dc3dae992535940978c81068a1d80e0bd0"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.def",
+      "byte_size": 16473908,
+      "sha256": "adff46fa6b6c79806ec7553da6f70f74e8645d3925669e39390605f401ce43cc"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.gds",
+      "byte_size": 55064438,
+      "sha256": "e44caee9c5f55e88d32d99cfa0f5f9dc3dae992535940978c81068a1d80e0bd0"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.odb",
+      "byte_size": 26445773,
+      "sha256": "27843e6328a5a9fc143009c424a60050a663128f9ff6d5324cea780112a0ee7b"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.sdc",
+      "byte_size": 17912,
+      "sha256": "e38b1f590237cf3f4f247268476991ab784c581d07d800e0f395e01c9d9971e8"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.spef",
+      "byte_size": 2388177,
+      "sha256": "99838da7495fb66e86e9a9c5418a4cd5b5725e1d8e736e0cff630282eeef002b"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.v",
+      "byte_size": 111784,
+      "sha256": "c82928785403a9194822c8f9d95f9932a4ff72e119a4cfc362a7ca53675b4c33"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/clock_period.txt",
+      "byte_size": 5,
+      "sha256": "dc1a600c48a24a74d5eac593b7695267b5253d65d95180f5e151329134b7b1b7"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/mem.json",
+      "byte_size": 654569,
+      "sha256": "bb921e88db89e074e77e9f64b468530c448fa795340265d74382b34e65a7d57c"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/route.guide",
+      "byte_size": 306347,
+      "sha256": "d7d4a06ac68a8e59acbf3f884f79b2ef75efeef9247ac2c5c238516853a904cf"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_e0/base/updated_clks.sdc",
+      "byte_size": 17866,
+      "sha256": "222425c29ef12b29f4cc01f4e187c39ed50b73eeb541ebd17977668a6ffbc08d"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/1_1_yosys_canonicalize.rtlil",
+      "byte_size": 1102826,
+      "sha256": "d77d13688140e117a7ce4ed5a17876f1f599ce232f96c8d57d2bc92015f28230"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/1_2_yosys.sdc",
+      "byte_size": 493,
+      "sha256": "c4128409f65fd287c20c2fc53bb717ffbb5796fbe6c31ae4936e0c38bbd12bc8"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/1_2_yosys.v",
+      "byte_size": 2568,
+      "sha256": "088cb645fa4f0213948621880f13e13957e2d5536138e03657cbaf27ca2ec971"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/1_synth.odb",
+      "byte_size": 2021575,
+      "sha256": "61aea03ff26befd5f373907661c8c549695097806acf0b973689bcb92527ff57"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/1_synth.sdc",
+      "byte_size": 17671,
+      "sha256": "2a460ab1520d32226fe311c4d0bd2a3f2c4d3149092af23454c1cc469cc20aff"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_1_floorplan.odb",
+      "byte_size": 2033749,
+      "sha256": "27497eb54877e14719fceb67644282f0e1219d8bc20d6f5793ac463204000b71"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_1_floorplan.sdc",
+      "byte_size": 17671,
+      "sha256": "2a460ab1520d32226fe311c4d0bd2a3f2c4d3149092af23454c1cc469cc20aff"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_2_floorplan_macro.odb",
+      "byte_size": 2034937,
+      "sha256": "f86e2ddfdda801309464bc68f51ef3cab0450372aec80654c021688d8646e298"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_2_floorplan_macro.tcl",
+      "byte_size": 74,
+      "sha256": "16c0c4575d279063c50b5b188b7144528966696cd2fd2dc024f5e8c099079094"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_3_floorplan_tapcell.odb",
+      "byte_size": 2733120,
+      "sha256": "e1302741cbbde3a50f1f0d05be0608de3a0957441fcac2506df49a2682aab597"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_4_floorplan_pdn.odb",
+      "byte_size": 3960895,
+      "sha256": "14a3e1f7d6e23943ac03b3ceb8e0e29d7a972c062ada256aaa6480e3415234be"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_floorplan.odb",
+      "byte_size": 3960895,
+      "sha256": "14a3e1f7d6e23943ac03b3ceb8e0e29d7a972c062ada256aaa6480e3415234be"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/2_floorplan.sdc",
+      "byte_size": 17671,
+      "sha256": "2a460ab1520d32226fe311c4d0bd2a3f2c4d3149092af23454c1cc469cc20aff"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_1_place_gp_skip_io.odb",
+      "byte_size": 3960895,
+      "sha256": "14a3e1f7d6e23943ac03b3ceb8e0e29d7a972c062ada256aaa6480e3415234be"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_2_place_iop.odb",
+      "byte_size": 3969151,
+      "sha256": "01733ffc7db8c75049b91b58086ddfdd9f29e38ef029f2e7fff9274149fa696a"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_2_place_iop.tcl",
+      "byte_size": 13596,
+      "sha256": "b2195a4f43a2d57b976e18d9a1b189325768976fe00d57363dfd693b2919dce0"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_3_place_gp.odb",
+      "byte_size": 4163526,
+      "sha256": "a1637cd2ab4f7e63cdda4d2ae9cbb44d3dbbb922c1c6ad3a6df72e1539178588"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_4_place_resized.odb",
+      "byte_size": 4163526,
+      "sha256": "a1637cd2ab4f7e63cdda4d2ae9cbb44d3dbbb922c1c6ad3a6df72e1539178588"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_5_place_dp.odb",
+      "byte_size": 4163526,
+      "sha256": "2ffc435049db99c8f13ced4ebef30499c90340f88138079ecc962a0e6c012882"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_place.odb",
+      "byte_size": 4163526,
+      "sha256": "2ffc435049db99c8f13ced4ebef30499c90340f88138079ecc962a0e6c012882"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/3_place.sdc",
+      "byte_size": 17671,
+      "sha256": "2a460ab1520d32226fe311c4d0bd2a3f2c4d3149092af23454c1cc469cc20aff"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/4_1_cts.odb",
+      "byte_size": 4166447,
+      "sha256": "b53c11d143f08491f425d4e0d22f2211295f813996ae70ddcade03f1d522716b"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/4_cts.odb",
+      "byte_size": 4166447,
+      "sha256": "b53c11d143f08491f425d4e0d22f2211295f813996ae70ddcade03f1d522716b"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/4_cts.sdc",
+      "byte_size": 17671,
+      "sha256": "2a460ab1520d32226fe311c4d0bd2a3f2c4d3149092af23454c1cc469cc20aff"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/5_1_grt.odb",
+      "byte_size": 5341468,
+      "sha256": "445b1b1e1b4bbdd8380881777cc4ea42a2e0c520e654a6df3d7f03994bd5874f"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/5_1_grt.sdc",
+      "byte_size": 17716,
+      "sha256": "83b9951d04766eeb85d673794aefe8a3b540af1686222a1a5017cb62e27a31ad"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/clock_period.txt",
+      "byte_size": 5,
+      "sha256": "dc1a600c48a24a74d5eac593b7695267b5253d65d95180f5e151329134b7b1b7"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/mem.json",
+      "byte_size": 6445,
+      "sha256": "4ca50116bc95cf2e4a5e4f8333dd2a2e2a3c264082674d584d392380e8fbb173"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/route.guide",
+      "byte_size": 193107,
+      "sha256": "129584f8cc4a43c315ff7ce9f546ec4516173db8379b30cb4293f1ef6cb8a0d9"
+    },
+    {
+      "path": "raw/openroad/work/results/sky130hd/attempt06_u0/base/updated_clks.sdc",
+      "byte_size": 17670,
+      "sha256": "199562760436b8cbed6394092743d7e64836c4aa86cd670d80bd31a3e30c3f88"
+    },
+    {
+      "path": "raw/physical/drc/sram22_256x64m4w8.log",
+      "byte_size": 65607,
+      "sha256": "6b1f370c36e4517e3b33c7c62fbb45d4e418b64bbbeb1f2806c34c1975468697"
+    },
+    {
+      "path": "raw/physical/drc/sram22_256x64m4w8.lyrdb",
+      "byte_size": 10116428,
+      "sha256": "5942cfeb760e431b5c35d30a83ca7be5ca6ec425bee698610e6a3b6cb7631042"
+    },
+    {
+      "path": "raw/physical/drc/sram22_256x8m8w1.log",
+      "byte_size": 65499,
+      "sha256": "2182271f7b277d2d9b00b32d42fd58353b78c54d2a0602f11e18365556d739e0"
+    },
+    {
+      "path": "raw/physical/drc/sram22_256x8m8w1.lyrdb",
+      "byte_size": 1722064,
+      "sha256": "dcbe958aa3600b8703b1dd0762401222a56c2c048a66123ceef67366d813de60"
+    },
+    {
+      "path": "raw/physical/lvs/sram22_256x8m8w1.log",
+      "byte_size": 259319,
+      "sha256": "6d8e9bfc4b226597e50baff33984459e3db82abd9e7a33a0a9115d7f47fc9401"
+    },
+    {
+      "path": "raw/physical/lvs/sram22_256x8m8w1_extracted.cir",
+      "byte_size": 1695987,
+      "sha256": "e99da32c54c0689a8782db3828986734a219caef4e9dd37a5668c4fe600f28fd"
+    },
+    {
+      "path": "raw/qualification/drc_locality_analysis.json",
+      "byte_size": 5459,
+      "sha256": "b1ab909dbd376c3e3ef625f9fee73b492a97927d23a35c983c886c0642e122a3"
+    },
+    {
+      "path": "raw/qualification/interface_crosscheck.json",
+      "byte_size": 60906,
+      "sha256": "dabc24f6f0e023004ad42a46566c6e54460619226877e5e42d6a27a2a2442746"
+    },
+    {
+      "path": "raw/qualification/sram22_256x64m4w8_gds_decompression.json",
+      "byte_size": 412,
+      "sha256": "795c4e6fd14d897f7d32c1d8e9d028a72afc472cdd56bacc555e010aba3ec2aa"
+    },
+    {
+      "path": "raw/qualification/sram22_256x64m4w8_gds_inventory.json",
+      "byte_size": 20845,
+      "sha256": "905ead11b6336dcdb3342a358c3e0243965a35a390b0427834d5c637a7eeb412"
+    },
+    {
+      "path": "raw/qualification/sram22_256x8m8w1_gds_decompression.json",
+      "byte_size": 408,
+      "sha256": "366ff1551c3f7085dc172ce11aac60419f2a270e01eef05d873bacf39e4c1671"
+    },
+    {
+      "path": "raw/qualification/sram22_256x8m8w1_gds_inventory.json",
+      "byte_size": 12088,
+      "sha256": "a73fc4e22eb871bafdd1971a9e799d4820102f49e8e635c9000a5197f0f1a36d"
+    },
+    {
+      "path": "raw/qualification/timing_view_qualification.json",
+      "byte_size": 13720,
+      "sha256": "730d3e1f5a1d71c2531017f73586f6cf9ff6d1e713daff047ece79d01b5cf0d7"
+    },
+    {
+      "path": "raw/regression/campaign_local_tests.log",
+      "byte_size": 259,
+      "sha256": "e66f951c0c5a19dec9f103d91a67129efbec5fcc290100d51f3b07e3cde6ee70"
+    },
+    {
+      "path": "raw/regression/full_pytest.log",
+      "byte_size": 5117,
+      "sha256": "9622d7549d7acf8e872440185639fac421e48fa63767adf8122bdfe418304c75"
+    },
+    {
+      "path": "raw/regression/make.log",
+      "byte_size": 374,
+      "sha256": "ac8c327bf6d8adc1ab513bcfc22ec5fe04dd46813536e8cea148eea7ec01db7a"
+    },
+    {
+      "path": "raw/regression/make_test.log",
+      "byte_size": 6584,
+      "sha256": "d9d2921c40c30f3fd9b77397df8eb400412a5c573d1d54b2eedcae1121378b97"
+    },
+    {
+      "path": "rtl/ecc_sram_256x72_sram22.sv",
+      "byte_size": 2261,
+      "sha256": "e7b7de621dda190699f5d1554c8519257255d04a3401c3320b6c3a0d5770297d"
+    },
+    {
+      "path": "rtl/unprotected_sram_256x64_sram22.sv",
+      "byte_size": 576,
+      "sha256": "cae6cd12414443ac012a95e8f9bffa86660343173fe18c7e1917dd8ad2181e84"
+    },
+    {
+      "path": "scripts/analyze_drc_locality.py",
+      "byte_size": 4601,
+      "sha256": "38f0f58f701c295567965b18ca80b041bd5f6913d35bbf0f79d26ff6f716a843"
+    },
+    {
+      "path": "scripts/build_evidence_manifest.py",
+      "byte_size": 1470,
+      "sha256": "cd676b578d4f3150cb90c6afbc82124b7958ecb2493ca4f4b5f56264c3abf7ba"
+    },
+    {
+      "path": "scripts/carry_forward_failed_resize.py",
+      "byte_size": 2423,
+      "sha256": "8dc8db4741d1e4acbc32d32da728223f50c07df21d269e66d1c05abf6dc9dd24"
+    },
+    {
+      "path": "scripts/gds_inventory.py",
+      "byte_size": 2381,
+      "sha256": "0e47504b394cab9436e82605650f67f6316c92b82e105bee172fc6d2be923721"
+    },
+    {
+      "path": "scripts/qualify_published_views.py",
+      "byte_size": 16032,
+      "sha256": "bb47fd224135ee191d509b66ba2ba762362789d5005279da15797b23918c72f9"
+    },
+    {
+      "path": "scripts/summarize_openroad.py",
+      "byte_size": 7457,
+      "sha256": "7110ca3ffb0172d97e9aa0d2a35601339f65733753969ecb3cbf92a85f4fddfd"
+    },
+    {
+      "path": "scripts/verify_prior_repository_evidence.py",
+      "byte_size": 3199,
+      "sha256": "4d12611373997848e175e077d99b1cd7cd47ec5cbc63adfb18d3b1379bf55948"
+    },
+    {
+      "path": "source_checkout/.gitignore",
+      "byte_size": 143,
+      "sha256": "ea5fe24f83e80549c3c6e875be1ff3d15017e3b80d8410f59c6a0f73072a8fc8"
+    },
+    {
+      "path": "source_checkout/LICENSE",
+      "byte_size": 1523,
+      "sha256": "9222ee3785107b85fc54b218a445d1466fa43a651fc7e2a1acfadf0030ffff8e"
+    },
+    {
+      "path": "source_checkout/README.md",
+      "byte_size": 1131,
+      "sha256": "c2aea4a1413259ff7de9128fd99421c45b0c2ba269c3c54019e0f347aff118c1"
+    },
+    {
+      "path": "source_checkout/copy.sh",
+      "byte_size": 1674,
+      "sha256": "90b0a8df4e03205870c7105cfdcf1d24d0949fe57214fc3bbad775a1d7d424f7"
+    },
+    {
+      "path": "source_checkout/sram22.spice",
+      "byte_size": 97504506,
+      "sha256": "cc6bba3601b771d604ae49c20b9fc25ea1cbad7ac132dbeecf3b530ed19dd593"
+    },
+    {
+      "path": "source_checkout/sram22.spice.gz",
+      "byte_size": 4938949,
+      "sha256": "338f451932d3e6a41411590b0c8602e2f002808acb922205d89cfc3c6de7f2c4"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.gds.gz",
+      "byte_size": 6455100,
+      "sha256": "6f54a4ac22de3aa493dcdd298a5fb6176fa24bb0fed9b65090c154db4dc384a1"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef",
+      "byte_size": 125962,
+      "sha256": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice",
+      "byte_size": 1853804,
+      "sha256": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v",
+      "byte_size": 1712,
+      "sha256": "c8cc1f37c13865b410010870b684d82b39272189c937f32e59701829d205471d"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_ff_n40C_1v95.lib",
+      "byte_size": 81241,
+      "sha256": "b1aecf549a589b285f2238dcba19654e3324da90232e98fa6bb5cee5a7f17a75"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_ss_100C_1v60.lib",
+      "byte_size": 80669,
+      "sha256": "afd1ebdc2d793eebe326e11b13c2c0d5644ff15900eb880580068dadea4e7e64"
+    },
+    {
+      "path": "source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib",
+      "byte_size": 81787,
+      "sha256": "e800b5681e8d8c2e263e6fafb0f58ddf7754e185193ac4d69543eb4a229d1fcb"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.gds.gz",
+      "byte_size": 1526895,
+      "sha256": "0cb381ffde01c813b61b708ea1b1edb41e6d49a0851955352dc02978c80c00a5"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef",
+      "byte_size": 69254,
+      "sha256": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.spice",
+      "byte_size": 305115,
+      "sha256": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v",
+      "byte_size": 1683,
+      "sha256": "06d28e0f9df736734666d1f881102a84824208db14f09af8bf17de54aaffdba0"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_ff_n40C_1v95.lib",
+      "byte_size": 50952,
+      "sha256": "4d3a565198706fb0803b660af817ce53dc2f5868cf10d507c07da790fcc0fbb9"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_ss_100C_1v60.lib",
+      "byte_size": 50323,
+      "sha256": "9dde364de6decf0107e31422cb4c6073abd8a6265377098414d5193eb202a94b"
+    },
+    {
+      "path": "source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib",
+      "byte_size": 51793,
+      "sha256": "23decde6ad582e9a9b1db7015dad9b116a20d4345065215ecf24699a952415ec"
+    },
+    {
+      "path": "source_checkout/unzip.sh",
+      "byte_size": 141,
+      "sha256": "d62b2a774faf699101728991b3e5813b86b72d9f14cd571d9cac7a5d0744618f"
+    },
+    {
+      "path": "source_checkout/zip.sh",
+      "byte_size": 85,
+      "sha256": "9155d8965297753a1450bb5dda7ab3d6d2631f0ce161de9629b2e956d16701fa"
+    },
+    {
+      "path": "tests/tb_attempt06_sram22.sv",
+      "byte_size": 6723,
+      "sha256": "6cbb80137a6dcda32a02a5efd2cf16857e5454c196da971fed0646dc1dcd234f"
+    },
+    {
+      "path": "tests/test_attempt06_artifacts.py",
+      "byte_size": 3415,
+      "sha256": "6c9d84a9c53fc329157c045cdd996e9e8c82105a66678d8c218b519267fac3f8"
+    }
+  ]
+}

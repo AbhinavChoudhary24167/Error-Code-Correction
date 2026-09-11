@@ -1,0 +1,77 @@
+{
+  "campaign": "green_v3_2_matched_openram_orfs_validation",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "generated_on": "2026-09-08",
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "records": [
+    {
+      "claim": "fresh_functional_validation",
+      "enabled": true,
+      "evidence": "Fresh deterministic RTL regressions and memory round trips"
+    },
+    {
+      "claim": "matched_multiseed_orfs_implementation",
+      "enabled": true,
+      "evidence": "All planned architecture \u00d7 clock \u00d7 seed records route and emit GDS"
+    },
+    {
+      "claim": "fresh_openram_generated",
+      "enabled": false,
+      "evidence": "Fresh OpenRAM run record"
+    },
+    {
+      "claim": "E4_physical_tool_evidence",
+      "enabled": true,
+      "evidence": "Fresh ORFS run records"
+    },
+    {
+      "claim": "E5_activity_complete_energy",
+      "enabled": false,
+      "evidence": "No all-of activity-complete operation-class campaign"
+    },
+    {
+      "claim": "silicon_validated",
+      "enabled": false,
+      "evidence": "No silicon evidence"
+    },
+    {
+      "claim": "radiation_validated",
+      "enabled": false,
+      "evidence": "No particle-beam evidence"
+    },
+    {
+      "claim": "physical_SDC_DUE_FIT",
+      "enabled": false,
+      "evidence": "No qualified event rate/topology/fluence evidence"
+    },
+    {
+      "claim": "Qcrit",
+      "enabled": false,
+      "evidence": "No charge-collection experiment"
+    },
+    {
+      "claim": "SKY130_manufacturing_lifecycle_carbon",
+      "enabled": false,
+      "evidence": "No qualified manufacturing inventory"
+    },
+    {
+      "claim": "interleaver_reliability_improvement",
+      "enabled": false,
+      "evidence": "No routed implementation and no topology map"
+    },
+    {
+      "claim": "qualified_sustainability_front",
+      "enabled": false,
+      "evidence": "Mandatory reliability, E5, and lifecycle dimensions remain blocked"
+    },
+    {
+      "claim": "global_winner",
+      "enabled": false,
+      "evidence": "NO_GLOBAL_WINNER_QUALIFIED"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,57 @@
+Netgen 1.5.221 compiled on Tue Jun  7 12:11:19 PDT 2022
+Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+Generating JSON file result
+Reading netlist file sky130_fd_bd_sram__sram_sp_colenda.spice
+Call to undefined subcircuit sky130_fd_pr__special_nfet_pass
+Creating placeholder cell definition.
+Reading netlist file sky130_fd_bd_sram__sram_sp_colenda.schematic.spice
+Call to undefined subcircuit sky130_fd_pr__special_nfet_pass
+Creating placeholder cell definition.
+Reading setup file setup.tcl
+Model sky130_fd_pr__special_nfet_pass pin 1 == 3
+No property mult found for device sky130_fd_pr__special_nfet_pass
+No property sa found for device sky130_fd_pr__special_nfet_pass
+No property sb found for device sky130_fd_pr__special_nfet_pass
+No property sd found for device sky130_fd_pr__special_nfet_pass
+No property nf found for device sky130_fd_pr__special_nfet_pass
+No property nrd found for device sky130_fd_pr__special_nfet_pass
+No property nrs found for device sky130_fd_pr__special_nfet_pass
+No property area found for device sky130_fd_pr__special_nfet_pass
+No property perim found for device sky130_fd_pr__special_nfet_pass
+No property topography found for device sky130_fd_pr__special_nfet_pass
+Model sky130_fd_pr__special_nfet_pass pin 1 == 3
+No property as found for device sky130_fd_pr__special_nfet_pass
+No property ad found for device sky130_fd_pr__special_nfet_pass
+No property ps found for device sky130_fd_pr__special_nfet_pass
+No property pd found for device sky130_fd_pr__special_nfet_pass
+No property mult found for device sky130_fd_pr__special_nfet_pass
+No property sa found for device sky130_fd_pr__special_nfet_pass
+No property sb found for device sky130_fd_pr__special_nfet_pass
+No property sd found for device sky130_fd_pr__special_nfet_pass
+No property nf found for device sky130_fd_pr__special_nfet_pass
+No property nrd found for device sky130_fd_pr__special_nfet_pass
+No property nrs found for device sky130_fd_pr__special_nfet_pass
+No property area found for device sky130_fd_pr__special_nfet_pass
+No property perim found for device sky130_fd_pr__special_nfet_pass
+No property topography found for device sky130_fd_pr__special_nfet_pass
+Comparison output logged to file lvs.report
+Logging to file "lvs.report" enabled
+Circuit sky130_fd_pr__special_nfet_pass contains no devices.
+
+Contents of circuit 1:  Circuit: 'sky130_fd_bd_sram__sram_sp_colenda'
+Circuit sky130_fd_bd_sram__sram_sp_colenda contains 1 device instances.
+  Class: sky130_fd_pr__special_nfet_pass instances:   1
+Circuit contains 3 nets, and 4 disconnected pins.
+Contents of circuit 2:  Circuit: 'sky130_fd_bd_sram__sram_sp_colenda'
+Circuit sky130_fd_bd_sram__sram_sp_colenda contains 1 device instances.
+  Class: sky130_fd_pr__special_nfet_pass instances:   1
+Circuit contains 3 nets, and 4 disconnected pins.
+
+Circuit 1 contains 1 devices, Circuit 2 contains 1 devices.
+Circuit 1 contains 3 nets,    Circuit 2 contains 3 nets.
+
+Netlists match uniquely.
+Result: Circuits match uniquely.
+Logging to file "lvs.report" disabled
+LVS Done.

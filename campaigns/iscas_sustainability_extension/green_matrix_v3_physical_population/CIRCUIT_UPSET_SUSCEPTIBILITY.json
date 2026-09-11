@@ -1,0 +1,19 @@
+{
+  "blocking_reason": "no reproducible isolated-bitcell injection deck, qualified PDK model-card bundle, state/PVT sweep, convergence audit, or waveform provenance was executed",
+  "causal_separation": [
+    "particle generation",
+    "charge deposition",
+    "charge collection",
+    "circuit upset",
+    "logical word corruption",
+    "ECC outcome"
+  ],
+  "forbidden_inference": "SPICE current injection is not a measured particle spectrum or event rate",
+  "model_card_bundle_qualified_in_campaign": false,
+  "qcrit_c": null,
+  "qcrit_status": "E0_BLOCKED",
+  "schema_version": "3.1.0",
+  "spice_source": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice",
+  "sram_spice_available": true,
+  "transient_injection_waveform_provenance": "UNAVAILABLE"
+}

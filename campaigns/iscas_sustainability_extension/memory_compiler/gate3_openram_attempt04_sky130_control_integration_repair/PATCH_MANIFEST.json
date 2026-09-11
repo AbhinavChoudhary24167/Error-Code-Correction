@@ -1,0 +1,95 @@
+{
+  "algorithm": "sha256",
+  "repair_candidate": "exact upstream sky130_fd_bd_sram commit 8dccd8d8ddb0a9de1b02207b2cd0c0d697807aa9",
+  "application_policy": "campaign-local OpenRAM source copies only",
+  "installed_openram_modified": false,
+  "installed_pdk_modified": false,
+  "verification_decks_modified": false,
+  "control_configuration_modified": false,
+  "patch_count": 10,
+  "patches": [
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.sp",
+      "before_sha256": "54e7f75b23ed9d122109616868c458d2c3019a41d048a837a4a2706957bc4ab6",
+      "after_sha256": "d92308c520bd23aaa657d9460828adef541454b1507870083d7908603f7d5d15",
+      "mechanism_tested": "special PFET property normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_replica.sp",
+      "before_sha256": "86d76d052da050307971fa3babfe52a5a2f0f493c5d5b2c54e10672e17d92182",
+      "after_sha256": "4bf8b680988828360ca6627fa3f5f93b137fd2e79edd18b717d6527eea95d1b2",
+      "mechanism_tested": "special PFET property normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.sp",
+      "before_sha256": "224bb6318c201c7c901ecdefd630c81de2037ad2f9a33f1056ed7a9cff645265",
+      "after_sha256": "ce1f7b2ef76001072e73caecf6ba2117577cb80d960df01d972d8e9e374f9153",
+      "mechanism_tested": "special PFET property normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__openram_sp_cell_opt1a_replica.sp",
+      "before_sha256": "91de9e91ebc0d1853cb620d4f605fa693dca176438d7aca64cfa57826264250a",
+      "after_sha256": "5323beb96d7a9b3d3014a0d9a6aa56346d710f21e11f70a1906c3cf5b776537a",
+      "mechanism_tested": "special PFET property normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+      "before_sha256": "2164e8fe683e76f729eb1853fb431425e4d7c70ac531f802c07470afb8b331b6",
+      "after_sha256": "7c527d2f59dcdf99257fd8ad2afb5e86aa4eedae9a2b9874040082ad72a18a56",
+      "mechanism_tested": "special PFET property normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_cell_opt1a.sp",
+      "before_sha256": "e17619d42f527b3bfc33b40f57c1a25b8790292253fe6f68c2d7d345b98a93f0",
+      "after_sha256": "034037b5e2c79e1a38d8985fc4235552fcd8784a731f84e3476e7155f873e6ea",
+      "mechanism_tested": "special PFET property normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_colend.sp",
+      "before_sha256": "f088f201b296e426ca494c5b304be741b039154676d896caa1e68c2e89b5e8f3",
+      "after_sha256": "8dc851b4f032dc83f35464d8b6b2fd580899d7821b0027bb6c96f47368f0a956",
+      "mechanism_tested": "special NFET width/length normalization"
+    },
+    {
+      "phase": "P1",
+      "target": "technology/sky130/lvs_lib/sky130_fd_bd_sram__sram_sp_colenda.sp",
+      "before_sha256": "578e81abd9b2445c664092e2322be84dece837e0e7f2f5494cbd0c774d50f77a",
+      "after_sha256": "ef8e8f6009c8ea451284d504912385c7fa6da9d98909f1c87a5fa49057d7e600",
+      "mechanism_tested": "special NFET width/length normalization"
+    },
+    {
+      "phase": "P2",
+      "target": "technology/sky130/maglef_lib/sky130_fd_bd_sram__openram_sp_cell_opt1_dummy.mag",
+      "before_sha256": "34b065af3d17a5c380d76713c065a5946cb658f5a638f3422b7f379b1a24da61",
+      "after_sha256": "0f71817a368c48f3498df21d99f2d91423db71ec99d35f9d1366168d6725bbcf",
+      "mechanism_tested": "remove upstream-identified dummy locali/obsli abstract rectangles"
+    },
+    {
+      "phase": "P2",
+      "target": "technology/sky130/sp_lib/sky130_fd_bd_sram__sram_sp_cell_opt1.sp",
+      "before_sha256": "06d9a60f321394645457bbb0d3c1eca4f9f858d2818d62ecf1df855820dd5418",
+      "after_sha256": "2aef1164f8fb3ed06f2215a5ae780368e053be4e100105d81d62f86cbcc3e93b",
+      "mechanism_tested": "synchronize ordinary bitcell SPICE properties with upstream LVS fix"
+    }
+  ],
+  "unified_diffs": [
+    {
+      "path": "raw/patches/p1_selected/lvs_views.patch",
+      "byte_size": 11720,
+      "sha256": "884d6b5640d092506ddb8797e3b8e1cf0f633a7503359f8645abf2e9b323dce2"
+    },
+    {
+      "path": "raw/patches/p2_complete_upstream/upstream_remaining.patch",
+      "byte_size": 1554,
+      "sha256": "f385f7592ce4b0107ca488c6b104fd2c3d3bc00103c531ff95bfac8c4e70d5f5"
+    }
+  ],
+  "outcome": "NEGATIVE_DIAGNOSTIC_ONLY_NOT_AN_ACCEPTED_REPAIR"
+}

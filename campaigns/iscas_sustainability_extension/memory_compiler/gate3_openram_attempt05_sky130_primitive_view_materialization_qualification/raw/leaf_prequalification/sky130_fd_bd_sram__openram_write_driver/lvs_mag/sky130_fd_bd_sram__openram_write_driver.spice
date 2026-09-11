@@ -1,0 +1,22 @@
+* NGSPICE file created from sky130_fd_bd_sram__openram_write_driver.ext - technology: sky130A
+
+.subckt sky130_fd_bd_sram__openram_write_driver BL BR DIN EN GND_uq0 GND_uq1 VDD_uq0
++ VDD
+X0 a_213_736# EN a_129_736# GND_uq1 sky130_fd_pr__nfet_01v8 ad=0.1595p pd=1.68u as=0.1485p ps=1.64u w=0.55u l=0.15u
+X1 a_271_690# DIN GND_uq0 GND_uq1 sky130_fd_pr__nfet_01v8 ad=0.1044p pd=1.3u as=0.1773p ps=1.8u w=0.36u l=0.15u
+X2 VDD a_41_1120# a_121_1585# VDD sky130_fd_pr__pfet_01v8 ad=0.319p pd=3.36u as=0.1485p ps=1.64u w=0.55u l=0.15u
+X3 a_271_690# DIN VDD_uq0 VDD_uq0 sky130_fd_pr__pfet_01v8 ad=0.15125p pd=1.65u as=0.308p ps=3.32u w=0.55u l=0.15u
+X4 a_129_736# a_271_690# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.29975p pd=3.29u as=0p ps=0u w=0.55u l=0.15u
+X5 a_41_1120# EN VDD_uq0 VDD_uq0 sky130_fd_pr__pfet_01v8 ad=0.1595p pd=1.68u as=0p ps=0u w=0.55u l=0.15u
+X6 BR a_121_1585# GND_uq1 GND_uq1 sky130_fd_pr__nfet_01v8 ad=0.27p pd=2.54u as=0.5539p ps=5.56u w=1u l=0.15u
+X7 a_183_1687# a_129_736# GND_uq1 GND_uq1 sky130_fd_pr__nfet_01v8 ad=0.0972p pd=1.26u as=0p ps=0u w=0.36u l=0.15u
+X8 GND_uq0 DIN a_145_492# GND_uq1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1595p ps=1.68u w=0.55u l=0.15u
+X9 VDD EN a_129_736# VDD sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+X10 GND_uq1 a_271_690# a_213_736# GND_uq1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+X11 a_183_1687# a_129_736# VDD VDD sky130_fd_pr__pfet_01v8 ad=0.1485p pd=1.64u as=0p ps=0u w=0.55u l=0.15u
+X12 GND_uq1 a_183_1687# BL GND_uq1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.27p ps=2.54u w=1u l=0.15u
+X13 GND_uq1 a_41_1120# a_121_1585# GND_uq1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.0972p ps=1.26u w=0.36u l=0.15u
+X14 VDD_uq0 DIN a_41_1120# VDD_uq0 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+X15 a_145_492# EN a_41_1120# GND_uq1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1485p ps=1.64u w=0.55u l=0.15u
+.ends
+

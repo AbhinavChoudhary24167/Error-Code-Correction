@@ -1,0 +1,856 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib
+read_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/5_1_grt.odb
+read_sdc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/5_1_grt.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+detailed_route -output_drc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/reports/sky130hd/attempt06_e0/base/5_route_drc.rpt -output_maze /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     443
+Number of vias:       159
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+
+Design:                   e0_sram22_top
+Die area:                 ( 0 0 ) ( 1300000 600000 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     7512
+Number of terminals:      144
+Number of snets:          2
+Number of nets:           1278
+
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[6]
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[7] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[8] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[9] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[10] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[11] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[12] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[13] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[14] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[15] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[16]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[17]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[18]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[19]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[20]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[21]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[22]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[23]
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[24] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[25] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[26] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[27] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[28] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[29] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[30] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[31] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[32] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[33]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[34]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[35]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[36]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[37]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[38]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[39]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[40]
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[41] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[42] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[43] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[44] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[45] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[46] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[47] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[48] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[49] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[50]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[51]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[52]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[53]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[54]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[55]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[56]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[57]
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[58] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[59] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[60] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[61] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[62] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/dout[63] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[2]
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[3] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[4] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[5] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[6] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[7] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[8] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[9] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[10] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[11] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[16]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[17]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[18]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[19]
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[20] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[21] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[22] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[23] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[24] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[25] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[26] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[27] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[28] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[29]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[30]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[31]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[32]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[33]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[34]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[35]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[36]
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[37] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[38] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[39] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[40] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[41] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[42] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[43] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[44] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[45] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[46]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[47]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[48]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[49]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[50]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[51]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[52]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[53]
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[54] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[55] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[56] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[57] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[58] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[59] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[60] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[61] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/din[62] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[63]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[0]
+[WARNING DRT-0418] Term u_protected_memory.u_data/wmask[1] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[2]
+[WARNING DRT-0418] Term u_protected_memory.u_data/wmask[3] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_data/wmask[5] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[6]
+[WARNING DRT-0418] Term u_protected_memory.u_data/wmask[7] has no pins on routing grid
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 93.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 54564.
+[INFO DRT-0033] mcon shape region query size = 28676.
+[INFO DRT-0033] met1 shape region query size = 22502.
+[INFO DRT-0033] via shape region query size = 32220.
+[INFO DRT-0033] met2 shape region query size = 26565.
+[INFO DRT-0033] via2 shape region query size = 51468.
+[INFO DRT-0033] met3 shape region query size = 33061.
+[INFO DRT-0033] via3 shape region query size = 50765.
+[INFO DRT-0033] met4 shape region query size = 13086.
+[INFO DRT-0033] via4 shape region query size = 1974.
+[INFO DRT-0033] met5 shape region query size = 2058.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 871 pins.
+[INFO DRT-0081]   Complete 91 unique inst patterns.
+[INFO DRT-0084]   Complete 857 groups.
+#scanned instances     = 7512
+#unique  instances     = 93
+#stdCellGenAp          = 2648
+#stdCellValidPlanarAp  = 30
+#stdCellValidViaAp     = 1943
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2952
+#instTermValidViaApCnt = 0
+#macroGenAp            = 426
+#macroValidPlanarAp    = 328
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:52, elapsed time = 00:00:13, memory = 277.14 (MB), peak = 276.50 (MB)
+
+[INFO DRT-0157] Number of guides:     8867
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 188 STEP 6900 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 86 STEP 6900 ;
+[INFO DRT-0028]   Complete FR_MASTERSLICE.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete li1.
+[INFO DRT-0028]   Complete mcon.
+[INFO DRT-0028]   Complete met1.
+[INFO DRT-0028]   Complete via.
+[INFO DRT-0028]   Complete met2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete met3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete met4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete met5.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete FR_MASTERSLICE (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete li1 (guide).
+[INFO DRT-0035]   Complete mcon (guide).
+[INFO DRT-0035]   Complete met1 (guide).
+[INFO DRT-0035]   Complete via (guide).
+[INFO DRT-0035]   Complete met2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete met3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete met4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete met5 (guide).
+[INFO DRT-0036] FR_MASTERSLICE guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] li1 guide region query size = 2654.
+[INFO DRT-0036] mcon guide region query size = 0.
+[INFO DRT-0036] met1 guide region query size = 2566.
+[INFO DRT-0036] via guide region query size = 0.
+[INFO DRT-0036] met2 guide region query size = 1509.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] met3 guide region query size = 417.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] met4 guide region query size = 214.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] met5 guide region query size = 14.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 279.67 (MB), peak = 279.12 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 4377 vertical wires in 4 frboxes and 2997 horizontal wires in 2 frboxes.
+[INFO DRT-0186] Done with 657 vertical wires in 4 frboxes and 895 horizontal wires in 2 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:00, memory = 352.85 (MB), peak = 355.28 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 352.85 (MB), peak = 355.28 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 360.20 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:01, memory = 380.38 (MB).
+    Completing 30% with 211 violations.
+    elapsed time = 00:00:10, memory = 366.51 (MB).
+    Completing 40% with 211 violations.
+    elapsed time = 00:00:11, memory = 407.89 (MB).
+    Completing 50% with 211 violations.
+    elapsed time = 00:00:11, memory = 407.89 (MB).
+    Completing 60% with 381 violations.
+    elapsed time = 00:00:20, memory = 393.54 (MB).
+    Completing 70% with 381 violations.
+    elapsed time = 00:00:21, memory = 407.82 (MB).
+    Completing 80% with 474 violations.
+    elapsed time = 00:00:21, memory = 407.82 (MB).
+    Completing 90% with 474 violations.
+    elapsed time = 00:00:22, memory = 424.61 (MB).
+    Completing 100% with 552 violations.
+    elapsed time = 00:00:23, memory = 424.61 (MB).
+[INFO DRT-0199]   Number of violations = 596.
+Viol/Layer        met1   met2   met3   met4   met5
+Metal Spacing       96     24     13      3      1
+Recheck             31      7      6      0      0
+Short              347     58     10      0      0
+[INFO DRT-0267] cpu time = 00:00:39, elapsed time = 00:00:24, memory = 760.73 (MB), peak = 760.22 (MB)
+Total wire length = 73794 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20472 um.
+Total wire length on LAYER met2 = 38425 um.
+Total wire length on LAYER met3 = 8023 um.
+Total wire length on LAYER met4 = 6671 um.
+Total wire length on LAYER met5 = 201 um.
+Total number of vias = 7023.
+Up-via summary (total 7023):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2964
+           met1    3279
+           met2     435
+           met3     319
+           met4      26
+-----------------------
+               7023
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 596 violations.
+    elapsed time = 00:00:00, memory = 760.73 (MB).
+    Completing 20% with 596 violations.
+    elapsed time = 00:00:00, memory = 760.73 (MB).
+    Completing 30% with 577 violations.
+    elapsed time = 00:00:03, memory = 760.73 (MB).
+    Completing 40% with 577 violations.
+    elapsed time = 00:00:03, memory = 793.36 (MB).
+    Completing 50% with 577 violations.
+    elapsed time = 00:00:24, memory = 769.25 (MB).
+    Completing 60% with 567 violations.
+    elapsed time = 00:00:25, memory = 770.73 (MB).
+    Completing 70% with 567 violations.
+    elapsed time = 00:00:25, memory = 770.73 (MB).
+    Completing 80% with 545 violations.
+    elapsed time = 00:00:25, memory = 770.73 (MB).
+    Completing 90% with 545 violations.
+    elapsed time = 00:00:26, memory = 776.30 (MB).
+    Completing 100% with 476 violations.
+    elapsed time = 00:00:27, memory = 776.30 (MB).
+[INFO DRT-0199]   Number of violations = 476.
+Viol/Layer        mcon   met1   met2   met3
+Cut Spacing          8      0      0      0
+Metal Spacing        0     98     21      5
+Short                0    296     44      4
+[INFO DRT-0267] cpu time = 00:00:42, elapsed time = 00:00:28, memory = 779.30 (MB), peak = 801.35 (MB)
+Total wire length = 73468 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20331 um.
+Total wire length on LAYER met2 = 38494 um.
+Total wire length on LAYER met3 = 7981 um.
+Total wire length on LAYER met4 = 6480 um.
+Total wire length on LAYER met5 = 180 um.
+Total number of vias = 6942.
+Up-via summary (total 6942):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2964
+           met1    3226
+           met2     433
+           met3     295
+           met4      24
+-----------------------
+               6942
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 476 violations.
+    elapsed time = 00:00:00, memory = 780.42 (MB).
+    Completing 20% with 476 violations.
+    elapsed time = 00:00:00, memory = 784.38 (MB).
+    Completing 30% with 454 violations.
+    elapsed time = 00:00:01, memory = 784.38 (MB).
+    Completing 40% with 454 violations.
+    elapsed time = 00:00:02, memory = 786.27 (MB).
+    Completing 50% with 454 violations.
+    elapsed time = 00:00:09, memory = 794.78 (MB).
+    Completing 60% with 420 violations.
+    elapsed time = 00:00:09, memory = 794.78 (MB).
+    Completing 70% with 420 violations.
+    elapsed time = 00:00:09, memory = 794.78 (MB).
+    Completing 80% with 416 violations.
+    elapsed time = 00:00:10, memory = 794.78 (MB).
+    Completing 90% with 416 violations.
+    elapsed time = 00:00:11, memory = 794.78 (MB).
+    Completing 100% with 323 violations.
+    elapsed time = 00:00:17, memory = 794.78 (MB).
+[INFO DRT-0199]   Number of violations = 323.
+Viol/Layer        mcon   met1   met2   met3
+Cut Spacing          2      0      0      0
+Metal Spacing        0     61     19      1
+Short                0    223     16      1
+[INFO DRT-0267] cpu time = 00:00:27, elapsed time = 00:00:17, memory = 794.78 (MB), peak = 801.35 (MB)
+Total wire length = 73518 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20373 um.
+Total wire length on LAYER met2 = 38431 um.
+Total wire length on LAYER met3 = 7996 um.
+Total wire length on LAYER met4 = 6551 um.
+Total wire length on LAYER met5 = 166 um.
+Total number of vias = 6952.
+Up-via summary (total 6952):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2963
+           met1    3235
+           met2     436
+           met3     296
+           met4      22
+-----------------------
+               6952
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 323 violations.
+    elapsed time = 00:00:00, memory = 794.78 (MB).
+    Completing 20% with 323 violations.
+    elapsed time = 00:00:00, memory = 819.35 (MB).
+    Completing 30% with 178 violations.
+    elapsed time = 00:00:04, memory = 794.78 (MB).
+    Completing 40% with 178 violations.
+    elapsed time = 00:00:04, memory = 794.78 (MB).
+    Completing 50% with 178 violations.
+    elapsed time = 00:00:04, memory = 794.78 (MB).
+    Completing 60% with 84 violations.
+    elapsed time = 00:00:17, memory = 794.78 (MB).
+    Completing 70% with 84 violations.
+    elapsed time = 00:00:17, memory = 794.78 (MB).
+    Completing 80% with 40 violations.
+    elapsed time = 00:00:18, memory = 794.78 (MB).
+    Completing 90% with 40 violations.
+    elapsed time = 00:00:18, memory = 794.78 (MB).
+    Completing 100% with 10 violations.
+    elapsed time = 00:00:19, memory = 796.67 (MB).
+[INFO DRT-0199]   Number of violations = 10.
+Viol/Layer        met1   met2   met3
+Metal Spacing        1      0      2
+Short                0      6      1
+[INFO DRT-0267] cpu time = 00:00:26, elapsed time = 00:00:19, memory = 796.67 (MB), peak = 820.68 (MB)
+Total wire length = 73522 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 19863 um.
+Total wire length on LAYER met2 = 38564 um.
+Total wire length on LAYER met3 = 8523 um.
+Total wire length on LAYER met4 = 6418 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7093.
+Up-via summary (total 7093):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2962
+           met1    3267
+           met2     551
+           met3     293
+           met4      20
+-----------------------
+               7093
+
+
+[INFO DRT-0195] Start 4th guides tiles iteration.
+    Completing 20% with 10 violations.
+    elapsed time = 00:00:00, memory = 796.67 (MB).
+    Completing 40% with 10 violations.
+    elapsed time = 00:00:00, memory = 796.67 (MB).
+    Completing 60% with 10 violations.
+    elapsed time = 00:00:11, memory = 796.67 (MB).
+    Completing 80% with 6 violations.
+    elapsed time = 00:00:11, memory = 796.67 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:11, memory = 796.67 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:12, elapsed time = 00:00:11, memory = 796.67 (MB), peak = 820.68 (MB)
+Total wire length = 73524 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20010 um.
+Total wire length on LAYER met2 = 38554 um.
+Total wire length on LAYER met3 = 8380 um.
+Total wire length on LAYER met4 = 6425 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7099.
+Up-via summary (total 7099):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2962
+           met1    3267
+           met2     555
+           met3     295
+           met4      20
+-----------------------
+               7099
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 73524 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20010 um.
+Total wire length on LAYER met2 = 38554 um.
+Total wire length on LAYER met3 = 8380 um.
+Total wire length on LAYER met4 = 6425 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7099.
+Up-via summary (total 7099):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2962
+           met1    3267
+           met2     555
+           met3     295
+           met4      20
+-----------------------
+               7099
+
+
+[INFO DRT-0267] cpu time = 00:02:27, elapsed time = 00:01:41, memory = 796.67 (MB), peak = 820.68 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO DRT-0501] Runtime: 116.78s
+Took 117 seconds: detailed_route -output_drc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/reports/sky130hd/attempt06_e0/base/5_route_drc.rpt -output_maze /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/maze.log -droute_end_iter 64 -verbose 1 -drc_report_iter_step 5
+[INFO GRT-0012] Found 5 antenna violations.
+[INFO DPL-0006] Core area: 737937.74 um^2
+[INFO DPL-0007] Movable instances area: 5.00 um^2
+[INFO DPL-0008] Fixed instances area within core: 278024.56 um^2
+[INFO DPL-0009] Utilization: 37.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (3 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 7515 cells
+[INFO DPL-0393]   height 83 row(s): 1 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+[INFO DPL-0500] Runtime: 0.03s
+[INFO GRT-0015] Inserted 5 diodes.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 881 pins.
+[INFO DRT-0081]   Complete 93 unique inst patterns.
+[INFO DRT-0084]   Complete 860 groups.
+#scanned instances     = 7517
+#unique  instances     = 95
+#stdCellGenAp          = 2672
+#stdCellValidPlanarAp  = 30
+#stdCellValidViaAp     = 1967
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2952
+#instTermValidViaApCnt = 0
+#macroGenAp            = 426
+#macroValidPlanarAp    = 328
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:53, elapsed time = 00:00:13, memory = 704.05 (MB), peak = 820.68 (MB)
+
+[INFO DRT-0157] Number of guides:     8852
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 188 STEP 6900 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 86 STEP 6900 ;
+[INFO DRT-0028]   Complete FR_MASTERSLICE.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete li1.
+[INFO DRT-0028]   Complete mcon.
+[INFO DRT-0028]   Complete met1.
+[INFO DRT-0028]   Complete via.
+[INFO DRT-0028]   Complete met2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete met3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete met4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete met5.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete FR_MASTERSLICE (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete li1 (guide).
+[INFO DRT-0035]   Complete mcon (guide).
+[INFO DRT-0035]   Complete met1 (guide).
+[INFO DRT-0035]   Complete via (guide).
+[INFO DRT-0035]   Complete met2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete met3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete met4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete met5 (guide).
+[INFO DRT-0036] FR_MASTERSLICE guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] li1 guide region query size = 2657.
+[INFO DRT-0036] mcon guide region query size = 0.
+[INFO DRT-0036] met1 guide region query size = 2569.
+[INFO DRT-0036] via guide region query size = 0.
+[INFO DRT-0036] met2 guide region query size = 1510.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] met3 guide region query size = 408.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] met4 guide region query size = 205.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] met5 guide region query size = 11.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 704.05 (MB), peak = 820.68 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 4372 vertical wires in 4 frboxes and 2988 horizontal wires in 2 frboxes.
+[INFO DRT-0186] Done with 659 vertical wires in 4 frboxes and 895 horizontal wires in 2 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:02, elapsed time = 00:00:00, memory = 704.05 (MB), peak = 820.68 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 704.05 (MB), peak = 820.68 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:00, memory = 704.05 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 704.05 (MB).
+    Completing 30% with 15 violations.
+    elapsed time = 00:00:00, memory = 704.05 (MB).
+    Completing 40% with 15 violations.
+    elapsed time = 00:00:01, memory = 704.05 (MB).
+    Completing 50% with 15 violations.
+    elapsed time = 00:00:01, memory = 704.05 (MB).
+    Completing 60% with 15 violations.
+    elapsed time = 00:00:01, memory = 704.05 (MB).
+    Completing 70% with 15 violations.
+    elapsed time = 00:00:02, memory = 704.05 (MB).
+    Completing 80% with 22 violations.
+    elapsed time = 00:00:02, memory = 704.05 (MB).
+    Completing 90% with 22 violations.
+    elapsed time = 00:00:02, memory = 704.05 (MB).
+    Completing 100% with 27 violations.
+    elapsed time = 00:00:02, memory = 704.05 (MB).
+[INFO DRT-0199]   Number of violations = 30.
+Viol/Layer        met1   met2
+Metal Spacing        3      0
+Recheck              0      3
+Short               13     11
+[INFO DRT-0267] cpu time = 00:00:09, elapsed time = 00:00:03, memory = 830.50 (MB), peak = 830.37 (MB)
+Total wire length = 73540 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20201 um.
+Total wire length on LAYER met2 = 38826 um.
+Total wire length on LAYER met3 = 8206 um.
+Total wire length on LAYER met4 = 6153 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7104.
+Up-via summary (total 7104):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2968
+           met1    3280
+           met2     546
+           met3     290
+           met4      20
+-----------------------
+               7104
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 30 violations.
+    elapsed time = 00:00:00, memory = 830.50 (MB).
+    Completing 20% with 30 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+    Completing 30% with 29 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+    Completing 40% with 29 violations.
+    elapsed time = 00:00:01, memory = 866.29 (MB).
+    Completing 50% with 29 violations.
+    elapsed time = 00:00:01, memory = 833.96 (MB).
+    Completing 60% with 29 violations.
+    elapsed time = 00:00:02, memory = 833.96 (MB).
+    Completing 70% with 29 violations.
+    elapsed time = 00:00:02, memory = 833.96 (MB).
+    Completing 80% with 25 violations.
+    elapsed time = 00:00:02, memory = 833.96 (MB).
+    Completing 90% with 25 violations.
+    elapsed time = 00:00:02, memory = 833.96 (MB).
+    Completing 100% with 13 violations.
+    elapsed time = 00:00:02, memory = 833.96 (MB).
+[INFO DRT-0199]   Number of violations = 13.
+Viol/Layer        met1   met2
+Short               11      2
+[INFO DRT-0267] cpu time = 00:00:08, elapsed time = 00:00:03, memory = 704.64 (MB), peak = 866.12 (MB)
+Total wire length = 73535 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20203 um.
+Total wire length on LAYER met2 = 38820 um.
+Total wire length on LAYER met3 = 8206 um.
+Total wire length on LAYER met4 = 6153 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7104.
+Up-via summary (total 7104):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2968
+           met1    3280
+           met2     546
+           met3     290
+           met4      20
+-----------------------
+               7104
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 20% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 30% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 40% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 50% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 60% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 70% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 80% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 90% with 13 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+    Completing 100% with 12 violations.
+    elapsed time = 00:00:00, memory = 704.64 (MB).
+[INFO DRT-0199]   Number of violations = 12.
+Viol/Layer        met1   met2
+Short               11      1
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:00, memory = 833.96 (MB), peak = 866.12 (MB)
+Total wire length = 73535 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20203 um.
+Total wire length on LAYER met2 = 38820 um.
+Total wire length on LAYER met3 = 8206 um.
+Total wire length on LAYER met4 = 6153 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7104.
+Up-via summary (total 7104):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2968
+           met1    3280
+           met2     546
+           met3     290
+           met4      20
+-----------------------
+               7104
+
+
+[INFO DRT-0195] Start 3rd guides tiles iteration.
+    Completing 20% with 12 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+    Completing 40% with 12 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+    Completing 60% with 12 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 833.96 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 707.66 (MB), peak = 866.12 (MB)
+Total wire length = 73538 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20192 um.
+Total wire length on LAYER met2 = 38820 um.
+Total wire length on LAYER met3 = 8219 um.
+Total wire length on LAYER met4 = 6153 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7113.
+Up-via summary (total 7113):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2968
+           met1    3287
+           met2     548
+           met3     290
+           met4      20
+-----------------------
+               7113
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 73538 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 20192 um.
+Total wire length on LAYER met2 = 38820 um.
+Total wire length on LAYER met3 = 8219 um.
+Total wire length on LAYER met4 = 6153 um.
+Total wire length on LAYER met5 = 152 um.
+Total number of vias = 7113.
+Up-via summary (total 7113):
+
+-----------------------
+ FR_MASTERSLICE       0
+            li1    2968
+           met1    3287
+           met2     548
+           met3     290
+           met4      20
+-----------------------
+               7113
+
+
+[INFO DRT-0267] cpu time = 00:00:19, elapsed time = 00:00:07, memory = 707.66 (MB), peak = 866.12 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO DRT-0501] Runtime: 22.36s
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Design area 278035 um^2 38% utilization.
+write_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_e0/base/5_2_route.odb
+Elapsed time: 2:23.59[h:]min:sec. CPU time: user 283.10 sys 2.50 (198%). Peak memory: 886904KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_2_route                 .odb          143            866 e9594bda3e341a86b3b4

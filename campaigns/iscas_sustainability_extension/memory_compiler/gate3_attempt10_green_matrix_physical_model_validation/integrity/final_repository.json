@@ -1,0 +1,86 @@
+{
+  "stage": "final",
+  "scope": "repository",
+  "generated_utc": "2026-09-07T13:55:14.597500+00:00",
+  "algorithm": "sha256-raw-bytes",
+  "baseline_manifest_sha256": "fc24cdd1b984985793e80f3eced4d68c352fe15dbe232ca25e0e315b03f62511",
+  "checks": [
+    {
+      "label": "protected_DATE_repository",
+      "file_count": 2327,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "memory_compiler",
+      "file_count": 22,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/GATE2_GATE3_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "6986fb378b334cb181820e32e406ac68a4c8c9871d375eb51565b51717479727"
+    },
+    {
+      "label": "gate3_openram_attempt03_target_diagnosis",
+      "file_count": 25,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_openram_attempt03_target_diagnosis/ATTEMPT03_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "0be30ad708ad0eb0d27535c6f7aed41bcd459bf47c328f45940a51cb645b327e"
+    },
+    {
+      "label": "gate3_openram_attempt04_sky130_control_integration_repair",
+      "file_count": 349,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_openram_attempt04_sky130_control_integration_repair/ATTEMPT04_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "1f99c53a92b3f38844ed8d57fdcd4356c0f3d01c5d6de3f0f7e0bf80adbc3aa0"
+    },
+    {
+      "label": "gate3_openram_attempt05_sky130_primitive_view_materialization_qualification",
+      "file_count": 868,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_openram_attempt05_sky130_primitive_view_materialization_qualification/ATTEMPT05_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "ac27ae265dd3884e8c7691dd3dcc9b15987aff9a533789c42cccce615639fa5b"
+    },
+    {
+      "label": "gate3_attempt06_replacement_sram_backend_qualification",
+      "file_count": 265,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/ATTEMPT06_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "b70342da111f2b7d3effb11a9f2ce5b957bb1aec0d43dcc3602cd4a6c2a7ca6a"
+    },
+    {
+      "label": "gate3_attempt07_sram22_matched_physical_closure",
+      "file_count": 1103,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt07_sram22_matched_physical_closure/ATTEMPT07_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "3f9b4ad418c287455ae36906d62981ac57d13ebabe95c891a9d866e883c8326c"
+    },
+    {
+      "label": "gate3_attempt08_sram22_slew_provenance_and_drv_closure",
+      "file_count": 1124,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt08_sram22_slew_provenance_and_drv_closure/ATTEMPT08_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "ca25b4306fa65d7ee7ca2aff3263319e18e54e1fb7f7afb4785b51fa9f6b9c00"
+    },
+    {
+      "label": "gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure",
+      "file_count": 2095,
+      "status": "PASS",
+      "failures": [],
+      "manifest": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/ATTEMPT09_EVIDENCE_MANIFEST.json",
+      "manifest_sha256": "beca855f10eeac1826b2314e2271e25aa5a47fde638f67d74f257286aa258f60"
+    },
+    {
+      "label": "Attempt09_frozen_SRAM22_sources",
+      "file_count": 14,
+      "status": "PASS",
+      "failures": []
+    }
+  ],
+  "status": "PASS"
+}

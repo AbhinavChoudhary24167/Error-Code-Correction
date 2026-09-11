@@ -1,0 +1,18 @@
+{
+  "ACT3_defaults_adopted": false,
+  "ACT_defaults_adopted": false,
+  "algebra": "Area*(CI*EPA+GPA+MPA)/Yield",
+  "boundary_id": "SB_ACT_MATCHED_SYNTHETIC_VALIDATION",
+  "classification": "EXACT_REPRODUCTION",
+  "matched_synthetic_vector": {
+    "area_cm2": 0.5,
+    "energy_per_area_kwh_per_cm2": 2.0,
+    "expected_kgco2e": 0.8125,
+    "fab_ci_kgco2e_per_kwh": 0.4,
+    "gas_per_area_kgco2e_per_cm2": 0.3,
+    "materials_per_area_kgco2e_per_cm2": 0.2,
+    "yield_fraction": 0.8
+  },
+  "schema_version": "3.0.0",
+  "unmatched_comparison": "NOT_COMPARABLE"
+}

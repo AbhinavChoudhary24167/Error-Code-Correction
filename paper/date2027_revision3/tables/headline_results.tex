@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\caption{Headline post-route results. Paired effects are changed relative to baseline; values are means over five matched deterministic seeds.}
+\label{tab:headline}
+\centering\scriptsize\setlength{\tabcolsep}{3.1pt}
+\begin{tabular}{@{}lccclp{5.0cm}@{}}
+\toprule
+Study & Area & Timing metric & Energy/op & Ordering & Interpretation \\
+\midrule
+Temporal SECDED @ 10 ns & +37.2\% & +46.6\% & -23.4\% & area/timing/energy 5/5 & Large non-dominated area--latency--timing--energy displacement. \\
+Structural Hsiao @ 10 ns & -0.564\% & +2.656\% & +1.328\% & area/energy 5/5; timing 4/5 & Modest mixed displacement; neither structure is generally superior. \\
+Temporal SECDED @ 5 ns & +36.7\% & +68.6\% & -19.3\% & all three 5/5 & Ordering survives; magnitudes remain constraint-conditioned. \\
+BCH @ 10 ns & 57240 $\mu$m$^2$ & 66.6 MHz & -- & setup feasible 0/5 & Stronger guarantee; this syndrome/Chien RTL misses the common target. \\
+\bottomrule
+\end{tabular}
+\end{table*}

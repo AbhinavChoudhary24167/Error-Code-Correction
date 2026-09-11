@@ -1,0 +1,76 @@
+{
+  "campaign": "gate3_openram_attempt05_sky130_primitive_view_materialization_qualification",
+  "captured_at_utc": "2026-08-31T09:17:56.8188535Z",
+  "repository": {
+    "commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+    "branch": "codex/ecc-lifecycle-sustainability",
+    "initial_git_status": "campaigns/iscas_sustainability_extension and eight runtime_ml_feature_pack fixture directories were pre-existing untracked content; no tracked modification",
+    "previous_campaigns_modified": false
+  },
+  "host": {
+    "windows_version": "10.0.26200.0",
+    "powershell_version": "7.6.4",
+    "timezone": "India Standard Time (Asia/Calcutta)"
+  },
+  "wsl": {
+    "working_distribution": "Attempt04-Recovery",
+    "distribution_release": "Ubuntu 24.04.4 LTS",
+    "kernel": "6.18.33.2-microsoft-standard-WSL2",
+    "version": 2,
+    "root_filesystem": "/dev/sdd, 1007G total, 44G used, 912G available",
+    "original_distribution": "Ubuntu-24.04",
+    "original_distribution_state": "stopped; original Attempt02/Attempt03 external trees remain unavailable because of the previously documented VHDX ERROR_SHARING_VIOLATION"
+  },
+  "openram": {
+    "version": "1.2.48",
+    "tag": "v1.2.48",
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "git_status": "clean",
+    "technology_state": "in-tree pinned technology/sky130; OpenRAM wrapper GDS/MAG/MAGLEF/SPICE views inventoried and byte-compared to pinned vendor sources",
+    "plugin_patch_state": "no plugin or OpenRAM source patch applied by Attempt05"
+  },
+  "pdk": {
+    "name": "SKY130A",
+    "open_pdks_volare_commit": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "skywater_pdk_commit": "f70d8ca46961ff92719d8870a18a076370b85f6c",
+    "sky130_fd_pr_commit": "f62031a1be9aefe902d6d54cddd6f59b57627436",
+    "sky130_fd_sc_hd_commit": "ac7fb61f06e6470b94e8afdf7c25268f62fbd7b1",
+    "sky130_fd_bd_sram_commit": "dd64256961317205343a3fd446908b42bafba388",
+    "installed_root": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/pdk",
+    "magic_startup_sha256": "f717a54ec62b7df3e77426c38c6fbe925b4872b57a193b66d4d336e56e1fb88b",
+    "normal_magic_tech_sha256": "8f4debca9f51ced32dd24666168ea039363a8e35afda951e39646ffa4bd33aab",
+    "gds_magic_tech_sha256": "54c62515f82e321a95994442e604165496afc9285f42364a1ea4770fd60012eb",
+    "netgen_setup_sha256": "b0b1013a1911d1fb41dc1a727c5a82330add975ada62919e0a8214814d9282a6"
+  },
+  "container": {
+    "reference": "vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "image_id": "sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "size_bytes": 4654238492,
+    "created": "2022-06-25T22:27:31.705256261Z",
+    "docker_client": "29.7.2",
+    "docker_server": "29.7.2"
+  },
+  "tools": {
+    "magic": "8.3.311",
+    "netgen": "1.5.221",
+    "python": "3.8.10",
+    "ngspice": "36"
+  },
+  "effective_verification_environment": {
+    "OPENRAM_HOME": "/attempt/source/OpenRAM/compiler",
+    "OPENRAM_TECH": "/attempt/source/OpenRAM/technology",
+    "PDK_ROOT": "/attempt/pdk",
+    "VOLARE_HOME": "/attempt/pdk/volare",
+    "host_relevant_environment_variables": "unset; campaign scripts explicitly exported the pinned container paths above"
+  },
+  "external_attempt04_root": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair",
+  "protected_baseline": {
+    "command": "python3 campaigns/iscas_sustainability_extension/scripts/gate0_audit.py --verify",
+    "distribution": "Attempt04-Recovery",
+    "result": "PASS",
+    "protected_file_count": 7094,
+    "changed": 0,
+    "missing": 0,
+    "added": 0
+  }
+}

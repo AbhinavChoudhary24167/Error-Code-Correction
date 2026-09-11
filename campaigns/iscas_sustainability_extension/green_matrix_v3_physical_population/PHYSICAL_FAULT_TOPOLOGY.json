@@ -1,0 +1,457 @@
+{
+  "bitcell_geometry_status": "UNAVAILABLE",
+  "blocking_reason": "complete address/column-select-to-GDS-bitcell map and calibrated event clusters are unavailable",
+  "event_object_schema": {
+    "event_id": "string",
+    "example_shape_only": [
+      [
+        "r",
+        "c"
+      ],
+      [
+        "r",
+        "c+1"
+      ],
+      [
+        "r+1",
+        "c"
+      ]
+    ],
+    "physical_cells": [
+      "cell_id"
+    ],
+    "required_cell_fields": [
+      "row",
+      "column",
+      "bit_index",
+      "codeword",
+      "word",
+      "bank",
+      "x_um",
+      "y_um",
+      "neighbors",
+      "source_hash"
+    ]
+  },
+  "macro_geometry_records": [
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "U0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 11,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed11/6_final.def": "b1f5dc2d3c8d7d05c5c719a7742d02f8c8a79340fcc782cf3fbe5d5c1934333d",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "U0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 13,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed13/6_final.def": "f6342c476c502caaff772df34cdcc554e9f515f8361d62fa49e5708673c3b1eb",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "U0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 17,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed17/6_final.def": "ef1789894f13f51bb7608e32dbba7546bff20ae600d089c291c481b4b3353286",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "U0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 19,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed19/6_final.def": "d51ed9de7f20de1593e5c47f0627ae7947e481223378d96a95919def201e0b95",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "U0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 23,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_u0/seed23/6_final.def": "50476c535b45a4ef3638df65c024cdf17f0b2e74be680f32029a028094da0f0e",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_protected_memory.u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 11,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/6_final.def": "d8ce84c77ce1082324665ebe441283046bac284f45cb449f1840fca450ba4d6a",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 59064.96960000001,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 64,
+      "electrical_row_count": 32,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 225.68,
+      "instance": "u_protected_memory.u_ecc",
+      "logical_depth": 256,
+      "logical_width": 8,
+      "macro": "sram22_256x8m8w1",
+      "macro_origin_um": [
+        30.36,
+        382.84
+      ],
+      "orientation_def": "N",
+      "seed": 11,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/6_final.def": "d8ce84c77ce1082324665ebe441283046bac284f45cb449f1840fca450ba4d6a",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.spice": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567"
+      },
+      "storage_cell_instances": 2048,
+      "width_um": 261.72
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_protected_memory.u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 13,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed13/6_final.def": "c1c256d29fc2aad7dd5aceb951eab074e200d569f31cca15f328f4de9791401f",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 59064.96960000001,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 64,
+      "electrical_row_count": 32,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 225.68,
+      "instance": "u_protected_memory.u_ecc",
+      "logical_depth": 256,
+      "logical_width": 8,
+      "macro": "sram22_256x8m8w1",
+      "macro_origin_um": [
+        30.36,
+        382.84
+      ],
+      "orientation_def": "N",
+      "seed": 13,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed13/6_final.def": "c1c256d29fc2aad7dd5aceb951eab074e200d569f31cca15f328f4de9791401f",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.spice": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567"
+      },
+      "storage_cell_instances": 2048,
+      "width_um": 261.72
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_protected_memory.u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 17,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed17/6_final.def": "ea8f7c97c0ea515fde9d6668581e71266cd3e361ac1ae4aa715d9d02cc4cd5a8",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 59064.96960000001,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 64,
+      "electrical_row_count": 32,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 225.68,
+      "instance": "u_protected_memory.u_ecc",
+      "logical_depth": 256,
+      "logical_width": 8,
+      "macro": "sram22_256x8m8w1",
+      "macro_origin_um": [
+        30.36,
+        382.84
+      ],
+      "orientation_def": "N",
+      "seed": 17,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed17/6_final.def": "ea8f7c97c0ea515fde9d6668581e71266cd3e361ac1ae4aa715d9d02cc4cd5a8",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.spice": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567"
+      },
+      "storage_cell_instances": 2048,
+      "width_um": 261.72
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_protected_memory.u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 19,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed19/6_final.def": "bd92d4c7cee5a66a93dad11561bbff1f4abe633260bccfae6229a1368f5fb173",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 59064.96960000001,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 64,
+      "electrical_row_count": 32,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 225.68,
+      "instance": "u_protected_memory.u_ecc",
+      "logical_depth": 256,
+      "logical_width": 8,
+      "macro": "sram22_256x8m8w1",
+      "macro_origin_um": [
+        30.36,
+        382.84
+      ],
+      "orientation_def": "N",
+      "seed": 19,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed19/6_final.def": "bd92d4c7cee5a66a93dad11561bbff1f4abe633260bccfae6229a1368f5fb173",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.spice": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567"
+      },
+      "storage_cell_instances": 2048,
+      "width_um": 261.72
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 201266.5968,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 256,
+      "electrical_row_count": 64,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 291.64,
+      "instance": "u_protected_memory.u_data",
+      "logical_depth": 256,
+      "logical_width": 64,
+      "macro": "sram22_256x64m4w8",
+      "macro_origin_um": [
+        30.36,
+        31.23
+      ],
+      "orientation_def": "FS",
+      "seed": 23,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed23/6_final.def": "913340301292016e0365193f88765ecaad06cb4604c7fcd7237b8734fef1300d",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.lef": "81769d697e955cba4b7ff0607d4680c3b10645f9fa92689dc4aad603b2433353",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.spice": "e613559313fe36fd95f39398b0cc766aeed7dfe82c2256c80d0cbadb3d000695"
+      },
+      "storage_cell_instances": 16384,
+      "width_um": 690.12
+    },
+    {
+      "address_to_electrical_row_column": "NOT_INDEPENDENTLY_REPRODUCED",
+      "architecture_id": "E0",
+      "area_um2": 59064.96960000001,
+      "classification": "POSTROUTE_MACRO_PLACEMENT_AND_SPICE_CONNECTIVITY_ONLY",
+      "electrical_column_count": 64,
+      "electrical_row_count": 32,
+      "electrical_to_xy_mapping": "NOT_INDEPENDENTLY_REPRODUCED",
+      "height_um": 225.68,
+      "instance": "u_protected_memory.u_ecc",
+      "logical_depth": 256,
+      "logical_width": 8,
+      "macro": "sram22_256x8m8w1",
+      "macro_origin_um": [
+        30.36,
+        382.84
+      ],
+      "orientation_def": "N",
+      "seed": 23,
+      "source_provenance": {
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed23/6_final.def": "913340301292016e0365193f88765ecaad06cb4604c7fcd7237b8734fef1300d",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.lef": "35d7a68784f1b00a7d2f780ee352b587477add5ee95af8041ad6e93a805332e0",
+        "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.spice": "5b1c16133a043379fe2547b8b4387265cfbea9b7492e1e21dc82afd9077d5567"
+      },
+      "storage_cell_instances": 2048,
+      "width_um": 261.72
+    }
+  ],
+  "macro_geometry_status": "POST_ROUTE_MACRO_PLACEMENT_AND_ELECTRICAL_ORGANIZATION_AVAILABLE",
+  "physical_events": [],
+  "schema_version": "3.1.0",
+  "topology_families": [
+    "SBU",
+    "ADJACENT_DBU",
+    "NON_ADJACENT_DBU",
+    "HORIZONTAL_MCU",
+    "VERTICAL_MCU",
+    "CLUSTERED_MCU",
+    "BURST_SPAN_K_MCU",
+    "BANK_CROSSING_EVENT",
+    "CODEWORD_CROSSING_EVENT"
+  ]
+}

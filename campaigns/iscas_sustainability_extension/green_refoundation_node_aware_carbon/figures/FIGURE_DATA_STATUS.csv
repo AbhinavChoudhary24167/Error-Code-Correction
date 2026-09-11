@@ -1,0 +1,16 @@
+figure_id,requested_relationship,status,data_source,allowed_claim
+F01,technology_node_vs_kgCO2e_per_wafer,UNQUALIFIED_ABSOLUTE,carbon/calibration/NODE_SCALING_VALIDATION.md,Only qualitative advanced-node trend and printed sensitivity endpoints
+F02,technology_node_vs_kgCO2e_per_good_die,UNQUALIFIED_ABSOLUTE,carbon/yield/YIELD_SENSITIVITY.csv,Parametric yield mechanism only
+F03,technology_node_vs_kgCO2e_per_Mbit,UNQUALIFIED,carbon/calibration/NODE_SCALING_VALIDATION.md,No matched density yield and absolute wafer-carbon curve
+F04,technology_node_vs_lifetime_service_carbon,UNQUALIFIED,green_matrix_v2/GREEN_MATRIX_V2_METADATA.json,No lifecycle service result
+F05,node_vs_scope1_scope2,BOUNDED_SOURCE_RANGES_ONLY,carbon/calibration/IMEC_CURRENT_CALIBRATION.csv,Study-wide Scope 1 and Scope 2 ranges are not node-resolved
+F06,node_vs_patterning_contribution,QUALITATIVE_ONLY,carbon/calibration/IMEC_MODEL_EVOLUTION.csv,EUV route direction is supported but no production carbon curve
+F07,yield_vs_die_embodied_carbon,PARAMETRIC_SENSITIVITY_AVAILABLE,carbon/yield/YIELD_SENSITIVITY.csv,Normalized carbon under declared yield assumptions
+F08,production_volume_vs_mask_NRE_per_die,PARAMETRIC_SENSITIVITY_AVAILABLE,carbon/mask/MASK_NRE_SENSITIVITY.csv,Inverse-volume behavior under declared maskset bounds
+F09,grid_CI_vs_lifecycle_carbon,PARTIAL_MODEL_ONLY,carbon/scenarios/FAB_SCENARIO_RESULTS.csv,Wafer Scope 2 monotonicity only; lifecycle result unavailable
+F10,abatement_vs_wafer_carbon,PARAMETRIC_INTERVAL_AVAILABLE,carbon/scenarios/FAB_SCENARIO_RESULTS.csv,Directional interval sensitivity not a forecast
+F11,ECC_architecture_vs_GSE,UNQUALIFIED,green_matrix_v2/GREEN_MATRIX_V2_RAW.csv,No architecture ranking
+F12,interleaving_vs_GSE,UNQUALIFIED,interleaving/INTERLEAVING_COST.csv,Mapping contracts only; no routed costs or physical rates
+F13,fault_environment_vs_selected_ECC,UNQUALIFIED,reliability/RELIABILITY_RESULTS.csv,Logical controls only; no physical selection
+F14,legacy_GREEN_vs_GSE_ranking,FORMULA_COUNTEREXAMPLES_ONLY,metric_refoundation/LEGACY_FORMULA_COUNTEREXAMPLES.json,Formula defects and possible rank reversal; no actual U0/E0 ranking
+F15,architecture_ranking_uncertainty,UNQUALIFIED,carbon/uncertainty/UNCERTAINTY_RESULTS.csv,Manufacturing-carbon index uncertainty only; no ranking band

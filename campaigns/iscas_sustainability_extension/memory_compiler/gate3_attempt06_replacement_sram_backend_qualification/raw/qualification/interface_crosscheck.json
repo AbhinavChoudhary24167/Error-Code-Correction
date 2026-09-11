@@ -1,0 +1,2208 @@
+{
+  "schema_version": 1,
+  "macros": {
+    "sram22_256x64m4w8": {
+      "expected": {
+        "data_width": 64,
+        "addr_width": 8,
+        "wmask_width": 8
+      },
+      "lef": {
+        "macro_name": "sram22_256x64m4w8",
+        "size_um": [
+          690.12,
+          291.64
+        ],
+        "area_um2": 201266.5968,
+        "pin_count": 150,
+        "pins": {
+          "dout[0]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[1]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[2]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[3]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[4]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[5]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[6]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[7]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[8]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[9]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[10]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[11]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[12]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[13]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[14]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[15]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[16]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[17]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[18]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[19]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[20]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[21]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[22]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[23]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[24]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[25]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[26]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[27]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[28]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[29]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[30]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[31]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[32]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[33]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[34]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[35]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[36]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[37]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[38]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[39]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[40]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[41]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[42]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[43]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[44]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[45]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[46]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[47]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[48]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[49]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[50]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[51]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[52]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[53]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[54]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[55]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[56]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[57]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[58]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[59]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[60]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[61]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[62]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[63]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[0]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[1]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[2]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[3]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[4]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[5]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[6]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[7]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[8]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[9]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[10]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[11]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[12]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[13]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[14]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[15]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[16]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[17]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[18]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[19]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[20]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[21]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[22]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[23]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[24]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[25]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[26]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[27]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[28]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[29]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[30]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[31]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[32]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[33]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[34]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[35]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[36]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[37]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[38]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[39]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[40]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[41]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[42]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[43]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[44]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[45]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[46]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[47]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[48]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[49]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[50]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[51]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[52]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[53]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[54]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[55]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[56]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[57]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[58]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[59]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[60]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[61]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[62]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[63]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[0]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[1]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[2]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[3]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[4]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[5]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[6]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[7]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[0]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[1]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[2]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[3]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[4]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[5]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[6]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[7]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "we": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "ce": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "clk": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "rstb": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "vdd": {
+            "direction": "INOUT",
+            "use": "POWER",
+            "layers": {
+              "met2": 728
+            },
+            "rectangles": 728,
+            "all_rectangles_inside_macro": true
+          },
+          "vss": {
+            "direction": "INOUT",
+            "use": "GROUND",
+            "layers": {
+              "met2": 697
+            },
+            "rectangles": 697,
+            "all_rectangles_inside_macro": true
+          }
+        },
+        "obstructions": {
+          "rectangles": 2,
+          "layers": {
+            "met1": 1,
+            "met2": 1
+          }
+        }
+      },
+      "verilog": {
+        "macro_name": "sram22_256x64m4w8",
+        "parameters": {
+          "DATA_WIDTH": 64,
+          "ADDR_WIDTH": 8,
+          "WMASK_WIDTH": 8
+        },
+        "pin_count_with_power": 150,
+        "pins": {
+          "clk": "INPUT",
+          "rstb": "INPUT",
+          "ce": "INPUT",
+          "we": "INPUT",
+          "vdd": "INOUT",
+          "vss": "INOUT",
+          "addr[0]": "INPUT",
+          "addr[1]": "INPUT",
+          "addr[2]": "INPUT",
+          "addr[3]": "INPUT",
+          "addr[4]": "INPUT",
+          "addr[5]": "INPUT",
+          "addr[6]": "INPUT",
+          "addr[7]": "INPUT",
+          "wmask[0]": "INPUT",
+          "wmask[1]": "INPUT",
+          "wmask[2]": "INPUT",
+          "wmask[3]": "INPUT",
+          "wmask[4]": "INPUT",
+          "wmask[5]": "INPUT",
+          "wmask[6]": "INPUT",
+          "wmask[7]": "INPUT",
+          "din[0]": "INPUT",
+          "din[1]": "INPUT",
+          "din[2]": "INPUT",
+          "din[3]": "INPUT",
+          "din[4]": "INPUT",
+          "din[5]": "INPUT",
+          "din[6]": "INPUT",
+          "din[7]": "INPUT",
+          "din[8]": "INPUT",
+          "din[9]": "INPUT",
+          "din[10]": "INPUT",
+          "din[11]": "INPUT",
+          "din[12]": "INPUT",
+          "din[13]": "INPUT",
+          "din[14]": "INPUT",
+          "din[15]": "INPUT",
+          "din[16]": "INPUT",
+          "din[17]": "INPUT",
+          "din[18]": "INPUT",
+          "din[19]": "INPUT",
+          "din[20]": "INPUT",
+          "din[21]": "INPUT",
+          "din[22]": "INPUT",
+          "din[23]": "INPUT",
+          "din[24]": "INPUT",
+          "din[25]": "INPUT",
+          "din[26]": "INPUT",
+          "din[27]": "INPUT",
+          "din[28]": "INPUT",
+          "din[29]": "INPUT",
+          "din[30]": "INPUT",
+          "din[31]": "INPUT",
+          "din[32]": "INPUT",
+          "din[33]": "INPUT",
+          "din[34]": "INPUT",
+          "din[35]": "INPUT",
+          "din[36]": "INPUT",
+          "din[37]": "INPUT",
+          "din[38]": "INPUT",
+          "din[39]": "INPUT",
+          "din[40]": "INPUT",
+          "din[41]": "INPUT",
+          "din[42]": "INPUT",
+          "din[43]": "INPUT",
+          "din[44]": "INPUT",
+          "din[45]": "INPUT",
+          "din[46]": "INPUT",
+          "din[47]": "INPUT",
+          "din[48]": "INPUT",
+          "din[49]": "INPUT",
+          "din[50]": "INPUT",
+          "din[51]": "INPUT",
+          "din[52]": "INPUT",
+          "din[53]": "INPUT",
+          "din[54]": "INPUT",
+          "din[55]": "INPUT",
+          "din[56]": "INPUT",
+          "din[57]": "INPUT",
+          "din[58]": "INPUT",
+          "din[59]": "INPUT",
+          "din[60]": "INPUT",
+          "din[61]": "INPUT",
+          "din[62]": "INPUT",
+          "din[63]": "INPUT",
+          "dout[0]": "OUTPUT",
+          "dout[1]": "OUTPUT",
+          "dout[2]": "OUTPUT",
+          "dout[3]": "OUTPUT",
+          "dout[4]": "OUTPUT",
+          "dout[5]": "OUTPUT",
+          "dout[6]": "OUTPUT",
+          "dout[7]": "OUTPUT",
+          "dout[8]": "OUTPUT",
+          "dout[9]": "OUTPUT",
+          "dout[10]": "OUTPUT",
+          "dout[11]": "OUTPUT",
+          "dout[12]": "OUTPUT",
+          "dout[13]": "OUTPUT",
+          "dout[14]": "OUTPUT",
+          "dout[15]": "OUTPUT",
+          "dout[16]": "OUTPUT",
+          "dout[17]": "OUTPUT",
+          "dout[18]": "OUTPUT",
+          "dout[19]": "OUTPUT",
+          "dout[20]": "OUTPUT",
+          "dout[21]": "OUTPUT",
+          "dout[22]": "OUTPUT",
+          "dout[23]": "OUTPUT",
+          "dout[24]": "OUTPUT",
+          "dout[25]": "OUTPUT",
+          "dout[26]": "OUTPUT",
+          "dout[27]": "OUTPUT",
+          "dout[28]": "OUTPUT",
+          "dout[29]": "OUTPUT",
+          "dout[30]": "OUTPUT",
+          "dout[31]": "OUTPUT",
+          "dout[32]": "OUTPUT",
+          "dout[33]": "OUTPUT",
+          "dout[34]": "OUTPUT",
+          "dout[35]": "OUTPUT",
+          "dout[36]": "OUTPUT",
+          "dout[37]": "OUTPUT",
+          "dout[38]": "OUTPUT",
+          "dout[39]": "OUTPUT",
+          "dout[40]": "OUTPUT",
+          "dout[41]": "OUTPUT",
+          "dout[42]": "OUTPUT",
+          "dout[43]": "OUTPUT",
+          "dout[44]": "OUTPUT",
+          "dout[45]": "OUTPUT",
+          "dout[46]": "OUTPUT",
+          "dout[47]": "OUTPUT",
+          "dout[48]": "OUTPUT",
+          "dout[49]": "OUTPUT",
+          "dout[50]": "OUTPUT",
+          "dout[51]": "OUTPUT",
+          "dout[52]": "OUTPUT",
+          "dout[53]": "OUTPUT",
+          "dout[54]": "OUTPUT",
+          "dout[55]": "OUTPUT",
+          "dout[56]": "OUTPUT",
+          "dout[57]": "OUTPUT",
+          "dout[58]": "OUTPUT",
+          "dout[59]": "OUTPUT",
+          "dout[60]": "OUTPUT",
+          "dout[61]": "OUTPUT",
+          "dout[62]": "OUTPUT",
+          "dout[63]": "OUTPUT"
+        },
+        "power_pins_conditional_on_USE_POWER_PINS": true,
+        "posedge_clocked": true,
+        "read_is_synchronous": true,
+        "reset_clears_memory": false,
+        "reset_semantics": "active-low operation inhibit; no memory or dout initialization",
+        "write_mask_assignments": 8
+      },
+      "spice": {
+        "macro_name": "sram22_256x64m4w8",
+        "top_subckt_found": true,
+        "pin_count": 150,
+        "pin_order": [
+          "vdd",
+          "vss",
+          "clk",
+          "we",
+          "ce",
+          "rstb",
+          "addr[0]",
+          "addr[1]",
+          "addr[2]",
+          "addr[3]",
+          "addr[4]",
+          "addr[5]",
+          "addr[6]",
+          "addr[7]",
+          "wmask[0]",
+          "wmask[1]",
+          "wmask[2]",
+          "wmask[3]",
+          "wmask[4]",
+          "wmask[5]",
+          "wmask[6]",
+          "wmask[7]",
+          "din[0]",
+          "din[1]",
+          "din[2]",
+          "din[3]",
+          "din[4]",
+          "din[5]",
+          "din[6]",
+          "din[7]",
+          "din[8]",
+          "din[9]",
+          "din[10]",
+          "din[11]",
+          "din[12]",
+          "din[13]",
+          "din[14]",
+          "din[15]",
+          "din[16]",
+          "din[17]",
+          "din[18]",
+          "din[19]",
+          "din[20]",
+          "din[21]",
+          "din[22]",
+          "din[23]",
+          "din[24]",
+          "din[25]",
+          "din[26]",
+          "din[27]",
+          "din[28]",
+          "din[29]",
+          "din[30]",
+          "din[31]",
+          "din[32]",
+          "din[33]",
+          "din[34]",
+          "din[35]",
+          "din[36]",
+          "din[37]",
+          "din[38]",
+          "din[39]",
+          "din[40]",
+          "din[41]",
+          "din[42]",
+          "din[43]",
+          "din[44]",
+          "din[45]",
+          "din[46]",
+          "din[47]",
+          "din[48]",
+          "din[49]",
+          "din[50]",
+          "din[51]",
+          "din[52]",
+          "din[53]",
+          "din[54]",
+          "din[55]",
+          "din[56]",
+          "din[57]",
+          "din[58]",
+          "din[59]",
+          "din[60]",
+          "din[61]",
+          "din[62]",
+          "din[63]",
+          "dout[0]",
+          "dout[1]",
+          "dout[2]",
+          "dout[3]",
+          "dout[4]",
+          "dout[5]",
+          "dout[6]",
+          "dout[7]",
+          "dout[8]",
+          "dout[9]",
+          "dout[10]",
+          "dout[11]",
+          "dout[12]",
+          "dout[13]",
+          "dout[14]",
+          "dout[15]",
+          "dout[16]",
+          "dout[17]",
+          "dout[18]",
+          "dout[19]",
+          "dout[20]",
+          "dout[21]",
+          "dout[22]",
+          "dout[23]",
+          "dout[24]",
+          "dout[25]",
+          "dout[26]",
+          "dout[27]",
+          "dout[28]",
+          "dout[29]",
+          "dout[30]",
+          "dout[31]",
+          "dout[32]",
+          "dout[33]",
+          "dout[34]",
+          "dout[35]",
+          "dout[36]",
+          "dout[37]",
+          "dout[38]",
+          "dout[39]",
+          "dout[40]",
+          "dout[41]",
+          "dout[42]",
+          "dout[43]",
+          "dout[44]",
+          "dout[45]",
+          "dout[46]",
+          "dout[47]",
+          "dout[48]",
+          "dout[49]",
+          "dout[50]",
+          "dout[51]",
+          "dout[52]",
+          "dout[53]",
+          "dout[54]",
+          "dout[55]",
+          "dout[56]",
+          "dout[57]",
+          "dout[58]",
+          "dout[59]",
+          "dout[60]",
+          "dout[61]",
+          "dout[62]",
+          "dout[63]"
+        ],
+        "subcircuit_instance_count": 25035,
+        "transistor_primitive_reference_count": 278,
+        "subcircuit_definition_count": 139
+      },
+      "crosscheck": {
+        "macro_names_match": true,
+        "lef_matches_expected_pins": true,
+        "spice_matches_expected_pin_set": true,
+        "verilog_matches_expected_pin_set": true,
+        "all_lef_pin_rectangles_inside_macro": true,
+        "all_lef_pins_have_geometry": true,
+        "published_bus_ordering": {
+          "verilog": "[MSB:LSB] declarations; logical bit indices explicit",
+          "lef": "individual bit pins named bus[index]",
+          "spice": "ascending explicit bit indices",
+          "liberty": "downto buses with explicit bit pins"
+        },
+        "result": "PASS"
+      }
+    },
+    "sram22_256x8m8w1": {
+      "expected": {
+        "data_width": 8,
+        "addr_width": 8,
+        "wmask_width": 8
+      },
+      "lef": {
+        "macro_name": "sram22_256x8m8w1",
+        "size_um": [
+          261.72,
+          225.68
+        ],
+        "area_um2": 59064.96960000001,
+        "pin_count": 38,
+        "pins": {
+          "dout[0]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[1]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[2]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[3]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[4]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[5]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[6]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "dout[7]": {
+            "direction": "OUTPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[0]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[1]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[2]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[3]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[4]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[5]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[6]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "din[7]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[0]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[1]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[2]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[3]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[4]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[5]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[6]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "wmask[7]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[0]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[1]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[2]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[3]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[4]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[5]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[6]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "addr[7]": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "we": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "ce": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "clk": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "rstb": {
+            "direction": "INPUT",
+            "use": "SIGNAL",
+            "layers": {
+              "met1": 1
+            },
+            "rectangles": 1,
+            "all_rectangles_inside_macro": true
+          },
+          "vdd": {
+            "direction": "INOUT",
+            "use": "POWER",
+            "layers": {
+              "met2": 537
+            },
+            "rectangles": 537,
+            "all_rectangles_inside_macro": true
+          },
+          "vss": {
+            "direction": "INOUT",
+            "use": "GROUND",
+            "layers": {
+              "met2": 532
+            },
+            "rectangles": 532,
+            "all_rectangles_inside_macro": true
+          }
+        },
+        "obstructions": {
+          "rectangles": 2,
+          "layers": {
+            "met1": 1,
+            "met2": 1
+          }
+        }
+      },
+      "verilog": {
+        "macro_name": "sram22_256x8m8w1",
+        "parameters": {
+          "DATA_WIDTH": 8,
+          "ADDR_WIDTH": 8,
+          "WMASK_WIDTH": 8
+        },
+        "pin_count_with_power": 38,
+        "pins": {
+          "clk": "INPUT",
+          "rstb": "INPUT",
+          "ce": "INPUT",
+          "we": "INPUT",
+          "vdd": "INOUT",
+          "vss": "INOUT",
+          "addr[0]": "INPUT",
+          "addr[1]": "INPUT",
+          "addr[2]": "INPUT",
+          "addr[3]": "INPUT",
+          "addr[4]": "INPUT",
+          "addr[5]": "INPUT",
+          "addr[6]": "INPUT",
+          "addr[7]": "INPUT",
+          "wmask[0]": "INPUT",
+          "wmask[1]": "INPUT",
+          "wmask[2]": "INPUT",
+          "wmask[3]": "INPUT",
+          "wmask[4]": "INPUT",
+          "wmask[5]": "INPUT",
+          "wmask[6]": "INPUT",
+          "wmask[7]": "INPUT",
+          "din[0]": "INPUT",
+          "din[1]": "INPUT",
+          "din[2]": "INPUT",
+          "din[3]": "INPUT",
+          "din[4]": "INPUT",
+          "din[5]": "INPUT",
+          "din[6]": "INPUT",
+          "din[7]": "INPUT",
+          "dout[0]": "OUTPUT",
+          "dout[1]": "OUTPUT",
+          "dout[2]": "OUTPUT",
+          "dout[3]": "OUTPUT",
+          "dout[4]": "OUTPUT",
+          "dout[5]": "OUTPUT",
+          "dout[6]": "OUTPUT",
+          "dout[7]": "OUTPUT"
+        },
+        "power_pins_conditional_on_USE_POWER_PINS": true,
+        "posedge_clocked": true,
+        "read_is_synchronous": true,
+        "reset_clears_memory": false,
+        "reset_semantics": "active-low operation inhibit; no memory or dout initialization",
+        "write_mask_assignments": 8
+      },
+      "spice": {
+        "macro_name": "sram22_256x8m8w1",
+        "top_subckt_found": true,
+        "pin_count": 38,
+        "pin_order": [
+          "vdd",
+          "vss",
+          "clk",
+          "we",
+          "ce",
+          "rstb",
+          "addr[0]",
+          "addr[1]",
+          "addr[2]",
+          "addr[3]",
+          "addr[4]",
+          "addr[5]",
+          "addr[6]",
+          "addr[7]",
+          "wmask[0]",
+          "wmask[1]",
+          "wmask[2]",
+          "wmask[3]",
+          "wmask[4]",
+          "wmask[5]",
+          "wmask[6]",
+          "wmask[7]",
+          "din[0]",
+          "din[1]",
+          "din[2]",
+          "din[3]",
+          "din[4]",
+          "din[5]",
+          "din[6]",
+          "din[7]",
+          "dout[0]",
+          "dout[1]",
+          "dout[2]",
+          "dout[3]",
+          "dout[4]",
+          "dout[5]",
+          "dout[6]",
+          "dout[7]"
+        ],
+        "subcircuit_instance_count": 4072,
+        "transistor_primitive_reference_count": 281,
+        "subcircuit_definition_count": 137
+      },
+      "crosscheck": {
+        "macro_names_match": true,
+        "lef_matches_expected_pins": true,
+        "spice_matches_expected_pin_set": true,
+        "verilog_matches_expected_pin_set": true,
+        "all_lef_pin_rectangles_inside_macro": true,
+        "all_lef_pins_have_geometry": true,
+        "published_bus_ordering": {
+          "verilog": "[MSB:LSB] declarations; logical bit indices explicit",
+          "lef": "individual bit pins named bus[index]",
+          "spice": "ascending explicit bit indices",
+          "liberty": "downto buses with explicit bit pins"
+        },
+        "result": "PASS"
+      }
+    }
+  },
+  "overall_result": "PASS"
+}

@@ -1,0 +1,119 @@
+{
+  "calibration_provenance": {
+    "carbon_calib_path": "carbon_calib.json",
+    "carbon_calib_sha256": "0c9715602e00265d79526ec95184341768bbc6e9a8929dbff3aaa9096ba42aa3",
+    "carbon_defaults_path": "carbon_defaults.json",
+    "carbon_defaults_sha256": "00434288d08ffb369ba541e38cab792a912278b50cc777554d92848d5d115ee8",
+    "documentation": "docs/carbon_calibration.md",
+    "preservation_policy": "READ_ONLY; no values changed by Attempt10",
+    "warning": "carbon_defaults.json identifies its factors as placeholders; carbon_calib.json has no exact SKY130/130 nm manufacturing entry"
+  },
+  "campaign_carbon_status": "NOT_QUALIFIED",
+  "computation_gate": {
+    "nearest_node_fallback_for_campaign": false,
+    "required": [
+      "numeric physical area and explicit process identity",
+      "exact process manufacturing calibration with source and claim authorization",
+      "ACTIVITY_QUALIFIED energy/access matched to architecture, physical seed, and workload",
+      "qualified lifetime accesses and grid intensity",
+      "qualified or explicitly NOT_APPLICABLE recovery term"
+    ]
+  },
+  "grid": {
+    "nominal_scenario": "global_avg",
+    "qualification_status": "PROVENANCE_LIMITED",
+    "scenarios": [
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.082,
+        "id": "brazil",
+        "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_PROXY",
+        "source": "Regional default proxy",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.295,
+        "id": "europe",
+        "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_PROXY",
+        "source": "Regional default proxy",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.301,
+        "id": "global_avg",
+        "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_PROXY",
+        "source": "IEA electricity intensity global average proxy (kgCO2e/kWh)",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.028,
+        "id": "iceland",
+        "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_PROXY",
+        "source": "Regional default proxy",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.725,
+        "id": "india",
+        "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_PROXY",
+        "source": "Regional default proxy",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.38,
+        "id": "us",
+        "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_PROXY",
+        "source": "Regional default proxy",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.02,
+        "id": "stress_test_best_case",
+        "qualification_status": "PROVENANCE_LIMITED_STRESS_ENVELOPE",
+        "source": "Best/worst scenario factors are stress-test envelopes and not region-average factors.",
+        "use_for_claims": false
+      },
+      {
+        "carbon_intensity_kgCO2e_per_kWh": 0.9,
+        "id": "stress_test_worst_case",
+        "qualification_status": "PROVENANCE_LIMITED_STRESS_ENVELOPE",
+        "source": "Best/worst scenario factors are stress-test envelopes and not region-average factors.",
+        "use_for_claims": false
+      }
+    ]
+  },
+  "lifetime": {
+    "accesses_per_day": 1000000,
+    "qualification_status": "PROVENANCE_LIMITED_REPOSITORY_DEFAULT",
+    "source": "carbon_calib.json repository default; no campaign-specific workload/lifetime justification",
+    "total_lifetime_accesses": 1825000000.0,
+    "use_for_claims": false,
+    "years": 5.0
+  },
+  "manufacturing": {
+    "lifetime_allocation_factor": "NOT_QUALIFIED",
+    "manufacturing_intensity_kgCO2e_per_cm2": "NOT_QUALIFIED",
+    "qualification_status": "NOT_QUALIFIED",
+    "use_for_claims": false,
+    "yield_allocation_factor": "NOT_QUALIFIED"
+  },
+  "model_equations": {
+    "embodied": "area_total_um2 * 1e-8 cm2/um2 * manufacturing_intensity_kgCO2e_per_cm2 * yield_allocation_factor * lifetime_allocation_factor",
+    "operational": "energy_access_j * total_lifetime_accesses / 3.6e6 J/kWh * grid_carbon_intensity_kgCO2e_per_kWh",
+    "recovery": "qualified recovery events and recovery energy/carbon model; unavailable in the current campaign",
+    "total": "embodied + operational + recovery, only when all three terms are qualified"
+  },
+  "recovery": {
+    "model": "NOT_MEASURED",
+    "qualification_status": "NOT_MEASURED",
+    "recovery_carbon_kgCO2e_per_lifetime": "NOT_MEASURED",
+    "use_for_claims": false
+  },
+  "schema_version": 1,
+  "technology": {
+    "campaign_technology": "SKY130HD_WITH_SRAM22_RESEARCH_MACROS",
+    "exact_node_in_carbon_calib": false,
+    "nearest_node_extrapolation_allowed": false,
+    "nominal_process_node_nm": 130,
+    "qualification_status": "NOT_QUALIFIED_NO_EXACT_SKY130_MANUFACTURING_CALIBRATION"
+  }
+}

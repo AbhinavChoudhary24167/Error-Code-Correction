@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "process_module_vocabulary": [
+    "LITHOGRAPHY",
+    "DEPOSITION",
+    "DRY_ETCH",
+    "WET_CLEAN",
+    "IMPLANTATION",
+    "ANNEAL",
+    "CMP",
+    "METROLOGY",
+    "OTHER_DECLARED"
+  ],
+  "routes": [
+    {
+      "process_route_id": "SKY130_ROUTE_UNCHARACTERIZED",
+      "technology_id": "SKY130",
+      "patterning_route": "UNAVAILABLE",
+      "steps": [],
+      "inventory_status": "UNAVAILABLE",
+      "blocking_reason": "No matched public step-level SKY130 energy, gas, abatement, upstream, and yield inventory."
+    },
+    {
+      "process_route_id": "IMEC_N28_PUBLIC_ROUTE",
+      "technology_id": "IMEC_N28_PUBLIC_ANCHOR",
+      "patterning_route": "PUBLIC_MODEL_ROUTE_NOT_FULLY_ENUMERATED",
+      "steps": [],
+      "electricity_sensitivity_kwh_per_cm2": 1.64,
+      "inventory_status": "TEXTUAL_ANCHOR_ONLY",
+      "evidence_tier": "E2",
+      "source_ids": ["SRC_IMEC_IEDM_2023"],
+      "allowed_use": "BOUNDARY_MATCHED_VALIDATION_AND_TREND_ONLY"
+    },
+    {
+      "process_route_id": "IMEC_A14_PUBLIC_ROUTE",
+      "technology_id": "IMEC_A14_PROJECTED_ANCHOR",
+      "patterning_route": "EUV_ROUTE_WITH_PROCESS_STEP_ELIMINATION",
+      "steps": [],
+      "electricity_sensitivity_kwh_per_cm2": 4.30,
+      "inventory_status": "PROJECTED_APPROXIMATE_TEXTUAL_ANCHOR_ONLY",
+      "evidence_tier": "E2",
+      "source_ids": ["SRC_IMEC_IEDM_2023"],
+      "allowed_use": "TREND_REPRODUCTION_ONLY"
+    }
+  ],
+  "patterning_rule": "Compare complete routes including exposures, deposition, etch, and clean; scanner power alone cannot establish an EUV/DUV crossover."
+}

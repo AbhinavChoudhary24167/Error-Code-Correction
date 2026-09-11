@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "classification": "ACTIVITY_COVERAGE_BOTTLENECK_UNRESOLVED_ENERGY_NOT_QUALIFIED",
+  "operational_boundary": {
+    "equation": "E_lifetime = E_normal_read + E_normal_write + E_ECC_encode + E_ECC_decode + E_correction + E_scrub + E_retry + E_recovery + E_idle_leakage",
+    "carbon_equation": "C_op = CI_use * E_lifetime_kWh",
+    "double_count_rule": "Retry and local recovery energy appear once as operational energy; replacement burdens alone belong to lifecycle recovery/replacement."
+  },
+  "rows": [
+    {
+      "architecture_id": "U0",
+      "workload_id": "read_dominant",
+      "activity_coverage_fraction": 0.4868421052631579,
+      "activity_evidence": "PARTIALLY_RTL_ACTIVITY_ANNOTATED_POSTROUTE_TOOL_ESTIMATE",
+      "macro_energy_tier": "TIER_5",
+      "diagnostic_tool_power_w": 0.001893166452646,
+      "operational_energy_j": "NOT_QUALIFIED",
+      "operational_carbon_kgco2e": "NOT_QUALIFIED",
+      "result_classification": "UNQUALIFIED",
+      "green_scoring_allowed": false
+    },
+    {
+      "architecture_id": "E0",
+      "workload_id": "read_dominant",
+      "activity_coverage_fraction": 0.043451652386780906,
+      "activity_evidence": "PARTIALLY_RTL_ACTIVITY_ANNOTATED_POSTROUTE_TOOL_ESTIMATE",
+      "macro_energy_tier": "TIER_5",
+      "diagnostic_tool_power_w": 0.005495859775692,
+      "operational_energy_j": "NOT_QUALIFIED",
+      "operational_carbon_kgco2e": "NOT_QUALIFIED",
+      "result_classification": "UNQUALIFIED",
+      "green_scoring_allowed": false
+    }
+  ],
+  "source_ids": {
+    "A10_POSTROUTE_ACTIVITY_DIAGNOSTIC": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/POSTROUTE_ACTIVITY_DIAGNOSTIC.json",
+    "A10_ACTIVITY_MODEL": "campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/ACTIVITY_MODEL.md",
+    "A10_SRAM_LIBERTY_EVIDENCE": "energy/SRAM_ENERGY_EVIDENCE.json"
+  }
+}

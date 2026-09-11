@@ -1,0 +1,32 @@
+{
+  "algorithm": "sha256",
+  "scope": "repository-resident files listed by preserved manifests",
+  "status": "PASS",
+  "campaigns": [
+    {
+      "label": "Attempt01/Attempt02 repository evidence",
+      "manifest": "GATE2_GATE3_EVIDENCE_MANIFEST.json",
+      "file_count": 22,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt03 repository evidence",
+      "manifest": "gate3_openram_attempt03_target_diagnosis/ATTEMPT03_EVIDENCE_MANIFEST.json",
+      "file_count": 25,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt04 repository evidence",
+      "manifest": "gate3_openram_attempt04_sky130_control_integration_repair/ATTEMPT04_EVIDENCE_MANIFEST.json",
+      "file_count": 349,
+      "status": "PASS",
+      "failures": []
+    }
+  ],
+  "external_attempt02_attempt03": {
+    "status": "NOT_REVERIFIED",
+    "reason": "Original Ubuntu-24.04 VHDX remains inaccessible due documented ERROR_SHARING_VIOLATION; historical results were not promoted to current PASS."
+  }
+}

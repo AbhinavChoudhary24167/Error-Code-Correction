@@ -1,0 +1,79 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "openram_commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+  "attempt02": {
+    "addr_size": 9,
+    "probe_address_expression": "0 + 1*(addr_size-1)",
+    "probe_address": "011111111",
+    "probe_data_bit": 71,
+    "col_addr_size": 1,
+    "decoded_column_select": 0,
+    "physical_bitline_column": 142,
+    "decoded_row": 255,
+    "valid_row_range": "0..128",
+    "all_bitcells_excluded": true,
+    "error": "Could not find bl net in timing paths."
+  },
+  "source_trace": [
+    {
+      "path": "compiler/sram.py",
+      "class": "sram",
+      "function": "save",
+      "lines": "121-130",
+      "effect": "selects probe_address as 0 followed by addr_size-1 ones when spare rows exist"
+    },
+    {
+      "path": "compiler/characterizer/simulation.py",
+      "class": "simulation",
+      "function": "set_probe/get_data/get_row",
+      "lines": "121-139",
+      "effect": "interprets leading column-address bits and remaining row-address bits; maps data bit 71 to bitline column 142 and row to 255"
+    },
+    {
+      "path": "compiler/characterizer/simulation.py",
+      "class": "simulation",
+      "function": "create_graph",
+      "lines": "562-578",
+      "effect": "requests exclusion of all bitcells other than row 255, column 142"
+    },
+    {
+      "path": "compiler/modules/bitcell_array.py",
+      "class": "bitcell_array",
+      "function": "graph_exclude_bits",
+      "lines": "112-121",
+      "effect": "excludes every real bitcell because requested row 255 does not exist"
+    },
+    {
+      "path": "compiler/characterizer/simulation.py",
+      "class": "simulation",
+      "function": "get_alias_in_path/get_bl_name",
+      "lines": "589-628",
+      "effect": "searches clock-to-output graph paths for aliases of leaf bitcell pins bl or br and fails after graph exclusion"
+    }
+  ],
+  "generated_spice_names": {
+    "regular_bank_bitlines": "bl_0_0..bl_0_144",
+    "spare_bitline": "sparebl_0",
+    "replica_bitlines": "rbl_bl*",
+    "expected_bl_exists_in_netlist": true,
+    "expected_bl_retained_in_filtered_timing_graph": false
+  },
+  "control": {
+    "words_per_row": 1,
+    "col_addr_size": 0,
+    "probe_address": "01111",
+    "decoded_row": 15,
+    "resolved_bitline": "xsky130_sram_1rw_8x16_gate3a03_control.xbank0.bl_0_7",
+    "bitline_lookup": "PASS",
+    "subsequent_error": "UnboundLocalError: local variable 'nom_corner' referenced before assignment",
+    "corner_flag_trigger": "nominal_corner_only=True together with only_use_config_corners=True"
+  },
+  "root_cause": "spare-row-expanded address width plus probe-address/column-mux ordering selects nonexistent row 255 and excludes all bitcells",
+  "classification": [
+    "E_CHARACTERIZER_LIMITATION",
+    "C_TARGET_CONFIGURATION_LIMITATION",
+    "G_LOCAL_CONFIGURATION_ERROR"
+  ],
+  "source_modified": false
+}
+

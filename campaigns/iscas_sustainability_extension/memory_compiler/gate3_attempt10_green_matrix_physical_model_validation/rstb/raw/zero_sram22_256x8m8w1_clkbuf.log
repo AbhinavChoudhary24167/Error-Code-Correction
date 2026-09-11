@@ -1,0 +1,62 @@
+OpenSTA 3.1.0  Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+RSTB_ZERO_WIRE_BEGIN macro=sram22_256x8m8w1 family=clkbuf
+RSTB_INPUT_SLEW_NS 0.01
+stage2/A ^ 0.010000001:0.010000001 v 0.010000001:0.010000001
+stage2/X ^ 0.099924661:0.263120651 v 0.070030943:0.164705455
+memory/rstb ^ 0.133232892:0.350827545 v 0.093374588:0.219607279
+Net local_rstb
+ Pin capacitance: 0.08-0.25
+ Wire capacitance: 0.00
+ Total capacitance: 0.08-0.25
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ stage2/X output (sky130_fd_sc_hd__clkbuf_16)
+
+Load pins
+ memory/rstb input (sram22_256x8m8w1) 0.08-0.25
+
+RSTB_INPUT_SLEW_NS 0.1
+stage2/A ^ 0.099999994:0.099999994 v 0.099999994:0.099999994
+stage2/X ^ 0.100054324:0.263314784 v 0.070174575:0.164755255
+memory/rstb ^ 0.133405760:0.351086378 v 0.093566105:0.219673678
+Net local_rstb
+ Pin capacitance: 0.08-0.25
+ Wire capacitance: 0.00
+ Total capacitance: 0.08-0.25
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ stage2/X output (sky130_fd_sc_hd__clkbuf_16)
+
+Load pins
+ memory/rstb input (sram22_256x8m8w1) 0.08-0.25
+
+RSTB_INPUT_SLEW_NS 0.3
+stage2/A ^ 0.300000012:0.300000012 v 0.300000012:0.300000012
+stage2/X ^ 0.102511525:0.264264315 v 0.071657352:0.165287524
+memory/rstb ^ 0.136682034:0.352352440 v 0.095543146:0.220383376
+Net local_rstb
+ Pin capacitance: 0.08-0.25
+ Wire capacitance: 0.00
+ Total capacitance: 0.08-0.25
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ stage2/X output (sky130_fd_sc_hd__clkbuf_16)
+
+Load pins
+ memory/rstb input (sram22_256x8m8w1) 0.08-0.25
+
+RSTB_ZERO_WIRE_END

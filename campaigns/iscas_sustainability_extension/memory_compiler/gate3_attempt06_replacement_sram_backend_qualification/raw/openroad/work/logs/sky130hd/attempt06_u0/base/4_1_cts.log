@@ -1,0 +1,101 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+read_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_u0/base/3_place.odb
+read_sdc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_u0/base/3_place.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "core_clk".
+[WARNING CTS-0041] Net "clk" has 1 sinks. Skipping...
+[WARNING CTS-0083] No clock nets have been found.
+[INFO CTS-0008] TritonCTS found 0 clock nets.
+[WARNING CTS-0082] No valid clock nets in the design.
+[INFO CTS-0500] Runtime: 1.46s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 421043.81 um^2
+[INFO DPL-0007] Movable instances area: 2763.90 um^2
+[INFO DPL-0008] Fixed instances area within core: 204950.13 um^2
+[INFO DPL-0009] Utilization: 49.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 3331 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+[INFO DPL-0500] Runtime: 0.03s
+Placement Analysis
+---------------------------------
+total displacement        316.9 u
+average displacement        0.1 u
+max displacement            7.4 u
+original HPWL          129870.6 u
+legalized HPWL         130105.5 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -skip_gate_cloning -match_cell_footprint -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.12s
+[INFO RSZ-0046] Found 1 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -3.990 |  -3.990 | u_data/rstb
+    final |       1 |       7 |            0 |    +0.0% |   0.004 |   0.000 | u_data/rstb
+--------------------------------------------------------------------------------------
+[INFO RSZ-0132] Resized 1 instances.
+[INFO RSZ-0032] Inserted 7 hold buffers.
+[INFO RSZ-0506] Runtime: 0.02s
+detailed_placement
+[INFO DPL-0006] Core area: 421043.81 um^2
+[INFO DPL-0007] Movable instances area: 2851.48 um^2
+[INFO DPL-0008] Fixed instances area within core: 204950.13 um^2
+[INFO DPL-0009] Utilization: 49.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 3338 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.02s
+Placement Analysis
+---------------------------------
+total displacement         43.6 u
+average displacement        0.0 u
+max displacement           23.8 u
+original HPWL          130099.8 u
+legalized HPWL         130106.4 u
+delta HPWL                    0 %
+
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 207802 um^2 49% utilization.
+write_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_u0/base/4_1_cts.odb
+write_sdc -no_timestamp /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/raw/openroad/work/results/sky130hd/attempt06_u0/base/4_cts.sdc
+Elapsed time: 0:06.27[h:]min:sec. CPU time: user 2.51 sys 0.52 (48%). Peak memory: 168348KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+4_1_cts                   .odb            6            164 44ce320270d2a4448093

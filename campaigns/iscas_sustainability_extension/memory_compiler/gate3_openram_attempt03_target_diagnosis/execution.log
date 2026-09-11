@@ -1,0 +1,21 @@
+2026-08-30T17:57:31.6505341+05:30 ATTEMPT03 PREFLIGHT START diagnostic-only namespace; Gate-3 finalized FAIL preserved; Gate 4 forbidden.
+2026-08-30T17:57:31.6505341+05:30 LOCAL_EVIDENCE PASS 22/22 repository manifest entries match SHA-256.
+2026-08-30T17:57:31.6505341+05:30 ATTEMPT01 PASS incident record SHA-256 76bce8942b510ccfba921b74bd4d470e1f0a24b6b6c093756960f65cb44db72b.
+2026-08-30T17:57:31.6505341+05:30 EXTERNAL_RUN04 PASS 11/11 files match size and SHA-256.
+2026-08-30T17:57:31.6505341+05:30 EXTERNAL_ATTEMPT02_BASELINE 36548 files, 5430332296 bytes, tree SHA-256 f0dc7607d459831124aed3b767195535d24542ce0a24e62595f8dae7ec20c2b6.
+2026-08-30T17:57:31.6505341+05:30 DATE_BASELINE PASS 7094 protected files; changed=[], missing=[], added=[].
+2026-08-30T17:57:31.6505341+05:30 STORAGE PASS C free 19649085440; F free 122460368896; WSL ext4 free 977756692480; external root writable.
+2026-08-30T17:57:31.6505341+05:30 PREFLIGHT PASS attempt03 authorized for diagnosis only.
+TIME_NOT_CAPTURED CONTROL_CONFIG PASS stock-compatible OpenRAM SKY130 16x8 geometry; SHA-256 dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6; no source/PDK/deck modifications.
+TIME_NOT_CAPTURED CONTROL_FLOW CONTROL_FAIL exit=1; DRC=FAIL(2140); LVS=FAIL; bitline_lookup=PASS(xsky130_sram_1rw_8x16_gate3a03_control.xbank0.bl_0_7); Liberty=FAIL(UnboundLocalError nom_corner); GDS/SPICE/LEF unqualified; Liberty/Verilog unavailable.
+TIME_NOT_CAPTURED BISECTION NOT_RUN_CONTROL_FAIL per mandatory scientific gate.
+TIME_NOT_CAPTURED DRC_DIAGNOSTIC PASS unmodified Magic deck; Tcl SHA-256 7db084df0694a47d675e253c3970511af6811cf98b5f168f54f9ebb7d8d137aa; rule and hierarchy histograms captured.
+TIME_NOT_CAPTURED ROOT_CAUSE DRC repeated SKY130 primitive integration violations; LVS independent repair-pin naming and primitive extraction partitions; characterization invalid probe row 255 excludes all bitcells.
+2026-08-31T00:22:01.4773765+05:30 EXTERNAL_FINAL_RECHECK BLOCKED Windows WSL service denied access; elevated context did not expose the user Ubuntu distribution. No write access to attempt02 was requested or used.
+2026-08-31T00:45:48.7553683+05:30 TEST campaign-local PASS 21/21.
+2026-08-31T00:45:48.7553683+05:30 TEST make PASS.
+2026-08-31T00:45:48.7553683+05:30 TEST make_test BASELINE_ONLY_FAILURES 482 passed; same frozen test_gate01_gate02_immutable_authorized_scope_and_binary_verdict and test_gate03e_artifact_validator failures.
+2026-08-31T00:45:48.7553683+05:30 TEST full_pytest BASELINE_ONLY_FAILURES 484 passed; same two frozen historical-validator failures; no new failures.
+2026-08-31T00:45:48.7553683+05:30 PROTECTED_REPOSITORY PASS 2327 files; changed=[], missing=[], added=[] after restoring make-relinked PracticalSRAMSimulator.exe to baseline SHA-256 99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef.
+2026-08-31T00:45:48.7553683+05:30 LOCAL_PRIOR_EVIDENCE_FINAL PASS 22/22 repository manifest entries match SHA-256.
+2026-08-31T00:45:48.7553683+05:30 ATTEMPT03 DIAGNOSTIC_PASS scientific macro qualification remains FAIL; Gate 3 unchanged; Gate 4 not started; external closeout rehash blocked.

@@ -1,0 +1,14 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+ATTEMPT09_CLASS_C_COUNTERFACTUAL_BEGIN design=u0 seed=11
+DIAGNOSTIC_ONLY production_netlist_placement_routing_sdc_spef_unchanged=true
+ONLY_EXCLUDED_RULE inherited_SRAM22_output_default_max_transition_0p04=true
+max slew
+
+Pin                                           Limit           Slew          Slack
+---------------------------------------------------------------------------------
+u_data/rstb                             0.351000011    0.619147718   -0.268147677 (VIOLATED)
+
+ATTEMPT09_CLASS_C_COUNTERFACTUAL_END design=u0 seed=11

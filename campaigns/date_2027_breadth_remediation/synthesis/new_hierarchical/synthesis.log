@@ -1,0 +1,655 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+
+-- Running command `read_verilog -sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv /repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv; hierarchy -check -top breadth_hsiao_hierarchical_72_64; proc; flatten; opt; memory; opt; techmap; opt; dfflibmap -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; abc -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; clean -purge; rename -top synthesized_top; tee -o /out/stat.json stat -json -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib; tee -o /out/ltp.log ltp -noff; write_verilog -noattr /out/mapped_netlist.v; write_json /out/mapped_netlist.json' --
+
+1. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv
+Parsing SystemVerilog input from `/repo/green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v1_syndrome'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv' to AST representation.
+Generating RTLIL representation for module `\hsiao_secded_72_64_v3_hierarchical_decoder'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv
+Parsing SystemVerilog input from `/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv' to AST representation.
+Generating RTLIL representation for module `\breadth_hsiao_hierarchical_72_64'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \breadth_hsiao_hierarchical_72_64
+Used module:     \hsiao_secded_72_64_v3_hierarchical_decoder
+Used module:         \hsiao_secded_72_64_v1_syndrome
+Used module:     \hsiao_secded_72_64_v1_encoder
+
+5.2. Analyzing design hierarchy..
+Top module:  \breadth_hsiao_hierarchical_72_64
+Used module:     \hsiao_secded_72_64_v3_hierarchical_decoder
+Used module:         \hsiao_secded_72_64_v1_syndrome
+Used module:     \hsiao_secded_72_64_v1_encoder
+Removed 0 unused modules.
+
+6. Executing PROC pass (convert processes to netlists).
+
+6.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520 in module breadth_hsiao_hierarchical_72_64.
+Removed a total of 0 dead cases.
+
+6.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 11 redundant assignments.
+Promoted 0 assignments to connections.
+
+6.4. Executing PROC_INIT pass (extract init attributes).
+
+6.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+6.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+     1/11: $0\dec_uncorrectable_o[0:0]
+     2/11: $0\dec_corrected_o[0:0]
+     3/11: $0\dec_detected_o[0:0]
+     4/11: $0\dec_codeword_echo_o[71:0]
+     5/11: $0\dec_data_o[63:0]
+     6/11: $0\dec_valid_o[0:0]
+     7/11: $0\enc_codeword_o[71:0]
+     8/11: $0\enc_valid_o[0:0]
+     9/11: $0\dec_codeword_q[71:0]
+    10/11: $0\enc_data_q[63:0]
+    11/11: $0\valid_q[0:0]
+
+6.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+6.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\enc_valid_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$556' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\enc_codeword_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$557' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_valid_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$558' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_data_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$559' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_codeword_echo_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$560' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_detected_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$561' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_corrected_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$562' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_uncorrectable_o' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$563' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\valid_q' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$564' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\enc_data_q' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$565' with positive edge clock.
+Creating register for signal `\breadth_hsiao_hierarchical_72_64.\dec_codeword_q' using process `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+  created $dff cell `$procdff$566' with positive edge clock.
+
+6.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+Removing empty process `breadth_hsiao_hierarchical_72_64.$proc$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:38$520'.
+Cleaned up 1 empty switch.
+
+6.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+<suppressed ~11 debug messages>
+Optimizing module hsiao_secded_72_64_v3_hierarchical_decoder.
+<suppressed ~4 debug messages>
+Optimizing module hsiao_secded_72_64_v1_syndrome.
+Optimizing module hsiao_secded_72_64_v1_encoder.
+
+7. Executing FLATTEN pass (flatten design).
+Deleting now unused module hsiao_secded_72_64_v3_hierarchical_decoder.
+Deleting now unused module hsiao_secded_72_64_v1_syndrome.
+Deleting now unused module hsiao_secded_72_64_v1_encoder.
+<suppressed ~3 debug messages>
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 546 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 543 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_hierarchical_72_64..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_hierarchical_72_64.
+Performed a total of 0 changes.
+
+8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 543 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 542 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 541 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$557 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \enc_codeword_d, Q = \enc_codeword_o, rval = 72'000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$559 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \dec_data_d, Q = \dec_data_o, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$560 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \dec_codeword_q, Q = \dec_codeword_echo_o, rval = 72'000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$561 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = $or$/repo/campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv:60$522_Y, Q = \dec_detected_o, rval = 1'0).
+Adding SRST signal on $procdff$562 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \dec_corrected_d, Q = \dec_corrected_o, rval = 1'0).
+Adding SRST signal on $procdff$563 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \dec_uncorrectable_d, Q = \dec_uncorrectable_o, rval = 1'0).
+Adding SRST signal on $procdff$564 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \valid_i, Q = \valid_q, rval = 1'0).
+Adding SRST signal on $procdff$565 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \enc_data_i, Q = \enc_data_q, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $procdff$566 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \dec_codeword_i, Q = \dec_codeword_q, rval = 72'000000000000000000000000000000000000000000000000000000000000000000000000).
+
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+Removed 11 unused cells and 160 unused wires.
+<suppressed ~12 debug messages>
+
+8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_hierarchical_72_64..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_hierarchical_72_64.
+Performed a total of 0 changes.
+
+8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 530 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Removed a total of 0 cells.
+
+8.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$558 ($dff) from module breadth_hsiao_hierarchical_72_64 (D = \valid_q, Q = \dec_valid_o, rval = 1'0).
+
+8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_hierarchical_72_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_hierarchical_72_64.
+Performed a total of 0 changes.
+
+8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 529 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Removed a total of 0 cells.
+
+8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+
+8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+8.23. Finished fast OPT passes. (There is nothing left to do.)
+
+9. Executing MEMORY pass.
+
+9.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+9.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+9.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+9.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+9.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+
+9.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+9.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+9.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+
+9.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+9.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 529 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Removed a total of 0 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_hierarchical_72_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_hierarchical_72_64.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 529 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Removed a total of 0 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+10.9. Finished fast OPT passes. (There is nothing left to do.)
+
+11. Executing TECHMAP pass (map to technology primitives).
+
+11.1. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/tools/install/yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/OpenROAD-flow-scripts/tools/install/yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+11.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+No more expansions possible.
+<suppressed ~603 debug messages>
+
+12. Executing OPT pass (performing simple optimizations).
+
+12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+<suppressed ~116 debug messages>
+
+12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 1168 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 1100 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 1064 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+<suppressed ~312 debug messages>
+Removed a total of 104 cells.
+
+12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_hierarchical_72_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_hierarchical_72_64.
+Performed a total of 0 changes.
+
+12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 1064 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Removed a total of 0 cells.
+
+12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+Removed 8 unused cells and 136 unused wires.
+<suppressed ~9 debug messages>
+
+12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \breadth_hsiao_hierarchical_72_64..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \breadth_hsiao_hierarchical_72_64.
+Performed a total of 0 changes.
+
+12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\breadth_hsiao_hierarchical_72_64'.
+Computing hashes of 1056 cells of `\breadth_hsiao_hierarchical_72_64'.
+Finding duplicate cells in `\breadth_hsiao_hierarchical_72_64'.
+Removed a total of 0 cells.
+
+12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \breadth_hsiao_hierarchical_72_64..
+
+12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module breadth_hsiao_hierarchical_72_64.
+
+12.16. Finished fast OPT passes. (There is nothing left to do.)
+
+13. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+13.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF cells in module `\breadth_hsiao_hierarchical_72_64':
+  mapped 349 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+14. Executing ABC pass (technology mapping using ABC).
+
+14.1. Extracting gate netlist of module `\breadth_hsiao_hierarchical_72_64' to `<abc-temp-dir>/input.blif'..
+
+14.1.1. Executed ABC.
+Extracted 1053 gates and 1329 wires to a netlist network with 275 inputs and 349 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled 0 0)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache/yosys_merged_435ef072.scl 
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+14.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a2111o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       63
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:      279
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__nand4b_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       53
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       65
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      212
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:       31
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       93
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:        7
+ABC RESULTS:        internal signals:      705
+ABC RESULTS:           input signals:      275
+ABC RESULTS:          output signals:      349
+Removing temp directory.
+Removing global temp directory.
+Removed 3 unused cells and 1089 unused wires.
+Renaming module breadth_hsiao_hierarchical_72_64 to synthesized_top.
+{
+   "creator": "Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)",
+   "invocation": "stat -json -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib ",
+   "modules": {
+      "\\synthesized_top": {
+         "num_wires":         921,
+         "num_wire_bits":     1402,
+         "num_pub_wires":     16,
+         "num_pub_wire_bits": 497,
+         "num_ports":         13,
+         "num_port_bits":     352,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         1254,
+         "num_submodules":       0,
+         "area":              13749.436800,
+         "sequential_area":    6986.700800,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111o_1": 2,
+            "sky130_fd_sc_hd__a211oi_1": 1,
+            "sky130_fd_sc_hd__a21boi_0": 5,
+            "sky130_fd_sc_hd__a21oi_1": 63,
+            "sky130_fd_sc_hd__a31oi_1": 1,
+            "sky130_fd_sc_hd__a41oi_1": 2,
+            "sky130_fd_sc_hd__and2_0": 279,
+            "sky130_fd_sc_hd__clkinv_1": 4,
+            "sky130_fd_sc_hd__dfxtp_1": 349,
+            "sky130_fd_sc_hd__lpflow_inputiso1p_1": 2,
+            "sky130_fd_sc_hd__lpflow_isobufsrc_1": 3,
+            "sky130_fd_sc_hd__nand2_1": 15,
+            "sky130_fd_sc_hd__nand2b_1": 1,
+            "sky130_fd_sc_hd__nand3_1": 2,
+            "sky130_fd_sc_hd__nand4_1": 17,
+            "sky130_fd_sc_hd__nand4b_1": 7,
+            "sky130_fd_sc_hd__nor2_1": 53,
+            "sky130_fd_sc_hd__nor2b_1": 1,
+            "sky130_fd_sc_hd__nor3_1": 7,
+            "sky130_fd_sc_hd__nor4_1": 9,
+            "sky130_fd_sc_hd__nor4b_1": 1,
+            "sky130_fd_sc_hd__o21a_1": 1,
+            "sky130_fd_sc_hd__o21ai_0": 65,
+            "sky130_fd_sc_hd__o21ba_1": 1,
+            "sky130_fd_sc_hd__o22ai_1": 7,
+            "sky130_fd_sc_hd__o2bb2ai_1": 2,
+            "sky130_fd_sc_hd__o32ai_1": 2,
+            "sky130_fd_sc_hd__or3_1": 5,
+            "sky130_fd_sc_hd__or4_1": 4,
+            "sky130_fd_sc_hd__xnor2_1": 212,
+            "sky130_fd_sc_hd__xnor3_1": 31,
+            "sky130_fd_sc_hd__xor2_1": 93,
+            "sky130_fd_sc_hd__xor3_1": 7
+         }
+      }
+   },
+      "design": {
+         "num_wires":         921,
+         "num_wire_bits":     1402,
+         "num_pub_wires":     16,
+         "num_pub_wire_bits": 497,
+         "num_ports":         13,
+         "num_port_bits":     352,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         1254,
+         "num_submodules":       0,
+         "area":              13749.436800,
+         "sequential_area":    6986.700800,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111o_1": 2,
+            "sky130_fd_sc_hd__a211oi_1": 1,
+            "sky130_fd_sc_hd__a21boi_0": 5,
+            "sky130_fd_sc_hd__a21oi_1": 63,
+            "sky130_fd_sc_hd__a31oi_1": 1,
+            "sky130_fd_sc_hd__a41oi_1": 2,
+            "sky130_fd_sc_hd__and2_0": 279,
+            "sky130_fd_sc_hd__clkinv_1": 4,
+            "sky130_fd_sc_hd__dfxtp_1": 349,
+            "sky130_fd_sc_hd__lpflow_inputiso1p_1": 2,
+            "sky130_fd_sc_hd__lpflow_isobufsrc_1": 3,
+            "sky130_fd_sc_hd__nand2_1": 15,
+            "sky130_fd_sc_hd__nand2b_1": 1,
+            "sky130_fd_sc_hd__nand3_1": 2,
+            "sky130_fd_sc_hd__nand4_1": 17,
+            "sky130_fd_sc_hd__nand4b_1": 7,
+            "sky130_fd_sc_hd__nor2_1": 53,
+            "sky130_fd_sc_hd__nor2b_1": 1,
+            "sky130_fd_sc_hd__nor3_1": 7,
+            "sky130_fd_sc_hd__nor4_1": 9,
+            "sky130_fd_sc_hd__nor4b_1": 1,
+            "sky130_fd_sc_hd__o21a_1": 1,
+            "sky130_fd_sc_hd__o21ai_0": 65,
+            "sky130_fd_sc_hd__o21ba_1": 1,
+            "sky130_fd_sc_hd__o22ai_1": 7,
+            "sky130_fd_sc_hd__o2bb2ai_1": 2,
+            "sky130_fd_sc_hd__o32ai_1": 2,
+            "sky130_fd_sc_hd__or3_1": 5,
+            "sky130_fd_sc_hd__or4_1": 4,
+            "sky130_fd_sc_hd__xnor2_1": 212,
+            "sky130_fd_sc_hd__xnor3_1": 31,
+            "sky130_fd_sc_hd__xor2_1": 93,
+            "sky130_fd_sc_hd__xor3_1": 7
+         }
+      }
+}
+
+15. Executing LTP pass (find longest path).
+
+Longest topological path in synthesized_top (length=0):
+    0: \clk_i
+
+16. Executing Verilog backend.
+
+16.1. Executing BMUXMAP pass.
+
+16.2. Executing DEMUXMAP pass.
+Dumping module `\synthesized_top'.
+
+17. Executing JSON backend.
+
+End of script. Logfile hash: 8f5c865841, time: 2.60s, user: 0.43s, system: 0.15s, MEM: 52.68 MB peak
+Yosys 0.68+post (git sha1 UNKNOWN, Release, GNU /usr/local/bin/wrapped-cc/g++ 11.4.0)
+Time spent: 81% 1x abc (1 sec), 4% 1x dfflibmap (0 sec), ...

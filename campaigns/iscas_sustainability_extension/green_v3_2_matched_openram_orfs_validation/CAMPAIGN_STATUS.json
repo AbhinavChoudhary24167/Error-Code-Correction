@@ -1,0 +1,62 @@
+{
+  "E5_status": "E5_CAMPAIGN_READY_BUT_NOT_QUALIFIED",
+  "I1_I2_status": "BLOCKED_NO_IMPLEMENTATION_AND_TOPOLOGY_MAP",
+  "Qcrit": "BLOCKED",
+  "SKY130_manufacturing_lifecycle_carbon": "BLOCKED",
+  "campaign": "green_v3_2_matched_openram_orfs_validation",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "classification": "GREEN_V3_2_MATCHED_ORFS_MULTI_ARCH_PHYSICAL_VALIDATION_COMPLETE_OPENRAM_REGENERATION_PARTIAL_RUNTIME_CUTOFF_INHERITED_SRAM_MACROS_E4_E5_PENDING_ABSOLUTE_RELIABILITY_AND_LIFECYCLE_BLOCKED",
+  "combined_additive_matrix_counts": {
+    "M_E": 601,
+    "M_P": 10,
+    "M_S": 2
+  },
+  "completed_physical_run_count": 40,
+  "conditional_pareto_status": "PARENT_FIVE_CONDITIONAL_FRONTS_PRESERVED_NO_NEW_PROMOTION",
+  "diagnostic_pareto_status": "AVAILABLE_MULTI_ARCH_POPULATION_SINGLETON_U0_E4_DIAGNOSTIC_FRONT",
+  "e3_note": "Frozen exact/formal E3 is referenced; fresh finite-payload regressions are not promoted to unrestricted E3.",
+  "evidence_added": {
+    "E3": 0,
+    "E4": 40,
+    "E5": 0
+  },
+  "failed_partial_experiments": "FAILED_PARTIAL_EXPERIMENTS.json",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "functional_validation_success_count": 4,
+  "gds_success_count": 40,
+  "generated_on": "2026-09-08",
+  "global_winner": "NO_GLOBAL_WINNER_QUALIFIED",
+  "highest_value_remaining_experiment": "ACTIVITY_COMPLETE_POST_ROUTE_OPERATION_CLASS_POWER_ON_THE_MATCHED_POPULATION",
+  "hold_timing_met_count": 19,
+  "included_architecture_count": 4,
+  "included_architectures": [
+    "U0",
+    "SECDED",
+    "HSIAO_SECDED",
+    "BCH_78_64_T2"
+  ],
+  "openram_regeneration_status": "TIMEOUT",
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "physical_SDC_DUE_FIT": "BLOCKED",
+  "planned_physical_run_count": 40,
+  "preserved_initial_physical_failure_count": 10,
+  "qualified_pareto_status": "BLOCKED",
+  "remaining_blockers": [
+    "fresh qualified OpenRAM SKY130 macro",
+    "activity-complete E5 power/energy",
+    "physical-to-logical bit map",
+    "particle-beam event coordinates and fluence",
+    "Qcrit",
+    "SKY130 manufacturing/lifecycle inventory",
+    "I1/I2 RTL"
+  ],
+  "route_success_count": 40,
+  "schema_version": "1.0.0",
+  "seeds_per_architecture_timing_condition": 5,
+  "setup_and_hold_timing_met_count": 14,
+  "setup_timing_met_count": 20,
+  "synthesis_success_count": 40,
+  "timing_condition_count": 2
+}

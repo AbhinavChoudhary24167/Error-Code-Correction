@@ -1,0 +1,65 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "sky130_fd_bd_sram__sram_sp_colend".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend" (byte position 1566): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend" (byte position 1630): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_colend" (byte position 2362): Unknown layer/datatype in boundary, layer=33 type=43
+Writing 'sky130_fd_bd_sram__sram_sp_colend'
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Diffusion width < 0.15um (diff/tap.1)",2
+"Local interconnect width < 0.17um (li.1)",5
+"N-well width < 0.84um (nwell.1)",5
+"Deep N-well width < 3um (dnwell.2)",1
+"Core local interconnect width < 0.14um (li.c1)",9
+"Metal1 overlap of local interconnect contact < 0.03um (met1.4)",1
+"Metal1 overlap of local interconnect contact < 0.06um in one direction (met1.5)",2
+"P-tap overlap of P-tap contact < 0.12um in one direction (licon.7)",8
+"Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4)",8
+"poly overhang of SRAM core transistor < 0.11um (poly.8)",3
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",3
+"Deep N-well spacing to N-well < 4.5um (nwell.7)",1
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",16
+"Metal1 width < 0.14um (met1.1)",11
+"Metal2 width < 0.14um (met2.1)",1
+"N-Transistor in SRAM core width < 0.21um (diff/tap.2)",4
+"N-Diffusion overhang of nFET < 0.25um (poly.7)",1
+"N-tap overlap of N-tap contact < 0.12um in one direction (licon.7)",4
+"N-diffusion contact width < 0.17um (licon.1)",3
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",3
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",8
+"P-tap contact width     < 0.17um (licon.1)",1
+"N-well overlap of N-tap < 0.18um (diff/tap.10)",41
+__RULE_CSV_END__
+RULE_TOTAL=141
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=39
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Extraction style is now "ngspice(si)"
+Processing sky130_fd_bd_sram__sram_sp_colend
+Extracting sky130_fd_bd_sram__sram_sp_colend into sky130_fd_bd_sram__sram_sp_colend.ext:
+sky130_fd_bd_sram__sram_sp_colend: 1 warning
+Total of 1 warning.
+device missing 1 terminal;
+ connecting remainder to node br
+Finished extract
+exttospice finished.
+device missing 1 terminal;
+ connecting remainder to node br
+Finished ext2spice

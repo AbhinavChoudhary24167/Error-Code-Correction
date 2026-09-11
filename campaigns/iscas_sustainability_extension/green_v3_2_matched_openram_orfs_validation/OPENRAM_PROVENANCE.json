@@ -1,0 +1,111 @@
+{
+  "campaign": "green_v3_2_matched_openram_orfs_validation",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "config_path": "configs/openram_256x72_config.py",
+  "config_sha256": "6c719a486ffea5c1d437ec95280bd2815120ee8daf8977968bb59b1c55bbf10d",
+  "container": "vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "fresh_run": {
+    "characterization_state": "NOT_COMPLETED",
+    "classification": "FRESH_OPENRAM_REGENERATION_PARTIAL_RUNTIME_CUTOFF",
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "green_v32_openram_fresh_20260908",
+      "--platform",
+      "linux/amd64",
+      "--volume",
+      "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/source/OpenRAM:/attempt/source/OpenRAM:ro",
+      "--volume",
+      "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/venv:/attempt/venv:ro",
+      "--volume",
+      "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt02/pdk:/attempt/pdk:ro",
+      "--volume",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/configs/openram_256x72_config.py:/fresh/config/openram_256x72_config.py:ro",
+      "--volume",
+      "/var/lib/green-ecc-v32-matched-openram-orfs-validation/openram_fresh:/fresh",
+      "--workdir",
+      "/attempt/source/OpenRAM",
+      "--entrypoint",
+      "bash",
+      "vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+      "-lc",
+      "set -euo pipefail; . /attempt/venv/bin/activate; export OPENRAM_HOME=/attempt/source/OpenRAM/compiler; export OPENRAM_TECH=/attempt/source/OpenRAM/technology; export PYTHONPATH=/attempt/source/OpenRAM/compiler:/attempt/source/OpenRAM/technology/sky130:/attempt/source/OpenRAM/technology/sky130/custom; export PDK_ROOT=/attempt/pdk; export VOLARE_HOME=/attempt/pdk/volare; export SPICE_MODEL_DIR=/attempt/pdk/sky130A/libs.tech/ngspice; export OPENRAM_TMP=/fresh/work/openram_tmp_256x72; python3 sram_compiler.py -v /fresh/config/openram_256x72_config.py"
+    ],
+    "configuration": {
+      "num_banks": 1,
+      "num_rw_ports": 1,
+      "num_words": 256,
+      "path": "campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/configs/openram_256x72_config.py",
+      "process_corner": "TT",
+      "sha256": "df1c41c3a15023d5e005a44c6ce88e29cf1c2c4304d6bbc3665fa4006cfdaf84",
+      "temperature_c": 25,
+      "voltage_v": 1.8,
+      "word_size": 72,
+      "words_per_row": 2
+    },
+    "container_image": "vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "drc_error_count": null,
+    "drc_scope_note": "No array-only waiver is inferred without a complete cell/layer classification.",
+    "drc_state": "DRC_NOT_COMPLETED_BEFORE_RUNTIME_CUTOFF",
+    "end_time_utc": "2026-09-08T17:47:26Z",
+    "external_evidence_root": "/var/lib/green-ecc-v32-matched-openram-orfs-validation/openram_fresh",
+    "failure_domains": [
+      "CAMPAIGN_RUNTIME_CUTOFF"
+    ],
+    "fresh_artifacts": [
+      {
+        "bytes": 34950,
+        "path": "/var/lib/green-ecc-v32-matched-openram-orfs-validation/openram_fresh/output/sky130_sram_1rw_72x256_green_v32_matched/sky130_sram_1rw_72x256_green_v32_matched.log",
+        "role": "openram_log",
+        "sha256": "6cac43c8a7997d86d986d6f4d2459ed78cfd7a847c02b5dd56e5a48ac574e242"
+      }
+    ],
+    "fresh_execution": true,
+    "log": {
+      "bytes": 24357,
+      "path": "/var/lib/green-ecc-v32-matched-openram-orfs-validation/openram_fresh/logs/openram_256x72_fresh.log",
+      "sha256": "e74fa3828a845e168e8af487daaaab1a21a91f3b19dfa9758a4cc1cc1dedb67d"
+    },
+    "lvs_state": "LVS_NOT_COMPLETED_BEFORE_RUNTIME_CUTOFF",
+    "macro_geometry": {
+      "area_um2": 162141.2649,
+      "height_um": 296.235,
+      "source": "OpenRAM hierarchy_layout get_bbox log record",
+      "width_um": 547.34
+    },
+    "openram_commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "process_exit_code": 137,
+    "schema_version": 1,
+    "start_time_utc": "2026-09-08T14:47:25Z",
+    "status": "TIMEOUT",
+    "timed_out": true,
+    "timeout_seconds": 10800
+  },
+  "generated_on": "2026-09-08",
+  "openram": {
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "tag": "v1.2.48",
+    "version": "1.2.48"
+  },
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "pdk": {
+    "name": "SKY130A",
+    "open_pdks_volare_commit": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "sky130_fd_bd_sram_commit": "dd64256961317205343a3fd446908b42bafba388",
+    "sky130_fd_pr_commit": "f62031a1be9aefe902d6d54cddd6f59b57627436",
+    "sky130_fd_sc_hd_commit": "ac7fb61f06e6470b94e8afdf7c25268f62fbd7b1",
+    "skywater_pdk_commit": "f70d8ca46961ff92719d8870a18a076370b85f6c"
+  },
+  "python": "3.8.10",
+  "schema_version": "1.0.0",
+  "tools": {
+    "magic": "8.3.311",
+    "netgen": "1.5.221",
+    "ngspice": "36"
+  }
+}

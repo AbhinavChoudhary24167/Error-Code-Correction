@@ -179,6 +179,10 @@ def validate() -> list[str]:
         "PracticalSRAMSimulator.exe",
         "drift.json",
         "tests/fixtures/runtime_ml_feature_pack/",
+        "campaigns/date_2027_breadth_remediation/",
+        "campaigns/date_2027_paper_revision3/",
+        "paper/date2027_revision3/",
+        "output/pdf/date2027_revision3.pdf",
     )
     for line in changed:
         path = line[3:].replace("\\", "/")

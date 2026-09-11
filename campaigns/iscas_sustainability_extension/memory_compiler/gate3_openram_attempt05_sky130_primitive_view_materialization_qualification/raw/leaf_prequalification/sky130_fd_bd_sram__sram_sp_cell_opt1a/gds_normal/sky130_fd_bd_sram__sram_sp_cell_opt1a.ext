@@ -1,0 +1,93 @@
+timestamp 1788165639
+version 8.3
+tech sky130A
+style ngspice(si)
+scale 1000 1 0.5
+resistclasses 4400000 2200000 950000 3050000 120000 197000 114000 191000 120000 197000 114000 191000 48200 319800 2000000 48200 48200 12800 125 125 47 47 29 5
+use sky130_fd_bd_sram__sram_sp_cell_p1m_sizing sky130_fd_bd_sram__sram_sp_cell_p1m_sizing_0 1 0 0 0 -1 316
+parameters sky130_fd_pr__special_nfet_latch l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sky130_fd_pr__special_nfet_latch l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sky130_fd_pr__special_nfet_pass l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sky130_fd_pr__special_pfet_pass l=l w=w a1=as p1=ps a2=ad p2=pd
+port "BR" 2 142 208 170 244 m1
+port "WL" 6 108 24 132 54 p
+port "VPWR" 4 226 0 240 15 m1
+port "VGND" 3 0 0 14 15 m1
+port "BL" 1 70 208 98 244 m1
+port "VNB" 7 2 34 12 46 pw
+port "VPB" 5 228 31 238 41 nw
+node "m2_0_59#" 1 52.4844 0 59 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8160 548 0 0 0 0 0 0 0 0
+node "BR" 322 72.3199 142 208 m1 0 0 0 0 0 0 0 0 672 104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3248 458 9428 728 0 0 0 0 0 0 0 0 0 0
+node "WL" 386 107.426 108 24 p 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7200 540 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "VPWR" 594 161.319 226 0 m1 0 0 0 0 0 0 0 0 0 0 2560 228 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1026 166 6341 702 11452 604 0 0 0 0 0 0 0 0
+node "VGND" 385 123.522 0 0 m1 0 0 0 0 0 0 0 0 3232 256 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1026 166 5692 704 11524 604 0 0 0 0 0 0 0 0
+node "a_16_182#" 982 123.935 16 182 p 0 0 0 0 0 0 0 0 1750 184 1328 144 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6240 476 0 0 13869 898 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_16_104#" 1155 107.187 16 104 p 0 0 0 0 0 0 0 0 1700 184 1400 156 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6240 476 0 0 14149 902 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_0_262#" 386 107.426 0 262 p 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7200 540 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "BL" 322 72.4063 70 208 m1 0 0 0 0 0 0 0 0 672 104 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3248 458 9428 728 0 0 0 0 0 0 0 0 0 0
+node "VNB" 9656 0 2 34 pw 45504 920 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "VPB" 6024 227.52 228 31 nw 0 0 75840 1112 30336 824 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+substrate "VSUBS" 0 0 -1073741817 -1073741817 space 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "VPB" "a_0_262#" 3.80504
+cap "VPB" "VPWR" 4.93469
+cap "m2_0_59#" "a_16_182#" 5.33381
+cap "a_16_104#" "a_0_262#" 6.93992
+cap "a_16_104#" "VPWR" 35.0814
+cap "VPB" "a_16_104#" 6.73083
+cap "BR" "WL" 1.48772
+cap "VNB" "BR" 2.75454
+cap "a_0_262#" "WL" 3.53846
+cap "VPWR" "WL" 0.967424
+cap "a_0_262#" "VNB" 2.74704
+cap "BR" "a_16_182#" 109.605
+cap "VNB" "VPWR" 2.90032
+cap "VPB" "WL" 3.80504
+cap "a_16_104#" "WL" 44.9463
+cap "a_0_262#" "a_16_182#" 48.8368
+cap "BL" "VGND" 127.579
+cap "VPWR" "a_16_182#" 3.27737
+cap "VPB" "VNB" 136.512
+cap "a_16_104#" "VNB" 9.68975
+cap "m2_0_59#" "BL" 4.08957
+cap "VPB" "a_16_182#" 5.16966
+cap "a_16_104#" "a_16_182#" 161.697
+cap "m2_0_59#" "VGND" 129.841
+cap "VNB" "WL" 2.74704
+cap "BL" "BR" 149.478
+cap "WL" "a_16_182#" 6.62306
+cap "VNB" "a_16_182#" 9.82438
+cap "a_0_262#" "BL" 1.47837
+cap "BL" "VPWR" 6.43823
+cap "BR" "VGND" 4.88972
+cap "VPB" "BL" 1.57354
+cap "a_16_104#" "BL" 110.408
+cap "m2_0_59#" "BR" 5.11327
+cap "a_0_262#" "VGND" 0.975082
+cap "VPWR" "VGND" 129.059
+cap "m2_0_59#" "a_0_262#" 0.114018
+cap "m2_0_59#" "VPWR" 2.16748
+cap "VPB" "VGND" 0.629467
+cap "a_16_104#" "VGND" 5.00234
+cap "m2_0_59#" "VPB" 1.12717
+cap "m2_0_59#" "a_16_104#" 0.31954
+cap "BL" "WL" 1.06469
+cap "VNB" "BL" 4.4909
+cap "BL" "a_16_182#" 7.47155
+cap "a_0_262#" "BR" 1.07839
+cap "WL" "VGND" 0.96934
+cap "VPWR" "BR" 140.401
+cap "VNB" "VGND" 4.93978
+cap "m2_0_59#" "WL" 1.51211
+cap "a_0_262#" "VPWR" 2.37194
+cap "VPB" "BR" 3.88729
+cap "m2_0_59#" "VNB" 2.11603
+cap "a_16_104#" "BR" 7.77246
+cap "VGND" "a_16_182#" 18.161
+device msubckt sky130_fd_pr__special_pfet_pass 174 49 175 50 l=19 w=14 "VPB" "WL" 38 0 "a_16_182#" 0 0 "a_16_182#" 28 0
+device msubckt sky130_fd_pr__special_nfet_pass 38 24 39 25 l=30 w=28 "VNB" "WL" 60 0 "BR" 28 0 "a_16_182#" 28 0
+device msubckt sky130_fd_pr__special_pfet_pass 174 104 175 105 l=30 w=28 "VPB" "a_16_104#" 60 0 "a_16_182#" 28 0 "VPWR" 28 0
+device msubckt sky130_fd_pr__special_nfet_latch 38 104 39 105 l=30 w=42 "VNB" "a_16_104#" 60 0 "a_16_182#" 42 0 "VGND" 42 0
+device msubckt sky130_fd_pr__special_pfet_pass 174 182 175 183 l=30 w=28 "VPB" "a_16_182#" 60 0 "VPWR" 28 0 "a_16_104#" 28 0
+device msubckt sky130_fd_pr__special_nfet_latch 38 182 39 183 l=30 w=42 "VNB" "a_16_182#" 60 0 "VGND" 42 0 "a_16_104#" 42 0
+device msubckt sky130_fd_pr__special_pfet_pass 174 262 175 263 l=19 w=14 "VPB" "a_0_262#" 38 0 "a_16_104#" 0 0 "a_16_104#" 28 0
+device msubckt sky130_fd_pr__special_nfet_pass 38 262 39 263 l=30 w=28 "VNB" "a_0_262#" 60 0 "a_16_104#" 28 0 "BL" 28 0

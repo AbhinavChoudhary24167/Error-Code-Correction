@@ -1,0 +1,34 @@
+{
+  "all_of_requirements": [
+    "post_route_netlist",
+    "SDF_or_SPEF",
+    "complete_activity_annotation",
+    "no_silent_default_activity",
+    "isolated_operation_window",
+    "positive_duration",
+    "counted_operations",
+    "macro_internal_characterization",
+    "workload_and_activity_hashes",
+    "implementation_and_power_report_hashes"
+  ],
+  "campaign": "green_v3_2_matched_openram_orfs_validation",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "foundation_commit": "affc8145b184803189dac36391cb486f00e7b4f8",
+  "generated_on": "2026-09-08",
+  "operation_classes": [
+    "normal_read",
+    "normal_write",
+    "corrected_read",
+    "corrected_write_if_applicable",
+    "detected_uncorrectable",
+    "retry",
+    "scrub",
+    "recovery_sequence_if_applicable"
+  ],
+  "parent_campaign_commit": "1f6bcd009e7a05ebcde35a3272161a9a81ec7bf7",
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "qualified": false,
+  "schema_version": "1.0.0",
+  "status": "E5_CAMPAIGN_READY_BUT_NOT_QUALIFIED"
+}

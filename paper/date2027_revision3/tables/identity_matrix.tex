@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\caption{Qualified identity and experiment matrix. W1/W2 denote error weight.}
+\label{tab:matrix}
+\centering\scriptsize\setlength{\tabcolsep}{3.4pt}
+\begin{tabular}{@{}lccccccl@{}}
+\toprule
+Hardware identity & Bits & Guarantee & Lat. & II & Qualification & Campaign & Feasible \\
+\midrule
+SECDED combinational & 72 & W1 corr.; W2 detect & 1 & 1 & exact temporal pair & 10/5 ns, 5 seeds & 5/5; 5/5 \\
+SECDED pipelined & 72 & W1 corr.; W2 detect & 3 & 1 & exact temporal pair & 10/5 ns, 5 seeds & 5/5; 5/5 \\
+Hsiao flat & 72 & W1 corr.; W2 detect & 1 & 1 & arbitrary-word SAT & 10 ns, 5 seeds & 5/5 \\
+Hsiao hierarchical & 72 & W1 corr.; W2 detect & 1 & 1 & SAT + temporal induction & 10 ns, 5 seeds & 5/5 \\
+BCH $(78,64,t=2)$ & 78 & W1/W2 correct & 1 & 1 & qualified guarantee & 10 ns, 5 seeds & 0/5 \\
+\bottomrule
+\end{tabular}
+\end{table*}

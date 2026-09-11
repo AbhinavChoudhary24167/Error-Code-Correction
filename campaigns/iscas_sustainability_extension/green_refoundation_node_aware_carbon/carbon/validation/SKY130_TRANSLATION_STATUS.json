@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "classification": "SKY130_MANUFACTURING_CARBON_NOT_QUALIFIED",
+  "physical_evidence_class": "MEASURED_SKY130_PHYSICAL",
+  "manufacturing_carbon_evidence_class": "BOUND_ONLY_OR_PARAMETRIC_EXTRAPOLATION",
+  "process_identity": "mature 180 nm-130 nm hybrid SKY130 technology with five metal levels",
+  "public_pdk_status": "EXPERIMENTAL_PREVIEW",
+  "public_mask_inventory_available": true,
+  "exact_kgco2e_per_wafer": "NOT_AVAILABLE",
+  "exact_kwh_per_wafer": "NOT_AVAILABLE",
+  "translation_rules": [
+    "Do not apply imec N28-A14 coefficients as measured SKY130 values.",
+    "Keep measured SKY130 area/timing/tool-power labels separate from carbon scenario labels.",
+    "Use only declared bounds or relative architectural area/energy until a matched fab inventory exists.",
+    "Do not turn the public mask-layer list into photomask manufacturing carbon."
+  ],
+  "source_ids": ["SRC_SKYWATER_SKY130_PDK", "SRC_IMEC_IEDM_2023", "SRC_PIRSON_TSM_2023"]
+}

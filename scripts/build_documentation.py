@@ -14,6 +14,12 @@ import sys
 from typing import Any, Iterable, Mapping
 from urllib.parse import unquote
 
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
+
+from green_ecc_phy.hashing import scientific_file_sha256
+
 
 EVALUATION = Path("green_ecc_physical_simulation/multi_ecc_evaluation")
 REGISTRY = Path("green_ecc_physical_simulation/registry")
@@ -314,7 +320,11 @@ def validate_manifest(root: Path) -> list[str]:
     errors = []
     manifest = load_json(root, "docs/figure_data/figure_manifest.json")
     for figure in manifest["figures"]:
-        for item in [*figure["source_artifacts"], *figure["figure_data"], *figure["files"].values()]:
+        for item in figure["source_artifacts"]:
+            path = root / item["path"]
+            if not path.exists(): errors.append(f"figure manifest missing file: {item['path']}")
+            elif scientific_file_sha256(path) != item["sha256"]: errors.append(f"figure manifest hash mismatch: {item['path']}")
+        for item in [*figure["figure_data"], *figure["files"].values()]:
             path = root / item["path"]
             if not path.exists(): errors.append(f"figure manifest missing file: {item['path']}")
             elif sha256(path) != item["sha256"]: errors.append(f"figure manifest hash mismatch: {item['path']}")

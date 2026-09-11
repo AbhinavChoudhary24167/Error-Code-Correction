@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "workloads": [
+    {
+      "workload_id": "W0_READ_DOMINANT_SEED",
+      "read_fraction": null,
+      "write_fraction": null,
+      "request_count": null,
+      "duty_cycle": null,
+      "status": "IDENTITY_ONLY_PARAMETERS_UNAVAILABLE"
+    }
+  ],
+  "fault_models": [
+    {
+      "fault_model_id": "F_LOGICAL_CONTROLS",
+      "topologies": ["SBU_ALL_COORDINATES", "DBU_ALL_PAIRS", "LOGICAL_CONSECUTIVE_3", "LOGICAL_CONSECUTIVE_4"],
+      "probabilities": null,
+      "rate_semantics": "ENUMERATED_MASK_FREQUENCY_NOT_EVENT_RATE",
+      "status": "LOGICAL_CONTROL"
+    },
+    {
+      "fault_model_id": "F_PHYSICAL_SPATIAL_FUTURE",
+      "topologies": ["SBU", "DBU", "MBU", "BURST", "SPATIAL_RADIUS"],
+      "probabilities": null,
+      "status": "SCHEMA_ONLY_REQUIRES_CALIBRATION"
+    }
+  ],
+  "interleaving": [
+    {
+      "interleaving_id": "I0",
+      "name": "no interleaving",
+      "physical_implementation_required": false,
+      "status": "SEED"
+    },
+    {
+      "interleaving_id": "I1",
+      "name": "first declared interleaving policy",
+      "mapping": null,
+      "controller_area_um2": null,
+      "routing_overhead_um2": null,
+      "wirelength_um": null,
+      "energy_j": null,
+      "latency_s": null,
+      "status": "SCHEMA_ONLY_NOT_PHYSICALLY_IMPLEMENTED"
+    },
+    {
+      "interleaving_id": "I2",
+      "name": "second declared interleaving policy",
+      "mapping": null,
+      "controller_area_um2": null,
+      "routing_overhead_um2": null,
+      "wirelength_um": null,
+      "energy_j": null,
+      "latency_s": null,
+      "status": "SCHEMA_ONLY_NOT_PHYSICALLY_IMPLEMENTED"
+    }
+  ],
+  "service_policies": [
+    {
+      "service_policy_id": "P0_NO_SCRUB_NO_RETRY",
+      "scrub_interval_s": null,
+      "retry_limit": 0,
+      "corrected_response_credit": "CREDIT_IF_CORRECT_AND_WITHIN_SLA",
+      "retry_credit": "CREDIT_ONLY_IF_FINAL_RESPONSE_IS_CORRECT_AND_WITHIN_SLA",
+      "due_credit": "NO_CREDIT_UNLESS_EXTERNAL_RECOVERY_IS_EXPLICITLY_IN_BOUNDARY",
+      "sdc_credit": "NEVER",
+      "status": "DECLARED_SEED_POLICY"
+    }
+  ],
+  "fab_scenarios": [
+    {
+      "fab_scenario_id": "FAB_SKY130_UNAVAILABLE",
+      "technology_id": "SKY130",
+      "manufacturing_grid_id": null,
+      "process_route_id": "SKY130_ROUTE_UNCHARACTERIZED",
+      "status": "SKY130_MANUFACTURING_CARBON_NOT_QUALIFIED"
+    }
+  ],
+  "grid_scenarios": [
+    {
+      "grid_scenario_id": "GRID_UNDECLARED",
+      "role": "MANUFACTURING_OR_USE_MUST_BE_SELECTED_EXPLICITLY",
+      "carbon_intensity_kgco2e_per_kwh": null,
+      "status": "UNAVAILABLE"
+    }
+  ]
+}

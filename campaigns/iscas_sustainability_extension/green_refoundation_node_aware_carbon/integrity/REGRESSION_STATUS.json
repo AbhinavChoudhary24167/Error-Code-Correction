@@ -1,0 +1,103 @@
+{
+  "assertions": {
+    "attempt09_tree_unchanged": true,
+    "attempt10_tree_unchanged": true,
+    "calibration_hashes_unchanged": true,
+    "campaign_tests_passed": true,
+    "full_pytest_has_exact_historical_failures": true,
+    "make_passed": true,
+    "make_test_has_exact_historical_failures": true,
+    "protected_date_diff_empty": true,
+    "protected_executable_restored": true,
+    "tracked_source_hashes_unchanged": true
+  },
+  "classification": "EXPECTED_FROZEN_VALIDATOR_FAILURES_ONLY",
+  "commands": [
+    {
+      "command": "python -B -m pytest -q -p no:cacheprovider campaigns/iscas_sustainability_extension/tests campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/tests",
+      "exit_code": 0,
+      "failed_tests": 0,
+      "log": "integrity/regression/campaign_pytest.log",
+      "log_sha256": "7e060aabf2fac1a0dabfee36c0c68fe80c0cbf5c5a1b8860d06fbe6dd499493c",
+      "passed_tests": 49
+    },
+    {
+      "command": "make",
+      "exit_code": 0,
+      "log": "integrity/regression/make.log",
+      "log_sha256": "510ce54e08b8935e15abdba39f6a1dc1aaa61852b78f253d6d650b48a6f87ff4"
+    },
+    {
+      "command": "make test",
+      "exit_code": 2,
+      "failed_tests": 2,
+      "failure_disposition": "EXPECTED_FROZEN_WORKING_TREE_SCOPE_VALIDATORS",
+      "log": "integrity/regression/make_test.log",
+      "log_sha256": "79f7379ee97b139c43015c9a1a2d727cc5fea70e6d1a6c3f1b13bee018465099",
+      "passed_tests": 482
+    },
+    {
+      "command": "python3 -m pytest -q",
+      "exit_code": 1,
+      "failed_tests": 2,
+      "failure_disposition": "EXPECTED_FROZEN_WORKING_TREE_SCOPE_VALIDATORS",
+      "log": "integrity/regression/python3_pytest.log",
+      "log_sha256": "2ec9c7bdea77c6b78b7ea08c730b852cb4cb29c2d792dd708a3fc39a339c5c28",
+      "passed_tests": 484
+    }
+  ],
+  "expected_historical_failures": [
+    "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+    "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+  ],
+  "final_verification_2026_09_08": {
+    "campaign_local": {
+      "command": "python -B -m pytest -q -p no:cacheprovider tests/test_green_metric_properties.py tests/test_green_matrix_v2.py tests/test_green_campaign_final_artifacts.py tests/test_carbon_model_properties.py tests/test_carbon_scenarios_validation.py tests/test_source_units.py tests/test_lifecycle_accounting.py tests/test_energy_accounting.py tests/test_reliability_interleaving.py tests/test_uncertainty_model.py",
+      "exit_code": 0,
+      "passed_tests": 110,
+      "failed_tests": 0
+    },
+    "make": {
+      "command": "make",
+      "exit_code": 0
+    },
+    "make_test": {
+      "command": "make test",
+      "exit_code": 2,
+      "passed_tests": 482,
+      "failed_tests": 2,
+      "failure_disposition": "EXPECTED_FROZEN_WORKING_TREE_SCOPE_VALIDATORS"
+    },
+    "full_pytest": {
+      "command": "python3 -m pytest -q",
+      "exit_code": 1,
+      "passed_tests": 609,
+      "failed_tests": 2,
+      "failure_disposition": "EXPECTED_FROZEN_WORKING_TREE_SCOPE_VALIDATORS"
+    },
+    "integrity": {
+      "attempt09_tree_sha256": "146242fee8690f23434198d0a1f6cd22267bbbf357461e797c75f4c614cc77ac",
+      "attempt09_file_count": 2098,
+      "attempt10_tree_sha256": "5d0ca45b8c14f9d6ac6ce810562f6d3d782e4d96e7c6dc6e35c19f47e13b3b33",
+      "attempt10_file_count": 302,
+      "tracked_source_hashes_checked": 565,
+      "tracked_source_hash_mismatches": 0,
+      "calibration_hashes_checked": 7,
+      "calibration_hash_mismatches": 0,
+      "protected_date_diff_empty": true,
+      "protected_executable_git_blob": "2a325aabcb6417aaa64c960d5354a75ff197ad04",
+      "protected_executable_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+      "protected_executable_restored": true
+    },
+    "no_new_regression": true
+  },
+  "no_new_regression": true,
+  "protected_executable": {
+    "path": "PracticalSRAMSimulator.exe",
+    "restored_to_exact_baseline": true,
+    "sha256_after_make": "ebc35ac0ebf51ef483064482d2e629792b4d9fd786ce99c9458554aec4806288",
+    "sha256_after_restore": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef",
+    "sha256_before": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef"
+  },
+  "schema_version": 1
+}

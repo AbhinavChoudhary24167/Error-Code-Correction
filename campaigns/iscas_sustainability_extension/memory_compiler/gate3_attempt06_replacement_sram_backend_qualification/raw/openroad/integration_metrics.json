@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "toolchain": {
+    "image_id": "f05cee3219a0",
+    "image_digest": "sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+    "openroad_version": "26Q3-1080-gab6fd26351",
+    "yosys_version": "0.68+post",
+    "klayout_version": "0.30.7",
+    "platform": "sky130hd",
+    "corner": "TT_025C_1V80"
+  },
+  "u0": {
+    "status": "DETAIL_ROUTE_NOT_CLEAN",
+    "completed_stages": [
+      "synthesis",
+      "floorplan",
+      "macro_placement",
+      "pdn",
+      "global_placement",
+      "cts",
+      "global_route"
+    ],
+    "resize_carry_forward": "UNCHANGED_DATABASE_CARRY_FORWARD_AFTER_RSZ_0090",
+    "global_route": {
+      "macro_count": 1,
+      "macro_area_um2": 201267,
+      "total_instance_area_um2": 210982,
+      "standard_cell_area_um2": 9715.57,
+      "core_area_um2": 421044,
+      "utilization_fraction": 0.501093,
+      "wirelength_um": 205137,
+      "vias": 458,
+      "setup_worst_slack_ns": 2.84127,
+      "hold_worst_slack_ns": 0.00295053,
+      "fmax_hz": 139690000.0,
+      "max_slew_violations": 441,
+      "max_cap_violations": 3,
+      "vectorless_power_w": 0.000985167
+    },
+    "detailed_route": {
+      "completed": false,
+      "clean": false,
+      "observed_violation_counts": [
+        2338,
+        1784,
+        1523,
+        886,
+        696,
+        632,
+        613,
+        602,
+        567,
+        549,
+        378,
+        278,
+        221,
+        203,
+        176,
+        150,
+        144,
+        243
+      ],
+      "best_observed_completed_iteration_count": 144,
+      "last_observed_completed_iteration_count": 243,
+      "termination": "USER_OWNED_PROCESS_INTERRUPTED_AFTER_NONCONVERGENCE; iteration 18 had started"
+    }
+  },
+  "e0": {
+    "status": "FINAL_LAYOUT_GENERATED_ROUTE_DRC_CLEAN_TIMING_DRV_VIOLATIONS",
+    "completed_stages": [
+      "synthesis",
+      "floorplan",
+      "macro_placement",
+      "pdn",
+      "global_placement",
+      "resize",
+      "detailed_placement",
+      "cts",
+      "global_route",
+      "detailed_route",
+      "fill",
+      "extraction",
+      "final_report",
+      "gds_merge"
+    ],
+    "synthesis": {
+      "ecc_logic_standard_cell_area_um2": 4710.77
+    },
+    "global_route": {
+      "macro_count": 2,
+      "macro_area_um2": 260332,
+      "total_instance_area_um2": 278022,
+      "standard_cell_area_um2": 17690.7,
+      "core_area_um2": 737938,
+      "utilization_fraction": 0.376756,
+      "wirelength_um": 91149,
+      "vias": 8153,
+      "setup_worst_slack_ns": -0.0302931,
+      "hold_worst_slack_ns": 0.0158303,
+      "fmax_hz": 99698000.0,
+      "max_slew_violations": 75,
+      "vectorless_power_w": 0.0019938
+    },
+    "detailed_route": {
+      "completed": true,
+      "clean": true,
+      "drc_errors": 0,
+      "wirelength_um": 73538,
+      "vias": 7113
+    },
+    "finish": {
+      "macro_area_um2": 260332,
+      "total_instance_area_um2": 278035,
+      "standard_cell_area_um2": 17703.2,
+      "utilization_fraction": 0.376773,
+      "setup_worst_slack_ns": 0.169813,
+      "hold_worst_slack_ns": -0.0067315,
+      "setup_violations": 0,
+      "hold_violations": 2,
+      "max_slew_violations": 77,
+      "max_cap_violations": 0,
+      "fmax_hz": 101727000.0,
+      "vectorless_power_w": 0.00194783,
+      "final_gds": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.gds",
+      "final_def": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.def",
+      "final_spef": "raw/openroad/work/results/sky130hd/attempt06_e0/base/6_final.spef"
+    }
+  },
+  "comparison": {
+    "data_macro_area_um2": 201266.5968,
+    "ecc_macro_area_overhead_um2": 59064.96960000001,
+    "ecc_macro_area_overhead_percent_of_u0_macro": 29.346633042488058,
+    "ecc_logic_area_overhead_um2_at_synthesis": 4710.77,
+    "common_global_route_setup_slack_displacement_ns_e0_minus_u0": -2.8715631000000004,
+    "common_global_route_fmax_displacement_hz_e0_minus_u0": -39992000.0,
+    "common_global_route_vectorless_power_displacement_w_e0_minus_u0": 0.001008633,
+    "comparison_limit": "U0 has no final clean routed result; common-stage global-route comparisons are diagnostic only."
+  },
+  "overall": "PARTIAL"
+}

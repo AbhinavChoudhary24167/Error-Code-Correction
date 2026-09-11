@@ -1,0 +1,27 @@
+
+17. Printing statistics.
+
+=== u0_matched_sram_top ===
+
+        +----------------------------Count including submodules.
+        |        +-------------------Area including submodules.
+        |        |        +----------Local count, excluding submodules.
+        |        |        |        +-Local area, excluding submodules.
+        |        |        |        | 
+       11        -       11        - wires
+      144        -      144        - wire bits
+        9        -        9        - public wires
+      142        -      142        - public wire bits
+        9        -        9        - ports
+      142        -      142        - port bits
+        -        -        -        - memories
+        -        -        -        - memory bits
+        -        -        -        - processes
+        5 2.01E+05        5 2.01E+05 cells
+        2   15.014        2   15.014   sky130_fd_sc_hd__buf_4
+        2    7.507        2    7.507   sky130_fd_sc_hd__conb_1
+        1   201267        1   201267   sram22_256x64m4w8
+
+   Chip area for module '\u0_matched_sram_top': 201289.521600
+     of which used for sequential elements: 0.000000 (0.00%)
+

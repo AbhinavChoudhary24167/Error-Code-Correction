@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://greens.example/schema/green-v3.2-matched-physical-run-1.0.0.json",
+  "title": "GREEN v3.2 matched OpenRAM/ORFS physical run",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "run_id",
+    "architecture_id",
+    "clock_period_ns",
+    "seed",
+    "user_payload_capacity_bits",
+    "physical_stored_bits",
+    "rtl_sha256",
+    "macro_sha256",
+    "config_sha256",
+    "constraint_sha256",
+    "toolchain",
+    "pdk",
+    "commands",
+    "common_documented_exception",
+    "metrics",
+    "physical_validation_classification",
+    "route_success",
+    "gds_success",
+    "energy_evidence",
+    "e5_qualified"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "architecture_id": {
+      "enum": ["U0", "SECDED", "HSIAO_SECDED", "BCH_78_64_T2"]
+    },
+    "clock_period_ns": {"enum": [5.0, 10.0]},
+    "seed": {"enum": [11, 13, 17, 19, 23]},
+    "user_payload_capacity_bits": {"const": 16384},
+    "physical_stored_bits": {"type": "integer", "minimum": 16384},
+    "constraint_sha256": {"$ref": "#/$defs/sha256"},
+    "route_success": {"type": "boolean"},
+    "gds_success": {"type": "boolean"},
+    "energy_evidence": {"const": "E4_DIAGNOSTIC"},
+    "e5_qualified": {"const": false},
+    "rtl_sha256": {"$ref": "#/$defs/hashMap"},
+    "macro_sha256": {"$ref": "#/$defs/hashMap"},
+    "config_sha256": {"$ref": "#/$defs/hashMap"},
+    "metrics": {
+      "type": "object",
+      "required": ["synthesis", "floorplan_placement", "timing", "clock", "routing", "power", "physical_outputs"]
+    },
+    "common_documented_exception": {
+      "type": "object",
+      "required": ["id", "applied", "scope", "semantics", "compliance_claimed"],
+      "properties": {
+        "applied": {"const": true},
+        "compliance_claimed": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "hashMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/sha256"}
+    }
+  }
+}

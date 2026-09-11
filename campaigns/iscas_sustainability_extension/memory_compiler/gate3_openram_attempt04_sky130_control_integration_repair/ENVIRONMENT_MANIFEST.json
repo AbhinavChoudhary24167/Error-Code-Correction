@@ -1,0 +1,73 @@
+{
+  "campaign": "gate3_openram_attempt04_sky130_control_integration_repair",
+  "repository": {
+    "commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+    "branch": "codex/ecc-lifecycle-sustainability",
+    "initial_status": "campaigns/iscas_sustainability_extension and eight pre-existing runtime_ml_feature_pack fixture directories untracked; no tracked modification"
+  },
+  "host": {
+    "windows_version": "10.0.26200.0",
+    "powershell": "7.6.4",
+    "timezone": "Asia/Calcutta"
+  },
+  "wsl": {
+    "working_distribution": "Attempt04-Recovery",
+    "distribution_release": "Ubuntu 24.04.4 LTS",
+    "kernel": "6.18.33.2-microsoft-standard-WSL2",
+    "version": 2,
+    "original_distribution": "Ubuntu-24.04",
+    "original_distribution_state": "inaccessible because the ext4 VHDX remained locked by the WSL VM",
+    "source_backup_vhdx": "F:\\green-ecc-iscas-sustainability-temp\\wsl-backup\\Ubuntu-24.04-pre-move-20260829.vhdx",
+    "recovery_vhdx": "F:\\green-ecc-iscas-sustainability-temp\\attempt04-recovery\\Ubuntu-24.04-attempt04-recovery.vhdx",
+    "recovery_vhdx_bytes": 23702011904,
+    "source_and_recovery_vhdx_sha256": "bb17b4515fe1c5e4fff9a33850fc024c692e6411ce2d10d613e58334195c7c62"
+  },
+  "external_work": {
+    "root": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair",
+    "source_baseline": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM",
+    "source_p1": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p1",
+    "source_p2": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/source/OpenRAM-p2",
+    "installed_pdk": "/var/lib/green-ecc-iscas-sustainability/gate3_openram_attempt04_sky130_control_integration_repair/pdk",
+    "local_archive": "raw/"
+  },
+  "compiler": {
+    "name": "OpenRAM",
+    "version": "1.2.48",
+    "tag": "v1.2.48",
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab"
+  },
+  "container": {
+    "reference": "vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "image_id": "sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "size_bytes": 4654238492,
+    "created": "2022-06-25T22:27:31.705256261Z",
+    "docker_client": "29.7.2",
+    "docker_server": "29.7.2"
+  },
+  "pdk": {
+    "name": "SKY130A",
+    "open_pdks_volare_commit": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "skywater_pdk_commit": "f70d8ca46961ff92719d8870a18a076370b85f6c",
+    "sky130_fd_pr_commit": "f62031a1be9aefe902d6d54cddd6f59b57627436",
+    "sky130_fd_sc_hd_commit": "ac7fb61f06e6470b94e8afdf7c25268f62fbd7b1",
+    "sky130_fd_bd_sram_pinned_commit": "dd64256961317205343a3fd446908b42bafba388",
+    "upstream_lvs_fix_commit_tested": "8dccd8d8ddb0a9de1b02207b2cd0c0d697807aa9"
+  },
+  "tools": {
+    "magic": "8.3.311",
+    "netgen": "1.5.221",
+    "ngspice": "36",
+    "python": "3.8.10"
+  },
+  "control_environment": {
+    "OPENRAM_HOME": "/attempt/source/OpenRAM[-p1|-p2]/compiler",
+    "OPENRAM_TECH": "/attempt/source/OpenRAM[-p1|-p2]/technology",
+    "PDK_ROOT": "/attempt/pdk",
+    "VOLARE_HOME": "/attempt/pdk/volare",
+    "SPICE_MODEL_DIR": "/attempt/pdk/sky130A/libs.tech/ngspice",
+    "OPENRAM_TMP": "/attempt/work/control_8x16",
+    "corner": "TT",
+    "voltage_v": 1.8,
+    "temperature_c": 25
+  }
+}

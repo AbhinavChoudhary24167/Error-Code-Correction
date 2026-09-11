@@ -1,0 +1,888 @@
+{
+  "admitted_attempt02_runs": [
+    "secded_comb-seed-11",
+    "secded_comb-seed-13",
+    "secded_comb-seed-17",
+    "secded_comb-seed-19",
+    "secded_comb-seed-23",
+    "secded_pipe-seed-11",
+    "secded_pipe-seed-13",
+    "secded_pipe-seed-17"
+  ],
+  "baseline_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+  "branch": "codex/ecc-lifecycle-sustainability",
+  "campaign_total_power_point_count": 40,
+  "container_image": "openroad/orfs@sha256:f05cee3219a02f26289f02f00e11a3fc986ab51a482a0000a2da810cda219a6e",
+  "container_invocation_count": 12,
+  "execution_attempt": 3,
+  "gate": "Gate 1 - activity-conditioned post-route power",
+  "new_power_point_count": 24,
+  "non_repetition": {
+    "formal": false,
+    "new_operations": [
+      "W1 post-route power",
+      "W2 post-route power"
+    ],
+    "physical_design": false,
+    "synthesis": false,
+    "trace_generation": false,
+    "w0_power": false
+  },
+  "openroad_commit": "ab6fd26351dc449e69059684dc6aa9ae9046eb36",
+  "orfs_commit": "56496f3980fb6e9e58f10c8aea4a98949c0fe5f2",
+  "output_root": "/var/lib/green-ecc-iscas-sustainability/gate1_activity_power_attempt03",
+  "physical_evidence_commit": "b51291442bbd04346dac939dea6ba7d532b9c5c4",
+  "preserved_predecessor": {
+    "classification": "OPENROAD_REPORTS_COMPLETE_VALIDATOR_FALSE_FAILURE_AND_RUNNER_INTERRUPTION",
+    "completed_openroad_run_count": 8,
+    "completed_scientific_power_point_count": 16,
+    "path": "/var/lib/green-ecc-iscas-sustainability/gate1_activity_power_attempt02",
+    "rerun_in_attempt03": false
+  },
+  "reporting_boundary": {
+    "authoritative": "report_power -digits 12 Total and common power-group rows",
+    "glitch_claim": "FORBIDDEN",
+    "per_instance": "NOT_QUALIFIED_IN_FROZEN_W0_COMMON_BOUNDARY",
+    "per_net": "NOT_QUALIFIED_IN_FROZEN_W0_COMMON_BOUNDARY",
+    "retained": [
+      "internal power",
+      "switching power",
+      "leakage power",
+      "total power",
+      "sequential group power",
+      "combinational group power",
+      "clock group power",
+      "activity annotation coverage"
+    ]
+  },
+  "runs": [
+    {
+      "architecture": "secded_pipe",
+      "config": "scripts/revision2/configs/secded_pipe.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_secded_pipe_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "secded",
+      "hardware_identity": "secded-rtl-pipelined-72-64-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-19",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-19/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.v",
+          "sha256": "8c5e547d42d6e2ed20192b7818ef4641129aa596e41ea383fad817ece46b4851"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-19/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.odb",
+          "sha256": "c658e07f7c0faa360bac4b09585cd2f6f8763ce1169fa7ac3b602e02554100b7"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-19/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.sdc",
+          "sha256": "ae02e4ff97ee4f1837c433b6cb7a7eac6482d314e6300424d043edba1f05e246"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-19/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.spef",
+          "sha256": "e7efea78378399059e498f5c6de601ac5aae417b9323b8b5d2b93daba2f479a9"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_secded_pipe_72_64/base",
+      "rtl_hash": "4278fb0b46332d704204b3cd866959d0de48cc9a67f4046df1bb830eeb7f9a16",
+      "rtl_sources": {
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv": "e250a6741b6aa56e0bdc5892ac5753e4487769a6683f68db6ab9155c26a3b155",
+        "scripts/gate03r/rtl/secded_characterization_tops.sv": "560bc8092ba759f7dd3412a106d86a30a7498d88285298c721be2d5ef4dc440b",
+        "scripts/gate04/rtl/gate04_boundaries.sv": "7de8e8d2933cdf17740ec5ec6f45a3654d5d54d9e419ed1c628ab29ca03308f8"
+      },
+      "run_id": "secded_pipe-seed-19",
+      "seed": 19,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-revision2",
+      "source_kind": "revision2",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/conventional_secded-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "ecf2c4904c42e3c2cc316ab3bd715d3660abda999c04d651bf20a9307f9433aa",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "5fa56d3445f1e462640c325944f5b457075cd823f5891714a37d73e36699b992",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/conventional_secded-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "7446926a04c35d4333297ab722a2af5bc0c11bb34751467b43edfaf47009e7a3",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "d6ac1bd0e20c07b6c24e7c92a19cae8dc25dfefebb81d88ae35ebd7570a2aebd",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "secded_pipe",
+      "config": "scripts/revision2/configs/secded_pipe.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_secded_pipe_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "secded",
+      "hardware_identity": "secded-rtl-pipelined-72-64-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-23",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-23/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.v",
+          "sha256": "0b9f9f1b1b9ab597cf55fb092fcab987745884865156229d39a7769ac56b1f33"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-23/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.odb",
+          "sha256": "17ad5e9b25a75e38ca950ae6ad659bfbe64b1b1c1b66cd0d520ba2c45bb7d524"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-23/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.sdc",
+          "sha256": "ae02e4ff97ee4f1837c433b6cb7a7eac6482d314e6300424d043edba1f05e246"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-revision2/runs/secded-pipe-seed-23/results/sky130hd/gate04_secded_pipe_72_64/base/6_final.spef",
+          "sha256": "e0dfddfb389de2ba10c5db2e9bdb06a0d8badacc13b77a0762623ae76c1064db"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_secded_pipe_72_64/base",
+      "rtl_hash": "4278fb0b46332d704204b3cd866959d0de48cc9a67f4046df1bb830eeb7f9a16",
+      "rtl_sources": {
+        "asic/rtl/secded/secded_pipelined_72_64_v1.sv": "e250a6741b6aa56e0bdc5892ac5753e4487769a6683f68db6ab9155c26a3b155",
+        "scripts/gate03r/rtl/secded_characterization_tops.sv": "560bc8092ba759f7dd3412a106d86a30a7498d88285298c721be2d5ef4dc440b",
+        "scripts/gate04/rtl/gate04_boundaries.sv": "7de8e8d2933cdf17740ec5ec6f45a3654d5d54d9e419ed1c628ab29ca03308f8"
+      },
+      "run_id": "secded_pipe-seed-23",
+      "seed": 23,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-revision2",
+      "source_kind": "revision2",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/conventional_secded-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "ecf2c4904c42e3c2cc316ab3bd715d3660abda999c04d651bf20a9307f9433aa",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "5fa56d3445f1e462640c325944f5b457075cd823f5891714a37d73e36699b992",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/conventional_secded-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "7446926a04c35d4333297ab722a2af5bc0c11bb34751467b43edfaf47009e7a3",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "d6ac1bd0e20c07b6c24e7c92a19cae8dc25dfefebb81d88ae35ebd7570a2aebd",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_flat",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_flat.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_rev2_hsiao_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-11",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-11/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.v",
+          "sha256": "d43d23b3b0d28be5ffc9745287eaf71ef8ea619ae436c024b34e96391fe1668b"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-11/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.odb",
+          "sha256": "7c3cbb392d0bfacfdd7cebb4cc4cb316f4a3ba4dd4ef84ba55307c7be7d9352e"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-11/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.sdc",
+          "sha256": "1906b3694e2b02535b02751c084e52530b4c158398ac1e13635b871b4209b68c"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-11/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.spef",
+          "sha256": "128291539ff0fe3326b060c31cb9a339db5f1590635b4b3e8b7537ce0a52103b"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_rev2_hsiao_72_64/base",
+      "rtl_hash": "f0d412511cf3fce797a5eb52d849571aa1f72e4904e286e40a32d54044fdb5e7",
+      "rtl_sources": {
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
+        "scripts/revision2/rtl/rev2_hsiao_boundary.sv": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+      },
+      "run_id": "hsiao_flat-seed-11",
+      "seed": 11,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_flat",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_flat.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_rev2_hsiao_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-13",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-13/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.v",
+          "sha256": "8bfe0a2f51b96b318a9b9feaae9208378083b334e6a7db57dad170770eca7870"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-13/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.odb",
+          "sha256": "f65ff150c566ccb45fb970fefccb3c524f75f508862b00a85ec577410d0309ff"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-13/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.sdc",
+          "sha256": "1906b3694e2b02535b02751c084e52530b4c158398ac1e13635b871b4209b68c"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-13/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.spef",
+          "sha256": "2f91dddd59f4cf3ef8f90763e90c2a4b2a0bd977c325091a9d7440f9964df1a6"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_rev2_hsiao_72_64/base",
+      "rtl_hash": "f0d412511cf3fce797a5eb52d849571aa1f72e4904e286e40a32d54044fdb5e7",
+      "rtl_sources": {
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
+        "scripts/revision2/rtl/rev2_hsiao_boundary.sv": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+      },
+      "run_id": "hsiao_flat-seed-13",
+      "seed": 13,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_flat",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_flat.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_rev2_hsiao_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-17",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-17/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.v",
+          "sha256": "53f342a3b3bcc3d33e8c60482a1e5e120a3f59eea6556c48c3c4ed81ae0ea800"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-17/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.odb",
+          "sha256": "3634723be1f42b257494287ba88b7bc83e9007b0c343e31fb61720e00ac07634"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-17/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.sdc",
+          "sha256": "1906b3694e2b02535b02751c084e52530b4c158398ac1e13635b871b4209b68c"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-17/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.spef",
+          "sha256": "21ee219bd62748a2b0ea5f4c92bb8ed6fe6552687af8661269a9c301bb42e3f6"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_rev2_hsiao_72_64/base",
+      "rtl_hash": "f0d412511cf3fce797a5eb52d849571aa1f72e4904e286e40a32d54044fdb5e7",
+      "rtl_sources": {
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
+        "scripts/revision2/rtl/rev2_hsiao_boundary.sv": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+      },
+      "run_id": "hsiao_flat-seed-17",
+      "seed": 17,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_flat",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_flat.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_rev2_hsiao_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-19",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-19/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.v",
+          "sha256": "c96e4102b3861dc63a8341b2fb9ca64f429d4233a9acb1925eb82d82fef23187"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-19/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.odb",
+          "sha256": "63acb075dfb4a6c079a7e4dde7c7a90ee5317db156ef0fa48e38fea678dbb15d"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-19/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.sdc",
+          "sha256": "1906b3694e2b02535b02751c084e52530b4c158398ac1e13635b871b4209b68c"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-19/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.spef",
+          "sha256": "b4cfb9842af5a1dd9a18c346b4ae007050e0284412eba8cfbfbf038e1446bfb9"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_rev2_hsiao_72_64/base",
+      "rtl_hash": "f0d412511cf3fce797a5eb52d849571aa1f72e4904e286e40a32d54044fdb5e7",
+      "rtl_sources": {
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
+        "scripts/revision2/rtl/rev2_hsiao_boundary.sv": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+      },
+      "run_id": "hsiao_flat-seed-19",
+      "seed": 19,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_flat",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_flat.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "gate04_rev2_hsiao_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-algorithmic-combinational-72-64-rev2-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-23",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-23/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.v",
+          "sha256": "b714480f260e014124a581c7238a09b067f27fe9ebe8ac0631dbe9770f973f82"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-23/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.odb",
+          "sha256": "b789c536b13eb68d38e347c7388f487b2c60448c43c2fd523976e3d7306467bb"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-23/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.sdc",
+          "sha256": "1906b3694e2b02535b02751c084e52530b4c158398ac1e13635b871b4209b68c"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-flat-seed-23/results/sky130hd/gate04_rev2_hsiao_72_64/base/6_final.spef",
+          "sha256": "089c2fb5ede9fe343cf9c6c6d777f2422f6055bc9f957ac0254ee640a4cb4069"
+        }
+      },
+      "results_relative_path": "results/sky130hd/gate04_rev2_hsiao_72_64/base",
+      "rtl_hash": "f0d412511cf3fce797a5eb52d849571aa1f72e4904e286e40a32d54044fdb5e7",
+      "rtl_sources": {
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv": "3c422dbbddab55e8e2ae141b571e60e63f4ecd87ac409d64b59cc184f21aadcf",
+        "scripts/revision2/rtl/rev2_hsiao_boundary.sv": "3fdc3984b222b925ccc9d415a548e88f5e75a82539c67ac187e5c1d0c33f9c73"
+      },
+      "run_id": "hsiao_flat-seed-23",
+      "seed": 23,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_hierarchical",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_hierarchical.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "breadth_hsiao_hierarchical_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-hierarchical-nibble-decode-combinational-72-64-breadth-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-11",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-11/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.v",
+          "sha256": "3e9a26abcbc97c45b5d003e4cf01035088ac905580b58ae842141173d141fec4"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-11/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.odb",
+          "sha256": "3b9b7991bd7016e6879153a9bef2d659499c75cae2df42b7c4a4a7eed63de465"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-11/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.sdc",
+          "sha256": "7299aff7358a58428c0a117c2f587e10c6f55ff8527b755cfc070efbb6b7a15e"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-11/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.spef",
+          "sha256": "8563a02611fc39bd269f0ea47c907f98951b70fb7af6f0720bf74a9a0bd0f273"
+        }
+      },
+      "results_relative_path": "results/sky130hd/breadth_hsiao_hierarchical_72_64/base",
+      "rtl_hash": "fa69cfcd07f750968c3a370e6b770058f48a60e45e26e6794d003815d0552565",
+      "rtl_sources": {
+        "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b",
+        "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      "run_id": "hsiao_hierarchical-seed-11",
+      "seed": 11,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_hierarchical",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_hierarchical.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "breadth_hsiao_hierarchical_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-hierarchical-nibble-decode-combinational-72-64-breadth-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-13",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-13/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.v",
+          "sha256": "e2966ab694d874285791466383ec7c433dc79150dd3f69ee63128121c30f930c"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-13/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.odb",
+          "sha256": "6316705c848f67a77b5fb43e6d309be4840b757e31b53f56665f6df772cc28e0"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-13/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.sdc",
+          "sha256": "7299aff7358a58428c0a117c2f587e10c6f55ff8527b755cfc070efbb6b7a15e"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-13/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.spef",
+          "sha256": "9140faa249ef058d574b0082a9023185e52186f75d325b5ebd4ffbb657d1a223"
+        }
+      },
+      "results_relative_path": "results/sky130hd/breadth_hsiao_hierarchical_72_64/base",
+      "rtl_hash": "fa69cfcd07f750968c3a370e6b770058f48a60e45e26e6794d003815d0552565",
+      "rtl_sources": {
+        "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b",
+        "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      "run_id": "hsiao_hierarchical-seed-13",
+      "seed": 13,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_hierarchical",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_hierarchical.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "breadth_hsiao_hierarchical_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-hierarchical-nibble-decode-combinational-72-64-breadth-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-17",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-17/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.v",
+          "sha256": "46599d2030694556ced71c78d07802706247b17a24370664358a81850d1a0a03"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-17/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.odb",
+          "sha256": "72d75d9c22d66c873afc6004573f8343425d3ee8b6bc19174fbf52eb0f656947"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-17/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.sdc",
+          "sha256": "7299aff7358a58428c0a117c2f587e10c6f55ff8527b755cfc070efbb6b7a15e"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-17/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.spef",
+          "sha256": "10cc2bb7506d12acca4eea8699c9655e974c0aa058a6388946dffb9a7d6e18aa"
+        }
+      },
+      "results_relative_path": "results/sky130hd/breadth_hsiao_hierarchical_72_64/base",
+      "rtl_hash": "fa69cfcd07f750968c3a370e6b770058f48a60e45e26e6794d003815d0552565",
+      "rtl_sources": {
+        "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b",
+        "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      "run_id": "hsiao_hierarchical-seed-17",
+      "seed": 17,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_hierarchical",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_hierarchical.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "breadth_hsiao_hierarchical_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-hierarchical-nibble-decode-combinational-72-64-breadth-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-19",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-19/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.v",
+          "sha256": "151a03f7b980d75b04490e8486c8b72de017732d0579fdfde6fac362771e9806"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-19/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.odb",
+          "sha256": "b933abd2b2c91bf74a09852f324da2106f5c89846d1873d571d71cd70507a026"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-19/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.sdc",
+          "sha256": "7299aff7358a58428c0a117c2f587e10c6f55ff8527b755cfc070efbb6b7a15e"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-19/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.spef",
+          "sha256": "bf225d3e4485ac51e4c77f45ddc241a59193563ec9b72cf8fadb13bb42f3d049"
+        }
+      },
+      "results_relative_path": "results/sky130hd/breadth_hsiao_hierarchical_72_64/base",
+      "rtl_hash": "fa69cfcd07f750968c3a370e6b770058f48a60e45e26e6794d003815d0552565",
+      "rtl_sources": {
+        "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b",
+        "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      "run_id": "hsiao_hierarchical-seed-19",
+      "seed": 19,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    },
+    {
+      "architecture": "hsiao_hierarchical",
+      "config": "campaigns/date_2027_breadth_remediation/configs/A_hsiao_hierarchical.mk",
+      "corner": "tt_025C_1v80",
+      "design_top": "breadth_hsiao_hierarchical_72_64",
+      "eligibility": "TIMING_FEASIBLE_10NS",
+      "family": "hsiao",
+      "hardware_identity": "hsiao-hierarchical-nibble-decode-combinational-72-64-breadth-v1",
+      "input_run_root": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-23",
+      "physical_artifacts": {
+        "netlist": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-23/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.v",
+          "sha256": "4b3b1254e1f0c63706cd9ee082adc33ac2d0c738ad29c15e703df7c4b9cda8b1"
+        },
+        "odb": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-23/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.odb",
+          "sha256": "2a286472121532a9e0bd5591eb3cf39b06dcf42f516f7182aab99d001709ea6b"
+        },
+        "sdc": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-23/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.sdc",
+          "sha256": "7299aff7358a58428c0a117c2f587e10c6f55ff8527b755cfc070efbb6b7a15e"
+        },
+        "spef": {
+          "path": "/var/lib/green-ecc-date2027-breadth-remediation/runs/A/A-hsiao-hierarchical-seed-23/results/sky130hd/breadth_hsiao_hierarchical_72_64/base/6_final.spef",
+          "sha256": "fe4dccb9e289d05aede2cbfecf2cd3dcd06e8fec7feec15f38f054a4f491c5c6"
+        }
+      },
+      "results_relative_path": "results/sky130hd/breadth_hsiao_hierarchical_72_64/base",
+      "rtl_hash": "fa69cfcd07f750968c3a370e6b770058f48a60e45e26e6794d003815d0552565",
+      "rtl_sources": {
+        "campaigns/date_2027_breadth_remediation/rtl/breadth_hsiao_hierarchical_boundary.sv": "a0219f34938c54118e96a020b23dab2a03a4eb43a453044754c1c12af237c54b",
+        "campaigns/date_2027_breadth_remediation/rtl/hsiao_secded_72_64_v3_hierarchical_decoder.sv": "678b3bf1c51be4b0d1167828140c3a56457f7a7442f9b0592545d07a5cafc253",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_encoder.sv": "638b36ff3ab1ee31bb8e29b8d5ea064b5b36d1d7df7a3f2b96c52e305a31e036",
+        "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v1_syndrome.sv": "5b232248546e1945ab5084b7f4850851bb62c6e54dc9c4fa00950e2a457590be"
+      },
+      "run_id": "hsiao_hierarchical-seed-23",
+      "seed": 23,
+      "source_evidence_root": "/var/lib/green-ecc-date2027-breadth-remediation",
+      "source_kind": "breadth",
+      "target_ns": 10.0,
+      "technology": "SKY130HD",
+      "temperature_c": 25,
+      "traces": [
+        {
+          "activity_class": "W1",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-single_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_correction",
+          "sha256": "c2829f6c1ed437963c74a4925451b3e27202c51a363459408c0ac6c6a24d66c9",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "90d0e7f4da352c0cab6f389a6b8a76122090816b842b0528a6194a755b096d37",
+          "useful_operations": 100000
+        },
+        {
+          "activity_class": "W2",
+          "fault_schedule_seed": 7085774586302733229,
+          "path": "/var/lib/green-ecc-date2027-revision2/policy/traces/hsiao-10ns-double_error.vcd.gz",
+          "payload_seed": 104375203646206,
+          "semantic_action": "successful_detection_not_correction",
+          "sha256": "642670cc9d8a2de9627033d58d16f43befd2edcfcfc387f49f28f956bd9e124b",
+          "trace_duration_ps": 1000100000,
+          "uncompressed_sha256": "9201f13437070a38ce567fcf255787d122a0017d6d829956b695faf5657b31fb",
+          "useful_operations": 100000
+        }
+      ],
+      "voltage_v": 1.8
+    }
+  ],
+  "schema_version": 1,
+  "seeds": [
+    11,
+    13,
+    17,
+    19,
+    23
+  ],
+  "state": "FROZEN_BEFORE_EXECUTION",
+  "trace_manifest": {
+    "path": "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/docs/date2027/rigour_gate_03f/ACTIVITY_TRACE_MANIFEST.json",
+    "sha256": "5608b592deef797e5426430ce3b8ad83a0a5359ce452c87e4b54bfdaa9a9c9aa"
+  },
+  "trace_scope": "gate04_trace_top"
+}

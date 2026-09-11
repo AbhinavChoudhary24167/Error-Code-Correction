@@ -1,0 +1,44 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+"sky130_fd_bd_sram__openram_sp_rowenda_replica" has a zero timestamp; it should be written out
+    to establish a correct timestamp.
+Processing timestamp mismatches:Cell sky130_fd_bd_sram__sram_sp_rowend_ce couldn't be read
+ sky130_fd_bd_sram__sram_sp_rowend_ceCell sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz couldn't be read
+, sky130_fd_bd_sram__sram_sp_rowenda_p1m_sizCell sky130_fd_bd_sram__sram_sp_rowend_met2 couldn't be read
+, sky130_fd_bd_sram__sram_sp_rowend_met2.
+Cell sky130_fd_bd_sram__sram_sp_rowend_met2 is unavailable.  It could not be expanded.
+Cell sky130_fd_bd_sram__sram_sp_rowenda_p1m_siz is unavailable.  It could not be expanded.
+Cell sky130_fd_bd_sram__sram_sp_rowend_ce is unavailable.  It could not be expanded.
+Failure to read in entire subtree of cell.
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Local interconnect spacing < 0.17um (li.3)",10
+"Local interconnect width < 0.17um (li.1)",7
+"Metal1 minimum area < 0.083um^2 (met1.6)",1
+"P-diffusion contact width < 0.17um (licon.1)",2
+"Core local interconnect width < 0.14um (li.c1)",6
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",16
+"P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",4
+"Metal1 width < 0.14um (met1.1)",2
+"Core local interconnect spacing < 0.14um (li.c2)",8
+"Local interconnect minimum area < 0.0561um^2 (li.6)",6
+__RULE_CSV_END__
+RULE_TOTAL=62
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_fd_bd_sram__openram_sp_rowenda_replica",6
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=6

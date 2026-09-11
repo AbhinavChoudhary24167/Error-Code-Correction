@@ -1,0 +1,1443 @@
+* NGSPICE file created from sky130_sram_1rw_8x16_gate3a03_control.ext - technology: sky130A
+
+.subckt sky130_fd_bd_sram__openram_dff D Q gnd clk vdd QN
+X0 vdd a_28_102# a_389_712# vdd sky130_fd_pr__pfet_01v8 ad=3.315p pd=26.21u as=0.63p ps=6.42u w=3u l=0.15u
+X1 a_47_611# clk a_197_712# vdd sky130_fd_pr__pfet_01v8 ad=1.35p pd=6.9u as=0.63p ps=6.42u w=3u l=0.15u
+X2 a_239_76# clk vdd vdd sky130_fd_pr__pfet_01v8 ad=0.795p pd=6.53u as=0p ps=0u w=3u l=0.15u
+X3 a_197_712# D vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X4 QN clk a_547_102# gnd sky130_fd_pr__nfet_01v8 ad=0.45p pd=2.9u as=0.21p ps=2.42u w=1u l=0.15u
+X5 gnd Q a_739_102# gnd sky130_fd_pr__nfet_01v8 ad=1.105p pd=10.21u as=0.21p ps=2.42u w=1u l=0.15u
+X6 Q QN gnd gnd sky130_fd_pr__nfet_01v8 ad=0.265p pd=2.53u as=0p ps=0u w=1u l=0.15u
+X7 a_389_712# a_239_76# a_47_611# vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X8 vdd a_47_611# a_28_102# vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0.795p ps=6.53u w=3u l=0.15u
+X9 a_547_712# a_28_102# vdd vdd sky130_fd_pr__pfet_01v8 ad=0.63p pd=6.42u as=0p ps=0u w=3u l=0.15u
+X10 a_739_712# clk QN vdd sky130_fd_pr__pfet_01v8 ad=0.63p pd=6.42u as=1.35p ps=6.9u w=3u l=0.15u
+X11 gnd a_28_102# a_389_102# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.21p ps=2.42u w=1u l=0.15u
+X12 a_47_611# a_239_76# a_197_102# gnd sky130_fd_pr__nfet_01v8 ad=0.45p pd=2.9u as=0.21p ps=2.42u w=1u l=0.15u
+X13 a_239_76# clk gnd gnd sky130_fd_pr__nfet_01v8 ad=0.265p pd=2.53u as=0p ps=0u w=1u l=0.15u
+X14 a_197_102# D gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X15 a_389_102# clk a_47_611# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X16 gnd a_47_611# a_28_102# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.265p ps=2.53u w=1u l=0.15u
+X17 a_547_102# a_28_102# gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X18 a_739_102# a_239_76# QN gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1u l=0.15u
+X19 vdd Q a_739_712# vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X20 QN a_239_76# a_547_712# vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=3u l=0.15u
+X21 Q QN vdd vdd sky130_fd_pr__pfet_01v8 ad=0.795p pd=6.53u as=0p ps=0u w=3u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_wmask_dff dout_0 dout_1 dout_2 dout_3
++ clk din_2 din_0 vdd gnd din_3 din_1
+Xsky130_fd_bd_sram__openram_dff_0 din_3 dout_3 gnd clk vdd sky130_fd_bd_sram__openram_dff_0/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_1 din_2 dout_2 gnd clk vdd sky130_fd_bd_sram__openram_dff_1/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_2 din_1 dout_1 gnd clk vdd sky130_fd_bd_sram__openram_dff_2/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_3 din_0 dout_0 gnd clk vdd sky130_fd_bd_sram__openram_dff_3/QN
++ sky130_fd_bd_sram__openram_dff
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff dout_0 clk vdd gnd din_0
+Xsky130_fd_bd_sram__openram_dff_0 din_0 dout_0 gnd clk vdd sky130_fd_bd_sram__openram_dff_0/QN
++ sky130_fd_bd_sram__openram_dff
+.ends
+
+.subckt sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy wl bl br gnd vdd vpb vnb m2_0_59#
++ a_0_262#
+X0 a_174_54# wl a_174_54# vpb sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0p ps=0u w=0.07u l=0.095u
+X1 a_174_212# a_16_182# vdd vpb sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0.064p ps=1.14u w=0.14u l=0.15u
+X2 vdd a_16_104# a_174_54# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+X3 a_38_212# a_16_182# gnd vnb sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0.0808p ps=1.28u w=0.21u l=0.15u
+X4 a_174_212# a_0_262# a_174_212# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.07u l=0.095u
+X5 a_38_54# wl br vnb sky130_fd_pr__special_nfet_pass ad=0.04375p pd=0.92u as=0.0168p ps=0.52u w=0.14u l=0.15u
+X6 gnd a_16_104# a_38_54# vnb sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+X7 bl a_0_262# a_38_212# vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0.04375p ps=0.92u w=0.14u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array bl_0_0 br_0_0 bl_0_1
++ br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 br_0_7
++ bl_0_8 br_0_8 wl_0_0 gnd vdd sky130_fd_bd_sram__sram_sp_wlstrapa_p_3/m1_42_0# sky130_fd_bd_sram__sram_sp_wlstrapa_p_0/m1_42_0#
++ sky130_fd_bd_sram__sram_sp_wlstrapa_1/m1_158_122# sky130_fd_bd_sram__sram_sp_wlstrapa_0/m1_158_122#
++ sky130_fd_bd_sram__sram_sp_wlstrapa_2/m1_158_122# sky130_fd_bd_sram__sram_sp_wlstrapa_3/m1_158_122#
++ sky130_fd_bd_sram__sram_sp_wlstrapa_p_1/m1_42_0# vdd_uq9 bl_0_7 sky130_fd_bd_sram__sram_sp_wlstrapa_p_2/m1_42_0#
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_0 wl_0_0 bl_0_8 br_0_8 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_1 wl_0_0 bl_0_7 br_0_7 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_2 wl_0_0 bl_0_6 br_0_6 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_3 wl_0_0 bl_0_5 br_0_5 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_4 wl_0_0 bl_0_4 br_0_4 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_5 wl_0_0 bl_0_3 br_0_3 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_6 wl_0_0 bl_0_2 br_0_2 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_7 wl_0_0 bl_0_1 br_0_1 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_dummy_8 wl_0_0 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_0 wl_0_0 sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy
+.ends
+
+.subckt sky130_fd_bd_sram__sram_sp_colend bl br vdd gnd vpb gate m2_0_4# vnb m2_0_236#
+X0 br gate br vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0p ps=0u w=0.07u l=0.21u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array fake_bl_0 fake_br_0
++ fake_bl_1 fake_br_1 fake_bl_2 fake_br_2 fake_bl_3 fake_br_3 fake_bl_4 fake_br_4
++ fake_bl_5 fake_br_5 fake_bl_6 fake_br_6 fake_bl_7 fake_br_7 fake_bl_8 fake_br_8
++ gnd vdd sky130_fd_bd_sram__sram_sp_colend_8/gate vdd_uq9
+Xsky130_fd_bd_sram__sram_sp_colend_0 fake_bl_8 fake_br_8 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_1 fake_bl_7 fake_br_7 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_2 fake_bl_6 fake_br_6 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_3 fake_bl_5 fake_br_5 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_4 fake_bl_4 fake_br_4 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_5 fake_bl_3 fake_br_3 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_6 fake_bl_2 fake_br_2 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_7 fake_bl_1 fake_br_1 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__sram_sp_colend_8 fake_bl_0 fake_br_0 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+.ends
+
+.subckt sky130_fd_bd_sram__openram_sp_cell_opt1_replica wl bl br gnd vdd vpb vnb m2_0_59#
++ a_0_24#
+X0 vdd a_0_24# vdd vpb sky130_fd_pr__special_pfet_pass ad=0.0972p pd=1.86u as=0p ps=0u w=0.07u l=0.095u
+X1 a_16_104# vdd vdd vpb sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0p ps=0u w=0.14u l=0.15u
+X2 vdd a_16_104# vdd vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+X3 a_16_104# vdd gnd vnb sky130_fd_pr__special_nfet_latch ad=0.156p pd=2.38u as=0.0808p ps=1.28u w=0.21u l=0.15u
+X4 a_16_104# wl a_16_104# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.07u l=0.095u
+X5 vdd a_0_24# br vnb sky130_fd_pr__special_nfet_pass ad=0.04375p pd=0.92u as=0.0168p ps=0.52u w=0.14u l=0.15u
+X6 gnd a_16_104# vdd vnb sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+X7 bl wl a_16_104# vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0.0425p ps=0.92u w=0.14u l=0.15u
+.ends
+
+.subckt sky130_fd_bd_sram__openram_sp_cell_opt1a_replica wl bl br gnd vdd vpb vnb
++ m2_0_59# a_0_262#
+X0 vdd wl vdd vpb sky130_fd_pr__special_pfet_pass ad=0.0972p pd=1.86u as=0p ps=0u w=0.07u l=0.095u
+X1 a_16_104# vdd vdd vpb sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0p ps=0u w=0.14u l=0.15u
+X2 vdd a_16_104# vdd vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+X3 a_16_104# vdd gnd vnb sky130_fd_pr__special_nfet_latch ad=0.156p pd=2.38u as=0.0808p ps=1.28u w=0.21u l=0.15u
+X4 a_16_104# a_0_262# a_16_104# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.07u l=0.095u
+X5 vdd wl br vnb sky130_fd_pr__special_nfet_pass ad=0.04375p pd=0.92u as=0.0168p ps=0.52u w=0.14u l=0.15u
+X6 gnd a_16_104# vdd vnb sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+X7 bl a_0_262# a_16_104# vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0.0425p ps=0.92u w=0.14u l=0.15u
+.ends
+
+.subckt sky130_fd_bd_sram__sram_sp_colenda bl br vdd gnd vpb gate m2_0_4# vnb m2_0_236#
+X0 br gate br vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0p ps=0u w=0.07u l=0.21u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column wl_0_1 wl_0_2
++ wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_11 wl_0_12 wl_0_14 wl_0_15 wl_0_16
++ wl_0_17 wl_0_18 gnd vdd wl_0_10 sky130_fd_bd_sram__sram_sp_colend_0/gate wl_0_13
++ vdd_uq9 br_0_0 wl_0_9 sky130_fd_bd_sram__sram_sp_colenda_0/gate bl_0_0
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_6 wl_0_14 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_14 wl_0_14 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_7 wl_0_16 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_16 wl_0_16 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_8 wl_0_18 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_18 wl_0_18 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_0 wl_0_1 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_1 wl_0_1 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_1 wl_0_3 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_3 wl_0_3 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_2 wl_0_5 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_5 wl_0_5 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_3 wl_0_7 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_7 wl_0_7 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_4 wl_0_9 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_9 wl_0_9 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__sram_sp_colenda_0 bl_0_0 br_0_0 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_0/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_5 wl_0_11 bl_0_0 br_0_0 gnd vdd
++ vdd_uq9 gnd wl_0_11 wl_0_11 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_6 wl_0_13 bl_0_0 br_0_0 gnd vdd
++ vdd_uq9 gnd wl_0_13 wl_0_13 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_7 wl_0_15 bl_0_0 br_0_0 gnd vdd
++ vdd_uq9 gnd wl_0_15 wl_0_15 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1a_replica_8 wl_0_17 bl_0_0 br_0_0 gnd vdd
++ vdd_uq9 gnd wl_0_17 wl_0_17 sky130_fd_bd_sram__openram_sp_cell_opt1a_replica
+Xsky130_fd_bd_sram__sram_sp_colend_0 bl_0_0 br_0_0 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend_0/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colend
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_0 wl_0_2 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_2 wl_0_2 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_1 wl_0_4 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_4 wl_0_4 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_2 wl_0_6 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_6 wl_0_6 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_3 wl_0_8 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_8 wl_0_8 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_4 wl_0_10 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_10 wl_0_10 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+Xsky130_fd_bd_sram__openram_sp_cell_opt1_replica_5 wl_0_12 bl_0_0 br_0_0 gnd vdd vdd_uq9
++ gnd wl_0_12 wl_0_12 sky130_fd_bd_sram__openram_sp_cell_opt1_replica
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0 fake_bl_0 fake_br_0
++ fake_bl_1 fake_br_1 fake_bl_2 fake_br_2 fake_bl_3 fake_br_3 fake_bl_4 fake_br_4
++ fake_bl_5 fake_br_5 fake_bl_6 fake_br_6 fake_bl_7 fake_br_7 fake_bl_8 fake_br_8
++ gnd vdd sky130_fd_bd_sram__sram_sp_colenda_8/gate vdd_uq9
+Xsky130_fd_bd_sram__sram_sp_colenda_0 fake_bl_8 fake_br_8 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_1 fake_bl_7 fake_br_7 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_2 fake_bl_6 fake_br_6 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_3 fake_bl_5 fake_br_5 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_4 fake_bl_4 fake_br_4 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_5 fake_bl_3 fake_br_3 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_6 fake_bl_2 fake_br_2 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_7 fake_bl_1 fake_br_1 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+Xsky130_fd_bd_sram__sram_sp_colenda_8 fake_bl_0 fake_br_0 vdd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda_8/gate
++ gnd gnd vdd_uq9 sky130_fd_bd_sram__sram_sp_colenda
+.ends
+
+.subckt sky130_fd_bd_sram__sram_sp_cell_opt1 wl bl br gnd vdd vpb vnb m2_0_59# a_0_24#
+X0 a_16_182# a_0_24# a_16_182# vpb sky130_fd_pr__special_pfet_pass ad=0.0332p pd=0.72u as=0p ps=0u w=0.07u l=0.095u
+X1 a_16_104# a_16_182# vdd vpb sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0.064p ps=1.14u w=0.14u l=0.15u
+X2 vdd a_16_104# a_16_182# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+X3 a_16_104# a_16_182# gnd vnb sky130_fd_pr__special_nfet_latch ad=0.156p pd=2.38u as=0.0808p ps=1.28u w=0.21u l=0.15u
+X4 a_16_104# wl a_16_104# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.07u l=0.095u
+X5 a_16_182# a_0_24# br vnb sky130_fd_pr__special_nfet_pass ad=0.04375p pd=0.92u as=0.0168p ps=0.52u w=0.14u l=0.15u
+X6 gnd a_16_104# a_16_182# vnb sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+X7 bl wl a_16_104# vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0.0425p ps=0.92u w=0.14u l=0.15u
+.ends
+
+.subckt sky130_fd_bd_sram__sram_sp_cell_opt1a wl bl br gnd vdd vpb vnb m2_0_59# a_0_262#
+X0 a_16_182# wl a_16_182# vpb sky130_fd_pr__special_pfet_pass ad=0.0332p pd=0.72u as=0p ps=0u w=0.07u l=0.095u
+X1 a_16_104# a_16_182# vdd vpb sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0.064p ps=1.14u w=0.14u l=0.15u
+X2 vdd a_16_104# a_16_182# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+X3 a_16_104# a_16_182# gnd vnb sky130_fd_pr__special_nfet_latch ad=0.156p pd=2.38u as=0.0808p ps=1.28u w=0.21u l=0.15u
+X4 a_16_104# a_0_262# a_16_104# vpb sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.07u l=0.095u
+X5 a_16_182# wl br vnb sky130_fd_pr__special_nfet_pass ad=0.04375p pd=0.92u as=0.0168p ps=0.52u w=0.14u l=0.15u
+X6 gnd a_16_104# a_16_182# vnb sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+X7 bl a_0_262# a_16_104# vnb sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0.0425p ps=0.92u w=0.14u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array bl_0_3 bl_0_6 wl_0_0
++ wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_8 wl_0_9 wl_0_10 wl_0_12 wl_0_13
++ wl_0_14 wl_0_15 wl_0_16 vdd sky130_fd_bd_sram__sram_sp_wlstrap_p_7/m1_42_0# sky130_fd_bd_sram__sram_sp_wlstrap_p_8/m1_42_0#
++ br_0_1 br_0_4 sky130_fd_bd_sram__sram_sp_wlstrap_8/m1_158_122# sky130_fd_bd_sram__sram_sp_wlstrap_9/m1_158_122#
++ sky130_fd_bd_sram__sram_sp_wlstrap_6/m1_158_122# br_0_7 sky130_fd_bd_sram__sram_sp_wlstrap_7/m1_158_122#
++ bl_0_1 bl_0_4 sky130_fd_bd_sram__sram_sp_wlstrap_p_9/m1_42_0# bl_0_7 br_0_2 br_0_5
++ wl_0_7 br_0_0 br_0_8 gnd bl_0_2 br_0_3 sky130_fd_bd_sram__sram_sp_wlstrap_p_6/m1_42_0#
++ bl_0_5 br_0_6 bl_0_0 vdd_uq88 wl_0_11 bl_0_8
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_7 wl_0_16 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_8 wl_0_16 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_9 wl_0_14 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_0 wl_0_15 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_1 wl_0_15 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_2 wl_0_15 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_3 wl_0_15 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_4 wl_0_15 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_5 wl_0_15 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_6 wl_0_15 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_80 wl_0_0 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_7 wl_0_15 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_70 wl_0_2 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_70 wl_0_1 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_8 wl_0_15 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_15 wl_0_15 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_71 wl_0_2 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_60 wl_0_4 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_71 wl_0_1 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_60 wl_0_3 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_9 wl_0_13 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_50 wl_0_6 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_72 wl_0_0 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_61 wl_0_4 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_61 wl_0_3 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_50 wl_0_5 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_40 wl_0_8 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_51 wl_0_6 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_73 wl_0_0 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_62 wl_0_4 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_40 wl_0_7 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_62 wl_0_3 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_51 wl_0_5 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_30 wl_0_10 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_41 wl_0_8 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_52 wl_0_6 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_74 wl_0_0 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_63 wl_0_2 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_30 wl_0_9 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_41 wl_0_7 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_63 wl_0_1 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_52 wl_0_5 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_20 wl_0_12 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_31 wl_0_10 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_42 wl_0_8 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_53 wl_0_6 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_75 wl_0_0 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_64 wl_0_2 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_20 wl_0_11 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_31 wl_0_9 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_42 wl_0_7 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_64 wl_0_1 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_53 wl_0_5 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_10 wl_0_14 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_21 wl_0_12 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_32 wl_0_10 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_43 wl_0_8 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_76 wl_0_0 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_65 wl_0_2 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_54 wl_0_4 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_10 wl_0_13 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_21 wl_0_11 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_32 wl_0_9 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_43 wl_0_7 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_65 wl_0_1 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_54 wl_0_3 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_11 wl_0_14 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_22 wl_0_12 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_33 wl_0_10 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_44 wl_0_8 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_77 wl_0_0 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_66 wl_0_2 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_55 wl_0_4 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_11 wl_0_13 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_22 wl_0_11 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_33 wl_0_9 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_44 wl_0_7 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_66 wl_0_1 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_55 wl_0_3 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_12 wl_0_14 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_23 wl_0_12 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_34 wl_0_10 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_45 wl_0_6 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_78 wl_0_0 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_67 wl_0_2 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_56 wl_0_4 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_12 wl_0_13 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_23 wl_0_11 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_34 wl_0_9 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_45 wl_0_5 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_67 wl_0_1 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_56 wl_0_3 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_13 wl_0_14 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_24 wl_0_12 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_35 wl_0_10 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_46 wl_0_6 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_79 wl_0_0 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_0 wl_0_0 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_68 wl_0_2 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_57 wl_0_4 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_13 wl_0_13 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_24 wl_0_11 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_35 wl_0_9 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_46 wl_0_5 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_68 wl_0_1 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_57 wl_0_3 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_14 wl_0_14 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_25 wl_0_12 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_36 wl_0_8 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_47 wl_0_6 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_69 wl_0_2 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_2 wl_0_2 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_58 wl_0_4 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_14 wl_0_13 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_25 wl_0_11 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_36 wl_0_7 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_47 wl_0_5 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_69 wl_0_1 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_1 wl_0_1 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_58 wl_0_3 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_15 wl_0_14 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_26 wl_0_12 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_37 wl_0_8 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_48 wl_0_6 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_59 wl_0_4 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_4 wl_0_4 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_15 wl_0_13 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_26 wl_0_11 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_37 wl_0_7 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_59 wl_0_3 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_3 wl_0_3 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_48 wl_0_5 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_16 wl_0_14 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_27 wl_0_10 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_38 wl_0_8 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_49 wl_0_6 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_6 wl_0_6 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_16 wl_0_13 bl_0_1 br_0_1 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_27 wl_0_9 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_38 wl_0_7 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_49 wl_0_5 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_5 wl_0_5 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_17 wl_0_14 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_14 wl_0_14 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_28 wl_0_10 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_39 wl_0_8 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_8 wl_0_8 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_17 wl_0_13 bl_0_0 br_0_0 gnd vdd vdd_uq88 gnd
++ wl_0_13 wl_0_13 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_28 wl_0_9 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_39 wl_0_7 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_7 wl_0_7 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_18 wl_0_12 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_29 wl_0_10 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_10 wl_0_10 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_18 wl_0_11 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_29 wl_0_9 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_9 wl_0_9 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_19 wl_0_12 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_12 wl_0_12 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1a_19 wl_0_11 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_11 wl_0_11 sky130_fd_bd_sram__sram_sp_cell_opt1a
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_0 wl_0_16 bl_0_8 br_0_8 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_1 wl_0_16 bl_0_7 br_0_7 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_2 wl_0_16 bl_0_6 br_0_6 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_3 wl_0_16 bl_0_5 br_0_5 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_4 wl_0_16 bl_0_4 br_0_4 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_5 wl_0_16 bl_0_3 br_0_3 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+Xsky130_fd_bd_sram__sram_sp_cell_opt1_6 wl_0_16 bl_0_2 br_0_2 gnd vdd vdd_uq88 gnd
++ wl_0_16 wl_0_16 sky130_fd_bd_sram__sram_sp_cell_opt1
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array rbl_bl_0_0
++ rbl_br_0_0 rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8
++ wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 wl_0_16 vdd w_5089_921# w_0_921#
++ w_5089_7020# br_0_4 bl_0_8 br_0_3 w_0_7020# bl_0_7 br_0_2 bl_0_6 br_0_1 bl_0_5 br_0_0
++ bl_0_4 bl_0_3 bl_0_2 bl_0_1 bl_0_0 br_0_8 br_0_7 br_0_6 vdd_uq2 br_0_5 gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array_0 bl_0_0 br_0_0 bl_0_1 br_0_1
++ bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 br_0_7 bl_0_8
++ br_0_8 rbl_wl_0_0 gnd vdd vdd_uq2 vdd_uq2 gnd gnd gnd gnd vdd_uq2 vdd_uq2 bl_0_7
++ vdd_uq2 sky130_sram_1rw_8x16_gate3a03_control_sky130_dummy_array
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0 bl_0_0 br_0_0 bl_0_1
++ br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7
++ br_0_7 bl_0_8 br_0_8 gnd vdd gnd vdd_uq2 sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column_0 rbl_wl_0_0 wl_0_0 wl_0_1
++ wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_9 wl_0_10 wl_0_12 wl_0_13 wl_0_14 wl_0_15
++ wl_0_16 gnd vdd wl_0_8 gnd wl_0_11 vdd_uq2 rbl_br_0_0 wl_0_7 gnd rbl_bl_0_0 sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0_0 bl_0_0 br_0_0 bl_0_1
++ br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7
++ br_0_7 bl_0_8 br_0_8 gnd vdd gnd vdd_uq2 sky130_sram_1rw_8x16_gate3a03_control_sky130_col_cap_array_0
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array_0 bl_0_3 bl_0_6 wl_0_0
++ wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_8 wl_0_9 wl_0_10 wl_0_12 wl_0_13
++ wl_0_14 wl_0_15 wl_0_16 vdd vdd_uq2 vdd_uq2 br_0_1 br_0_4 gnd gnd gnd br_0_7 gnd
++ bl_0_1 bl_0_4 vdd_uq2 bl_0_7 br_0_2 br_0_5 wl_0_7 br_0_0 br_0_8 gnd bl_0_2 br_0_3
++ vdd_uq2 bl_0_5 br_0_6 bl_0_0 vdd_uq2 wl_0_11 bl_0_8 sky130_sram_1rw_8x16_gate3a03_control_sky130_bitcell_array
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array
++ bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 rbl_wl_0_0 wl_0_0
++ wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12
++ wl_0_13 wl_0_14 wl_0_15 wl_0_16 vdd_uq4 w_5089_921# w_0_921# br_0_8 br_0_7 br_0_6
++ br_0_5 w_5089_7020# br_0_4 br_0_3 br_0_2 br_0_1 w_0_7020# br_0_0 rbl_br_0_0 gnd
++ rbl_bl_0_0 wl_0_7 vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array_0 rbl_bl_0_0 rbl_br_0_0
++ rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9
++ wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 wl_0_16 vdd_uq4 w_5089_921# w_0_921#
++ w_5089_7020# br_0_4 bl_0_8 br_0_3 w_0_7020# bl_0_7 br_0_2 bl_0_6 br_0_1 bl_0_5 br_0_0
++ bl_0_4 bl_0_3 bl_0_2 bl_0_1 bl_0_0 br_0_8 br_0_7 br_0_6 vdd br_0_5 gnd sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_bitcell_array
+.ends
+
+.subckt sky130_fd_bd_sram__openram_write_driver din bl br en vdd gnd vdd_uq0
+X0 a_213_736# en a_129_736# gnd sky130_fd_pr__nfet_01v8 ad=0.1595p pd=1.68u as=0.1485p ps=1.64u w=0.55u l=0.15u
+X1 a_271_690# din gnd gnd sky130_fd_pr__nfet_01v8 ad=0.1044p pd=1.3u as=0.7312p ps=7.36u w=0.36u l=0.15u
+X2 vdd a_41_1120# a_121_1585# vdd sky130_fd_pr__pfet_01v8 ad=0.319p pd=3.36u as=0.1485p ps=1.64u w=0.55u l=0.15u
+X3 a_271_690# din vdd_uq0 vdd_uq0 sky130_fd_pr__pfet_01v8 ad=0.15125p pd=1.65u as=0.308p ps=3.32u w=0.55u l=0.15u
+X4 a_129_736# a_271_690# vdd vdd sky130_fd_pr__pfet_01v8 ad=0.29975p pd=3.29u as=0p ps=0u w=0.55u l=0.15u
+X5 a_41_1120# en vdd_uq0 vdd_uq0 sky130_fd_pr__pfet_01v8 ad=0.1595p pd=1.68u as=0p ps=0u w=0.55u l=0.15u
+X6 br a_121_1585# gnd gnd sky130_fd_pr__nfet_01v8 ad=0.27p pd=2.54u as=0p ps=0u w=1u l=0.15u
+X7 a_183_1687# a_129_736# gnd gnd sky130_fd_pr__nfet_01v8 ad=0.0972p pd=1.26u as=0p ps=0u w=0.36u l=0.15u
+X8 gnd din a_145_492# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1595p ps=1.68u w=0.55u l=0.15u
+X9 vdd en a_129_736# vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+X10 gnd a_271_690# a_213_736# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+X11 a_183_1687# a_129_736# vdd vdd sky130_fd_pr__pfet_01v8 ad=0.1485p pd=1.64u as=0p ps=0u w=0.55u l=0.15u
+X12 gnd a_183_1687# bl gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.27p ps=2.54u w=1u l=0.15u
+X13 gnd a_41_1120# a_121_1585# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.0972p ps=1.26u w=0.36u l=0.15u
+X14 vdd_uq0 din a_41_1120# vdd_uq0 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+X15 a_145_492# en a_41_1120# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1485p ps=1.64u w=0.55u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_write_driver_array data_0 data_1 data_2
++ data_3 data_4 data_5 data_6 data_7 data_8 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3
++ bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 en_0 en_2 en_3 en_4 vdd_uq0 gnd
++ en_1 vdd
+Xsky130_fd_bd_sram__openram_write_driver_7 data_1 bl_1 br_1 en_0 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_8 data_0 bl_0 br_0 en_0 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_0 data_8 bl_8 br_8 en_4 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_1 data_7 bl_7 br_7 en_3 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_2 data_6 bl_6 br_6 en_3 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_3 data_5 bl_5 br_5 en_2 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_5 data_3 bl_3 br_3 en_1 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_4 data_4 bl_4 br_4 en_2 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+Xsky130_fd_bd_sram__openram_write_driver_6 data_2 bl_2 br_2 en_1 vdd gnd vdd_uq0 sky130_fd_bd_sram__openram_write_driver
+.ends
+
+.subckt sky130_fd_bd_sram__openram_sense_amp bl br dout en vdd vdd_uq0 gnd
+X0 vdd_uq0 a_154_1598# dout vdd sky130_fd_pr__pfet_01v8 ad=0.3402p pd=3.06u as=0.3654p ps=3.1u w=1.26u l=0.15u
+X1 a_154_1598# a_96_1989# vdd vdd sky130_fd_pr__pfet_01v8 ad=0.8802p pd=7.6u as=0.3654p ps=3.1u w=1.26u l=0.15u
+X2 gnd en a_184_1989# gnd sky130_fd_pr__nfet_01v8 ad=0.3705p pd=3.74u as=0.377p ps=3.76u w=0.65u l=0.15u
+X3 a_154_1598# a_96_1989# a_184_1989# gnd sky130_fd_pr__nfet_01v8 ad=0.1885p pd=1.88u as=0p ps=0u w=0.65u l=0.15u
+X4 bl en a_96_1989# vdd sky130_fd_pr__pfet_01v8 ad=0.54p pd=4.54u as=0.8802p ps=7.6u w=2u l=0.15u
+X5 vdd a_154_1598# a_96_1989# vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.26u l=0.15u
+X6 a_154_1598# en br vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0.54p ps=4.54u w=2u l=0.15u
+X7 a_184_1989# a_154_1598# a_96_1989# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1885p ps=1.88u w=0.65u l=0.15u
+X8 gnd a_154_1598# dout gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0.1885p ps=1.88u w=0.65u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_sense_amp_array data_0 bl_0 data_1 data_2
++ bl_2 data_3 bl_3 br_3 data_4 br_4 data_5 bl_5 br_5 data_6 br_6 data_7 br_7 data_8
++ bl_8 br_8 en vdd_uq0 br_2 br_0 gnd bl_6 br_1 bl_4 bl_1 vdd bl_7
+Xsky130_fd_bd_sram__openram_sense_amp_5 bl_3 br_3 data_3 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_6 bl_2 br_2 data_2 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_7 bl_1 br_1 data_1 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_8 bl_0 br_0 data_0 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_1 bl_7 br_7 data_7 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_0 bl_8 br_8 data_8 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_2 bl_6 br_6 data_6 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_3 bl_5 br_5 data_5 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+Xsky130_fd_bd_sram__openram_sense_amp_4 bl_4 br_4 data_4 en vdd vdd_uq0 gnd sky130_fd_bd_sram__openram_sense_amp
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pnand2 A B Z vdd w_n36_538# gnd
+X0 a_144_51# A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.259p pd=2.18u as=0.222p ps=2.08u w=0.74u l=0.15u
+X1 vdd B Z w_n36_538# sky130_fd_pr__pfet_01v8 ad=0.672p pd=5.68u as=0.392p ps=2.94u w=1.12u l=0.15u
+X2 Z A vdd w_n36_538# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 Z B a_144_51# gnd sky130_fd_pr__nfet_01v8 ad=0.222p pd=2.08u as=0p ps=0u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.108p pd=1.32u as=0.108p ps=1.32u w=0.36u l=0.15u
+X1 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0.336p pd=2.84u as=0.336p ps=2.84u w=1.12u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver A Z gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_0 A Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pand2 A B Z gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pnand2_0 A B sky130_sram_1rw_8x16_gate3a03_control_pnand2_0/Z
++ vdd vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pnand2
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_0 sky130_sram_1rw_8x16_gate3a03_control_pnand2_0/Z
++ Z gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pdriver
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array wmask_in_0 wmask_in_1
++ wmask_in_2 wmask_in_3 en wmask_out_0 wmask_out_1 wmask_out_2 wmask_out_3 gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pand2_0 wmask_in_3 en wmask_out_3 gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pand2
+Xsky130_sram_1rw_8x16_gate3a03_control_pand2_1 wmask_in_2 en wmask_out_2 gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pand2
+Xsky130_sram_1rw_8x16_gate3a03_control_pand2_2 wmask_in_1 en wmask_out_1 gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pand2
+Xsky130_sram_1rw_8x16_gate3a03_control_pand2_3 wmask_in_0 en wmask_out_0 gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pand2
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_precharge_0 bl br en_bar vdd
+X0 br en_bar vdd vdd sky130_fd_pr__pfet_01v8 ad=0.33p pd=3.4u as=0.1925p ps=1.8u w=0.55u l=0.15u
+X1 vdd en_bar bl vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0.33p ps=3.4u w=0.55u l=0.15u
+X2 br en_bar bl vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.55u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_precharge_array bl_0 br_0 bl_1 br_1
++ bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9
++ en_bar vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_0 bl_9 br_9 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_1 bl_8 br_8 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_2 bl_7 br_7 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_3 bl_6 br_6 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_4 bl_5 br_5 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_5 bl_4 br_4 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_6 bl_3 br_3 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_7 bl_2 br_2 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_8 bl_1 br_1 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_0_9 bl_0 br_0 en_bar vdd sky130_sram_1rw_8x16_gate3a03_control_precharge_0
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_port_data rbl_bl rbl_br bl_0 br_0 bl_1
++ br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 sparebl_0 sparebr_0
++ dout_0 dout_1 dout_2 dout_3 dout_4 dout_5 dout_6 dout_7 dout_8 din_0 din_1 din_2
++ din_4 din_5 din_6 din_7 din_8 p_en_bar bank_wmask_0 bank_wmask_1 bank_wmask_2 bank_wmask_3
++ bank_spare_wen0 wdriver_sel_0 wdriver_sel_1 wdriver_sel_2 wdriver_sel_3 vdd_uq0
++ din_3 s_en w_en vdd_uq3 vdd gnd vdd_uq1 vdd_uq5 vdd_uq2
+Xsky130_sram_1rw_8x16_gate3a03_control_write_driver_array_0 din_0 din_1 din_2 din_3
++ din_4 din_5 din_6 din_7 din_8 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4
++ bl_5 br_5 bl_6 br_6 bl_7 br_7 sparebl_0 sparebr_0 wdriver_sel_0 wdriver_sel_2 wdriver_sel_3
++ bank_spare_wen0 vdd_uq3 gnd wdriver_sel_1 vdd_uq2 sky130_sram_1rw_8x16_gate3a03_control_write_driver_array
+Xsky130_sram_1rw_8x16_gate3a03_control_sense_amp_array_0 dout_0 bl_0 dout_1 dout_2
++ bl_2 dout_3 bl_3 br_3 dout_4 br_4 dout_5 bl_5 br_5 dout_6 br_6 dout_7 br_7 dout_8
++ sparebl_0 sparebr_0 s_en vdd_uq1 br_2 br_0 gnd bl_6 br_1 bl_4 bl_1 vdd bl_7 sky130_sram_1rw_8x16_gate3a03_control_sense_amp_array
+Xsky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array_0 bank_wmask_0 bank_wmask_1
++ bank_wmask_2 bank_wmask_3 w_en wdriver_sel_0 wdriver_sel_1 wdriver_sel_2 wdriver_sel_3
++ gnd vdd_uq5 sky130_sram_1rw_8x16_gate3a03_control_write_mask_and_array
+Xsky130_sram_1rw_8x16_gate3a03_control_precharge_array_0 rbl_bl rbl_br bl_0 br_0 bl_1
++ br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 sparebl_0 sparebr_0
++ p_en_bar vdd_uq0 sky130_sram_1rw_8x16_gate3a03_control_precharge_array
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 A Z vdd gnd
+X0 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0.9p pd=6.6u as=0.9p ps=6.6u w=3u l=0.15u
+X1 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0.222p pd=2.08u as=0.222p ps=2.08u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_fd_bd_sram__openram_sp_nand2_dec A B Z vdd gnd
+X0 vdd B Z vdd sky130_fd_pr__pfet_01v8 ad=0.336p pd=2.84u as=0.6776p ps=5.69u w=1.12u l=0.15u
+X1 a_174_144# B gnd gnd sky130_fd_pr__nfet_01v8 ad=0.1554p pd=1.9u as=0.222p ps=2.08u w=0.74u l=0.15u
+X2 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 Z A a_174_144# gnd sky130_fd_pr__nfet_01v8 ad=0.2701p pd=2.21u as=0p ps=0u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_and2_dec_0 A B Z vdd vdd_uq0 gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0_0 sky130_fd_bd_sram__openram_sp_nand2_dec_0/Z
++ Z vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0
+Xsky130_fd_bd_sram__openram_sp_nand2_dec_0 A B sky130_fd_bd_sram__openram_sp_nand2_dec_0/Z
++ vdd gnd sky130_fd_bd_sram__openram_sp_nand2_dec
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_dec A Z vdd gnd
+X0 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0.108p pd=1.32u as=0.108p ps=1.32u w=0.36u l=0.15u
+X1 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0.336p pd=2.84u as=0.336p ps=2.84u w=1.12u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_and2_dec B Z vdd vdd_uq0 gnd A
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 sky130_fd_bd_sram__openram_sp_nand2_dec_0/Z
++ Z vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+Xsky130_fd_bd_sram__openram_sp_nand2_dec_0 A B sky130_fd_bd_sram__openram_sp_nand2_dec_0/Z
++ vdd gnd sky130_fd_bd_sram__openram_sp_nand2_dec
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode2x4 in_0 in_1
++ out_0 out_1 out_2 out_3 vdd_uq1 gnd vdd_uq0 vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_0 in_1 out_3 vdd vdd_uq0 gnd in_0
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_1 in_1 out_2 vdd vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_3 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z
++ out_0 vdd vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_2 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z
++ out_1 vdd vdd_uq0 gnd in_0 sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 in_1 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z
++ vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1 in_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z
++ vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+.ends
+
+.subckt sky130_fd_bd_sram__openram_sp_nand3_dec A B C Z gnd vdd
+X0 vdd C Z vdd sky130_fd_pr__pfet_01v8 ad=0.7728p pd=5.86u as=0.98p ps=8.47u w=1.12u l=0.15u
+X1 gnd C a_308_187# gnd sky130_fd_pr__nfet_01v8 ad=0.3071p pd=2.31u as=0.1554p ps=1.9u w=0.74u l=0.15u
+X2 Z B vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 a_308_115# A Z gnd sky130_fd_pr__nfet_01v8 ad=0.1554p pd=1.9u as=0.1961p ps=2.01u w=0.74u l=0.15u
+X4 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X5 a_308_187# B a_308_115# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_and3_dec A B C Z vdd_uq0 vdd gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 sky130_fd_bd_sram__openram_sp_nand3_dec_0/Z
++ Z vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+Xsky130_fd_bd_sram__openram_sp_nand3_dec_0 A B C sky130_fd_bd_sram__openram_sp_nand3_dec_0/Z
++ gnd vdd sky130_fd_bd_sram__openram_sp_nand3_dec
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8 in_0 in_1
++ in_2 out_0 out_1 out_2 out_3 out_4 out_5 out_6 out_7 vdd_uq0 vdd vdd_uq2 gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_0 in_0 in_1 in_2 out_7 vdd_uq0 vdd
++ gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_1 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_2/Z
++ in_1 in_2 out_6 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_2 in_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z
++ in_2 out_5 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_3 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_2/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z in_2 out_4 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_4 in_0 in_1 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z
++ out_3 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_5 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_2/Z
++ in_1 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z out_2 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_6 in_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z out_1 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0 in_2 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z
++ vdd_uq2 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and3_dec_7 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_2/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0/Z
++ out_0 vdd_uq0 vdd gnd sky130_sram_1rw_8x16_gate3a03_control_and3_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1 in_1 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_1/Z
++ vdd_uq2 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_2 in_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_2/Z
++ vdd_uq2 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder addr_0 addr_1 addr_2
++ addr_3 addr_4 decode_0 decode_1 decode_2 decode_3 decode_4 decode_5 decode_6 decode_7
++ decode_8 decode_9 decode_10 decode_11 decode_12 decode_13 decode_14 decode_15 decode_16
++ vdd_uq2 vdd_uq1 vdd_uq8 gnd vdd_uq9 vdd vdd_uq5 vdd_uq13 vdd_uq12
+Xsky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode2x4_0 addr_0 addr_1 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec_7/A sky130_sram_1rw_8x16_gate3a03_control_and2_dec_6/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/A vdd_uq1 gnd vdd_uq2 vdd sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode2x4
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_0 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_0/B
++ decode_16 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_1 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_4/B
++ decode_15 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_2 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_4/B
++ decode_14 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_6/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_3 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_4/B
++ decode_13 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_7/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_4 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_4/B
++ decode_12 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_5 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/B
++ decode_11 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_6 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/B
++ decode_10 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_6/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_10 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/B
++ decode_6 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_6/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_7 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/B
++ decode_9 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_7/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_11 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/B
++ decode_5 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_7/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_12 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/B
++ decode_4 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_8 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/B
++ decode_8 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8_0 addr_2 addr_3 addr_4
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec_16/B sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/B
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/B sky130_sram_1rw_8x16_gate3a03_control_and2_dec_4/B
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec_0/B sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8_0/out_5
++ sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8_0/out_6 sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8_0/out_7
++ vdd_uq5 vdd_uq9 vdd_uq8 gnd sky130_sram_1rw_8x16_gate3a03_control_hierarchical_predecode3x8
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_13 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_16/B
++ decode_3 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_9 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/B
++ decode_7 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_15 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_16/B
++ decode_1 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_7/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_14 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_16/B
++ decode_2 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_6/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_16 sky130_sram_1rw_8x16_gate3a03_control_and2_dec_16/B
++ decode_0 vdd_uq13 vdd_uq12 gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_8/A
++ sky130_sram_1rw_8x16_gate3a03_control_and2_dec
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_wordline_driver B Z vdd vdd_uq0 A gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0_0 sky130_fd_bd_sram__openram_sp_nand2_dec_0/Z
++ Z vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_dec_0
+Xsky130_fd_bd_sram__openram_sp_nand2_dec_0 A B sky130_fd_bd_sram__openram_sp_nand2_dec_0/Z
++ vdd gnd sky130_fd_bd_sram__openram_sp_nand2_dec
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array in_0 in_1 in_2
++ in_3 in_4 in_5 in_6 in_7 in_8 in_9 in_10 in_11 in_12 in_13 in_14 in_15 in_16 wl_0
++ wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15
++ wl_16 vdd_uq0 en gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_10 en wl_6 vdd vdd_uq0 in_6
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_11 en wl_5 vdd vdd_uq0 in_5
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_12 en wl_4 vdd vdd_uq0 in_4
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_13 en wl_3 vdd vdd_uq0 in_3
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_14 en wl_2 vdd vdd_uq0 in_2
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_15 en wl_1 vdd vdd_uq0 in_1
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_16 en wl_0 vdd vdd_uq0 in_0
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_0 en wl_16 vdd vdd_uq0 in_16
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_1 en wl_15 vdd vdd_uq0 in_15
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_2 en wl_14 vdd vdd_uq0 in_14
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_3 en wl_13 vdd vdd_uq0 in_13
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_4 en wl_12 vdd vdd_uq0 in_12
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_5 en wl_11 vdd vdd_uq0 in_11
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_6 en wl_10 vdd vdd_uq0 in_10
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_7 en wl_9 vdd vdd_uq0 in_9
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_8 en wl_8 vdd vdd_uq0 in_8
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_9 en wl_7 vdd vdd_uq0 in_7
++ gnd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_port_address addr_0 addr_1 addr_2 addr_3
++ addr_4 wl_en wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12
++ wl_13 wl_14 wl_15 wl_16 rbl_wl vdd_uq0 vdd_uq6 vdd_uq7 vdd_uq12 vdd_uq18 vdd_uq8
++ vdd vdd_uq5 vdd_uq2 vdd_uq1 gnd vdd_uq9
+Xsky130_sram_1rw_8x16_gate3a03_control_and2_dec_0_0 wl_en vdd_uq18 rbl_wl vdd vdd_uq0
++ gnd sky130_sram_1rw_8x16_gate3a03_control_and2_dec_0
+Xsky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder_0 addr_0 addr_1 addr_2
++ addr_3 addr_4 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_0
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_1 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_2
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_3 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_4
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_5 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_6
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_7 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_8
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_9 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_10
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_11 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_12
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_13 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_14
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_15 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_16
++ vdd_uq6 vdd_uq5 vdd_uq12 gnd vdd_uq8 vdd_uq7 vdd_uq9 vdd_uq2 vdd_uq1 sky130_sram_1rw_8x16_gate3a03_control_hierarchical_decoder
+Xsky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_0
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_1 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_2
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_3 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_4
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_5 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_6
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_7 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_8
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_9 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_10
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_11 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_12
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_13 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_14
++ sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_15 sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array_0/in_16
++ wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14
++ wl_15 wl_16 vdd_uq0 wl_en gnd vdd sky130_sram_1rw_8x16_gate3a03_control_wordline_driver_array
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_bank dout0_0 dout0_1 dout0_2 dout0_3
++ dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 rbl_bl_0_0 din0_0 din0_1 din0_2 din0_3 din0_4
++ din0_5 din0_6 din0_7 din0_8 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 s_en0 p_en_bar0
++ w_en0 bank_wmask0_0 bank_wmask0_1 bank_wmask0_2 bank_wmask0_3 bank_spare_wen0_0
++ wl_en0 vdd_uq0 vdd_uq1 vdd_uq5 vdd_uq7 vdd_uq29 vdd_uq14 vdd_uq24 w_15300_14486#
++ vdd_uq17 w_15300_8387# vdd_uq18 w_10211_8387# w_10211_14486# vdd_uq19 vdd_uq26 vdd_uq8
++ vdd_uq9 vdd_uq31 vdd_uq27 vdd gnd vdd_uq2 vdd_uq6 vdd_uq4
+Xsky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_0
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_1 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_2
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_3 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_4
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_5 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_6
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_7 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/sparebl_0
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/rbl_wl sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_0
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_1 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_2
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_3 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_4
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_5 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_6
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_8 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_9
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_10 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_11
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_12 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_13
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_14 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_15
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_16 vdd_uq29 w_15300_8387#
++ w_10211_8387# sky130_sram_1rw_8x16_gate3a03_control_port_data_0/sparebr_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_7
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_6 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_5
++ w_15300_14486# sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_4 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_3
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_2 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_1
++ w_10211_14486# sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/rbl_br
++ gnd rbl_bl_0_0 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_7 vdd_uq31
++ sky130_sram_1rw_8x16_gate3a03_control_sky130_capped_replica_bitcell_array
+Xsky130_sram_1rw_8x16_gate3a03_control_port_data_0 rbl_bl_0_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/rbl_br
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_0
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_1 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_1
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_2 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_2
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_3 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_3
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_4 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_4
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_5 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_5
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_6 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_6
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/bl_7 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/br_7
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/sparebl_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/sparebr_0
++ dout0_0 dout0_1 dout0_2 dout0_3 dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 din0_0 din0_1
++ din0_2 din0_4 din0_5 din0_6 din0_7 din0_8 p_en_bar0 bank_wmask0_0 bank_wmask0_1
++ bank_wmask0_2 bank_wmask0_3 bank_spare_wen0_0 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/wdriver_sel_0
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/wdriver_sel_1 sky130_sram_1rw_8x16_gate3a03_control_port_data_0/wdriver_sel_2
++ sky130_sram_1rw_8x16_gate3a03_control_port_data_0/wdriver_sel_3 vdd_uq9 din0_3 s_en0
++ w_en0 vdd_uq5 vdd_uq8 gnd vdd_uq7 vdd_uq4 vdd_uq6 sky130_sram_1rw_8x16_gate3a03_control_port_data
+Xsky130_sram_1rw_8x16_gate3a03_control_port_address_0 addr0_0 addr0_1 addr0_2 addr0_3
++ addr0_4 wl_en0 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_0 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_1
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_2 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_3
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_4 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_5
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_6 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_7
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_8 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_9
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_10 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_11
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_12 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_13
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_14 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_15
++ sky130_sram_1rw_8x16_gate3a03_control_port_address_0/wl_16 sky130_sram_1rw_8x16_gate3a03_control_port_address_0/rbl_wl
++ vdd_uq0 vdd_uq18 vdd_uq19 vdd_uq24 vdd_uq14 vdd_uq27 vdd vdd_uq17 vdd_uq2 vdd_uq1
++ gnd vdd_uq26 sky130_sram_1rw_8x16_gate3a03_control_port_address
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_10 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.108p pd=1.32u as=0.108p ps=1.32u w=0.36u l=0.15u
+X1 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0.336p pd=2.84u as=0.336p ps=2.84u w=1.12u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_0 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.2886p pd=2.26u as=0.444p ps=4.16u w=0.74u l=0.15u
+X1 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.74u l=0.15u
+X2 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0.756p pd=6.24u as=0.4914p ps=3.3u w=1.26u l=0.15u
+X3 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.26u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_1 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=1.1592p pd=8.1u as=1.1592p ps=8.1u w=1.68u l=0.15u
+X1 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X2 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X3 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=1.1592p pd=8.1u as=1.1592p ps=8.1u w=1.68u l=0.15u
+X4 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X5 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_dff_buf_0 Q Qb clk gnd vdd D
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_0_0 sky130_fd_bd_sram__openram_dff_0/Q
++ Qb vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_0
+Xsky130_fd_bd_sram__openram_dff_0 D sky130_fd_bd_sram__openram_dff_0/Q gnd clk vdd
++ sky130_fd_bd_sram__openram_dff_0/QN sky130_fd_bd_sram__openram_dff
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_1_0 Qb Q vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_1
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array din_0 din_1 dout_0 dout_bar_0
++ dout_1 dout_bar_1 clk vdd gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_dff_buf_0_0 dout_1 dout_bar_1 clk gnd vdd din_1
++ sky130_sram_1rw_8x16_gate3a03_control_dff_buf_0
+Xsky130_sram_1rw_8x16_gate3a03_control_dff_buf_0_1 dout_0 dout_bar_0 clk gnd vdd din_0
++ sky130_sram_1rw_8x16_gate3a03_control_dff_buf_0
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pnand2_1 A B Z vdd gnd
+X0 a_144_51# A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.259p pd=2.18u as=0.222p ps=2.08u w=0.74u l=0.15u
+X1 vdd B Z vdd sky130_fd_pr__pfet_01v8 ad=0.672p pd=5.68u as=0.392p ps=2.94u w=1.12u l=0.15u
+X2 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 Z B a_144_51# gnd sky130_fd_pr__nfet_01v8 ad=0.222p pd=2.08u as=0p ps=0u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_4 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.108p pd=1.32u as=0.108p ps=1.32u w=0.36u l=0.15u
+X1 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0.336p pd=2.84u as=0.336p ps=2.84u w=1.12u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_5 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.4914p pd=3.3u as=0.756p ps=6.24u w=1.26u l=0.15u
+X1 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.26u l=0.15u
+X2 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0.78p pd=4.78u as=1.2p ps=9.2u w=2u l=0.15u
+X3 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver_5 A Z vdd gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_4_0 A sky130_sram_1rw_8x16_gate3a03_control_pinv_5_0/A
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_4
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_5_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_5_0/A
++ Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_5
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_9 A Z vdd gnd
+X0 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=3.72p pd=23.72u as=3.72p ps=23.72u w=2u l=0.15u
+X1 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=3.72p pd=23.72u as=3.72p ps=23.72u w=2u l=0.15u
+X2 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X3 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X4 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X5 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X6 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X7 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X8 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X9 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X10 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X11 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X12 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X13 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X14 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X15 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X16 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X17 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver_3 A Z gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_9_0 A Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_9
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pnand3 A B C Z vdd w_n36_679# gnd
+X0 Z C vdd w_n36_679# sky130_fd_pr__pfet_01v8 ad=0.728p pd=5.78u as=0.728p ps=5.78u w=1.12u l=0.15u
+X1 a_144_51# A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.259p pd=2.18u as=0.222p ps=2.08u w=0.74u l=0.15u
+X2 vdd B Z w_n36_679# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 Z A vdd w_n36_679# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X4 Z C a_244_51# gnd sky130_fd_pr__nfet_01v8 ad=0.222p pd=2.08u as=0.259p ps=2.18u w=0.74u l=0.15u
+X5 a_244_51# B a_144_51# gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pand3 A B Z gnd vdd C
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_3_0 sky130_sram_1rw_8x16_gate3a03_control_pnand3_0/Z
++ Z gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pdriver_3
+Xsky130_sram_1rw_8x16_gate3a03_control_pnand3_0 A B C sky130_sram_1rw_8x16_gate3a03_control_pnand3_0/Z
++ vdd vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pnand3
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_6 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=2.16p pd=14.16u as=2.16p ps=14.16u w=2u l=0.15u
+X1 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X2 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X3 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=2.16p pd=14.16u as=2.16p ps=14.16u w=2u l=0.15u
+X4 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X5 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X6 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X7 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X8 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X9 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver_4 A Z gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_6_0 A Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_6
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pand3_0 A B Z vdd gnd C
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_4_0 sky130_sram_1rw_8x16_gate3a03_control_pnand3_0/Z
++ Z gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pdriver_4
+Xsky130_sram_1rw_8x16_gate3a03_control_pnand3_0 A B C sky130_sram_1rw_8x16_gate3a03_control_pnand3_0/Z
++ vdd vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pnand3
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_7 A Z vdd gnd
+X0 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=6.06p pd=38.06u as=6.06p ps=38.06u w=2u l=0.15u
+X1 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=6.06p pd=38.06u as=6.06p ps=38.06u w=2u l=0.15u
+X2 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X3 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X4 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X5 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X6 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X7 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X8 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X9 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X10 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X11 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X12 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X13 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X14 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X15 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X16 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X17 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X18 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X19 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X20 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X21 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X22 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X23 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X24 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X25 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X26 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X27 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X28 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X29 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver_1 A Z vdd gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_6_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_6_0/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_7_0/A vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_6
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_4_0 A sky130_sram_1rw_8x16_gate3a03_control_pinv_5_0/A
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_4
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_7_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_7_0/A
++ Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_7
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_5_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_5_0/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_6_0/A vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_5
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pnand2_0 A B Z vdd w_n36_679# gnd
+X0 a_144_51# A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.259p pd=2.18u as=0.222p ps=2.08u w=0.74u l=0.15u
+X1 vdd B Z w_n36_679# sky130_fd_pr__pfet_01v8 ad=0.672p pd=5.68u as=0.392p ps=2.94u w=1.12u l=0.15u
+X2 Z A vdd w_n36_679# sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.12u l=0.15u
+X3 Z B a_144_51# gnd sky130_fd_pr__nfet_01v8 ad=0.222p pd=2.08u as=0p ps=0u w=0.74u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_2 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=2.4696p pd=16.38u as=2.4696p ps=16.38u w=1.68u l=0.15u
+X1 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X2 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X3 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=2.94p pd=18.94u as=2.94p ps=18.94u w=2u l=0.15u
+X4 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X5 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X6 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X7 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X8 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X9 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X10 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=1.68u l=0.15u
+X11 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X12 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X13 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver_0 A Z gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_2_0 A Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_2
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pand2_0 A B Z gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pnand2_0_0 A B sky130_sram_1rw_8x16_gate3a03_control_pnand2_0_0/Z
++ vdd vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pnand2_0
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_0_0 sky130_sram_1rw_8x16_gate3a03_control_pnand2_0_0/Z
++ Z gnd vdd sky130_sram_1rw_8x16_gate3a03_control_pdriver_0
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_11 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0.108p pd=1.32u as=0.108p ps=1.32u w=0.36u l=0.15u
+X1 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0.336p pd=2.84u as=0.336p ps=2.84u w=1.12u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_delay_chain in out gnd vdd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_10 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_10/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_21 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_24/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_21/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_32 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_34/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_32/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_43 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_44/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_43/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_11 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_11/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_22 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_24/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_22/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_33 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_34/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_33/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_44 in sky130_sram_1rw_8x16_gate3a03_control_pinv_11_44/Z
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_12 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_12/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_23 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_24/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_23/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_34 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_39/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_34/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_13 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_13/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_24 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_29/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_24/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_35 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_39/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_35/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_14 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_19/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/A vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_15 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_19/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_15/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_25 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_29/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_25/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_26 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_29/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_26/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_36 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_39/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_36/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_37 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_39/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_37/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_16 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_19/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_16/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_27 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_29/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_27/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_38 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_39/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_38/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_17 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_19/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_17/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_28 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_29/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_28/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_39 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_44/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_39/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_18 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_19/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_18/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_29 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_34/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_29/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_19 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_24/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_19/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_0 out sky130_sram_1rw_8x16_gate3a03_control_pinv_11_0/Z
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_1 out sky130_sram_1rw_8x16_gate3a03_control_pinv_11_1/Z
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_2 out sky130_sram_1rw_8x16_gate3a03_control_pinv_11_2/Z
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_3 out sky130_sram_1rw_8x16_gate3a03_control_pinv_11_3/Z
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_4 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/Z
++ out vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_5 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_5/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_6 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_6/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_7 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_7/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_8 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_8/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_9 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/A
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_9/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_40 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_44/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_40/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_30 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_34/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_30/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_41 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_44/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_41/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_20 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_24/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_20/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_31 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_34/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_31/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_11_42 sky130_sram_1rw_8x16_gate3a03_control_pinv_11_44/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_11_42/Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_11
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pinv_8 A Z vdd gnd
+X0 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=1.38p pd=9.38u as=1.38p ps=9.38u w=2u l=0.15u
+X1 Z A gnd gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X2 gnd A Z gnd sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X3 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=1.38p pd=9.38u as=1.38p ps=9.38u w=2u l=0.15u
+X4 vdd A Z vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+X5 Z A vdd vdd sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=2u l=0.15u
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_pdriver_2 A Z vdd gnd
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_8_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_8_0/A
++ Z vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_8
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_4_0 A sky130_sram_1rw_8x16_gate3a03_control_pinv_8_0/A
++ vdd gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_4
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw web clk rbl_bl s_en
++ w_en p_en_bar wl_en clk_buf vdd_uq1 csb vdd gnd vdd_uq0
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_10_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_10_0/A
++ sky130_sram_1rw_8x16_gate3a03_control_pand3_0/B vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_10
+Xsky130_sram_1rw_8x16_gate3a03_control_dff_buf_array_0 csb web sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array_0/dout_0
++ sky130_sram_1rw_8x16_gate3a03_control_pand2_0_1/B sky130_sram_1rw_8x16_gate3a03_control_pand3_0_0/C
++ sky130_sram_1rw_8x16_gate3a03_control_pand3_0/A clk_buf vdd_uq0 gnd sky130_sram_1rw_8x16_gate3a03_control_dff_buf_array
+Xsky130_sram_1rw_8x16_gate3a03_control_pinv_10_1 clk_buf sky130_sram_1rw_8x16_gate3a03_control_pinv_10_1/Z
++ vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pinv_10
+Xsky130_sram_1rw_8x16_gate3a03_control_pnand2_1_0 sky130_sram_1rw_8x16_gate3a03_control_pand2_0_0/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pinv_10_0/A sky130_sram_1rw_8x16_gate3a03_control_pnand2_1_0/Z
++ vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pnand2_1
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_5_0 sky130_sram_1rw_8x16_gate3a03_control_pnand2_1_0/Z
++ p_en_bar vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pdriver_5
+Xsky130_sram_1rw_8x16_gate3a03_control_pand3_0 sky130_sram_1rw_8x16_gate3a03_control_pand3_0/A
++ sky130_sram_1rw_8x16_gate3a03_control_pand3_0/B w_en gnd vdd_uq1 sky130_sram_1rw_8x16_gate3a03_control_pand3_0/C
++ sky130_sram_1rw_8x16_gate3a03_control_pand3
+Xsky130_sram_1rw_8x16_gate3a03_control_pand3_0_0 sky130_sram_1rw_8x16_gate3a03_control_pinv_10_0/A
++ sky130_sram_1rw_8x16_gate3a03_control_pand3_0/C s_en vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pand3_0_0/C
++ sky130_sram_1rw_8x16_gate3a03_control_pand3_0
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_1_0 clk clk_buf vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pdriver_1
+Xsky130_sram_1rw_8x16_gate3a03_control_pand2_0_0 clk_buf sky130_sram_1rw_8x16_gate3a03_control_pand2_0_1/B
++ sky130_sram_1rw_8x16_gate3a03_control_pand2_0_0/Z gnd vdd_uq1 sky130_sram_1rw_8x16_gate3a03_control_pand2_0
+Xsky130_sram_1rw_8x16_gate3a03_control_pand2_0_1 sky130_sram_1rw_8x16_gate3a03_control_pinv_10_1/Z
++ sky130_sram_1rw_8x16_gate3a03_control_pand2_0_1/B sky130_sram_1rw_8x16_gate3a03_control_pand3_0/C
++ gnd vdd_uq1 sky130_sram_1rw_8x16_gate3a03_control_pand2_0
+Xsky130_sram_1rw_8x16_gate3a03_control_delay_chain_0 rbl_bl sky130_sram_1rw_8x16_gate3a03_control_pinv_10_0/A
++ gnd vdd sky130_sram_1rw_8x16_gate3a03_control_delay_chain
+Xsky130_sram_1rw_8x16_gate3a03_control_pdriver_2_0 sky130_sram_1rw_8x16_gate3a03_control_pand3_0/C
++ wl_en vdd_uq1 gnd sky130_sram_1rw_8x16_gate3a03_control_pdriver_2
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff din_0 din_1 din_2 din_3
++ din_4 dout_0 dout_1 dout_2 dout_3 dout_4 clk vdd gnd
+Xsky130_fd_bd_sram__openram_dff_0 din_4 dout_4 gnd clk vdd sky130_fd_bd_sram__openram_dff_0/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_1 din_3 dout_3 gnd clk vdd sky130_fd_bd_sram__openram_dff_1/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_2 din_2 dout_2 gnd clk vdd sky130_fd_bd_sram__openram_dff_2/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_4 din_0 dout_0 gnd clk vdd sky130_fd_bd_sram__openram_dff_4/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_3 din_1 dout_1 gnd clk vdd sky130_fd_bd_sram__openram_dff_3/QN
++ sky130_fd_bd_sram__openram_dff
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control_data_dff din_7 din_8 dout_0 dout_1 dout_2
++ dout_3 dout_4 dout_5 dout_6 dout_7 dout_8 vdd din_4 din_2 din_0 din_5 din_3 din_1
++ gnd din_6 clk
+Xsky130_fd_bd_sram__openram_dff_5 din_3 dout_3 gnd clk vdd sky130_fd_bd_sram__openram_dff_5/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_6 din_2 dout_2 gnd clk vdd sky130_fd_bd_sram__openram_dff_6/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_7 din_1 dout_1 gnd clk vdd sky130_fd_bd_sram__openram_dff_7/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_8 din_0 dout_0 gnd clk vdd sky130_fd_bd_sram__openram_dff_8/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_0 din_8 dout_8 gnd clk vdd sky130_fd_bd_sram__openram_dff_0/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_1 din_7 dout_7 gnd clk vdd sky130_fd_bd_sram__openram_dff_1/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_2 din_6 dout_6 gnd clk vdd sky130_fd_bd_sram__openram_dff_2/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_4 din_4 dout_4 gnd clk vdd sky130_fd_bd_sram__openram_dff_4/QN
++ sky130_fd_bd_sram__openram_dff
+Xsky130_fd_bd_sram__openram_dff_3 din_5 dout_5 gnd clk vdd sky130_fd_bd_sram__openram_dff_3/QN
++ sky130_fd_bd_sram__openram_dff
+.ends
+
+.subckt sky130_sram_1rw_8x16_gate3a03_control din0[0] din0[1] din0[2] din0[3] din0[4]
++ din0[5] din0[6] din0[7] din0[8] addr0[0] addr0[1] addr0[2] addr0[3] addr0[4] csb0
++ web0 clk0 wmask0[0] wmask0[1] wmask0[2] wmask0[3] spare_wen0 dout0[0] dout0[1] dout0[2]
++ dout0[3] dout0[4] dout0[5] dout0[6] dout0[7] dout0[8] vccd1 vssd1
+Xsky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0 sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_0
++ sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_1 sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_2
++ sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_3 sky130_sram_1rw_8x16_gate3a03_control_data_dff_0/clk
++ wmask0[2] wmask0[0] vccd1 vssd1 wmask0[3] wmask0[1] sky130_sram_1rw_8x16_gate3a03_control_wmask_dff
+Xsky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff_0 sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff_0/dout_0
++ sky130_sram_1rw_8x16_gate3a03_control_data_dff_0/clk vccd1 vssd1 spare_wen0 sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff
+Xsky130_sram_1rw_8x16_gate3a03_control_bank_0 dout0[0] dout0[1] dout0[2] dout0[3]
++ dout0[4] dout0[5] dout0[6] dout0[7] dout0[8] sky130_sram_1rw_8x16_gate3a03_control_bank_0/rbl_bl_0_0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_0 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_1
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_2 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_3
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_4 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_5
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_6 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_7
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_8 sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_1 sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_2
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_3 sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_4
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/s_en0 sky130_sram_1rw_8x16_gate3a03_control_bank_0/p_en_bar0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/w_en0 sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_0
++ sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_1 sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_2
++ sky130_sram_1rw_8x16_gate3a03_control_wmask_dff_0/dout_3 sky130_sram_1rw_8x16_gate3a03_control_spare_wen_dff_0/dout_0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/wl_en0 vccd1 vccd1 vccd1 vccd1 vccd1
++ vccd1 vccd1 vssd1 vccd1 vssd1 vccd1 vssd1 vssd1 vccd1 vccd1 vccd1 vccd1 vccd1 vccd1
++ vccd1 vssd1 vccd1 vccd1 vccd1 sky130_sram_1rw_8x16_gate3a03_control_bank
+Xsky130_sram_1rw_8x16_gate3a03_control_control_logic_rw_0 web0 clk0 sky130_sram_1rw_8x16_gate3a03_control_bank_0/rbl_bl_0_0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/s_en0 sky130_sram_1rw_8x16_gate3a03_control_bank_0/w_en0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/p_en_bar0 sky130_sram_1rw_8x16_gate3a03_control_bank_0/wl_en0
++ sky130_sram_1rw_8x16_gate3a03_control_data_dff_0/clk vccd1 csb0 vccd1 vssd1 vccd1
++ sky130_sram_1rw_8x16_gate3a03_control_control_logic_rw
+Xsky130_sram_1rw_8x16_gate3a03_control_row_addr_dff_0 addr0[0] addr0[1] addr0[2] addr0[3]
++ addr0[4] sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_0 sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_1
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_2 sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_3
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/addr0_4 sky130_sram_1rw_8x16_gate3a03_control_data_dff_0/clk
++ vccd1 vssd1 sky130_sram_1rw_8x16_gate3a03_control_row_addr_dff
+Xsky130_sram_1rw_8x16_gate3a03_control_data_dff_0 din0[7] din0[8] sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_0
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_1 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_2
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_3 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_4
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_5 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_6
++ sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_7 sky130_sram_1rw_8x16_gate3a03_control_bank_0/din0_8
++ vccd1 din0[4] din0[2] din0[0] din0[5] din0[3] din0[1] vssd1 din0[6] sky130_sram_1rw_8x16_gate3a03_control_data_dff_0/clk
++ sky130_sram_1rw_8x16_gate3a03_control_data_dff
+.ends
+

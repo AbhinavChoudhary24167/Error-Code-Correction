@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "scope": "repository-resident files listed by preserved Attempts01--08 manifests",
+  "status": "PASS",
+  "campaigns": [
+    {
+      "label": "Attempt01/Attempt02 repository evidence",
+      "manifest": "GATE2_GATE3_EVIDENCE_MANIFEST.json",
+      "file_count": 22,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt03 repository evidence",
+      "manifest": "gate3_openram_attempt03_target_diagnosis/ATTEMPT03_EVIDENCE_MANIFEST.json",
+      "file_count": 25,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt04 repository evidence",
+      "manifest": "gate3_openram_attempt04_sky130_control_integration_repair/ATTEMPT04_EVIDENCE_MANIFEST.json",
+      "file_count": 349,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt05 repository evidence",
+      "manifest": "gate3_openram_attempt05_sky130_primitive_view_materialization_qualification/ATTEMPT05_EVIDENCE_MANIFEST.json",
+      "file_count": 868,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt06 repository evidence",
+      "manifest": "gate3_attempt06_replacement_sram_backend_qualification/ATTEMPT06_EVIDENCE_MANIFEST.json",
+      "file_count": 265,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt07 repository evidence",
+      "manifest": "gate3_attempt07_sram22_matched_physical_closure/ATTEMPT07_EVIDENCE_MANIFEST.json",
+      "file_count": 1103,
+      "status": "PASS",
+      "failures": []
+    },
+    {
+      "label": "Attempt08 repository evidence",
+      "manifest": "gate3_attempt08_sram22_slew_provenance_and_drv_closure/ATTEMPT08_EVIDENCE_MANIFEST.json",
+      "file_count": 1124,
+      "status": "PASS",
+      "failures": []
+    }
+  ],
+  "external_attempt02_attempt03": {
+    "status": "NOT_REVERIFIED",
+    "reason": "Historical external trees are not promoted; repository-resident registered evidence was checked."
+  }
+}

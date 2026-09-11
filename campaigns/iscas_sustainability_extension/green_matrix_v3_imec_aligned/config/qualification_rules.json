@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "metric_id": "IMPLEMENTATION_FRONTIER",
+      "requirements": [
+        {"quantity": "area", "minimum_tier": "E4", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED", "DIAGNOSTIC"]},
+        {"quantity": "operational_energy", "minimum_tier": "E5", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED"]},
+        {"quantity": "latency", "minimum_tier": "E4", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED"]}
+      ],
+      "permits_parametric": false
+    },
+    {
+      "metric_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "requirements": [
+        {"quantity": "area", "minimum_tier": "E4", "allowed_classes": ["DIAGNOSTIC"]},
+        {"quantity": "logical_outcome", "minimum_tier": "E3", "allowed_classes": ["LOGICAL_CONTROL"]}
+      ],
+      "permits_parametric": false
+    },
+    {
+      "metric_id": "PHYSICAL_RELIABILITY_FRONTIER",
+      "requirements": [
+        {"quantity": "physical_fault_probability", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED", "BOUNDED"]},
+        {"quantity": "physical_outcome_model", "minimum_tier": "E3", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED"]},
+        {"quantity": "operational_energy", "minimum_tier": "E5", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED"]}
+      ],
+      "permits_parametric": false
+    },
+    {
+      "metric_id": "CSCI_ABSOLUTE",
+      "requirements": [
+        {"quantity": "lifecycle_carbon", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED"]},
+        {"quantity": "correct_service_probability", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED", "BOUNDED"]},
+        {"quantity": "service_count_lifetime", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED", "BOUNDED"]}
+      ],
+      "permits_parametric": false
+    },
+    {
+      "metric_id": "CSCI_PARAMETRIC",
+      "requirements": [
+        {"quantity": "lifecycle_carbon", "minimum_tier": "E1", "allowed_classes": ["PARAMETRIC", "ABSOLUTE_QUALIFIED"]},
+        {"quantity": "correct_service_probability", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED", "BOUNDED"]},
+        {"quantity": "service_count_lifetime", "minimum_tier": "E1", "allowed_classes": ["PARAMETRIC", "ABSOLUTE_QUALIFIED", "BOUNDED"]}
+      ],
+      "permits_parametric": true
+    },
+    {
+      "metric_id": "MRCC_MATCHED_BASELINE",
+      "requirements": [
+        {"quantity": "matched_lifecycle_carbon", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED"]},
+        {"quantity": "matched_correct_service", "minimum_tier": "E2", "allowed_classes": ["ABSOLUTE_QUALIFIED", "RELATIVE_QUALIFIED", "BOUNDED"]}
+      ],
+      "permits_parametric": false
+    }
+  ]
+}

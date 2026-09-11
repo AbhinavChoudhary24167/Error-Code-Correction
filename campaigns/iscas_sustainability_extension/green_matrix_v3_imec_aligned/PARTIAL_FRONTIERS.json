@@ -1,0 +1,221 @@
+{
+  "NSGA_II_used": false,
+  "blocked_frontiers": [
+    {
+      "frontier": "IMPLEMENTATION_FRONTIER",
+      "reasons": [
+        "OPERATIONAL_ENERGY_E0",
+        "LATENCY_E0"
+      ]
+    },
+    {
+      "frontier": "PHYSICAL_RELIABILITY_FRONTIER",
+      "reasons": [
+        "PHYSICAL_EVENT_PROBABILITY_E0",
+        "OPERATIONAL_ENERGY_E0"
+      ]
+    },
+    {
+      "frontier": "SUSTAINABILITY_FRONTIER",
+      "reasons": [
+        "LIFECYCLE_CARBON_E0",
+        "PHYSICAL_RELIABILITY_E0",
+        "LATENCY_E0"
+      ]
+    },
+    {
+      "frontier": "INCREMENTAL_ECC_FRONTIER",
+      "reasons": [
+        "MATCHED_LIFECYCLE_CARBON_E0",
+        "MATCHED_CORRECT_SERVICE_E0"
+      ]
+    }
+  ],
+  "exact_enumeration": true,
+  "qualified_architecture_winner": null,
+  "records": [
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "DBU_ALL_PAIRS",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|DBU_ALL_PAIRS|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "DBU_ALL_PAIRS",
+      "logical_control_due_fraction": "1",
+      "logical_control_sdc_fraction": "0",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|DBU_ALL_PAIRS|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "LOGICAL_CONSECUTIVE_3",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|LOGICAL_CONSECUTIVE_3|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "LOGICAL_CONSECUTIVE_3",
+      "logical_control_due_fraction": "0.34285714285714286",
+      "logical_control_sdc_fraction": "0.65714285714285714",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|LOGICAL_CONSECUTIVE_3|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "LOGICAL_CONSECUTIVE_4",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|LOGICAL_CONSECUTIVE_4|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "LOGICAL_CONSECUTIVE_4",
+      "logical_control_due_fraction": "0.91304347826086951",
+      "logical_control_sdc_fraction": "0.086956521739130432",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|LOGICAL_CONSECUTIVE_4|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "PERSISTENT_SEQUENCE_1_2_0_4",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|PERSISTENT_SEQUENCE_1_2_0_4|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "PERSISTENT_SEQUENCE_1_2_0_4",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|PERSISTENT_SEQUENCE_1_2_0_4|scrub_on_correct",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "PERSISTENT_SEQUENCE_1_2_0_4",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|PERSISTENT_SEQUENCE_1_2_0_4|periodic_2_steps",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "PERSISTENT_SEQUENCE_1_2_0_4",
+      "logical_control_due_fraction": "0.5",
+      "logical_control_sdc_fraction": "0.25",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": false,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|PERSISTENT_SEQUENCE_1_2_0_4|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "PERSISTENT_SEQUENCE_1_2_0_4",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "0",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|PERSISTENT_SEQUENCE_1_2_0_4|scrub_on_correct",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "PERSISTENT_SEQUENCE_1_2_0_4",
+      "logical_control_due_fraction": "0.5",
+      "logical_control_sdc_fraction": "0.25",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": false,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|PERSISTENT_SEQUENCE_1_2_0_4|periodic_2_steps",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "U0",
+      "fault_environment_id": "SBU_ALL_COORDINATES",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "1",
+      "observed_macro_area_um2": "201266.5968",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|U0|SBU_ALL_COORDINATES|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    },
+    {
+      "analysis_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "architecture_id": "E0",
+      "fault_environment_id": "SBU_ALL_COORDINATES",
+      "logical_control_due_fraction": "0",
+      "logical_control_sdc_fraction": "0",
+      "observed_macro_area_um2": "260331.5664",
+      "pareto_nondominated": true,
+      "qualification_note": "Exact diagnostic frontier only; logical enumeration frequency is not P(f).",
+      "record_id": "MP|E0|SBU_ALL_COORDINATES|none",
+      "result_class": "LOGICAL_CONTROL",
+      "selection_eligible": false
+    }
+  ],
+  "schema_version": "3.0.0"
+}

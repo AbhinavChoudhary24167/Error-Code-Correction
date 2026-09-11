@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "campaign": "gate3_attempt06_replacement_sram_backend_qualification",
+  "attempt_date": "2026-08-31",
+  "git_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+  "branch": "codex/ecc-lifecycle-sustainability",
+  "mission": "Select and qualify a replacement open SRAM backend without reopening the terminated OpenRAM/SKY130 repair path.",
+  "frozen_prior_decision": {
+    "attempt05_classification": "MATERIALIZATION_SEMANTICS_UNRESOLVED",
+    "openram_sky130_recommendation": "STOP_OPENRAM_SKY130_BACKEND",
+    "custom_add_mask_materialization_permitted": false,
+    "openram_sky130_repair_reopened": false
+  },
+  "attempt06_classification": "SRAM22_PARTIALLY_QUALIFIED",
+  "selected_backend": "SRAM22_PREGENERATED_SKY130_MACROS",
+  "selected_backend_repository": "https://github.com/ucb-substrate/sram22_sky130_macros",
+  "selected_backend_commit": "75cbe961e18ee00d5a6c73fa455505f0bcdf4c05",
+  "selected_backend_license": "BSD-3-Clause",
+  "required_macros": {
+    "sram22_256x64m4w8": {"exists": true, "published_views": ["GDS", "LEF", "SPICE", "LIBERTY_FF", "LIBERTY_TT", "LIBERTY_SS", "VERILOG"], "reported_silicon": true},
+    "sram22_256x8m8w1": {"exists": true, "published_views": ["GDS", "LEF", "SPICE", "LIBERTY_FF", "LIBERTY_TT", "LIBERTY_SS", "VERILOG"], "reported_silicon": true}
+  },
+  "qualification": {
+    "immutable_source_provenance": "QUALIFIED",
+    "interface": "QUALIFIED",
+    "gds": "QUALIFIED",
+    "lef": "QUALIFIED",
+    "functional": "QUALIFIED",
+    "ecc_composition": "QUALIFIED",
+    "openroad": "PARTIAL",
+    "drc": "DRC_NOT_INDEPENDENTLY_REPRODUCIBLE",
+    "drc_integration_disposition": "MACRO_INTEGRATION_BLACKBOX_ACCEPTABLE_WITH_DOCUMENTED_RISK",
+    "drc_locality_hypothesis": "SUPPORTED_ALL_REPORTED_MARKERS_SRAM_INTERNAL",
+    "lvs": "NOT_INDEPENDENTLY_REPRODUCED",
+    "liberty": "QUALIFIED_WITH_PROVENANCE_LIMITATION",
+    "timing_characterization_evidence": "UPSTREAM_CADENCE_LIBERATE_MX_CHARACTERIZATION_NOT_INDEPENDENTLY_REPRODUCED"
+  },
+  "drc_marker_locality": {
+    "sram22_256x64m4w8": {"markers": 34459, "sram_internal_fraction": 1.0},
+    "sram22_256x8m8w1": {"markers": 5831, "sram_internal_fraction": 1.0},
+    "leaf_drc_pass_claimed": false,
+    "foundry_waiver_available": false
+  },
+  "functional_results": {
+    "sram22_256x64m4w8": "PASS",
+    "sram22_256x8m8w1": "PASS",
+    "logical_256x72_pair": "PASS",
+    "hsiao_code_id": "hsiao-secded-72-64-v1",
+    "hsiao_no_error": "PASS",
+    "hsiao_single_bit_cases": 72,
+    "hsiao_single_bit_result": "PASS_CORRECTED",
+    "hsiao_double_bit_cases": 2556,
+    "hsiao_double_bit_result": "PASS_DETECTED_UNCORRECTABLE"
+  },
+  "openroad_results": {
+    "u0": "DETAIL_ROUTE_NOT_CLEAN",
+    "e0": "FINAL_LAYOUT_GENERATED_ROUTE_DRC_CLEAN_TIMING_DRV_VIOLATIONS",
+    "e0_final_route_drc_errors": 0,
+    "macro_area_overhead_um2": 59064.9696,
+    "macro_area_overhead_percent_of_u0_macro": 29.346633042488058,
+    "ecc_logic_area_overhead_um2_at_synthesis": 4710.77,
+    "common_global_route_setup_slack_displacement_ns_e0_minus_u0": -2.8715631,
+    "common_global_route_fmax_displacement_hz_e0_minus_u0": -39992000.0,
+    "common_global_route_vectorless_power_displacement_w_e0_minus_u0": 0.001008633,
+    "comparison_level": "DIAGNOSTIC_ONLY_U0_HAS_NO_CLEAN_FINAL_ROUTE"
+  },
+  "bit_interleaving": {
+    "logical": "FEASIBLE",
+    "macro_bank": "FEASIBLE_AND_CURRENT_PAIR_IS_SEPARATE_BANKED_STORAGE",
+    "physical_bitcell": "NOT_QUALIFIED_NO_AUTHORITATIVE_LOGICAL_TO_COORDINATE_MAP",
+    "mbu_resilience_claim_permitted": false
+  },
+  "regression": {
+    "campaign_tests": "PASS_6_OF_6",
+    "make": "PASS",
+    "make_test": "EXPECTED_FROZEN_BASELINE_2_FAILED_482_PASSED",
+    "full_pytest": "EXPECTED_FROZEN_BASELINE_2_FAILED_484_PASSED",
+    "new_regression_count": 0
+  },
+  "integrity": {
+    "protected_date": "PASS",
+    "protected_file_count": 7094,
+    "changed": 0,
+    "missing": 0,
+    "added": 0,
+    "prior_campaign_repository_hashes": "PASS",
+    "practical_sram_simulator": "PASS_EXACT_BASELINE_BYTES",
+    "practical_sram_simulator_sha256": "99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef"
+  },
+  "unsupported_claims": [
+    "SRAM22 leaf DRC PASS or foundry waiver",
+    "SRAM22 physical LVS qualified",
+    "independently reproduced Liberty characterization",
+    "signoff-grade power or energy per access",
+    "physical bitcell interleaving or MBU resilience",
+    "matched clean-final-route U0/E0 sustainability result",
+    "Gate 3 PASS",
+    "Gate 4 authorization"
+  ],
+  "verification_shortcuts_used": {
+    "source_artifact_edits": false,
+    "macro_internal_edits": false,
+    "geometry_deletion": false,
+    "drc_marker_suppression": false,
+    "foundry_waiver_invented": false,
+    "lvs_forced_nets_or_topology": false,
+    "mask_mapping_invented": false,
+    "openram_sky130_repair": false
+  },
+  "final_recommendation": "KEEP_GATE3_FAILED",
+  "gate3_status": "FAIL",
+  "gate4_status": "NOT_STARTED_UNAUTHORIZED",
+  "attempt07_started": false
+}

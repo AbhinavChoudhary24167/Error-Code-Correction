@@ -1,0 +1,442 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8_tt_025C_1v80.lib
+read_liberty /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1_tt_025C_1v80.lib
+read_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/4_cts.odb
+read_sdc /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/4_cts.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+source /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/openroad/pre_global_route_drv_repair.tcl
+ATTEMPT09_REPAIR instance=_513_ original=sky130_fd_sc_hd__xnor2_1 replacement=sky130_fd_sc_hd__xnor2_2 reason=standard_cell_net_max_transition
+ATTEMPT09_REPAIR instance=place757 original=sky130_fd_sc_hd__buf_4 replacement=sky130_fd_sc_hd__buf_8 reason=SRAM_input_external_drive
+ATTEMPT09_REPAIR instance=place755 original=sky130_fd_sc_hd__buf_4 replacement=sky130_fd_sc_hd__buf_8 reason=SRAM_input_external_drive
+ATTEMPT09_INTERFACE_PAIR target=u_protected_memory.u_ecc/rstb source=net633 driver=wire634/X driver_master=sky130_fd_sc_hd__buf_16 pair_master=sky130_fd_sc_hd__inv_16 reason=minimum_strength_phase_preserving_SRAM_rstb_interface_repair phase_inversions=2 constraints_relaxed=0
+ATTEMPT09_INTERFACE_PAIR target=u_protected_memory.u_data/clk source=clknet_1_1__leaf_clk driver=clkbuf_1_1__f_clk/X driver_master=sky130_fd_sc_hd__clkbuf_16 pair_master=sky130_fd_sc_hd__clkinv_16 reason=minimum_strength_phase_preserving_SRAM_clock_interface_repair phase_inversions=2 constraints_relaxed=0
+ATTEMPT09_INTERFACE_PAIR target=u_protected_memory.u_ecc/clk source=clknet_1_0__leaf_clk driver=clkbuf_1_0__f_clk/X driver_master=sky130_fd_sc_hd__clkbuf_16 pair_master=sky130_fd_sc_hd__clkinv_16 reason=common_clock_branch_rebalance phase_inversions=2 constraints_relaxed=0
+[INFO DPL-0006] Core area: 615627.94 um^2
+[INFO DPL-0007] Movable instances area: 9580.44 um^2
+[INFO DPL-0008] Fixed instances area within core: 266259.75 um^2
+[INFO DPL-0009] Utilization: 44.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (3 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 5829 cells
+[INFO DPL-0393]   height 83 row(s): 1 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.07s
+Placement Analysis
+---------------------------------
+total displacement         22.9 u
+average displacement        0.0 u
+max displacement            5.7 u
+original HPWL           77089.5 u
+legalized HPWL          77105.2 u
+delta HPWL                    0 %
+
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 0.25s
+[INFO RSZ-0046] Found 5 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |   0.002 |   0.000 | u_protected_memory.u_data/din[60]
+    final |       0 |       5 |            0 |    +0.0% |   0.021 |   0.000 | u_protected_memory.u_data/din[52]
+--------------------------------------------------------------------------------------
+[INFO RSZ-0032] Inserted 5 hold buffers.
+[INFO RSZ-0506] Runtime: 0.04s
+[INFO DPL-0006] Core area: 615627.94 um^2
+[INFO DPL-0007] Movable instances area: 9630.49 um^2
+[INFO DPL-0008] Fixed instances area within core: 266259.75 um^2
+[INFO DPL-0009] Utilization: 44.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (3 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 5834 cells
+[INFO DPL-0393]   height 83 row(s): 1 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.05s
+Placement Analysis
+---------------------------------
+total displacement         12.8 u
+average displacement        0.0 u
+max displacement            5.4 u
+original HPWL           77116.1 u
+legalized HPWL          77122.7 u
+delta HPWL                    0 %
+
+ATTEMPT09_REPAIR_SUMMARY design=e0_sram22_top replacements=3 inserted_cells=6 common_post_interface_hold_repair=1 hold_margin_ns=0.02 constraints_relaxed=0 macro_internals_changed=0 data_macro_rstb_repair_applied=0 data_macro_rstb_feasibility=NO_SINGLE_OUTPUT_SKY130HD_CANDIDATE_CLOSED
+pin_access
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     443
+Number of vias:       130
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+
+Design:                   e0_sram22_top
+Die area:                 ( 0 0 ) ( 1000000 650000 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     5836
+Number of terminals:      144
+Number of snets:          2
+Number of nets:           1243
+
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[8]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[9]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[10]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[11]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[16]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[17]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[18]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[19]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[20]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[21]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[22]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[23]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[24]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[25]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[26]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[27]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[28]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[29]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[30]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[31]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[32]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[33]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[34]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[35]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[36]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[37]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[38]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[39]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[40]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[41]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[42]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[43]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[44]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[45]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[46]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[47]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[48]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[49]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[50]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[51]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[52]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[53]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[54]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[55]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[56]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[57]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[58]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[59]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[60]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[61]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[62]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/dout[63]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[7]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[8]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[9]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[10]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[11]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[12]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[13]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[14]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[15]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[16]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[17]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[18]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[19]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[20]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[21]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[22]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[23]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[24]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[25]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[26]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[27]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[28]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[29]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[30]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[31]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[32]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[33]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[34]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[35]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[36]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[37]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[38]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[39]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[40]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[41]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[42]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[43]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[44]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[45]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[46]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[47]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[48]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[49]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[50]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[51]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[52]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[53]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[54]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[55]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[56]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[57]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[58]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[59]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[60]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[61]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[62]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/din[63]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[2]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[3]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[4]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[5]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[6]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_data/wmask[7]
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[0] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[1] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[2] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[3] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[4] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[5] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[6] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/dout[7] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_ecc/din[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_ecc/din[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_ecc/din[2]
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/din[3] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/din[4] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/din[5] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/din[6] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/din[7] has no pins on routing grid
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_ecc/wmask[0]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_ecc/wmask[1]
+[WARNING DRT-0419] No routing tracks pass through the center of Term u_protected_memory.u_ecc/wmask[2]
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/wmask[3] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/wmask[4] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/wmask[5] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/wmask[6] has no pins on routing grid
+[WARNING DRT-0418] Term u_protected_memory.u_ecc/wmask[7] has no pins on routing grid
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 102.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 47744.
+[INFO DRT-0033] mcon shape region query size = 25322.
+[INFO DRT-0033] met1 shape region query size = 17824.
+[INFO DRT-0033] via shape region query size = 24330.
+[INFO DRT-0033] met2 shape region query size = 22048.
+[INFO DRT-0033] via2 shape region query size = 45597.
+[INFO DRT-0033] met3 shape region query size = 29027.
+[INFO DRT-0033] via3 shape region query size = 45281.
+[INFO DRT-0033] met4 shape region query size = 11428.
+[INFO DRT-0033] via4 shape region query size = 1676.
+[INFO DRT-0033] met5 shape region query size = 1768.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 933 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 100 unique inst patterns.
+[INFO DRT-0084]   Complete 898 groups.
+#scanned instances     = 5836
+#unique  instances     = 102
+#stdCellGenAp          = 3104
+#stdCellValidPlanarAp  = 56
+#stdCellValidViaAp     = 2205
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 2882
+#instTermValidViaApCnt = 0
+#macroGenAp            = 553
+#macroValidPlanarAp    = 452
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:00, elapsed time = 00:00:16, memory = 190.56 (MB), peak = 190.17 (MB)
+Took 17 seconds: pin_access
+set_global_routing_random -seed 11
+global_route -congestion_report_file /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/reports/sky130hd/attempt09_e0/seed11/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: met1
+[INFO GRT-0021] Max routing layer: met5
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0088] Layer li1     Track-Pitch = 0.4600  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met1    Track-Pitch = 0.3400  line-2-Via Pitch: 0.3400
+[INFO GRT-0088] Layer met2    Track-Pitch = 0.4600  line-2-Via Pitch: 0.3500
+[INFO GRT-0088] Layer met3    Track-Pitch = 0.6800  line-2-Via Pitch: 0.6150
+[INFO GRT-0088] Layer met4    Track-Pitch = 0.9200  line-2-Via Pitch: 1.0400
+[INFO GRT-0088] Layer met5    Track-Pitch = 3.4000  line-2-Via Pitch: 3.1100
+[INFO GRT-0003] Macros: 2
+[INFO GRT-0004] Blockages: 1040
+[INFO GRT-0019] Found 8 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 33
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+li1        Vertical            0             0          0.00%
+met1       Horizontal     123414         95995          22.22%
+met2       Vertical       102532         78846          23.10%
+met3       Horizontal     124851         97475          21.93%
+met4       Vertical        86395         62266          27.93%
+met5       Horizontal      19645         13729          30.11%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove congestion.
+[INFO GRT-0102] Start extra iteration 1/30
+[INFO GRT-0102] Start extra iteration 2/30
+[INFO GRT-0197] Via related to pin nodes: 5756
+[INFO GRT-0198] Via related Steiner nodes: 158
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 7714
+[INFO GRT-0112] Final usage 3D: 34682
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Congestion
+---------------------------------------------------------------------------------------
+li1                  0             0            0.00%             0 /  0 /  0
+met1             95995          3237            3.37%             0 /  0 /  0
+met2             78846          6134            7.78%             0 /  0 /  0
+met3             97475           855            0.88%             0 /  0 /  0
+met4             62266          1298            2.08%             0 /  0 /  0
+met5             13729            16            0.12%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           348311         11540            3.31%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 96655 um
+[INFO GRT-0014] Routed nets: 1243
+[INFO GRT-0303] Global routing runtime = 00:00:00
+estimate_parasitics -global_routing
+global_route -start_incremental
+global_route -end_incremental -congestion_report_file /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/reports/sky130hd/attempt09_e0/seed11/congestion_post_recover_power.rpt
+Repair antennas...
+[INFO GRT-0012] Found 25 antenna violations.
+[INFO GRT-0302] Inserted 18 jumpers for 18 nets.
+[INFO GRT-0012] Found 9 antenna violations.
+[INFO DPL-0006] Core area: 615627.94 um^2
+[INFO DPL-0007] Movable instances area: 9663.02 um^2
+[INFO DPL-0008] Fixed instances area within core: 266287.28 um^2
+[INFO DPL-0009] Utilization: 44.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (3 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 5858 cells
+[INFO DPL-0393]   height 83 row(s): 1 cells
+[INFO DPL-0393]   height 108 row(s): 1 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 0.
+[INFO DPL-0500] Runtime: 0.05s
+[INFO GRT-0015] Inserted 24 diodes.
+[INFO GRT-0012] Found 1 antenna violations.
+[INFO GRT-0302] Inserted 1 jumpers for 1 nets.
+[INFO GRT-0012] Found 0 antenna violations.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+estimate_parasitics -global_routing
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 275950 um^2 45% utilization.
+[INFO FLW-0007] clock core_clk period 10.000000
+[INFO FLW-0008] Clock core_clk period 9.140
+[INFO FLW-0009] Clock core_clk slack 0.379
+write_sdc -no_timestamp /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/updated_clks.sdc
+[INFO FLW-0011] Path endpoint path count 185
+write_db /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/5_1_grt.odb
+write_sdc -no_timestamp /work/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/raw/openroad/work/results/sky130hd/attempt09_e0/seed11/5_1_grt.sdc
+Elapsed time: 0:25.51[h:]min:sec. CPU time: user 67.05 sys 0.93 (266%). Peak memory: 345020KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_1_grt                   .odb           25            336 482b939d5354ac86e91f
+5_1_grt                   .sdc                             3cad56baab78945476a2

@@ -1,0 +1,45 @@
+{
+  "candidate_set_dependence_counterexample": {
+    "candidate_added": {
+      "C": {
+        "cost": 100,
+        "reliability": 9
+      }
+    },
+    "candidates_initial": {
+      "A": {
+        "cost": 2,
+        "reliability": 8
+      },
+      "B": {
+        "cost": 3,
+        "reliability": 10
+      }
+    },
+    "initial_scores": {
+      "A": 0.6,
+      "B": 0.4
+    },
+    "rank_reversal": "A_over_B becomes B_over_A without changing A or B",
+    "scores_after_addition": {
+      "A": 0.6,
+      "B": 0.9938775510204082,
+      "C": 0.2
+    },
+    "weighted_minmax_preferences": {
+      "cost": 0.6,
+      "reliability": 0.4
+    }
+  },
+  "classification": "LEGACY_OR_COMPARISON_METRIC",
+  "epsilon_floors": false,
+  "legacy_metrics": [
+    "ESII",
+    "NESII",
+    "legacy GREEN Score",
+    "GSE",
+    "GCI"
+  ],
+  "schema_version": "3.0.0",
+  "v3_response": "fixed physical quantities, external constraints, fixed baselines, and exact Pareto analysis"
+}

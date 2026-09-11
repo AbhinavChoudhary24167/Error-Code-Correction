@@ -1,0 +1,33 @@
+{
+  "final_validation_observations": "validation/FINAL_VALIDATION_OBSERVATIONS.json",
+  "generated_on": "2026-09-09",
+  "policy": "PRESERVE_AND_RECORD; NO RESTORE_OR_DELETE DURING ACTIVE_CAMPAIGN",
+  "records": [
+    {
+      "disposition": "preserved in Git history and superseded additively by executed-evidence finalization",
+      "mutation": "deterministic builder regenerated placeholder queue/reports and exposed a stale hash manifest",
+      "source": "focused campaign pytest before finalization"
+    },
+    {
+      "disposition": "recorded; raw working files were not rewritten or cleaned",
+      "mutation": "Git emitted LF-to-CRLF future-checkout warnings for raw evidence files",
+      "source": "git add on Windows"
+    }
+  ],
+  "schema_version": 1,
+  "validation_run_mutations": {
+    "cleanup_or_restore_performed": false,
+    "disposition": "PRESERVED_IN_WORKING_TREE_NOT_STAGED_NOT_RESTORED_NOT_DELETED",
+    "frozen_green_v3_2_matched_tree_modified": false,
+    "tracked_mutation_groups": [
+      "PracticalSRAMSimulator.exe",
+      "campaigns/iscas_sustainability_extension/green_matrix_v3_2/ (19 files)",
+      "campaigns/iscas_sustainability_extension/green_matrix_v3_imec_aligned/ (3 files)",
+      "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/ (6 files)",
+      "campaigns/iscas_sustainability_extension/green_refoundation_node_aware_carbon/ (7 files)"
+    ],
+    "tracked_non_campaign_files_modified": 36,
+    "untracked_runtime_fixture_files": 30,
+    "untracked_runtime_fixture_root": "tests/fixtures/runtime_ml_feature_pack/"
+  }
+}

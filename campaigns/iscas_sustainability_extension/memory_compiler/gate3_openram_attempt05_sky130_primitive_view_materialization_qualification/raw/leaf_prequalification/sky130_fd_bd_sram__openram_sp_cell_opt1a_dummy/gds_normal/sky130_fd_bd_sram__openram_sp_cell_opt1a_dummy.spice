@@ -1,0 +1,13 @@
+* NGSPICE file created from sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy.ext - technology: sky130A
+
+.subckt sky130_fd_bd_sram__openram_sp_cell_opt1a_dummy BL BR VGND VPWR WL VNB VPB
+X0 a_174_54# WL a_174_54# VPB sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0p ps=0u w=0.07u l=0.095u
+X1 a_174_212# a_16_182# VPWR VPB sky130_fd_pr__special_pfet_pass ad=0.035p pd=0.78u as=0.064p ps=1.14u w=0.14u l=0.15u
+X2 VPWR a_16_104# a_174_54# VPB sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.14u l=0.15u
+X3 a_38_212# a_16_182# VGND VNB sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0.0808p ps=1.28u w=0.21u l=0.15u
+X4 a_174_212# a_0_262# a_174_212# VPB sky130_fd_pr__special_pfet_pass ad=0p pd=0u as=0p ps=0u w=0.07u l=0.095u
+X5 a_38_54# WL BR VNB sky130_fd_pr__special_nfet_pass ad=0.04375p pd=0.92u as=0.0168p ps=0.52u w=0.14u l=0.15u
+X6 VGND a_16_104# a_38_54# VNB sky130_fd_pr__special_nfet_latch ad=0p pd=0u as=0p ps=0u w=0.21u l=0.15u
+X7 BL a_0_262# a_38_212# VNB sky130_fd_pr__special_nfet_pass ad=0.0168p pd=0.52u as=0.04375p ps=0.92u w=0.14u l=0.15u
+.ends
+

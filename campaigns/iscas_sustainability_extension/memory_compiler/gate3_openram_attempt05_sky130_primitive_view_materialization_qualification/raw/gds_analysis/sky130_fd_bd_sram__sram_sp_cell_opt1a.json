@@ -1,0 +1,234 @@
+{
+  "all_layers": {
+    "115/43": 2,
+    "122/16": 1,
+    "22/21": 7,
+    "22/22": 2,
+    "33/43": 7,
+    "64/16": 1,
+    "64/18": 1,
+    "64/20": 1,
+    "64/5": 1,
+    "64/59": 1,
+    "65/20": 2,
+    "66/16": 2,
+    "66/20": 6,
+    "66/44": 10,
+    "66/5": 1,
+    "66/83": 8,
+    "67/20": 6,
+    "67/44": 5,
+    "68/16": 4,
+    "68/20": 4,
+    "68/44": 2,
+    "68/5": 4,
+    "69/20": 3,
+    "78/44": 1,
+    "81/2": 1,
+    "92/44": 1,
+    "93/44": 1,
+    "94/20": 1,
+    "95/20": 1
+  },
+  "byte_size": 8490,
+  "path": "sky130_fd_bd_sram/cells/sram_sp_cell_opt1a/sky130_fd_bd_sram__sram_sp_cell_opt1a.gds",
+  "record_counts": {
+    "0x00": 1,
+    "0x01": 1,
+    "0x02": 1,
+    "0x03": 1,
+    "0x04": 1,
+    "0x10": 105,
+    "0x19": 15,
+    "0x1a": 33,
+    "0x1b": 8,
+    "0x1c": 4,
+    "BGNSTR": 14,
+    "BOUNDARY": 72,
+    "DATATYPE": 72,
+    "ENDEL": 105,
+    "ENDSTR": 14,
+    "LAYER": 87,
+    "SNAME": 18,
+    "SREF": 18,
+    "STRNAME": 14,
+    "TEXT": 15,
+    "TEXTTYPE": 15
+  },
+  "root_structures": [
+    "sky130_fd_bd_sram__sram_sp_cell_opt1a"
+  ],
+  "sha256": "a3bad41c3053a6805477259c120635ead83877c6cb280c7b761fcf297a934f46",
+  "structure_count": 14,
+  "structures": {
+    "sky130_fd_bd_sram__sram_sp_cell": {
+      "elements": {
+        "BOUNDARY": 39,
+        "SREF": 1,
+        "TEXT": 8
+      },
+      "layers": {
+        "115/43": 2,
+        "22/21": 7,
+        "64/20": 1,
+        "65/20": 2,
+        "66/20": 4,
+        "66/44": 10,
+        "66/83": 8,
+        "67/20": 6,
+        "67/44": 1,
+        "78/44": 1,
+        "81/2": 1,
+        "92/44": 1,
+        "93/44": 1,
+        "94/20": 1,
+        "95/20": 1
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serifs": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_addpoly": {
+      "elements": {
+        "BOUNDARY": 2
+      },
+      "layers": {
+        "66/20": 2
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing": {
+      "elements": {
+        "BOUNDARY": 2
+      },
+      "layers": {
+        "33/43": 2
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos": {
+      "elements": {
+        "BOUNDARY": 1
+      },
+      "layers": {
+        "22/22": 1
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos": {
+      "elements": {
+        "BOUNDARY": 1
+      },
+      "layers": {
+        "22/22": 1
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_fom_serifs": {
+      "elements": {
+        "SREF": 4
+      },
+      "layers": {},
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serif_nmos": 2,
+        "sky130_fd_bd_sram__sram_sp_cell_fom_serif_pmos": 2
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_met2": {
+      "elements": {
+        "BOUNDARY": 3
+      },
+      "layers": {
+        "69/20": 3
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_metopt1": {
+      "elements": {
+        "BOUNDARY": 8
+      },
+      "layers": {
+        "67/44": 4,
+        "68/20": 4
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_opt1_ce": {
+      "elements": {
+        "BOUNDARY": 1,
+        "SREF": 3
+      },
+      "layers": {
+        "64/18": 1
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_cell": 1,
+        "sky130_fd_bd_sram__sram_sp_cell_addpoly": 1,
+        "sky130_fd_bd_sram__sram_sp_cell_metopt1": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_opt1a": {
+      "elements": {
+        "BOUNDARY": 8,
+        "SREF": 5,
+        "TEXT": 7
+      },
+      "layers": {
+        "122/16": 1,
+        "64/16": 1,
+        "64/5": 1,
+        "64/59": 1,
+        "66/16": 2,
+        "66/5": 1,
+        "68/16": 4,
+        "68/5": 4
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_cell_addpoly_sizing": 1,
+        "sky130_fd_bd_sram__sram_sp_cell_met2": 1,
+        "sky130_fd_bd_sram__sram_sp_cell_opt1_ce": 1,
+        "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing": 1,
+        "sky130_fd_bd_sram__sram_sp_cell_via": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_p1_serif": {
+      "elements": {
+        "BOUNDARY": 1
+      },
+      "layers": {
+        "33/43": 1
+      },
+      "references": {}
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_p1_serifs": {
+      "elements": {
+        "SREF": 4
+      },
+      "layers": {},
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_cell_p1_serif": 4
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_p1m_sizing": {
+      "elements": {
+        "BOUNDARY": 4,
+        "SREF": 1
+      },
+      "layers": {
+        "33/43": 4
+      },
+      "references": {
+        "sky130_fd_bd_sram__sram_sp_cell_p1_serifs": 1
+      }
+    },
+    "sky130_fd_bd_sram__sram_sp_cell_via": {
+      "elements": {
+        "BOUNDARY": 2
+      },
+      "layers": {
+        "68/44": 2
+      },
+      "references": {}
+    }
+  }
+}

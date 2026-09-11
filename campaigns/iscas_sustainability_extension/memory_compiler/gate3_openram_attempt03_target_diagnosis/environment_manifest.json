@@ -1,0 +1,58 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "timestamp": "2026-08-30T17:57:31.6505341+05:30",
+  "baseline_commit": "9968f9b15f949d38faf944a3546ea736cfab63df",
+  "branch": "codex/ecc-lifecycle-sustainability",
+  "host": {
+    "windows_version": "10.0.26200.0",
+    "timezone": "Asia/Calcutta",
+    "distribution": "Ubuntu 24.04.4 LTS",
+    "wsl_kernel": "6.18.33.2-microsoft-standard-WSL2"
+  },
+  "compiler": {
+    "name": "OpenRAM",
+    "version": "1.2.48",
+    "tag": "v1.2.48",
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab",
+    "source_state": "clean",
+    "source_mount_policy": "attempt02 source mounted read-only; all attempt03 outputs separately namespaced"
+  },
+  "container": {
+    "image": "vlsida/openram-ubuntu@sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "image_id": "sha256:90ecae634f99fa9055a32e32f9d6af1acc9942b974916f114330e7b5b4b29f7c",
+    "size_bytes": 4654238492,
+    "docker_client": "29.7.2",
+    "docker_server": "29.7.2"
+  },
+  "pdk": {
+    "name": "SKY130A",
+    "technology_plugin": "sky130",
+    "open_pdks_commit": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "corner": "TT",
+    "voltage_v": 1.8,
+    "temperature_c": 25,
+    "mount_policy": "attempt02 PDK mounted read-only"
+  },
+  "verification_tools": {
+    "magic": "8.3.311",
+    "netgen": "1.5.221",
+    "ngspice": "36"
+  },
+  "protected_date_integrity": "PASS_7094_UNCHANGED",
+  "attempt03_control": {
+    "configuration_sha256": "dc22607f0f35e401fade14046b8089cfb3f04f9db1db84bb6e24c09f9fb82fd6",
+    "source_modified": false,
+    "pdk_modified": false,
+    "verification_decks_modified": false,
+    "result": "CONTROL_FAIL"
+  },
+  "closeout_environment": {
+    "timestamp": "2026-08-31T00:22:01.4773765+05:30",
+    "wsl_status": "BLOCKED",
+    "error": "WSL service access denied in normal context; elevated context could not see the user distribution",
+    "impact": "final external attempt02 tree rehash and attempt03 external artifact archival hashes unavailable",
+    "repository_closeout_available": true
+  },
+  "gate3_finalized_status": "FAIL",
+  "gate4_started": false
+}

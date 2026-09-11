@@ -1,0 +1,336 @@
+
+==========================================================================
+finish report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+finish report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+finish report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 0.28
+
+==========================================================================
+finish report_clock_min_period
+--------------------------------------------------------------------------
+core_clk period_min = 4.72 fmax = 211.94
+
+==========================================================================
+finish report_clock_skew
+--------------------------------------------------------------------------
+Clock core_clk
+No launch/capture paths found.
+
+
+==========================================================================
+finish report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rstb (input port clocked by core_clk)
+Endpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.50    0.50 v input external delay
+     1    0.02    0.00    0.00    0.50 v rstb (in)
+                                         rstb (net)
+                  0.00    0.00    0.50 v input84/A (sky130_fd_sc_hd__buf_12)
+     1    0.02    0.03    0.11    0.61 v input84/X (sky130_fd_sc_hd__buf_12)
+                                         net83 (net)
+                  0.03    0.00    0.61 v wire150/A (sky130_fd_sc_hd__buf_16)
+     1    0.08    0.06    0.15    0.76 v wire150/X (sky130_fd_sc_hd__buf_16)
+                                         net149 (net)
+                  0.08    0.00    0.76 v u_data/rstb (sram22_256x64m4w8)
+                                  0.76   data arrival time
+
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.38    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.04    0.01    0.01 ^ u_data/clk (sram22_256x64m4w8)
+                          0.10    0.11   clock uncertainty
+                          0.00    0.11   clock reconvergence pessimism
+                          4.87    4.98   library hold time
+                                  4.98   data required time
+-----------------------------------------------------------------------------
+                                  4.98   data required time
+                                 -0.76   data arrival time
+-----------------------------------------------------------------------------
+                                 -4.23   slack (VIOLATED)
+
+
+
+==========================================================================
+finish report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: payload_out[54] (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.38    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.04    0.01    0.01 ^ u_data/clk (sram22_256x64m4w8)
+     1    0.01    0.16    3.41    3.42 ^ u_data/dout[54] (sram22_256x64m4w8)
+                                         net134 (net)
+                  0.12    0.00    3.42 ^ output135/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.03    0.32    0.69    4.11 ^ output135/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         payload_out[54] (net)
+                  0.32    0.00    4.12 ^ payload_out[54] (out)
+                                  4.12   data arrival time
+
+                          5.00    5.00   clock core_clk (rise edge)
+                          0.00    5.00   clock network delay (propagated)
+                         -0.10    4.90   clock uncertainty
+                          0.00    4.90   clock reconvergence pessimism
+                         -0.50    4.40   output external delay
+                                  4.40   data required time
+-----------------------------------------------------------------------------
+                                  4.40   data required time
+                                 -4.12   data arrival time
+-----------------------------------------------------------------------------
+                                  0.28   slack (MET)
+
+
+
+==========================================================================
+finish report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: u_data (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: payload_out[54] (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clk (rise edge)
+                          0.00    0.00   clock source latency
+     1    0.38    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.04    0.01    0.01 ^ u_data/clk (sram22_256x64m4w8)
+     1    0.01    0.16    3.41    3.42 ^ u_data/dout[54] (sram22_256x64m4w8)
+                                         net134 (net)
+                  0.12    0.00    3.42 ^ output135/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.03    0.32    0.69    4.11 ^ output135/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         payload_out[54] (net)
+                  0.32    0.00    4.12 ^ payload_out[54] (out)
+                                  4.12   data arrival time
+
+                          5.00    5.00   clock core_clk (rise edge)
+                          0.00    5.00   clock network delay (propagated)
+                         -0.10    4.90   clock uncertainty
+                          0.00    4.90   clock reconvergence pessimism
+                         -0.50    4.40   output external delay
+                                  4.40   data required time
+-----------------------------------------------------------------------------
+                                  4.40   data required time
+                                 -4.12   data arrival time
+-----------------------------------------------------------------------------
+                                  0.28   slack (MET)
+
+
+
+==========================================================================
+finish report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+u_data/rstb                             0.35    0.62   -0.26 (VIOLATED)
+u_data/dout[61]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[54]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[52]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[32]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[17]                         0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[3]                          0.04    0.16   -0.12 (VIOLATED)
+u_data/dout[4]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[10]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[45]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[41]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[19]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[59]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[30]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[28]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[36]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[50]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[60]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[21]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[35]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[29]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[62]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[16]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[14]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[12]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[15]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[38]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[9]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[0]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[57]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[58]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[11]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[48]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[5]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[18]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[31]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[1]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[26]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[34]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[42]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[46]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[24]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[23]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[27]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[55]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[8]                          0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[20]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[63]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[51]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[39]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[13]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[44]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[56]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[43]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[53]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[37]                         0.04    0.15   -0.11 (VIOLATED)
+u_data/dout[6]                          0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[2]                          0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[49]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[47]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[33]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[22]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[40]                         0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[7]                          0.04    0.14   -0.10 (VIOLATED)
+u_data/dout[25]                         0.04    0.14   -0.10 (VIOLATED)
+
+
+==========================================================================
+finish max_slew_check_slack
+--------------------------------------------------------------------------
+-0.26473745703697205
+
+==========================================================================
+finish max_slew_check_limit
+--------------------------------------------------------------------------
+0.35100001096725464
+
+==========================================================================
+finish max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.7542
+
+==========================================================================
+finish max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+finish max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.12373597919940948
+
+==========================================================================
+finish max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.15656499564647675
+
+==========================================================================
+finish max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.7903
+
+==========================================================================
+finish max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 65
+
+==========================================================================
+finish max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+finish max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+finish setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+finish hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+finish report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+finish report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+No paths found.
+
+==========================================================================
+finish critical path target clock latency max path
+--------------------------------------------------------------------------
+0.0021
+
+==========================================================================
+finish critical path target clock latency min path
+--------------------------------------------------------------------------
+0.0101
+
+==========================================================================
+finish critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+finish critical path delay
+--------------------------------------------------------------------------
+4.1182
+
+==========================================================================
+finish critical path slack
+--------------------------------------------------------------------------
+0.2818
+
+==========================================================================
+finish slack div critical path delay
+--------------------------------------------------------------------------
+6.842795
+
+==========================================================================
+finish report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          5.52e-05   5.97e-05   5.61e-10   1.15e-04   7.2%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  1.48e-03   0.00e+00   6.42e-07   1.48e-03  92.8%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.53e-03   5.97e-05   6.43e-07   1.59e-03 100.0%
+                          96.2%       3.7%       0.0%

@@ -1,0 +1,47 @@
+{
+  "classification": "INSUFFICIENT_EVIDENCE",
+  "table_rows": 16,
+  "threshold_factor": 1.3333333333333333,
+  "zero_wire": [
+    {
+      "macro": "sram22_256x64m4w8",
+      "configuration": "buf_single",
+      "worst_macro_slew_ns": 0.6225870437841732
+    },
+    {
+      "macro": "sram22_256x64m4w8",
+      "configuration": "clkbuf_single",
+      "worst_macro_slew_ns": 0.6041751324329164
+    },
+    {
+      "macro": "sram22_256x64m4w8",
+      "configuration": "inv_pair",
+      "worst_macro_slew_ns": 0.5407094414086417
+    },
+    {
+      "macro": "sram22_256x64m4w8",
+      "configuration": "clkinv_pair",
+      "worst_macro_slew_ns": 0.39110433130449174
+    },
+    {
+      "macro": "sram22_256x8m8w1",
+      "configuration": "buf_single",
+      "worst_macro_slew_ns": 0.3600977794024902
+    },
+    {
+      "macro": "sram22_256x8m8w1",
+      "configuration": "clkbuf_single",
+      "worst_macro_slew_ns": 0.3508275289884062
+    },
+    {
+      "macro": "sram22_256x8m8w1",
+      "configuration": "inv_pair",
+      "worst_macro_slew_ns": 0.3105721386966386
+    },
+    {
+      "macro": "sram22_256x8m8w1",
+      "configuration": "clkinv_pair",
+      "worst_macro_slew_ns": 0.22543217308138577
+    }
+  ]
+}

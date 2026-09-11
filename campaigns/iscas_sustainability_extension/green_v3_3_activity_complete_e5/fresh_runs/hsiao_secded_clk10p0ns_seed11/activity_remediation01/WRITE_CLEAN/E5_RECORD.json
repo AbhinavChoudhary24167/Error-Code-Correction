@@ -1,0 +1,133 @@
+{
+  "activity": {
+    "activity_generation_boundary": "POST_ROUTE_GATE_ACTIVITY_ZERO_DELAY_ROUTED_NETLIST",
+    "compressed_preserved_path": "campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/hsiao_secded_clk10p0ns_seed11/attempt01/operations/WRITE_CLEAN/WRITE_CLEAN.vcd.gz",
+    "coverage": {
+      "aggregate_coverage_fraction": 0.3288948069241012,
+      "annotated_pin_count": 988,
+      "by_cell_class": {
+        "clock": {
+          "annotated_pin_count": 10,
+          "coverage_fraction": 0.02358490566037736,
+          "unannotated_pin_count": 414
+        },
+        "combinational": {
+          "annotated_pin_count": 685,
+          "coverage_fraction": 0.3116469517743403,
+          "unannotated_pin_count": 1513
+        },
+        "macro_interface": {
+          "annotated_pin_count": 112,
+          "coverage_fraction": 0.6086956521739131,
+          "unannotated_pin_count": 72
+        },
+        "sequential": {
+          "annotated_pin_count": 14,
+          "coverage_fraction": 0.7777777777777778,
+          "unannotated_pin_count": 4
+        },
+        "top_port_or_unknown": {
+          "annotated_pin_count": 167,
+          "coverage_fraction": 0.9277777777777778,
+          "unannotated_pin_count": 13
+        }
+      },
+      "functional_logic_annotated_pin_count": 709,
+      "functional_logic_coverage_fraction": 0.26856060606060606,
+      "functional_logic_unannotated_pin_count": 1931,
+      "macro_activity_boundary": "INTERFACE_PINS_ANNOTATED_INTERNAL_STATE_ACTIVITY_ABSENT",
+      "macro_internal_activity_coverage": null,
+      "physical_only_pins_excluded_from_functional_logic_coverage": true,
+      "unannotated_pin_count": 2016
+    },
+    "dut_hierarchy": "tb/dut",
+    "explicit_routed_net_annotation": {
+      "emitted_net_count": 342,
+      "sha256": "45c3e2e016ed098646fa4f4aa1635406cc58d807ff76a87599016e84c1f2f1d2",
+      "skipped_net_names": []
+    },
+    "external_raw_path": "/var/lib/green-ecc-v33-activity-complete-e5/fresh_runs/hsiao_secded_clk10p0ns_seed11/attempt01/activity/WRITE_CLEAN.vcd",
+    "format": "VCD",
+    "native_read_vcd_annotation_outcome": "TOP_PORT_ONLY; supplemented by exact scalar routed-net annotations",
+    "sha256": "fef0726d24a33cdb3cb1b7310330a6773d6acf357c9f699dcd0d45cf6c091814",
+    "simulation_tool": "Icarus Verilog"
+  },
+  "architecture_id": "HSIAO_SECDED",
+  "clock_period_ns": 10.0,
+  "codeword_vector_sha256": "df65a858d258730a0d1722ec8d584bff5d8394da1a41814c8c5733a9c8db7917",
+  "ecc_logic_e5_qualified": false,
+  "evidence_level": "E4_DIAGNOSTIC",
+  "exact_operation_count": 256,
+  "fault_injection_manifest": {
+    "injection_count": 0,
+    "injections": [],
+    "path": "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/fresh_runs/hsiao_secded_clk10p0ns_seed11/attempt01/workloads/codewords_write_clean.hex",
+    "sha256": "df65a858d258730a0d1722ec8d584bff5d8394da1a41814c8c5733a9c8db7917"
+  },
+  "measured_cycles": 256,
+  "measurement_begin_ns": 176.0,
+  "measurement_duration_seconds": 2.561e-06,
+  "measurement_end_ns": 2737.0,
+  "operation_class": "WRITE_CLEAN",
+  "parasitics": {
+    "format": "SPEF",
+    "loaded_by_openroad": true,
+    "sha256": "810c4cdf60314cf3e06f6ca9387077f79e93cb0ffcf8023a209c89b81fd0fbb2"
+  },
+  "payload_vector_sha256": "bb3cd27a43f9009a2c89d768db17b51c121afaf39ed8fe29f2b6f46098513480",
+  "physical_seed": 11,
+  "power": {
+    "ecc_logic_energy_j_per_operation": 1.859038513784303e-09,
+    "ecc_logic_excluding_macro_w": {
+      "internal_w": 0.0811171808745731,
+      "leakage_w": 3.33596972269991e-09,
+      "switching_w": 0.1047140881419,
+      "total_w": 0.18583126104208572
+    },
+    "macro_reported_partial_w": {
+      "internal_w": 0.0008983185980469,
+      "leakage_w": 7.306775842153e-07,
+      "switching_w": 0.0,
+      "total_w": 0.0008990492788143
+    },
+    "report_sha256": "4a673155e385e29850e6487cd890a3c0607487e9f9b268e4214fb2ee5074b1a1",
+    "whole_design_including_partial_macro_w": {
+      "internal_w": 0.08201549947262,
+      "leakage_w": 7.34013553938e-07,
+      "switching_w": 0.1047140881419,
+      "total_w": 0.1867303103209
+    },
+    "whole_memory_energy_blocker": "SRAM_MACRO_INTERNAL_ENERGY_INCOMPLETE",
+    "whole_memory_energy_j_per_operation": null
+  },
+  "pvt": {
+    "corner": "tt_025C_1v80",
+    "platform": "sky130hd",
+    "temperature_c": 25,
+    "voltage_v": 1.8
+  },
+  "qualification": "E5_BLOCKED_ACTIVITY_COVERAGE_OR_TIMING",
+  "qualification_thresholds": {
+    "functional_logic_annotation_coverage_minimum": 0.95
+  },
+  "record_id": "hsiao_secded_clk10p0ns_seed11_write_clean_explicit_routed_activity",
+  "routed_netlist_sha256": "35c57a0281cb03bd33cee68e36e77c948382d87be615c57a99097db0a2d0e70a",
+  "schema_version": 1,
+  "timing_feasible": true,
+  "warm_up_cycles": 16,
+  "whole_memory_e5_qualified": false,
+  "workload": {
+    "address_sequence": "address[i]=(19+73*i) mod 256",
+    "error_injection_sequence": "none",
+    "exact_operation_count": 256,
+    "injected_logical_bits_per_operation": 0,
+    "measured_cycles": 256,
+    "payload_generator_exact_definition": "iterative unsigned 64-bit xorshift: x^=x>>12; x^=x<<25; x^=x>>27; output=x*2685821657736338717 modulo 2^64",
+    "payload_pattern_generator": "xorshift64star(seed=3301,index=i)",
+    "rng_seed": 3301,
+    "schema_version": 1,
+    "semantic_operation_class": "WRITE_CLEAN",
+    "warm_up_cycles": 16
+  },
+  "workload_sha256": "513c1776aaf7e638dd1ec00f1b737281aa09aeada7f0d6f65020194c8c5e9e68"
+}

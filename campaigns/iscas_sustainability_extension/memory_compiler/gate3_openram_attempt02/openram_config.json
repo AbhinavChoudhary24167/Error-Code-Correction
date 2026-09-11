@@ -1,0 +1,73 @@
+{
+  "attempt_id": "gate3_openram_attempt02",
+  "classification": "SCIENTIFIC_TARGET",
+  "compiler": {
+    "name": "OpenRAM",
+    "version": "1.2.48",
+    "tag": "v1.2.48",
+    "commit": "b6a6f12642df6b84facc24a77f9a6f67a0d62dab"
+  },
+  "macro": {
+    "name": "sky130_sram_1rw_72x256_gate3a02",
+    "word_size_bits": 72,
+    "num_words": 256,
+    "useful_payload_bits_per_word": 64,
+    "check_bits_per_word": 8,
+    "useful_capacity_bits": 16384,
+    "stored_capacity_bits": 18432,
+    "write_size_bits": 72,
+    "num_rw_ports": 1,
+    "num_r_ports": 0,
+    "num_w_ports": 0,
+    "num_banks": 1,
+    "words_per_row": 2,
+    "spare_rows": 1,
+    "spare_columns": 1,
+    "spare_row_rationale": "With two words per row, OpenRAM forms 128 logical rows. One physical spare row plus the SKY130 replica/dummy row gives 130 physical rows, satisfying the two-row array quantum without adding an addressable word. This matches OpenRAM's shipped SKY130 SRAM configurations.",
+    "spare_column_rationale": "OpenRAM auto-selected two words per row. 144 data columns plus one replica-bitline column is odd; the SKY130 two-column array quantum requires one physical spare column. The logical payload remains 256x72 and OpenRAM additionally exposes its documented repair interface."
+  },
+  "technology": {
+    "pdk": "SKY130A",
+    "technology_plugin": "sky130",
+    "skywater_pdk_commit": "f70d8ca46961ff92719d8870a18a076370b85f6c",
+    "sky130_fd_pr_commit": "f62031a1be9aefe902d6d54cddd6f59b57627436",
+    "sky130_fd_sc_hd_commit": "ac7fb61f06e6470b94e8afdf7c25268f62fbd7b1",
+    "volare_open_pdks_commit": "e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066",
+    "sram_cell_library_commit": "dd64256961317205343a3fd446908b42bafba388",
+    "process_corner": "TT",
+    "voltage_v": 1.8,
+    "temperature_c": 25
+  },
+  "qualification": {
+    "drc": true,
+    "lvs": true,
+    "pex": false,
+    "spice_characterization": true,
+    "analytical_delay": false,
+    "automatic_conda_bootstrap": false,
+    "retain_intermediates": true
+  },
+  "paths_in_container": {
+    "attempt_root": "/attempt",
+    "pdk_root": "/attempt/pdk",
+    "source": "/attempt/source/OpenRAM",
+    "configuration": "/attempt/config/openram_256x72_config.py",
+    "output": "/attempt/output/sky130_sram_1rw_72x256_gate3a02",
+    "temporary": "/attempt/work/openram_tmp_256x72"
+  },
+  "configuration_file": {
+    "path": "openram_256x72_config.py",
+    "sha256": "f8cfa843bfdc0427a6e35e620db180e2d222bd8239025eafd388379a33243fe0"
+  },
+  "observed_effective_topology": {
+    "logical_words": 256,
+    "logical_data_bits": 72,
+    "address_bits": 9,
+    "physical_rows_including_spare_and_replica": 130,
+    "physical_columns_including_spare_and_replica": 146,
+    "top_level_data_input_pins": 73,
+    "top_level_data_output_pins": 73,
+    "repair_control_pin": "spare_wen0",
+    "interface_note": "OpenRAM exposes din0[72] and dout0[72] for the configured spare column. The required logical organization remains 256x72, but the emitted physical interface is not a plain 72-bit SRAM interface."
+  }
+}

@@ -48,6 +48,10 @@ REGISTERED_ADDITIVE_PREFIXES = (
     "scripts/revision2/",
     "tests/python/test_revision2_",
     "green_ecc_physical_simulation/rtl/hsiao_secded_72_64/hsiao_secded_72_64_v2_algorithmic_decoder.sv",
+    # Additive GREEN v3.2 matched OpenRAM/ORFS validation. The historical v3.2
+    # tree remains protected separately by its frozen tree hash.
+    "campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/",
+    "tests/test_green_v3_2_matched_openram_orfs_validation.py",
     # Render-only manuscript QA output; never authoritative evidence.
     "tmp/pdfs/",
 )

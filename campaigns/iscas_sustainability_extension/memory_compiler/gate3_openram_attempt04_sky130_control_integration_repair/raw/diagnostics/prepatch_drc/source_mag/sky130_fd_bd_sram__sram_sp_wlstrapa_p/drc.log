@@ -1,0 +1,42 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Local interconnect spacing < 0.17um (li.3)",20
+"Diffusion width < 0.15um (diff/tap.1)",1
+"Local interconnect width < 0.17um (li.1)",6
+"Deep N-well width < 3um (dnwell.2)",1
+"Core local interconnect width < 0.14um (li.c1)",11
+"Metal1 overlap of local interconnect contact < 0.03um (met1.4)",4
+"Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4)",16
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",6
+"poly spacing to diffusion tap < 0.055um (poly.5)",11
+"Metal1 width < 0.14um (met1.1)",16
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",23
+"poly spacing to Diffusion < 0.075um (poly.4)",2
+"Core local interconnect spacing < 0.14um (li.c2)",24
+"N-diffusion contact width < 0.17um (licon.1)",7
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",6
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",20
+"mcon.width < 0.17um (mcon.1)",5
+"Local interconnect minimum area < 0.0561um^2 (li.6)",20
+__RULE_CSV_END__
+RULE_TOTAL=199
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_fd_bd_sram__sram_sp_wlstrapa_p",58
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=58

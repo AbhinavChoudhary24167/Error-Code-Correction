@@ -5,6 +5,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+from green_ecc_phy.hashing import scientific_file_sha256
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -56,8 +58,20 @@ def test_gate04_final_policy_is_the_qualified_ten_ns_policy() -> None:
 
 def test_gate04_final_frozen_source_hashes_match_without_rtl_changes() -> None:
     contract = json.loads((ROOT / "scripts/gate04_final/contract_v1.json").read_text(encoding="utf-8"))
+    migrations = json.loads(
+        (
+            ROOT
+            / "green_ecc_physical_simulation/registry/scientific_hash_migrations.json"
+        ).read_text(encoding="utf-8")
+    )["bindings"]
     for relative, expected in contract["source_hashes"].items():
-        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected
+        source = ROOT / relative
+        if hashlib.sha256(source.read_bytes()).hexdigest() == expected:
+            continue
+        migration = migrations.get(relative)
+        assert migration is not None
+        assert migration["legacy_sha256"] == expected
+        assert scientific_file_sha256(source) == migration["canonical_sha256"]
 
 
 def test_gate04_full_precision_power_parser_uses_text_total_row() -> None:

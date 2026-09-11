@@ -1,0 +1,12 @@
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module bch_78_64_t2_v1_decoder declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/bch/bch_78_64_t2_v1.sv:28
+       :   -- module bch_78_64_t2_v1_encoder declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/bch/bch_78_64_t2_v1.sv:4
+       :   -- module bch_t2_matched_sram_top declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv:100
+       :   -- module hsiao_matched_sram_top declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv:46
+       :   -- module secdaec_matched_sram_top declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv:71
+       :   -- module secded_matched_sram_top declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv:20
+       :   -- module sram22_256x64m4w8 declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v:6
+       :   -- module sram22_256x8m8w1 declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v:6
+       :   -- module u0_matched_sram_top declared here: /mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv:4

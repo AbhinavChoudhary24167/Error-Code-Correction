@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "classification": "LOGICAL_SERVICE_CAUSALITY_ESTABLISHED_PHYSICAL_RATES_NOT_QUALIFIED",
+  "result_table": "reliability/RELIABILITY_RESULTS.csv",
+  "physical_reliability_rates": "NOT_QUALIFIED",
+  "interleaving_benefit": "NOT_QUALIFIED",
+  "qualified_findings": [
+    "All 72 enumerated E0 single-codeword single-bit masks are corrected by the exact registered decoder.",
+    "All 2556 enumerated E0 double-bit masks are detected uncorrectable by the exact registered decoder.",
+    "Logical consecutive triple and quadruple masks include both DUE and SDC outcomes and therefore cannot be reduced to error multiplicity alone.",
+    "The four-step persistent scrub controls preserve decoder-driven writeback semantics without an oracle."
+  ],
+  "unqualified_inputs": [
+    "physical bitcell coordinates",
+    "spatial upset distribution",
+    "SER/FIT calibration for SRAM22",
+    "I1/I2 routed area, wirelength, energy, and latency",
+    "retry/recovery probabilities and costs",
+    "time-calibrated scrub interval"
+  ],
+  "source_ids": {
+    "A10_LOGICAL_CONTROLS": "208f0107c5d240620d28a9ea5420d283d35455c9ca3fc922715b6c1fd8da1a6f",
+    "A10_INTERLEAVING_COST": "077e71557a6a7fb55e4ffbfd0269e89b598f6c4a164eaab1a161f4b5421f3e44"
+  }
+}

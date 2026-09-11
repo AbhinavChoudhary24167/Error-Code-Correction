@@ -1,0 +1,105 @@
+{
+  "attempt_id": "gate3_openram_attempt03_target_diagnosis",
+  "status": "PASS",
+  "status_scope": "DIAGNOSTIC_OBJECTIVE_ONLY",
+  "status_detail": "ROOT_CAUSES_REPRODUCIBLY_CLASSIFIED_CONTROL_FAILS_FINAL_EXTERNAL_REHASH_BLOCKED",
+  "scientific_macro_qualification": "FAIL_UNCHANGED",
+  "gate3_finalized_status": {
+    "status": "FAIL",
+    "status_detail": "OPENRAM_256X72_PHYSICAL_VERIFICATION_INTERFACE_AND_CHARACTERIZATION_FAILED",
+    "modified_by_attempt03": false
+  },
+  "attempt01_modified": false,
+  "attempt02_write_policy": "read_only_mount",
+  "openram_source_modified": false,
+  "pdk_modified": false,
+  "verification_decks_modified": false,
+  "qualification_criteria_modified": false,
+  "preflight": {
+    "repository_manifest_entries": "PASS_22_OF_22",
+    "external_run04_entries": "PASS_11_OF_11",
+    "protected_date_baseline": "PASS_7094_UNCHANGED",
+    "external_attempt02_tree_sha256": "f0dc7607d459831124aed3b767195535d24542ce0a24e62595f8dae7ec20c2b6",
+    "external_attempt02_file_count": 36548,
+    "external_attempt02_byte_count": 5430332296,
+    "storage": "PASS"
+  },
+  "closeout_integrity": {
+    "repository_protected_scope": "PASS_2327_UNCHANGED",
+    "external_date_scopes_recheck": "BLOCKED_WSL_SERVICE_VHDX_ACCESS",
+    "external_attempt02_tree_recheck": "BLOCKED_WSL_SERVICE_VHDX_ACCESS",
+    "external_attempt02_write_mount_used": false,
+    "local_gate2_gate3_evidence": "PASS_22_OF_22",
+    "protected_binary_restoration": "PracticalSRAMSimulator.exe was relinked by mandatory make, then restored from HEAD and verified against baseline SHA-256 99fbb17b7a9bc4296d6a044e5edc496f131def71e532062b563a776ab31e06ef.",
+    "limitation": "The complete 7094-file verifier passed before attempt03 and the final 2327-file repository scope passed. WSL failure prevented final independent rehashes of the 2401-file breadth scope, 2366-file revision2 scope, and external attempt02 tree."
+  },
+  "configuration_derivation": {
+    "logical_words": 256,
+    "logical_data_bits": 72,
+    "words_per_row": 2,
+    "rows_including_spare": 129,
+    "physical_rows_including_replica": 130,
+    "regular_data_columns": 144,
+    "physical_columns_including_spare_and_replica": 146,
+    "emitted_data_indices": "0..72",
+    "emitted_address_indices": "0..8",
+    "repair_control": "spare_wen0",
+    "frozen_plain_interface_matched": false
+  },
+  "control": {
+    "target": "16x8",
+    "classification": "CONTROL_FAIL",
+    "process_exit_code": 1,
+    "drc": "FAIL",
+    "drc_violation_count": 2140,
+    "lvs": "FAIL",
+    "characterization": "FAIL",
+    "bitline_lookup": "PASS",
+    "liberty": "UNAVAILABLE",
+    "verilog": "UNAVAILABLE",
+    "gds": "AVAILABLE_UNQUALIFIED",
+    "spice": "AVAILABLE_UNQUALIFIED",
+    "lef": "AVAILABLE_UNQUALIFIED"
+  },
+  "dimensional_bisection": {
+    "status": "NOT_RUN_CONTROL_FAIL",
+    "first_failing_target": "control_16x8",
+    "first_failing_dimension_transition": null
+  },
+  "root_causes": {
+    "interface": "Spare column widens data to 73 pins; spare-row-expanded row addressing plus 2:1 mux widens address to nine pins; scalar/indexed spare_wen naming is inconsistent.",
+    "drc": "Repeated SKY130 primitive/local-interconnect/contact/via rule incompatibilities reproduced by the tiny control and scaled by array hierarchy.",
+    "lvs": "Independent scalar spare_wen0 disconnect plus 584 repeated extracted connectivity partitions in colend/colenda primitive hierarchy with matched device counts.",
+    "characterization": "Probe address 011111111 decodes to nonexistent row 255 and excludes all bitcells before bl alias search; control later hits an independent nom_corner flag-path defect."
+  },
+  "recovery_classifications": [
+    "B_SKY130_TECH_PLUGIN_LIMITATION",
+    "C_TARGET_CONFIGURATION_LIMITATION",
+    "D_SPARE_REPAIR_CONFIGURATION_ERROR",
+    "E_CHARACTERIZER_LIMITATION",
+    "F_PDK_VERIFICATION_INTEGRATION_PROBLEM",
+    "G_LOCAL_CONFIGURATION_ERROR"
+  ],
+  "next_strategy": {
+    "attempt_id": "gate3_openram_attempt04_sky130_control_integration_repair",
+    "strategy": "CONTROL_FIRST_UPSTREAM_REPRODUCER_AND_MINIMAL_TECHNOLOGY_INTEGRATION_REPAIR",
+    "implemented": false
+  },
+  "qualified_macro_views": 0,
+  "macro_artifacts_admitted": 0,
+  "downstream_numeric_propagation_allowed": false,
+  "tests": {
+    "campaign_local": "PASS_21",
+    "make": "PASS",
+    "make_test": "EXPECTED_BASELINE_2_FAILURES_482_PASS",
+    "full_pytest": "EXPECTED_BASELINE_2_FAILURES_484_PASS",
+    "frozen_failure_tests": [
+      "tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict",
+      "tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator"
+    ],
+    "new_failures": 0
+  },
+  "completed_at": "2026-08-31T00:45:48.7553683+05:30",
+  "gate4_started": false,
+  "gate4_authorized": false
+}

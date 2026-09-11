@@ -1,0 +1,169 @@
+{
+  "rules": [
+    {
+      "metric_id": "IMPLEMENTATION_FRONTIER",
+      "permits_parametric": false,
+      "requirements": [
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED",
+            "DIAGNOSTIC"
+          ],
+          "minimum_tier": "E4",
+          "quantity": "area"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED"
+          ],
+          "minimum_tier": "E5",
+          "quantity": "operational_energy"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED"
+          ],
+          "minimum_tier": "E4",
+          "quantity": "latency"
+        }
+      ]
+    },
+    {
+      "metric_id": "LOGICAL_CONTROL_AREA_DIAGNOSTIC",
+      "permits_parametric": false,
+      "requirements": [
+        {
+          "allowed_classes": [
+            "DIAGNOSTIC"
+          ],
+          "minimum_tier": "E4",
+          "quantity": "area"
+        },
+        {
+          "allowed_classes": [
+            "LOGICAL_CONTROL"
+          ],
+          "minimum_tier": "E3",
+          "quantity": "logical_outcome"
+        }
+      ]
+    },
+    {
+      "metric_id": "PHYSICAL_RELIABILITY_FRONTIER",
+      "permits_parametric": false,
+      "requirements": [
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "BOUNDED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "physical_fault_probability"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED"
+          ],
+          "minimum_tier": "E3",
+          "quantity": "physical_outcome_model"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED"
+          ],
+          "minimum_tier": "E5",
+          "quantity": "operational_energy"
+        }
+      ]
+    },
+    {
+      "metric_id": "CSCI_ABSOLUTE",
+      "permits_parametric": false,
+      "requirements": [
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "lifecycle_carbon"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "BOUNDED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "correct_service_probability"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "BOUNDED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "service_count_lifetime"
+        }
+      ]
+    },
+    {
+      "metric_id": "CSCI_PARAMETRIC",
+      "permits_parametric": true,
+      "requirements": [
+        {
+          "allowed_classes": [
+            "PARAMETRIC",
+            "ABSOLUTE_QUALIFIED"
+          ],
+          "minimum_tier": "E1",
+          "quantity": "lifecycle_carbon"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "BOUNDED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "correct_service_probability"
+        },
+        {
+          "allowed_classes": [
+            "PARAMETRIC",
+            "ABSOLUTE_QUALIFIED",
+            "BOUNDED"
+          ],
+          "minimum_tier": "E1",
+          "quantity": "service_count_lifetime"
+        }
+      ]
+    },
+    {
+      "metric_id": "MRCC_MATCHED_BASELINE",
+      "permits_parametric": false,
+      "requirements": [
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "matched_lifecycle_carbon"
+        },
+        {
+          "allowed_classes": [
+            "ABSOLUTE_QUALIFIED",
+            "RELATIVE_QUALIFIED",
+            "BOUNDED"
+          ],
+          "minimum_tier": "E2",
+          "quantity": "matched_correct_service"
+        }
+      ]
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,54 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Processing timestamp mismatches: sky130_fd_bd_sram__sram_sp_colenda_p_cent, sky130_fd_bd_sram__sram_sp_colenda, sky130_fd_bd_sram__openram_sp_cell_opt1a_replica, sky130_fd_bd_sram__sram_sp_wlstrap_p, sky130_fd_bd_sram__sram_sp_colend_p_cent, sky130_fd_bd_sram__sram_sp_colend, sky130_fd_bd_sram__openram_sp_cell_opt1_replica.
+Loading DRC CIF style.
+__RULE_CSV_BEGIN__
+rule,count
+"Local interconnect spacing < 0.17um (li.3)",180
+"Diffusion width < 0.15um (diff/tap.1)",9
+"Local interconnect width < 0.17um (li.1)",54
+"Deep N-well width < 3um (dnwell.2)",18
+"N-well width < 0.84um (nwell.1)",86
+"Core local interconnect width < 0.14um (li.c1)",99
+"Metal1 overlap of local interconnect contact < 0.03um (met1.4)",18
+"Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4)",72
+"Deep N-well spacing < 6.3um (dnwell.3)",15
+"Local interconnect overlap of diffusion contact < 0.08um in one direction (li.5)",54
+"poly spacing to diffusion tap < 0.055um (poly.5)",99
+"Via1 width < 0.26um (via.1a + 2 * via.4a)",171
+"Deep N-well spacing to N-well < 4.5um (nwell.7)",73
+"Metal1 width < 0.14um (met1.1)",288
+"poly spacing to Diffusion < 0.075um (poly.4)",18
+"Core local interconnect spacing < 0.14um (li.c2)",216
+"Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a)",144
+"N-diffusion contact width < 0.17um (licon.1)",63
+"N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",54
+"mcon.width < 0.17um (mcon.1)",45
+"Local interconnect minimum area < 0.0561um^2 (li.6)",180
+__RULE_CSV_END__
+RULE_TOTAL=1956
+__HIERARCHY_CSV_BEGIN__
+cell,error_tiles
+"sky130_sram_1rw_8x16_gate3a03_control_sky130_replica_column",252
+"sky130_fd_bd_sram__openram_sp_cell_opt1_replica",8
+"sky130_fd_bd_sram__sram_sp_wlstrapa_p",58
+"sky130_fd_bd_sram__sram_sp_colend_p_cent",8
+"sky130_fd_bd_sram__sram_sp_colenda",7
+"sky130_fd_bd_sram__openram_sp_cell_opt1a_replica",8
+"sky130_fd_bd_sram__sram_sp_colenda_p_cent",8
+"sky130_fd_bd_sram__sram_sp_wlstrap_p",12
+"sky130_fd_bd_sram__sram_sp_colend",7
+__HIERARCHY_CSV_END__
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=368

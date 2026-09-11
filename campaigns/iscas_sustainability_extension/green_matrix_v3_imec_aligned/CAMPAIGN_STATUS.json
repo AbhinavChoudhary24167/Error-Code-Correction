@@ -1,0 +1,47 @@
+{
+  "campaign": "green_matrix_v3_imec_aligned",
+  "schema_version": "3.0.0",
+  "starting_scientific_baseline": "4c3e106",
+  "previous_classification_preserved": "GREEN_METRIC_REFOUNDED_PARTIAL_QUALIFICATION",
+  "current_classification": "GREEN_MATRIX_V3_FOUNDATION_VALIDATED_IMEC_ALIGNED_PARTIAL_POPULATION",
+  "imec_alignment_semantics": "IMEC_PUBLIC_EVIDENCE_ALIGNED_NOT_CERTIFIED_NOT_COMPLIANT_NOT_A_STANDARD",
+  "historical_artifacts_modified": false,
+  "matrix_population": {
+    "M_P_rows": 14,
+    "M_E_records": 210,
+    "M_S_rows": 2,
+    "architectures_with_seed_observations": ["U0", "E0"],
+    "architecture_schema_only": ["E1"]
+  },
+  "qualified_now": [
+    "framework structure",
+    "unit conversions",
+    "CSCI mathematical definition",
+    "MRCC domain classification",
+    "yield equations",
+    "bottom-up scope algebra",
+    "ACT matched synthetic algebra",
+    "exact logical-control/area diagnostic fronts"
+  ],
+  "parametric_now": [
+    "manufacturing and use-grid scenarios when explicitly supplied",
+    "yield and gas-abatement sensitivity when inputs are explicitly supplied",
+    "seeded scenario and Latin-hypercube uncertainty"
+  ],
+  "blocked_now": [
+    "absolute SKY130 manufacturing carbon",
+    "activity-qualified operational energy and service latency",
+    "physical SBU/DBU/MBU probabilities and SDC/DUE",
+    "physically implemented interleaving benefit",
+    "absolute or parametric U0/E0 CSCI with qualified reliability",
+    "matched-baseline MRCC",
+    "sustainability architecture winner"
+  ],
+  "selection": {
+    "qualified_winner": null,
+    "classification": "NO_GLOBAL_WINNER_QUALIFIED",
+    "NSGA_II_used": false,
+    "epsilon_floors_used": false
+  },
+  "highest_value_next_measurement": "CALIBRATED_PHYSICAL_SBU_DBU_MBU_TOPOLOGY_AND_RATE_DATA"
+}

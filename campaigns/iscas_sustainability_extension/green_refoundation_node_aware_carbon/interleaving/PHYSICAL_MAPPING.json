@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "classification": "EXECUTABLE_EXTERNAL_MAPPING_PHYSICAL_LAYOUT_NOT_IMPLEMENTED",
+  "capacity": {
+    "logical_words": 256,
+    "payload_bits_per_word": 64,
+    "protected_codeword_bits": 72
+  },
+  "configurations": [
+    {
+      "interleaving_id": "I0",
+      "bank_count": 1,
+      "word_group_size": 1,
+      "mapping": "bank=b mod 1; address=w div 1; pin=(b div 1)*1+w mod 1",
+      "status": "FROZEN_EXTERNAL_BASELINE_INTERNAL_BITCELL_MAP_UNPROVEN"
+    },
+    {
+      "interleaving_id": "I1",
+      "bank_count": 2,
+      "word_group_size": 2,
+      "mapping": "bank=b mod 2; address=w div 2; pin=(b div 2)*2+w mod 2",
+      "status": "BIJECTIVE_MAPPING_CONTRACT_RTL_AND_LAYOUT_NOT_IMPLEMENTED",
+      "write_semantics": "read-modify-write or group buffer required by byte write masks"
+    },
+    {
+      "interleaving_id": "I2",
+      "bank_count": 4,
+      "word_group_size": 4,
+      "mapping": "bank=b mod 4; address=w div 4; pin=(b div 4)*4+w mod 4",
+      "status": "BIJECTIVE_MAPPING_CONTRACT_RTL_AND_LAYOUT_NOT_IMPLEMENTED",
+      "write_semantics": "read-modify-write or group buffer required by byte write masks"
+    }
+  ],
+  "mapping_implementation": "interleaving/physical_mapping.py",
+  "known_physical_evidence": "Five-seed I0 macro origins and LEF dimensions; SPICE electrical row/column connectivity",
+  "missing_physical_evidence": [
+    "address and column-select to bitcell identity",
+    "GDS bitcell instance coordinates",
+    "I1/I2 placed and routed wrapper",
+    "wirelength, standard-cell area, energy, and latency",
+    "calibrated physical upset distribution"
+  ],
+  "source_ids": {
+    "A10_BIT_INTERLEAVING_MAP": "13cf7cb711f9e2c4033c0a4eb6e9d5cc5a8debd023ada5d64d2a87b07fffae17",
+    "A10_MACRO_ORGANIZATION_AUDIT": "d1bde841a46b836c105f13f90be76b8283fdfd9ccb749e73394c946711b33d23"
+  }
+}

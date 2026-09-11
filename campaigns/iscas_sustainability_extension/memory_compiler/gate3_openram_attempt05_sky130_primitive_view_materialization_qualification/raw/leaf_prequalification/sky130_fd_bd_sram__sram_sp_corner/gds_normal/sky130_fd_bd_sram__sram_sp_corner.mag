@@ -1,0 +1,39 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1788165634
+<< checkpaint >>
+rect -1270 -1260 1520 1671
+<< metal1 >>
+rect 50 375 110 411
+rect 152 375 212 411
+rect 0 0 14 19
+<< via1 >>
+rect 55 241 105 291
+rect -10 150 25 200
+rect 161 25 211 75
+<< metal2 >>
+rect 0 320 260 411
+rect 0 291 260 292
+rect 0 241 55 291
+rect 105 241 260 291
+rect 0 236 260 241
+rect 0 200 260 206
+rect 25 150 260 200
+rect 0 116 260 150
+rect 0 75 260 81
+rect 0 25 161 75
+rect 211 25 260 75
+rect 0 4 260 25
+use sky130_fd_bd_sram__sram_sp_corner_ce  sky130_fd_bd_sram__sram_sp_corner_ce_0
+timestamp 28801
+transform 1 0 0 0 1 0
+box 0 0 260 411
+<< labels >>
+rlabel metal1 s 0 0 14 19 4 VPWR
+port 1 nsew
+rlabel metal1 s 50 375 110 411 4 VPB
+port 2 nsew
+rlabel metal1 s 152 375 212 411 4 VNB
+port 3 nsew
+<< end >>

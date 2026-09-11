@@ -1,0 +1,79 @@
+{
+  "architecture_effects": {
+    "hierarchical_vs_flat": {
+      "W0": {
+        "max_pct": 2.4972654498358837,
+        "mean_paired_effect_pct": 1.3283946898342025,
+        "min_pct": 0.1438969727963979,
+        "negative_seed_count": 0,
+        "positive_seed_count": 5,
+        "sample_std_pct": 0.9102247148621669,
+        "zero_seed_count": 0
+      },
+      "W1": {
+        "max_pct": 2.4974968321161084,
+        "mean_paired_effect_pct": 1.3287353651149347,
+        "min_pct": 0.14455937232857874,
+        "negative_seed_count": 0,
+        "positive_seed_count": 5,
+        "sample_std_pct": 0.9100258843956838,
+        "zero_seed_count": 0
+      },
+      "W2": {
+        "max_pct": 2.4971347206324435,
+        "mean_paired_effect_pct": 1.3272487432684343,
+        "min_pct": 0.14170934035513394,
+        "negative_seed_count": 0,
+        "positive_seed_count": 5,
+        "sample_std_pct": 0.9111815718093897,
+        "zero_seed_count": 0
+      }
+    },
+    "pipelined_vs_combinational": {
+      "W0": {
+        "max_pct": -22.518942930942387,
+        "mean_paired_effect_pct": -23.419005222611926,
+        "min_pct": -24.01602702589811,
+        "negative_seed_count": 5,
+        "positive_seed_count": 0,
+        "sample_std_pct": 0.5822030551792977,
+        "zero_seed_count": 0
+      },
+      "W1": {
+        "max_pct": -22.51531243066881,
+        "mean_paired_effect_pct": -23.415727419520838,
+        "min_pct": -24.012588811669332,
+        "negative_seed_count": 5,
+        "positive_seed_count": 0,
+        "sample_std_pct": 0.5824872658151282,
+        "zero_seed_count": 0
+      },
+      "W2": {
+        "max_pct": -22.51803814354776,
+        "mean_paired_effect_pct": -23.418310498061402,
+        "min_pct": -24.015309347885495,
+        "negative_seed_count": 5,
+        "positive_seed_count": 0,
+        "sample_std_pct": 0.5823762750655022,
+        "zero_seed_count": 0
+      }
+    }
+  },
+  "component_mean_absolute_percent_changes": {
+    "internal_power": 0.003828142453937977,
+    "leakage_power": 0.00020716095685879843,
+    "switching_power": 0.006333453050421101
+  },
+  "dominant_action_conditioned_component_by_mean_absolute_percent_change": "switching_power",
+  "hsiao_hierarchical_penalty_survives_W1": true,
+  "hsiao_hierarchical_penalty_survives_W2": true,
+  "hsiao_seed_reversal_count_W1": 0,
+  "hsiao_seed_reversal_count_W2": 0,
+  "schema_version": 1,
+  "secded_effect_magnitude_change_W1_vs_W0_percentage_points": -0.0032778030910876055,
+  "secded_effect_magnitude_change_W2_vs_W0_percentage_points": -0.0006947245505237731,
+  "secded_pipeline_advantage_survives_W1": true,
+  "secded_pipeline_advantage_survives_W2": true,
+  "secded_seed_reversal_count_W1": 0,
+  "secded_seed_reversal_count_W2": 0
+}

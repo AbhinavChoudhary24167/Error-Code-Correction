@@ -1,0 +1,8 @@
+command: make test
+exit_code: 1
+result: EXPECTED_FROZEN_BASELINE
+summary: 2 failed, 482 passed, 3 warnings in 435.35s
+failures:
+  tests/python/test_gate03_artifacts.py::test_gate01_gate02_immutable_authorized_scope_and_binary_verdict
+  tests/python/test_gate03e_artifacts.py::test_gate03e_artifact_validator
+failures_match_historical_baseline: true

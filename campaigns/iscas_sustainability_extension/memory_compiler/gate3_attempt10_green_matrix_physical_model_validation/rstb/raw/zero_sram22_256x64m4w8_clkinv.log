@@ -1,0 +1,68 @@
+OpenSTA 3.1.0  Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+RSTB_ZERO_WIRE_BEGIN macro=sram22_256x64m4w8 family=clkinv
+RSTB_INPUT_SLEW_NS 0.01
+stage2/A ^ 0.036479052:0.036479052 v 0.031585462:0.031585462
+stage1/A ^ 0.010000001:0.010000001 v 0.010000001:0.010000001
+stage1/Y ^ 0.036479052:0.036479052 v 0.031585462:0.031585462
+stage2/Y ^ 0.059876785:0.293328255 v 0.057897393:0.282495499
+memory/rstb ^ 0.079835720:0.391104341 v 0.077196531:0.376660675
+Net local_rstb
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ stage2/Y output (sky130_fd_sc_hd__clkinv_16)
+
+Load pins
+ memory/rstb input (sram22_256x64m4w8) 0.08-0.45
+
+RSTB_INPUT_SLEW_NS 0.1
+stage2/A ^ 0.046619982:0.046619982 v 0.042074006:0.042074006
+stage1/A ^ 0.099999994:0.099999994 v 0.099999994:0.099999994
+stage1/Y ^ 0.046619982:0.046619982 v 0.042074006:0.042074006
+stage2/Y ^ 0.060152330:0.293308824 v 0.058105964:0.282471955
+memory/rstb ^ 0.080203108:0.391078472 v 0.077474616:0.376629263
+Net local_rstb
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ stage2/Y output (sky130_fd_sc_hd__clkinv_16)
+
+Load pins
+ memory/rstb input (sram22_256x64m4w8) 0.08-0.45
+
+RSTB_INPUT_SLEW_NS 0.3
+stage2/A ^ 0.082159914:0.082159914 v 0.077012792:0.077012792
+stage1/A ^ 0.300000012:0.300000012 v 0.300000012:0.300000012
+stage1/Y ^ 0.082159914:0.082159914 v 0.077012792:0.077012792
+stage2/Y ^ 0.063572600:0.293516278 v 0.062222756:0.282838345
+memory/rstb ^ 0.084763467:0.391355038 v 0.082963683:0.377117783
+Net local_rstb
+ Pin capacitance: 0.08-0.45
+ Wire capacitance: 0.00
+ Total capacitance: 0.08-0.45
+ Number of drivers: 1
+ Number of loads: 1
+ Number of pins: 2
+
+Driver pins
+ stage2/Y output (sky130_fd_sc_hd__clkinv_16)
+
+Load pins
+ memory/rstb input (sram22_256x64m4w8) 0.08-0.45
+
+RSTB_ZERO_WIRE_END

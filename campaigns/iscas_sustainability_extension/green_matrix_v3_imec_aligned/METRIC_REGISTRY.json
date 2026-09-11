@@ -1,0 +1,78 @@
+{
+  "metrics": [
+    {
+      "metric_id": "CSCI",
+      "primary": true,
+      "role": "DECISION_INTENSITY",
+      "unit": "kgCO2e_per_correct_service"
+    },
+    {
+      "metric_id": "CSCI_BIT",
+      "primary": true,
+      "role": "CROSS_PAYLOAD_DECISION_INTENSITY",
+      "unit": "kgCO2e_per_correct_payload_bit"
+    },
+    {
+      "metric_id": "MRCC",
+      "primary": false,
+      "role": "FIXED_BASELINE_MARGINAL_DIAGNOSTIC",
+      "unit": "kgCO2e_per_additional_correct_service"
+    },
+    {
+      "metric_id": "AREA",
+      "primary": false,
+      "role": "PHYSICAL_OBSERVATION",
+      "unit": "um2"
+    },
+    {
+      "metric_id": "ENERGY",
+      "primary": false,
+      "role": "PHYSICAL_OBSERVATION",
+      "unit": "J"
+    },
+    {
+      "metric_id": "SDC",
+      "primary": false,
+      "role": "HARD_CONSTRAINT_AND_PARETO_AXIS",
+      "unit": "probability"
+    },
+    {
+      "metric_id": "DUE",
+      "primary": false,
+      "role": "HARD_CONSTRAINT_AND_PARETO_AXIS",
+      "unit": "probability"
+    },
+    {
+      "metric_id": "ESII",
+      "primary": false,
+      "role": "LEGACY_OR_COMPARISON_METRIC",
+      "unit": "legacy"
+    },
+    {
+      "metric_id": "NESII",
+      "primary": false,
+      "role": "LEGACY_OR_COMPARISON_METRIC",
+      "unit": "legacy"
+    },
+    {
+      "metric_id": "LEGACY_GREEN_SCORE",
+      "primary": false,
+      "role": "LEGACY_OR_COMPARISON_METRIC",
+      "unit": "legacy"
+    },
+    {
+      "metric_id": "GSE",
+      "primary": false,
+      "role": "LEGACY_OR_COMPARISON_METRIC",
+      "unit": "correct_payload_bits_per_kgCO2e"
+    },
+    {
+      "metric_id": "GCI",
+      "primary": false,
+      "role": "LEGACY_OR_COMPARISON_METRIC",
+      "unit": "kgCO2e_per_correct_payload_bit"
+    }
+  ],
+  "primary_selection_rule": "Apply externally supplied service constraints, then exact Pareto analysis; no arbitrary composite score.",
+  "schema_version": 1
+}

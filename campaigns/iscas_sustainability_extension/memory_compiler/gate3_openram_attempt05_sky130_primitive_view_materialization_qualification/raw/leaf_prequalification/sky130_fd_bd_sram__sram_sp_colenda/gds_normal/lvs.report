@@ -1,0 +1,46 @@
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_pass is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__special_nfet_pass is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__special_nfet_pass |Circuit 2: sky130_fd_pr__special_nfet_pass 
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__special_nfet_pass and sky130_fd_pr__special_nfet_pass are equivalent.
+
+Cell sky130_fd_bd_sram__sram_sp_colenda (0) disconnected node: vdd
+Cell sky130_fd_bd_sram__sram_sp_colenda (0) disconnected node: bl
+Cell sky130_fd_bd_sram__sram_sp_colenda (0) disconnected node: gnd
+Cell sky130_fd_bd_sram__sram_sp_colenda (0) disconnected node: vpb
+Cell sky130_fd_bd_sram__sram_sp_colenda (1) disconnected node: bl
+Cell sky130_fd_bd_sram__sram_sp_colenda (1) disconnected node: vdd
+Cell sky130_fd_bd_sram__sram_sp_colenda (1) disconnected node: gnd
+Cell sky130_fd_bd_sram__sram_sp_colenda (1) disconnected node: vpb
+Subcircuit summary:
+Circuit 1: sky130_fd_bd_sram__sram_sp_cole |Circuit 2: sky130_fd_bd_sram__sram_sp_cole 
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__special_nfet_pass (1)        |sky130_fd_pr__special_nfet_pass (1)        
+Number of devices: 1                       |Number of devices: 1                       
+Number of nets: 3                          |Number of nets: 3                          
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_bd_sram__sram_sp_cole |Circuit 2: sky130_fd_bd_sram__sram_sp_cole 
+-------------------------------------------|-------------------------------------------
+gate                                       |gate                                       
+vnb                                        |vnb                                        
+br                                         |br                                         
+vdd                                        |vdd                                        
+bl                                         |bl                                         
+gnd                                        |gnd                                        
+vpb                                        |vpb                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_bd_sram__sram_sp_colenda and sky130_fd_bd_sram__sram_sp_colenda are equivalent.
+Circuits match uniquely.

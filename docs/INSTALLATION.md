@@ -1,75 +1,35 @@
 # Installation
 
-## Supported environments
+## Portable software environment
 
-Repository continuous integration exercises Ubuntu with Python 3.10, 3.11, and 3.12, and Windows with Python 3.11 plus MSYS2/MinGW. The local documentation rebuild was exercised on Windows with Python 3.12. The portable baseline is therefore Python **3.10–3.12**, GNU Make, Git, and a C++17 compiler. Other systems may work but are not part of the recorded matrix.
-
-Required Python packages come directly from `requirements.txt`: NumPy, SciPy ≥1.11, pandas, pytest, jsonschema, Matplotlib, PyYAML, and scikit-learn 1.7.2.
-
-Optional tools:
-
-| Tool | Use | Absence behavior |
-|---|---|---|
-| Icarus Verilog | RTL simulation/differential evidence | Relevant RTL test is unavailable or skipped; software adapters can still run |
-| Verilator | Optional RTL lint/simulation flows | Tool discovery records unavailable/unreadable; no result is fabricated |
-| Yosys | Generic structural synthesis | Structural fields remain unavailable; even when present they are not physical PPA |
-| OpenSTA/OpenROAD + SKY130/OpenRAM | Intended open physical flow | Backend manifest remains unavailable and physical fields null |
-| Cadence Genus/Innovus/Tempus + ST65 collateral | Intended commercial physical flow | Backend manifest remains unavailable and physical fields null |
-
-No physical-design toolchain is installed automatically.
-
-## Windows PowerShell
-
-Verified interface; package installation depends on local network/package configuration:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python eccsim.py doctor --json
-```
-
-For the C++ build, place GNU Make and a C++17 `g++` on `PATH`. If MSYS2/MinGW and another application provide different `libstdc++-6.dll` files, prepend the compiler runtime directory before running native binaries. `doctor` reports this mismatch explicitly.
-
-## Bash, Linux, or WSL
-
-CI-equivalent commands:
+The recorded portable range is Python 3.10–3.12. GNU Make and a C++17 compiler are needed for the native build and full tests, but not for registry inspection.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python -m venv .venv
+# activate .venv for your shell
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python eccsim.py doctor --json
-make
-python -m pytest -q
 ```
 
-Distribution package names vary. A typical Ubuntu installation for optional RTL/structural checks is `iverilog verilator yosys`; this is expected from CI but was not installed by the documentation build.
+`requirements.txt` is the supported declaration. `requirements-lock.txt` records the exact packages used for the September 2026 local artifact validation.
 
-## Verify installation
+On Windows, keep `g++` and its runtime DLLs from the same MSYS2/MinGW installation at the front of `PATH`. The doctor reports detected runtime-order mismatches.
 
-```text
+## Physical-flow prerequisites
+
+Physical reproduction is optional, expensive, and not installed by the Python setup. Historical campaigns record their exact tool and image identities. A new environment normally supplies `ORFS_ROOT`, `OPENROAD_HOME`, `OPENRAM_HOME`, and `PDK_ROOT` through its own controller or configuration.
+
+The matched campaign used ORFS commit `56496f3980fb6e9e58f10c8aea4a98949c0fe5f2`, OpenROAD commit `ab6fd26351dc449e69059684dc6aa9ae9046eb36`, Yosys `0.68+post`, SKY130HD, and inherited SRAM22 macros at TT/25 °C/1.8 V. The [run manifest](../campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/RUN_MANIFEST.json) is authoritative.
+
+Historical absolute paths are retained inside executed manifests because they are provenance. Current public software entry points use repository-relative paths; do not edit historical records to make a new machine appear identical.
+
+## Check the installation
+
+```bash
 python eccsim.py --version
 python eccsim.py doctor --json
-python eccsim.py ecc list
-python -m pytest -q tests/python/test_multi_ecc_framework.py
+make reviewer-smoke
 ```
 
-Expected discovery concepts, with machine paths omitted:
-
-```json
-{
-  "checks": [
-    {"id": "python", "status": "pass"},
-    {"id": "dependency:numpy", "status": "pass"},
-    {"id": "tool:make", "status": "pass"},
-    {"id": "tool:g++", "status": "pass"},
-    {"id": "tool:iverilog", "status": "pass"}
-  ],
-  "overall_status": "pass_or_environment_specific_error"
-}
-```
-
-The example is illustrative structure, not a claim that every optional tool is present. The local rebuild found Icarus Verilog and Yosys, but also found a Windows C++ runtime-order mismatch and an unreadable Verilator launcher. Catalogue generation and Python verification remained usable; `doctor --strict` should fail until a required environment error is corrected.
+Optional physical tools may be absent while software-only workflows remain usable. `doctor --strict` is the command to require every required local check to pass.

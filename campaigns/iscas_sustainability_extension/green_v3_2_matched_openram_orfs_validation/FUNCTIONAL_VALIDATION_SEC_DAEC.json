@@ -1,0 +1,81 @@
+{
+  "architecture_id": "SEC_DAEC",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "commands": [
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-s",
+      "tb_secdaec_supported_masks",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/sec_daec_codec.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include/ecc_pkg.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secdaec/secdaec_codec.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_secdaec_supported_masks.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/sec_daec_codec.vvp"
+    ],
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-DTEST_SECDAEC",
+      "-s",
+      "tb_memory_smoke",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/sec_daec_memory.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include/ecc_pkg.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secded/secded_codec.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/rtl/secdaec/secdaec_codec.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_memory_smoke.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/sec_daec_memory.vvp"
+    ]
+  ],
+  "declared_check_counts": {
+    "adjacent_double_masks": 252,
+    "memory_round_trips": 4,
+    "payloads": 4,
+    "single_masks": 288
+  },
+  "fresh_execution": true,
+  "log_sha256": {
+    "logs/functional/sec_daec_codec_compile.log": "0785d8ec23c936285e683d02aa31889ad8b0f86902a22c71cb844e9ffa7d5c7a",
+    "logs/functional/sec_daec_codec_run.log": "bd5f528ea48928b886faf47aa074478c6f96f4dc232b0db7ae2affa4f87eda8a",
+    "logs/functional/sec_daec_memory_compile.log": "89d0a8f64ff80a64d95bd2ed101180e527c4e0406e39b994b82d79f125a6be91",
+    "logs/functional/sec_daec_memory_run.log": "b15e0326f9fd00b8fad4b6dc524babd314763225b48bfe39f38aff3e0174b756"
+  },
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "process_exit_codes": [
+    0,
+    1,
+    0,
+    0
+  ],
+  "schema_version": 1,
+  "scope_limit": "The declared data-adjacent pair class is tested over four payloads and contains a preserved counterexample; the candidate is excluded.",
+  "source_sha256": {
+    "asic/include/ecc_pkg.sv": "1bac05cada6c2fb15d47e5071674844f349079e4198594e4ae244a521817704a",
+    "asic/rtl/secdaec/secdaec_codec.sv": "ab544c0cd57603da703b5ea9bccb7837212f0f4e0488a93f982bd4ca4224673b",
+    "asic/rtl/secded/secded_codec.sv": "42b40b93ff82a386e786c6b51c035c03aabe5fd845cd133cf6194a6c175c2076",
+    "campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv": "a5335c81eb209d4f2c5c140b2fb16431e1ebd4713e17ab26f9b1c7fddaf8ba01"
+  },
+  "status": "FAILED",
+  "tool": {
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  }
+}

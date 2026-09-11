@@ -1,0 +1,49 @@
+{
+  "architecture_id": "U0",
+  "campaign_commit": "daaa83b6b3571060aec9d4d753b4907df5a2ba47",
+  "commands": [
+    [
+      "/usr/bin/iverilog",
+      "-g2012",
+      "-Wall",
+      "-I",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/asic/include",
+      "-DTEST_U0",
+      "-s",
+      "tb_memory_smoke",
+      "-o",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/u0_memory.vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x64m4w8/sram22_256x64m4w8.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/sram22_256x8m8w1/sram22_256x8m8w1.v",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/tb/tb_memory_smoke.sv"
+    ],
+    [
+      "/usr/bin/vvp",
+      "/mnt/c/Users/Abhinav/OneDrive/Desktop/ECC/Error-Code-Correction/campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/logs/functional_work/u0_memory.vvp"
+    ]
+  ],
+  "declared_check_counts": {
+    "memory_round_trips": 4
+  },
+  "fresh_execution": true,
+  "log_sha256": {
+    "logs/functional/u0_memory_compile.log": "c65127dce504ae40556bc84976377831829947eab3fcc035282ad5e7bd317e83",
+    "logs/functional/u0_memory_run.log": "b15e0326f9fd00b8fad4b6dc524babd314763225b48bfe39f38aff3e0174b756"
+  },
+  "parent_green_v3_2_commit": "29f20b196e04c713f88fd1a93440a2ff47986f06",
+  "parent_green_v3_2_provenance_seal_commit": "22d6ef2391f7d74f0890933fcda9952fdf656e52",
+  "process_exit_codes": [
+    0,
+    0
+  ],
+  "schema_version": 1,
+  "scope_limit": "Four deterministic no-error SRAM-model round trips; no protection capability is claimed for U0.",
+  "source_sha256": {
+    "campaigns/iscas_sustainability_extension/green_v3_2_matched_openram_orfs_validation/validation/rtl/matched_memory_tops.sv": "a5335c81eb209d4f2c5c140b2fb16431e1ebd4713e17ab26f9b1c7fddaf8ba01"
+  },
+  "status": "REGRESSION_VALIDATED",
+  "tool": {
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  }
+}

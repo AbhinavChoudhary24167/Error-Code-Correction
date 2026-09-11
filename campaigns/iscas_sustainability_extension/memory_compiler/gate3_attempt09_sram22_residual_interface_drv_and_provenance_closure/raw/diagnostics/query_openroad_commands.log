@@ -1,0 +1,142 @@
+OpenROAD 26Q3-1080-gab6fd26351 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+===== HELP *instance* =====
+current_instance [instance] 
+delete_instance inst 
+example_instance [-name name] 
+make_instance inst_path lib_cell 
+report_instance [-connections] [-verbose] instance_path [> filename]
+   [>> filename] 
+===== HELP *connect* =====
+add_global_connection [-net net_name] [-inst_pattern inst_name_pattern]
+   [-pin_pattern pin_name_pattern] [(-power|-ground)] [-region region_name]
+   [-defer_connection] 
+
+add_pdn_connect [-grid grid_name] -layers list_of_2_layers
+   [-cut_pitch pitch_value] [-fixed_vias list_of_vias]
+   [-dont_use_vias list_of_vias] [-max_rows rows] [-max_columns columns]
+   [-ongrid ongrid_layers] [-min_width_layers min_width_layers]
+   [-split_cuts split_cuts_mapping] [-split_cuts_staggered] 
+
+add_sroute_connect -net net -layers list_of_2_layers -cut_pitch
+   list_of_2_pitch_values [-outerNet outerNet] [-fixed_vias list_of_vias]
+   [-max_rows rows] [-max_columns columns] [-metalwidths metalwidths]
+   [-metalspaces metalspaces] [-ongrid ongrid_layers] [-insts inst] 
+
+clear_global_connect 
+connect_by_abutment 
+connect_pin net pin 
+disconnect_pin net -all|pin 
+global_connect [-force] [-verbose]  
+report_global_connect 
+===== HELP *disconnect* =====
+disconnect_pin net -all|pin 
+===== HELP *net* =====
+assign_ground_net -domain domain_name -net snet_name 
+assign_power_net -domain domain_name -net snet_name 
+delete_net net 
+focus_net net [-remove] [-clear] 
+
+generate_ram_netlist [-mask_size bits] -word_size bits -num_words words
+   [-column_mux_ratio ratio] [-storage_cell name] [-tristate_cell name]
+   [-inv_cell name] [-rw_ports count] [-r_ports count] [-w_ports count]
+   [-use_latch value] [-tapcell name] [-max_tap_dist value] 
+get_nets [-hierarchical] [-hsc separator] [-regexp] [-nocase] [-quiet]
+   [-filter expr] [-of_objects objects] [patterns] 
+make_net net_path 
+repair_clock_nets [-max_wire_length max_wire_length] 
+report_floating_nets [-verbose] [> filename] [>> filename] 
+report_net [-scene scene] [-digits digits] net_path [> filename] [>> filename] 
+report_overdriven_nets [-include_parallel_driven] [-verbose] [> filename]
+   [>> filename] 
+resynth_genetic [-corner corner] [-slack_threshold slack_threshold] [-seed seed]
+   [-population_size population_size]
+   [-mutation_probability mutation_probability]
+   [-crossover_probability crossover_probability]
+   [-tournament_probability tournament_probability]
+   [-tournament_size tournament_size] [-iters iters] [-initial_ops initial_ops] 
+                                          
+set_ideal_net nets  
+set_ideal_network [-no_propagation] objects 
+set_nets_to_route net_names  
+set_pdnsim_net_voltage -net net_name -voltage volt [-corner corner] 
+write_artnet_spec [-out_file]  
+===== HELP *placement* =====
+check_placement [-verbose] [-disallow_one_site_gaps]
+   [-report_file_name file_name] 
+detailed_placement [-max_displacement disp|{disp_x disp_y}]
+   [-disallow_one_site_gaps] [-incremental] [-report_file_name file_name]
+   [-use_diamond_legalizer] [-site_search_window sites]
+   [-row_search_window rows] [-drc_penalty penalty] [-disable_window_extension] 
+filler_placement [-prefix prefix] [-verbose] filler_masters  
+global_placement [-skip_initial_place] [-force_center_initial_place]
+   [-skip_nesterov_place] [-timing_driven] [-timing_driven_repair_timing]
+   [-routability_driven] [-virtual_cts] [-incremental] [-skip_io]
+   [-bin_grid_count grid_count] [-density target_density]
+   [-init_density_penalty init_density_penalty]
+   [-init_wirelength_coef init_wirelength_coef] [-min_phi_coef min_phi_coef]
+   [-max_phi_coef max_phi_coef] [-reference_hpwl reference_hpwl]
+   [-overflow overflow] [-initial_place_max_iter initial_place_max_iter]
+   [-initial_place_max_fanout initial_place_max_fanout] [-routability_use_grt]
+   [-routability_target_rc_metric routability_target_rc_metric]
+   [-routability_check_overflow routability_check_overflow]
+   [-routability_snapshot_overflow routability_snapshot_overflow]
+   [-routability_max_density routability_max_density]
+   [-routability_inflation_ratio_coef routability_inflation_ratio_coef]
+   [-routability_max_inflation_ratio routability_max_inflation_ratio]
+   [-routability_rc_coefficients routability_rc_coefficients]
+   [-keep_resize_below_overflow keep_resize_below_overflow]
+   [-timing_driven_net_reweight_overflow timing_driven_net_reweight_overflow]
+   [-timing_driven_net_weight_max timing_driven_net_weight_max]
+   [-timing_driven_nets_percentage timing_driven_nets_percentage]
+   [-virtual_cts_max_skew_fraction virtual_cts_max_skew_fraction]
+   [-timing_driven_repair_tns_end_percent timing_driven_repair_tns_end_percent]
+   [-pad_left pad_left] [-pad_right pad_right] [-disable_revert_if_diverge]
+   [-disable_pin_density_adjust] [-random_seed random_seed]
+   [-perturb_dist perturb_dist] [-enable_routing_congestion] 
+
+global_placement_debug [-pause pause] [-update update] [-inst inst]
+   [-start_iter start_iter] [-start_rudy start_rudy] [-rudy_stride rudy_stride]
+   [-images_path images_path] [-draw_bins] [-initial] [-generate_images] 
+
+improve_placement [-random_seed seed] [-max_displacement disp|{disp_x disp_y}]
+   [-global_swap_args {options}] [-enable_extra_dpl bool]
+   [-disallow_one_site_gaps]  
+placement_cluster 
+set_placement_padding -global|-masters masters|-instances insts
+   [-right site_count] [-left site_count] [instances]  
+write_macro_placement file_name  
+write_pin_placement file_name [-placed_status]  
+===== HELP *master* =====
+[WARNING STA-0160] no commands match '*master*'.
+===== HELP *parasitic* =====
+estimate_parasitics -placement|-global_routing [-spef_file filename] 
+extract_parasitics [-ext_model_file filename] [-corner cornerIndex]
+   [-corner_cnt count] [-max_res ohms] [-coupling_threshold fF]
+   [-debug_net_id id] [-dbg dbg_num ] [-lef_res] [-lef_rc] [-cc_model track]
+   [-context_depth depth] [-no_merge_via_res] [-skip_over_cell ] [-version] 
+
+report_parasitic_annotation [-name spef_name] [-report_unannotated] 
+===== HELP *place_cell* =====
+replace_cell instance lib_cell 
+===== HELP *location* =====
+[WARNING STA-0160] no commands match '*location*'.
+===== HELP *move* =====
+remove_buffers instances  
+remove_fillers 
+remove_from_physical_cluster
+   [-parent_module module_name -modinst modinst_name | -inst inst_name | -physical_cluster cluster_name]
+   cluster_name 
+
+remove_io_bump inst 
+remove_io_bump_array -bump master 
+remove_io_rows 
+DB=_10e73fc7f8580000_p_odb__dbDatabase
+BLOCK=_5852eec8f8580000_p_odb__dbBlock
+MASTER_INV16=_f87eb3c8f8580000_p_odb__dbMaster
+MASTER_CLKINV16=_40b598c8f8580000_p_odb__dbMaster
+MACRO_LOC=30360 31230 ORIENT=MX
+MACRO_PIN=rstb AVG_XY=1 290760 322710 NET=net823
+MACRO_PIN=clk AVG_XY=1 290080 322710 NET=clknet_1_1__leaf_clk

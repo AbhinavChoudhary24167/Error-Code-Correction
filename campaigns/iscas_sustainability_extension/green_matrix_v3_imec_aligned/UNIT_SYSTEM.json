@@ -1,0 +1,21 @@
+{
+  "canonical_units": {
+    "area": "cm2",
+    "carbon": "kgCO2e",
+    "energy": "J",
+    "failure_rate": "failures_per_hour",
+    "power": "W",
+    "probability": "probability",
+    "time": "s"
+  },
+  "explicit_conversions": {
+    "FIT_to_failures_per_hour": 1e-09,
+    "cm2_to_mm2": 100,
+    "kWh_to_J": 3600000,
+    "kgCO2e_to_gCO2e": 1000,
+    "mm2_to_um2": 1000000,
+    "ppm_to_probability": 1e-06
+  },
+  "schema_version": "3.0.0",
+  "silent_coercion_allowed": false
+}

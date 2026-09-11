@@ -1,0 +1,111 @@
+{
+  "attempt_id": "gate3_openram_attempt02",
+  "macro": "sky130_sram_1rw_72x256_gate3a02",
+  "status": "FAIL",
+  "reason": "The available GDS and SPICE views are not physically qualified, the emitted SPICE interface is not a plain 256x72 interface, and LEF/Liberty/Verilog were not produced.",
+  "checks": [
+    {
+      "check": "configuration_reproducible",
+      "status": "PASS",
+      "evidence": "Repository and preserved run04 configuration SHA-256 are f8cfa843bfdc0427a6e35e620db180e2d222bd8239025eafd388379a33243fe0."
+    },
+    {
+      "check": "logical_organization_in_spice_header",
+      "status": "PASS",
+      "evidence": "The generated SPICE header states Words: 256 and Data bits: 72."
+    },
+    {
+      "check": "macro_name_across_available_views",
+      "status": "PASS",
+      "evidence": "Pinned Magic independently read GDS top sky130_sram_1rw_72x256_gate3a02; the SPICE top-level .SUBCKT uses the same name."
+    },
+    {
+      "check": "plain_72_bit_top_level_interface",
+      "status": "FAIL",
+      "evidence": "The SPICE top-level exposes din0[0] through din0[72] and dout0[0] through dout0[72], i.e. 73 data pins in each direction, plus spare_wen0."
+    },
+    {
+      "check": "256_word_address_interface",
+      "status": "FAIL",
+      "evidence": "The SPICE top-level exposes addr0[0] through addr0[8], i.e. nine address-related pins rather than a plain eight-bit 256-word address interface; the extra repair interface is not represented in any logical view because Verilog and Liberty are absent."
+    },
+    {
+      "check": "spice_structural_syntax_balance",
+      "status": "PASS",
+      "evidence": "The generated file contains 93 .SUBCKT declarations and 93 .ENDS declarations. This is a syntax-level check only."
+    },
+    {
+      "check": "drc",
+      "status": "FAIL",
+      "evidence": "Magic 8.3.311 reported 223,312 DRC errors."
+    },
+    {
+      "check": "lvs",
+      "status": "FAIL",
+      "evidence": "Netgen 1.5.221 reported equal device counts (154,542) but 40,403 versus 40,987 compared nets, one disconnected pin, and 'Netlists do not match'."
+    },
+    {
+      "check": "gds_top_and_bbox_parse",
+      "status": "PASS_WITH_DIAGNOSTICS",
+      "evidence": "Pinned Magic with SKY130 technology 1.0.291-63-ge829452 read the GDS top and returned box 0 0 112460 62239. At the active 0.005 um internal grid this is 562.300 x 311.195 um. Magic also reported unknown layer/datatype diagnostics while reading SRAM library cells."
+    },
+    {
+      "check": "compiler_geometry_record",
+      "status": "AVAILABLE",
+      "evidence": "OpenRAM logged 547.34 x 296.235 um before perimeter supply routing. The independently parsed full GDS boundary is 14.960 um larger in each dimension."
+    },
+    {
+      "check": "lef_to_gds_geometry",
+      "status": "NOT_ASSESSABLE",
+      "evidence": "No LEF was emitted."
+    },
+    {
+      "check": "liberty_to_verilog_interface",
+      "status": "NOT_ASSESSABLE",
+      "evidence": "Neither Liberty nor Verilog was emitted."
+    },
+    {
+      "check": "spice_to_logical_view_interface",
+      "status": "NOT_ASSESSABLE",
+      "evidence": "SPICE exists, but no Verilog or Liberty view exists for a pin-by-pin comparison."
+    },
+    {
+      "check": "supply_pin_consistency",
+      "status": "NOT_ASSESSABLE",
+      "evidence": "SPICE exposes vccd1 and vssd1. No LEF, Liberty, or Verilog supply interface was emitted for comparison."
+    }
+  ],
+  "observed_interfaces": {
+    "spice": {
+      "logical_header_words": 256,
+      "logical_header_data_bits": 72,
+      "data_input_indices": "0..72",
+      "data_output_indices": "0..72",
+      "address_indices": "0..8",
+      "controls": [
+        "csb0",
+        "web0",
+        "clk0",
+        "spare_wen0"
+      ],
+      "supplies": [
+        "vccd1",
+        "vssd1"
+      ]
+    },
+    "gds": {
+      "top_cell": "sky130_sram_1rw_72x256_gate3a02",
+      "bbox_um": [
+        0.0,
+        0.0,
+        562.3,
+        311.195
+      ],
+      "qualified": false
+    },
+    "lef": null,
+    "liberty": null,
+    "verilog": null
+  },
+  "downstream_interface_frozen": false
+}

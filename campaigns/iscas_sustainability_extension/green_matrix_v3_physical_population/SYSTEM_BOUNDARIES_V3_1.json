@@ -1,0 +1,21 @@
+{
+  "boundaries": [
+    {
+      "boundary_id": "SB_V3_1_MATCHED_U0_E0_IMPLEMENTATION_AND_SERVICE",
+      "clock": "10 ns, 0.1 ns uncertainty",
+      "excluded": [
+        "manufacturing",
+        "packaging",
+        "lifetime",
+        "external recovery"
+      ],
+      "functional_unit": "one requested payload-bearing memory service; correct-service qualification remains blocked",
+      "physical_flow": "Attempt09 upstream-original ORFS",
+      "pvt": "TT/25C/1.8V",
+      "technology": "SKY130HD_WITH_SRAM22_RESEARCH_MACROS",
+      "workload": "Attempt10 deterministic read_dominant trace, seed 11 for partial post-route activity"
+    }
+  ],
+  "parent": "../green_matrix_v3_imec_aligned/SYSTEM_BOUNDARIES.json",
+  "schema_version": "3.1.0"
+}

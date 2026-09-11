@@ -1,104 +1,45 @@
 # Reproducibility
 
-The documentation build is executable: it regenerates the scientific inputs before updating prose tables and figures.
+## Level 1: reviewer smoke path
 
-## One-command reproduction
+From the repository root, in a Python 3.10–3.12 environment:
 
-From the repository root:
-
-```text
-python scripts/build_documentation.py
+```bash
+python -m pip install -r requirements.txt
+make reviewer-smoke
 ```
 
-The command performs, in order:
+Expected outcome: `ARTIFACT_CHECK_PASS`, a passing Hsiao verification report, deterministic seeded simulator JSON, and passing targeted tests. Outputs print to the terminal; no physical tool is used.
 
-1. `python scripts/build_multi_ecc_catalogue.py`;
-2. `python scripts/run_multi_ecc_framework_evaluation.py`;
-3. `python scripts/generate_documentation_figures.py`;
-4. generated catalogue/result/claim/figure table updates;
-5. Markdown link and image validation;
-6. JSON example and all documentation/evaluation JSON validation;
-7. documentation CSV parsing;
-8. figure source/data/output SHA-256 validation;
-9. representative CLI `--help` smoke tests;
-10. `docs/figure_data/documentation_build_summary.json` emission.
+## Level 2: complete software validation
 
-Then verify without modifying files:
+Prerequisites: Level 1 plus GNU Make and a C++17 compiler.
 
-```text
-python scripts/build_documentation.py --check
-```
-
-The check regenerates figures in a temporary directory, compares content hashes, recomputes every marked documentation section, validates links/data/CLI help, and compares the build summary.
-
-## Full project validation
-
-```text
+```bash
 make
 make test
 python -m pytest -q
+python scripts/build_documentation.py --check
 ```
 
-The repository also supports `python3 -m pytest -q`; activate one environment so `python` and `python3` do not resolve to different installations.
+`make` emits native binaries and object/dependency files in the repository root. They are ignored and removable with `make clean`. Pytest uses temporary directories outside the tracked fixture tree. If the platform has multiple MinGW runtimes, correct `PATH` until `python eccsim.py doctor --strict` passes.
 
-Targeted documentation/Pareto validation is:
+## Level 3: campaign evidence audit or physical rerun
 
-```text
-python -m pytest -q tests/python/test_documentation_pareto.py
-python scripts/generate_documentation_figures.py --check
-```
+Audit first: read the campaign README, status, run manifest, validation results, hashes, and preserved logs. Package validation scripts may be run without allocating a new physical campaign.
 
-## Deterministic artifacts
+A physical rerun requires the exact or explicitly migrated container/tool/PDK/library environment, sufficient storage and runtime, and a new campaign identity. Do not overwrite frozen evidence. The completed v3.3 campaign had a single 54,000-second deadline and is not resumable as a fresh budget.
 
-The study and documentation pipeline uses:
+## Determinism and provenance
 
-- canonical sorted JSON and stable ID ordering;
-- deterministic matrix generation and exhaustive mask enumeration;
-- stable scenario IDs and candidate hashes;
-- fixed Matplotlib style and SVG hash salt;
-- removed/constant image creation metadata;
-- 320-DPI PNG plus vector SVG/PDF from the same in-memory figure;
-- one plot-data JSON (and flat CSV where applicable) per scientific figure;
-- a figure manifest containing source, data and output SHA-256 hashes;
-- an independent Pareto implementation checked against all scenario records.
+Software workflows record fixed seeds where randomness is intentional. Evidence packages bind inputs, repository commits, tool versions, commands, output hashes, and qualification states. Historical absolute paths document where a job ran; they are not installation defaults.
 
-Run the documentation build twice and compare `git diff` or use `--check`. Substantive generated content must be identical. PDF/PNG/SVG byte hashes are checked, not only their filenames.
+Exact regeneration can still differ when compiler, solver, standard-library, EDA, or PDK identities differ. Treat a changed hash as a result to investigate, not something to rewrite silently.
 
-## Source-of-truth order
+## Expected failure modes
 
-When facts disagree, use:
-
-1. executable source;
-2. schemas and registry manifests;
-3. tests and verification evidence;
-4. freshly regenerated machine-readable evaluation artifacts;
-5. provenance- and hash-valid archived logs;
-6. documentation.
-
-The historical archive under `docs/archive/pre_rebuild_2026-08-04/` is never consumed by the build.
-
-## Artifact map
-
-| Path | Role |
-|---|---|
-| `green_ecc_physical_simulation/registry/` | Versioned code/implementation/architecture/backend/scenario/workload manifests |
-| `green_ecc_physical_simulation/multi_ecc_evaluation/verification/` | Exact implementation reports and counterexamples |
-| `.../characterization/` | Structural/unavailable result records with physical nulls |
-| `.../scenario_selection_results.json` | Full candidate/scenario decisions and Pareto sets |
-| `.../software_study_summary.json` | Counts, winners, regret, stability and threshold summary |
-| `docs/figure_data/` | Plot-ready data, figure manifest and build summary |
-| `docs/figures/` | SVG, PNG and PDF outputs |
-| `docs/FIGURE_INDEX.md` | Human-readable figure provenance and inclusion map |
-
-## Figure reproduction and inspection
-
-```text
-python scripts/generate_documentation_figures.py
-python scripts/generate_documentation_figures.py --check
-```
-
-Every PNG must be visually inspected for clipping, overlap, contrast, units, legends, null display and evidence overstatement. The PDF/SVG variants are generated from the same Matplotlib figure before it is closed; the manifest binds every format.
-
-## Optional-tool limitations
-
-Icarus Verilog and Yosys can add RTL/structural evidence when present. A commercial or open-source physical flow also requires its exact PDK, libraries, memory collateral, constraints and workload. Reproducibility does not authorize installing or substituting those inputs. If they are absent, the reproducible result is the recorded failed physical gate.
+- Optional RTL/EDA tools absent: relevant checks skip or remain unavailable.
+- Mixed Windows compiler/runtime DLLs: native executable launch may fail; align `PATH`.
+- OpenRAM timeout: the retained attempt is intentionally partial, not a failed artifact check.
+- Physical run lacks macro data, activity, or signoff: retain null/block status.
+- Documentation regeneration changes frozen files: review the diff and never reseal historical evidence casually.

@@ -1,0 +1,45 @@
+{
+  "candidates": [
+    {
+      "classification": "SCIENTIFIC_EVIDENCE_KEEP",
+      "final_action": "KEEP",
+      "path": "fresh_runs/"
+    },
+    {
+      "classification": "SCIENTIFIC_EVIDENCE_KEEP",
+      "final_action": "KEEP",
+      "path": "logs/"
+    },
+    {
+      "classification": "SCIENTIFIC_EVIDENCE_KEEP",
+      "final_action": "KEEP",
+      "path": "progress/"
+    },
+    {
+      "classification": "SOURCE_KEEP",
+      "final_action": "KEEP",
+      "path": "derived_models/"
+    },
+    {
+      "classification": "SOURCE_KEEP",
+      "final_action": "KEEP",
+      "path": "scripts/"
+    },
+    {
+      "classification": "SCIENTIFIC_EVIDENCE_KEEP",
+      "final_action": "KEEP",
+      "path": "hashes/"
+    },
+    {
+      "classification": "UNCERTAIN_KEEP",
+      "final_action": "KEEP",
+      "path": "test-generated historical mutations"
+    }
+  ],
+  "cleanup_performed": false,
+  "deleted_files": [],
+  "generated_on": "2026-09-09",
+  "policy": "STRICT_PRESERVATION_AFTER_SCIENTIFIC_EXECUTION",
+  "postponed_cleanup": "All cache/test-fixture cleanup was postponed because deletion was unnecessary and preservation was requested.",
+  "schema_version": 1
+}

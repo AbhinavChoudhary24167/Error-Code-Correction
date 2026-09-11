@@ -1,0 +1,39 @@
+
+Magic 8.3 revision 311 - Compiled on Thu Jun 16 12:15:12 PDT 2022.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(vendor): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.291-63-ge829452
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: sky130_fd_bd_sram__sram_sp_wlstrap_ce
+Reading "sky130_fd_bd_sram__sram_sp_wlstrap_ce".
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 2102): Unknown layer/datatype in boundary, layer=92 type=44
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 2550): Unknown layer/datatype in boundary, layer=22 type=21
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 2998): Unknown layer/datatype in boundary, layer=115 type=42
+Error while reading cell "sky130_fd_bd_sram__sram_sp_wlstrap_ce" (byte position 3190): Unknown layer/datatype in boundary, layer=115 type=43
+Saving contents of cell sky130_fd_bd_sram__sram_sp_wlstrap_ce
+Writing 'sky130_fd_bd_sram__sram_sp_wlstrap_ce'
+Loading DRC CIF style.
+No errors found.
+__RULE_CSV_BEGIN__
+rule,count
+__RULE_CSV_END__
+RULE_TOTAL=0
+COUNT_TOTAL_WITH_HIERARCHICAL_DOUBLE_COUNTING=0
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Extraction style is now "ngspice(si)"
+Processing sky130_fd_bd_sram__sram_sp_wlstrap_ce
+Extracting sky130_fd_bd_sram__sram_sp_wlstrap_ce into sky130_fd_bd_sram__sram_sp_wlstrap_ce.ext:
+Finished extract
+exttospice finished.
+Finished ext2spice
