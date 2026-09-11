@@ -87,14 +87,18 @@
 # The matched v3.2 manifest freezes SRAM22 macro views as they were originally
 # materialized with CRLF.  Keep those byte identities stable on every host.
 /campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/**/*.lef text eol=crlf
-/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/**/*.lib text eol=crlf
+/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/**/*_tt_025C_1v80.lib text eol=crlf
 /campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt09_sram22_residual_interface_drv_and_provenance_closure/source_checkout/**/*.v text eol=crlf
 
-# GREEN v3.3's frozen manifest records generated Markdown/JSON/CSV artifacts in
-# CRLF form, while compiled VVP evidence is bound to its canonical LF bytes.
-/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/**/*.csv text eol=crlf
-/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/**/*.json text eol=crlf
-/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/**/*.md text eol=crlf
+# GREEN v3.3's frozen manifest records top-level generated Markdown/JSON/CSV
+# artifacts in CRLF form, while nested evidence and compiled VVP artifacts are
+# bound to canonical LF bytes.
+/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/*.csv text eol=crlf
+/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/*.json text eol=crlf
+/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/*.md text eol=crlf
+/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/CAMPAIGN_QUEUE.json text eol=lf
+/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/README.md text eol=lf
+/campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/RUNTIME_STATE.json text eol=lf
 /campaigns/iscas_sustainability_extension/green_v3_3_activity_complete_e5/**/*.vvp text eol=lf
 /campaigns/date_2027_activity_qualified_ecc_energy/** -text whitespace=-trailing-space,-blank-at-eof
 /campaigns/date_2027_activity_qualified_ecc_energy_rev2/** -text whitespace=-trailing-space,-blank-at-eof
