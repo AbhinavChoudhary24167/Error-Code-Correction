@@ -237,6 +237,43 @@ def test_ml_evaluate_smoke():
     assert "fallback_breakdown" in out
 
 
+def test_ml_evaluate_fallback_rate_deduplicates_overlap():
+    base = _new_base("eval_fallback_dedupe")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+    eval_dir = base / "eval"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=8, label_policy="fit_min")
+    train_models(dataset_dir, model_dir, seed=8, model_type="linear")
+    artifacts = evaluate_model(dataset_dir, model_dir, eval_dir, policy="fit_min", ood_threshold=-1.0)
+
+    out = json.loads(artifacts["evaluation"].read_text(encoding="utf-8"))
+    assert out["summary"]["ood_rate"] == 1.0
+    assert out["summary"]["fallback_rate"] <= 1.0
+
+
+def test_ml_train_calibration_skips_when_class_fold_requirement_not_met():
+    base = _new_base("calibration_class_counts")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=11)
+    dataset_path = dataset_dir / "dataset.csv"
+    df = pd.read_csv(dataset_path)
+
+    code_a = str(df.loc[0, "label_code"])
+    subset_a = df[df["label_code"].astype(str) == code_a].head(20).copy()
+    subset_b = df.head(2).copy()
+    subset_b["label_code"] = "synthetic-alt"
+    subset = pd.concat([subset_a, subset_b], ignore_index=True)
+    subset.to_csv(dataset_path, index=False)
+
+    train_models(dataset_dir, model_dir, seed=11, calibrate_confidence="platt")
+
+    pred = predict_with_model(model_dir, _sample_row())
+    assert isinstance(pred["ml_recommendation"], str)
+
+
 def test_thresholds_schema_and_uncertainty_artifact():
     model_dir = _prepare_model("schema", seed=3, ood_method="mahalanobis", ood_quantile=0.99, conformal_alpha=0.2)
     thresholds = json.loads((model_dir / "thresholds.json").read_text(encoding="utf-8"))
@@ -466,6 +503,40 @@ def test_ml_check_drift_cli_writes_stable_report():
     assert isinstance(payload["summary"]["max_psi"], float)
     assert isinstance(payload["status"]["drift_detected"], bool)
     assert payload["status"]["severity"] in {"none", "medium", "high"}
+    assert payload["status"]["drift_detected"] is False
+    assert payload["status"]["severity"] == "none"
+
+
+def test_ml_check_drift_missing_reference_confidence_baseline_is_neutral():
+    base = _new_base("drift_conf_baseline")
+    dataset_dir = base / "dataset"
+    model_dir = base / "model"
+
+    build_dataset(REPO / "reports" / "examples", dataset_dir, seed=10)
+    train_models(dataset_dir, model_dir, seed=10)
+
+    bundle = joblib.load(model_dir / "model.joblib")
+    bundle.setdefault("train_stats", {}).pop("reference_confidence_mean", None)
+    joblib.dump(bundle, model_dir / "model.joblib")
+
+    out_path = base / "drift_no_ref_conf.json"
+    cmd = [
+        sys.executable,
+        str(REPO / "eccsim.py"),
+        "ml",
+        "check-drift",
+        "--model",
+        str(model_dir),
+        "--new-data",
+        str(dataset_dir),
+        "--out",
+        str(out_path),
+    ]
+    subprocess.run(cmd, check=True, capture_output=True, text=True, cwd=REPO)
+
+    payload = json.loads(out_path.read_text(encoding="utf-8"))
+    assert math.isclose(float(payload["confidence_shift"]), 0.0, abs_tol=1e-12)
+    assert payload["status"]["drift_detected"] is False
 
 
 def test_ml_check_drift_fail_on_drift_exits_nonzero():

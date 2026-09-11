@@ -208,8 +208,8 @@ def evaluate_model(
     ood_method = str(resolved["ood_method"])
     ood_max = float(resolved["ood_threshold"])
 
-    ood_count = 0
-    low_conf_count = 0
+    ood_flags: list[bool] = []
+    low_conf_flags: list[bool] = []
     for feature_row in feature_rows:
         score, _ = _ood_score(
             bundle,
@@ -217,18 +217,20 @@ def evaluate_model(
             method=ood_method,
             numeric_features=numeric_features,
         )
-        if score > ood_max:
-            ood_count += 1
+        ood_flags.append(score > ood_max)
     for conf in confidences:
-        if conf < confidence_min:
-            low_conf_count += 1
+        low_conf_flags.append(conf < confidence_min)
+
+    ood_count = sum(ood_flags)
+    low_conf_count = sum(low_conf_flags)
+    fallback_count = sum(ood or low_conf for ood, low_conf in zip(ood_flags, low_conf_flags))
 
     evaluation = {
         "summary": {
             "rows": int(len(df)),
             "policy": str(resolved["ml_policy"]),
             "split": str(split),
-            "fallback_rate": float((ood_count + low_conf_count) / max(len(df), 1)),
+            "fallback_rate": float(fallback_count / max(len(df), 1)),
             "ood_rate": float(ood_count / max(len(df), 1)),
             "ood_method": ood_method,
             "ood_threshold": ood_max,

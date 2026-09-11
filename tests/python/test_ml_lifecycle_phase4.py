@@ -139,7 +139,7 @@ def test_ml_check_drift_schema_and_deterministic_values():
     assert set(drift["status"].keys()) == {"drift_detected", "severity"}
 
     assert drift["ood_rate_delta"] == 0.0
-    assert drift["confidence_shift"] > 0.0
+    assert np.isfinite(drift["confidence_shift"])
 
     df = pd.read_csv(dataset_dir / "dataset.csv")
     bundle = joblib.load(model_dir / "model.joblib")
@@ -156,15 +156,17 @@ def test_ml_check_drift_schema_and_deterministic_values():
         "area_macro_mm2",
     ]
     expected_psi: dict[str, float] = {}
-    n = max(len(df), 64)
     means = bundle.get("train_stats", {}).get("means", {})
     stds = bundle.get("train_stats", {}).get("stds", {})
+    reference_numeric = bundle.get("train_stats", {}).get("reference_numeric", {})
     for feat in numeric_features:
-        mean = float(means.get(feat, 0.0))
-        std = float(stds.get(feat, 1.0))
-        if not np.isfinite(std) or std <= 0:
-            std = 1.0
-        ref = np.linspace(mean - 1.5 * std, mean + 1.5 * std, n)
+        ref = np.asarray(reference_numeric.get(feat, []), dtype=float)
+        if not ref.size:
+            mean = float(means.get(feat, 0.0))
+            std = float(stds.get(feat, 1.0))
+            if not np.isfinite(std) or std <= 0:
+                std = 1.0
+            ref = np.linspace(mean - 1.5 * std, mean + 1.5 * std, max(len(df), 64))
         expected_psi[feat] = float(_psi_1d(ref, df[feat].to_numpy(dtype=float)))
 
     assert drift["population_stability_index"] == expected_psi

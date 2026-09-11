@@ -74,11 +74,19 @@ def _reference_numeric_distribution(
     numeric_features: list[str],
     reference_rows: int,
 ) -> dict[str, np.ndarray]:
-    means = bundle.get("train_stats", {}).get("means", {})
-    stds = bundle.get("train_stats", {}).get("stds", {})
+    train_stats = bundle.get("train_stats", {})
+    means = train_stats.get("means", {})
+    stds = train_stats.get("stds", {})
+    reference_numeric = train_stats.get("reference_numeric", {})
     n = max(int(reference_rows), 64)
     ref: dict[str, np.ndarray] = {}
     for feat in numeric_features:
+        raw_values = reference_numeric.get(feat, []) if isinstance(reference_numeric, dict) else []
+        values = np.asarray(raw_values, dtype=float)
+        values = values[np.isfinite(values)]
+        if values.size:
+            ref[feat] = values
+            continue
         mean = float(means.get(feat, 0.0))
         std = float(stds.get(feat, 1.0))
         if not np.isfinite(std) or std <= 0:
@@ -131,16 +139,43 @@ def compute_drift_report(model_dir: Path, new_data_dir: Path) -> dict[str, Any]:
         ood_scores.append(float(score))
     new_ood_rate = float(np.mean(np.asarray(ood_scores, dtype=float) > ood_threshold)) if ood_scores else 0.0
 
-    reference_ood_rate = float(bundle.get("train_stats", {}).get("reference_ood_rate", 0.0))
+    train_stats = bundle.get("train_stats", {})
+    reference_ood_raw = train_stats.get("reference_ood_rate")
+    if reference_ood_raw is None:
+        reference_lengths = [len(values) for values in reference_numeric.values()]
+        reference_rows = min(reference_lengths) if reference_lengths else 0
+        reference_ood_scores: list[float] = []
+        for i in range(reference_rows):
+            feature_row = {key: float(reference_numeric[key][i]) for key in numeric_features}
+            score, _ = _ood_score(
+                bundle,
+                feature_row,
+                method=ood_method,
+                numeric_features=numeric_features,
+            )
+            reference_ood_scores.append(float(score))
+        reference_ood_rate = (
+            float(np.mean(np.asarray(reference_ood_scores, dtype=float) > ood_threshold))
+            if reference_ood_scores
+            else 0.0
+        )
+    else:
+        reference_ood_rate = float(reference_ood_raw)
     ood_rate_delta = float(new_ood_rate - reference_ood_rate)
 
     classifier = bundle["classifier"]
     probs = classifier.predict_proba(X)
     new_confidence_mean = float(np.mean(np.max(probs, axis=1))) if len(probs) else 0.0
-    reference_confidence_mean = float(
-        bundle.get("train_stats", {}).get("reference_confidence_mean", thresholds["confidence_min"])
+    reference_confidence_raw = train_stats.get("reference_confidence_mean")
+    confidence_baseline_available = reference_confidence_raw is not None
+    reference_confidence_mean = (
+        float(reference_confidence_raw) if confidence_baseline_available else float(new_confidence_mean)
     )
+    if not np.isfinite(reference_confidence_mean):
+        confidence_baseline_available = False
+        reference_confidence_mean = float(new_confidence_mean)
     confidence_shift = float(new_confidence_mean - reference_confidence_mean)
+    confidence_drop = float(max(0.0, -confidence_shift)) if confidence_baseline_available else 0.0
 
     max_psi = float(max(psi_map.values()) if psi_map else 0.0)
     mean_psi = float(np.mean(list(psi_map.values())) if psi_map else 0.0)
@@ -153,12 +188,12 @@ def compute_drift_report(model_dir: Path, new_data_dir: Path) -> dict[str, Any]:
     conf_crit = float(DRIFT_POLICY_THRESHOLDS["confidence_shift"]["fail"])
 
     drift_detected = bool(
-        max_psi >= psi_warn or abs(ood_rate_delta) >= ood_warn or abs(confidence_shift) >= conf_warn
+        max_psi >= psi_warn or abs(ood_rate_delta) >= ood_warn or confidence_drop >= conf_warn
     )
     severity = "none"
     if drift_detected:
         severity = "high" if (
-            max_psi >= psi_crit or abs(ood_rate_delta) >= ood_crit or abs(confidence_shift) >= conf_crit
+            max_psi >= psi_crit or abs(ood_rate_delta) >= ood_crit or confidence_drop >= conf_crit
         ) else "medium"
 
     return {

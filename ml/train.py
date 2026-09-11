@@ -313,7 +313,14 @@ def train_models(
         categorical_features=categorical_features,
         numeric_features=numeric_features,
     )
-    if calibrate_confidence in {"isotonic", "platt"} and y_cls_train.nunique() > 1 and len(X_train) >= 10:
+    class_counts = y_cls_train.value_counts()
+    min_class_count = int(class_counts.min()) if len(class_counts) else 0
+    if (
+        calibrate_confidence in {"isotonic", "platt"}
+        and y_cls_train.nunique() > 1
+        and len(X_train) >= 10
+        and min_class_count >= 3
+    ):
         method = "isotonic" if calibrate_confidence == "isotonic" else "sigmoid"
         clf = CalibratedClassifierCV(clf, cv=3, method=method)
         clf.fit(X_train, y_cls_train)
@@ -360,9 +367,14 @@ def train_models(
     if numeric_features:
         means = _as_float_dict(X_train[numeric_features].mean())
         stds = _as_float_dict(X_train[numeric_features].std(ddof=0).replace(0, 1.0))
+        reference_numeric = {
+            feat: [float(v) for v in X_train[feat].to_numpy(dtype=float).tolist()]
+            for feat in numeric_features
+        }
     else:
         means = {}
         stds = {}
+        reference_numeric = {}
 
     confidence_threshold = 0.6
     if acc < 0.5:
@@ -416,6 +428,30 @@ def train_models(
         seed=seed,
     )
 
+    reference_bundle = {
+        "train_stats": {
+            "means": means,
+            "stds": stds,
+        },
+        "ood": ood_payload,
+    }
+    train_ood_scores: list[float] = []
+    for _, row in X_train[numeric_features].iterrows():
+        feature_row = {key: float(row[key]) for key in numeric_features}
+        score, _ = _ood_score(
+            reference_bundle,
+            feature_row,
+            method=str(ood_payload.get("method", "zscore")),
+            numeric_features=numeric_features,
+        )
+        train_ood_scores.append(float(score))
+    reference_ood_rate = (
+        float(np.mean(np.asarray(train_ood_scores, dtype=float) > float(ood_threshold)))
+        if train_ood_scores
+        else 0.0
+    )
+    reference_confidence_mean = float(np.mean(confidences)) if confidences.size else 0.0
+
     thresholds = {
         "confidence_min": float(confidence_threshold),
         "ood_max_abs_z": float(ood_threshold),
@@ -466,6 +502,9 @@ def train_models(
         "train_stats": {
             "means": means,
             "stds": stds,
+            "reference_numeric": reference_numeric,
+            "reference_ood_rate": reference_ood_rate,
+            "reference_confidence_mean": reference_confidence_mean,
             "train_size": int(len(X_train)),
             "test_size": int(len(X_test)),
         },
