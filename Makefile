@@ -33,17 +33,12 @@ PracticalSRAMSimulator: PracticalSRAMSimulator.o
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 ifeq ($(OS),Windows_NT)
-RM := cmd /C del /Q
-CLEAN_BINARIES := $(addsuffix .exe,$(BINARIES))
-CLEAN_TEST_BINARY := tests/unit/SecDaec64_test.exe
-else
-RM := rm -f
-CLEAN_BINARIES := $(BINARIES)
-CLEAN_TEST_BINARY := tests/unit/SecDaec64_test
-endif
-
 clean:
-	$(RM) $(CLEAN_BINARIES) $(OBJ) $(DEP) $(CLEAN_TEST_BINARY) tests/unit/SecDaec64_test.d
+	powershell.exe -NoProfile -Command "$$files = @('BCHvsHamming.exe','Hamming32bit1Gb.exe','Hamming64bit128Gb.exe','SATDemo.exe','PracticalSRAMSimulator.exe','BCHvsHamming.o','Hamming32bit1Gb.o','Hamming64bit128Gb.o','SAT.o','PracticalSRAMSimulator.o','src/energy_loader.o','src/bch63.o','BCHvsHamming.d','Hamming32bit1Gb.d','Hamming64bit128Gb.d','SAT.d','PracticalSRAMSimulator.d','src/energy_loader.d','src/bch63.d','tests/unit/SecDaec64_test.exe','tests/unit/SecDaec64_test.d'); $$files | Where-Object { Test-Path -LiteralPath $$_ -PathType Leaf } | ForEach-Object { Remove-Item -Force -LiteralPath $$_ }; if ($$files | Where-Object { Test-Path -LiteralPath $$_ -PathType Leaf }) { exit 1 }"
+else
+clean:
+	rm -f $(BINARIES) $(OBJ) $(DEP) tests/unit/SecDaec64_test tests/unit/SecDaec64_test.d
+endif
 
 -include $(DEP)
 
