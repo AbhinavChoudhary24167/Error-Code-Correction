@@ -11,6 +11,7 @@ import pytest
 from campaigns.iscas_sustainability_extension.green_matrix_v3_2.build_campaign import (
     BASE,
     PARENT,
+    _parent_sha,
     artifact_paths,
     build_all,
 )
@@ -321,7 +322,7 @@ def test_historical_hashes_are_preserved_and_v31_files_are_not_rewritten() -> No
     history = _json("data/HISTORICAL_INTEGRITY.json")
     assert history["historical_artifacts_modified"] is False
     for name, digest in history["parent_artifact_hashes"].items():
-        assert _sha(PARENT / name) == digest
+        assert _parent_sha(PARENT / name) == digest
 
 
 def test_builder_is_byte_deterministic_and_hash_manifest_is_complete() -> None:

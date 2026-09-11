@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 from pathlib import Path
+import shutil
 
 import pytest
 
@@ -89,14 +90,16 @@ def test_every_numeric_field_has_valid_row_level_evidence() -> None:
                 assert evidence not in {"NOT_QUALIFIED", "NOT_MEASURED"}
 
 
-def test_matrix_generation_is_byte_deterministic_and_hashes_inputs() -> None:
-    paths = build()
+def test_matrix_generation_is_byte_deterministic_and_hashes_inputs(tmp_path: Path) -> None:
+    isolated_base = tmp_path / "green_refoundation_node_aware_carbon"
+    shutil.copytree(BASE, isolated_base)
+    paths = build(isolated_base)
     first = [_sha(path) for path in paths]
-    paths = build()
+    paths = build(isolated_base)
     assert [_sha(path) for path in paths] == first
     metadata = json.loads(paths[2].read_text(encoding="utf-8"))
     for relative, expected in metadata["input_sha256"].items():
-        assert _sha(BASE / relative) == expected
+        assert _sha(isolated_base / relative) == expected
 
 
 def test_exact_pareto_is_deterministic_and_preserves_tradeoffs() -> None:

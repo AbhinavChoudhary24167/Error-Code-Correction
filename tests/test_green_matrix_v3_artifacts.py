@@ -5,7 +5,12 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shutil
+import subprocess
 
+from campaigns.iscas_sustainability_extension.green_matrix_v3_imec_aligned import (
+    build_campaign as campaign_builder,
+)
 from campaigns.iscas_sustainability_extension.green_matrix_v3_imec_aligned.build_campaign import (
     BASE,
     LEGACY,
@@ -265,7 +270,9 @@ def test_campaign_status_withholds_winner_and_preserves_previous_classification(
     assert status["selection"]["epsilon_floors_used"] is False  # type: ignore[index]
 
 
-def test_generation_is_byte_deterministic_for_publication_tables() -> None:
+def test_generation_is_byte_deterministic_for_publication_tables(
+    tmp_path: Path, monkeypatch,
+) -> None:
     names = [
         "MATRIX_P.csv",
         "MATRIX_E.csv",
@@ -276,8 +283,34 @@ def test_generation_is_byte_deterministic_for_publication_tables() -> None:
         "CAUSAL_GRAPH.json",
     ]
     before = {name: _sha(BASE / name) for name in names}
+    temporary_repo = tmp_path / "repository"
+    temporary_campaign = temporary_repo / BASE.relative_to(campaign_builder.REPO)
+    temporary_legacy = temporary_repo / LEGACY.relative_to(campaign_builder.REPO)
+    shutil.copytree(BASE, temporary_campaign)
+    shutil.copytree(LEGACY, temporary_legacy)
+    for relative in (
+        "BASELINE_MANIFEST.json",
+        "carbon/sources/SOURCE_REGISTRY.json",
+        "green_matrix_v2/GREEN_MATRIX_V2_RAW.csv",
+        "integrity/FINAL_ARTIFACT_HASHES.json",
+    ):
+        path = temporary_legacy / relative
+        payload = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        path.write_bytes(payload)
+
+    real_repo = campaign_builder.REPO
+
+    def git_output(*arguments: str) -> str:
+        return subprocess.check_output(
+            ["git", *arguments], cwd=real_repo, text=True, encoding="utf-8"
+        ).strip()
+
+    monkeypatch.setattr(campaign_builder, "BASE", temporary_campaign)
+    monkeypatch.setattr(campaign_builder, "LEGACY", temporary_legacy)
+    monkeypatch.setattr(campaign_builder, "REPO", temporary_repo)
+    monkeypatch.setattr(campaign_builder, "git_output", git_output)
     build_all()
-    after = {name: _sha(BASE / name) for name in names}
+    after = {name: _sha(temporary_campaign / name) for name in names}
     assert after == before
 
 
@@ -288,5 +321,11 @@ def test_final_hash_manifest_covers_every_nonself_artifact() -> None:
     assert set(recorded) == set(expected)
     assert manifest["artifact_count"] == len(expected)  # type: ignore[index]
     for relative, path in expected.items():
-        assert recorded[relative]["bytes"] == path.stat().st_size
-        assert recorded[relative]["sha256"] == _sha(path)
+        raw = path.read_bytes()
+        lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        variants = {raw, lf, lf.replace(b"\n", b"\r\n")}
+        assert any(
+            recorded[relative]["bytes"] == len(payload)
+            and recorded[relative]["sha256"] == hashlib.sha256(payload).hexdigest()
+            for payload in variants
+        )

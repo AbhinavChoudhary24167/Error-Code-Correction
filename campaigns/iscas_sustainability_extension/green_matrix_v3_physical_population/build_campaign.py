@@ -45,13 +45,29 @@ def _load(path: Path) -> Any:
 
 
 def _sha(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    payload = path.read_bytes()
+    if path.name == "Makefile" or path.suffix.lower() in {
+        ".conf",
+        ".csv",
+        ".json",
+        ".md",
+        ".mk",
+        ".py",
+        ".rpt",
+        ".sdc",
+        ".sv",
+        ".txt",
+        ".v",
+    }:
+        payload = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def _write_json(name: str, value: Any) -> None:
     (BASE / name).write_text(
         json.dumps(value, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
 
 
@@ -1119,7 +1135,9 @@ def build_all() -> None:
             "global_architecture_winner": "NO_GLOBAL_WINNER_QUALIFIED",
         },
     )
-    (BASE / "FINAL_REPORT.md").write_text(_final_report(qualification, literature), encoding="utf-8")
+    (BASE / "FINAL_REPORT.md").write_text(
+        _final_report(qualification, literature), encoding="utf-8", newline="\n"
+    )
 
 
 if __name__ == "__main__":

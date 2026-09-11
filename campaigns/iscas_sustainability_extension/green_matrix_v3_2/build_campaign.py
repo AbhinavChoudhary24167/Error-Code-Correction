@@ -52,6 +52,48 @@ SOURCE_FILES = (
     "FROZEN_FOUNDATION_MANIFEST.json",
 )
 
+# v3.2 was sealed against CRLF-materialized v3.1 sources. Git stores the same
+# scientific text with LF, so bind both representations explicitly rather than
+# silently changing the frozen provenance fields.
+PARENT_HASH_BINDINGS = {
+    "FROZEN_FOUNDATION_MANIFEST.json": (
+        "b7051cfa95f134c14987f2182377f2c34d8b0ea03a8eb845be6ce8c6f8402575",
+        "5a5dda39b9674c34bd883a56877c13dba0378bd840ae8efdac32efa00e769687",
+    ),
+    "INTERLEAVER_PHYSICAL_RESULTS.json": (
+        "0aabd9a176d3e0637c11b4829de8402099f9ddbdea7b052e9c565500cd53d148",
+        "af9b2551dc2ca4feadd375b1f4b0406e425149423e2f089ec141575ad0fed6ba",
+    ),
+    "LITERATURE_FAULT_EVIDENCE.json": (
+        "af61a21ae046e89645d24d951d3fb350644b1226ff2f7768d5218ac0c6e9f6a7",
+        "244770ccee5d1006eeefabcd8b0b3cd7316ede09913b4d31255861c63734ded2",
+    ),
+    "MATRIX_E_V3_1.json": (
+        "be77fd6b960b64bcaf7f3ca83f80b21612eb141b3f9cd7cde647ea0c1cc5627a",
+        "d08d24a915a18d3c3fa49462b9f21c948f0c6ef5318201c0de0c3d7f074771c7",
+    ),
+    "MATRIX_P_V3_1.json": (
+        "dfb284e45c55df60bf1e20db0741f2c17de8428e2e140491f725a8a59ec02ee2",
+        "c5363eb42d1084a92c45b240f9808fd58444c1bbc860a19dadb0d3d7c02d7f95",
+    ),
+    "MATRIX_S_V3_1.json": (
+        "b46f7cbceb50158ac236f44131fa3a1e5afc94d882558c69c802c563e57f5995",
+        "af6e1c1c20654c279c62568966fda13577b233b69b3ec7d815082f51aa05847e",
+    ),
+    "PHYSICAL_FAULT_TOPOLOGY.json": (
+        "d6675c1c53baed466c2ede8042674e8713e7972a817a516a7807f6e9157742c1",
+        "b65eef06176cce309c6878fa61e2efe38f091fa2943b521963c306db28cfc614",
+    ),
+    "POST_ROUTE_ACTIVITY.json": (
+        "9a4557775c6fd133b9789cfec40449aaf0ee93f8f2a9351d893c1ce04517e88e",
+        "0928aa898d85cb02af26ac24375b3335d6cb6138440d2d3b20bca142adc90ad0",
+    ),
+    "SERVICE_METRICS.json": (
+        "476e3aa4852febbd99ce81986ff93b5022fc0b1223228586120d86733ae8ca18",
+        "93a45f45b160580b858434b6641ab48d24778429759dfd8ae9067ee66b78b120",
+    ),
+}
+
 
 def _load(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
@@ -60,6 +102,15 @@ def _load(path: Path) -> Any:
 
 def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _parent_sha(path: Path) -> str:
+    binding = PARENT_HASH_BINDINGS.get(path.name)
+    if binding is None:
+        return _sha(path)
+    payload = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    canonical = hashlib.sha256(payload).hexdigest()
+    return binding[1] if canonical == binding[0] else _sha(path)
 
 
 def _record_sha(record: Mapping[str, Any]) -> str:
@@ -72,17 +123,18 @@ def _write_json(path: Path, value: Any) -> None:
     path.write_text(
         json.dumps(value, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",
+        newline="\r\n",
     )
 
 
 def _write_text(path: Path, value: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(value, encoding="utf-8")
+    path.write_text(value, encoding="utf-8", newline="\r\n")
 
 
 def _source_hashes() -> dict[str, str]:
     return {
-        f"campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/{name}": _sha(
+        f"campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population/{name}": _parent_sha(
             PARENT / name
         )
         for name in SOURCE_FILES
@@ -582,7 +634,7 @@ def _evidence_matrix(
         {
             "matrix_symbol": "M_E",
             "parent_matrix_schema_version": parent_e["schema_version"],
-            "parent_matrix_sha256": _sha(PARENT / "MATRIX_E_V3_1.json"),
+            "parent_matrix_sha256": _parent_sha(PARENT / "MATRIX_E_V3_1.json"),
             "parent_record_count": len(inherited),
             "records": records,
             "row_count": len(records),
@@ -675,7 +727,7 @@ def _physical_matrix(
     result.update(
         {
             "matrix_symbol": "M_P",
-            "parent_matrix_sha256": _sha(PARENT / "MATRIX_P_V3_1.json"),
+            "parent_matrix_sha256": _parent_sha(PARENT / "MATRIX_P_V3_1.json"),
             "records": records,
             "row_count": len(records),
             "new_row_count": len(records),
@@ -768,7 +820,7 @@ def _sustainability_matrix(
             "records": records,
             "row_count": len(records),
             "new_row_count": len(records),
-            "parent_matrix_sha256": _sha(PARENT / "MATRIX_S_V3_1.json"),
+            "parent_matrix_sha256": _parent_sha(PARENT / "MATRIX_S_V3_1.json"),
             "global_architecture_winner": "NO_GLOBAL_WINNER_QUALIFIED",
             "conditional_surface_count": conditional_artifact["record_count"],
         }
@@ -1321,7 +1373,7 @@ def _historical_integrity(campaign_commit: str) -> dict[str, Any]:
                 "campaigns/iscas_sustainability_extension/green_matrix_v3_physical_population",
             ],
             "parent_artifact_hashes": {
-                name: _sha(PARENT / name) for name in SOURCE_FILES
+                name: _parent_sha(PARENT / name) for name in SOURCE_FILES
             },
             "historical_artifacts_modified": False,
             "v3_1_classification_preserved": (

@@ -36,7 +36,22 @@ def _json(name: str) -> dict[str, object]:
 
 
 def _sha(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    payload = path.read_bytes()
+    if path.name == "Makefile" or path.suffix.lower() in {
+        ".conf",
+        ".csv",
+        ".json",
+        ".md",
+        ".mk",
+        ".py",
+        ".rpt",
+        ".sdc",
+        ".sv",
+        ".txt",
+        ".v",
+    }:
+        payload = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(payload).hexdigest()
 
 
 def test_evidence_kind_contract_is_explicit_and_complete() -> None:

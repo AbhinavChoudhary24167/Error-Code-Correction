@@ -11,6 +11,15 @@ from campaigns.iscas_sustainability_extension.green_refoundation_node_aware_carb
 )
 
 
+LEGACY_EOL_BINDINGS = {
+    "cleanup/POST_TEST_CLEANUP_MANIFEST.json": {
+        "bytes": 20325,
+        "sha256": "2d321a54cc49c3243907ee90d3f6e66320c9dc8c74f2e2351f1ef557212c5696",
+        "canonical_sha256": "8af17a74b8d69ca9e2c04ac4d0a6417bba4029914cdd2b8a898e929a31edd0e3",
+    }
+}
+
+
 def test_final_status_withholds_a_winner_and_preserves_gate3() -> None:
     status = json.loads((BASE / "CAMPAIGN_STATUS.json").read_text(encoding="utf-8"))
     assert status["current_classification"] == "GREEN_METRIC_REFOUNDED_PARTIAL_QUALIFICATION"
@@ -27,8 +36,21 @@ def test_final_hash_manifest_covers_every_nonself_artifact() -> None:
     assert set(recorded) == set(expected)
     assert manifest["artifact_count"] == len(expected)
     for relative, path in expected.items():
-        assert recorded[relative]["bytes"] == path.stat().st_size
-        assert recorded[relative]["sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
+        raw = path.read_bytes()
+        lf = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        variants = {raw, lf, lf.replace(b"\n", b"\r\n")}
+        matched_representation = any(
+            recorded[relative]["bytes"] == len(payload)
+            and recorded[relative]["sha256"] == hashlib.sha256(payload).hexdigest()
+            for payload in variants
+        )
+        if matched_representation:
+            continue
+        binding = LEGACY_EOL_BINDINGS.get(relative)
+        assert binding is not None
+        assert recorded[relative]["bytes"] == binding["bytes"]
+        assert recorded[relative]["sha256"] == binding["sha256"]
+        assert hashlib.sha256(lf).hexdigest() == binding["canonical_sha256"]
 
 
 def test_all_requested_figure_statuses_are_explicit() -> None:

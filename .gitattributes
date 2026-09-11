@@ -41,6 +41,48 @@
 /campaigns/iscas_sustainability_extension/**/*.md text eol=lf
 /campaigns/iscas_sustainability_extension/**/*.py text eol=lf
 /campaigns/iscas_sustainability_extension/**/*.sh text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.conf text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.constr text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.def text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.exit_code text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.ext text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.guide text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.hex text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.ini text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.lef text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.lib text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.log text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.mag text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.magicrc text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.mk text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.patch text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.report text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.rpt text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.rst text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.rtlil text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.sdc text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.sha256 text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.sp text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.spef text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.spice text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.sv text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.tcl text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.tech text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.tsv text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.txt text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.v text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.vams text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.vcd text eol=lf
+/campaigns/iscas_sustainability_extension/**/*.vpl text eol=lf
+/campaigns/iscas_sustainability_extension/**/.gitignore text eol=lf
+
+# GREEN Matrix v3.2's frozen manifests record CRLF materialized byte counts and
+# hashes. Keep that representation stable on every platform; later campaigns
+# bind its scientific content separately where newline migration is required.
+/campaigns/iscas_sustainability_extension/green_matrix_v3_2/**/*.json text eol=crlf
+/campaigns/iscas_sustainability_extension/green_matrix_v3_2/**/*.md text eol=crlf
+/campaigns/iscas_sustainability_extension/green_matrix_v3_2/**/*.py text eol=crlf
+/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt10_green_matrix_physical_model_validation/energy/postroute/read_dominant/*/slash_scope/*.rpt -text !eol
 /campaigns/date_2027_activity_qualified_ecc_energy/** -text whitespace=-trailing-space,-blank-at-eof
 /campaigns/date_2027_activity_qualified_ecc_energy_rev2/** -text whitespace=-trailing-space,-blank-at-eof
 /paper/date2027_revision/** -text whitespace=-trailing-space,-blank-at-eof

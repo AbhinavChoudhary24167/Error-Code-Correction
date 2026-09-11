@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 from pathlib import Path
 import sys
 
@@ -27,7 +28,7 @@ from energy_accounting import (  # noqa: E402
     classify_activity_coverage,
     operational_carbon_interval,
 )
-from audit_attempt10_activity import render_csv  # noqa: E402
+import audit_attempt10_activity as activity_audit  # noqa: E402
 
 
 def _q(value: float, *, tier: EvidenceTier = EvidenceTier.TIER_1_INDEPENDENT_CHARACTERIZATION, unit: str = "J/event") -> EnergyQuantity:
@@ -173,10 +174,21 @@ def test_attempt10_component_partition_reproduces_aggregate_counts() -> None:
         assert (annotated, total) == pair
 
 
-def test_attempt10_component_csv_is_byte_reproducible() -> None:
+def test_attempt10_component_csv_is_byte_reproducible(monkeypatch: pytest.MonkeyPatch) -> None:
+    for key, expected in activity_audit.EXPECTED_SHA256.items():
+        architecture, report = key.split("/", 1)
+        path = activity_audit.POSTROUTE / architecture / "slash_scope" / report
+        raw = path.read_bytes()
+        canonical = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        assert hashlib.sha256(canonical).hexdigest() == expected
+        monkeypatch.setitem(
+            activity_audit.EXPECTED_SHA256,
+            key,
+            hashlib.sha256(raw).hexdigest(),
+        )
     assert (ENERGY / "ACTIVITY_COVERAGE_BY_COMPONENT.csv").read_text(
         "utf-8"
-    ) == render_csv()
+    ) == activity_audit.render_csv()
 
 
 def test_interval_rejects_negative_reversed_and_nonfinite() -> None:

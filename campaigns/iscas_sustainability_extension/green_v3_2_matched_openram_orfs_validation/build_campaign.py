@@ -33,6 +33,26 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def frozen_source_sha256(repo: Path, relative: str) -> str:
+    """Return a frozen digest, honoring an explicit newline migration binding."""
+
+    source = repo / relative
+    raw_digest = sha256(source)
+    migration_path = (
+        repo
+        / "green_ecc_physical_simulation/registry/scientific_hash_migrations.json"
+    )
+    migrations = load_json(migration_path, {}).get("bindings", {})
+    binding = migrations.get(relative)
+    if not isinstance(binding, dict):
+        return raw_digest
+    canonical_bytes = source.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    canonical_digest = hashlib.sha256(canonical_bytes).hexdigest()
+    if canonical_digest == binding.get("canonical_sha256"):
+        return str(binding["legacy_sha256"])
+    return raw_digest
+
+
 def write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
@@ -174,7 +194,7 @@ def inherited_macro_records(repo: Path) -> list[dict[str, Any]]:
 def architecture_audit(repo: Path, functional: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
     def sources(paths: list[str]) -> list[dict[str, Any]]:
         return [
-            {"path": path, "sha256": sha256(repo / path)}
+            {"path": path, "sha256": frozen_source_sha256(repo, path)}
             for path in paths
             if (repo / path).is_file()
         ]
