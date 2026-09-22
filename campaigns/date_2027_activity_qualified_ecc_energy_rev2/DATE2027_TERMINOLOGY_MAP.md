@@ -1,4 +1,4 @@
-# DATE 2027 Terminology Map
+# Reader-facing terminology map
 
 | Internal/repository term | Reader-facing term |
 |---|---|
@@ -6,7 +6,7 @@
 | E5 | operation-specific activity-aware post-route energy |
 | U0 | unprotected/no-ECC baseline |
 | Gate/Level labels | qualification step or timing-feasible routed implementation |
-| GREEN version labels | omitted from manuscript; retained only in provenance paths |
+| GREEN version labels | omitted from public summaries; retained only in provenance paths |
 | seed | matched deterministic physical-design perturbation |
 | final VCD | final-routed-gate-netlist zero-delay VCD |
 | power decomposition | tool-reported internal, net-switching, leakage, dynamic, and total accounting |

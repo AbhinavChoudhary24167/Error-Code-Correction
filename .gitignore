@@ -60,13 +60,18 @@ py_tmp_base/
 tmp/
 tests/fixtures/runtime_ml_feature_pack/
 
-# LaTeX intermediates for manuscript sources (PDFs and authored sources remain
-# eligible for version control).
-/paper/**/main.aux
-/paper/**/main.bbl
-/paper/**/main.blg
-/paper/**/main.log
-/paper/**/main.out
-/paper/**/main.fls
-/paper/**/main.fdb_latexmk
-/paper/**/main.synctex.gz
+# Publication sources and submission renders are maintained outside this
+# software repository. Campaign evidence and reusable figures remain tracked.
+/paper/
+/output/pdf/
+/campaigns/date_2027_activity_qualified_ecc_energy/build/
+/campaigns/date_2027_activity_qualified_ecc_energy_rev2/build/
+/campaigns/date_2027_activity_qualified_ecc_energy/DATE2027_MANUSCRIPT*
+/campaigns/date_2027_activity_qualified_ecc_energy_rev2/DATE2027_MANUSCRIPT*
+
+# Legacy standalone benchmark executables are local build products.
+*-BillionDollars.exe
+
+# External SRAM22 sources are fetched at the pinned revision documented beside
+# the campaign. The local checkout is intentionally not vendored as a gitlink.
+/campaigns/iscas_sustainability_extension/memory_compiler/gate3_attempt06_replacement_sram_backend_qualification/source_checkout/

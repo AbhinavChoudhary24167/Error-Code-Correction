@@ -1,8 +1,18 @@
-# GREEN
+# GREEN: evidence-aware SRAM ECC evaluation
 
 GREEN is an evidence-aware research framework for evaluating SRAM error-correcting-code (ECC) choices across logical reliability, physical implementation, operational energy, latency, and sustainability assumptions. It separates code identity, decoder policy, physical measurements, model parameters, and decision rules so that available data cannot be mistaken for qualified evidence.
 
 **Current boundary:** the repository reproduces exact/analytical ECC studies, a frozen 40-run matched OpenROAD/ORFS population, and 46 activity-qualified post-route **ECC-logic-only** E5 records for SECDED and Hsiao SECDED. SRAM macro-internal energy, physical event rates and FIT, SKY130 lifecycle carbon, and a global ECC winner remain unqualified.
+
+## Start here
+
+| Goal | Entry point |
+|---|---|
+| Install and run a deterministic smoke test | [Getting started](docs/getting-started.md) |
+| Use the CLI and compare ECC candidates | [User guide](docs/user-guide.md) and [CLI reference](docs/CLI_REFERENCE.md) |
+| Review claim boundaries and source evidence | [Reviewer guide](docs/reviewer-guide.md) and [Evidence map](docs/evidence-map.md) |
+| Reproduce a software study or audit a campaign | [Reproducibility](docs/REPRODUCIBILITY.md) |
+| Add an ECC implementation or experiment | [Developer guide](docs/developer-guide.md) |
 
 ## Repository status
 
@@ -67,7 +77,7 @@ python -m pip install -r requirements.txt
 make reviewer-smoke
 ```
 
-`reviewer-smoke` validates the canonical artifact, verifies one registered Hsiao implementation, runs a small seeded SRAM simulation, and executes representative tests. It does not run OpenROAD or OpenRAM.
+`reviewer-smoke` validates the canonical artifact, checks documentation links, verifies one registered Hsiao implementation, runs a small seeded SRAM simulation, and executes representative tests. It does not run OpenROAD or OpenRAM and does not modify a frozen campaign.
 
 To inspect the registry directly:
 
@@ -104,8 +114,10 @@ Each transition is gated. Missing physical event probabilities, macro power, or 
 | `configs/`, `schemas/` | User configurations and machine-readable contracts |
 | `scripts/` | Reproduction, validation, and artifact tooling |
 | `tests/` | Python, C++, RTL, golden, and campaign integrity tests |
-| `docs/` | Public guides plus detailed generated research documentation |
-| `paper/` | Manuscript sources and traceability artifacts |
+| `docs/` | Public guides, generated references, and evidence interpretation |
+| `reports/`, `results/` | Derived study outputs with their available provenance |
+
+Publication manuscripts and submission PDFs are intentionally not distributed in this source repository. Reusable data, experiment code, campaign manifests, and evidence summaries remain available and are linked through the [evidence map](docs/evidence-map.md).
 
 ## Reproducing experiments
 
@@ -138,4 +150,4 @@ Start at the [documentation index](docs/README.md). New users should read [Getti
 
 ## Citation, contributing, and license
 
-Repository citation metadata is in [CITATION.cff](CITATION.cff). No publication DOI is asserted. Contributions must preserve experiment provenance and claim boundaries; see [CONTRIBUTING.md](CONTRIBUTING.md). The repository is distributed under the [MIT License](LICENSE).
+Repository citation metadata is in [CITATION.cff](CITATION.cff). No publication DOI is asserted. Cite the repository commit and relevant campaign identifier used for a result. Contributions must preserve experiment provenance and claim boundaries; see [CONTRIBUTING.md](CONTRIBUTING.md). The repository is distributed under the [MIT License](LICENSE).

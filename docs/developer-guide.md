@@ -23,7 +23,7 @@ Run `make help` for maintained entry points. Use `TemporaryDirectory`/pytest tem
 
 ## Change boundaries
 
-Reusable code belongs in `green_ecc_phy/`, `architecture/`, `analysis/`, or `ml/`. Schemas belong in `schemas/`. A self-contained evidence population belongs in a new `campaigns/` subdirectory with its own contract and validation. Manuscript-only presentation material belongs in `paper/`, while numerical source data should remain traceable to campaign evidence.
+Reusable code belongs in `green_ecc_phy/`, `architecture/`, `analysis/`, or `ml/`. Schemas belong in `schemas/`. A self-contained evidence population belongs in a new `campaigns/` subdirectory with its own contract and validation. Keep publication manuscripts and submission PDFs outside this repository; commit only reusable data, figures, reports, and traceability records that support the software or its evidence.
 
 ## Tests and review
 

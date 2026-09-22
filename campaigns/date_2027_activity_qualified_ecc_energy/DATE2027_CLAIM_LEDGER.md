@@ -1,6 +1,6 @@
 # Claim Ledger
 
-| ID | Manuscript claim | Evidence | Qualification | Status |
+| ID | Reported claim | Evidence | Qualification | Status |
 |---|---|---|---|---|
 | C1 | All ten 10-ns Hamming/Hsiao physical runs route and meet setup timing. | sealed physical results; `data/physical_deltas.csv` | One flow/library/corner | VERIFIED |
 | C2 | The comparison uses five matched seeds per architecture. | physical results; seed set 11,13,17,19,23 | Seeds are paired realizations | VERIFIED |
@@ -20,5 +20,4 @@
 | C16 | Ghosh et al. is the closest verified prior activity-aware ECC checker work. | literature audit | “Closest” is an evidence-based assessment | VERIFIED_ASSESSMENT |
 | C17 | Whole-memory and silicon energy are not claimed. | boundary definition; macro qualification | Explicit exclusion | VERIFIED_SCOPE |
 
-No manuscript headline claim is sourced only from an internal campaign label. Internal labels are translated through `DATE2027_TERMINOLOGY_MAP.md`.
-
+No headline result is sourced only from an internal campaign label. Internal labels are translated through `DATE2027_TERMINOLOGY_MAP.md`.

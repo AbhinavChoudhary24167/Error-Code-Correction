@@ -1,6 +1,6 @@
 # Reader-Facing Terminology Map
 
-| Internal/source term | Manuscript term | Rule |
+| Internal/source term | Reader-facing term | Rule |
 |---|---|---|
 | `SECDED` architecture ID | conventional SECDED | Define once as Hamming-style parity organization. |
 | `HSIAO_SECDED` | Hsiao SECDED | Use the historical construction name. |
@@ -16,4 +16,4 @@
 | final zero-delay gate-netlist VCD | final-routed-netlist switching activity | State zero-delay limitation in threats. |
 | final SPEF | extracted final-route parasitics | Never call post-layout silicon. |
 
-Forbidden in title, abstract, contribution statements, figure captions, and conclusion: `E4`, `E5`, campaign names, internal run IDs, absolute paths, and GREEN tier labels.
+Avoid internal tier labels, campaign names, run IDs, and absolute paths in public summaries; define reader-facing terms and preserve the qualification boundary.

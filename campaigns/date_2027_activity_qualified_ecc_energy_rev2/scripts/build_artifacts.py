@@ -572,11 +572,11 @@ def manifests() -> None:
     write_csv(ROOT / "DATE2027_FIGURE_MANIFEST.csv", list(figures[0]), figures)
     (ROOT / "DATE2027_TABLE_MANIFEST.md").write_text(
         "# Table Manifest\n\n"
-        "| ID | Source | Script | Manuscript use |\n|---|---|---|---|\n"
-        "| Experimental controls | controlled-design specification and sealed run manifest | authored in `DATE2027_MANUSCRIPT.tex` | Table I |\n"
-        "| Headline results | `data/operation_energy_deltas.csv` | `scripts/build_artifacts.py` | Table II |\n"
-        "| Reproducibility ledger | sealed `RUN_MANIFEST.json` plus physical results | `scripts/build_artifacts.py` | Supplementary audit artifact |\n"
-        "| Component means | `data/component_power_deltas.csv` | `scripts/build_artifacts.py` | Explained in text and final Figure 4 |\n",
+        "| ID | Source | Script | Evidence use |\n|---|---|---|---|\n"
+        "| Experimental controls | controlled-design specification and sealed run manifest | retained source records | Implementation identity and boundary checks |\n"
+        "| Headline results | `data/operation_energy_deltas.csv` | `scripts/build_artifacts.py` | Operation-energy summary |\n"
+        "| Reproducibility ledger | sealed `RUN_MANIFEST.json` plus physical results | `scripts/build_artifacts.py` | Audit record |\n"
+        "| Component means | `data/component_power_deltas.csv` | `scripts/build_artifacts.py` | Component-decomposition summary |\n",
         encoding="utf-8")
     upstream = {
         "figure01_evidence_pipeline": "sealed physical results + sealed run manifest",

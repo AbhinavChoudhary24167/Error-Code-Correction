@@ -51,6 +51,8 @@ EXPECTED_FILES = (
     "docs/limitations.md",
     "docs/roadmap.md",
     "docs/GLOSSARY.md",
+    "docs/evidence-map.md",
+    # Retained as a compatibility pointer for existing external links.
     "docs/paper-to-artifact.md",
 )
 

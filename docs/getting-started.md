@@ -68,5 +68,5 @@ The SRAM CLI prints JSON with `--json`; add `--out-csv PATH` only when you inten
 - Build and run the full software suite: `make`, `make test`, `python -m pytest -q`.
 - Compare candidates using [User guide](user-guide.md).
 - Understand claim boundaries in [Evidence model](evidence-model.md).
-- Reproduce a paper package using [Reproducibility](REPRODUCIBILITY.md).
+- Reproduce a software study or audit campaign evidence using [Reproducibility](REPRODUCIBILITY.md).
 - Prepare physical tools using [Installation](INSTALLATION.md) and [Physical design](physical-design.md).

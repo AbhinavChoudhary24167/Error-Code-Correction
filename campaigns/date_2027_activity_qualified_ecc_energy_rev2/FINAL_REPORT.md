@@ -1,40 +1,26 @@
-# DATE 2027 Rev. 2 Final Report
+# Activity-qualified ECC energy evidence report — revision 2
 
-## Outcome
+## Scope
 
-The additive Rev. 2 package preserves the current activity-aware paper and restores earlier experiments only as controls. The central remembered result remains: under the evaluated 10-ns post-route conditions, Hsiao is lower in 5/5 vectorless physical pairs but only 4/23 operation-specific energy cells.
+Revision 2 retains the activity-qualified main study and adds bounded temporal, structural, timing-condition, and BCH feasibility controls. The delta convention is changed minus baseline. The routed-ECC-logic measurement boundary excludes SRAM-macro internal energy and silicon claims.
 
-## Scientific checks
+## Main evidence
 
-- Main study: 10 timing-feasible routed implementations, five matched deterministic seeds per architecture, 46 activity records, and 23 matched operation/seed cells.
-- Exact final-route association: each activity result is joined to architecture, seed, routed netlist, final SPEF, workload/VCD, and result digest.
-- Coverage: all 72 output activity roots; functional logic coverage 99.298390--99.356061%; 16 warm-up cycles and 256 measured operations.
-- Measurement boundary: routed ECC logic; SRAM-macro internal energy and silicon claims excluded.
-- Component accounting retained centrally: clean-read internal +25.890767574 uW and net switching -28.973363806 uW, each sign 5/5; correction and detection details are regenerated in `data/component_power_summary.csv`.
-- Temporal SECDED control: pair-specific exact systematic transaction relation after two-cycle response alignment; latency 1 vs 3, II=1. At 10 ns, area +37.201864%, timing +46.629355%, energy -23.419005%; directions 5/5.
-- Condition control: the same temporal pair at 5 ns gives area +36.721138%, timing +68.629653%, energy -19.336606%; this is not a 5-ns replication of the headline conventional/Hsiao activity result.
-- Structural Hsiao control: exact arbitrary-word decoder equality and same-cycle temporal behavior; small mixed area/wire/via/timing/energy displacement.
-- Feasibility boundary: the evaluated BCH(78,64,t=2) syndrome/Chien realization meets the common 10-ns target in 0/5 attempts; no BCH-family claim is made.
+- Ten routed implementations are timing-feasible at 10 ns, with five matched deterministic seeds per architecture.
+- The main dataset contains 46 activity records and 23 matched operation/seed cells.
+- Hsiao is lower in 5/5 vectorless physical pairs and 4/23 operation-specific energy cells.
+- All admitted activity records cover all 72 output roots; functional logic coverage is 99.298390–99.356061% and sequential coverage is 100%.
+- Clean-read internal and net-switching contributions oppose one another in all five pairs.
 
-## Literature and claim checks
+## Control evidence
 
-Fifteen cited works are audited: fourteen DOI-bearing publications and one verified arXiv preprint. Ghosh, Basu, and Touba 2004 already performs trace-aware Hamming/Hsiao checker-power comparison, so the contribution is not framed as the first activity-aware ECC analysis. The retained novelty statement is the narrower matched final-route, preserved-parasitic estimator-ordering test. The claim ledger uses only the allowed scoped statuses and records source, role, qualification, limitation, and literature support.
+- The temporal SECDED pair has an exact systematic transaction relation after two-cycle response alignment; latency and clock burden differ.
+- Tightening the temporal-control target from 10 ns to 5 ns changes effect magnitude without reversing the reported directions.
+- The structural Hsiao pair is exactly qualified and exhibits a small mixed physical displacement.
+- The evaluated BCH(78,64,t=2) realization is timing-feasible in 0/5 attempts at the common target; this is not a claim about the BCH family.
 
-## Manuscript and visual checks
+## Interpretation and limits
 
-- The title is retained because it names Q3 directly and remains distinct from the previous identity-focused manuscript.
-- Q1/Q2 occupy a single controlled-implementation table and bounded discussion; Q3 receives all four figures and most quantitative analysis.
-- Figure 1 shows the full nine-stage evidence chain and separates hardware/temporal, implementation/physical, and activity/measurement dimensions.
-- Figures 2--4 retain the ordering matrix, all operation deltas, and component decomposition.
-- Baseline, revised, candidate, analysis-only, and historical visuals plus their source data/scripts are preserved and classified.
-- Reader-facing prose omits internal campaign/version labels.
+Use `data/controlled_implementation_statistics.json`, `FORMAL_QUALIFICATION_MATRIX.csv`, the claim ledger, and the provenance manifest for exact identities and hashes. The evidence is conditional on the recorded implementation, flow, corner, workload classes, and seeds. It does not support a global ECC ranking, whole-memory energy, physical event rates, population inference, or silicon behavior.
 
-## Deliverables
-
-All files requested in the revision brief are present in this directory, including the Markdown and LaTeX manuscripts, bibliography, formal matrix, control evidence, current/previous audits, literature and reference audits, claim/reproducibility ledgers, figure/table manifests, visual reviews, page/blind/citation audits, reviewer attacks, fatal-gap report, build/validation scripts, PDF, and content-sealed provenance manifest.
-
-## Release status
-
-`DATE_MANUSCRIPT_PACKAGE_READY: YES`
-
-`DATE_SUBMISSION_READY: NO` until the authors complete author metadata, policy declarations, and portal submission.
+Publication manuscripts, review material, and submission PDFs are not part of this repository.

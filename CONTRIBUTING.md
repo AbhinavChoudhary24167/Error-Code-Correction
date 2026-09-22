@@ -33,9 +33,9 @@ git diff --check
 
 Add focused unit/regression coverage and preserve golden CLI outputs. ML code belongs under `ml/`, remains advisory, and requires deterministic training, OOD fallback, and train-to-predict smoke tests. Generated test data must use temporary directories and must not be committed.
 
-## Evidence and manuscripts
+## Evidence and reporting
 
-Every experiment must declare identities, useful-payload functional unit, tools/PDK/PVT, workloads/fault populations, seeds, resource budget, expected artifacts, hashes, and failure semantics before execution. Retain raw reports and logs alongside normalized records. Manuscript claims, tables, and figures must trace to the evidence package; presentation does not upgrade evidence.
+Every experiment must declare identities, useful-payload functional unit, tools/PDK/PVT, workloads/fault populations, seeds, resource budget, expected artifacts, hashes, and failure semantics before execution. Retain raw reports and logs alongside normalized records. Reports, tables, and figures must trace to the evidence package; presentation does not upgrade evidence. Publication manuscripts and submission PDFs are maintained outside this source repository.
 
 See the [Developer guide](docs/developer-guide.md), [Adding an ECC](docs/adding-an-ecc.md), [Adding an experiment](docs/adding-an-experiment.md), and [Results schema](docs/results-schema.md).
 

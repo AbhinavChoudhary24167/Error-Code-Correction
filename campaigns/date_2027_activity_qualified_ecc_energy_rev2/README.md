@@ -1,14 +1,13 @@
-# DATE 2027 Activity-Qualified ECC Energy — Additive Rev. 2
+# Activity-qualified ECC energy evidence — revision 2
 
-This package is an additive revision of the activity-focused DATE manuscript. It preserves the 5/5 vectorless versus 4/23 operation-specific ordering result as the headline and restores temporal SECDED, structural Hsiao, 10/5-ns condition sensitivity, and BCH timing admission only as compact controls.
+This evidence package preserves the 5/5 vectorless versus 4/23 operation-specific ordering result and adds temporal SECDED, structural Hsiao, 10/5-ns condition sensitivity, and BCH timing-admission controls.
 
 Canonical files:
 
-- `DATE2027_MANUSCRIPT_REV2.tex` — authoritative source;
-- `DATE2027_MANUSCRIPT_REV2.md` — readable manuscript counterpart;
-- `DATE2027_MANUSCRIPT_REV2_BLIND.pdf` — final seven-page blind PDF;
-- `scripts/build_revision2.py` and `scripts/build_pdf.ps1` — deterministic artifact/PDF build;
-- `scripts/validate_revision2.py` — evidence, page, citation, metadata, and packaging checks;
+- `data/` — normalized numerical results and derived statistics;
+- `figures/` and `tables/` — reproducible evidence summaries;
+- `CONTROLLED_IMPLEMENTATION_EVIDENCE.md` and `FINAL_REPORT.md` — scope and interpretation;
+- `scripts/build_artifacts.py` — deterministic evidence regeneration;
 - `PROVENANCE_MANIFEST.json` plus its digest — content seal.
 
-The build verifies sealed upstream hashes before regenerating figures and tables. All reader-facing claims use qualified terms; internal campaign labels remain only in provenance paths.
+The build verifies sealed upstream hashes before regenerating figures and tables. Publication sources, submission PDFs, and review-only material are intentionally excluded from this repository.
